@@ -303,25 +303,25 @@ define hidden void @luaD_reallocstack(ptr noundef %0, i32 noundef %1) local_unna
 .lr.ph39.i:                                       ; preds = %._crit_edge.i, %.lr.ph39.i
   %.03137.i = phi ptr [ %54, %.lr.ph39.i ], [ %37, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.03137.i, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !50
+  %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %26
   %44 = getelementptr inbounds i8, ptr %.pre.i, i64 %43
-  store ptr %44, ptr %40, align 8, !tbaa !50
+  store ptr %44, ptr %40, align 8, !tbaa !51
   %45 = load ptr, ptr %.03137.i, align 8, !tbaa !36
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %26
   %48 = getelementptr inbounds i8, ptr %.pre.i, i64 %47
   store ptr %48, ptr %.03137.i, align 8, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %.03137.i, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %50 = load ptr, ptr %49, align 8, !tbaa !52
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %26
   %53 = getelementptr inbounds i8, ptr %.pre.i, i64 %52
-  store ptr %53, ptr %49, align 8, !tbaa !51
+  store ptr %53, ptr %49, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %.03137.i, i64 40
   %.not32.i = icmp ugt ptr %54, %39
-  br i1 %.not32.i, label %correctstack.exit, label %.lr.ph39.i, !llvm.loop !52
+  br i1 %.not32.i, label %correctstack.exit, label %.lr.ph39.i, !llvm.loop !53
 
 correctstack.exit:                                ; preds = %.lr.ph39.i, %._crit_edge.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -395,7 +395,7 @@ define hidden void @luaD_growstack(ptr noundef %0, i32 noundef %1) local_unnamed
 define hidden void @luaD_callhook(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lua_Debug, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %56, label %7
 
@@ -416,13 +416,13 @@ define hidden void @luaD_callhook(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !50
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #8
-  store i32 %1, ptr %4, align 8, !tbaa !54
+  store i32 %1, ptr %4, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %2, ptr %24, align 8, !tbaa !56
+  store i32 %2, ptr %24, align 8, !tbaa !57
   %25 = icmp eq i32 %1, 4
   br i1 %25, label %34, label %26
 
@@ -439,7 +439,7 @@ define hidden void @luaD_callhook(ptr noundef %0, i32 noundef %1, i32 noundef %2
 34:                                               ; preds = %10, %26
   %.sink = phi i32 [ %33, %26 ], [ 0, %10 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 116
-  store i32 %.sink, ptr %35, align 4, !tbaa !57
+  store i32 %.sink, ptr %35, align 4, !tbaa !58
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load ptr, ptr %36, align 8, !tbaa !47
   %38 = ptrtoint ptr %37 to i64
@@ -464,7 +464,7 @@ define hidden void @luaD_callhook(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %48 = phi ptr [ %12, %34 ], [ %.pre, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 320
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !50
+  store ptr %49, ptr %50, align 8, !tbaa !51
   store i8 0, ptr %8, align 1, !tbaa !41
   call void %6(ptr noundef nonnull %0, ptr noundef nonnull %4) #8
   store i8 1, ptr %8, align 1, !tbaa !41
@@ -472,7 +472,7 @@ define hidden void @luaD_callhook(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %52 = getelementptr inbounds i8, ptr %51, i64 %23
   %53 = load ptr, ptr %18, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store ptr %52, ptr %54, align 8, !tbaa !50
+  store ptr %52, ptr %54, align 8, !tbaa !51
   %55 = getelementptr inbounds i8, ptr %51, i64 %17
   store ptr %55, ptr %11, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #8
@@ -524,7 +524,7 @@ define hidden range(i32 0, 3) i32 @luaD_precall(ptr noundef %0, ptr noundef %1, 
   %25 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   store i32 %24, ptr %25, align 8, !tbaa !20
   %26 = icmp ugt ptr %21, %1
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !58
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !59
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %18, align 8, !tbaa !7
@@ -577,19 +577,19 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load ptr, ptr %57, align 8, !tbaa !59
+  %58 = load ptr, ptr %57, align 8, !tbaa !60
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr %58, ptr %61, align 8, !tbaa !60
+  store ptr %58, ptr %61, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 10
-  %63 = load i8, ptr %62, align 2, !tbaa !61
+  %63 = load i8, ptr %62, align 2, !tbaa !62
   %.not = icmp eq i8 %63, 0
   br i1 %.not, label %64, label %271
 
 64:                                               ; preds = %50
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !65
+  %66 = load ptr, ptr %65, align 8, !tbaa !66
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !47
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -598,10 +598,10 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 115
-  %75 = load i8, ptr %74, align 1, !tbaa !66
+  %75 = load i8, ptr %74, align 1, !tbaa !67
   %76 = zext i8 %75 to i32
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 113
-  %78 = load i8, ptr %77, align 1, !tbaa !72
+  %78 = load i8, ptr %77, align 1, !tbaa !73
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %79, %76
   %81 = shl nuw nsw i32 %80, 4
@@ -624,14 +624,14 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %89 = phi ptr [ %53, %64 ], [ %.pre132, %83 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 %56
   %91 = getelementptr inbounds nuw i8, ptr %66, i64 114
-  %92 = load i8, ptr %91, align 2, !tbaa !73
+  %92 = load i8, ptr %91, align 2, !tbaa !74
   %.not97 = icmp eq i8 %92, 0
   br i1 %.not97, label %93, label %101
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %95 = load ptr, ptr %69, align 8, !tbaa !7
-  %96 = load i8, ptr %77, align 1, !tbaa !72
+  %96 = load i8, ptr %77, align 1, !tbaa !73
   %97 = zext i8 %96 to i64
   %98 = getelementptr inbounds nuw %struct.lua_TValue, ptr %94, i64 %97
   %99 = icmp ugt ptr %95, %98
@@ -649,7 +649,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %106 = lshr exact i64 %105, 4
   %107 = trunc i64 %106 to i32
   %108 = add nsw i32 %107, -1
-  %109 = load i8, ptr %77, align 1, !tbaa !72
+  %109 = load i8, ptr %77, align 1, !tbaa !73
   %110 = zext i8 %109 to i32
   %.not126 = icmp sgt i32 %107, %110
   br i1 %.not126, label %115, label %.lr.ph.i103
@@ -662,7 +662,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   store i32 0, ptr %113, align 8, !tbaa !20
   %114 = add nsw i32 %.065.i, 1
   %exitcond.not.i = icmp eq i32 %114, %110
-  br i1 %exitcond.not.i, label %._crit_edge.i104, label %.lr.ph.i103, !llvm.loop !74
+  br i1 %exitcond.not.i, label %._crit_edge.i104, label %.lr.ph.i103, !llvm.loop !75
 
 ._crit_edge.i104:                                 ; preds = %.lr.ph.i103
   store ptr %112, ptr %69, align 8, !tbaa !7
@@ -680,9 +680,9 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !25
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 120
-  %123 = load i64, ptr %122, align 8, !tbaa !75
+  %123 = load i64, ptr %122, align 8, !tbaa !76
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 112
-  %125 = load i64, ptr %124, align 8, !tbaa !76
+  %125 = load i64, ptr %124, align 8, !tbaa !77
   %.not62.i = icmp ult i64 %123, %125
   br i1 %.not62.i, label %127, label %126
 
@@ -697,7 +697,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %128 to i64
   %132 = sub i64 %130, %131
-  %133 = load i8, ptr %74, align 1, !tbaa !66
+  %133 = load i8, ptr %74, align 1, !tbaa !67
   %134 = zext i8 %133 to i32
   %135 = shl nuw nsw i32 %134, 4
   %136 = zext nneg i32 %135 to i64
@@ -739,7 +739,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i32 %155, ptr %156, align 8, !tbaa !20
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next.i, %145
-  br i1 %exitcond77.not.i, label %._crit_edge69.i, label %147, !llvm.loop !77
+  br i1 %exitcond77.not.i, label %._crit_edge69.i, label %147, !llvm.loop !78
 
 ._crit_edge69.i:                                  ; preds = %147, %142
   %157 = tail call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1) #8
@@ -779,7 +779,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   store i32 0, ptr %170, align 8, !tbaa !20
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count81.i
-  br i1 %exitcond82.not.i, label %._crit_edge73.i, label %.lr.ph72.i, !llvm.loop !78
+  br i1 %exitcond82.not.i, label %._crit_edge73.i, label %.lr.ph72.i, !llvm.loop !79
 
 ._crit_edge73.i:                                  ; preds = %.lr.ph72.i, %161
   %.not64.i = icmp eq ptr %.058.i, null
@@ -865,22 +865,22 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   %storemerge127 = getelementptr inbounds nuw i8, ptr %.pn128, i64 40
   store ptr %storemerge127, ptr %59, align 8, !tbaa !35
   %212 = getelementptr inbounds nuw i8, ptr %.pn128, i64 48
-  store ptr %.188, ptr %212, align 8, !tbaa !51
+  store ptr %.188, ptr %212, align 8, !tbaa !52
   store ptr %.090, ptr %storemerge127, align 8, !tbaa !36
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.090, ptr %213, align 8, !tbaa !38
-  %214 = load i8, ptr %74, align 1, !tbaa !66
+  %214 = load i8, ptr %74, align 1, !tbaa !67
   %215 = zext i8 %214 to i64
   %216 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.090, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %.pn128, i64 56
-  store ptr %216, ptr %217, align 8, !tbaa !50
+  store ptr %216, ptr %217, align 8, !tbaa !51
   %218 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %219 = load ptr, ptr %218, align 8, !tbaa !79
-  store ptr %219, ptr %57, align 8, !tbaa !59
+  %219 = load ptr, ptr %218, align 8, !tbaa !80
+  store ptr %219, ptr %57, align 8, !tbaa !60
   %220 = getelementptr inbounds nuw i8, ptr %.pn128, i64 76
-  store i32 0, ptr %220, align 4, !tbaa !80
+  store i32 0, ptr %220, align 4, !tbaa !81
   %221 = getelementptr inbounds nuw i8, ptr %.pn128, i64 72
-  store i32 %2, ptr %221, align 8, !tbaa !81
+  store i32 %2, ptr %221, align 8, !tbaa !82
   %222 = load ptr, ptr %69, align 8, !tbaa !7
   %223 = icmp ult ptr %222, %216
   br i1 %223, label %.lr.ph, label %._crit_edge
@@ -891,21 +891,21 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   store i32 0, ptr %224, align 8, !tbaa !20
   %225 = getelementptr inbounds nuw i8, ptr %.089129, i64 16
   %226 = icmp ult ptr %225, %216
-  br i1 %226, label %.lr.ph, label %._crit_edge, !llvm.loop !82
+  br i1 %226, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %growCI.exit
   store ptr %216, ptr %69, align 8, !tbaa !7
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %228 = load i8, ptr %227, align 4, !tbaa !83
+  %228 = load i8, ptr %227, align 4, !tbaa !84
   %229 = and i8 %228, 1
   %.not98 = icmp eq i8 %229, 0
   br i1 %.not98, label %384, label %230
 
 230:                                              ; preds = %._crit_edge
   %231 = getelementptr inbounds nuw i8, ptr %219, i64 4
-  store ptr %231, ptr %57, align 8, !tbaa !59
+  store ptr %231, ptr %57, align 8, !tbaa !60
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %233 = load ptr, ptr %232, align 8, !tbaa !53
+  %233 = load ptr, ptr %232, align 8, !tbaa !54
   %.not.i106 = icmp eq ptr %233, null
   br i1 %.not.i106, label %luaD_callhook.exit, label %234
 
@@ -921,9 +921,9 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   %240 = ptrtoint ptr %238 to i64
   %241 = sub i64 %239, %240
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 8, !tbaa !54
+  store i32 0, ptr %5, align 8, !tbaa !55
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 -1, ptr %242, align 8, !tbaa !56
+  store i32 -1, ptr %242, align 8, !tbaa !57
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %244 = load ptr, ptr %243, align 8, !tbaa !34
   %245 = ptrtoint ptr %storemerge127 to i64
@@ -932,7 +932,7 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   %248 = sdiv exact i64 %247, 40
   %249 = trunc i64 %248 to i32
   %250 = getelementptr inbounds nuw i8, ptr %5, i64 116
-  store i32 %249, ptr %250, align 4, !tbaa !57
+  store i32 %249, ptr %250, align 4, !tbaa !58
   %251 = load ptr, ptr %67, align 8, !tbaa !47
   %252 = ptrtoint ptr %251 to i64
   %253 = sub i64 %252, %239
@@ -956,7 +956,7 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   %262 = phi ptr [ %216, %237 ], [ %.pre.i110, %255 ]
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 320
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  store ptr %263, ptr %264, align 8, !tbaa !50
+  store ptr %263, ptr %264, align 8, !tbaa !51
   store i8 0, ptr %235, align 1, !tbaa !41
   call void %233(ptr noundef nonnull %0, ptr noundef nonnull %5) #8
   store i8 1, ptr %235, align 1, !tbaa !41
@@ -964,16 +964,16 @@ growCI.exit:                                      ; preds = %179, %211, %luaD_re
   %266 = getelementptr inbounds i8, ptr %265, i64 %241
   %267 = load ptr, ptr %59, align 8, !tbaa !35
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store ptr %266, ptr %268, align 8, !tbaa !50
+  store ptr %266, ptr %268, align 8, !tbaa !51
   store ptr %266, ptr %69, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #8
-  %.pre135 = load ptr, ptr %57, align 8, !tbaa !59
+  %.pre135 = load ptr, ptr %57, align 8, !tbaa !60
   br label %luaD_callhook.exit
 
 luaD_callhook.exit:                               ; preds = %230, %234, %260
   %269 = phi ptr [ %231, %230 ], [ %231, %234 ], [ %.pre135, %260 ]
   %270 = getelementptr inbounds i8, ptr %269, i64 -4
-  store ptr %270, ptr %57, align 8, !tbaa !59
+  store ptr %270, ptr %57, align 8, !tbaa !60
   br label %384
 
 271:                                              ; preds = %50
@@ -1064,7 +1064,7 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %318 = load ptr, ptr %52, align 8, !tbaa !45
   %319 = getelementptr inbounds i8, ptr %318, i64 %56
   %320 = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  store ptr %319, ptr %320, align 8, !tbaa !51
+  store ptr %319, ptr %320, align 8, !tbaa !52
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 16
   store ptr %321, ptr %storemerge, align 8, !tbaa !36
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1072,18 +1072,18 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %323 = load ptr, ptr %274, align 8, !tbaa !7
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 320
   %325 = getelementptr inbounds nuw i8, ptr %.pn, i64 56
-  store ptr %324, ptr %325, align 8, !tbaa !50
+  store ptr %324, ptr %325, align 8, !tbaa !51
   %326 = getelementptr inbounds nuw i8, ptr %.pn, i64 72
-  store i32 %2, ptr %326, align 8, !tbaa !81
+  store i32 %2, ptr %326, align 8, !tbaa !82
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %328 = load i8, ptr %327, align 4, !tbaa !83
+  %328 = load i8, ptr %327, align 4, !tbaa !84
   %329 = and i8 %328, 1
   %.not99 = icmp eq i8 %329, 0
   br i1 %.not99, label %luaD_callhook.exit125, label %330
 
 330:                                              ; preds = %growCI.exit117
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %332 = load ptr, ptr %331, align 8, !tbaa !53
+  %332 = load ptr, ptr %331, align 8, !tbaa !54
   %.not.i118 = icmp eq ptr %332, null
   br i1 %.not.i118, label %luaD_callhook.exit125, label %333
 
@@ -1100,9 +1100,9 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %340 = ptrtoint ptr %324 to i64
   %341 = sub i64 %340, %338
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #8
-  store i32 0, ptr %4, align 8, !tbaa !54
+  store i32 0, ptr %4, align 8, !tbaa !55
   %342 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 -1, ptr %342, align 8, !tbaa !56
+  store i32 -1, ptr %342, align 8, !tbaa !57
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %344 = load ptr, ptr %343, align 8, !tbaa !34
   %345 = ptrtoint ptr %storemerge to i64
@@ -1111,7 +1111,7 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %348 = sdiv exact i64 %347, 40
   %349 = trunc i64 %348 to i32
   %350 = getelementptr inbounds nuw i8, ptr %4, i64 116
-  store i32 %349, ptr %350, align 4, !tbaa !57
+  store i32 %349, ptr %350, align 4, !tbaa !58
   %351 = load ptr, ptr %272, align 8, !tbaa !47
   %352 = ptrtoint ptr %351 to i64
   %353 = sub i64 %352, %337
@@ -1135,7 +1135,7 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %362 = phi ptr [ %323, %336 ], [ %.pre.i123, %355 ]
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 320
   %364 = getelementptr inbounds nuw i8, ptr %361, i64 16
-  store ptr %363, ptr %364, align 8, !tbaa !50
+  store ptr %363, ptr %364, align 8, !tbaa !51
   store i8 0, ptr %334, align 1, !tbaa !41
   call void %332(ptr noundef nonnull %0, ptr noundef nonnull %4) #8
   store i8 1, ptr %334, align 1, !tbaa !41
@@ -1143,7 +1143,7 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
   %366 = getelementptr inbounds i8, ptr %365, i64 %341
   %367 = load ptr, ptr %59, align 8, !tbaa !35
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
-  store ptr %366, ptr %368, align 8, !tbaa !50
+  store ptr %366, ptr %368, align 8, !tbaa !51
   %369 = getelementptr inbounds i8, ptr %365, i64 %339
   store ptr %369, ptr %274, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #8
@@ -1152,7 +1152,7 @@ growCI.exit117:                                   ; preds = %285, %317, %luaD_re
 luaD_callhook.exit125:                            ; preds = %360, %333, %330, %growCI.exit117
   %370 = phi ptr [ %367, %360 ], [ %storemerge, %333 ], [ %storemerge, %330 ], [ %storemerge, %growCI.exit117 ]
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  %372 = load ptr, ptr %371, align 8, !tbaa !51
+  %372 = load ptr, ptr %371, align 8, !tbaa !52
   %373 = load ptr, ptr %372, align 8, !tbaa !4
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 32
   %375 = load ptr, ptr %374, align 8, !tbaa !4
@@ -1178,7 +1178,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %3 = alloca %struct.lua_Debug, align 8
   %4 = alloca %struct.lua_Debug, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %6 = load i8, ptr %5, align 4, !tbaa !83
+  %6 = load i8, ptr %5, align 4, !tbaa !84
   %7 = and i8 %6, 2
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %._crit_edge42, label %8
@@ -1192,7 +1192,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %luaD_callhook.exit.i, label %13
 
@@ -1211,13 +1211,13 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !50
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %20
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #8
-  store i32 1, ptr %4, align 8, !tbaa !54
+  store i32 1, ptr %4, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 -1, ptr %28, align 8, !tbaa !56
+  store i32 -1, ptr %28, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = ptrtoint ptr %23 to i64
@@ -1226,7 +1226,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %34 = sdiv exact i64 %33, 40
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 116
-  store i32 %35, ptr %36, align 4, !tbaa !57
+  store i32 %35, ptr %36, align 4, !tbaa !58
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !47
   %39 = ptrtoint ptr %38 to i64
@@ -1251,7 +1251,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %49 = phi ptr [ %18, %16 ], [ %.pre.i.i, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 320
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %50, ptr %51, align 8, !tbaa !50
+  store ptr %50, ptr %51, align 8, !tbaa !51
   store i8 0, ptr %14, align 1, !tbaa !41
   call void %12(ptr noundef nonnull %0, ptr noundef nonnull %4) #8
   store i8 1, ptr %14, align 1, !tbaa !41
@@ -1259,7 +1259,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef 
   %53 = getelementptr inbounds i8, ptr %52, i64 %27
   %54 = load ptr, ptr %22, align 8, !tbaa !35
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %53, ptr %55, align 8, !tbaa !50
+  store ptr %53, ptr %55, align 8, !tbaa !51
   %56 = getelementptr inbounds i8, ptr %52, i64 %21
   store ptr %56, ptr %17, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #8
@@ -1270,7 +1270,7 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !51
+  %61 = load ptr, ptr %60, align 8, !tbaa !52
   %62 = load ptr, ptr %61, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 10
   %64 = load i8, ptr %63, align 2, !tbaa !4
@@ -1278,7 +1278,7 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   br i1 %.not.i, label %.preheader.i, label %callrethooks.exit
 
 .preheader.i:                                     ; preds = %luaD_callhook.exit.i
-  %65 = load i8, ptr %5, align 4, !tbaa !83
+  %65 = load i8, ptr %5, align 4, !tbaa !84
   %66 = and i8 %65, 2
   %.not817.i = icmp eq i8 %66, 0
   br i1 %.not817.i, label %callrethooks.exit, label %.lr.ph.i
@@ -1297,14 +1297,14 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   %75 = phi ptr [ %57, %.lr.ph.i ], [ %112, %luaD_callhook.exit16.i ]
   %76 = phi ptr [ %59, %.lr.ph.i ], [ %113, %luaD_callhook.exit16.i ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 36
-  %78 = load i32, ptr %77, align 4, !tbaa !80
+  %78 = load i32, ptr %77, align 4, !tbaa !81
   %79 = add nsw i32 %78, -1
-  store i32 %79, ptr %77, align 4, !tbaa !80
+  store i32 %79, ptr %77, align 4, !tbaa !81
   %.not9.i = icmp eq i32 %78, 0
   br i1 %.not9.i, label %callrethooks.exit, label %80
 
 80:                                               ; preds = %73
-  %81 = load ptr, ptr %11, align 8, !tbaa !53
+  %81 = load ptr, ptr %11, align 8, !tbaa !54
   %.not.i10.i = icmp eq ptr %81, null
   br i1 %.not.i10.i, label %luaD_callhook.exit16.i, label %82
 
@@ -1319,13 +1319,13 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   %87 = ptrtoint ptr %75 to i64
   %88 = sub i64 %86, %87
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !50
+  %90 = load ptr, ptr %89, align 8, !tbaa !51
   %91 = ptrtoint ptr %90 to i64
   %92 = sub i64 %91, %87
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #8
-  store i32 4, ptr %3, align 8, !tbaa !54
-  store i32 -1, ptr %69, align 8, !tbaa !56
-  store i32 0, ptr %70, align 4, !tbaa !57
+  store i32 4, ptr %3, align 8, !tbaa !55
+  store i32 -1, ptr %69, align 8, !tbaa !57
+  store i32 0, ptr %70, align 4, !tbaa !58
   %93 = load ptr, ptr %71, align 8, !tbaa !47
   %94 = ptrtoint ptr %93 to i64
   %95 = sub i64 %94, %86
@@ -1348,7 +1348,7 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   %103 = phi ptr [ %85, %84 ], [ %.pre.i14.i, %97 ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 320
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store ptr %104, ptr %105, align 8, !tbaa !50
+  store ptr %104, ptr %105, align 8, !tbaa !51
   store i8 0, ptr %67, align 1, !tbaa !41
   call void %81(ptr noundef nonnull %0, ptr noundef nonnull %3) #8
   store i8 1, ptr %67, align 1, !tbaa !41
@@ -1356,11 +1356,11 @@ luaD_callhook.exit.i:                             ; preds = %47, %13, %8
   %107 = getelementptr inbounds i8, ptr %106, i64 %92
   %108 = load ptr, ptr %58, align 8, !tbaa !35
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store ptr %107, ptr %109, align 8, !tbaa !50
+  store ptr %107, ptr %109, align 8, !tbaa !51
   %110 = getelementptr inbounds i8, ptr %106, i64 %88
   store ptr %110, ptr %68, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #8
-  %.pre.i = load i8, ptr %5, align 4, !tbaa !83
+  %.pre.i = load i8, ptr %5, align 4, !tbaa !84
   br label %luaD_callhook.exit16.i
 
 luaD_callhook.exit16.i:                           ; preds = %101, %82, %80
@@ -1369,7 +1369,7 @@ luaD_callhook.exit16.i:                           ; preds = %101, %82, %80
   %113 = phi ptr [ %76, %80 ], [ %76, %82 ], [ %108, %101 ]
   %114 = and i8 %111, 2
   %.not8.i = icmp eq i8 %114, 0
-  br i1 %.not8.i, label %callrethooks.exit, label %73, !llvm.loop !84
+  br i1 %.not8.i, label %callrethooks.exit, label %73, !llvm.loop !85
 
 callrethooks.exit:                                ; preds = %73, %luaD_callhook.exit16.i, %luaD_callhook.exit.i, %.preheader.i
   %115 = phi ptr [ %59, %.preheader.i ], [ %59, %luaD_callhook.exit.i ], [ %76, %73 ], [ %113, %luaD_callhook.exit16.i ]
@@ -1387,16 +1387,16 @@ callrethooks.exit:                                ; preds = %73, %luaD_callhook.
   %124 = getelementptr inbounds i8, ptr %122, i64 -40
   store ptr %124, ptr %123, align 8, !tbaa !35
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !51
+  %126 = load ptr, ptr %125, align 8, !tbaa !52
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %128 = load i32, ptr %127, align 8, !tbaa !81
+  %128 = load i32, ptr %127, align 8, !tbaa !82
   %129 = load ptr, ptr %124, align 8, !tbaa !36
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %129, ptr %130, align 8, !tbaa !38
   %131 = getelementptr inbounds i8, ptr %122, i64 -16
-  %132 = load ptr, ptr %131, align 8, !tbaa !60
+  %132 = load ptr, ptr %131, align 8, !tbaa !61
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %132, ptr %133, align 8, !tbaa !59
+  store ptr %132, ptr %133, align 8, !tbaa !60
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not2930 = icmp eq i32 %128, 0
   br i1 %.not2930, label %._crit_edge, label %.lr.ph
@@ -1420,7 +1420,7 @@ callrethooks.exit:                                ; preds = %73, %luaD_callhook.
   store i32 %142, ptr %143, align 8, !tbaa !20
   %144 = add nsw i32 %.02731, -1
   %.not29 = icmp eq i32 %144, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 .critedge:                                        ; preds = %.lr.ph
   %145 = icmp sgt i32 %.02731, 0
@@ -1434,7 +1434,7 @@ callrethooks.exit:                                ; preds = %73, %luaD_callhook.
   %148 = getelementptr inbounds nuw i8, ptr %.12639, i64 8
   store i32 0, ptr %148, align 8, !tbaa !20
   %149 = icmp samesign ugt i32 %.12838, 1
-  br i1 %149, label %.lr.ph40, label %._crit_edge, !llvm.loop !86
+  br i1 %149, label %.lr.ph40, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %137, %.lr.ph40, %121, %.critedge
   %.126.lcssa = phi ptr [ %.02532, %.critedge ], [ %126, %121 ], [ %147, %.lr.ph40 ], [ %139, %137 ]
@@ -1484,9 +1484,9 @@ define hidden void @luaD_call(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
-  %24 = load i64, ptr %23, align 8, !tbaa !75
+  %24 = load i64, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  %26 = load i64, ptr %25, align 8, !tbaa !76
+  %26 = load i64, ptr %25, align 8, !tbaa !77
   %.not = icmp ult i64 %24, %26
   br i1 %.not, label %28, label %27
 
@@ -1658,7 +1658,7 @@ luaD_seterrorobj.exit:                            ; preds = %64, %.sink.split.i
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %79 = load ptr, ptr %78, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr %77, ptr %80, align 8, !tbaa !50
+  store ptr %77, ptr %80, align 8, !tbaa !51
   br label %84
 
 81:                                               ; preds = %55
@@ -1700,7 +1700,7 @@ define internal void @resume(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load ptr, ptr %3, align 8, !tbaa !35
   store i8 0, ptr %4, align 2, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 10
   %16 = load i8, ptr %15, align 2, !tbaa !4
@@ -1715,7 +1715,7 @@ define internal void @resume(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.pre18, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !50
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !7
   br label %26
@@ -1779,8 +1779,8 @@ define hidden i32 @luaD_pcall(ptr noundef %0, ptr noundef readonly captures(none
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 101
   %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %15 = load i64, ptr %14, align 8, !tbaa !87
-  store i64 %4, ptr %14, align 8, !tbaa !87
+  %15 = load i64, ptr %14, align 8, !tbaa !88
+  store i64 %4, ptr %14, align 8, !tbaa !88
   %16 = tail call i32 @luaD_rawrunprotected(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %restore_stack_limit.exit, label %17
@@ -1838,9 +1838,9 @@ luaD_seterrorobj.exit:                            ; preds = %17, %.sink.split.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %40, ptr %41, align 8, !tbaa !38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !60
+  %43 = load ptr, ptr %42, align 8, !tbaa !61
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %43, ptr %44, align 8, !tbaa !59
+  store ptr %43, ptr %44, align 8, !tbaa !60
   store i8 %13, ptr %12, align 1, !tbaa !41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %46 = load i32, ptr %45, align 4, !tbaa !42
@@ -1869,7 +1869,7 @@ luaD_seterrorobj.exit:                            ; preds = %17, %.sink.split.i
   br label %restore_stack_limit.exit
 
 restore_stack_limit.exit:                         ; preds = %51, %luaD_seterrorobj.exit, %5
-  store i64 %15, ptr %14, align 8, !tbaa !87
+  store i64 %15, ptr %14, align 8, !tbaa !88
   ret i32 %16
 }
 
@@ -1879,13 +1879,13 @@ declare hidden void @luaF_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden i32 @luaD_protectedparser(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SParser, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
-  store ptr %1, ptr %4, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %2, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %5, align 8, !tbaa !92
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !92
+  store ptr null, ptr %6, align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %7, align 8, !tbaa !93
+  store i64 0, ptr %7, align 8, !tbaa !94
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1894,10 +1894,10 @@ define hidden i32 @luaD_protectedparser(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load i64, ptr %15, align 8, !tbaa !87
+  %16 = load i64, ptr %15, align 8, !tbaa !88
   %17 = call i32 @luaD_pcall(ptr noundef %0, ptr noundef nonnull @f_parser, ptr noundef nonnull %4, i64 noundef %14, i64 noundef %16)
-  %18 = load ptr, ptr %6, align 8, !tbaa !92
-  %19 = load i64, ptr %7, align 8, !tbaa !93
+  %18 = load ptr, ptr %6, align 8, !tbaa !93
+  %19 = load i64, ptr %7, align 8, !tbaa !94
   %20 = call ptr @luaM_realloc_(ptr noundef %0, ptr noundef %18, i64 noundef %19, i64 noundef 0) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
   ret i32 %17
@@ -1905,14 +1905,14 @@ define hidden i32 @luaD_protectedparser(ptr noundef %0, ptr noundef %1, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @f_parser(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !88
+  %3 = load ptr, ptr %1, align 8, !tbaa !89
   %4 = tail call i32 @luaZ_lookahead(ptr noundef %3) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %8 = load i64, ptr %7, align 8, !tbaa !75
+  %8 = load i64, ptr %7, align 8, !tbaa !76
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %10 = load i64, ptr %9, align 8, !tbaa !76
+  %10 = load i64, ptr %9, align 8, !tbaa !77
   %.not = icmp ult i64 %8, %10
   br i1 %.not, label %12, label %11
 
@@ -1921,20 +1921,20 @@ define internal void @f_parser(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %11, %2
-  %13 = load ptr, ptr %1, align 8, !tbaa !88
+  %13 = load ptr, ptr %1, align 8, !tbaa !89
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !91
+  %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = tail call ptr @luaY_parser(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %16) #8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %19 = load i8, ptr %18, align 8, !tbaa !94
+  %19 = load i8, ptr %18, align 8, !tbaa !95
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = tail call ptr @luaF_newLclosure(ptr noundef nonnull %0, i32 noundef %20, ptr noundef %22) #8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %17, ptr %24, align 8, !tbaa !4
-  %25 = load i8, ptr %18, align 8, !tbaa !94
+  %25 = load i8, ptr %18, align 8, !tbaa !95
   %.not28 = icmp eq i8 %25, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -1948,10 +1948,10 @@ define internal void @f_parser(ptr noundef %0, ptr noundef %1) #0 {
   %29 = getelementptr inbounds nuw [1 x ptr], ptr %26, i64 0, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i8, ptr %18, align 8, !tbaa !94
+  %30 = load i8, ptr %18, align 8, !tbaa !95
   %31 = zext i8 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %27, label %._crit_edge, !llvm.loop !95
+  br i1 %32, label %27, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %27, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2070,51 +2070,52 @@ attributes #11 = { nounwind returns_twice }
 !45 = !{!8, !11, i64 64}
 !46 = !{!8, !15, i64 88}
 !47 = !{!8, !11, i64 56}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!37, !11, i64 16}
-!51 = !{!37, !11, i64 8}
-!52 = distinct !{!52, !49}
-!53 = !{!8, !10, i64 112}
-!54 = !{!55, !15, i64 0}
-!55 = !{!"lua_Debug", !15, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !5, i64 56, !15, i64 116}
-!56 = !{!55, !15, i64 40}
-!57 = !{!55, !15, i64 116}
-!58 = distinct !{!58, !49}
-!59 = !{!8, !14, i64 48}
-!60 = !{!37, !14, i64 24}
-!61 = !{!62, !5, i64 10}
-!62 = !{!"LClosure", !9, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !9, i64 16, !63, i64 24, !64, i64 32, !5, i64 40}
-!63 = !{!"p1 _ZTS5Table", !10, i64 0}
-!64 = !{!"p1 _ZTS5Proto", !10, i64 0}
-!65 = !{!62, !64, i64 32}
-!66 = !{!67, !5, i64 115}
-!67 = !{!"Proto", !9, i64 0, !5, i64 8, !5, i64 9, !11, i64 16, !14, i64 24, !68, i64 32, !14, i64 40, !69, i64 48, !70, i64 56, !71, i64 64, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !9, i64 104, !5, i64 112, !5, i64 113, !5, i64 114, !5, i64 115}
-!68 = !{!"p2 _ZTS5Proto", !10, i64 0}
-!69 = !{!"p1 _ZTS6LocVar", !10, i64 0}
-!70 = !{!"p2 _ZTS7TString", !10, i64 0}
-!71 = !{!"p1 _ZTS7TString", !10, i64 0}
-!72 = !{!67, !5, i64 113}
-!73 = !{!67, !5, i64 114}
-!74 = distinct !{!74, !49}
-!75 = !{!27, !19, i64 120}
-!76 = !{!27, !19, i64 112}
-!77 = distinct !{!77, !49}
-!78 = distinct !{!78, !49}
-!79 = !{!67, !14, i64 24}
-!80 = !{!37, !15, i64 36}
-!81 = !{!37, !15, i64 32}
-!82 = distinct !{!82, !49}
-!83 = !{!8, !5, i64 100}
-!84 = distinct !{!84, !49}
-!85 = distinct !{!85, !49}
-!86 = distinct !{!86, !49}
-!87 = !{!8, !19, i64 176}
-!88 = !{!89, !90, i64 0}
-!89 = !{!"SParser", !90, i64 0, !30, i64 8, !31, i64 32}
-!90 = !{!"p1 _ZTS3Zio", !10, i64 0}
-!91 = !{!89, !31, i64 32}
-!92 = !{!89, !31, i64 8}
-!93 = !{!89, !19, i64 24}
-!94 = !{!67, !5, i64 112}
-!95 = distinct !{!95, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!37, !11, i64 16}
+!52 = !{!37, !11, i64 8}
+!53 = distinct !{!53, !49, !50}
+!54 = !{!8, !10, i64 112}
+!55 = !{!56, !15, i64 0}
+!56 = !{!"lua_Debug", !15, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !5, i64 56, !15, i64 116}
+!57 = !{!56, !15, i64 40}
+!58 = !{!56, !15, i64 116}
+!59 = distinct !{!59, !49, !50}
+!60 = !{!8, !14, i64 48}
+!61 = !{!37, !14, i64 24}
+!62 = !{!63, !5, i64 10}
+!63 = !{!"LClosure", !9, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !9, i64 16, !64, i64 24, !65, i64 32, !5, i64 40}
+!64 = !{!"p1 _ZTS5Table", !10, i64 0}
+!65 = !{!"p1 _ZTS5Proto", !10, i64 0}
+!66 = !{!63, !65, i64 32}
+!67 = !{!68, !5, i64 115}
+!68 = !{!"Proto", !9, i64 0, !5, i64 8, !5, i64 9, !11, i64 16, !14, i64 24, !69, i64 32, !14, i64 40, !70, i64 48, !71, i64 56, !72, i64 64, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !9, i64 104, !5, i64 112, !5, i64 113, !5, i64 114, !5, i64 115}
+!69 = !{!"p2 _ZTS5Proto", !10, i64 0}
+!70 = !{!"p1 _ZTS6LocVar", !10, i64 0}
+!71 = !{!"p2 _ZTS7TString", !10, i64 0}
+!72 = !{!"p1 _ZTS7TString", !10, i64 0}
+!73 = !{!68, !5, i64 113}
+!74 = !{!68, !5, i64 114}
+!75 = distinct !{!75, !49, !50}
+!76 = !{!27, !19, i64 120}
+!77 = !{!27, !19, i64 112}
+!78 = distinct !{!78, !49, !50}
+!79 = distinct !{!79, !49, !50}
+!80 = !{!68, !14, i64 24}
+!81 = !{!37, !15, i64 36}
+!82 = !{!37, !15, i64 32}
+!83 = distinct !{!83, !49, !50}
+!84 = !{!8, !5, i64 100}
+!85 = distinct !{!85, !49, !50}
+!86 = distinct !{!86, !49, !50}
+!87 = distinct !{!87, !49, !50}
+!88 = !{!8, !19, i64 176}
+!89 = !{!90, !91, i64 0}
+!90 = !{!"SParser", !91, i64 0, !30, i64 8, !31, i64 32}
+!91 = !{!"p1 _ZTS3Zio", !10, i64 0}
+!92 = !{!90, !31, i64 32}
+!93 = !{!90, !31, i64 8}
+!94 = !{!90, !19, i64 24}
+!95 = !{!68, !5, i64 112}
+!96 = distinct !{!96, !49, !50}

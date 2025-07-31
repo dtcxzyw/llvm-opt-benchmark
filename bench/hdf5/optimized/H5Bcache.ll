@@ -499,7 +499,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   store i32 1162170964, ptr %1, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load ptr, ptr %15, align 8, !tbaa !52
+  %17 = load ptr, ptr %15, align 8, !tbaa !53
   %18 = load i32, ptr %17, align 8, !tbaa !41
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %16, align 1, !tbaa !39
@@ -531,10 +531,10 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %38, ptr %5, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  %40 = load i64, ptr %39, align 8, !tbaa !53
+  %40 = load i64, ptr %39, align 8, !tbaa !54
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %40) #6
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  %42 = load i64, ptr %41, align 8, !tbaa !54
+  %42 = load i64, ptr %41, align 8, !tbaa !55
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %42) #6
   %43 = load i32, ptr %31, align 4, !tbaa !45
   %.not44 = icmp eq i32 %43, 0
@@ -554,9 +554,9 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
 48:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.03641 = phi ptr [ %45, %.lr.ph ], [ %66, %59 ]
-  %49 = load ptr, ptr %15, align 8, !tbaa !52
+  %49 = load ptr, ptr %15, align 8, !tbaa !53
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  %51 = load ptr, ptr %50, align 8, !tbaa !55
+  %51 = load ptr, ptr %50, align 8, !tbaa !56
   %52 = load ptr, ptr %5, align 8, !tbaa !25
   %53 = call i32 %51(ptr noundef nonnull %15, ptr noundef %52, ptr noundef %.03641) #6
   %54 = icmp slt i32 %53, 0
@@ -573,7 +573,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %61 = load ptr, ptr %5, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   store ptr %62, ptr %5, align 8, !tbaa !25
-  %63 = load ptr, ptr %15, align 8, !tbaa !52
+  %63 = load ptr, ptr %15, align 8, !tbaa !53
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !49
   %66 = getelementptr inbounds nuw i8, ptr %.03641, i64 %65
@@ -585,7 +585,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %70 = load i32, ptr %31, align 4, !tbaa !45
   %71 = zext i32 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %48, label %._crit_edge, !llvm.loop !56
+  br i1 %72, label %48, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %59
   %73 = icmp eq i32 %70, 0
@@ -593,9 +593,9 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   br i1 %73, label %89, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = load ptr, ptr %15, align 8, !tbaa !52
+  %75 = load ptr, ptr %15, align 8, !tbaa !53
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 88
-  %77 = load ptr, ptr %76, align 8, !tbaa !55
+  %77 = load ptr, ptr %76, align 8, !tbaa !56
   %78 = call i32 %77(ptr noundef nonnull %15, ptr noundef %.pre, ptr noundef %66) #6
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %84
@@ -742,10 +742,11 @@ attributes #6 = { nounwind }
 !47 = !{!21, !19, i64 16}
 !48 = !{!42, !13, i64 80}
 !49 = !{!42, !19, i64 8}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!21, !14, i64 0}
-!53 = !{!27, !19, i64 264}
-!54 = !{!27, !19, i64 272}
-!55 = !{!42, !13, i64 88}
-!56 = distinct !{!56, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!21, !14, i64 0}
+!54 = !{!27, !19, i64 264}
+!55 = !{!27, !19, i64 272}
+!56 = !{!42, !13, i64 88}
+!57 = distinct !{!57, !51, !52}

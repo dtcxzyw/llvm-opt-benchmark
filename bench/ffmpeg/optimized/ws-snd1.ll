@@ -280,7 +280,7 @@ default.unreachable:                              ; preds = %69, %39
   store i8 %.0.i167, ptr %122, align 1, !tbaa !8
   %133 = add nsw i8 %.1182, -1
   %.not149 = icmp eq i8 %133, 0
-  br i1 %.not149, label %.loopexit, label %109, !llvm.loop !41
+  br i1 %.not149, label %.loopexit, label %109, !llvm.loop !42
 
 134:                                              ; preds = %69
   %135 = and i8 %40, 32
@@ -322,7 +322,7 @@ default.unreachable:                              ; preds = %69, %39
   %.1125 = phi i32 [ %.0124188, %151 ], [ %143, %136 ], [ %150, %145 ], [ %104, %72 ], [ %131, %109 ]
   %.1121 = phi ptr [ %43, %151 ], [ %43, %136 ], [ %147, %145 ], [ %73, %72 ], [ %110, %109 ]
   %154 = icmp ult ptr %.2131, %28
-  br i1 %154, label %33, label %.critedge.loopexit
+  br i1 %154, label %33, label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %63, %54, %.loopexit, %33
   %.0129.lcssa.ph = phi ptr [ %.0129187, %33 ], [ %.2131, %.loopexit ], [ %.0129187, %54 ], [ %.0129187, %63 ]
@@ -405,6 +405,8 @@ attributes #5 = { nounwind }
 !36 = !{!"p2 _ZTS11AVBufferRef", !29, i64 0}
 !37 = !{!"p1 _ZTS12AVDictionary", !10, i64 0}
 !38 = !{!17, !17, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !41}

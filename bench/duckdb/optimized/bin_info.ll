@@ -87,7 +87,7 @@ define void @duckdb_je_bin_info_boot(ptr noundef readonly captures(none) %0, ptr
   %47 = phi i32 [ %6, %42 ], [ %40, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.not.i, label %bin_infos_init.exit, label %5
+  br i1 %exitcond.not.i, label %bin_infos_init.exit, label %5, !llvm.loop !21
 
 bin_infos_init.exit:                              ; preds = %44
   ret void
@@ -118,3 +118,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: rea
 !18 = !{!14, !9, i64 16}
 !19 = !{!9, !9, i64 0}
 !20 = !{!14, !9, i64 20}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}

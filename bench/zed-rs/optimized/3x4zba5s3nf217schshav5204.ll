@@ -877,7 +877,7 @@ define hidden { i64, i64 } @_ZN6rustls7anchors13RootCertStore25add_parsable_cert
   %69 = phi i64 [ %88, %87 ], [ %43, %65 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %70 = icmp eq ptr %44, %18
-  br i1 %70, label %._crit_edge, label %41
+  br i1 %70, label %._crit_edge, label %41, !llvm.loop !79
 
 71:                                               ; preds = %85, %83, %78, %76
   %72 = landingpad { ptr, i32 }
@@ -1188,3 +1188,5 @@ attributes #16 = { cold noreturn nounwind }
 !76 = distinct !{!76, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0a5d3ed64fcd9fcaE"}
 !77 = !{i64 0, i64 -9223372036854775807}
 !78 = !{i8 0, i8 21}
+!79 = distinct !{!79, !80}
+!80 = !{!"llvm.loop.estimated_trip_count"}

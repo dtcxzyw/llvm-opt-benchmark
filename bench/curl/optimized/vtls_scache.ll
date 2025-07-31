@@ -430,13 +430,13 @@ define hidden void @Curl_ssl_scache_destroy(ptr noundef %0) local_unnamed_addr #
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @Curl_llist_destroy(ptr noundef nonnull %6, ptr noundef null) #9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %cf_ssl_scache_clear_peer.exit, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %.not18.i = icmp eq ptr %11, null
   br i1 %.not18.i, label %13, label %12
 
@@ -445,33 +445,33 @@ define hidden void @Curl_ssl_scache_destroy(ptr noundef %0) local_unnamed_addr #
   br label %13
 
 13:                                               ; preds = %12, %9
-  store ptr null, ptr %7, align 8, !tbaa !37
+  store ptr null, ptr %7, align 8, !tbaa !38
   br label %cf_ssl_scache_clear_peer.exit
 
 cf_ssl_scache_clear_peer.exit:                    ; preds = %.lr.ph, %13
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr null, ptr %14, align 8, !tbaa !38
+  store ptr null, ptr %14, align 8, !tbaa !39
   %15 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
   tail call void %15(ptr noundef %17) #9
-  store ptr null, ptr %16, align 8, !tbaa !39
+  store ptr null, ptr %16, align 8, !tbaa !40
   %18 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
   tail call void %18(ptr noundef %20) #9
-  store ptr null, ptr %19, align 8, !tbaa !40
+  store ptr null, ptr %19, align 8, !tbaa !41
   %21 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %23 = load ptr, ptr %22, align 8, !tbaa !42
   tail call void %21(ptr noundef %23) #9
-  store ptr null, ptr %22, align 8, !tbaa !41
+  store ptr null, ptr %22, align 8, !tbaa !42
   %24 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %25 = load ptr, ptr %5, align 8, !tbaa !42
+  %25 = load ptr, ptr %5, align 8, !tbaa !43
   tail call void %24(ptr noundef %25) #9
-  store ptr null, ptr %5, align 8, !tbaa !42
+  store ptr null, ptr %5, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  store i64 0, ptr %26, align 8, !tbaa !43
+  store i64 0, ptr %26, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, -2
@@ -479,7 +479,7 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %.lr.ph, %13
   %30 = add nuw i64 %.08, 1
   %31 = load i64, ptr %2, align 8, !tbaa !29
   %32 = icmp ult i64 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %cf_ssl_scache_clear_peer.exit, %.preheader
   %33 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -496,13 +496,13 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %.lr.ph, %13
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_scache_lock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !106
+  %6 = load i32, ptr %5, align 4, !tbaa !107
   %7 = and i32 %6, 16
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %10, label %8
@@ -520,13 +520,13 @@ declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_scache_unlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !106
+  %6 = load i32, ptr %5, align 4, !tbaa !107
   %7 = and i32 %6, 16
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %10, label %8
@@ -548,18 +548,18 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
   %7 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %3, align 8, !tbaa !114
+  store ptr null, ptr %3, align 8, !tbaa !115
   call void @Curl_dyn_init(ptr noundef nonnull %5, i64 noundef 10240) #9
-  %8 = load ptr, ptr %1, align 8, !tbaa !115
+  %8 = load ptr, ptr %1, align 8, !tbaa !116
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !117
+  %10 = load i32, ptr %9, align 4, !tbaa !118
   %11 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str, ptr noundef %8, i32 noundef %10) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %151
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !118
+  %14 = load i32, ptr %13, align 8, !tbaa !119
   switch i32 %14, label %21 [
     i32 3, label %.thread
     i32 4, label %15
@@ -642,7 +642,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !119
+  %44 = load ptr, ptr %43, align 8, !tbaa !120
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 952
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 256
@@ -651,13 +651,13 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 152
-  %50 = load ptr, ptr %49, align 8, !tbaa !123
+  %50 = load ptr, ptr %49, align 8, !tbaa !124
   %51 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %50) #9
   %.not116 = icmp eq i32 %51, 0
   br i1 %.not116, label %._crit_edge159, label %151
 
 ._crit_edge159:                                   ; preds = %48
-  %.pre160 = load ptr, ptr %43, align 8, !tbaa !119
+  %.pre160 = load ptr, ptr %43, align 8, !tbaa !120
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre160, i64 952
   %.pre161 = load i64, ptr %.phi.trans.insert, align 8
   br label %52
@@ -671,17 +671,17 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 1396
-  %58 = load i32, ptr %57, align 4, !tbaa !132
+  %58 = load i32, ptr %57, align 4, !tbaa !133
   %59 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, i32 noundef %58) #9
   %.not118 = icmp eq i32 %59, 0
   br i1 %.not118, label %60, label %151
 
 60:                                               ; preds = %39, %52, %56
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %62 = load i8, ptr %61, align 8, !tbaa !133
+  %62 = load i8, ptr %61, align 8, !tbaa !134
   %.not119 = icmp eq i8 %62, 0
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %64 = load i32, ptr %63, align 4, !tbaa !134
+  %64 = load i32, ptr %63, align 4, !tbaa !135
   %.not120 = icmp eq i32 %64, 0
   %or.cond = select i1 %.not119, i1 %.not120, i1 false
   br i1 %or.cond, label %68, label %._crit_edge162
@@ -695,7 +695,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 68:                                               ; preds = %60, %._crit_edge162
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %70 = load i8, ptr %69, align 8, !tbaa !135
+  %70 = load i8, ptr %69, align 8, !tbaa !136
   %.not122 = icmp eq i8 %70, 0
   br i1 %.not122, label %74, label %71
 
@@ -707,7 +707,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 74:                                               ; preds = %71, %68
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !136
+  %76 = load ptr, ptr %75, align 8, !tbaa !137
   %.not124 = icmp eq ptr %76, null
   br i1 %.not124, label %79, label %77
 
@@ -718,7 +718,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 79:                                               ; preds = %77, %74
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !137
+  %81 = load ptr, ptr %80, align 8, !tbaa !138
   %.not126 = icmp eq ptr %81, null
   br i1 %.not126, label %84, label %82
 
@@ -729,7 +729,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 84:                                               ; preds = %82, %79
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %86 = load ptr, ptr %85, align 8, !tbaa !138
+  %86 = load ptr, ptr %85, align 8, !tbaa !139
   %.not128 = icmp eq ptr %86, null
   br i1 %.not128, label %89, label %87
 
@@ -746,34 +746,34 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !139
+  %94 = load ptr, ptr %93, align 8, !tbaa !140
   %95 = call fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef %94)
   %.not131 = icmp eq i32 %95, 0
   br i1 %.not131, label %96, label %151
 
 96:                                               ; preds = %92
-  %97 = load ptr, ptr %7, align 8, !tbaa !140
+  %97 = load ptr, ptr %7, align 8, !tbaa !141
   %98 = call fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef %5, ptr noundef nonnull @.str.16, ptr noundef %97)
   %.not132 = icmp eq i32 %98, 0
   br i1 %.not132, label %99, label %151
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %101 = load ptr, ptr %100, align 8, !tbaa !141
+  %101 = load ptr, ptr %100, align 8, !tbaa !142
   %102 = call fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef %5, ptr noundef nonnull @.str.17, ptr noundef %101)
   %.not133 = icmp eq i32 %102, 0
   br i1 %.not133, label %103, label %151
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !142
+  %105 = load ptr, ptr %104, align 8, !tbaa !143
   %106 = call fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef %5, ptr noundef nonnull @.str.18, ptr noundef %105)
   %.not134 = icmp eq i32 %106, 0
   br i1 %.not134, label %107, label %151
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %109 = load ptr, ptr %108, align 8, !tbaa !143
+  %109 = load ptr, ptr %108, align 8, !tbaa !144
   %.not135 = icmp eq ptr %109, null
   br i1 %.not135, label %112, label %110
 
@@ -784,7 +784,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 112:                                              ; preds = %110, %107
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %114 = load ptr, ptr %113, align 8, !tbaa !144
+  %114 = load ptr, ptr %113, align 8, !tbaa !145
   %.not137 = icmp eq ptr %114, null
   br i1 %.not137, label %117, label %115
 
@@ -795,7 +795,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 117:                                              ; preds = %115, %112
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !145
+  %119 = load ptr, ptr %118, align 8, !tbaa !146
   %.not139 = icmp eq ptr %119, null
   br i1 %.not139, label %122, label %120
 
@@ -806,12 +806,12 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 122:                                              ; preds = %117, %120, %89
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %124 = load ptr, ptr %123, align 8, !tbaa !146
+  %124 = load ptr, ptr %123, align 8, !tbaa !147
   %.not141 = icmp eq ptr %124, null
   br i1 %.not141, label %129, label %125
 
 125:                                              ; preds = %122
-  %126 = load i8, ptr %124, align 1, !tbaa !147
+  %126 = load i8, ptr %124, align 1, !tbaa !148
   %.not142 = icmp eq i8 %126, 0
   br i1 %.not142, label %129, label %127
 
@@ -822,12 +822,12 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 129:                                              ; preds = %127, %125, %122
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %131 = load ptr, ptr %130, align 8, !tbaa !148
+  %131 = load ptr, ptr %130, align 8, !tbaa !149
   %.not144 = icmp eq ptr %131, null
   br i1 %.not144, label %136, label %132
 
 132:                                              ; preds = %129
-  %133 = load i8, ptr %131, align 1, !tbaa !147
+  %133 = load i8, ptr %131, align 1, !tbaa !148
   %.not145 = icmp eq i8 %133, 0
   br i1 %.not145, label %136, label %134
 
@@ -838,13 +838,13 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 136:                                              ; preds = %134, %132, %129
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %138 = load ptr, ptr %137, align 8, !tbaa !149
+  %138 = load ptr, ptr %137, align 8, !tbaa !150
   %.not147 = icmp eq ptr %138, null
   br i1 %.not147, label %139, label %142
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %141 = load ptr, ptr %140, align 8, !tbaa !150
+  %141 = load ptr, ptr %140, align 8, !tbaa !151
   %.not148 = icmp eq ptr %141, null
   br i1 %.not148, label %144, label %142
 
@@ -858,7 +858,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
   br i1 %.not150, label %151, label %145
 
 145:                                              ; preds = %144
-  %146 = load i8, ptr %2, align 1, !tbaa !147
+  %146 = load i8, ptr %2, align 1, !tbaa !148
   %.not151 = icmp eq i8 %146, 0
   br i1 %.not151, label %151, label %147
 
@@ -869,7 +869,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 
 149:                                              ; preds = %147
   %150 = call ptr @Curl_dyn_take(ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  store ptr %150, ptr %3, align 8, !tbaa !114
+  store ptr %150, ptr %3, align 8, !tbaa !115
   br label %151
 
 151:                                              ; preds = %144, %145, %147, %142, %134, %127, %120, %115, %110, %103, %99, %96, %92, %87, %82, %77, %71, %._crit_edge162, %56, %48, %37, %32, %27, %23, %4, %149
@@ -894,7 +894,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef nonnull %0, ptr
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load i8, ptr %2, align 1, !tbaa !147
+  %5 = load i8, ptr %2, align 1, !tbaa !148
   switch i8 %5, label %6 [
     i8 0, label %11
     i8 47, label %.thread
@@ -923,7 +923,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef nonnull %0, ptr
 define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !151
+  %6 = load i64, ptr %5, align 8, !tbaa !152
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %19, label %7
 
@@ -934,8 +934,8 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
   br i1 %.not24, label %9, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %2, align 8, !tbaa !153
-  %11 = load i64, ptr %5, align 8, !tbaa !151
+  %10 = load ptr, ptr %2, align 8, !tbaa !154
+  %11 = load i64, ptr %5, align 8, !tbaa !152
   %12 = call i32 @Curl_sha256it(ptr noundef nonnull %4, ptr noundef %10, i64 noundef %11) #9
   %.not25 = icmp eq i32 %12, 0
   br i1 %.not25, label %.preheader, label %.loopexit
@@ -943,12 +943,12 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
 13:                                               ; preds = %.preheader
   %14 = add nuw nsw i64 %.01527, 1
   %exitcond.not = icmp eq i64 %14, 32
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !154
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !155
 
 .preheader:                                       ; preds = %9, %13
   %.01527 = phi i64 [ %14, %13 ], [ 0, %9 ]
   %15 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.01527
-  %16 = load i8, ptr %15, align 1, !tbaa !147
+  %16 = load i8, ptr %15, align 1, !tbaa !148
   %17 = zext i8 %16 to i32
   %18 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %17) #9
   %.not26 = icmp eq i32 %18, 0
@@ -972,7 +972,7 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
 define hidden i32 @Curl_ssl_scache_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3232
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef %0, ptr noundef %1) #9
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %9
@@ -1041,13 +1041,13 @@ cf_ssl_scache_sesssion_ldestroy.exit.i:           ; preds = %26, %22
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %37 = load ptr, ptr %36, align 8, !tbaa !45
+  %37 = load ptr, ptr %36, align 8, !tbaa !46
   %.not.i16 = icmp eq ptr %37, null
   br i1 %.not.i16, label %Curl_ssl_scache_lock.exit, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !106
+  %40 = load i32, ptr %39, align 4, !tbaa !107
   %41 = and i32 %40, 16
   %.not3.i = icmp eq i32 %41, 0
   br i1 %.not3.i, label %Curl_ssl_scache_lock.exit, label %42
@@ -1163,13 +1163,13 @@ cf_ssl_scache_sesssion_ldestroy.exit.i.i:         ; preds = %61, %57
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %96 = load ptr, ptr %95, align 8, !tbaa !156
+  %96 = load ptr, ptr %95, align 8, !tbaa !157
   %.not84.i = icmp eq ptr %96, null
   br i1 %.not84.i, label %103, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !157
+  %99 = load i32, ptr %98, align 8, !tbaa !158
   %100 = icmp sgt i32 %99, 0
   %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %102 = icmp sgt i32 %101, 0
@@ -1177,7 +1177,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i.i:         ; preds = %61, %57
   br i1 %or.cond.i, label %104, label %105
 
 103:                                              ; preds = %94
-  %.old.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old1.i = icmp sgt i32 %.old.i, 0
   br i1 %.old1.i, label %104, label %105
 
@@ -1251,13 +1251,13 @@ cf_ssl_scache_sesssion_ldestroy.exit.i89.i:       ; preds = %117, %113
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %135 = load ptr, ptr %134, align 8, !tbaa !156
+  %135 = load ptr, ptr %134, align 8, !tbaa !157
   %.not75.i = icmp eq ptr %135, null
   br i1 %.not75.i, label %142, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %138 = load i32, ptr %137, align 8, !tbaa !157
+  %138 = load i32, ptr %137, align 8, !tbaa !158
   %139 = icmp sgt i32 %138, 0
   %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %141 = icmp sgt i32 %140, 0
@@ -1265,7 +1265,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i89.i:       ; preds = %117, %113
   br i1 %or.cond7.i, label %143, label %144
 
 142:                                              ; preds = %133
-  %.old5.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old5.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old6.i = icmp sgt i32 %.old5.i, 0
   br i1 %.old6.i, label %143, label %144
 
@@ -1402,7 +1402,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i.i.i.i.i:   ; preds = %186, %182
 
 cf_scache_session_remove.exit.i.i.i:              ; preds = %cf_ssl_scache_sesssion_ldestroy.exit.i.i.i.i.i, %177, %.lr.ph.i.i.i
   %.not.i.i.i18 = icmp eq ptr %171, null
-  br i1 %.not.i.i.i18, label %cf_scache_peer_remove_non13.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !159
+  br i1 %.not.i.i.i18, label %cf_scache_peer_remove_non13.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !160
 
 cf_scache_peer_remove_non13.exit.i.i:             ; preds = %cf_scache_session_remove.exit.i.i.i, %167
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -1419,7 +1419,7 @@ cf_scache_peer_remove_non13.exit.i.i:             ; preds = %cf_scache_session_r
   %200 = tail call i64 @Curl_llist_count(ptr noundef nonnull %168) #9
   %201 = load i64, ptr %196, align 8, !tbaa !32
   %202 = icmp ugt i64 %200, %201
-  br i1 %202, label %.lr.ph.i.i, label %Curl_ssl_session_destroy.exit96.i, !llvm.loop !160
+  br i1 %202, label %.lr.ph.i.i, label %Curl_ssl_session_destroy.exit96.i, !llvm.loop !161
 
 Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_scache_peer_remove_non13.exit.i.i, %cf_ssl_scache_sesssion_ldestroy.exit.i95.i, %147
   br i1 %126, label %204, label %203
@@ -1437,13 +1437,13 @@ Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_sca
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %210 = load ptr, ptr %209, align 8, !tbaa !156
+  %210 = load ptr, ptr %209, align 8, !tbaa !157
   %.not79.i = icmp eq ptr %210, null
   br i1 %.not79.i, label %217, label %211
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %213 = load i32, ptr %212, align 8, !tbaa !157
+  %213 = load i32, ptr %212, align 8, !tbaa !158
   %214 = icmp sgt i32 %213, 0
   %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %216 = icmp sgt i32 %215, 0
@@ -1451,7 +1451,7 @@ Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_sca
   br i1 %or.cond10.i, label %218, label %cf_scache_add_session.exit
 
 217:                                              ; preds = %208
-  %.old8.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old8.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old9.i = icmp sgt i32 %.old8.i, 0
   br i1 %.old9.i, label %218, label %cf_scache_add_session.exit
 
@@ -1483,13 +1483,13 @@ Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_sca
 cf_scache_add_session.exit:                       ; preds = %48, %52, %cf_ssl_scache_sesssion_ldestroy.exit.i.i, %108, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i, %203, %204, %211, %217, %232
   %.0.i = phi i32 [ 0, %204 ], [ 0, %211 ], [ 0, %217 ], [ 0, %232 ], [ %125, %203 ], [ 0, %48 ], [ 0, %52 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i.i ], [ 0, %108 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %234 = load ptr, ptr %36, align 8, !tbaa !45
+  %234 = load ptr, ptr %36, align 8, !tbaa !46
   %.not.i19 = icmp eq ptr %234, null
   br i1 %.not.i19, label %Curl_ssl_session_destroy.exit, label %235
 
 235:                                              ; preds = %cf_scache_add_session.exit
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 4
-  %237 = load i32, ptr %236, align 4, !tbaa !106
+  %237 = load i32, ptr %236, align 4, !tbaa !107
   %238 = and i32 %237, 16
   %.not3.i20 = icmp eq i32 %238, 0
   br i1 %.not3.i20, label %Curl_ssl_session_destroy.exit, label %239
@@ -1578,7 +1578,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i:           ; preds = %20, %16
 define hidden i32 @Curl_ssl_scache_take(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3232
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %3, align 8, !tbaa !7
@@ -1587,13 +1587,13 @@ define hidden i32 @Curl_ssl_scache_take(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %11 = load ptr, ptr %10, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %Curl_ssl_scache_lock.exit, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !106
+  %14 = load i32, ptr %13, align 4, !tbaa !107
   %15 = and i32 %14, 16
   %.not3.i = icmp eq i32 %15, 0
   br i1 %.not3.i, label %Curl_ssl_scache_lock.exit, label %16
@@ -1625,18 +1625,18 @@ Curl_ssl_scache_lock.exit:                        ; preds = %9, %12, %16
   %30 = add nsw i64 %29, 1
   store i64 %30, ptr %28, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 152
-  store i64 %30, ptr %31, align 8, !tbaa !43
+  store i64 %30, ptr %31, align 8, !tbaa !44
   br label %32
 
 32:                                               ; preds = %22, %26, %Curl_ssl_scache_lock.exit
   %.041 = phi ptr [ %27, %26 ], [ null, %22 ], [ null, %Curl_ssl_scache_lock.exit ]
-  %33 = load ptr, ptr %10, align 8, !tbaa !45
+  %33 = load ptr, ptr %10, align 8, !tbaa !46
   %.not.i57 = icmp eq ptr %33, null
   br i1 %.not.i57, label %Curl_ssl_scache_unlock.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !106
+  %36 = load i32, ptr %35, align 4, !tbaa !107
   %37 = and i32 %36, 16
   %.not3.i58 = icmp eq i32 %37, 0
   br i1 %.not3.i58, label %Curl_ssl_scache_unlock.exit, label %38
@@ -1659,13 +1659,13 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %46 = load ptr, ptr %45, align 8, !tbaa !156
+  %46 = load ptr, ptr %45, align 8, !tbaa !157
   %.not55 = icmp eq ptr %46, null
   br i1 %.not55, label %53, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !157
+  %49 = load i32, ptr %48, align 8, !tbaa !158
   %50 = icmp sgt i32 %49, 0
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %52 = icmp sgt i32 %51, 0
@@ -1673,7 +1673,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
   br i1 %or.cond3, label %54, label %81
 
 53:                                               ; preds = %44
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old2 = icmp sgt i32 %.old, 0
   br i1 %.old2, label %54, label %81
 
@@ -1702,13 +1702,13 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %72 = load ptr, ptr %71, align 8, !tbaa !156
+  %72 = load ptr, ptr %71, align 8, !tbaa !157
   %.not52 = icmp eq ptr %72, null
   br i1 %.not52, label %79, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %75 = load i32, ptr %74, align 8, !tbaa !157
+  %75 = load i32, ptr %74, align 8, !tbaa !158
   %76 = icmp sgt i32 %75, 0
   %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %78 = icmp sgt i32 %77, 0
@@ -1716,7 +1716,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
   br i1 %or.cond6, label %80, label %81
 
 79:                                               ; preds = %70
-  %.old4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old5 = icmp sgt i32 %.old4, 0
   br i1 %.old5, label %80, label %81
 
@@ -1733,7 +1733,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
-  store ptr null, ptr %4, align 8, !tbaa !161
+  store ptr null, ptr %4, align 8, !tbaa !162
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge2, label %.lr.ph
 
@@ -1754,7 +1754,7 @@ define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef 
   %.069113.us183 = phi i64 [ %28, %cf_ssl_scache_match_auth.exit.thread.us ], [ 0, %.lr.ph.split.us.preheader ]
   %12 = load ptr, ptr %1, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %12, i64 %.069113.us183
-  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  %14 = load ptr, ptr %13, align 8, !tbaa !43
   %.not93.us = icmp eq ptr %14, null
   br i1 %.not93.us, label %cf_ssl_scache_match_auth.exit.thread.us, label %15
 
@@ -1767,19 +1767,19 @@ define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef 
   %18 = load ptr, ptr %1, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %18, i64 %.069113.us183
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
   %.not12.i.us = icmp eq ptr %21, null
   br i1 %.not12.i.us, label %22, label %cf_ssl_scache_match_auth.exit.thread.us
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
   %.not13.i.us = icmp eq ptr %24, null
   br i1 %.not13.i.us, label %25, label %cf_ssl_scache_match_auth.exit.thread.us
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
   %.not14.i.us = icmp eq ptr %27, null
   br i1 %.not14.i.us, label %.split.us, label %cf_ssl_scache_match_auth.exit.thread.us
 
@@ -1800,7 +1800,7 @@ cf_ssl_scache_match_auth.exit.thread.us:          ; preds = %25, %22, %17, %15, 
   %.069113129 = phi i64 [ %55, %cf_ssl_scache_match_auth.exit.thread ], [ 0, %.lr.ph.split.split ]
   %32 = load ptr, ptr %1, align 8, !tbaa !30
   %33 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %32, i64 %.069113129
-  %34 = load ptr, ptr %33, align 8, !tbaa !42
+  %34 = load ptr, ptr %33, align 8, !tbaa !43
   %.not93 = icmp eq ptr %34, null
   br i1 %.not93, label %cf_ssl_scache_match_auth.exit.thread, label %35
 
@@ -1813,23 +1813,23 @@ cf_ssl_scache_match_auth.exit.thread.us:          ; preds = %25, %22, %17, %15, 
   %38 = load ptr, ptr %1, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %38, i64 %.069113129
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !39
-  %42 = load ptr, ptr %8, align 8, !tbaa !148
+  %41 = load ptr, ptr %40, align 8, !tbaa !40
+  %42 = load ptr, ptr %8, align 8, !tbaa !149
   %43 = tail call zeroext i1 @Curl_safecmp(ptr noundef %41, ptr noundef %42) #9
   br i1 %43, label %44, label %cf_ssl_scache_match_auth.exit.thread
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !40
-  %47 = load ptr, ptr %9, align 8, !tbaa !149
+  %46 = load ptr, ptr %45, align 8, !tbaa !41
+  %47 = load ptr, ptr %9, align 8, !tbaa !150
   %48 = tail call i32 @Curl_timestrcmp(ptr noundef %46, ptr noundef %47) #9
   %.not15.i = icmp eq i32 %48, 0
   br i1 %.not15.i, label %cf_ssl_scache_match_auth.exit, label %cf_ssl_scache_match_auth.exit.thread
 
 cf_ssl_scache_match_auth.exit:                    ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !41
-  %51 = load ptr, ptr %10, align 8, !tbaa !150
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
+  %51 = load ptr, ptr %10, align 8, !tbaa !151
   %52 = tail call i32 @Curl_timestrcmp(ptr noundef %50, ptr noundef %51) #9
   %.not16.i = icmp eq i32 %52, 0
   br i1 %.not16.i, label %.split.us, label %cf_ssl_scache_match_auth.exit.thread
@@ -1838,7 +1838,7 @@ cf_ssl_scache_match_auth.exit:                    ; preds = %44
   %.us-phi116 = phi i64 [ %.069113.us183, %25 ], [ %.069113129, %cf_ssl_scache_match_auth.exit ]
   %53 = load ptr, ptr %1, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %53, i64 %.us-phi116
-  store ptr %54, ptr %4, align 8, !tbaa !161
+  store ptr %54, ptr %4, align 8, !tbaa !162
   br label %165
 
 cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130, %35, %cf_ssl_scache_match_auth.exit
@@ -1871,7 +1871,7 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   %.066132.us188 = phi i64 [ %.268.us, %cf_ssl_scache_match_auth.exit102.thread.us ], [ 0, %.lr.ph133.split.us.preheader ]
   %65 = load ptr, ptr %1, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %65, i64 %.170131.us189
-  %67 = load ptr, ptr %66, align 8, !tbaa !42
+  %67 = load ptr, ptr %66, align 8, !tbaa !43
   %.not84.us = icmp eq ptr %67, null
   br i1 %.not84.us, label %68, label %cf_ssl_scache_match_auth.exit102.thread.us
 
@@ -1884,19 +1884,19 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !39
+  %74 = load ptr, ptr %73, align 8, !tbaa !40
   %.not12.i99.us = icmp eq ptr %74, null
   br i1 %.not12.i99.us, label %75, label %cf_ssl_scache_match_auth.exit102.thread.us
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
   %.not13.i100.us = icmp eq ptr %77, null
   br i1 %.not13.i100.us, label %78, label %cf_ssl_scache_match_auth.exit102.thread.us
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !41
+  %80 = load ptr, ptr %79, align 8, !tbaa !42
   %.not14.i101.us = icmp eq ptr %80, null
   br i1 %.not14.i101.us, label %81, label %cf_ssl_scache_match_auth.exit102.thread.us
 
@@ -1939,7 +1939,7 @@ cf_ssl_scache_match_auth.exit102.thread.us:       ; preds = %90, %78, %75, %72, 
   %.066132185 = phi i64 [ %.268, %cf_ssl_scache_match_auth.exit102.thread ], [ 0, %.lr.ph133.split.preheader ]
   %94 = load ptr, ptr %1, align 8, !tbaa !30
   %95 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %94, i64 %.170131186
-  %96 = load ptr, ptr %95, align 8, !tbaa !42
+  %96 = load ptr, ptr %95, align 8, !tbaa !43
   %.not84 = icmp eq ptr %96, null
   br i1 %.not84, label %97, label %cf_ssl_scache_match_auth.exit102.thread
 
@@ -1952,23 +1952,23 @@ cf_ssl_scache_match_auth.exit102.thread.us:       ; preds = %90, %78, %75, %72, 
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !39
-  %104 = load ptr, ptr %61, align 8, !tbaa !148
+  %103 = load ptr, ptr %102, align 8, !tbaa !40
+  %104 = load ptr, ptr %61, align 8, !tbaa !149
   %105 = call zeroext i1 @Curl_safecmp(ptr noundef %103, ptr noundef %104) #9
   br i1 %105, label %106, label %cf_ssl_scache_match_auth.exit102.thread
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !40
-  %109 = load ptr, ptr %62, align 8, !tbaa !149
+  %108 = load ptr, ptr %107, align 8, !tbaa !41
+  %109 = load ptr, ptr %62, align 8, !tbaa !150
   %110 = call i32 @Curl_timestrcmp(ptr noundef %108, ptr noundef %109) #9
   %.not15.i97 = icmp eq i32 %110, 0
   br i1 %.not15.i97, label %cf_ssl_scache_match_auth.exit102, label %cf_ssl_scache_match_auth.exit102.thread
 
 cf_ssl_scache_match_auth.exit102:                 ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %112 = load ptr, ptr %111, align 8, !tbaa !41
-  %113 = load ptr, ptr %63, align 8, !tbaa !150
+  %112 = load ptr, ptr %111, align 8, !tbaa !42
+  %113 = load ptr, ptr %63, align 8, !tbaa !151
   %114 = call i32 @Curl_timestrcmp(ptr noundef %112, ptr noundef %113) #9
   %.not16.i98 = icmp eq i32 %114, 0
   br i1 %.not16.i98, label %115, label %cf_ssl_scache_match_auth.exit102.thread
@@ -2011,13 +2011,13 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %106
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %131 = load ptr, ptr %130, align 8, !tbaa !156
+  %131 = load ptr, ptr %130, align 8, !tbaa !157
   %.not91 = icmp eq ptr %131, null
   br i1 %.not91, label %138, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !157
+  %134 = load i32, ptr %133, align 8, !tbaa !158
   %135 = icmp sgt i32 %134, 0
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %137 = icmp sgt i32 %136, 0
@@ -2025,7 +2025,7 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %106
   br i1 %or.cond, label %139, label %140
 
 138:                                              ; preds = %129
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old3 = icmp sgt i32 %.old, 0
   br i1 %.old3, label %139, label %140
 
@@ -2038,12 +2038,12 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %106
   %142 = call ptr %141(ptr noundef %2) #9
   %143 = load ptr, ptr %1, align 8, !tbaa !30
   %144 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %143, i64 %.us-phi138
-  store ptr %142, ptr %144, align 8, !tbaa !42
+  store ptr %142, ptr %144, align 8, !tbaa !43
   %.not92 = icmp eq ptr %142, null
   br i1 %.not92, label %.thread, label %145
 
 145:                                              ; preds = %140
-  store ptr %144, ptr %4, align 8, !tbaa !161
+  store ptr %144, ptr %4, align 8, !tbaa !162
   br label %.thread
 
 .thread:                                          ; preds = %118, %84, %145, %140
@@ -2075,13 +2075,13 @@ cf_ssl_scache_match_auth.exit102.thread:          ; preds = %106, %101, %146, %.
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %156 = load ptr, ptr %155, align 8, !tbaa !156
+  %156 = load ptr, ptr %155, align 8, !tbaa !157
   %.not83 = icmp eq ptr %156, null
   br i1 %.not83, label %163, label %157
 
 157:                                              ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %159 = load i32, ptr %158, align 8, !tbaa !157
+  %159 = load i32, ptr %158, align 8, !tbaa !158
   %160 = icmp sgt i32 %159, 0
   %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %162 = icmp sgt i32 %161, 0
@@ -2089,7 +2089,7 @@ cf_ssl_scache_match_auth.exit102.thread:          ; preds = %106, %101, %146, %.
   br i1 %or.cond6, label %164, label %165
 
 163:                                              ; preds = %154
-  %.old4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old5 = icmp sgt i32 %.old4, 0
   br i1 %.old5, label %164, label %165
 
@@ -2172,7 +2172,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i.i:         ; preds = %22, %18
 
 cf_scache_session_remove.exit:                    ; preds = %cf_ssl_scache_sesssion_ldestroy.exit.i.i, %13, %.lr.ph
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !162
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %cf_scache_session_remove.exit, %2
   ret void
@@ -2193,7 +2193,7 @@ declare i64 @Curl_llist_count(ptr noundef) local_unnamed_addr #2
 define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3232
-  %8 = load ptr, ptr %7, align 8, !tbaa !155
+  %8 = load ptr, ptr %7, align 8, !tbaa !156
   %9 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %10 = call fastcc i32 @cf_ssl_add_peer(ptr noundef %1, ptr noundef %8, ptr noundef %2, ptr noundef %9, ptr noundef %6)
@@ -2212,13 +2212,13 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %20 = load ptr, ptr %19, align 8, !tbaa !156
+  %20 = load ptr, ptr %19, align 8, !tbaa !157
   %.not30 = icmp eq ptr %20, null
   br i1 %.not30, label %27, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !157
+  %23 = load i32, ptr %22, align 8, !tbaa !158
   %24 = icmp sgt i32 %23, 0
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %26 = icmp sgt i32 %25, 0
@@ -2226,7 +2226,7 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond3, label %28, label %36
 
 27:                                               ; preds = %18
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old2 = icmp sgt i32 %.old, 0
   br i1 %.old2, label %28, label %36
 
@@ -2236,20 +2236,20 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %31 = load ptr, ptr %30, align 8, !tbaa !38
+  %31 = load ptr, ptr %30, align 8, !tbaa !39
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %.thread, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !37
+  %34 = load ptr, ptr %33, align 8, !tbaa !38
   tail call void %31(ptr noundef %34) #9
   br label %.thread
 
 .thread:                                          ; preds = %32, %29
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store ptr %3, ptr %35, align 8, !tbaa !37
-  store ptr %4, ptr %30, align 8, !tbaa !38
+  store ptr %3, ptr %35, align 8, !tbaa !38
+  store ptr %4, ptr %30, align 8, !tbaa !39
   br label %40
 
 36:                                               ; preds = %14, %21, %27, %28
@@ -2271,8 +2271,8 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
 define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !161
-  store ptr null, ptr %4, align 8, !tbaa !161
+  store ptr null, ptr %6, align 8, !tbaa !162
+  store ptr null, ptr %4, align 8, !tbaa !162
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %7
 
@@ -2288,12 +2288,12 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br i1 %.not36, label %.thread55, label %12
 
 12:                                               ; preds = %9
-  %.pr = load ptr, ptr %6, align 8, !tbaa !161
+  %.pr = load ptr, ptr %6, align 8, !tbaa !162
   %.not37 = icmp eq ptr %.pr, null
   br i1 %.not37, label %.lr.ph.preheader.i, label %13
 
 13:                                               ; preds = %12
-  store ptr %.pr, ptr %4, align 8, !tbaa !161
+  store ptr %.pr, ptr %4, align 8, !tbaa !162
   br label %.thread55
 
 .thread:                                          ; preds = %5
@@ -2312,7 +2312,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   %.039.i = phi i64 [ %40, %39 ], [ 0, %.lr.ph.preheader.i ]
   %.02338.i = phi ptr [ %.1.i, %39 ], [ null, %.lr.ph.preheader.i ]
   %16 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre4546.i, i64 %.039.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %22
 
@@ -2325,7 +2325,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 
 22:                                               ; preds = %18, %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %.not25.i = icmp eq ptr %24, null
   br i1 %.not25.i, label %25, label %30
 
@@ -2347,9 +2347,9 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre45.i, i64 %.039.i, i32 10
-  %33 = load i64, ptr %32, align 8, !tbaa !43
+  %33 = load i64, ptr %32, align 8, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %.02338.i, i64 152
-  %35 = load i64, ptr %34, align 8, !tbaa !43
+  %35 = load i64, ptr %34, align 8, !tbaa !44
   %36 = icmp slt i64 %33, %35
   br i1 %36, label %37, label %39
 
@@ -2362,7 +2362,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   %40 = add nuw i64 %.039.i, 1
   %41 = load i64, ptr %15, align 8, !tbaa !29
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !163
+  br i1 %42, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !164
 
 .loopexit.i:                                      ; preds = %39, %28
   %.2.i = phi ptr [ %29, %28 ], [ %.1.i, %39 ]
@@ -2374,13 +2374,13 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   tail call void @Curl_llist_destroy(ptr noundef nonnull %44, ptr noundef null) #9
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %46 = load ptr, ptr %45, align 8, !tbaa !37
+  %46 = load ptr, ptr %45, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %52, label %47
 
 47:                                               ; preds = %.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !38
+  %49 = load ptr, ptr %48, align 8, !tbaa !39
   %.not18.i.i = icmp eq ptr %49, null
   br i1 %.not18.i.i, label %51, label %50
 
@@ -2389,33 +2389,33 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br label %51
 
 51:                                               ; preds = %50, %47
-  store ptr null, ptr %45, align 8, !tbaa !37
+  store ptr null, ptr %45, align 8, !tbaa !38
   br label %52
 
 52:                                               ; preds = %51, %.thread.i
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  store ptr null, ptr %53, align 8, !tbaa !38
+  store ptr null, ptr %53, align 8, !tbaa !39
   %54 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !39
+  %56 = load ptr, ptr %55, align 8, !tbaa !40
   tail call void %54(ptr noundef %56) #9
-  store ptr null, ptr %55, align 8, !tbaa !39
+  store ptr null, ptr %55, align 8, !tbaa !40
   %57 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !40
+  %59 = load ptr, ptr %58, align 8, !tbaa !41
   tail call void %57(ptr noundef %59) #9
-  store ptr null, ptr %58, align 8, !tbaa !40
+  store ptr null, ptr %58, align 8, !tbaa !41
   %60 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  %62 = load ptr, ptr %61, align 8, !tbaa !42
   tail call void %60(ptr noundef %62) #9
-  store ptr null, ptr %61, align 8, !tbaa !41
+  store ptr null, ptr %61, align 8, !tbaa !42
   %63 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %64 = load ptr, ptr %43, align 8, !tbaa !42
+  %64 = load ptr, ptr %43, align 8, !tbaa !43
   tail call void %63(ptr noundef %64) #9
-  store ptr null, ptr %43, align 8, !tbaa !42
+  store ptr null, ptr %43, align 8, !tbaa !43
   %65 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  store i64 0, ptr %65, align 8, !tbaa !43
+  store i64 0, ptr %65, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %67 = load i8, ptr %66, align 8
   %68 = and i8 %67, -2
@@ -2425,11 +2425,11 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 
 69:                                               ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !148
+  %71 = load ptr, ptr %70, align 8, !tbaa !149
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %73 = load ptr, ptr %72, align 8, !tbaa !149
+  %73 = load ptr, ptr %72, align 8, !tbaa !150
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %75 = load ptr, ptr %74, align 8, !tbaa !150
+  %75 = load ptr, ptr %74, align 8, !tbaa !151
   br label %.thread52
 
 .thread52:                                        ; preds = %52, %69
@@ -2441,7 +2441,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 79:                                               ; preds = %.thread52
   %80 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %81 = tail call ptr %80(ptr noundef nonnull %2) #9
-  store ptr %81, ptr %43, align 8, !tbaa !42
+  store ptr %81, ptr %43, align 8, !tbaa !43
   %.not33.i = icmp eq ptr %81, null
   br i1 %.not33.i, label %96, label %82
 
@@ -2455,7 +2455,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 85:                                               ; preds = %82
   %86 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %87 = tail call ptr %86(ptr noundef nonnull %77) #9
-  store ptr %87, ptr %55, align 8, !tbaa !39
+  store ptr %87, ptr %55, align 8, !tbaa !40
   %.not35.i = icmp eq ptr %87, null
   br i1 %.not35.i, label %96, label %88
 
@@ -2466,7 +2466,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 89:                                               ; preds = %88
   %90 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %91 = tail call ptr %90(ptr noundef nonnull %76) #9
-  store ptr %91, ptr %58, align 8, !tbaa !40
+  store ptr %91, ptr %58, align 8, !tbaa !41
   %.not37.i = icmp eq ptr %91, null
   br i1 %.not37.i, label %96, label %92
 
@@ -2477,19 +2477,19 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
 93:                                               ; preds = %92
   %94 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %95 = tail call ptr %94(ptr noundef nonnull %78) #9
-  store ptr %95, ptr %61, align 8, !tbaa !41
+  store ptr %95, ptr %61, align 8, !tbaa !42
   %.not39.i = icmp eq ptr %95, null
   br i1 %.not39.i, label %96, label %102
 
 96:                                               ; preds = %93, %89, %85, %79, %.thread52
   %.0.ph.i = phi i32 [ 43, %.thread52 ], [ 27, %79 ], [ 27, %85 ], [ 27, %89 ], [ 27, %93 ]
   tail call void @Curl_llist_destroy(ptr noundef nonnull %44, ptr noundef null) #9
-  %97 = load ptr, ptr %45, align 8, !tbaa !37
+  %97 = load ptr, ptr %45, align 8, !tbaa !38
   %.not.i.i43 = icmp eq ptr %97, null
   br i1 %.not.i.i43, label %103, label %98
 
 98:                                               ; preds = %96
-  %99 = load ptr, ptr %53, align 8, !tbaa !38
+  %99 = load ptr, ptr %53, align 8, !tbaa !39
   %.not18.i.i44 = icmp eq ptr %99, null
   br i1 %.not18.i.i44, label %101, label %100
 
@@ -2498,42 +2498,42 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br label %101
 
 101:                                              ; preds = %100, %98
-  store ptr null, ptr %45, align 8, !tbaa !37
+  store ptr null, ptr %45, align 8, !tbaa !38
   br label %103
 
 102:                                              ; preds = %92, %93
-  store ptr %43, ptr %4, align 8, !tbaa !161
+  store ptr %43, ptr %4, align 8, !tbaa !162
   br label %.thread55
 
 103:                                              ; preds = %96, %101
-  store ptr null, ptr %53, align 8, !tbaa !38
+  store ptr null, ptr %53, align 8, !tbaa !39
   %104 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %105 = load ptr, ptr %55, align 8, !tbaa !39
+  %105 = load ptr, ptr %55, align 8, !tbaa !40
   tail call void %104(ptr noundef %105) #9
-  store ptr null, ptr %55, align 8, !tbaa !39
+  store ptr null, ptr %55, align 8, !tbaa !40
   %106 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %107 = load ptr, ptr %58, align 8, !tbaa !40
+  %107 = load ptr, ptr %58, align 8, !tbaa !41
   tail call void %106(ptr noundef %107) #9
-  store ptr null, ptr %58, align 8, !tbaa !40
+  store ptr null, ptr %58, align 8, !tbaa !41
   %108 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %109 = load ptr, ptr %61, align 8, !tbaa !41
+  %109 = load ptr, ptr %61, align 8, !tbaa !42
   tail call void %108(ptr noundef %109) #9
-  store ptr null, ptr %61, align 8, !tbaa !41
+  store ptr null, ptr %61, align 8, !tbaa !42
   %110 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %111 = load ptr, ptr %43, align 8, !tbaa !42
+  %111 = load ptr, ptr %43, align 8, !tbaa !43
   tail call void %110(ptr noundef %111) #9
-  store ptr null, ptr %43, align 8, !tbaa !42
-  store i64 0, ptr %65, align 8, !tbaa !43
+  store ptr null, ptr %43, align 8, !tbaa !43
+  store i64 0, ptr %65, align 8, !tbaa !44
   %112 = load i8, ptr %66, align 8
   %113 = and i8 %112, -2
   store i8 %113, ptr %66, align 8
   tail call void @Curl_llist_destroy(ptr noundef nonnull %44, ptr noundef null) #9
-  %114 = load ptr, ptr %45, align 8, !tbaa !37
+  %114 = load ptr, ptr %45, align 8, !tbaa !38
   %.not.i46 = icmp eq ptr %114, null
   br i1 %.not.i46, label %cf_ssl_scache_clear_peer.exit, label %115
 
 115:                                              ; preds = %103
-  %116 = load ptr, ptr %53, align 8, !tbaa !38
+  %116 = load ptr, ptr %53, align 8, !tbaa !39
   %.not18.i = icmp eq ptr %116, null
   br i1 %.not18.i, label %118, label %117
 
@@ -2542,28 +2542,28 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br label %118
 
 118:                                              ; preds = %117, %115
-  store ptr null, ptr %45, align 8, !tbaa !37
+  store ptr null, ptr %45, align 8, !tbaa !38
   br label %cf_ssl_scache_clear_peer.exit
 
 cf_ssl_scache_clear_peer.exit:                    ; preds = %103, %118
-  store ptr null, ptr %53, align 8, !tbaa !38
+  store ptr null, ptr %53, align 8, !tbaa !39
   %119 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %120 = load ptr, ptr %55, align 8, !tbaa !39
+  %120 = load ptr, ptr %55, align 8, !tbaa !40
   tail call void %119(ptr noundef %120) #9
-  store ptr null, ptr %55, align 8, !tbaa !39
+  store ptr null, ptr %55, align 8, !tbaa !40
   %121 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %122 = load ptr, ptr %58, align 8, !tbaa !40
+  %122 = load ptr, ptr %58, align 8, !tbaa !41
   tail call void %121(ptr noundef %122) #9
-  store ptr null, ptr %58, align 8, !tbaa !40
+  store ptr null, ptr %58, align 8, !tbaa !41
   %123 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %124 = load ptr, ptr %61, align 8, !tbaa !41
+  %124 = load ptr, ptr %61, align 8, !tbaa !42
   tail call void %123(ptr noundef %124) #9
-  store ptr null, ptr %61, align 8, !tbaa !41
+  store ptr null, ptr %61, align 8, !tbaa !42
   %125 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %126 = load ptr, ptr %43, align 8, !tbaa !42
+  %126 = load ptr, ptr %43, align 8, !tbaa !43
   tail call void %125(ptr noundef %126) #9
-  store ptr null, ptr %43, align 8, !tbaa !42
-  store i64 0, ptr %65, align 8, !tbaa !43
+  store ptr null, ptr %43, align 8, !tbaa !43
+  store i64 0, ptr %65, align 8, !tbaa !44
   %127 = load i8, ptr %66, align 8
   %128 = and i8 %127, -2
   store i8 %128, ptr %66, align 8
@@ -2579,7 +2579,7 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %103, %118
 define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3232
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %3, align 8, !tbaa !3
@@ -2592,13 +2592,13 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
   br i1 %.not23, label %11, label %36
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %5, align 8, !tbaa !161
+  %12 = load ptr, ptr %5, align 8, !tbaa !162
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
   store ptr %15, ptr %3, align 8, !tbaa !3
   br label %16
 
@@ -2611,13 +2611,13 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %22 = load ptr, ptr %21, align 8, !tbaa !156
+  %22 = load ptr, ptr %21, align 8, !tbaa !157
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %29, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !157
+  %25 = load i32, ptr %24, align 8, !tbaa !158
   %26 = icmp sgt i32 %25, 0
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8
   %28 = icmp sgt i32 %27, 0
@@ -2625,7 +2625,7 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %30, label %33
 
 29:                                               ; preds = %20
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !157
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ssls, i64 8), align 8, !tbaa !158
   %.old1 = icmp sgt i32 %.old, 0
   br i1 %.old1, label %30, label %33
 
@@ -2651,7 +2651,7 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
 define hidden void @Curl_ssl_scache_remove_all(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3232
-  %6 = load ptr, ptr %5, align 8, !tbaa !155
+  %6 = load ptr, ptr %5, align 8, !tbaa !156
   %7 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %.not = icmp eq ptr %6, null
@@ -2659,13 +2659,13 @@ define hidden void @Curl_ssl_scache_remove_all(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %Curl_ssl_scache_lock.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !106
+  %13 = load i32, ptr %12, align 4, !tbaa !107
   %14 = and i32 %13, 16
   %.not3.i = icmp eq i32 %14, 0
   br i1 %.not3.i, label %Curl_ssl_scache_lock.exit, label %15
@@ -2686,13 +2686,13 @@ Curl_ssl_scache_lock.exit:                        ; preds = %8, %11, %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   tail call void @Curl_llist_destroy(ptr noundef nonnull %22, ptr noundef null) #9
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %.not.i11 = icmp eq ptr %24, null
   br i1 %.not.i11, label %cf_ssl_scache_clear_peer.exit, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
   %.not18.i = icmp eq ptr %27, null
   br i1 %.not18.i, label %29, label %28
 
@@ -2701,33 +2701,33 @@ Curl_ssl_scache_lock.exit:                        ; preds = %8, %11, %15
   br label %29
 
 29:                                               ; preds = %28, %25
-  store ptr null, ptr %23, align 8, !tbaa !37
+  store ptr null, ptr %23, align 8, !tbaa !38
   br label %cf_ssl_scache_clear_peer.exit
 
 cf_ssl_scache_clear_peer.exit:                    ; preds = %21, %29
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store ptr null, ptr %30, align 8, !tbaa !38
+  store ptr null, ptr %30, align 8, !tbaa !39
   %31 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !39
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
   tail call void %31(ptr noundef %33) #9
-  store ptr null, ptr %32, align 8, !tbaa !39
+  store ptr null, ptr %32, align 8, !tbaa !40
   %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
   tail call void %34(ptr noundef %36) #9
-  store ptr null, ptr %35, align 8, !tbaa !40
+  store ptr null, ptr %35, align 8, !tbaa !41
   %37 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !41
+  %39 = load ptr, ptr %38, align 8, !tbaa !42
   tail call void %37(ptr noundef %39) #9
-  store ptr null, ptr %38, align 8, !tbaa !41
+  store ptr null, ptr %38, align 8, !tbaa !42
   %40 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %41 = load ptr, ptr %19, align 8, !tbaa !42
+  %41 = load ptr, ptr %19, align 8, !tbaa !43
   tail call void %40(ptr noundef %41) #9
-  store ptr null, ptr %19, align 8, !tbaa !42
+  store ptr null, ptr %19, align 8, !tbaa !43
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 152
-  store i64 0, ptr %42, align 8, !tbaa !43
+  store i64 0, ptr %42, align 8, !tbaa !44
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 160
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, -2
@@ -2735,13 +2735,13 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %21, %29
   br label %46
 
 46:                                               ; preds = %cf_ssl_scache_clear_peer.exit, %Curl_ssl_scache_lock.exit
-  %47 = load ptr, ptr %9, align 8, !tbaa !45
+  %47 = load ptr, ptr %9, align 8, !tbaa !46
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %Curl_ssl_scache_unlock.exit, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !106
+  %50 = load i32, ptr %49, align 4, !tbaa !107
   %51 = and i32 %50, 16
   %.not3.i13 = icmp eq i32 %51, 0
   br i1 %.not3.i13, label %Curl_ssl_scache_unlock.exit, label %52
@@ -2839,132 +2839,133 @@ attributes #10 = { nounwind willreturn memory(read) }
 !32 = !{!33, !12, i64 144}
 !33 = !{!"Curl_ssl_scache_peer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !34, i64 32, !4, i64 64, !4, i64 72, !5, i64 80, !5, i64 112, !12, i64 144, !12, i64 152, !13, i64 160}
 !34 = !{!"Curl_llist", !16, i64 0, !16, i64 8, !4, i64 16, !12, i64 24}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!33, !4, i64 64}
-!38 = !{!33, !4, i64 72}
-!39 = !{!33, !11, i64 8}
-!40 = !{!33, !11, i64 16}
-!41 = !{!33, !11, i64 24}
-!42 = !{!33, !11, i64 0}
-!43 = !{!33, !12, i64 152}
-!44 = distinct !{!44, !36}
-!45 = !{!46, !54, i64 224}
-!46 = !{!"Curl_easy", !13, i64 0, !12, i64 8, !12, i64 16, !47, i64 24, !14, i64 32, !14, i64 64, !13, i64 96, !13, i64 100, !48, i64 104, !50, i64 160, !51, i64 192, !53, i64 208, !53, i64 216, !54, i64 224, !55, i64 232, !56, i64 240, !64, i64 464, !80, i64 2672, !81, i64 2680, !82, i64 2688, !83, i64 2696, !86, i64 3128, !100, i64 5040, !101, i64 5048, !105, i64 5296}
-!47 = !{!"p1 _ZTS11connectdata", !4, i64 0}
-!48 = !{!"Curl_message", !14, i64 0, !49, i64 32}
-!49 = !{!"CURLMsg", !13, i64 0, !4, i64 8, !5, i64 16}
-!50 = !{!"easy_pollset", !5, i64 0, !13, i64 20, !5, i64 24}
-!51 = !{!"Names", !52, i64 0, !13, i64 8}
-!52 = !{!"p1 _ZTS9Curl_hash", !4, i64 0}
-!53 = !{!"p1 _ZTS10Curl_multi", !4, i64 0}
-!54 = !{!"p1 _ZTS10Curl_share", !4, i64 0}
-!55 = !{!"p1 _ZTS8PslCache", !4, i64 0}
-!56 = !{!"SingleRequest", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !57, i64 32, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 60, !12, i64 64, !13, i64 72, !13, i64 76, !5, i64 80, !5, i64 81, !13, i64 84, !58, i64 88, !59, i64 96, !60, i64 104, !12, i64 168, !12, i64 176, !11, i64 184, !11, i64 192, !5, i64 200, !63, i64 208, !5, i64 216, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219}
-!57 = !{!"curltime", !12, i64 0, !13, i64 8}
-!58 = !{!"p1 _ZTS12Curl_cwriter", !4, i64 0}
-!59 = !{!"p1 _ZTS12Curl_creader", !4, i64 0}
-!60 = !{!"bufq", !61, i64 0, !61, i64 8, !61, i64 16, !62, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !13, i64 56}
-!61 = !{!"p1 _ZTS9buf_chunk", !4, i64 0}
-!62 = !{!"p1 _ZTS9bufc_pool", !4, i64 0}
-!63 = !{!"p1 _ZTS10doh_probes", !4, i64 0}
-!64 = !{!"UserDefined", !65, i64 0, !4, i64 8, !11, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !4, i64 72, !4, i64 80, !12, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !66, i64 352, !67, i64 360, !68, i64 368, !66, i64 808, !66, i64 816, !66, i64 824, !12, i64 832, !74, i64 840, !74, i64 1040, !66, i64 1240, !77, i64 1248, !5, i64 1250, !5, i64 1251, !78, i64 1252, !13, i64 1256, !13, i64 1260, !13, i64 1264, !4, i64 1272, !66, i64 1280, !12, i64 1288, !13, i64 1296, !5, i64 1300, !5, i64 1301, !5, i64 1302, !66, i64 1304, !66, i64 1312, !66, i64 1320, !13, i64 1328, !5, i64 1336, !5, i64 1928, !13, i64 1992, !13, i64 1996, !13, i64 2000, !4, i64 2008, !13, i64 2016, !4, i64 2024, !4, i64 2032, !4, i64 2040, !4, i64 2048, !4, i64 2056, !13, i64 2064, !13, i64 2068, !13, i64 2072, !13, i64 2076, !13, i64 2080, !13, i64 2084, !13, i64 2088, !13, i64 2092, !12, i64 2096, !4, i64 2104, !4, i64 2112, !12, i64 2120, !4, i64 2128, !12, i64 2136, !79, i64 2144, !4, i64 2152, !4, i64 2160, !66, i64 2168, !13, i64 2176, !77, i64 2180, !77, i64 2182, !77, i64 2184, !5, i64 2186, !5, i64 2187, !5, i64 2188, !5, i64 2189, !5, i64 2190, !5, i64 2191, !5, i64 2192, !5, i64 2193, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2201}
-!65 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
-!66 = !{!"p1 _ZTS10curl_slist", !4, i64 0}
-!67 = !{!"p1 _ZTS13curl_httppost", !4, i64 0}
-!68 = !{!"curl_mimepart", !69, i64 0, !70, i64 8, !13, i64 16, !13, i64 20, !11, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !65, i64 64, !66, i64 72, !66, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !12, i64 112, !71, i64 120, !72, i64 144, !73, i64 152, !12, i64 432}
-!69 = !{!"p1 _ZTS9curl_mime", !4, i64 0}
-!70 = !{!"p1 _ZTS13curl_mimepart", !4, i64 0}
-!71 = !{!"mime_state", !13, i64 0, !4, i64 8, !12, i64 16}
-!72 = !{!"p1 _ZTS12mime_encoder", !4, i64 0}
-!73 = !{!"mime_encoder_state", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
-!74 = !{!"ssl_config_data", !75, i64 0, !12, i64 128, !4, i64 136, !4, i64 144, !11, i64 152, !11, i64 160, !76, i64 168, !11, i64 176, !11, i64 184, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 193}
-!75 = !{!"ssl_primary_config", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !76, i64 64, !76, i64 72, !76, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !5, i64 112, !13, i64 116, !5, i64 120, !13, i64 121, !13, i64 121, !13, i64 121, !13, i64 121}
-!76 = !{!"p1 _ZTS9curl_blob", !4, i64 0}
-!77 = !{!"short", !5, i64 0}
-!78 = !{!"ssl_general_config", !13, i64 0}
-!79 = !{!"p1 _ZTS8Curl_URL", !4, i64 0}
-!80 = !{!"p1 _ZTS10CookieInfo", !4, i64 0}
-!81 = !{!"p1 _ZTS4hsts", !4, i64 0}
-!82 = !{!"p1 _ZTS10altsvcinfo", !4, i64 0}
-!83 = !{!"Progress", !12, i64 0, !84, i64 8, !84, i64 56, !12, i64 104, !12, i64 112, !13, i64 120, !13, i64 124, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !57, i64 200, !57, i64 216, !57, i64 232, !57, i64 248, !57, i64 264, !5, i64 280, !5, i64 328, !13, i64 424, !13, i64 428, !13, i64 428}
-!84 = !{!"pgrs_dir", !12, i64 0, !12, i64 8, !12, i64 16, !85, i64 24}
-!85 = !{!"pgrs_measure", !57, i64 0, !12, i64 16}
-!86 = !{!"UrlState", !57, i64 0, !12, i64 16, !12, i64 24, !87, i64 32, !66, i64 64, !12, i64 72, !11, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !25, i64 104, !13, i64 112, !12, i64 120, !13, i64 128, !4, i64 136, !88, i64 144, !88, i64 200, !89, i64 256, !89, i64 288, !90, i64 320, !4, i64 368, !13, i64 376, !13, i64 376, !57, i64 384, !93, i64 400, !34, i64 456, !5, i64 488, !11, i64 1328, !11, i64 1336, !12, i64 1344, !12, i64 1352, !12, i64 1360, !12, i64 1368, !5, i64 1376, !12, i64 1408, !4, i64 1416, !4, i64 1424, !79, i64 1432, !95, i64 1440, !11, i64 1504, !11, i64 1512, !66, i64 1520, !70, i64 1528, !70, i64 1536, !12, i64 1544, !87, i64 1552, !34, i64 1584, !5, i64 1616, !96, i64 1712, !13, i64 1720, !66, i64 1728, !97, i64 1736, !98, i64 1744, !99, i64 1792, !5, i64 1904, !5, i64 1905, !5, i64 1906, !5, i64 1907, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1910, !13, i64 1910, !13, i64 1910, !13, i64 1910, !13, i64 1910}
-!87 = !{!"dynbuf", !11, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!88 = !{!"digestdata", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !13, i64 48, !5, i64 52, !13, i64 53, !13, i64 53}
-!89 = !{!"auth", !12, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !13, i64 24, !13, i64 24}
-!90 = !{!"Curl_async", !11, i64 0, !91, i64 8, !92, i64 16, !4, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
-!91 = !{!"p1 _ZTS14Curl_dns_entry", !4, i64 0}
-!92 = !{!"p1 _ZTS11thread_data", !4, i64 0}
-!93 = !{!"Curl_tree", !94, i64 0, !94, i64 8, !94, i64 16, !94, i64 24, !57, i64 32, !4, i64 48}
-!94 = !{!"p1 _ZTS9Curl_tree", !4, i64 0}
-!95 = !{!"urlpieces", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
-!96 = !{!"p1 _ZTS17Curl_header_store", !4, i64 0}
-!97 = !{!"p1 _ZTS13curl_trc_feat", !4, i64 0}
-!98 = !{!"store_netrc", !87, i64 0, !11, i64 32, !13, i64 40}
-!99 = !{!"dynamically_allocated_data", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!100 = !{!"p1 _ZTS12WildcardData", !4, i64 0}
-!101 = !{!"PureInfo", !13, i64 0, !13, i64 4, !13, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !11, i64 72, !11, i64 80, !12, i64 88, !13, i64 96, !102, i64 100, !13, i64 200, !11, i64 208, !13, i64 216, !103, i64 224, !13, i64 240, !13, i64 244, !13, i64 244}
-!102 = !{!"ip_quadruple", !5, i64 0, !5, i64 46, !13, i64 92, !13, i64 96}
-!103 = !{!"curl_certinfo", !13, i64 0, !104, i64 8}
-!104 = !{!"p2 _ZTS10curl_slist", !4, i64 0}
-!105 = !{!"curl_tlssessioninfo", !13, i64 0, !4, i64 8}
-!106 = !{!107, !13, i64 4}
-!107 = !{!"Curl_share", !13, i64 0, !13, i64 4, !13, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !108, i64 40, !109, i64 200, !80, i64 248, !111, i64 256, !81, i64 280, !25, i64 288}
-!108 = !{!"cpool", !109, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !57, i64 72, !34, i64 88, !110, i64 120, !53, i64 128, !54, i64 136, !4, i64 144, !13, i64 152}
-!109 = !{!"Curl_hash", !15, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !12, i64 32, !12, i64 40}
-!110 = !{!"p1 _ZTS9Curl_easy", !4, i64 0}
-!111 = !{!"PslCache", !112, i64 0, !12, i64 8, !113, i64 16}
-!112 = !{!"p1 _ZTS10psl_ctx_st", !4, i64 0}
-!113 = !{!"_Bool", !5, i64 0}
-!114 = !{!11, !11, i64 0}
-!115 = !{!116, !11, i64 0}
-!116 = !{!"ssl_peer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
-!117 = !{!116, !13, i64 36}
-!118 = !{!116, !13, i64 40}
-!119 = !{!120, !47, i64 24}
-!120 = !{!"Curl_cfilter", !121, i64 0, !122, i64 8, !4, i64 16, !47, i64 24, !13, i64 32, !13, i64 36, !13, i64 36}
-!121 = !{!"p1 _ZTS11Curl_cftype", !4, i64 0}
-!122 = !{!"p1 _ZTS12Curl_cfilter", !4, i64 0}
-!123 = !{!124, !11, i64 152}
-!124 = !{!"connectdata", !14, i64 0, !4, i64 32, !4, i64 40, !12, i64 48, !11, i64 56, !12, i64 64, !91, i64 72, !125, i64 80, !126, i64 88, !11, i64 120, !11, i64 128, !126, i64 136, !127, i64 168, !127, i64 224, !102, i64 280, !102, i64 380, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !11, i64 512, !57, i64 520, !57, i64 536, !57, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !128, i64 624, !50, i64 664, !75, i64 696, !75, i64 824, !129, i64 952, !130, i64 960, !130, i64 968, !57, i64 976, !13, i64 992, !13, i64 996, !34, i64 1000, !13, i64 1032, !13, i64 1036, !131, i64 1040, !131, i64 1064, !5, i64 1088, !11, i64 1368, !11, i64 1376, !77, i64 1384, !13, i64 1388, !13, i64 1392, !13, i64 1396, !13, i64 1400, !77, i64 1404, !77, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
-!125 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
-!126 = !{!"hostname", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!127 = !{!"proxy_info", !126, i64 0, !13, i64 32, !5, i64 36, !11, i64 40, !11, i64 48}
-!128 = !{!"", !5, i64 0, !13, i64 32}
-!129 = !{!"ConnectBits", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 4, !13, i64 4}
-!130 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
-!131 = !{!"ntlmdata", !13, i64 0, !5, i64 4, !13, i64 12, !4, i64 16}
-!132 = !{!124, !13, i64 1396}
-!133 = !{!75, !5, i64 120}
-!134 = !{!75, !13, i64 116}
-!135 = !{!75, !5, i64 112}
-!136 = !{!75, !11, i64 32}
-!137 = !{!75, !11, i64 40}
-!138 = !{!75, !11, i64 104}
-!139 = !{!75, !11, i64 8}
-!140 = !{!75, !11, i64 0}
-!141 = !{!75, !11, i64 56}
-!142 = !{!75, !11, i64 16}
-!143 = !{!75, !76, i64 64}
-!144 = !{!75, !76, i64 72}
-!145 = !{!75, !76, i64 80}
-!146 = !{!75, !11, i64 48}
-!147 = !{!5, !5, i64 0}
-!148 = !{!75, !11, i64 24}
-!149 = !{!75, !11, i64 88}
-!150 = !{!75, !11, i64 96}
-!151 = !{!152, !12, i64 8}
-!152 = !{!"curl_blob", !4, i64 0, !12, i64 8, !13, i64 16}
-!153 = !{!152, !4, i64 0}
-!154 = distinct !{!154, !36}
-!155 = !{!46, !25, i64 3232}
-!156 = !{!46, !97, i64 4864}
-!157 = !{!158, !13, i64 8}
-!158 = !{!"curl_trc_feat", !11, i64 0, !13, i64 8}
-!159 = distinct !{!159, !36}
-!160 = distinct !{!160, !36}
-!161 = !{!28, !28, i64 0}
-!162 = distinct !{!162, !36}
-!163 = distinct !{!163, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!33, !4, i64 64}
+!39 = !{!33, !4, i64 72}
+!40 = !{!33, !11, i64 8}
+!41 = !{!33, !11, i64 16}
+!42 = !{!33, !11, i64 24}
+!43 = !{!33, !11, i64 0}
+!44 = !{!33, !12, i64 152}
+!45 = distinct !{!45, !36, !37}
+!46 = !{!47, !55, i64 224}
+!47 = !{!"Curl_easy", !13, i64 0, !12, i64 8, !12, i64 16, !48, i64 24, !14, i64 32, !14, i64 64, !13, i64 96, !13, i64 100, !49, i64 104, !51, i64 160, !52, i64 192, !54, i64 208, !54, i64 216, !55, i64 224, !56, i64 232, !57, i64 240, !65, i64 464, !81, i64 2672, !82, i64 2680, !83, i64 2688, !84, i64 2696, !87, i64 3128, !101, i64 5040, !102, i64 5048, !106, i64 5296}
+!48 = !{!"p1 _ZTS11connectdata", !4, i64 0}
+!49 = !{!"Curl_message", !14, i64 0, !50, i64 32}
+!50 = !{!"CURLMsg", !13, i64 0, !4, i64 8, !5, i64 16}
+!51 = !{!"easy_pollset", !5, i64 0, !13, i64 20, !5, i64 24}
+!52 = !{!"Names", !53, i64 0, !13, i64 8}
+!53 = !{!"p1 _ZTS9Curl_hash", !4, i64 0}
+!54 = !{!"p1 _ZTS10Curl_multi", !4, i64 0}
+!55 = !{!"p1 _ZTS10Curl_share", !4, i64 0}
+!56 = !{!"p1 _ZTS8PslCache", !4, i64 0}
+!57 = !{!"SingleRequest", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !58, i64 32, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 60, !12, i64 64, !13, i64 72, !13, i64 76, !5, i64 80, !5, i64 81, !13, i64 84, !59, i64 88, !60, i64 96, !61, i64 104, !12, i64 168, !12, i64 176, !11, i64 184, !11, i64 192, !5, i64 200, !64, i64 208, !5, i64 216, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 217, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 218, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219, !13, i64 219}
+!58 = !{!"curltime", !12, i64 0, !13, i64 8}
+!59 = !{!"p1 _ZTS12Curl_cwriter", !4, i64 0}
+!60 = !{!"p1 _ZTS12Curl_creader", !4, i64 0}
+!61 = !{!"bufq", !62, i64 0, !62, i64 8, !62, i64 16, !63, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !13, i64 56}
+!62 = !{!"p1 _ZTS9buf_chunk", !4, i64 0}
+!63 = !{!"p1 _ZTS9bufc_pool", !4, i64 0}
+!64 = !{!"p1 _ZTS10doh_probes", !4, i64 0}
+!65 = !{!"UserDefined", !66, i64 0, !4, i64 8, !11, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !4, i64 72, !4, i64 80, !12, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !67, i64 352, !68, i64 360, !69, i64 368, !67, i64 808, !67, i64 816, !67, i64 824, !12, i64 832, !75, i64 840, !75, i64 1040, !67, i64 1240, !78, i64 1248, !5, i64 1250, !5, i64 1251, !79, i64 1252, !13, i64 1256, !13, i64 1260, !13, i64 1264, !4, i64 1272, !67, i64 1280, !12, i64 1288, !13, i64 1296, !5, i64 1300, !5, i64 1301, !5, i64 1302, !67, i64 1304, !67, i64 1312, !67, i64 1320, !13, i64 1328, !5, i64 1336, !5, i64 1928, !13, i64 1992, !13, i64 1996, !13, i64 2000, !4, i64 2008, !13, i64 2016, !4, i64 2024, !4, i64 2032, !4, i64 2040, !4, i64 2048, !4, i64 2056, !13, i64 2064, !13, i64 2068, !13, i64 2072, !13, i64 2076, !13, i64 2080, !13, i64 2084, !13, i64 2088, !13, i64 2092, !12, i64 2096, !4, i64 2104, !4, i64 2112, !12, i64 2120, !4, i64 2128, !12, i64 2136, !80, i64 2144, !4, i64 2152, !4, i64 2160, !67, i64 2168, !13, i64 2176, !78, i64 2180, !78, i64 2182, !78, i64 2184, !5, i64 2186, !5, i64 2187, !5, i64 2188, !5, i64 2189, !5, i64 2190, !5, i64 2191, !5, i64 2192, !5, i64 2193, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2194, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2195, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2196, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2197, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2198, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2199, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2200, !13, i64 2201}
+!66 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
+!67 = !{!"p1 _ZTS10curl_slist", !4, i64 0}
+!68 = !{!"p1 _ZTS13curl_httppost", !4, i64 0}
+!69 = !{!"curl_mimepart", !70, i64 0, !71, i64 8, !13, i64 16, !13, i64 20, !11, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !66, i64 64, !67, i64 72, !67, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !12, i64 112, !72, i64 120, !73, i64 144, !74, i64 152, !12, i64 432}
+!70 = !{!"p1 _ZTS9curl_mime", !4, i64 0}
+!71 = !{!"p1 _ZTS13curl_mimepart", !4, i64 0}
+!72 = !{!"mime_state", !13, i64 0, !4, i64 8, !12, i64 16}
+!73 = !{!"p1 _ZTS12mime_encoder", !4, i64 0}
+!74 = !{!"mime_encoder_state", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
+!75 = !{!"ssl_config_data", !76, i64 0, !12, i64 128, !4, i64 136, !4, i64 144, !11, i64 152, !11, i64 160, !77, i64 168, !11, i64 176, !11, i64 184, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 192, !13, i64 193}
+!76 = !{!"ssl_primary_config", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !77, i64 64, !77, i64 72, !77, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !5, i64 112, !13, i64 116, !5, i64 120, !13, i64 121, !13, i64 121, !13, i64 121, !13, i64 121}
+!77 = !{!"p1 _ZTS9curl_blob", !4, i64 0}
+!78 = !{!"short", !5, i64 0}
+!79 = !{!"ssl_general_config", !13, i64 0}
+!80 = !{!"p1 _ZTS8Curl_URL", !4, i64 0}
+!81 = !{!"p1 _ZTS10CookieInfo", !4, i64 0}
+!82 = !{!"p1 _ZTS4hsts", !4, i64 0}
+!83 = !{!"p1 _ZTS10altsvcinfo", !4, i64 0}
+!84 = !{!"Progress", !12, i64 0, !85, i64 8, !85, i64 56, !12, i64 104, !12, i64 112, !13, i64 120, !13, i64 124, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !58, i64 200, !58, i64 216, !58, i64 232, !58, i64 248, !58, i64 264, !5, i64 280, !5, i64 328, !13, i64 424, !13, i64 428, !13, i64 428}
+!85 = !{!"pgrs_dir", !12, i64 0, !12, i64 8, !12, i64 16, !86, i64 24}
+!86 = !{!"pgrs_measure", !58, i64 0, !12, i64 16}
+!87 = !{!"UrlState", !58, i64 0, !12, i64 16, !12, i64 24, !88, i64 32, !67, i64 64, !12, i64 72, !11, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !25, i64 104, !13, i64 112, !12, i64 120, !13, i64 128, !4, i64 136, !89, i64 144, !89, i64 200, !90, i64 256, !90, i64 288, !91, i64 320, !4, i64 368, !13, i64 376, !13, i64 376, !58, i64 384, !94, i64 400, !34, i64 456, !5, i64 488, !11, i64 1328, !11, i64 1336, !12, i64 1344, !12, i64 1352, !12, i64 1360, !12, i64 1368, !5, i64 1376, !12, i64 1408, !4, i64 1416, !4, i64 1424, !80, i64 1432, !96, i64 1440, !11, i64 1504, !11, i64 1512, !67, i64 1520, !71, i64 1528, !71, i64 1536, !12, i64 1544, !88, i64 1552, !34, i64 1584, !5, i64 1616, !97, i64 1712, !13, i64 1720, !67, i64 1728, !98, i64 1736, !99, i64 1744, !100, i64 1792, !5, i64 1904, !5, i64 1905, !5, i64 1906, !5, i64 1907, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1908, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1909, !13, i64 1910, !13, i64 1910, !13, i64 1910, !13, i64 1910, !13, i64 1910}
+!88 = !{!"dynbuf", !11, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!89 = !{!"digestdata", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !13, i64 48, !5, i64 52, !13, i64 53, !13, i64 53}
+!90 = !{!"auth", !12, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !13, i64 24, !13, i64 24}
+!91 = !{!"Curl_async", !11, i64 0, !92, i64 8, !93, i64 16, !4, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
+!92 = !{!"p1 _ZTS14Curl_dns_entry", !4, i64 0}
+!93 = !{!"p1 _ZTS11thread_data", !4, i64 0}
+!94 = !{!"Curl_tree", !95, i64 0, !95, i64 8, !95, i64 16, !95, i64 24, !58, i64 32, !4, i64 48}
+!95 = !{!"p1 _ZTS9Curl_tree", !4, i64 0}
+!96 = !{!"urlpieces", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
+!97 = !{!"p1 _ZTS17Curl_header_store", !4, i64 0}
+!98 = !{!"p1 _ZTS13curl_trc_feat", !4, i64 0}
+!99 = !{!"store_netrc", !88, i64 0, !11, i64 32, !13, i64 40}
+!100 = !{!"dynamically_allocated_data", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!101 = !{!"p1 _ZTS12WildcardData", !4, i64 0}
+!102 = !{!"PureInfo", !13, i64 0, !13, i64 4, !13, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !11, i64 72, !11, i64 80, !12, i64 88, !13, i64 96, !103, i64 100, !13, i64 200, !11, i64 208, !13, i64 216, !104, i64 224, !13, i64 240, !13, i64 244, !13, i64 244}
+!103 = !{!"ip_quadruple", !5, i64 0, !5, i64 46, !13, i64 92, !13, i64 96}
+!104 = !{!"curl_certinfo", !13, i64 0, !105, i64 8}
+!105 = !{!"p2 _ZTS10curl_slist", !4, i64 0}
+!106 = !{!"curl_tlssessioninfo", !13, i64 0, !4, i64 8}
+!107 = !{!108, !13, i64 4}
+!108 = !{!"Curl_share", !13, i64 0, !13, i64 4, !13, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !109, i64 40, !110, i64 200, !81, i64 248, !112, i64 256, !82, i64 280, !25, i64 288}
+!109 = !{!"cpool", !110, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !58, i64 72, !34, i64 88, !111, i64 120, !54, i64 128, !55, i64 136, !4, i64 144, !13, i64 152}
+!110 = !{!"Curl_hash", !15, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !12, i64 32, !12, i64 40}
+!111 = !{!"p1 _ZTS9Curl_easy", !4, i64 0}
+!112 = !{!"PslCache", !113, i64 0, !12, i64 8, !114, i64 16}
+!113 = !{!"p1 _ZTS10psl_ctx_st", !4, i64 0}
+!114 = !{!"_Bool", !5, i64 0}
+!115 = !{!11, !11, i64 0}
+!116 = !{!117, !11, i64 0}
+!117 = !{!"ssl_peer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
+!118 = !{!117, !13, i64 36}
+!119 = !{!117, !13, i64 40}
+!120 = !{!121, !48, i64 24}
+!121 = !{!"Curl_cfilter", !122, i64 0, !123, i64 8, !4, i64 16, !48, i64 24, !13, i64 32, !13, i64 36, !13, i64 36}
+!122 = !{!"p1 _ZTS11Curl_cftype", !4, i64 0}
+!123 = !{!"p1 _ZTS12Curl_cfilter", !4, i64 0}
+!124 = !{!125, !11, i64 152}
+!125 = !{!"connectdata", !14, i64 0, !4, i64 32, !4, i64 40, !12, i64 48, !11, i64 56, !12, i64 64, !92, i64 72, !126, i64 80, !127, i64 88, !11, i64 120, !11, i64 128, !127, i64 136, !128, i64 168, !128, i64 224, !103, i64 280, !103, i64 380, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !11, i64 512, !58, i64 520, !58, i64 536, !58, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !129, i64 624, !51, i64 664, !76, i64 696, !76, i64 824, !130, i64 952, !131, i64 960, !131, i64 968, !58, i64 976, !13, i64 992, !13, i64 996, !34, i64 1000, !13, i64 1032, !13, i64 1036, !132, i64 1040, !132, i64 1064, !5, i64 1088, !11, i64 1368, !11, i64 1376, !78, i64 1384, !13, i64 1388, !13, i64 1392, !13, i64 1396, !13, i64 1400, !78, i64 1404, !78, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
+!126 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
+!127 = !{!"hostname", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!128 = !{!"proxy_info", !127, i64 0, !13, i64 32, !5, i64 36, !11, i64 40, !11, i64 48}
+!129 = !{!"", !5, i64 0, !13, i64 32}
+!130 = !{!"ConnectBits", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 4, !13, i64 4}
+!131 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
+!132 = !{!"ntlmdata", !13, i64 0, !5, i64 4, !13, i64 12, !4, i64 16}
+!133 = !{!125, !13, i64 1396}
+!134 = !{!76, !5, i64 120}
+!135 = !{!76, !13, i64 116}
+!136 = !{!76, !5, i64 112}
+!137 = !{!76, !11, i64 32}
+!138 = !{!76, !11, i64 40}
+!139 = !{!76, !11, i64 104}
+!140 = !{!76, !11, i64 8}
+!141 = !{!76, !11, i64 0}
+!142 = !{!76, !11, i64 56}
+!143 = !{!76, !11, i64 16}
+!144 = !{!76, !77, i64 64}
+!145 = !{!76, !77, i64 72}
+!146 = !{!76, !77, i64 80}
+!147 = !{!76, !11, i64 48}
+!148 = !{!5, !5, i64 0}
+!149 = !{!76, !11, i64 24}
+!150 = !{!76, !11, i64 88}
+!151 = !{!76, !11, i64 96}
+!152 = !{!153, !12, i64 8}
+!153 = !{!"curl_blob", !4, i64 0, !12, i64 8, !13, i64 16}
+!154 = !{!153, !4, i64 0}
+!155 = distinct !{!155, !36, !37}
+!156 = !{!47, !25, i64 3232}
+!157 = !{!47, !98, i64 4864}
+!158 = !{!159, !13, i64 8}
+!159 = !{!"curl_trc_feat", !11, i64 0, !13, i64 8}
+!160 = distinct !{!160, !36, !37}
+!161 = distinct !{!161, !36, !37}
+!162 = !{!28, !28, i64 0}
+!163 = distinct !{!163, !36, !37}
+!164 = distinct !{!164, !36, !37}

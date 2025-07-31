@@ -310,7 +310,7 @@ Abc_SclWireLoadFree.exit:                         ; preds = %Vec_FltErase.exit.i
 
 Vec_PtrErase.exit:                                ; preds = %.critedge, %25
   store i32 0, ptr %2, align 4, !tbaa !25
-  store i32 0, ptr %22, align 8, !tbaa !42
+  store i32 0, ptr %22, align 8, !tbaa !43
   %26 = getelementptr i8, ptr %0, i64 68
   %.val60111 = load i32, ptr %26, align 4, !tbaa !25
   %27 = icmp sgt i32 %.val60111, 0
@@ -384,7 +384,7 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %51 = sext i32 %.val.i.i to i64
   %52 = icmp slt i64 %indvars.iv.next.i.i, %51
-  br i1 %52, label %46, label %Vec_PtrFreeData.exit.i, !llvm.loop !43
+  br i1 %52, label %46, label %Vec_PtrFreeData.exit.i, !llvm.loop !44
 
 Vec_PtrFreeData.exit.i:                           ; preds = %50, %Vec_FltErase.exit10.i
   %53 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -399,8 +399,8 @@ Vec_PtrFreeData.exit.i:                           ; preds = %50, %Vec_FltErase.e
 
 Vec_PtrErase.exit.i:                              ; preds = %55, %Vec_PtrFreeData.exit.i
   store i32 0, ptr %43, align 4, !tbaa !25
-  store i32 0, ptr %42, align 8, !tbaa !42
-  %56 = load ptr, ptr %31, align 8, !tbaa !44
+  store i32 0, ptr %42, align 8, !tbaa !43
+  %56 = load ptr, ptr %31, align 8, !tbaa !45
   %.not.i70 = icmp eq ptr %56, null
   br i1 %.not.i70, label %Abc_SclWireLoadSelFree.exit, label %57
 
@@ -414,7 +414,7 @@ Abc_SclWireLoadSelFree.exit:                      ; preds = %Vec_PtrErase.exit.i
   %.val60 = load i32, ptr %26, align 4, !tbaa !25
   %58 = sext i32 %.val60 to i64
   %59 = icmp slt i64 %indvars.iv.next122, %58
-  br i1 %59, label %29, label %.critedge2, !llvm.loop !46
+  br i1 %59, label %29, label %.critedge2, !llvm.loop !47
 
 .critedge2:                                       ; preds = %Abc_SclWireLoadSelFree.exit, %Vec_PtrErase.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -430,7 +430,7 @@ Abc_SclWireLoadSelFree.exit:                      ; preds = %Vec_PtrErase.exit.i
 
 Vec_PtrErase.exit72:                              ; preds = %.critedge2, %63
   store i32 0, ptr %26, align 4, !tbaa !25
-  store i32 0, ptr %60, align 8, !tbaa !42
+  store i32 0, ptr %60, align 8, !tbaa !43
   %64 = getelementptr i8, ptr %0, i64 84
   %.val61114 = load i32, ptr %64, align 4, !tbaa !25
   %65 = icmp sgt i32 %.val61114, 0
@@ -474,7 +474,7 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %63
   %indvars.iv.next.i.i85 = add nuw nsw i64 %indvars.iv.i.i80, 1
   %79 = sext i32 %.val.i.i84 to i64
   %80 = icmp slt i64 %indvars.iv.next.i.i85, %79
-  br i1 %80, label %74, label %Vec_PtrFreeData.exit.i74, !llvm.loop !43
+  br i1 %80, label %74, label %Vec_PtrFreeData.exit.i74, !llvm.loop !44
 
 Vec_PtrFreeData.exit.i74:                         ; preds = %78, %67
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -489,10 +489,10 @@ Vec_PtrFreeData.exit.i74:                         ; preds = %78, %67
 
 Vec_PtrErase.exit.i76:                            ; preds = %83, %Vec_PtrFreeData.exit.i74
   store i32 0, ptr %71, align 4, !tbaa !25
-  store i32 0, ptr %70, align 8, !tbaa !42
+  store i32 0, ptr %70, align 8, !tbaa !43
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %85 = getelementptr i8, ptr %69, i64 28
-  %.val10.i.i = load i32, ptr %85, align 4, !tbaa !47
+  %.val10.i.i = load i32, ptr %85, align 4, !tbaa !48
   %86 = icmp sgt i32 %.val10.i.i, 0
   br i1 %86, label %.lr.ph.i8.i, label %.critedge.i.i
 
@@ -503,7 +503,7 @@ Vec_PtrErase.exit.i76:                            ; preds = %83, %Vec_PtrFreeDat
 88:                                               ; preds = %95, %.lr.ph.i8.i
   %.val13.i.i = phi i32 [ %.val10.i.i, %.lr.ph.i8.i ], [ %.val.i12.i, %95 ]
   %indvars.iv.i9.i = phi i64 [ 0, %.lr.ph.i8.i ], [ %indvars.iv.next.i13.i, %95 ]
-  %.val8.i.i = load ptr, ptr %87, align 8, !tbaa !49
+  %.val8.i.i = load ptr, ptr %87, align 8, !tbaa !50
   %89 = getelementptr inbounds nuw ptr, ptr %.val8.i.i, i64 %indvars.iv.i9.i
   %90 = load ptr, ptr %89, align 8, !tbaa !28
   %.not.i10.i = icmp eq ptr %90, null
@@ -521,7 +521,7 @@ Vec_PtrErase.exit.i76:                            ; preds = %83, %Vec_PtrFreeDat
 
 Vec_PtrFree.exit.i.i:                             ; preds = %94, %91
   tail call void @free(ptr noundef nonnull %90) #12
-  %.val.pre.i11.i = load i32, ptr %85, align 4, !tbaa !47
+  %.val.pre.i11.i = load i32, ptr %85, align 4, !tbaa !48
   br label %95
 
 95:                                               ; preds = %Vec_PtrFree.exit.i.i, %88
@@ -529,7 +529,7 @@ Vec_PtrFree.exit.i.i:                             ; preds = %94, %91
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %96 = sext i32 %.val.i12.i to i64
   %97 = icmp slt i64 %indvars.iv.next.i13.i, %96
-  br i1 %97, label %88, label %.critedge.i.i, !llvm.loop !50
+  br i1 %97, label %88, label %.critedge.i.i, !llvm.loop !51
 
 .critedge.i.i:                                    ; preds = %95, %Vec_PtrErase.exit.i76
   %98 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -544,8 +544,8 @@ Vec_PtrFree.exit.i.i:                             ; preds = %94, %91
 
 Vec_VecErase.exit.i:                              ; preds = %100, %.critedge.i.i
   store i32 0, ptr %85, align 4, !tbaa !25
-  store i32 0, ptr %84, align 8, !tbaa !42
-  %101 = load ptr, ptr %69, align 8, !tbaa !51
+  store i32 0, ptr %84, align 8, !tbaa !43
+  %101 = load ptr, ptr %69, align 8, !tbaa !52
   %.not.i77 = icmp eq ptr %101, null
   br i1 %.not.i77, label %Abc_SclTableTemplFree.exit, label %102
 
@@ -559,7 +559,7 @@ Abc_SclTableTemplFree.exit:                       ; preds = %Vec_VecErase.exit.i
   %.val61 = load i32, ptr %64, align 4, !tbaa !25
   %103 = sext i32 %.val61 to i64
   %104 = icmp slt i64 %indvars.iv.next125, %103
-  br i1 %104, label %67, label %.critedge4, !llvm.loop !53
+  br i1 %104, label %67, label %.critedge4, !llvm.loop !54
 
 .critedge4:                                       ; preds = %Abc_SclTableTemplFree.exit, %Vec_PtrErase.exit72
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -575,7 +575,7 @@ Abc_SclTableTemplFree.exit:                       ; preds = %Vec_VecErase.exit.i
 
 Vec_PtrErase.exit87:                              ; preds = %.critedge4, %108
   store i32 0, ptr %64, align 4, !tbaa !25
-  store i32 0, ptr %105, align 8, !tbaa !42
+  store i32 0, ptr %105, align 8, !tbaa !43
   %109 = getelementptr i8, ptr %0, i64 100
   %.val62117 = load i32, ptr %109, align 4, !tbaa !25
   %110 = icmp sgt i32 %.val62117, 0
@@ -640,18 +640,18 @@ Vec_PtrErase.exit87:                              ; preds = %.critedge4, %108
   tail call fastcc void @Abc_SclSurfaceFree(ptr noundef nonnull %135)
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 552
   tail call fastcc void @Abc_SclSurfaceFree(ptr noundef nonnull %136)
-  %137 = load ptr, ptr %132, align 8, !tbaa !54
+  %137 = load ptr, ptr %132, align 8, !tbaa !55
   %.not.i.i.i.i = icmp eq ptr %137, null
   br i1 %.not.i.i.i.i, label %139, label %138
 
 138:                                              ; preds = %130
   tail call void @free(ptr noundef nonnull %137) #12
-  store ptr null, ptr %132, align 8, !tbaa !54
+  store ptr null, ptr %132, align 8, !tbaa !55
   br label %139
 
 139:                                              ; preds = %138, %130
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !57
+  %141 = load ptr, ptr %140, align 8, !tbaa !58
   %.not13.i.i.i.i = icmp eq ptr %141, null
   br i1 %.not13.i.i.i.i, label %Abc_SclTimingFree.exit.i.i.i, label %142
 
@@ -665,7 +665,7 @@ Abc_SclTimingFree.exit.i.i.i:                     ; preds = %142, %139
   %.val.i.i.i = load i32, ptr %127, align 4, !tbaa !25
   %143 = sext i32 %.val.i.i.i to i64
   %144 = icmp slt i64 %indvars.iv.next.i.i.i, %143
-  br i1 %144, label %130, label %.critedge.i.i.i, !llvm.loop !58
+  br i1 %144, label %130, label %.critedge.i.i.i, !llvm.loop !59
 
 .critedge.i.i.i:                                  ; preds = %Abc_SclTimingFree.exit.i.i.i, %124
   %145 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -681,8 +681,8 @@ Abc_SclTimingFree.exit.i.i.i:                     ; preds = %142, %139
 
 Vec_PtrErase.exit.i.i.i:                          ; preds = %148, %.critedge.i.i.i
   store i32 0, ptr %127, align 4, !tbaa !25
-  store i32 0, ptr %145, align 8, !tbaa !42
-  %149 = load ptr, ptr %126, align 8, !tbaa !59
+  store i32 0, ptr %145, align 8, !tbaa !43
+  %149 = load ptr, ptr %126, align 8, !tbaa !60
   %.not.i.i.i95 = icmp eq ptr %149, null
   br i1 %.not.i.i.i95, label %Abc_SclTimingsFree.exit.i.i, label %150
 
@@ -696,7 +696,7 @@ Abc_SclTimingsFree.exit.i.i:                      ; preds = %150, %Vec_PtrErase.
   %.val.i.i97 = load i32, ptr %121, align 4, !tbaa !25
   %151 = sext i32 %.val.i.i97 to i64
   %152 = icmp slt i64 %indvars.iv.next.i.i96, %151
-  br i1 %152, label %124, label %.critedge.i.i90, !llvm.loop !61
+  br i1 %152, label %124, label %.critedge.i.i90, !llvm.loop !62
 
 .critedge.i.i90:                                  ; preds = %Abc_SclTimingsFree.exit.i.i, %118
   %153 = getelementptr inbounds nuw i8, ptr %120, i64 64
@@ -712,34 +712,34 @@ Abc_SclTimingsFree.exit.i.i:                      ; preds = %150, %Vec_PtrErase.
 
 Vec_PtrErase.exit.i.i:                            ; preds = %156, %.critedge.i.i90
   store i32 0, ptr %121, align 4, !tbaa !25
-  store i32 0, ptr %153, align 8, !tbaa !42
+  store i32 0, ptr %153, align 8, !tbaa !43
   %157 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %158 = getelementptr inbounds nuw i8, ptr %120, i64 56
-  %159 = load ptr, ptr %158, align 8, !tbaa !62
+  %159 = load ptr, ptr %158, align 8, !tbaa !63
   %.not.i20.i.i = icmp eq ptr %159, null
   br i1 %.not.i20.i.i, label %Vec_WrdErase.exit.i.i, label %160
 
 160:                                              ; preds = %Vec_PtrErase.exit.i.i
   tail call void @free(ptr noundef nonnull %159) #12
-  store ptr null, ptr %158, align 8, !tbaa !62
+  store ptr null, ptr %158, align 8, !tbaa !63
   br label %Vec_WrdErase.exit.i.i
 
 Vec_WrdErase.exit.i.i:                            ; preds = %160, %Vec_PtrErase.exit.i.i
   %161 = getelementptr inbounds nuw i8, ptr %120, i64 52
-  store i32 0, ptr %161, align 4, !tbaa !65
-  store i32 0, ptr %157, align 8, !tbaa !66
+  store i32 0, ptr %161, align 4, !tbaa !66
+  store i32 0, ptr %157, align 8, !tbaa !67
   %162 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !67
+  %163 = load ptr, ptr %162, align 8, !tbaa !68
   %.not.i.i91 = icmp eq ptr %163, null
   br i1 %.not.i.i91, label %165, label %164
 
 164:                                              ; preds = %Vec_WrdErase.exit.i.i
   tail call void @free(ptr noundef nonnull %163) #12
-  store ptr null, ptr %162, align 8, !tbaa !67
+  store ptr null, ptr %162, align 8, !tbaa !68
   br label %165
 
 165:                                              ; preds = %164, %Vec_WrdErase.exit.i.i
-  %166 = load ptr, ptr %120, align 8, !tbaa !69
+  %166 = load ptr, ptr %120, align 8, !tbaa !70
   %.not17.i.i = icmp eq ptr %166, null
   br i1 %.not17.i.i, label %Abc_SclPinFree.exit.i, label %167
 
@@ -753,7 +753,7 @@ Abc_SclPinFree.exit.i:                            ; preds = %167, %165
   %.val.i = load i32, ptr %115, align 4, !tbaa !25
   %168 = sext i32 %.val.i to i64
   %169 = icmp slt i64 %indvars.iv.next.i, %168
-  br i1 %169, label %118, label %.critedge.i, !llvm.loop !70
+  br i1 %169, label %118, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %Abc_SclPinFree.exit.i, %112
   %170 = getelementptr inbounds nuw i8, ptr %114, i64 48
@@ -769,8 +769,8 @@ Abc_SclPinFree.exit.i:                            ; preds = %167, %165
 
 Vec_PtrErase.exit.i88:                            ; preds = %173, %.critedge.i
   store i32 0, ptr %115, align 4, !tbaa !25
-  store i32 0, ptr %170, align 8, !tbaa !42
-  %174 = load ptr, ptr %114, align 8, !tbaa !71
+  store i32 0, ptr %170, align 8, !tbaa !43
+  %174 = load ptr, ptr %114, align 8, !tbaa !72
   %.not.i89 = icmp eq ptr %174, null
   br i1 %.not.i89, label %Abc_SclCellFree.exit, label %175
 
@@ -784,7 +784,7 @@ Abc_SclCellFree.exit:                             ; preds = %Vec_PtrErase.exit.i
   %.val62 = load i32, ptr %109, align 4, !tbaa !25
   %176 = sext i32 %.val62 to i64
   %177 = icmp slt i64 %indvars.iv.next128, %176
-  br i1 %177, label %112, label %.critedge6, !llvm.loop !74
+  br i1 %177, label %112, label %.critedge6, !llvm.loop !75
 
 .critedge6:                                       ; preds = %Abc_SclCellFree.exit, %Vec_PtrErase.exit87
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -800,7 +800,7 @@ Abc_SclCellFree.exit:                             ; preds = %Vec_PtrErase.exit.i
 
 Vec_PtrErase.exit99:                              ; preds = %.critedge6, %181
   store i32 0, ptr %109, align 4, !tbaa !25
-  store i32 0, ptr %178, align 8, !tbaa !42
+  store i32 0, ptr %178, align 8, !tbaa !43
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %184 = load ptr, ptr %183, align 8, !tbaa !27
@@ -815,52 +815,52 @@ Vec_PtrErase.exit99:                              ; preds = %.critedge6, %181
 Vec_PtrErase.exit101:                             ; preds = %Vec_PtrErase.exit99, %185
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %186, align 4, !tbaa !25
-  store i32 0, ptr %182, align 8, !tbaa !42
-  %187 = load ptr, ptr %0, align 8, !tbaa !75
+  store i32 0, ptr %182, align 8, !tbaa !43
+  %187 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %187, null
   br i1 %.not, label %189, label %188
 
 188:                                              ; preds = %Vec_PtrErase.exit101
   tail call void @free(ptr noundef nonnull %187) #12
-  store ptr null, ptr %0, align 8, !tbaa !75
+  store ptr null, ptr %0, align 8, !tbaa !76
   br label %189
 
 189:                                              ; preds = %Vec_PtrErase.exit101, %188
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %191 = load ptr, ptr %190, align 8, !tbaa !77
+  %191 = load ptr, ptr %190, align 8, !tbaa !78
   %.not56 = icmp eq ptr %191, null
   br i1 %.not56, label %193, label %192
 
 192:                                              ; preds = %189
   tail call void @free(ptr noundef nonnull %191) #12
-  store ptr null, ptr %190, align 8, !tbaa !77
+  store ptr null, ptr %190, align 8, !tbaa !78
   br label %193
 
 193:                                              ; preds = %189, %192
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %195 = load ptr, ptr %194, align 8, !tbaa !78
+  %195 = load ptr, ptr %194, align 8, !tbaa !79
   %.not57 = icmp eq ptr %195, null
   br i1 %.not57, label %197, label %196
 
 196:                                              ; preds = %193
   tail call void @free(ptr noundef nonnull %195) #12
-  store ptr null, ptr %194, align 8, !tbaa !78
+  store ptr null, ptr %194, align 8, !tbaa !79
   br label %197
 
 197:                                              ; preds = %193, %196
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !79
+  %199 = load ptr, ptr %198, align 8, !tbaa !80
   %.not58 = icmp eq ptr %199, null
   br i1 %.not58, label %201, label %200
 
 200:                                              ; preds = %197
   tail call void @free(ptr noundef nonnull %199) #12
-  store ptr null, ptr %198, align 8, !tbaa !79
+  store ptr null, ptr %198, align 8, !tbaa !80
   br label %201
 
 201:                                              ; preds = %197, %200
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %203 = load ptr, ptr %202, align 8, !tbaa !80
+  %203 = load ptr, ptr %202, align 8, !tbaa !81
   %.not59 = icmp eq ptr %203, null
   br i1 %.not59, label %205, label %204
 
@@ -940,7 +940,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   ]
 
 9:                                                ; preds = %7
-  %10 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %10 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not198 = icmp slt i32 %10, %1
   br i1 %.not198, label %12, label %11
 
@@ -951,16 +951,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 12:                                               ; preds = %9
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds ptr, ptr %2, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !83
   %16 = tail call double @strtod(ptr noundef nonnull captures(none) %15, ptr noundef null) #12
   %17 = fptrunc double %16 to float
   %18 = add nsw i32 %10, 1
-  store i32 %18, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %18, ptr @globalUtilOptind, align 4, !tbaa !82
   %19 = fcmp ugt double %16, 0x3690000000000000
   br i1 %19, label %.backedge, label %.loopexit
 
 20:                                               ; preds = %7
-  %21 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %21 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not197 = icmp slt i32 %21, %1
   br i1 %.not197, label %23, label %22
 
@@ -971,16 +971,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 23:                                               ; preds = %20
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds ptr, ptr %2, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !82
+  %26 = load ptr, ptr %25, align 8, !tbaa !83
   %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #12
   %28 = fptrunc double %27 to float
   %29 = add nsw i32 %21, 1
-  store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !82
   %30 = fcmp ugt double %27, 0x3690000000000000
   br i1 %30, label %.backedge, label %.loopexit
 
 31:                                               ; preds = %7
-  %32 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %32 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not196 = icmp slt i32 %32, %1
   br i1 %.not196, label %34, label %33
 
@@ -991,11 +991,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 34:                                               ; preds = %31
   %35 = sext i32 %32 to i64
   %36 = getelementptr inbounds ptr, ptr %2, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !82
+  %37 = load ptr, ptr %36, align 8, !tbaa !83
   %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #12
   %39 = trunc i64 %38 to i32
   %40 = add nsw i32 %32, 1
-  store i32 %40, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %40, ptr @globalUtilOptind, align 4, !tbaa !82
   %41 = icmp slt i32 %39, 0
   br i1 %41, label %.loopexit, label %.backedge
 
@@ -1012,10 +1012,10 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %.0145.be = phi float [ %.0145, %12 ], [ %28, %23 ], [ %.0145, %34 ], [ %.0145, %45 ], [ %.0145, %53 ], [ %.0145, %55 ], [ %.0145, %57 ], [ %.0145, %59 ], [ %.0145, %61 ], [ %.0145, %63 ], [ %.0145, %65 ], [ %.0145, %67 ]
   %.0142.be = phi float [ %17, %12 ], [ %.0142, %23 ], [ %.0142, %34 ], [ %.0142, %45 ], [ %.0142, %53 ], [ %.0142, %55 ], [ %.0142, %57 ], [ %.0142, %59 ], [ %.0142, %61 ], [ %.0142, %63 ], [ %.0142, %65 ], [ %.0142, %67 ]
   %.0139.be = phi i32 [ %.0139, %12 ], [ %.0139, %23 ], [ %.0139, %34 ], [ %.0139, %45 ], [ %54, %53 ], [ %.0139, %55 ], [ %.0139, %57 ], [ %.0139, %59 ], [ %.0139, %61 ], [ %.0139, %63 ], [ %.0139, %65 ], [ %.0139, %67 ]
-  br label %7, !llvm.loop !83
+  br label %7, !llvm.loop !84
 
 42:                                               ; preds = %7
-  %43 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %43 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not195 = icmp slt i32 %43, %1
   br i1 %.not195, label %45, label %44
 
@@ -1026,13 +1026,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 45:                                               ; preds = %42
   %46 = sext i32 %43 to i64
   %47 = getelementptr inbounds ptr, ptr %2, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !82
+  %48 = load ptr, ptr %47, align 8, !tbaa !83
   %49 = sext i32 %.sroa.0.0 to i64
   %50 = getelementptr inbounds ptr, ptr %6, i64 %49
-  store ptr %48, ptr %50, align 8, !tbaa !82
+  store ptr %48, ptr %50, align 8, !tbaa !83
   %51 = add nsw i32 %.sroa.0.0, 1
   %52 = add nsw i32 %43, 1
-  store i32 %52, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %52, ptr @globalUtilOptind, align 4, !tbaa !82
   br label %.backedge
 
 53:                                               ; preds = %7
@@ -1068,7 +1068,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   br label %.backedge
 
 69:                                               ; preds = %7
-  %70 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %70 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %71 = add nsw i32 %70, 2
   %72 = icmp eq i32 %1, %71
   br i1 %72, label %73, label %110
@@ -1076,7 +1076,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 73:                                               ; preds = %69
   %74 = sext i32 %70 to i64
   %75 = getelementptr inbounds ptr, ptr %2, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !82
+  %76 = load ptr, ptr %75, align 8, !tbaa !83
   %77 = tail call noalias ptr @fopen(ptr noundef %76, ptr noundef nonnull @.str.22)
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.sink.split.i, label %79
@@ -1090,17 +1090,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 .sink.split.i:                                    ; preds = %79, %73
   %.str.24.sink.i = phi ptr [ @.str.23, %73 ], [ @.str.24, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %84 = load ptr, ptr %83, align 8, !tbaa !84
+  %84 = load ptr, ptr %83, align 8, !tbaa !85
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull %.str.24.sink.i, ptr noundef %76) #12
   br label %Scl_ReadLibraryFile.exit
 
 Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
   %.0.i = phi ptr [ %81, %79 ], [ null, %.sink.split.i ]
-  %86 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %86 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %87 = sext i32 %86 to i64
   %88 = getelementptr ptr, ptr %2, i64 %87
   %89 = getelementptr i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !82
+  %90 = load ptr, ptr %89, align 8, !tbaa !83
   %91 = tail call noalias ptr @fopen(ptr noundef %90, ptr noundef nonnull @.str.22)
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.sink.split.i209, label %93
@@ -1114,7 +1114,7 @@ Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
 .sink.split.i209:                                 ; preds = %93, %Scl_ReadLibraryFile.exit
   %.str.24.sink.i210 = phi ptr [ @.str.23, %Scl_ReadLibraryFile.exit ], [ @.str.24, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %98 = load ptr, ptr %97, align 8, !tbaa !84
+  %98 = load ptr, ptr %97, align 8, !tbaa !85
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull %.str.24.sink.i210, ptr noundef %90) #12
   br label %Scl_ReadLibraryFile.exit211
 
@@ -1163,7 +1163,7 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
 113:                                              ; preds = %110
   %114 = sext i32 %70 to i64
   %115 = getelementptr inbounds ptr, ptr %2, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !82
+  %116 = load ptr, ptr %115, align 8, !tbaa !83
   %117 = tail call noalias ptr @fopen(ptr noundef %116, ptr noundef nonnull @.str.22)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %Scl_ReadLibraryFile.exit215.thread, label %119
@@ -1177,13 +1177,13 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
 Scl_ReadLibraryFile.exit215.thread:               ; preds = %113, %119
   %.str.24.sink.i214 = phi ptr [ @.str.23, %113 ], [ @.str.24, %119 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %124 = load ptr, ptr %123, align 8, !tbaa !84
+  %124 = load ptr, ptr %123, align 8, !tbaa !85
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull %.str.24.sink.i214, ptr noundef %116) #12
   br label %132
 
 Scl_ReadLibraryFile.exit215:                      ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %127 = load ptr, ptr %126, align 8, !tbaa !85
+  %127 = load ptr, ptr %126, align 8, !tbaa !86
   %128 = icmp ne i32 %.0155, 0
   %129 = icmp ne ptr %127, null
   %or.cond3 = select i1 %128, i1 %129, i1 false
@@ -1223,7 +1223,7 @@ Scl_ReadLibraryFile.exit215:                      ; preds = %119
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %143 = load ptr, ptr %142, align 8, !tbaa !84
+  %143 = load ptr, ptr %142, align 8, !tbaa !85
   %144 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.1138) #12
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.30, i32 noundef %144) #12
   tail call fastcc void @Abc_SclLibFree(ptr noundef %.1138)
@@ -1253,17 +1253,17 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   br i1 %.not191, label %161, label %152
 
 152:                                              ; preds = %151
-  %153 = load ptr, ptr %147, align 8, !tbaa !85
+  %153 = load ptr, ptr %147, align 8, !tbaa !86
   %.not192 = icmp eq ptr %153, null
   br i1 %.not192, label %161, label %154
 
 154:                                              ; preds = %152
-  %155 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %155 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %2, i64 %156
-  %158 = load ptr, ptr %157, align 8, !tbaa !82
+  %158 = load ptr, ptr %157, align 8, !tbaa !83
   %159 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %158, ptr noundef nonnull @.str.31) #12
-  %160 = load ptr, ptr %147, align 8, !tbaa !85
+  %160 = load ptr, ptr %147, align 8, !tbaa !86
   tail call void @Abc_SclWriteLiberty(ptr noundef %159, ptr noundef %160) #12
   br label %161
 
@@ -1288,13 +1288,13 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   %166 = getelementptr inbounds nuw ptr, ptr %.val207, i64 %indvars.iv
   %167 = load ptr, ptr %166, align 8, !tbaa !28
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store float 1.000000e+00, ptr %168, align 8, !tbaa !86
+  store float 1.000000e+00, ptr %168, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %165, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge, label %165, !llvm.loop !88
 
 .critedge:                                        ; preds = %165, %.preheader, %161
-  %169 = load ptr, ptr %147, align 8, !tbaa !85
+  %169 = load ptr, ptr %147, align 8, !tbaa !86
   %.not194 = icmp eq ptr %169, null
   br i1 %.not194, label %.thread, label %170
 
@@ -1308,57 +1308,57 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   %.1146 = phi float [ %.0145, %11 ], [ %.0145, %22 ], [ %.0145, %33 ], [ %.0145, %44 ], [ %.0145, %135 ], [ %.0145, %134 ], [ %.0145, %7 ], [ %.0145, %34 ], [ %28, %23 ], [ %.0145, %12 ]
   %.1143 = phi float [ %.0142, %11 ], [ %.0142, %22 ], [ %.0142, %33 ], [ %.0142, %44 ], [ %.0142, %135 ], [ %.0142, %134 ], [ %.0142, %7 ], [ %.0142, %34 ], [ %.0142, %23 ], [ %17, %12 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %172 = load ptr, ptr %171, align 8, !tbaa !84
+  %172 = load ptr, ptr %171, align 8, !tbaa !85
   %173 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 80, i64 1, ptr %172)
-  %174 = load ptr, ptr %171, align 8, !tbaa !84
+  %174 = load ptr, ptr %171, align 8, !tbaa !85
   %175 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 44, i64 1, ptr %174)
-  %176 = load ptr, ptr %171, align 8, !tbaa !84
+  %176 = load ptr, ptr %171, align 8, !tbaa !85
   %177 = fpext float %.1143 to double
   %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.34, double noundef %177) #12
-  %179 = load ptr, ptr %171, align 8, !tbaa !84
+  %179 = load ptr, ptr %171, align 8, !tbaa !85
   %180 = fpext float %.1146 to double
   %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.35, double noundef %180) #12
-  %182 = load ptr, ptr %171, align 8, !tbaa !84
+  %182 = load ptr, ptr %171, align 8, !tbaa !85
   %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.36, i32 noundef %.1149) #12
-  %184 = load ptr, ptr %171, align 8, !tbaa !84
+  %184 = load ptr, ptr %171, align 8, !tbaa !85
   %185 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 96, i64 1, ptr %184)
-  %186 = load ptr, ptr %171, align 8, !tbaa !84
+  %186 = load ptr, ptr %171, align 8, !tbaa !85
   %.not199 = icmp eq i32 %.0139, 0
   %187 = select i1 %.not199, ptr @.str.40, ptr @.str.39
   %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.38, ptr noundef nonnull %187) #12
-  %189 = load ptr, ptr %171, align 8, !tbaa !84
+  %189 = load ptr, ptr %171, align 8, !tbaa !85
   %.not200 = icmp eq i32 %.0163, 0
   %190 = select i1 %.not200, ptr @.str.40, ptr @.str.39
   %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.41, ptr noundef nonnull %190) #12
-  %192 = load ptr, ptr %171, align 8, !tbaa !84
+  %192 = load ptr, ptr %171, align 8, !tbaa !85
   %.not201 = icmp eq i32 %.0161, 0
   %193 = select i1 %.not201, ptr @.str.40, ptr @.str.39
   %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.42, ptr noundef nonnull %193) #12
-  %195 = load ptr, ptr %171, align 8, !tbaa !84
+  %195 = load ptr, ptr %171, align 8, !tbaa !85
   %.not202 = icmp eq i32 %.0159, 0
   %196 = select i1 %.not202, ptr @.str.40, ptr @.str.39
   %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.43, ptr noundef nonnull %196) #12
-  %198 = load ptr, ptr %171, align 8, !tbaa !84
+  %198 = load ptr, ptr %171, align 8, !tbaa !85
   %.not203 = icmp eq i32 %.0157, 0
   %199 = select i1 %.not203, ptr @.str.40, ptr @.str.39
   %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.44, ptr noundef nonnull %199) #12
-  %201 = load ptr, ptr %171, align 8, !tbaa !84
+  %201 = load ptr, ptr %171, align 8, !tbaa !85
   %.not204 = icmp eq i32 %.0155, 0
   %202 = select i1 %.not204, ptr @.str.40, ptr @.str.39
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.45, ptr noundef nonnull %202) #12
-  %204 = load ptr, ptr %171, align 8, !tbaa !84
+  %204 = load ptr, ptr %171, align 8, !tbaa !85
   %.not205 = icmp eq i32 %.0151, 0
   %205 = select i1 %.not205, ptr @.str.40, ptr @.str.39
   %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.46, ptr noundef nonnull %205) #12
-  %207 = load ptr, ptr %171, align 8, !tbaa !84
+  %207 = load ptr, ptr %171, align 8, !tbaa !85
   %.not206 = icmp eq i32 %.0153, 0
   %208 = select i1 %.not206, ptr @.str.40, ptr @.str.39
   %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.47, ptr noundef nonnull %208) #12
-  %210 = load ptr, ptr %171, align 8, !tbaa !84
+  %210 = load ptr, ptr %171, align 8, !tbaa !85
   %211 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 39, i64 1, ptr %210)
-  %212 = load ptr, ptr %171, align 8, !tbaa !84
+  %212 = load ptr, ptr %171, align 8, !tbaa !85
   %213 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 39, i64 1, ptr %212)
-  %214 = load ptr, ptr %171, align 8, !tbaa !84
+  %214 = load ptr, ptr %171, align 8, !tbaa !85
   %215 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 50, i64 1, ptr %214)
   br label %.thread
 
@@ -1375,52 +1375,52 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr noundef readonly ca
   br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %7 = add nsw i32 %6, 1
   %.not17 = icmp eq i32 %1, %7
   br i1 %.not17, label %8, label %29
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = load ptr, ptr %9, align 8, !tbaa !85
+  %10 = load ptr, ptr %9, align 8, !tbaa !86
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %14)
   br label %39
 
 16:                                               ; preds = %8
   %17 = sext i32 %6 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !82
+  %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.55)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8, !tbaa !84
+  %24 = load ptr, ptr %23, align 8, !tbaa !85
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #12
   br label %39
 
 26:                                               ; preds = %16
   %27 = tail call i32 @fclose(ptr noundef nonnull %20)
-  %28 = load ptr, ptr %9, align 8, !tbaa !85
+  %28 = load ptr, ptr %9, align 8, !tbaa !86
   tail call void @Abc_SclWriteLiberty(ptr noundef %19, ptr noundef %28) #12
   br label %39
 
 29:                                               ; preds = %5, %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load ptr, ptr %30, align 8, !tbaa !84
+  %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 29, i64 1, ptr %31)
-  %33 = load ptr, ptr %30, align 8, !tbaa !84
+  %33 = load ptr, ptr %30, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 50, i64 1, ptr %33)
-  %35 = load ptr, ptr %30, align 8, !tbaa !84
+  %35 = load ptr, ptr %30, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %35)
-  %37 = load ptr, ptr %30, align 8, !tbaa !84
+  %37 = load ptr, ptr %30, align 8, !tbaa !85
   %38 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 40, i64 1, ptr %37)
   br label %39
 
@@ -1464,54 +1464,54 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not42 = icmp slt i32 %7, %1
   br i1 %.not42, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !82
+  %11 = load ptr, ptr %10, align 8, !tbaa !83
   %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #12
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
-  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !82
   %15 = fcmp ugt double %12, 0x3690000000000000
-  br i1 %15, label %.outer, label %.loopexit, !llvm.loop !88
+  br i1 %15, label %.outer, label %.loopexit, !llvm.loop !89
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not41 = icmp slt i32 %17, %1
   br i1 %.not41, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #12
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
-  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !82
   %25 = fcmp ugt double %22, 0x3690000000000000
-  br i1 %25, label %.outer97, label %.loopexit, !llvm.loop !88
+  br i1 %25, label %.outer97, label %.loopexit, !llvm.loop !89
 
 26:                                               ; preds = %4
   %27 = xor i32 %.030.ph102, 1
-  br label %.outer101, !llvm.loop !88
+  br label %.outer101, !llvm.loop !89
 
 28:                                               ; preds = %4
   %29 = xor i32 %.029, 1
-  br label %4, !llvm.loop !88
+  br label %4, !llvm.loop !89
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  %32 = load ptr, ptr %31, align 8, !tbaa !86
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %36 = load ptr, ptr %35, align 8, !tbaa !84
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
   %37 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %36)
   br label %58
 
@@ -1528,25 +1528,25 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %.135 = phi float [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %18 ], [ %.034.ph, %4 ], [ %13, %8 ]
   %.133 = phi float [ %.032.ph98, %.loopexit.sink.split ], [ %.032.ph98, %4 ], [ %23, %18 ], [ %.032.ph98, %8 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %40 = load ptr, ptr %39, align 8, !tbaa !84
+  %40 = load ptr, ptr %39, align 8, !tbaa !85
   %41 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 36, i64 1, ptr %40)
-  %42 = load ptr, ptr %39, align 8, !tbaa !84
+  %42 = load ptr, ptr %39, align 8, !tbaa !85
   %43 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 49, i64 1, ptr %42)
-  %44 = load ptr, ptr %39, align 8, !tbaa !84
+  %44 = load ptr, ptr %39, align 8, !tbaa !85
   %45 = fpext float %.135 to double
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.34, double noundef %45) #12
-  %47 = load ptr, ptr %39, align 8, !tbaa !84
+  %47 = load ptr, ptr %39, align 8, !tbaa !85
   %48 = fpext float %.133 to double
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.35, double noundef %48) #12
-  %50 = load ptr, ptr %39, align 8, !tbaa !84
+  %50 = load ptr, ptr %39, align 8, !tbaa !85
   %.not43 = icmp eq i32 %.030.ph102, 0
   %51 = select i1 %.not43, ptr @.str.40, ptr @.str.39
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.64, ptr noundef nonnull %51) #12
-  %53 = load ptr, ptr %39, align 8, !tbaa !84
+  %53 = load ptr, ptr %39, align 8, !tbaa !85
   %.not44 = icmp eq i32 %.029, 0
   %54 = select i1 %.not44, ptr @.str.40, ptr @.str.39
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.65, ptr noundef nonnull %54) #12
-  %56 = load ptr, ptr %39, align 8, !tbaa !84
+  %56 = load ptr, ptr %39, align 8, !tbaa !85
   %57 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %56)
   br label %58
 
@@ -1582,50 +1582,50 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not35 = icmp slt i32 %7, %1
   br i1 %.not35, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !82
+  %11 = load ptr, ptr %10, align 8, !tbaa !83
   %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #12
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
-  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !82
   %15 = fcmp ugt double %12, 0x3690000000000000
-  br i1 %15, label %.outer, label %.loopexit, !llvm.loop !89
+  br i1 %15, label %.outer, label %.loopexit, !llvm.loop !90
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not34 = icmp slt i32 %17, %1
   br i1 %.not34, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #12
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
-  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !82
   %25 = fcmp ugt double %22, 0x3690000000000000
-  br i1 %25, label %.outer74, label %.loopexit, !llvm.loop !89
+  br i1 %25, label %.outer74, label %.loopexit, !llvm.loop !90
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !89
+  br label %4, !llvm.loop !90
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %30 = load ptr, ptr %29, align 8, !tbaa !85
+  %30 = load ptr, ptr %29, align 8, !tbaa !86
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %34 = load ptr, ptr %33, align 8, !tbaa !84
+  %34 = load ptr, ptr %33, align 8, !tbaa !85
   %35 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %34)
   br label %53
 
@@ -1642,21 +1642,21 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %.128 = phi float [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %18 ], [ %.027.ph, %4 ], [ %13, %8 ]
   %.126 = phi float [ %.025.ph75, %.loopexit.sink.split ], [ %.025.ph75, %4 ], [ %23, %18 ], [ %.025.ph75, %8 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load ptr, ptr %37, align 8, !tbaa !84
+  %38 = load ptr, ptr %37, align 8, !tbaa !85
   %39 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 34, i64 1, ptr %38)
-  %40 = load ptr, ptr %37, align 8, !tbaa !84
+  %40 = load ptr, ptr %37, align 8, !tbaa !85
   %41 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 70, i64 1, ptr %40)
-  %42 = load ptr, ptr %37, align 8, !tbaa !84
+  %42 = load ptr, ptr %37, align 8, !tbaa !85
   %43 = fpext float %.128 to double
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.72, double noundef %43) #12
-  %45 = load ptr, ptr %37, align 8, !tbaa !84
+  %45 = load ptr, ptr %37, align 8, !tbaa !85
   %46 = fpext float %.126 to double
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.73, double noundef %46) #12
-  %48 = load ptr, ptr %37, align 8, !tbaa !84
+  %48 = load ptr, ptr %37, align 8, !tbaa !85
   %.not36 = icmp eq i32 %.0, 0
   %49 = select i1 %.not36, ptr @.str.40, ptr @.str.39
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.74, ptr noundef nonnull %49) #12
-  %51 = load ptr, ptr %37, align 8, !tbaa !84
+  %51 = load ptr, ptr %37, align 8, !tbaa !85
   %52 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %51)
   br label %53
 
@@ -1680,10 +1680,10 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(non
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !90
+  br label %4, !llvm.loop !91
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %10 = add nsw i32 %9, 1
   %.not32 = icmp eq i32 %1, %10
   br i1 %.not32, label %11, label %.loopexit
@@ -1691,14 +1691,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(non
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
   %15 = tail call noalias ptr @fopen(ptr noundef %14, ptr noundef nonnull @.str.22)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !84
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #12
   br label %49
 
@@ -1710,7 +1710,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(non
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %27 = load ptr, ptr %26, align 8, !tbaa !84
+  %27 = load ptr, ptr %26, align 8, !tbaa !85
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.24, ptr noundef %14) #12
   br label %49
 
@@ -1731,9 +1731,9 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
 
 33:                                               ; preds = %Abc_SclLoad.exit
   %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %14, ptr noundef nonnull @.str.31) #12
-  %35 = load ptr, ptr %30, align 8, !tbaa !85
+  %35 = load ptr, ptr %30, align 8, !tbaa !86
   tail call void @Abc_SclWriteLiberty(ptr noundef %34, ptr noundef %35) #12
-  %.pr = load ptr, ptr %30, align 8, !tbaa !85
+  %.pr = load ptr, ptr %30, align 8, !tbaa !86
   %.not34 = icmp eq ptr %.pr, null
   br i1 %.not34, label %49, label %.thread
 
@@ -1745,17 +1745,17 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
 
 .loopexit:                                        ; preds = %4, %8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load ptr, ptr %37, align 8, !tbaa !84
+  %38 = load ptr, ptr %37, align 8, !tbaa !85
   %39 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 29, i64 1, ptr %38)
-  %40 = load ptr, ptr %37, align 8, !tbaa !84
+  %40 = load ptr, ptr %37, align 8, !tbaa !85
   %41 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 52, i64 1, ptr %40)
-  %42 = load ptr, ptr %37, align 8, !tbaa !84
+  %42 = load ptr, ptr %37, align 8, !tbaa !85
   %.not35 = icmp eq i32 %.0, 0
   %43 = select i1 %.not35, ptr @.str.40, ptr @.str.39
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.78, ptr noundef nonnull %43) #12
-  %45 = load ptr, ptr %37, align 8, !tbaa !84
+  %45 = load ptr, ptr %37, align 8, !tbaa !85
   %46 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %45)
-  %47 = load ptr, ptr %37, align 8, !tbaa !84
+  %47 = load ptr, ptr %37, align 8, !tbaa !85
   %48 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 37, i64 1, ptr %47)
   br label %49
 
@@ -1772,52 +1772,52 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr noundef readonly ca
   br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %7 = add nsw i32 %6, 1
   %.not17 = icmp eq i32 %1, %7
   br i1 %.not17, label %8, label %29
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = load ptr, ptr %9, align 8, !tbaa !85
+  %10 = load ptr, ptr %9, align 8, !tbaa !86
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %14)
   br label %39
 
 16:                                               ; preds = %8
   %17 = sext i32 %6 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !82
+  %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.55)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8, !tbaa !84
+  %24 = load ptr, ptr %23, align 8, !tbaa !85
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #12
   br label %39
 
 26:                                               ; preds = %16
   %27 = tail call i32 @fclose(ptr noundef nonnull %20)
-  %28 = load ptr, ptr %9, align 8, !tbaa !85
+  %28 = load ptr, ptr %9, align 8, !tbaa !86
   tail call void @Abc_SclWriteScl(ptr noundef %19, ptr noundef %28) #12
   br label %39
 
 29:                                               ; preds = %5, %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load ptr, ptr %30, align 8, !tbaa !84
+  %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 29, i64 1, ptr %31)
-  %33 = load ptr, ptr %30, align 8, !tbaa !84
+  %33 = load ptr, ptr %30, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 52, i64 1, ptr %33)
-  %35 = load ptr, ptr %30, align 8, !tbaa !84
+  %35 = load ptr, ptr %30, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %35)
-  %37 = load ptr, ptr %30, align 8, !tbaa !84
+  %37 = load ptr, ptr %30, align 8, !tbaa !85
   %38 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 40, i64 1, ptr %37)
   br label %39
 
@@ -1861,7 +1861,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not52 = icmp slt i32 %7, %1
   br i1 %.not52, label %9, label %8
 
@@ -1872,16 +1872,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %12 = load ptr, ptr %11, align 8, !tbaa !83
   %13 = tail call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #12
   %14 = fptrunc double %13 to float
   %15 = add nsw i32 %7, 1
-  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !82
   %16 = fcmp ugt double %13, 0x3690000000000000
-  br i1 %16, label %.outer, label %.loopexit, !llvm.loop !91
+  br i1 %16, label %.outer, label %.loopexit, !llvm.loop !92
 
 17:                                               ; preds = %4
-  %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not51 = icmp slt i32 %18, %1
   br i1 %.not51, label %20, label %19
 
@@ -1892,16 +1892,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 20:                                               ; preds = %17
   %21 = sext i32 %18 to i64
   %22 = getelementptr inbounds ptr, ptr %2, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !82
+  %23 = load ptr, ptr %22, align 8, !tbaa !83
   %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #12
   %25 = fptrunc double %24 to float
   %26 = add nsw i32 %18, 1
-  store i32 %26, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %26, ptr @globalUtilOptind, align 4, !tbaa !82
   %27 = fcmp ugt double %24, 0x3690000000000000
-  br i1 %27, label %.outer122, label %.loopexit, !llvm.loop !91
+  br i1 %27, label %.outer122, label %.loopexit, !llvm.loop !92
 
 28:                                               ; preds = %4
-  %29 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %29 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not50 = icmp slt i32 %29, %1
   br i1 %.not50, label %31, label %30
 
@@ -1912,32 +1912,32 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds ptr, ptr %2, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !82
+  %34 = load ptr, ptr %33, align 8, !tbaa !83
   %35 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #12
   %36 = trunc i64 %35 to i32
   %37 = add nsw i32 %29, 1
-  store i32 %37, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %37, ptr @globalUtilOptind, align 4, !tbaa !82
   %38 = icmp slt i32 %36, 0
-  br i1 %38, label %.loopexit, label %.outer126, !llvm.loop !91
+  br i1 %38, label %.loopexit, label %.outer126, !llvm.loop !92
 
 39:                                               ; preds = %4
   %40 = xor i32 %.0, 1
-  br label %4, !llvm.loop !91
+  br label %4, !llvm.loop !92
 
 41:                                               ; preds = %4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %43 = load ptr, ptr %42, align 8, !tbaa !85
+  %43 = load ptr, ptr %42, align 8, !tbaa !86
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %47 = load ptr, ptr %46, align 8, !tbaa !84
+  %47 = load ptr, ptr %46, align 8, !tbaa !85
   %48 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %47)
   br label %.loopexit
 
 49:                                               ; preds = %41
-  %50 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %50 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %51 = add nsw i32 %50, 1
   %52 = icmp eq i32 %1, %51
   br i1 %52, label %53, label %57
@@ -1945,7 +1945,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 53:                                               ; preds = %49
   %54 = sext i32 %50 to i64
   %55 = getelementptr inbounds ptr, ptr %2, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !82
+  %56 = load ptr, ptr %55, align 8, !tbaa !83
   br label %57
 
 57:                                               ; preds = %53, %49
@@ -1958,25 +1958,25 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %.138 = phi float [ %.037.ph123, %8 ], [ %.037.ph123, %19 ], [ %.037.ph123, %30 ], [ %.037.ph123, %45 ], [ %.037.ph123, %31 ], [ %.037.ph123, %4 ], [ %25, %20 ], [ %.037.ph123, %9 ]
   %.136 = phi i32 [ %.035.ph127, %8 ], [ %.035.ph127, %19 ], [ %.035.ph127, %30 ], [ %.035.ph127, %45 ], [ %.035.ph127, %4 ], [ %36, %31 ], [ %.035.ph127, %20 ], [ %.035.ph127, %9 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %59 = load ptr, ptr %58, align 8, !tbaa !84
+  %59 = load ptr, ptr %58, align 8, !tbaa !85
   %60 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 53, i64 1, ptr %59)
-  %61 = load ptr, ptr %58, align 8, !tbaa !84
+  %61 = load ptr, ptr %58, align 8, !tbaa !85
   %62 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 47, i64 1, ptr %61)
-  %63 = load ptr, ptr %58, align 8, !tbaa !84
+  %63 = load ptr, ptr %58, align 8, !tbaa !85
   %64 = fpext float %.141 to double
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.34, double noundef %64) #12
-  %66 = load ptr, ptr %58, align 8, !tbaa !84
+  %66 = load ptr, ptr %58, align 8, !tbaa !85
   %67 = fpext float %.138 to double
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.35, double noundef %67) #12
-  %69 = load ptr, ptr %58, align 8, !tbaa !84
+  %69 = load ptr, ptr %58, align 8, !tbaa !85
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.36, i32 noundef %.136) #12
-  %71 = load ptr, ptr %58, align 8, !tbaa !84
+  %71 = load ptr, ptr %58, align 8, !tbaa !85
   %.not53 = icmp eq i32 %.0, 0
   %72 = select i1 %.not53, ptr @.str.40, ptr @.str.39
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.74, ptr noundef nonnull %72) #12
-  %74 = load ptr, ptr %58, align 8, !tbaa !84
+  %74 = load ptr, ptr %58, align 8, !tbaa !85
   %75 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %74)
-  %76 = load ptr, ptr %58, align 8, !tbaa !84
+  %76 = load ptr, ptr %58, align 8, !tbaa !85
   %77 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 38, i64 1, ptr %76)
   br label %78
 
@@ -1999,32 +1999,32 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noun
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %10 = load ptr, ptr %9, align 8, !tbaa !84
+  %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %10)
   br label %37
 
 12:                                               ; preds = %5
   %13 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %14 = getelementptr i8, ptr %13, i64 4
-  %.val = load i32, ptr %14, align 4, !tbaa !92
+  %.val = load i32, ptr %14, align 4, !tbaa !93
   %.not15 = icmp eq i32 %.val, 4
   br i1 %.not15, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %17 = load ptr, ptr %16, align 8, !tbaa !84
+  %17 = load ptr, ptr %16, align 8, !tbaa !85
   %18 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %17)
   br label %37
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %21 = load ptr, ptr %20, align 8, !tbaa !85
+  %21 = load ptr, ptr %20, align 8, !tbaa !86
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %25 = load ptr, ptr %24, align 8, !tbaa !84
+  %25 = load ptr, ptr %24, align 8, !tbaa !85
   %26 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %25)
   br label %37
 
@@ -2035,11 +2035,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noun
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load ptr, ptr %30, align 8, !tbaa !84
+  %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 21, i64 1, ptr %31)
-  %33 = load ptr, ptr %30, align 8, !tbaa !84
+  %33 = load ptr, ptr %30, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 51, i64 1, ptr %33)
-  %35 = load ptr, ptr %30, align 8, !tbaa !84
+  %35 = load ptr, ptr %30, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %35)
   br label %37
 
@@ -2092,7 +2092,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not54 = icmp slt i32 %7, %1
   br i1 %.not54, label %9, label %8
 
@@ -2103,29 +2103,29 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %12 = load ptr, ptr %11, align 8, !tbaa !83
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #12
   %14 = trunc i64 %13 to i32
   %15 = add nsw i32 %7, 1
-  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !82
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %4, !llvm.loop !99
+  br i1 %16, label %.loopexit, label %4, !llvm.loop !100
 
 17:                                               ; preds = %4
   %18 = xor i32 %.042.ph116, 1
-  br label %.outer115, !llvm.loop !99
+  br label %.outer115, !llvm.loop !100
 
 19:                                               ; preds = %4
   %20 = xor i32 %.044.ph, 1
-  br label %.outer, !llvm.loop !99
+  br label %.outer, !llvm.loop !100
 
 21:                                               ; preds = %4
   %22 = xor i32 %.040.ph121, 1
-  br label %.outer120, !llvm.loop !99
+  br label %.outer120, !llvm.loop !100
 
 23:                                               ; preds = %4
   %24 = xor i32 %.038.ph125, 1
-  br label %.outer124, !llvm.loop !99
+  br label %.outer124, !llvm.loop !100
 
 25:                                               ; preds = %4
   %26 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
@@ -2134,20 +2134,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %30 = load ptr, ptr %29, align 8, !tbaa !84
+  %30 = load ptr, ptr %29, align 8, !tbaa !85
   %31 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %30)
   br label %77
 
 32:                                               ; preds = %25
   %33 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %34 = getelementptr i8, ptr %33, i64 4
-  %.val = load i32, ptr %34, align 4, !tbaa !92
+  %.val = load i32, ptr %34, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %37 = load ptr, ptr %36, align 8, !tbaa !84
+  %37 = load ptr, ptr %36, align 8, !tbaa !85
   %38 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %37)
   br label %77
 
@@ -2159,19 +2159,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = load ptr, ptr %43, align 8, !tbaa !84
+  %44 = load ptr, ptr %43, align 8, !tbaa !85
   %45 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %44)
   br label %77
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %48 = load ptr, ptr %47, align 8, !tbaa !85
+  %48 = load ptr, ptr %47, align 8, !tbaa !86
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %52 = load ptr, ptr %51, align 8, !tbaa !84
+  %52 = load ptr, ptr %51, align 8, !tbaa !85
   %53 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %52)
   br label %77
 
@@ -2183,29 +2183,29 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 .loopexit:                                        ; preds = %4, %9, %8
   %.1 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %14, %9 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %57 = load ptr, ptr %56, align 8, !tbaa !84
+  %57 = load ptr, ptr %56, align 8, !tbaa !85
   %58 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 32, i64 1, ptr %57)
-  %59 = load ptr, ptr %56, align 8, !tbaa !84
+  %59 = load ptr, ptr %56, align 8, !tbaa !85
   %60 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 45, i64 1, ptr %59)
-  %61 = load ptr, ptr %56, align 8, !tbaa !84
+  %61 = load ptr, ptr %56, align 8, !tbaa !85
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.97, i32 noundef %.1) #12
-  %63 = load ptr, ptr %56, align 8, !tbaa !84
+  %63 = load ptr, ptr %56, align 8, !tbaa !85
   %.not55 = icmp eq i32 %.042.ph116, 0
   %64 = select i1 %.not55, ptr @.str.40, ptr @.str.39
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.98, ptr noundef nonnull %64) #12
-  %66 = load ptr, ptr %56, align 8, !tbaa !84
+  %66 = load ptr, ptr %56, align 8, !tbaa !85
   %.not56 = icmp eq i32 %.044.ph, 0
   %67 = select i1 %.not56, ptr @.str.40, ptr @.str.39
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.99, ptr noundef nonnull %67) #12
-  %69 = load ptr, ptr %56, align 8, !tbaa !84
+  %69 = load ptr, ptr %56, align 8, !tbaa !85
   %.not57 = icmp eq i32 %.040.ph121, 0
   %70 = select i1 %.not57, ptr @.str.40, ptr @.str.39
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.100, ptr noundef nonnull %70) #12
-  %72 = load ptr, ptr %56, align 8, !tbaa !84
+  %72 = load ptr, ptr %56, align 8, !tbaa !85
   %.not58 = icmp eq i32 %.038.ph125, 0
   %73 = select i1 %.not58, ptr @.str.40, ptr @.str.39
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.101, ptr noundef nonnull %73) #12
-  %75 = load ptr, ptr %56, align 8, !tbaa !84
+  %75 = load ptr, ptr %56, align 8, !tbaa !85
   %76 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %75)
   br label %77
 
@@ -2230,7 +2230,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !100
+  br label %5, !llvm.loop !101
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -2241,7 +2241,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
   br label %30
 
 12:                                               ; preds = %9
-  %.val = load i32, ptr %4, align 8, !tbaa !101
+  %.val = load i32, ptr %4, align 8, !tbaa !102
   %.not = icmp eq i32 %.val, 2
   br i1 %.not, label %14, label %13
 
@@ -2264,15 +2264,15 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = load ptr, ptr %20, align 8, !tbaa !84
+  %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 18, i64 1, ptr %21)
-  %23 = load ptr, ptr %20, align 8, !tbaa !84
+  %23 = load ptr, ptr %20, align 8, !tbaa !85
   %24 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 58, i64 1, ptr %23)
-  %25 = load ptr, ptr %20, align 8, !tbaa !84
+  %25 = load ptr, ptr %20, align 8, !tbaa !85
   %.not21 = icmp eq i32 %.0, 0
   %26 = select i1 %.not21, ptr @.str.40, ptr @.str.39
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.74, ptr noundef nonnull %26) #12
-  %28 = load ptr, ptr %20, align 8, !tbaa !84
+  %28 = load ptr, ptr %20, align 8, !tbaa !85
   %29 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %28)
   br label %30
 
@@ -2303,11 +2303,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %5
   %8 = xor i32 %.025.ph, 1
-  br label %.outer, !llvm.loop !102
+  br label %.outer, !llvm.loop !103
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !102
+  br label %5, !llvm.loop !103
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -2315,18 +2315,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
+  %15 = load ptr, ptr %14, align 8, !tbaa !85
   %16 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %15)
   br label %45
 
 17:                                               ; preds = %11
-  %.val = load i32, ptr %4, align 8, !tbaa !101
+  %.val = load i32, ptr %4, align 8, !tbaa !102
   %.not = icmp eq i32 %.val, 2
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %20 = load ptr, ptr %19, align 8, !tbaa !84
+  %20 = load ptr, ptr %19, align 8, !tbaa !85
   %21 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 44, i64 1, ptr %20)
   br label %45
 
@@ -2357,19 +2357,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %33 = load ptr, ptr %32, align 8, !tbaa !84
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 23, i64 1, ptr %33)
-  %35 = load ptr, ptr %32, align 8, !tbaa !84
+  %35 = load ptr, ptr %32, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 44, i64 1, ptr %35)
-  %37 = load ptr, ptr %32, align 8, !tbaa !84
+  %37 = load ptr, ptr %32, align 8, !tbaa !85
   %.not33 = icmp eq i32 %.025.ph, 0
   %38 = select i1 %.not33, ptr @.str.40, ptr @.str.39
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.112, ptr noundef nonnull %38) #12
-  %40 = load ptr, ptr %32, align 8, !tbaa !84
+  %40 = load ptr, ptr %32, align 8, !tbaa !85
   %.not34 = icmp eq i32 %.0, 0
   %41 = select i1 %.not34, ptr @.str.40, ptr @.str.39
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.74, ptr noundef nonnull %41) #12
-  %43 = load ptr, ptr %32, align 8, !tbaa !84
+  %43 = load ptr, ptr %32, align 8, !tbaa !85
   %44 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %43)
   br label %45
 
@@ -2385,7 +2385,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
@@ -2432,53 +2432,53 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   ]
 
 32:                                               ; preds = %21
-  %33 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %33 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not84 = icmp slt i32 %33, %1
   br i1 %.not84, label %34, label %.loopexit.sink.split
 
 34:                                               ; preds = %32
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %2, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !82
+  %37 = load ptr, ptr %36, align 8, !tbaa !83
   %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #12
   %39 = trunc i64 %38 to i32
-  %40 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %40 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %41, ptr @globalUtilOptind, align 4, !tbaa !82
   %42 = icmp slt i32 %39, 0
   br i1 %42, label %.loopexit, label %.backedge
 
 43:                                               ; preds = %21
-  %44 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %44 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not83 = icmp slt i32 %44, %1
   br i1 %.not83, label %45, label %.loopexit.sink.split
 
 45:                                               ; preds = %43
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %2, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !82
+  %48 = load ptr, ptr %47, align 8, !tbaa !83
   %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #12
   %50 = trunc i64 %49 to i32
-  %51 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %51 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %52, ptr @globalUtilOptind, align 4, !tbaa !82
   %53 = icmp slt i32 %50, 0
   br i1 %53, label %.loopexit, label %.backedge
 
 54:                                               ; preds = %21
-  %55 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %55 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not82 = icmp slt i32 %55, %1
   br i1 %.not82, label %56, label %.loopexit.sink.split
 
 56:                                               ; preds = %54
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds ptr, ptr %2, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !82
+  %59 = load ptr, ptr %58, align 8, !tbaa !83
   %60 = tail call i64 @strtol(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 10) #12
   %61 = trunc i64 %60 to i32
-  %62 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %62 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %63, ptr @globalUtilOptind, align 4, !tbaa !82
   %64 = icmp slt i32 %61, 0
   br i1 %64, label %.loopexit, label %.backedge
 
@@ -2492,7 +2492,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %.be272 = phi i32 [ %28, %56 ], [ %28, %45 ], [ %28, %34 ], [ %28, %75 ], [ %28, %73 ], [ %72, %71 ], [ %28, %69 ], [ %28, %67 ], [ %28, %65 ]
   %.be273 = phi i32 [ %29, %56 ], [ %29, %45 ], [ %29, %34 ], [ %29, %75 ], [ %74, %73 ], [ %29, %71 ], [ %29, %69 ], [ %29, %67 ], [ %29, %65 ]
   %.be274 = phi i32 [ %30, %56 ], [ %30, %45 ], [ %30, %34 ], [ %76, %75 ], [ %30, %73 ], [ %30, %71 ], [ %30, %69 ], [ %30, %67 ], [ %30, %65 ]
-  br label %21, !llvm.loop !103
+  br label %21, !llvm.loop !104
 
 65:                                               ; preds = %21
   %66 = xor i32 %25, 1
@@ -2536,7 +2536,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br label %133
 
 80:                                               ; preds = %77
-  %.val = load i32, ptr %5, align 8, !tbaa !101
+  %.val = load i32, ptr %5, align 8, !tbaa !102
   %.not91 = icmp eq i32 %.val, 2
   br i1 %.not91, label %82, label %81
 
@@ -2552,7 +2552,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %85 = load ptr, ptr %84, align 8, !tbaa !104
+  %85 = load ptr, ptr %84, align 8, !tbaa !105
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
@@ -2561,7 +2561,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br label %133
 
 88:                                               ; preds = %83, %82
-  %89 = load ptr, ptr %6, align 8, !tbaa !85
+  %89 = load ptr, ptr %6, align 8, !tbaa !86
   %.not80 = icmp eq ptr %89, null
   br i1 %.not80, label %92, label %90
 
@@ -2575,7 +2575,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br label %133
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr %6, align 8, !tbaa !85
+  %94 = load ptr, ptr %6, align 8, !tbaa !86
   %95 = call ptr @Abc_SclBufferingPerform(ptr noundef nonnull %5, ptr noundef %94, ptr noundef nonnull %4) #12
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %98
@@ -2598,41 +2598,41 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %100 = phi i32 [ %23, %.loopexit.sink.split ], [ %23, %34 ], [ %50, %45 ], [ %23, %56 ], [ %23, %21 ]
   %101 = phi i32 [ %22, %.loopexit.sink.split ], [ %39, %34 ], [ %22, %45 ], [ %22, %56 ], [ %22, %21 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %103 = load ptr, ptr %102, align 8, !tbaa !84
+  %103 = load ptr, ptr %102, align 8, !tbaa !85
   %104 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 36, i64 1, ptr %103)
-  %105 = load ptr, ptr %102, align 8, !tbaa !84
+  %105 = load ptr, ptr %102, align 8, !tbaa !85
   %106 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 60, i64 1, ptr %105)
-  %107 = load ptr, ptr %102, align 8, !tbaa !84
+  %107 = load ptr, ptr %102, align 8, !tbaa !85
   %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.121, i32 noundef %101) #12
-  %109 = load ptr, ptr %102, align 8, !tbaa !84
+  %109 = load ptr, ptr %102, align 8, !tbaa !85
   %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.122, i32 noundef %100) #12
-  %111 = load ptr, ptr %102, align 8, !tbaa !84
+  %111 = load ptr, ptr %102, align 8, !tbaa !85
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.123, i32 noundef %99) #12
-  %113 = load ptr, ptr %102, align 8, !tbaa !84
+  %113 = load ptr, ptr %102, align 8, !tbaa !85
   %.not85 = icmp eq i32 %25, 0
   %114 = select i1 %.not85, ptr @.str.40, ptr @.str.39
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.124, ptr noundef nonnull %114) #12
-  %116 = load ptr, ptr %102, align 8, !tbaa !84
+  %116 = load ptr, ptr %102, align 8, !tbaa !85
   %.not86 = icmp eq i32 %26, 0
   %117 = select i1 %.not86, ptr @.str.40, ptr @.str.39
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.125, ptr noundef nonnull %117) #12
-  %119 = load ptr, ptr %102, align 8, !tbaa !84
+  %119 = load ptr, ptr %102, align 8, !tbaa !85
   %.not87 = icmp eq i32 %27, 0
   %120 = select i1 %.not87, ptr @.str.40, ptr @.str.39
   %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.126, ptr noundef nonnull %120) #12
-  %122 = load ptr, ptr %102, align 8, !tbaa !84
+  %122 = load ptr, ptr %102, align 8, !tbaa !85
   %.not88 = icmp eq i32 %28, 0
   %123 = select i1 %.not88, ptr @.str.40, ptr @.str.39
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.127, ptr noundef nonnull %123) #12
-  %125 = load ptr, ptr %102, align 8, !tbaa !84
+  %125 = load ptr, ptr %102, align 8, !tbaa !85
   %.not89 = icmp eq i32 %29, 0
   %126 = select i1 %.not89, ptr @.str.40, ptr @.str.39
   %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.74, ptr noundef nonnull %126) #12
-  %128 = load ptr, ptr %102, align 8, !tbaa !84
+  %128 = load ptr, ptr %102, align 8, !tbaa !85
   %.not90 = icmp eq i32 %30, 0
   %129 = select i1 %.not90, ptr @.str.40, ptr @.str.39
   %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.128, ptr noundef nonnull %129) #12
-  %131 = load ptr, ptr %102, align 8, !tbaa !84
+  %131 = load ptr, ptr %102, align 8, !tbaa !85
   %132 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %131)
   br label %133
 
@@ -2658,7 +2658,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !105
+  br label %5, !llvm.loop !106
 
 9:                                                ; preds = %5
   %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
@@ -2667,20 +2667,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %14)
   br label %50
 
 16:                                               ; preds = %9
   %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %18 = getelementptr i8, ptr %17, i64 4
-  %.val = load i32, ptr %18, align 4, !tbaa !92
+  %.val = load i32, ptr %18, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = load ptr, ptr %20, align 8, !tbaa !84
+  %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %21)
   br label %50
 
@@ -2692,19 +2692,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load ptr, ptr %27, align 8, !tbaa !84
+  %28 = load ptr, ptr %27, align 8, !tbaa !85
   %29 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %28)
   br label %50
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  %32 = load ptr, ptr %31, align 8, !tbaa !86
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %36 = load ptr, ptr %35, align 8, !tbaa !84
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
   %37 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %36)
   br label %50
 
@@ -2714,15 +2714,15 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
 
 39:                                               ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %41 = load ptr, ptr %40, align 8, !tbaa !84
+  %41 = load ptr, ptr %40, align 8, !tbaa !85
   %42 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 21, i64 1, ptr %41)
-  %43 = load ptr, ptr %40, align 8, !tbaa !84
+  %43 = load ptr, ptr %40, align 8, !tbaa !85
   %44 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 54, i64 1, ptr %43)
-  %45 = load ptr, ptr %40, align 8, !tbaa !84
+  %45 = load ptr, ptr %40, align 8, !tbaa !85
   %.not26 = icmp eq i32 %.0, 0
   %46 = select i1 %.not26, ptr @.str.40, ptr @.str.39
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #12
-  %48 = load ptr, ptr %40, align 8, !tbaa !84
+  %48 = load ptr, ptr %40, align 8, !tbaa !85
   %49 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %48)
   br label %50
 
@@ -2747,7 +2747,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !106
+  br label %5, !llvm.loop !107
 
 9:                                                ; preds = %5
   %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
@@ -2756,20 +2756,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %14)
   br label %50
 
 16:                                               ; preds = %9
   %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %18 = getelementptr i8, ptr %17, i64 4
-  %.val = load i32, ptr %18, align 4, !tbaa !92
+  %.val = load i32, ptr %18, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = load ptr, ptr %20, align 8, !tbaa !84
+  %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %21)
   br label %50
 
@@ -2781,19 +2781,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load ptr, ptr %27, align 8, !tbaa !84
+  %28 = load ptr, ptr %27, align 8, !tbaa !85
   %29 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %28)
   br label %50
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  %32 = load ptr, ptr %31, align 8, !tbaa !86
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %36 = load ptr, ptr %35, align 8, !tbaa !84
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
   %37 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 39, i64 1, ptr %36)
   br label %50
 
@@ -2803,15 +2803,15 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 
 39:                                               ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %41 = load ptr, ptr %40, align 8, !tbaa !84
+  %41 = load ptr, ptr %40, align 8, !tbaa !85
   %42 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 21, i64 1, ptr %41)
-  %43 = load ptr, ptr %40, align 8, !tbaa !84
+  %43 = load ptr, ptr %40, align 8, !tbaa !85
   %44 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 52, i64 1, ptr %43)
-  %45 = load ptr, ptr %40, align 8, !tbaa !84
+  %45 = load ptr, ptr %40, align 8, !tbaa !85
   %.not26 = icmp eq i32 %.0, 0
   %46 = select i1 %.not26, ptr @.str.40, ptr @.str.39
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #12
-  %48 = load ptr, ptr %40, align 8, !tbaa !84
+  %48 = load ptr, ptr %40, align 8, !tbaa !85
   %49 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %48)
   br label %50
 
@@ -2825,15 +2825,15 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %4 = alloca %struct.SC_SizePars_, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #12
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  store i32 1000, ptr %4, align 4, !tbaa !107
+  store i32 1000, ptr %4, align 4, !tbaa !108
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 50, ptr %6, align 4, !tbaa !109
+  store i32 50, ptr %6, align 4, !tbaa !110
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %7, align 4, !tbaa !110
+  store i32 1, ptr %7, align 4, !tbaa !111
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 10, ptr %8, align 4, !tbaa !111
+  store i32 10, ptr %8, align 4, !tbaa !112
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000, ptr %9, align 4, !tbaa !112
+  store i32 1000, ptr %9, align 4, !tbaa !113
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -2841,7 +2841,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
-  store i32 1, ptr %15, align 4, !tbaa !113
+  store i32 1, ptr %15, align 4, !tbaa !114
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -2899,7 +2899,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   ]
 
 43:                                               ; preds = %20
-  %44 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %44 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not133 = icmp slt i32 %44, %1
   br i1 %.not133, label %46, label %45
 
@@ -2916,18 +2916,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 46:                                               ; preds = %43
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds ptr, ptr %2, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !82
+  %49 = load ptr, ptr %48, align 8, !tbaa !83
   %50 = tail call i64 @strtol(ptr noundef nonnull captures(none) %49, ptr noundef null, i32 noundef 10) #12
   %51 = trunc i64 %50 to i32
-  store i32 %51, ptr %4, align 4, !tbaa !107
-  %52 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %51, ptr %4, align 4, !tbaa !108
+  %52 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %53, ptr @globalUtilOptind, align 4, !tbaa !82
   %54 = icmp slt i32 %51, 0
   br i1 %54, label %.loopexit, label %.backedge
 
 55:                                               ; preds = %20
-  %56 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %56 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not132 = icmp slt i32 %56, %1
   br i1 %.not132, label %58, label %57
 
@@ -2944,18 +2944,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 58:                                               ; preds = %55
   %59 = sext i32 %56 to i64
   %60 = getelementptr inbounds ptr, ptr %2, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !82
+  %61 = load ptr, ptr %60, align 8, !tbaa !83
   %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %61, ptr noundef null, i32 noundef 10) #12
   %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %6, align 4, !tbaa !109
-  %64 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %63, ptr %6, align 4, !tbaa !110
+  %64 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %65, ptr @globalUtilOptind, align 4, !tbaa !82
   %66 = icmp slt i32 %63, 0
   br i1 %66, label %.loopexit, label %.backedge
 
 67:                                               ; preds = %20
-  %68 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %68 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not131 = icmp slt i32 %68, %1
   br i1 %.not131, label %70, label %69
 
@@ -2972,18 +2972,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 70:                                               ; preds = %67
   %71 = sext i32 %68 to i64
   %72 = getelementptr inbounds ptr, ptr %2, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !82
+  %73 = load ptr, ptr %72, align 8, !tbaa !83
   %74 = tail call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #12
   %75 = trunc i64 %74 to i32
-  store i32 %75, ptr %7, align 4, !tbaa !110
-  %76 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %75, ptr %7, align 4, !tbaa !111
+  %76 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %77 = add nsw i32 %76, 1
-  store i32 %77, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %77, ptr @globalUtilOptind, align 4, !tbaa !82
   %78 = icmp slt i32 %75, 0
   br i1 %78, label %.loopexit, label %.backedge
 
 79:                                               ; preds = %20
-  %80 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %80 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not130 = icmp slt i32 %80, %1
   br i1 %.not130, label %82, label %81
 
@@ -3000,18 +3000,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 82:                                               ; preds = %79
   %83 = sext i32 %80 to i64
   %84 = getelementptr inbounds ptr, ptr %2, i64 %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !82
+  %85 = load ptr, ptr %84, align 8, !tbaa !83
   %86 = tail call i64 @strtol(ptr noundef nonnull captures(none) %85, ptr noundef null, i32 noundef 10) #12
   %87 = trunc i64 %86 to i32
-  store i32 %87, ptr %8, align 4, !tbaa !111
-  %88 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %87, ptr %8, align 4, !tbaa !112
+  %88 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %89 = add nsw i32 %88, 1
-  store i32 %89, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %89, ptr @globalUtilOptind, align 4, !tbaa !82
   %90 = icmp slt i32 %87, 0
   br i1 %90, label %.loopexit, label %.backedge
 
 91:                                               ; preds = %20
-  %92 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %92 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not129 = icmp slt i32 %92, %1
   br i1 %.not129, label %94, label %93
 
@@ -3028,18 +3028,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 94:                                               ; preds = %91
   %95 = sext i32 %92 to i64
   %96 = getelementptr inbounds ptr, ptr %2, i64 %95
-  %97 = load ptr, ptr %96, align 8, !tbaa !82
+  %97 = load ptr, ptr %96, align 8, !tbaa !83
   %98 = tail call i64 @strtol(ptr noundef nonnull captures(none) %97, ptr noundef null, i32 noundef 10) #12
   %99 = trunc i64 %98 to i32
-  store i32 %99, ptr %9, align 4, !tbaa !112
-  %100 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %99, ptr %9, align 4, !tbaa !113
+  %100 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %101 = add nsw i32 %100, 1
-  store i32 %101, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %101, ptr @globalUtilOptind, align 4, !tbaa !82
   %102 = icmp slt i32 %99, 0
   br i1 %102, label %.loopexit, label %.backedge
 
 103:                                              ; preds = %20
-  %104 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %104 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not128 = icmp slt i32 %104, %1
   br i1 %.not128, label %106, label %105
 
@@ -3056,18 +3056,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 106:                                              ; preds = %103
   %107 = sext i32 %104 to i64
   %108 = getelementptr inbounds ptr, ptr %2, i64 %107
-  %109 = load ptr, ptr %108, align 8, !tbaa !82
+  %109 = load ptr, ptr %108, align 8, !tbaa !83
   %110 = tail call i64 @strtol(ptr noundef nonnull captures(none) %109, ptr noundef null, i32 noundef 10) #12
   %111 = trunc i64 %110 to i32
-  store i32 %111, ptr %10, align 4, !tbaa !114
-  %112 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %111, ptr %10, align 4, !tbaa !115
+  %112 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %113 = add nsw i32 %112, 1
-  store i32 %113, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %113, ptr @globalUtilOptind, align 4, !tbaa !82
   %114 = icmp slt i32 %111, 0
   br i1 %114, label %.loopexit, label %.backedge
 
 115:                                              ; preds = %20
-  %116 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %116 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not127 = icmp slt i32 %116, %1
   br i1 %.not127, label %118, label %117
 
@@ -3084,16 +3084,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 118:                                              ; preds = %115
   %119 = sext i32 %116 to i64
   %120 = getelementptr inbounds ptr, ptr %2, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !82
+  %121 = load ptr, ptr %120, align 8, !tbaa !83
   %122 = tail call i64 @strtol(ptr noundef nonnull captures(none) %121, ptr noundef null, i32 noundef 10) #12
   %123 = trunc i64 %122 to i32
-  %124 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %124 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %125 = add nsw i32 %124, 1
-  store i32 %125, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %125, ptr @globalUtilOptind, align 4, !tbaa !82
   br label %.backedge
 
 126:                                              ; preds = %20
-  %127 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %127 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not126 = icmp slt i32 %127, %1
   br i1 %.not126, label %129, label %128
 
@@ -3110,17 +3110,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 129:                                              ; preds = %126
   %130 = sext i32 %127 to i64
   %131 = getelementptr inbounds ptr, ptr %2, i64 %130
-  %132 = load ptr, ptr %131, align 8, !tbaa !82
+  %132 = load ptr, ptr %131, align 8, !tbaa !83
   %133 = tail call i64 @strtol(ptr noundef nonnull captures(none) %132, ptr noundef null, i32 noundef 10) #12
   %134 = trunc i64 %133 to i32
-  %135 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %135 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %136 = add nsw i32 %135, 1
-  store i32 %136, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %136, ptr @globalUtilOptind, align 4, !tbaa !82
   %137 = icmp slt i32 %134, 0
   br i1 %137, label %.loopexit, label %.backedge
 
 138:                                              ; preds = %20
-  %139 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %139 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not125 = icmp slt i32 %139, %1
   br i1 %.not125, label %141, label %140
 
@@ -3137,17 +3137,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 141:                                              ; preds = %138
   %142 = sext i32 %139 to i64
   %143 = getelementptr inbounds ptr, ptr %2, i64 %142
-  %144 = load ptr, ptr %143, align 8, !tbaa !82
+  %144 = load ptr, ptr %143, align 8, !tbaa !83
   %145 = tail call i64 @strtol(ptr noundef nonnull captures(none) %144, ptr noundef null, i32 noundef 10) #12
   %146 = trunc i64 %145 to i32
-  %147 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %147 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %148 = add nsw i32 %147, 1
-  store i32 %148, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %148, ptr @globalUtilOptind, align 4, !tbaa !82
   %149 = icmp slt i32 %146, 0
   br i1 %149, label %.loopexit, label %.backedge
 
 150:                                              ; preds = %20
-  %151 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %151 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not124 = icmp slt i32 %151, %1
   br i1 %.not124, label %153, label %152
 
@@ -3164,12 +3164,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 153:                                              ; preds = %150
   %154 = sext i32 %151 to i64
   %155 = getelementptr inbounds ptr, ptr %2, i64 %154
-  %156 = load ptr, ptr %155, align 8, !tbaa !82
+  %156 = load ptr, ptr %155, align 8, !tbaa !83
   %157 = tail call i64 @strtol(ptr noundef nonnull captures(none) %156, ptr noundef null, i32 noundef 10) #12
   %158 = trunc i64 %157 to i32
-  %159 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %159 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %160 = add nsw i32 %159, 1
-  store i32 %160, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %160, ptr @globalUtilOptind, align 4, !tbaa !82
   %161 = icmp slt i32 %158, 0
   br i1 %161, label %.loopexit, label %.backedge
 
@@ -3195,7 +3195,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %.be734 = phi i32 [ %39, %153 ], [ %39, %141 ], [ %39, %129 ], [ %39, %106 ], [ %39, %94 ], [ %39, %82 ], [ %39, %70 ], [ %39, %58 ], [ %39, %46 ], [ %39, %170 ], [ %39, %168 ], [ %167, %166 ], [ %39, %164 ], [ %39, %162 ], [ %39, %118 ]
   %.be735 = phi i32 [ %40, %153 ], [ %40, %141 ], [ %40, %129 ], [ %40, %106 ], [ %40, %94 ], [ %40, %82 ], [ %40, %70 ], [ %40, %58 ], [ %40, %46 ], [ %40, %170 ], [ %169, %168 ], [ %40, %166 ], [ %40, %164 ], [ %40, %162 ], [ %40, %118 ]
   %.be736 = phi i32 [ %41, %153 ], [ %41, %141 ], [ %41, %129 ], [ %41, %106 ], [ %41, %94 ], [ %41, %82 ], [ %41, %70 ], [ %41, %58 ], [ %41, %46 ], [ %171, %170 ], [ %41, %168 ], [ %41, %166 ], [ %41, %164 ], [ %41, %162 ], [ %41, %118 ]
-  br label %20, !llvm.loop !115
+  br label %20, !llvm.loop !116
 
 162:                                              ; preds = %20
   %163 = xor i32 %37, 1
@@ -3233,20 +3233,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %177 = load ptr, ptr %176, align 8, !tbaa !84
+  %177 = load ptr, ptr %176, align 8, !tbaa !85
   %178 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %177)
   br label %265
 
 179:                                              ; preds = %172
   %180 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %181 = getelementptr i8, ptr %180, i64 4
-  %.val = load i32, ptr %181, align 4, !tbaa !92
+  %.val = load i32, ptr %181, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %186, label %182
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %184 = load ptr, ptr %183, align 8, !tbaa !84
+  %184 = load ptr, ptr %183, align 8, !tbaa !85
   %185 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %184)
   br label %265
 
@@ -3258,13 +3258,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 189:                                              ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %191 = load ptr, ptr %190, align 8, !tbaa !84
+  %191 = load ptr, ptr %190, align 8, !tbaa !85
   %192 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %191)
   br label %265
 
 193:                                              ; preds = %186
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %195 = load ptr, ptr %194, align 8, !tbaa !85
+  %195 = load ptr, ptr %194, align 8, !tbaa !86
   %.not122 = icmp eq ptr %195, null
   br i1 %.not122, label %198, label %196
 
@@ -3278,7 +3278,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br label %265
 
 199:                                              ; preds = %196
-  %200 = load ptr, ptr %194, align 8, !tbaa !85
+  %200 = load ptr, ptr %194, align 8, !tbaa !86
   call void @Abc_SclUpsizePerform(ptr noundef %200, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #12
   br label %265
 
@@ -3314,51 +3314,51 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %221 = phi i32 [ %211, %.loopexit ], [ %35, %152 ], [ %35, %140 ], [ %35, %128 ], [ %35, %117 ], [ %35, %105 ], [ %35, %93 ], [ %35, %81 ], [ %35, %69 ], [ %35, %57 ], [ %35, %45 ]
   %222 = phi i32 [ %212, %.loopexit ], [ %36, %152 ], [ %36, %140 ], [ %36, %128 ], [ %36, %117 ], [ %36, %105 ], [ %36, %93 ], [ %36, %81 ], [ %36, %69 ], [ %36, %57 ], [ %36, %45 ]
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %224 = load ptr, ptr %223, align 8, !tbaa !84
+  %224 = load ptr, ptr %223, align 8, !tbaa !85
   %225 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 42, i64 1, ptr %224)
-  %226 = load ptr, ptr %223, align 8, !tbaa !84
+  %226 = load ptr, ptr %223, align 8, !tbaa !85
   %227 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 66, i64 1, ptr %226)
-  %228 = load ptr, ptr %223, align 8, !tbaa !84
+  %228 = load ptr, ptr %223, align 8, !tbaa !85
   %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.143, i32 noundef %222) #12
-  %230 = load ptr, ptr %223, align 8, !tbaa !84
+  %230 = load ptr, ptr %223, align 8, !tbaa !85
   %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.144, i32 noundef %221) #12
-  %232 = load ptr, ptr %223, align 8, !tbaa !84
+  %232 = load ptr, ptr %223, align 8, !tbaa !85
   %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.145, i32 noundef %220) #12
-  %234 = load ptr, ptr %223, align 8, !tbaa !84
+  %234 = load ptr, ptr %223, align 8, !tbaa !85
   %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.146, i32 noundef %219) #12
-  %236 = load ptr, ptr %223, align 8, !tbaa !84
+  %236 = load ptr, ptr %223, align 8, !tbaa !85
   %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.147, i32 noundef %218) #12
-  %238 = load ptr, ptr %223, align 8, !tbaa !84
+  %238 = load ptr, ptr %223, align 8, !tbaa !85
   %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.148, i32 noundef %217) #12
-  %240 = load ptr, ptr %223, align 8, !tbaa !84
+  %240 = load ptr, ptr %223, align 8, !tbaa !85
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.149, i32 noundef %30) #12
-  %242 = load ptr, ptr %223, align 8, !tbaa !84
+  %242 = load ptr, ptr %223, align 8, !tbaa !85
   %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.150, i32 noundef %216) #12
-  %244 = load ptr, ptr %223, align 8, !tbaa !84
+  %244 = load ptr, ptr %223, align 8, !tbaa !85
   %245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.151, i32 noundef %215) #12
-  %246 = load ptr, ptr %223, align 8, !tbaa !84
+  %246 = load ptr, ptr %223, align 8, !tbaa !85
   %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.152, i32 noundef %214) #12
-  %248 = load ptr, ptr %223, align 8, !tbaa !84
+  %248 = load ptr, ptr %223, align 8, !tbaa !85
   %.not134 = icmp eq i32 %37, 0
   %249 = select i1 %.not134, ptr @.str.40, ptr @.str.39
   %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.127, ptr noundef nonnull %249) #12
-  %251 = load ptr, ptr %223, align 8, !tbaa !84
+  %251 = load ptr, ptr %223, align 8, !tbaa !85
   %.not135 = icmp eq i32 %38, 0
   %252 = select i1 %.not135, ptr @.str.40, ptr @.str.39
   %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.153, ptr noundef nonnull %252) #12
-  %254 = load ptr, ptr %223, align 8, !tbaa !84
+  %254 = load ptr, ptr %223, align 8, !tbaa !85
   %.not136 = icmp eq i32 %39, 0
   %255 = select i1 %.not136, ptr @.str.40, ptr @.str.39
   %256 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef nonnull @.str.154, ptr noundef nonnull %255) #12
-  %257 = load ptr, ptr %223, align 8, !tbaa !84
+  %257 = load ptr, ptr %223, align 8, !tbaa !85
   %.not137 = icmp eq i32 %40, 0
   %258 = select i1 %.not137, ptr @.str.40, ptr @.str.39
   %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.74, ptr noundef nonnull %258) #12
-  %260 = load ptr, ptr %223, align 8, !tbaa !84
+  %260 = load ptr, ptr %223, align 8, !tbaa !85
   %.not138 = icmp eq i32 %41, 0
   %261 = select i1 %.not138, ptr @.str.40, ptr @.str.39
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.128, ptr noundef nonnull %261) #12
-  %263 = load ptr, ptr %223, align 8, !tbaa !84
+  %263 = load ptr, ptr %223, align 8, !tbaa !85
   %264 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %263)
   br label %265
 
@@ -3375,14 +3375,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %6, i8 0, i64 52, i1 false)
-  store i32 5, ptr %4, align 4, !tbaa !107
+  store i32 5, ptr %4, align 4, !tbaa !108
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 50, ptr %7, align 4, !tbaa !109
+  store i32 50, ptr %7, align 4, !tbaa !110
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000, ptr %8, align 4, !tbaa !112
+  store i32 1000, ptr %8, align 4, !tbaa !113
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1000, ptr %10, align 4, !tbaa !116
+  store i32 1000, ptr %10, align 4, !tbaa !117
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3436,7 +3436,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   ]
 
 38:                                               ; preds = %18
-  %39 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %39 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not106 = icmp slt i32 %39, %1
   br i1 %.not106, label %41, label %40
 
@@ -3453,17 +3453,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds ptr, ptr %2, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !82
+  %44 = load ptr, ptr %43, align 8, !tbaa !83
   %45 = tail call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #12
   %46 = trunc i64 %45 to i32
-  %47 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %47 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %48, ptr @globalUtilOptind, align 4, !tbaa !82
   %49 = icmp slt i32 %46, 0
   br i1 %49, label %.loopexit, label %.backedge
 
 50:                                               ; preds = %18
-  %51 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %51 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not105 = icmp slt i32 %51, %1
   br i1 %.not105, label %53, label %52
 
@@ -3480,17 +3480,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 53:                                               ; preds = %50
   %54 = sext i32 %51 to i64
   %55 = getelementptr inbounds ptr, ptr %2, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !82
+  %56 = load ptr, ptr %55, align 8, !tbaa !83
   %57 = tail call i64 @strtol(ptr noundef nonnull captures(none) %56, ptr noundef null, i32 noundef 10) #12
   %58 = trunc i64 %57 to i32
-  %59 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %59 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %60 = add nsw i32 %59, 1
-  store i32 %60, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %60, ptr @globalUtilOptind, align 4, !tbaa !82
   %61 = icmp slt i32 %58, 0
   br i1 %61, label %.loopexit, label %.backedge
 
 62:                                               ; preds = %18
-  %63 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %63 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not104 = icmp slt i32 %63, %1
   br i1 %.not104, label %65, label %64
 
@@ -3507,17 +3507,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 65:                                               ; preds = %62
   %66 = sext i32 %63 to i64
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !82
+  %68 = load ptr, ptr %67, align 8, !tbaa !83
   %69 = tail call i64 @strtol(ptr noundef nonnull captures(none) %68, ptr noundef null, i32 noundef 10) #12
   %70 = trunc i64 %69 to i32
-  %71 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %71 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %72 = add nsw i32 %71, 1
-  store i32 %72, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %72, ptr @globalUtilOptind, align 4, !tbaa !82
   %73 = icmp slt i32 %70, 0
   br i1 %73, label %.loopexit, label %.backedge
 
 74:                                               ; preds = %18
-  %75 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %75 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not103 = icmp slt i32 %75, %1
   br i1 %.not103, label %77, label %76
 
@@ -3534,17 +3534,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 77:                                               ; preds = %74
   %78 = sext i32 %75 to i64
   %79 = getelementptr inbounds ptr, ptr %2, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !82
+  %80 = load ptr, ptr %79, align 8, !tbaa !83
   %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #12
   %82 = trunc i64 %81 to i32
-  %83 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %83 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %84 = add nsw i32 %83, 1
-  store i32 %84, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %84, ptr @globalUtilOptind, align 4, !tbaa !82
   %85 = icmp slt i32 %82, 0
   br i1 %85, label %.loopexit, label %.backedge
 
 86:                                               ; preds = %18
-  %87 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %87 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not102 = icmp slt i32 %87, %1
   br i1 %.not102, label %89, label %88
 
@@ -3561,16 +3561,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 89:                                               ; preds = %86
   %90 = sext i32 %87 to i64
   %91 = getelementptr inbounds ptr, ptr %2, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !82
+  %92 = load ptr, ptr %91, align 8, !tbaa !83
   %93 = tail call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #12
   %94 = trunc i64 %93 to i32
-  %95 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %95 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %96 = add nsw i32 %95, 1
-  store i32 %96, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %96, ptr @globalUtilOptind, align 4, !tbaa !82
   br label %.backedge
 
 97:                                               ; preds = %18
-  %98 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %98 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not101 = icmp slt i32 %98, %1
   br i1 %.not101, label %100, label %99
 
@@ -3587,17 +3587,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 100:                                              ; preds = %97
   %101 = sext i32 %98 to i64
   %102 = getelementptr inbounds ptr, ptr %2, i64 %101
-  %103 = load ptr, ptr %102, align 8, !tbaa !82
+  %103 = load ptr, ptr %102, align 8, !tbaa !83
   %104 = tail call i64 @strtol(ptr noundef nonnull captures(none) %103, ptr noundef null, i32 noundef 10) #12
   %105 = trunc i64 %104 to i32
-  %106 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %106 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %107 = add nsw i32 %106, 1
-  store i32 %107, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %107, ptr @globalUtilOptind, align 4, !tbaa !82
   %108 = icmp slt i32 %105, 0
   br i1 %108, label %.loopexit, label %.backedge
 
 109:                                              ; preds = %18
-  %110 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %110 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %.not100 = icmp slt i32 %110, %1
   br i1 %.not100, label %112, label %111
 
@@ -3614,12 +3614,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 112:                                              ; preds = %109
   %113 = sext i32 %110 to i64
   %114 = getelementptr inbounds ptr, ptr %2, i64 %113
-  %115 = load ptr, ptr %114, align 8, !tbaa !82
+  %115 = load ptr, ptr %114, align 8, !tbaa !83
   %116 = tail call i64 @strtol(ptr noundef nonnull captures(none) %115, ptr noundef null, i32 noundef 10) #12
   %117 = trunc i64 %116 to i32
-  %118 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %118 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %119 = add nsw i32 %118, 1
-  store i32 %119, ptr @globalUtilOptind, align 4, !tbaa !81
+  store i32 %119, ptr @globalUtilOptind, align 4, !tbaa !82
   %120 = icmp slt i32 %117, 0
   br i1 %120, label %.loopexit, label %.backedge
 
@@ -3642,7 +3642,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %.be558 = phi i32 [ %34, %112 ], [ %34, %100 ], [ %34, %77 ], [ %34, %65 ], [ %34, %53 ], [ %34, %41 ], [ %34, %129 ], [ %34, %127 ], [ %126, %125 ], [ %34, %123 ], [ %34, %121 ], [ %34, %89 ]
   %.be559 = phi i32 [ %35, %112 ], [ %35, %100 ], [ %35, %77 ], [ %35, %65 ], [ %35, %53 ], [ %35, %41 ], [ %35, %129 ], [ %128, %127 ], [ %35, %125 ], [ %35, %123 ], [ %35, %121 ], [ %35, %89 ]
   %.be560 = phi i32 [ %36, %112 ], [ %36, %100 ], [ %36, %77 ], [ %36, %65 ], [ %36, %53 ], [ %36, %41 ], [ %130, %129 ], [ %36, %127 ], [ %36, %125 ], [ %36, %123 ], [ %36, %121 ], [ %36, %89 ]
-  br label %18, !llvm.loop !117
+  br label %18, !llvm.loop !118
 
 121:                                              ; preds = %18
   %122 = xor i32 %32, 1
@@ -3683,20 +3683,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %136 = load ptr, ptr %135, align 8, !tbaa !84
+  %136 = load ptr, ptr %135, align 8, !tbaa !85
   %137 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %136)
   br label %214
 
 138:                                              ; preds = %131
   %139 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %140 = getelementptr i8, ptr %139, i64 4
-  %.val = load i32, ptr %140, align 4, !tbaa !92
+  %.val = load i32, ptr %140, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %145, label %141
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %143 = load ptr, ptr %142, align 8, !tbaa !84
+  %143 = load ptr, ptr %142, align 8, !tbaa !85
   %144 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %143)
   br label %214
 
@@ -3708,13 +3708,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %150 = load ptr, ptr %149, align 8, !tbaa !84
+  %150 = load ptr, ptr %149, align 8, !tbaa !85
   %151 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %150)
   br label %214
 
 152:                                              ; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %154 = load ptr, ptr %153, align 8, !tbaa !85
+  %154 = load ptr, ptr %153, align 8, !tbaa !86
   %.not98 = icmp eq ptr %154, null
   br i1 %.not98, label %157, label %155
 
@@ -3728,7 +3728,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   br label %214
 
 158:                                              ; preds = %155
-  %159 = load ptr, ptr %153, align 8, !tbaa !85
+  %159 = load ptr, ptr %153, align 8, !tbaa !86
   call void @Abc_SclDnsizePerform(ptr noundef %159, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #12
   br label %214
 
@@ -3760,45 +3760,45 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %176 = phi i32 [ %168, %.loopexit ], [ %29, %111 ], [ %29, %99 ], [ %29, %88 ], [ %29, %76 ], [ %29, %64 ], [ %29, %52 ], [ %29, %40 ]
   %177 = phi i32 [ %169, %.loopexit ], [ %30, %111 ], [ %30, %99 ], [ %30, %88 ], [ %30, %76 ], [ %30, %64 ], [ %30, %52 ], [ %30, %40 ]
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %179 = load ptr, ptr %178, align 8, !tbaa !84
+  %179 = load ptr, ptr %178, align 8, !tbaa !85
   %180 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 39, i64 1, ptr %179)
-  %181 = load ptr, ptr %178, align 8, !tbaa !84
+  %181 = load ptr, ptr %178, align 8, !tbaa !85
   %182 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 69, i64 1, ptr %181)
-  %183 = load ptr, ptr %178, align 8, !tbaa !84
+  %183 = load ptr, ptr %178, align 8, !tbaa !85
   %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.158, i32 noundef %177) #12
-  %185 = load ptr, ptr %178, align 8, !tbaa !84
+  %185 = load ptr, ptr %178, align 8, !tbaa !85
   %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.144, i32 noundef %176) #12
-  %187 = load ptr, ptr %178, align 8, !tbaa !84
+  %187 = load ptr, ptr %178, align 8, !tbaa !85
   %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.159, i32 noundef %175) #12
-  %189 = load ptr, ptr %178, align 8, !tbaa !84
+  %189 = load ptr, ptr %178, align 8, !tbaa !85
   %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.148, i32 noundef %174) #12
-  %191 = load ptr, ptr %178, align 8, !tbaa !84
+  %191 = load ptr, ptr %178, align 8, !tbaa !85
   %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.149, i32 noundef %26) #12
-  %193 = load ptr, ptr %178, align 8, !tbaa !84
+  %193 = load ptr, ptr %178, align 8, !tbaa !85
   %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.150, i32 noundef %173) #12
-  %195 = load ptr, ptr %178, align 8, !tbaa !84
+  %195 = load ptr, ptr %178, align 8, !tbaa !85
   %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.151, i32 noundef %172) #12
-  %197 = load ptr, ptr %178, align 8, !tbaa !84
+  %197 = load ptr, ptr %178, align 8, !tbaa !85
   %.not107 = icmp eq i32 %32, 0
   %198 = select i1 %.not107, ptr @.str.40, ptr @.str.39
   %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.127, ptr noundef nonnull %198) #12
-  %200 = load ptr, ptr %178, align 8, !tbaa !84
+  %200 = load ptr, ptr %178, align 8, !tbaa !85
   %.not108 = icmp eq i32 %33, 0
   %201 = select i1 %.not108, ptr @.str.40, ptr @.str.39
   %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.153, ptr noundef nonnull %201) #12
-  %203 = load ptr, ptr %178, align 8, !tbaa !84
+  %203 = load ptr, ptr %178, align 8, !tbaa !85
   %.not109 = icmp eq i32 %34, 0
   %204 = select i1 %.not109, ptr @.str.40, ptr @.str.39
   %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.154, ptr noundef nonnull %204) #12
-  %206 = load ptr, ptr %178, align 8, !tbaa !84
+  %206 = load ptr, ptr %178, align 8, !tbaa !85
   %.not110 = icmp eq i32 %35, 0
   %207 = select i1 %.not110, ptr @.str.40, ptr @.str.39
   %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.74, ptr noundef nonnull %207) #12
-  %209 = load ptr, ptr %178, align 8, !tbaa !84
+  %209 = load ptr, ptr %178, align 8, !tbaa !85
   %.not111 = icmp eq i32 %36, 0
   %210 = select i1 %.not111, ptr @.str.40, ptr @.str.39
   %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.128, ptr noundef nonnull %210) #12
-  %212 = load ptr, ptr %178, align 8, !tbaa !84
+  %212 = load ptr, ptr %178, align 8, !tbaa !85
   %213 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %212)
   br label %214
 
@@ -3824,7 +3824,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !118
+  br label %5, !llvm.loop !119
 
 9:                                                ; preds = %5
   %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
@@ -3833,20 +3833,20 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 29, i64 1, ptr %14)
   br label %49
 
 16:                                               ; preds = %9
   %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %18 = getelementptr i8, ptr %17, i64 4
-  %.val = load i32, ptr %18, align 4, !tbaa !92
+  %.val = load i32, ptr %18, align 4, !tbaa !93
   %.not = icmp eq i32 %.val, 4
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = load ptr, ptr %20, align 8, !tbaa !84
+  %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 35, i64 1, ptr %21)
   br label %49
 
@@ -3858,13 +3858,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load ptr, ptr %27, align 8, !tbaa !84
+  %28 = load ptr, ptr %27, align 8, !tbaa !85
   %29 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 57, i64 1, ptr %28)
   br label %49
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  %32 = load ptr, ptr %31, align 8, !tbaa !86
   %.not26 = icmp eq ptr %32, null
   br i1 %.not26, label %35, label %33
 
@@ -3878,21 +3878,21 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   br label %49
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %31, align 8, !tbaa !85
+  %37 = load ptr, ptr %31, align 8, !tbaa !86
   tail call void @Abc_SclPrintBuffers(ptr noundef %37, ptr noundef %4, i32 noundef %.0) #12
   br label %49
 
 38:                                               ; preds = %5
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %40 = load ptr, ptr %39, align 8, !tbaa !84
+  %40 = load ptr, ptr %39, align 8, !tbaa !85
   %41 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 23, i64 1, ptr %40)
-  %42 = load ptr, ptr %39, align 8, !tbaa !84
+  %42 = load ptr, ptr %39, align 8, !tbaa !85
   %43 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 55, i64 1, ptr %42)
-  %44 = load ptr, ptr %39, align 8, !tbaa !84
+  %44 = load ptr, ptr %39, align 8, !tbaa !85
   %.not28 = icmp eq i32 %.0, 0
   %45 = select i1 %.not28, ptr @.str.40, ptr @.str.39
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.74, ptr noundef nonnull %45) #12
-  %47 = load ptr, ptr %39, align 8, !tbaa !84
+  %47 = load ptr, ptr %39, align 8, !tbaa !85
   %48 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %47)
   br label %49
 
@@ -3918,10 +3918,10 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 
 7:                                                ; preds = %5, %5
   %.1 = xor i32 %.033, 1
-  br label %5, !llvm.loop !119
+  br label %5, !llvm.loop !120
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %10 = add nsw i32 %9, 1
   %.not38 = icmp eq i32 %1, %10
   br i1 %.not38, label %11, label %.loopexit
@@ -3929,14 +3929,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
   %15 = tail call noalias ptr @fopen(ptr noundef %14, ptr noundef nonnull @.str.22)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !84
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #12
   br label %37
 
@@ -3947,19 +3947,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 
 .loopexit:                                        ; preds = %5, %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8, !tbaa !84
+  %24 = load ptr, ptr %23, align 8, !tbaa !85
   %25 = tail call i64 @fwrite(ptr nonnull @.str.163, i64 33, i64 1, ptr %24)
-  %26 = load ptr, ptr %23, align 8, !tbaa !84
+  %26 = load ptr, ptr %23, align 8, !tbaa !85
   %27 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 70, i64 1, ptr %26)
-  %28 = load ptr, ptr %23, align 8, !tbaa !84
+  %28 = load ptr, ptr %23, align 8, !tbaa !85
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.40) #12
-  %30 = load ptr, ptr %23, align 8, !tbaa !84
+  %30 = load ptr, ptr %23, align 8, !tbaa !85
   %.not39 = icmp eq i32 %.033, 0
   %31 = select i1 %.not39, ptr @.str.40, ptr @.str.39
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.166, ptr noundef nonnull %31) #12
-  %33 = load ptr, ptr %23, align 8, !tbaa !84
+  %33 = load ptr, ptr %23, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %33)
-  %35 = load ptr, ptr %23, align 8, !tbaa !84
+  %35 = load ptr, ptr %23, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 37, i64 1, ptr %35)
   br label %37
 
@@ -3985,7 +3985,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !120
+  br label %5, !llvm.loop !121
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %.val, null
@@ -3996,7 +3996,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
   br label %44
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
+  %13 = load i32, ptr @globalUtilOptind, align 4, !tbaa !82
   %14 = add nsw i32 %13, 1
   %15 = icmp eq i32 %1, %14
   br i1 %15, label %16, label %20
@@ -4004,7 +4004,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 16:                                               ; preds = %12
   %17 = sext i32 %13 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !82
+  %19 = load ptr, ptr %18, align 8, !tbaa !83
   br label %26
 
 20:                                               ; preds = %12
@@ -4012,7 +4012,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %.val, align 8, !tbaa !121
+  %23 = load ptr, ptr %.val, align 8, !tbaa !122
   %24 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %23, ptr noundef nonnull @.str.187) #12
   br label %26
 
@@ -4037,17 +4037,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %33 = load ptr, ptr %32, align 8, !tbaa !84
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
   %34 = tail call i64 @fwrite(ptr nonnull @.str.191, i64 33, i64 1, ptr %33)
-  %35 = load ptr, ptr %32, align 8, !tbaa !84
+  %35 = load ptr, ptr %32, align 8, !tbaa !85
   %36 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 56, i64 1, ptr %35)
-  %37 = load ptr, ptr %32, align 8, !tbaa !84
+  %37 = load ptr, ptr %32, align 8, !tbaa !85
   %.not28 = icmp eq i32 %.0, 0
   %38 = select i1 %.not28, ptr @.str.40, ptr @.str.39
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull %38) #12
-  %40 = load ptr, ptr %32, align 8, !tbaa !84
+  %40 = load ptr, ptr %32, align 8, !tbaa !85
   %41 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %40)
-  %42 = load ptr, ptr %32, align 8, !tbaa !84
+  %42 = load ptr, ptr %32, align 8, !tbaa !85
   %43 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 37, i64 1, ptr %42)
   br label %44
 
@@ -4073,7 +4073,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr noundef readonly
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !123
+  br label %5, !llvm.loop !124
 
 9:                                                ; preds = %5
   %.not16 = icmp eq ptr %.val, null
@@ -4085,17 +4085,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr noundef readonly
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %13 = load ptr, ptr %12, align 8, !tbaa !84
+  %13 = load ptr, ptr %12, align 8, !tbaa !85
   %14 = tail call i64 @fwrite(ptr nonnull @.str.205, i64 33, i64 1, ptr %13)
-  %15 = load ptr, ptr %12, align 8, !tbaa !84
+  %15 = load ptr, ptr %12, align 8, !tbaa !85
   %16 = tail call i64 @fwrite(ptr nonnull @.str.206, i64 44, i64 1, ptr %15)
-  %17 = load ptr, ptr %12, align 8, !tbaa !84
+  %17 = load ptr, ptr %12, align 8, !tbaa !85
   %.not17 = icmp eq i32 %.0, 0
   %18 = select i1 %.not17, ptr @.str.40, ptr @.str.39
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.166, ptr noundef nonnull %18) #12
-  %20 = load ptr, ptr %12, align 8, !tbaa !84
+  %20 = load ptr, ptr %12, align 8, !tbaa !85
   %21 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %20)
-  %22 = load ptr, ptr %12, align 8, !tbaa !84
+  %22 = load ptr, ptr %12, align 8, !tbaa !85
   %23 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 37, i64 1, ptr %22)
   br label %24
 
@@ -4119,7 +4119,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr noundef captures
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !124
+  br label %4, !llvm.loop !125
 
 8:                                                ; preds = %4
   tail call void @Abc_FrameSetDrivingCell(ptr noundef null) #12
@@ -4129,17 +4129,17 @@ define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr noundef captures
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %11 = load ptr, ptr %10, align 8, !tbaa !84
+  %11 = load ptr, ptr %10, align 8, !tbaa !85
   %12 = tail call i64 @fwrite(ptr nonnull @.str.207, i64 33, i64 1, ptr %11)
-  %13 = load ptr, ptr %10, align 8, !tbaa !84
+  %13 = load ptr, ptr %10, align 8, !tbaa !85
   %14 = tail call i64 @fwrite(ptr nonnull @.str.208, i64 45, i64 1, ptr %13)
-  %15 = load ptr, ptr %10, align 8, !tbaa !84
+  %15 = load ptr, ptr %10, align 8, !tbaa !85
   %.not13 = icmp eq i32 %.0, 0
   %16 = select i1 %.not13, ptr @.str.40, ptr @.str.39
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.166, ptr noundef nonnull %16) #12
-  %18 = load ptr, ptr %10, align 8, !tbaa !84
+  %18 = load ptr, ptr %10, align 8, !tbaa !85
   %19 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %18)
-  %20 = load ptr, ptr %10, align 8, !tbaa !84
+  %20 = load ptr, ptr %10, align 8, !tbaa !85
   %21 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 37, i64 1, ptr %20)
   br label %22
 
@@ -4187,7 +4187,7 @@ define internal fastcc void @Scl_ConUpdateMan(ptr noundef captures(none) %0) unn
 Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 68
   store i32 0, ptr %8, align 4, !tbaa !25
-  store i32 0, ptr %4, align 8, !tbaa !42
+  store i32 0, ptr %4, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %10 = getelementptr i8, ptr %.val, i64 52
   %.val15.i.i.i = load i32, ptr %10, align 4, !tbaa !25
@@ -4217,7 +4217,7 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %18 = sext i32 %.val.i.i.i to i64
   %19 = icmp slt i64 %indvars.iv.next.i.i.i, %18
-  br i1 %19, label %13, label %Vec_PtrFreeData.exit.i.i, !llvm.loop !43
+  br i1 %19, label %13, label %Vec_PtrFreeData.exit.i.i, !llvm.loop !44
 
 Vec_PtrFreeData.exit.i.i:                         ; preds = %17, %Vec_PtrErase.exit.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 56
@@ -4232,7 +4232,7 @@ Vec_PtrFreeData.exit.i.i:                         ; preds = %17, %Vec_PtrErase.e
 
 Vec_PtrErase.exit26.i.i:                          ; preds = %22, %Vec_PtrFreeData.exit.i.i
   store i32 0, ptr %10, align 4, !tbaa !25
-  store i32 0, ptr %9, align 8, !tbaa !42
+  store i32 0, ptr %9, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %25 = load ptr, ptr %24, align 8, !tbaa !29
@@ -4309,34 +4309,34 @@ Vec_IntErase.exit35.i.i:                          ; preds = %46, %Vec_IntErase.e
   store i32 0, ptr %47, align 4, !tbaa !31
   store i32 0, ptr %43, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %49 = load ptr, ptr %48, align 8, !tbaa !125
+  %49 = load ptr, ptr %48, align 8, !tbaa !126
   tail call void @Abc_NamDeref(ptr noundef %49) #12
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 168
-  %51 = load ptr, ptr %50, align 8, !tbaa !126
+  %51 = load ptr, ptr %50, align 8, !tbaa !127
   tail call void @Abc_NamDeref(ptr noundef %51) #12
   %52 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !127
+  %53 = load ptr, ptr %52, align 8, !tbaa !128
   %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %55, label %54
 
 54:                                               ; preds = %Vec_IntErase.exit35.i.i
   tail call void @free(ptr noundef nonnull %53) #12
-  store ptr null, ptr %52, align 8, !tbaa !127
+  store ptr null, ptr %52, align 8, !tbaa !128
   br label %55
 
 55:                                               ; preds = %54, %Vec_IntErase.exit35.i.i
   %56 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !128
+  %57 = load ptr, ptr %56, align 8, !tbaa !129
   %.not23.i.i = icmp eq ptr %57, null
   br i1 %.not23.i.i, label %59, label %58
 
 58:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %57) #12
-  store ptr null, ptr %56, align 8, !tbaa !128
+  store ptr null, ptr %56, align 8, !tbaa !129
   br label %59
 
 59:                                               ; preds = %58, %55
-  %60 = load ptr, ptr %.val, align 8, !tbaa !121
+  %60 = load ptr, ptr %.val, align 8, !tbaa !122
   %.not24.i.i = icmp eq ptr %60, null
   br i1 %.not24.i.i, label %Scl_ConFree.exit.i, label %61
 
@@ -4368,7 +4368,7 @@ define ptr @Scl_ReadLibraryFile(ptr noundef readonly captures(none) %0, ptr noun
 .sink.split:                                      ; preds = %9, %6
   %.str.24.sink = phi ptr [ @.str.23, %6 ], [ @.str.24, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull %.str.24.sink, ptr noundef %1) #12
   br label %16
 
@@ -4461,7 +4461,7 @@ Vec_IntErase.exit13:                              ; preds = %Vec_IntErase.exit, 
   store i32 0, ptr %17, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = getelementptr i8, ptr %0, i64 44
-  %.val10.i = load i32, ptr %23, align 4, !tbaa !47
+  %.val10.i = load i32, ptr %23, align 4, !tbaa !48
   %24 = icmp sgt i32 %.val10.i, 0
   br i1 %24, label %.lr.ph.i, label %.critedge.i
 
@@ -4472,7 +4472,7 @@ Vec_IntErase.exit13:                              ; preds = %Vec_IntErase.exit, 
 26:                                               ; preds = %33, %.lr.ph.i
   %.val13.i = phi i32 [ %.val10.i, %.lr.ph.i ], [ %.val.i, %33 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %.val8.i = load ptr, ptr %25, align 8, !tbaa !49
+  %.val8.i = load ptr, ptr %25, align 8, !tbaa !50
   %27 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %.not.i14 = icmp eq ptr %28, null
@@ -4490,7 +4490,7 @@ Vec_IntErase.exit13:                              ; preds = %Vec_IntErase.exit, 
 
 Vec_PtrFree.exit.i:                               ; preds = %32, %29
   tail call void @free(ptr noundef nonnull %28) #12
-  %.val.pre.i = load i32, ptr %23, align 4, !tbaa !47
+  %.val.pre.i = load i32, ptr %23, align 4, !tbaa !48
   br label %33
 
 33:                                               ; preds = %Vec_PtrFree.exit.i, %26
@@ -4498,7 +4498,7 @@ Vec_PtrFree.exit.i:                               ; preds = %32, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = sext i32 %.val.i to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %26, label %.critedge.i, !llvm.loop !50
+  br i1 %35, label %26, label %.critedge.i, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %33, %Vec_IntErase.exit13
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4513,10 +4513,10 @@ Vec_PtrFree.exit.i:                               ; preds = %32, %29
 
 Vec_VecErase.exit:                                ; preds = %.critedge.i, %38
   store i32 0, ptr %23, align 4, !tbaa !25
-  store i32 0, ptr %22, align 8, !tbaa !42
+  store i32 0, ptr %22, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = getelementptr i8, ptr %0, i64 92
-  %.val10.i15 = load i32, ptr %40, align 4, !tbaa !47
+  %.val10.i15 = load i32, ptr %40, align 4, !tbaa !48
   %41 = icmp sgt i32 %.val10.i15, 0
   br i1 %41, label %.lr.ph.i18, label %.critedge.i16
 
@@ -4527,7 +4527,7 @@ Vec_VecErase.exit:                                ; preds = %.critedge.i, %38
 43:                                               ; preds = %50, %.lr.ph.i18
   %.val13.i19 = phi i32 [ %.val10.i15, %.lr.ph.i18 ], [ %.val.i26, %50 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i27, %50 ]
-  %.val8.i21 = load ptr, ptr %42, align 8, !tbaa !49
+  %.val8.i21 = load ptr, ptr %42, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw ptr, ptr %.val8.i21, i64 %indvars.iv.i20
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %.not.i22 = icmp eq ptr %45, null
@@ -4545,7 +4545,7 @@ Vec_VecErase.exit:                                ; preds = %.critedge.i, %38
 
 Vec_PtrFree.exit.i24:                             ; preds = %49, %46
   tail call void @free(ptr noundef nonnull %45) #12
-  %.val.pre.i25 = load i32, ptr %40, align 4, !tbaa !47
+  %.val.pre.i25 = load i32, ptr %40, align 4, !tbaa !48
   br label %50
 
 50:                                               ; preds = %Vec_PtrFree.exit.i24, %43
@@ -4553,7 +4553,7 @@ Vec_PtrFree.exit.i24:                             ; preds = %49, %46
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i20, 1
   %51 = sext i32 %.val.i26 to i64
   %52 = icmp slt i64 %indvars.iv.next.i27, %51
-  br i1 %52, label %43, label %.critedge.i16, !llvm.loop !50
+  br i1 %52, label %43, label %.critedge.i16, !llvm.loop !51
 
 .critedge.i16:                                    ; preds = %50, %Vec_VecErase.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4568,14 +4568,14 @@ Vec_PtrFree.exit.i24:                             ; preds = %49, %46
 
 Vec_VecErase.exit28:                              ; preds = %.critedge.i16, %55
   store i32 0, ptr %40, align 4, !tbaa !25
-  store i32 0, ptr %39, align 8, !tbaa !42
-  %56 = load ptr, ptr %0, align 8, !tbaa !129
+  store i32 0, ptr %39, align 8, !tbaa !43
+  %56 = load ptr, ptr %0, align 8, !tbaa !130
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %58, label %57
 
 57:                                               ; preds = %Vec_VecErase.exit28
   tail call void @free(ptr noundef nonnull %56) #12
-  store ptr null, ptr %0, align 8, !tbaa !129
+  store ptr null, ptr %0, align 8, !tbaa !130
   br label %58
 
 58:                                               ; preds = %Vec_VecErase.exit28, %57
@@ -4598,7 +4598,7 @@ declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnam
 define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !81
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !82
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %5
 
@@ -4628,12 +4628,12 @@ define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !130
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !131
   %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.51) #12
   br label %19
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !130
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !131
   %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.52) #12
   br label %19
 
@@ -4645,7 +4645,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1,
 
 21:                                               ; preds = %19
   %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !130
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !131
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #14
   %25 = trunc i64 %24 to i32
   %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #12
@@ -4653,7 +4653,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1,
   br label %30
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !130, !noalias !131
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !131, !noalias !132
   %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #12
   br label %30
 
@@ -4764,7 +4764,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !130
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !131
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -4778,10 +4778,10 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !128
+  %14 = load ptr, ptr %13, align 8, !tbaa !129
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.194, ptr noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !127
+  %17 = load ptr, ptr %16, align 8, !tbaa !128
   %.not118 = icmp eq ptr %17, null
   br i1 %.not118, label %20, label %18
 
@@ -4791,7 +4791,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 20:                                               ; preds = %18, %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !134
+  %22 = load i32, ptr %21, align 8, !tbaa !135
   %.not119 = icmp eq i32 %22, 0
   br i1 %.not119, label %28, label %23
 
@@ -4804,7 +4804,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 28:                                               ; preds = %23, %20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !135
+  %30 = load i32, ptr %29, align 4, !tbaa !136
   %.not120 = icmp eq i32 %30, 0
   br i1 %.not120, label %36, label %31
 
@@ -4817,7 +4817,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 36:                                               ; preds = %31, %28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !136
+  %38 = load i32, ptr %37, align 8, !tbaa !137
   %.not121 = icmp eq i32 %38, 0
   br i1 %.not121, label %44, label %39
 
@@ -4830,7 +4830,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 44:                                               ; preds = %39, %36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %46 = load i32, ptr %45, align 4, !tbaa !137
+  %46 = load i32, ptr %45, align 4, !tbaa !138
   %.not122 = icmp eq i32 %46, 0
   br i1 %.not122, label %52, label %47
 
@@ -4843,7 +4843,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 
 52:                                               ; preds = %47, %44
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load i32, ptr %53, align 8, !tbaa !138
+  %54 = load i32, ptr %53, align 8, !tbaa !139
   %.not123 = icmp eq i32 %54, 0
   br i1 %.not123, label %60, label %55
 
@@ -4886,7 +4886,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br i1 %.not130, label %82, label %72
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr %16, align 8, !tbaa !127
+  %73 = load ptr, ptr %16, align 8, !tbaa !128
   %.not131 = icmp eq ptr %73, null
   br i1 %.not131, label %76, label %74
 
@@ -4896,7 +4896,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br i1 %.not132, label %82, label %76
 
 76:                                               ; preds = %74, %72
-  %77 = load ptr, ptr %64, align 8, !tbaa !125
+  %77 = load ptr, ptr %64, align 8, !tbaa !126
   %78 = trunc i64 %indvars.iv to i32
   %79 = add i32 %78, 1
   %80 = tail call ptr @Abc_NamStr(ptr noundef %77, i32 noundef %79) #12
@@ -4909,7 +4909,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = sext i32 %.val to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %69, label %.critedge.preheader, !llvm.loop !139
+  br i1 %84, label %69, label %.critedge.preheader, !llvm.loop !140
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %85 = getelementptr i8, ptr %0, i64 100
@@ -4927,8 +4927,8 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %indvars.iv162 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next163.pre-phi, %.critedge ]
   %.val143 = load ptr, ptr %67, align 8, !tbaa !29
   %90 = getelementptr inbounds nuw i32, ptr %.val143, i64 %indvars.iv162
-  %91 = load i32, ptr %90, align 4, !tbaa !81
-  %92 = load i32, ptr %21, align 8, !tbaa !134
+  %91 = load i32, ptr %90, align 4, !tbaa !82
+  %92 = load i32, ptr %21, align 8, !tbaa !135
   %.not129 = icmp eq i32 %91, %92
   br i1 %.not129, label %..critedge_crit_edge, label %93
 
@@ -4937,7 +4937,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %.critedge
 
 93:                                               ; preds = %89
-  %94 = load ptr, ptr %68, align 8, !tbaa !125
+  %94 = load ptr, ptr %68, align 8, !tbaa !126
   %95 = add nuw nsw i64 %indvars.iv162, 1
   %96 = trunc nuw nsw i64 %95 to i32
   %97 = tail call ptr @Abc_NamStr(ptr noundef %94, i32 noundef %96) #12
@@ -4953,7 +4953,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val138 = phi i32 [ %.val138179, %..critedge_crit_edge ], [ %.val138.pre, %93 ]
   %102 = sext i32 %.val138 to i64
   %103 = icmp slt i64 %indvars.iv.next163.pre-phi, %102
-  br i1 %103, label %89, label %.critedge2.preheader, !llvm.loop !140
+  br i1 %103, label %89, label %.critedge2.preheader, !llvm.loop !141
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %104 = getelementptr i8, ptr %0, i64 116
@@ -4971,8 +4971,8 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %indvars.iv165 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next166.pre-phi, %.critedge2 ]
   %.val142 = load ptr, ptr %87, align 8, !tbaa !29
   %109 = getelementptr inbounds nuw i32, ptr %.val142, i64 %indvars.iv165
-  %110 = load i32, ptr %109, align 4, !tbaa !81
-  %111 = load i32, ptr %29, align 4, !tbaa !135
+  %110 = load i32, ptr %109, align 4, !tbaa !82
+  %111 = load i32, ptr %29, align 4, !tbaa !136
   %.not128 = icmp eq i32 %110, %111
   br i1 %.not128, label %..critedge2_crit_edge, label %112
 
@@ -4981,7 +4981,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %.critedge2
 
 112:                                              ; preds = %108
-  %113 = load ptr, ptr %88, align 8, !tbaa !125
+  %113 = load ptr, ptr %88, align 8, !tbaa !126
   %114 = add nuw nsw i64 %indvars.iv165, 1
   %115 = trunc nuw nsw i64 %114 to i32
   %116 = tail call ptr @Abc_NamStr(ptr noundef %113, i32 noundef %115) #12
@@ -4997,7 +4997,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val137 = phi i32 [ %.val137181, %..critedge2_crit_edge ], [ %.val137.pre, %112 ]
   %121 = sext i32 %.val137 to i64
   %122 = icmp slt i64 %indvars.iv.next166.pre-phi, %121
-  br i1 %122, label %108, label %.critedge4.preheader, !llvm.loop !141
+  br i1 %122, label %108, label %.critedge4.preheader, !llvm.loop !142
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %123 = getelementptr i8, ptr %0, i64 132
@@ -5015,8 +5015,8 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %indvars.iv168 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next169.pre-phi, %.critedge4 ]
   %.val141 = load ptr, ptr %106, align 8, !tbaa !29
   %128 = getelementptr inbounds nuw i32, ptr %.val141, i64 %indvars.iv168
-  %129 = load i32, ptr %128, align 4, !tbaa !81
-  %130 = load i32, ptr %37, align 8, !tbaa !136
+  %129 = load i32, ptr %128, align 4, !tbaa !82
+  %130 = load i32, ptr %37, align 8, !tbaa !137
   %.not127 = icmp eq i32 %129, %130
   br i1 %.not127, label %..critedge4_crit_edge, label %131
 
@@ -5025,7 +5025,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %.critedge4
 
 131:                                              ; preds = %127
-  %132 = load ptr, ptr %107, align 8, !tbaa !125
+  %132 = load ptr, ptr %107, align 8, !tbaa !126
   %133 = add nuw nsw i64 %indvars.iv168, 1
   %134 = trunc nuw nsw i64 %133 to i32
   %135 = tail call ptr @Abc_NamStr(ptr noundef %132, i32 noundef %134) #12
@@ -5041,7 +5041,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val136 = phi i32 [ %.val136183, %..critedge4_crit_edge ], [ %.val136.pre, %131 ]
   %140 = sext i32 %.val136 to i64
   %141 = icmp slt i64 %indvars.iv.next169.pre-phi, %140
-  br i1 %141, label %127, label %.critedge6.preheader, !llvm.loop !142
+  br i1 %141, label %127, label %.critedge6.preheader, !llvm.loop !143
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %142 = getelementptr i8, ptr %0, i64 148
@@ -5059,8 +5059,8 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %indvars.iv171 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next172.pre-phi, %.critedge6 ]
   %.val140 = load ptr, ptr %125, align 8, !tbaa !29
   %147 = getelementptr inbounds nuw i32, ptr %.val140, i64 %indvars.iv171
-  %148 = load i32, ptr %147, align 4, !tbaa !81
-  %149 = load i32, ptr %45, align 4, !tbaa !137
+  %148 = load i32, ptr %147, align 4, !tbaa !82
+  %149 = load i32, ptr %45, align 4, !tbaa !138
   %.not126 = icmp eq i32 %148, %149
   br i1 %.not126, label %..critedge6_crit_edge, label %150
 
@@ -5069,7 +5069,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %.critedge6
 
 150:                                              ; preds = %146
-  %151 = load ptr, ptr %126, align 8, !tbaa !126
+  %151 = load ptr, ptr %126, align 8, !tbaa !127
   %152 = add nuw nsw i64 %indvars.iv171, 1
   %153 = trunc nuw nsw i64 %152 to i32
   %154 = tail call ptr @Abc_NamStr(ptr noundef %151, i32 noundef %153) #12
@@ -5085,15 +5085,15 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val135 = phi i32 [ %.val135185, %..critedge6_crit_edge ], [ %.val135.pre, %150 ]
   %159 = sext i32 %.val135 to i64
   %160 = icmp slt i64 %indvars.iv.next172.pre-phi, %159
-  br i1 %160, label %146, label %.critedge8.preheader, !llvm.loop !143
+  br i1 %160, label %146, label %.critedge8.preheader, !llvm.loop !144
 
 161:                                              ; preds = %.lr.ph160, %.critedge8
   %.val134187 = phi i32 [ %.val134158, %.lr.ph160 ], [ %.val134, %.critedge8 ]
   %indvars.iv174 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next175.pre-phi, %.critedge8 ]
   %.val139 = load ptr, ptr %144, align 8, !tbaa !29
   %162 = getelementptr inbounds nuw i32, ptr %.val139, i64 %indvars.iv174
-  %163 = load i32, ptr %162, align 4, !tbaa !81
-  %164 = load i32, ptr %53, align 8, !tbaa !138
+  %163 = load i32, ptr %162, align 4, !tbaa !82
+  %164 = load i32, ptr %53, align 8, !tbaa !139
   %.not125 = icmp eq i32 %163, %164
   br i1 %.not125, label %..critedge8_crit_edge, label %165
 
@@ -5102,7 +5102,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br label %.critedge8
 
 165:                                              ; preds = %161
-  %166 = load ptr, ptr %145, align 8, !tbaa !126
+  %166 = load ptr, ptr %145, align 8, !tbaa !127
   %167 = add nuw nsw i64 %indvars.iv174, 1
   %168 = trunc nuw nsw i64 %167 to i32
   %169 = tail call ptr @Abc_NamStr(ptr noundef %166, i32 noundef %168) #12
@@ -5118,10 +5118,10 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val134 = phi i32 [ %.val134187, %..critedge8_crit_edge ], [ %.val134.pre, %165 ]
   %174 = sext i32 %.val134 to i64
   %175 = icmp slt i64 %indvars.iv.next175.pre-phi, %174
-  br i1 %175, label %161, label %.critedge10, !llvm.loop !144
+  br i1 %175, label %161, label %.critedge10, !llvm.loop !145
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
-  %176 = load ptr, ptr @stdout, align 8, !tbaa !130
+  %176 = load ptr, ptr @stdout, align 8, !tbaa !131
   %.not124 = icmp eq ptr %8, %176
   br i1 %.not124, label %179, label %177
 
@@ -5203,108 +5203,109 @@ attributes #14 = { nounwind willreturn memory(read) }
 !37 = !{!34, !12, i64 0}
 !38 = !{!39, !5, i64 0}
 !39 = !{!"SC_WireLoad_", !5, i64 0, !13, i64 8, !13, i64 12, !30, i64 16, !34, i64 32}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!26, !12, i64 0}
-!43 = distinct !{!43, !41}
-!44 = !{!45, !5, i64 0}
-!45 = !{!"SC_WireLoadSel_", !5, i64 0, !34, i64 8, !34, i64 24, !26, i64 40}
-!46 = distinct !{!46, !41}
-!47 = !{!48, !12, i64 4}
-!48 = !{!"Vec_Vec_t_", !12, i64 0, !12, i64 4, !6, i64 8}
-!49 = !{!48, !6, i64 8}
-!50 = distinct !{!50, !41}
-!51 = !{!52, !5, i64 0}
-!52 = !{!"SC_TableTempl_", !5, i64 0, !26, i64 8, !26, i64 24}
-!53 = distinct !{!53, !41}
-!54 = !{!55, !5, i64 0}
-!55 = !{!"SC_Timing_", !5, i64 0, !12, i64 8, !5, i64 16, !56, i64 24, !56, i64 200, !56, i64 376, !56, i64 552}
-!56 = !{!"SC_Surface_", !5, i64 0, !34, i64 8, !34, i64 24, !26, i64 40, !30, i64 56, !30, i64 72, !26, i64 88, !7, i64 104}
-!57 = !{!55, !5, i64 16}
-!58 = distinct !{!58, !41}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"SC_Timings_", !5, i64 0, !26, i64 8}
-!61 = distinct !{!61, !41}
-!62 = !{!63, !64, i64 8}
-!63 = !{!"Vec_Wrd_t_", !12, i64 0, !12, i64 4, !64, i64 8}
-!64 = !{!"p1 long", !6, i64 0}
-!65 = !{!63, !12, i64 4}
-!66 = !{!63, !12, i64 0}
-!67 = !{!68, !5, i64 40}
-!68 = !{!"SC_Pin_", !5, i64 0, !12, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !12, i64 24, !12, i64 28, !13, i64 32, !13, i64 36, !5, i64 40, !63, i64 48, !26, i64 64}
-!69 = !{!68, !5, i64 0}
-!70 = distinct !{!70, !41}
-!71 = !{!72, !5, i64 0}
-!72 = !{!"SC_Cell_", !5, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !13, i64 24, !13, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !26, i64 48, !12, i64 64, !12, i64 68, !73, i64 72, !73, i64 80, !73, i64 88, !73, i64 96, !12, i64 104, !12, i64 108}
-!73 = !{!"p1 _ZTS8SC_Cell_", !6, i64 0}
-!74 = distinct !{!74, !41}
-!75 = !{!76, !5, i64 0}
-!76 = !{!"SC_Lib_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !13, i64 32, !12, i64 36, !13, i64 40, !12, i64 44, !26, i64 48, !26, i64 64, !26, i64 80, !26, i64 96, !26, i64 112, !22, i64 128, !12, i64 136}
-!77 = !{!76, !5, i64 8}
-!78 = !{!76, !5, i64 16}
-!79 = !{!76, !5, i64 24}
-!80 = !{!76, !22, i64 128}
-!81 = !{!12, !12, i64 0}
-!82 = !{!5, !5, i64 0}
-!83 = distinct !{!83, !41}
-!84 = !{!4, !14, i64 136}
-!85 = !{!4, !6, i64 240}
-!86 = !{!72, !13, i64 24}
-!87 = distinct !{!87, !41}
-!88 = distinct !{!88, !41}
-!89 = distinct !{!89, !41}
-!90 = distinct !{!90, !41}
-!91 = distinct !{!91, !41}
-!92 = !{!93, !12, i64 4}
-!93 = !{!"Abc_Ntk_t_", !12, i64 0, !12, i64 4, !5, i64 8, !5, i64 16, !94, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !7, i64 96, !12, i64 140, !12, i64 144, !12, i64 148, !12, i64 152, !11, i64 160, !12, i64 168, !95, i64 176, !11, i64 184, !12, i64 192, !12, i64 196, !12, i64 200, !15, i64 208, !12, i64 216, !30, i64 224, !96, i64 240, !97, i64 248, !6, i64 256, !98, i64 264, !6, i64 272, !13, i64 280, !12, i64 284, !16, i64 288, !10, i64 296, !22, i64 304, !18, i64 312, !10, i64 320, !11, i64 328, !6, i64 336, !6, i64 344, !11, i64 352, !6, i64 360, !6, i64 368, !16, i64 376, !16, i64 384, !5, i64 392, !35, i64 400, !10, i64 408, !16, i64 416, !16, i64 424, !10, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
-!94 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
-!95 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
-!96 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
-!97 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
-!98 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
-!99 = distinct !{!99, !41}
-!100 = distinct !{!100, !41}
-!101 = !{!93, !12, i64 0}
-!102 = distinct !{!102, !41}
-!103 = distinct !{!103, !41}
-!104 = !{!93, !16, i64 384}
-!105 = distinct !{!105, !41}
-!106 = distinct !{!106, !41}
-!107 = !{!108, !12, i64 0}
-!108 = !{!"SC_SizePars_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56}
-!109 = !{!108, !12, i64 4}
-!110 = !{!108, !12, i64 8}
-!111 = !{!108, !12, i64 12}
-!112 = !{!108, !12, i64 16}
-!113 = !{!108, !12, i64 40}
-!114 = !{!108, !12, i64 20}
-!115 = distinct !{!115, !41}
-!116 = !{!108, !12, i64 24}
-!117 = distinct !{!117, !41}
-!118 = distinct !{!118, !41}
-!119 = distinct !{!119, !41}
-!120 = distinct !{!120, !41}
-!121 = !{!122, !5, i64 0}
-!122 = !{!"Scl_Con_t_", !5, i64 0, !5, i64 8, !5, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !26, i64 48, !26, i64 64, !30, i64 80, !30, i64 96, !30, i64 112, !30, i64 128, !30, i64 144, !19, i64 160, !19, i64 168}
-!123 = distinct !{!123, !41}
-!124 = distinct !{!124, !41}
-!125 = !{!122, !19, i64 160}
-!126 = !{!122, !19, i64 168}
-!127 = !{!122, !5, i64 16}
-!128 = !{!122, !5, i64 8}
-!129 = !{!56, !5, i64 0}
-!130 = !{!14, !14, i64 0}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"vprintf: argument 0"}
-!133 = distinct !{!133, !"vprintf"}
-!134 = !{!122, !12, i64 24}
-!135 = !{!122, !12, i64 28}
-!136 = !{!122, !12, i64 32}
-!137 = !{!122, !12, i64 36}
-!138 = !{!122, !12, i64 40}
-!139 = distinct !{!139, !41}
-!140 = distinct !{!140, !41}
-!141 = distinct !{!141, !41}
-!142 = distinct !{!142, !41}
-!143 = distinct !{!143, !41}
-!144 = distinct !{!144, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!26, !12, i64 0}
+!44 = distinct !{!44, !41, !42}
+!45 = !{!46, !5, i64 0}
+!46 = !{!"SC_WireLoadSel_", !5, i64 0, !34, i64 8, !34, i64 24, !26, i64 40}
+!47 = distinct !{!47, !41, !42}
+!48 = !{!49, !12, i64 4}
+!49 = !{!"Vec_Vec_t_", !12, i64 0, !12, i64 4, !6, i64 8}
+!50 = !{!49, !6, i64 8}
+!51 = distinct !{!51, !41, !42}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"SC_TableTempl_", !5, i64 0, !26, i64 8, !26, i64 24}
+!54 = distinct !{!54, !41, !42}
+!55 = !{!56, !5, i64 0}
+!56 = !{!"SC_Timing_", !5, i64 0, !12, i64 8, !5, i64 16, !57, i64 24, !57, i64 200, !57, i64 376, !57, i64 552}
+!57 = !{!"SC_Surface_", !5, i64 0, !34, i64 8, !34, i64 24, !26, i64 40, !30, i64 56, !30, i64 72, !26, i64 88, !7, i64 104}
+!58 = !{!56, !5, i64 16}
+!59 = distinct !{!59, !41, !42}
+!60 = !{!61, !5, i64 0}
+!61 = !{!"SC_Timings_", !5, i64 0, !26, i64 8}
+!62 = distinct !{!62, !41, !42}
+!63 = !{!64, !65, i64 8}
+!64 = !{!"Vec_Wrd_t_", !12, i64 0, !12, i64 4, !65, i64 8}
+!65 = !{!"p1 long", !6, i64 0}
+!66 = !{!64, !12, i64 4}
+!67 = !{!64, !12, i64 0}
+!68 = !{!69, !5, i64 40}
+!69 = !{!"SC_Pin_", !5, i64 0, !12, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !12, i64 24, !12, i64 28, !13, i64 32, !13, i64 36, !5, i64 40, !64, i64 48, !26, i64 64}
+!70 = !{!69, !5, i64 0}
+!71 = distinct !{!71, !41, !42}
+!72 = !{!73, !5, i64 0}
+!73 = !{!"SC_Cell_", !5, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !13, i64 24, !13, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !26, i64 48, !12, i64 64, !12, i64 68, !74, i64 72, !74, i64 80, !74, i64 88, !74, i64 96, !12, i64 104, !12, i64 108}
+!74 = !{!"p1 _ZTS8SC_Cell_", !6, i64 0}
+!75 = distinct !{!75, !41, !42}
+!76 = !{!77, !5, i64 0}
+!77 = !{!"SC_Lib_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !13, i64 32, !12, i64 36, !13, i64 40, !12, i64 44, !26, i64 48, !26, i64 64, !26, i64 80, !26, i64 96, !26, i64 112, !22, i64 128, !12, i64 136}
+!78 = !{!77, !5, i64 8}
+!79 = !{!77, !5, i64 16}
+!80 = !{!77, !5, i64 24}
+!81 = !{!77, !22, i64 128}
+!82 = !{!12, !12, i64 0}
+!83 = !{!5, !5, i64 0}
+!84 = distinct !{!84, !41, !42}
+!85 = !{!4, !14, i64 136}
+!86 = !{!4, !6, i64 240}
+!87 = !{!73, !13, i64 24}
+!88 = distinct !{!88, !41, !42}
+!89 = distinct !{!89, !41, !42}
+!90 = distinct !{!90, !41, !42}
+!91 = distinct !{!91, !41, !42}
+!92 = distinct !{!92, !41, !42}
+!93 = !{!94, !12, i64 4}
+!94 = !{!"Abc_Ntk_t_", !12, i64 0, !12, i64 4, !5, i64 8, !5, i64 16, !95, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !7, i64 96, !12, i64 140, !12, i64 144, !12, i64 148, !12, i64 152, !11, i64 160, !12, i64 168, !96, i64 176, !11, i64 184, !12, i64 192, !12, i64 196, !12, i64 200, !15, i64 208, !12, i64 216, !30, i64 224, !97, i64 240, !98, i64 248, !6, i64 256, !99, i64 264, !6, i64 272, !13, i64 280, !12, i64 284, !16, i64 288, !10, i64 296, !22, i64 304, !18, i64 312, !10, i64 320, !11, i64 328, !6, i64 336, !6, i64 344, !11, i64 352, !6, i64 360, !6, i64 368, !16, i64 376, !16, i64 384, !5, i64 392, !35, i64 400, !10, i64 408, !16, i64 416, !16, i64 424, !10, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
+!95 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
+!96 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
+!97 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
+!98 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
+!99 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
+!100 = distinct !{!100, !41, !42}
+!101 = distinct !{!101, !41, !42}
+!102 = !{!94, !12, i64 0}
+!103 = distinct !{!103, !41, !42}
+!104 = distinct !{!104, !41, !42}
+!105 = !{!94, !16, i64 384}
+!106 = distinct !{!106, !41, !42}
+!107 = distinct !{!107, !41, !42}
+!108 = !{!109, !12, i64 0}
+!109 = !{!"SC_SizePars_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56}
+!110 = !{!109, !12, i64 4}
+!111 = !{!109, !12, i64 8}
+!112 = !{!109, !12, i64 12}
+!113 = !{!109, !12, i64 16}
+!114 = !{!109, !12, i64 40}
+!115 = !{!109, !12, i64 20}
+!116 = distinct !{!116, !41, !42}
+!117 = !{!109, !12, i64 24}
+!118 = distinct !{!118, !41, !42}
+!119 = distinct !{!119, !41, !42}
+!120 = distinct !{!120, !41, !42}
+!121 = distinct !{!121, !41, !42}
+!122 = !{!123, !5, i64 0}
+!123 = !{!"Scl_Con_t_", !5, i64 0, !5, i64 8, !5, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !26, i64 48, !26, i64 64, !30, i64 80, !30, i64 96, !30, i64 112, !30, i64 128, !30, i64 144, !19, i64 160, !19, i64 168}
+!124 = distinct !{!124, !41, !42}
+!125 = distinct !{!125, !41, !42}
+!126 = !{!123, !19, i64 160}
+!127 = !{!123, !19, i64 168}
+!128 = !{!123, !5, i64 16}
+!129 = !{!123, !5, i64 8}
+!130 = !{!57, !5, i64 0}
+!131 = !{!14, !14, i64 0}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"vprintf: argument 0"}
+!134 = distinct !{!134, !"vprintf"}
+!135 = !{!123, !12, i64 24}
+!136 = !{!123, !12, i64 28}
+!137 = !{!123, !12, i64 32}
+!138 = !{!123, !12, i64 36}
+!139 = !{!123, !12, i64 40}
+!140 = distinct !{!140, !41, !42}
+!141 = distinct !{!141, !41, !42}
+!142 = distinct !{!142, !41, !42}
+!143 = distinct !{!143, !41, !42}
+!144 = distinct !{!144, !41, !42}
+!145 = distinct !{!145, !41, !42}

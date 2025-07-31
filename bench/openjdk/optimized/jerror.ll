@@ -296,7 +296,7 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   switch i8 %37, label %35 [
     i8 0, label %.critedge
     i8 37, label %38
-  ]
+  ], !llvm.loop !6
 
 38:                                               ; preds = %35
   %39 = load i8, ptr %36, align 1
@@ -371,3 +371,5 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

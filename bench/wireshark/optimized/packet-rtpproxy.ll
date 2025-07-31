@@ -977,7 +977,7 @@ proto_item_set_generated.exit:                    ; preds = %267, %264, %261, %2
 343:                                              ; preds = %334, %341, %322, %330
   %344 = phi i1 [ true, %334 ], [ false, %341 ], [ true, %322 ], [ false, %330 ]
   %345 = phi i32 [ 16, %334 ], [ 0, %341 ], [ 4, %322 ], [ 0, %330 ]
-  %346 = load i8, ptr @rtpproxy_establish_conversation, align 1, !range !8, !noundef !9
+  %346 = load i8, ptr @rtpproxy_establish_conversation, align 1, !range !9, !noundef !10
   %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %348, label %364
 
@@ -1385,7 +1385,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %49 = zext i1 %.not168 to i32
   %spec.select = add i32 %44, %49
   %.not167 = icmp eq ptr %48, null
-  br i1 %.not167, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not167, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 50:                                               ; preds = %.lr.ph173
   %51 = zext i32 %13 to i64
@@ -1474,7 +1474,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %113 = trunc i64 %112 to i32
   %114 = and i32 %113, 65535
   %115 = call ptr @proto_tree_add_uint(ptr noundef %108, i32 noundef %109, ptr noundef %0, i32 noundef %14, i32 noundef %106, i32 noundef %114)
-  %116 = load i8, ptr @rtpproxy_establish_conversation, align 1, !range !8, !noundef !9
+  %116 = load i8, ptr @rtpproxy_establish_conversation, align 1, !range !9, !noundef !10
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %124
 
@@ -1541,7 +1541,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph173, %50, %67, %158, %138, %132, %126, %124, %87, %85
   %.3 = phi i32 [ %13, %.lr.ph173 ], [ %68, %67 ], [ %13, %50 ], [ %86, %85 ], [ %101, %87 ], [ %125, %124 ], [ %131, %126 ], [ %137, %132 ], [ %157, %138 ], [ %163, %158 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
   %164 = icmp ult i32 %.3, %4
-  br i1 %164, label %.lr.ph173, label %._crit_edge, !llvm.loop !11
+  br i1 %164, label %.lr.ph173, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -1681,7 +1681,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
   %8 = add nuw i32 %.075, 1
   %9 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %8, i32 noundef %4, i8 noundef zeroext 58)
   %.not80 = icmp eq i32 %9, -1
-  br i1 %.not80, label %10, label %.preheader, !llvm.loop !12
+  br i1 %.not80, label %10, label %.preheader, !llvm.loop !13
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1887,10 +1887,11 @@ attributes #14 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

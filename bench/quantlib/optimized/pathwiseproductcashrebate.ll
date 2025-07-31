@@ -1433,7 +1433,7 @@ for.body13:                                       ; preds = %for.body, %for.body
   %inc = add i64 %k.021, 1
   %call10 = tail call noundef i64 @_ZNK8QuantLib20EvolutionDescription13numberOfRatesEv(ptr noundef nonnull align 8 dereferenceable(128) %evolution_)
   %cmp11.not = icmp ugt i64 %inc, %call10
-  br i1 %cmp11.not, label %for.cond.cleanup12, label %for.body13, !llvm.loop !77
+  br i1 %cmp11.not, label %for.cond.cleanup12, label %for.body13, !llvm.loop !78
 }
 
 declare noundef i64 @_ZNK8QuantLib20EvolutionDescription13numberOfRatesEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
@@ -1867,7 +1867,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !78
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !79
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -2196,7 +2196,8 @@ attributes #26 = { noreturn nounwind }
 !72 = !{!"_ZTSN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowE", !8, i64 0, !10, i64 8}
 !73 = !{!74, !74, i64 0}
 !74 = !{!"double", !9, i64 0}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = distinct !{!77, !76}
-!78 = distinct !{!78, !76}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = distinct !{!78, !76, !77}
+!79 = distinct !{!79, !76, !77}

@@ -63,7 +63,7 @@ define hidden void @_sodium_argon2_finalize(ptr noundef readonly captures(addres
 xor_block.exit:                                   ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %xor_block.exit, %8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
@@ -78,11 +78,11 @@ xor_block.exit:                                   ; preds = %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %37, ptr %3, align 8
   %38 = sub nuw nsw i64 1024, %34
-  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %35, ptr noundef nonnull %3, i64 noundef 8, i64 noundef %38) #10, !alias.scope !7
+  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %35, ptr noundef nonnull %3, i64 noundef 8, i64 noundef %38) #10, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 128
-  br i1 %exitcond.not.i20, label %store_block.exit, label %33, !llvm.loop !11
+  br i1 %exitcond.not.i20, label %store_block.exit, label %33, !llvm.loop !12
 
 store_block.exit:                                 ; preds = %33
   %40 = load ptr, ptr %0, align 8
@@ -171,12 +171,12 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
   %.sroa.0.4.insert.shift = shl nuw i64 %indvars.iv, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %9
   %11 = load ptr, ptr @fill_segment, align 8
-  tail call void %11(ptr noundef nonnull %0, i64 %.sroa.0.4.insert.insert, i64 %.sroa.5.12.insert.mask) #10, !callees !12
+  tail call void %11(ptr noundef nonnull %0, i64 %.sroa.0.4.insert.insert, i64 %.sroa.5.12.insert.mask) #10, !callees !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %5, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %10, label %._crit_edge, !llvm.loop !13
+  br i1 %14, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %.split
   %15 = phi i32 [ 0, %.split ], [ %12, %10 ]
@@ -184,7 +184,7 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
   %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.016, %.split ], [ %.sroa.0.4.insert.insert, %10 ]
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 4
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %2, %4
   ret void
@@ -542,7 +542,7 @@ argon2_initial_hash.exit:                         ; preds = %106, %112
   store i64 %134, ptr %135, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %load_block.exit.i, label %131, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %load_block.exit.i, label %131, !llvm.loop !17
 
 load_block.exit.i:                                ; preds = %131
   store i32 1, ptr %117, align 16
@@ -566,13 +566,13 @@ load_block.exit.i:                                ; preds = %131
   store i64 %148, ptr %149, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 128
-  br i1 %exitcond.not.i16.i, label %load_block.exit17.i, label %145, !llvm.loop !16
+  br i1 %exitcond.not.i16.i, label %load_block.exit17.i, label %145, !llvm.loop !17
 
 load_block.exit17.i:                              ; preds = %145
   %150 = add nuw i32 %.018.i, 1
   %151 = load i32, ptr %118, align 4
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %122, label %argon2_fill_first_blocks.exit, !llvm.loop !17
+  br i1 %152, label %122, label %argon2_fill_first_blocks.exit, !llvm.loop !18
 
 argon2_fill_first_blocks.exit:                    ; preds = %load_block.exit17.i, %argon2_initial_hash.exit
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 1024) #10
@@ -669,17 +669,18 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"memcpy.inline: argument 0"}
-!9 = distinct !{!9, !"memcpy.inline"}
-!10 = distinct !{!10, !9, !"memcpy.inline: argument 1"}
-!11 = distinct !{!11, !5}
-!12 = !{ptr @_sodium_argon2_fill_segment_avx2, ptr @_sodium_argon2_fill_segment_avx512f, ptr @_sodium_argon2_fill_segment_ref, ptr @_sodium_argon2_fill_segment_ssse3}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.partial.disable"}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !5, !6}
+!13 = !{ptr @_sodium_argon2_fill_segment_avx2, ptr @_sodium_argon2_fill_segment_avx512f, ptr @_sodium_argon2_fill_segment_ref, ptr @_sodium_argon2_fill_segment_ssse3}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}

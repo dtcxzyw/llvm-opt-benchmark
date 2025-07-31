@@ -118,7 +118,7 @@ define noundef zeroext i1 @_ZN12RichMatrix44eqERK13RichParameter(ptr noundef non
 32:                                               ; preds = %24
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.i = icmp eq i64 %indvars.iv.next20.i, 4
-  br i1 %exitcond22.i, label %.critedge, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond22.i, label %.critedge, label %.preheader.i, !llvm.loop !8
 
 .critedge:                                        ; preds = %32, %25, %2, %10
   %33 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %25 ], [ true, %32 ]
@@ -200,6 +200,7 @@ attributes #10 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

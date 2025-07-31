@@ -1449,7 +1449,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
 
 .preheader751:                                    ; preds = %23, %26
   %27 = phi i32 [ %.pre, %26 ], [ -1, %23 ]
-  %28 = load i32, ptr @sha1_dvs, align 4, !tbaa !20
+  %28 = load i32, ptr @sha1_dvs, align 4, !tbaa !21
   %.not57753 = icmp eq i32 %28, 0
   br i1 %.not57753, label %.loopexit, label %.lr.ph
 
@@ -1546,7 +1546,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %116 = phi ptr [ @sha1_dvs, %.lr.ph ], [ %1770, %1767 ]
   %.054754 = phi i32 [ 0, %.lr.ph ], [ %1768, %1767 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !22
+  %118 = load i32, ptr %117, align 4, !tbaa !23
   %119 = shl nuw i32 1, %118
   %120 = and i32 %119, %27
   %.not58 = icmp eq i32 %120, 0
@@ -1567,11 +1567,11 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   store i32 %127, ptr %128, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
-  br i1 %exitcond.not, label %129, label %122, !llvm.loop !23
+  br i1 %exitcond.not, label %129, label %122, !llvm.loop !24
 
 129:                                              ; preds = %122
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 12
-  %131 = load i32, ptr %130, align 4, !tbaa !24
+  %131 = load i32, ptr %130, align 4, !tbaa !25
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds [80 x [5 x i32]], ptr %20, i64 0, i64 %132
   switch i32 %131, label %1725 [
@@ -3263,9 +3263,9 @@ sha1_recompression_step.exit:                     ; preds = %134, %931
   %1768 = add i32 %.054754, 1
   %1769 = zext i32 %1768 to i64
   %1770 = getelementptr inbounds nuw [0 x %struct.dv_info_t], ptr @sha1_dvs, i64 0, i64 %1769
-  %1771 = load i32, ptr %1770, align 4, !tbaa !20
+  %1771 = load i32, ptr %1770, align 4, !tbaa !21
   %.not57 = icmp eq i32 %1771, 0
-  br i1 %.not57, label %.loopexit, label %115, !llvm.loop !25
+  br i1 %.not57, label %.loopexit, label %115, !llvm.loop !26
 
 .loopexit:                                        ; preds = %1767, %.preheader751, %26, %1762, %1766, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
@@ -3350,134 +3350,134 @@ SHA1DCUpdate.exit:                                ; preds = %._crit_edge.i, %._c
   %35 = trunc nuw i64 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i8 %35, ptr %37, align 4, !tbaa !26
+  store i8 %35, ptr %37, align 4, !tbaa !27
   %38 = lshr i64 %33, 48
   %39 = trunc i64 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 85
-  store i8 %39, ptr %40, align 1, !tbaa !26
+  store i8 %39, ptr %40, align 1, !tbaa !27
   %41 = lshr i64 %33, 40
   %42 = trunc i64 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 %42, ptr %43, align 2, !tbaa !26
+  store i8 %42, ptr %43, align 2, !tbaa !27
   %44 = lshr i64 %33, 32
   %45 = trunc i64 %44 to i8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 87
-  store i8 %45, ptr %46, align 1, !tbaa !26
+  store i8 %45, ptr %46, align 1, !tbaa !27
   %47 = lshr i64 %33, 24
   %48 = trunc i64 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i8 %48, ptr %49, align 4, !tbaa !26
+  store i8 %48, ptr %49, align 4, !tbaa !27
   %50 = lshr i64 %33, 16
   %51 = trunc i64 %50 to i8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  store i8 %51, ptr %52, align 1, !tbaa !26
+  store i8 %51, ptr %52, align 1, !tbaa !27
   %53 = lshr i64 %33, 8
   %54 = trunc i64 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 90
-  store i8 %54, ptr %55, align 2, !tbaa !26
+  store i8 %54, ptr %55, align 2, !tbaa !27
   %56 = trunc i64 %33 to i8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 91
-  store i8 %56, ptr %57, align 1, !tbaa !26
+  store i8 %56, ptr %57, align 1, !tbaa !27
   tail call fastcc void @sha1_process(ptr noundef nonnull %1, ptr noundef nonnull %36)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !4
   %60 = lshr i32 %59, 24
   %61 = trunc nuw i32 %60 to i8
-  store i8 %61, ptr %0, align 1, !tbaa !26
+  store i8 %61, ptr %0, align 1, !tbaa !27
   %62 = load i32, ptr %58, align 8, !tbaa !4
   %63 = lshr i32 %62, 16
   %64 = trunc i32 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !26
+  store i8 %64, ptr %65, align 1, !tbaa !27
   %66 = load i32, ptr %58, align 8, !tbaa !4
   %67 = lshr i32 %66, 8
   %68 = trunc i32 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !26
+  store i8 %68, ptr %69, align 1, !tbaa !27
   %70 = load i32, ptr %58, align 8, !tbaa !4
   %71 = trunc i32 %70 to i8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !26
+  store i8 %71, ptr %72, align 1, !tbaa !27
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = lshr i32 %74, 24
   %76 = trunc nuw i32 %75 to i8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %76, ptr %77, align 1, !tbaa !26
+  store i8 %76, ptr %77, align 1, !tbaa !27
   %78 = load i32, ptr %73, align 4, !tbaa !4
   %79 = lshr i32 %78, 16
   %80 = trunc i32 %79 to i8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %80, ptr %81, align 1, !tbaa !26
+  store i8 %80, ptr %81, align 1, !tbaa !27
   %82 = load i32, ptr %73, align 4, !tbaa !4
   %83 = lshr i32 %82, 8
   %84 = trunc i32 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %84, ptr %85, align 1, !tbaa !26
+  store i8 %84, ptr %85, align 1, !tbaa !27
   %86 = load i32, ptr %73, align 4, !tbaa !4
   %87 = trunc i32 %86 to i8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %87, ptr %88, align 1, !tbaa !26
+  store i8 %87, ptr %88, align 1, !tbaa !27
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %90 = load i32, ptr %89, align 8, !tbaa !4
   %91 = lshr i32 %90, 24
   %92 = trunc nuw i32 %91 to i8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %92, ptr %93, align 1, !tbaa !26
+  store i8 %92, ptr %93, align 1, !tbaa !27
   %94 = load i32, ptr %89, align 8, !tbaa !4
   %95 = lshr i32 %94, 16
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %96, ptr %97, align 1, !tbaa !26
+  store i8 %96, ptr %97, align 1, !tbaa !27
   %98 = load i32, ptr %89, align 8, !tbaa !4
   %99 = lshr i32 %98, 8
   %100 = trunc i32 %99 to i8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %100, ptr %101, align 1, !tbaa !26
+  store i8 %100, ptr %101, align 1, !tbaa !27
   %102 = load i32, ptr %89, align 8, !tbaa !4
   %103 = trunc i32 %102 to i8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %103, ptr %104, align 1, !tbaa !26
+  store i8 %103, ptr %104, align 1, !tbaa !27
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4, !tbaa !4
   %107 = lshr i32 %106, 24
   %108 = trunc nuw i32 %107 to i8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %108, ptr %109, align 1, !tbaa !26
+  store i8 %108, ptr %109, align 1, !tbaa !27
   %110 = load i32, ptr %105, align 4, !tbaa !4
   %111 = lshr i32 %110, 16
   %112 = trunc i32 %111 to i8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %112, ptr %113, align 1, !tbaa !26
+  store i8 %112, ptr %113, align 1, !tbaa !27
   %114 = load i32, ptr %105, align 4, !tbaa !4
   %115 = lshr i32 %114, 8
   %116 = trunc i32 %115 to i8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %116, ptr %117, align 1, !tbaa !26
+  store i8 %116, ptr %117, align 1, !tbaa !27
   %118 = load i32, ptr %105, align 4, !tbaa !4
   %119 = trunc i32 %118 to i8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %119, ptr %120, align 1, !tbaa !26
+  store i8 %119, ptr %120, align 1, !tbaa !27
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !4
   %123 = lshr i32 %122, 24
   %124 = trunc nuw i32 %123 to i8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %124, ptr %125, align 1, !tbaa !26
+  store i8 %124, ptr %125, align 1, !tbaa !27
   %126 = load i32, ptr %121, align 8, !tbaa !4
   %127 = lshr i32 %126, 16
   %128 = trunc i32 %127 to i8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %128, ptr %129, align 1, !tbaa !26
+  store i8 %128, ptr %129, align 1, !tbaa !27
   %130 = load i32, ptr %121, align 8, !tbaa !4
   %131 = lshr i32 %130, 8
   %132 = trunc i32 %131 to i8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %132, ptr %133, align 1, !tbaa !26
+  store i8 %132, ptr %133, align 1, !tbaa !27
   %134 = load i32, ptr %121, align 8, !tbaa !4
   %135 = trunc i32 %134 to i8
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %135, ptr %136, align 1, !tbaa !26
+  store i8 %135, ptr %136, align 1, !tbaa !27
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %138 = load i32, ptr %137, align 4, !tbaa !12
   ret i32 %138
@@ -4409,12 +4409,13 @@ attributes #10 = { noreturn nounwind }
 !15 = !{!9, !5, i64 100}
 !16 = !{!9, !5, i64 108}
 !17 = !{!9, !11, i64 112}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !6, i64 24}
-!22 = !{!21, !5, i64 20}
-!23 = distinct !{!23, !19}
-!24 = !{!21, !5, i64 12}
-!25 = distinct !{!25, !19}
-!26 = !{!6, !6, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !5, i64 0}
+!22 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !6, i64 24}
+!23 = !{!22, !5, i64 20}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!22, !5, i64 12}
+!26 = distinct !{!26, !19, !20}
+!27 = !{!6, !6, i64 0}

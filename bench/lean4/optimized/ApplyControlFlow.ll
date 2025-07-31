@@ -1614,7 +1614,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit228.backedge:                        ; preds = %72, %74, %84, %83, %81
   %.0181.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
   %.0180.be = phi ptr [ %.1.i337341, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i337341, %72 ]
-  br label %lean_dec.exit228
+  br label %lean_dec.exit228, !llvm.loop !14
 
 74:                                               ; preds = %72
   %75 = add i64 %49, -2
@@ -4672,7 +4672,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit196.backedge:                        ; preds = %72, %74, %84, %83, %81
   %.0157.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
   %.0156.be = phi ptr [ %.1.i289293, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i289293, %72 ]
-  br label %lean_dec.exit196
+  br label %lean_dec.exit196, !llvm.loop !16
 
 74:                                               ; preds = %72
   %75 = add i64 %49, -2
@@ -5839,7 +5839,7 @@ define ptr @l_Nat_foldTR_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_
   %7 = ptrtoint ptr %.014 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
+  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !17
 
 lean_nat_eq.exit:                                 ; preds = %6
   %.not33 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
@@ -5911,13 +5911,13 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_mkApplyProjControlDis
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.critedge.i38, label %8, !prof !14
+  br i1 %.not, label %.critedge.i38, label %8, !prof !17
 
 8:                                                ; preds = %5
   %9 = ptrtoint ptr %4 to i64
   %10 = and i64 %9, 1
   %.not60 = icmp eq i64 %10, 0
-  br i1 %.not60, label %.critedge.i38, label %11, !prof !14
+  br i1 %.not60, label %.critedge.i38, label %11, !prof !17
 
 11:                                               ; preds = %8
   %12 = lshr i64 %6, 1
@@ -5945,7 +5945,7 @@ lean_nat_add.exit40:                              ; preds = %20, %16, %.critedge
   %23 = ptrtoint ptr %.0.i39 to i64
   %24 = and i64 %23, 1
   %.not61 = icmp eq i64 %24, 0
-  br i1 %.not61, label %30, label %25, !prof !14
+  br i1 %.not61, label %30, label %25, !prof !17
 
 25:                                               ; preds = %lean_nat_add.exit40
   %26 = icmp ult ptr %.0.i39, inttoptr (i64 2 to ptr)
@@ -5980,7 +5980,7 @@ lean_dec.exit42:                                  ; preds = %27, %25, %34, %36, 
   %38 = ptrtoint ptr %.1.i59 to i64
   %39 = and i64 %38, 1
   %.not62 = icmp eq i64 %39, 0
-  br i1 %.not62, label %.critedge.i37, label %40, !prof !14
+  br i1 %.not62, label %.critedge.i37, label %40, !prof !17
 
 40:                                               ; preds = %lean_dec.exit42
   %41 = lshr i64 %38, 1
@@ -6220,7 +6220,7 @@ define ptr @l_Nat_foldTR_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_
   %7 = ptrtoint ptr %.014 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
+  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !17
 
 lean_nat_eq.exit:                                 ; preds = %6
   %.not33 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
@@ -6290,13 +6290,13 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_mkApplyUnaryControlDi
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.critedge.i35, label %8, !prof !14
+  br i1 %.not, label %.critedge.i35, label %8, !prof !17
 
 8:                                                ; preds = %5
   %9 = ptrtoint ptr %4 to i64
   %10 = and i64 %9, 1
   %.not53 = icmp eq i64 %10, 0
-  br i1 %.not53, label %.critedge.i35, label %11, !prof !14
+  br i1 %.not53, label %.critedge.i35, label %11, !prof !17
 
 11:                                               ; preds = %8
   %12 = lshr i64 %6, 1
@@ -6324,7 +6324,7 @@ lean_nat_add.exit37:                              ; preds = %20, %16, %.critedge
   %23 = ptrtoint ptr %.0.i36 to i64
   %24 = and i64 %23, 1
   %.not54 = icmp eq i64 %24, 0
-  br i1 %.not54, label %30, label %25, !prof !14
+  br i1 %.not54, label %30, label %25, !prof !17
 
 25:                                               ; preds = %lean_nat_add.exit37
   %26 = icmp ult ptr %.0.i36, inttoptr (i64 2 to ptr)
@@ -6359,7 +6359,7 @@ lean_dec.exit39:                                  ; preds = %27, %25, %34, %36, 
   %38 = ptrtoint ptr %.1.i52 to i64
   %39 = and i64 %38, 1
   %.not55 = icmp eq i64 %39, 0
-  br i1 %.not55, label %.critedge.i34, label %40, !prof !14
+  br i1 %.not55, label %.critedge.i34, label %40, !prof !17
 
 40:                                               ; preds = %lean_dec.exit39
   %41 = lshr i64 %38, 1
@@ -6653,9 +6653,9 @@ _init_l_Lean_Expr_withAppAux___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_a
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @l_Lean_Expr_withAppAux___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyIteSimproc___spec__1___lambda__2___boxed, ptr %33, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i16 9, ptr %34, align 8, !tbaa !15
+  store i16 9, ptr %34, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 18
-  store i16 0, ptr %35, align 2, !tbaa !15
+  store i16 0, ptr %35, align 2, !tbaa !18
   store ptr %29, ptr @l_Lean_Expr_withAppAux___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyIteSimproc___spec__1___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %29) #3
   %36 = load ptr, ptr @l_Lean_levelZero, align 8, !tbaa !11
@@ -6764,6 +6764,9 @@ attributes #4 = { noreturn nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"any pointer", !7, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !7, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !7, i64 0}

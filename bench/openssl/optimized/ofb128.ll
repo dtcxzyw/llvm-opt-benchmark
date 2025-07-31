@@ -61,22 +61,22 @@ define void @CRYPTO_ofb128_encrypt(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv = phi i64 [ %29, %.lr.ph59.preheader ], [ %indvars.iv.next, %.lr.ph59 ]
   %30 = getelementptr inbounds nuw i8, ptr %.163, i64 %indvars.iv
-  %31 = load i64, ptr %30, align 1, !tbaa !10
+  %31 = load i64, ptr %30, align 1, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %33 = load i64, ptr %32, align 1, !tbaa !10
+  %33 = load i64, ptr %32, align 1, !tbaa !11
   %34 = xor i64 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %.14461, i64 %indvars.iv
-  store i64 %34, ptr %35, align 1, !tbaa !10
+  store i64 %34, ptr %35, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %36 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %36, label %.lr.ph59, label %._crit_edge, !llvm.loop !12
+  br i1 %36, label %.lr.ph59, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %.lr.ph64
   %37 = add i64 %.14660, -16
   %38 = getelementptr inbounds nuw i8, ptr %.14461, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.163, i64 16
   %40 = icmp ugt i64 %37, 15
-  br i1 %40, label %.lr.ph64, label %._crit_edge65, !llvm.loop !13
+  br i1 %40, label %.lr.ph64, label %._crit_edge65, !llvm.loop !14
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %.preheader
   %.146.lcssa = phi i64 [ %.045.lcssa, %.preheader ], [ %37, %._crit_edge ]
@@ -104,7 +104,7 @@ define void @CRYPTO_ofb128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   store i8 %49, ptr %50, align 1, !tbaa !7
   %51 = add i32 %.471, 1
   %.not49 = icmp eq i64 %43, 0
-  br i1 %.not49, label %.loopexit, label %42, !llvm.loop !14
+  br i1 %.not49, label %.loopexit, label %42, !llvm.loop !15
 
 .loopexit:                                        ; preds = %42, %._crit_edge65, %7
   %storemerge = phi i32 [ -1, %7 ], [ %.142.lcssa, %._crit_edge65 ], [ %51, %42 ]
@@ -125,10 +125,11 @@ attributes #1 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

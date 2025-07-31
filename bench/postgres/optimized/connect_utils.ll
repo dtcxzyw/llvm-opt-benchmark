@@ -136,7 +136,7 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   store ptr %62, ptr @connectDatabase.password, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
-  br label %35
+  br label %35, !llvm.loop !4
 
 63:                                               ; preds = %59, %57, %54
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
@@ -262,3 +262,5 @@ attributes #6 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

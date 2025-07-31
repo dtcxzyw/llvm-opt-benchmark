@@ -702,12 +702,12 @@ invoke.cont63:                                    ; preds = %if.end60
 invoke.cont64:                                    ; preds = %invoke.cont63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp61) #24
   %m_address.i195 = getelementptr inbounds nuw i8, ptr %sender, i64 4
-  %retval.sroa.0.0.copyload.i196 = load i32, ptr %m_address.i195, align 4, !tbaa !29
+  %retval.sroa.0.0.copyload.i196 = load i32, ptr %m_address.i195, align 4, !tbaa !30
   br i1 %call.i185, label %if.else98, label %if.then67
 
 if.then67:                                        ; preds = %invoke.cont64
   %m_address.i187 = getelementptr inbounds nuw i8, ptr %address, i64 4
-  %retval.sroa.0.0.copyload.i188 = load i32, ptr %m_address.i187, align 4, !tbaa !29
+  %retval.sroa.0.0.copyload.i188 = load i32, ptr %m_address.i187, align 4, !tbaa !30
   %cmp78.not = icmp eq i32 %retval.sroa.0.0.copyload.i196, %retval.sroa.0.0.copyload.i188
   br i1 %cmp78.not, label %if.end135, label %if.then81
 
@@ -771,7 +771,7 @@ if.else98:                                        ; preds = %invoke.cont64
 
 invoke.cont108:                                   ; preds = %if.else98
   %m_address.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp106, i64 4
-  %retval.sroa.0.0.copyload.i198 = load i32, ptr %m_address.i197, align 4, !tbaa !29
+  %retval.sroa.0.0.copyload.i198 = load i32, ptr %m_address.i197, align 4, !tbaa !30
   %cmp113.not = icmp eq i32 %retval.sroa.0.0.copyload.i196, %retval.sroa.0.0.copyload.i198
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp106) #24
   br i1 %cmp113.not, label %if.end135, label %if.then118
@@ -1029,7 +1029,7 @@ invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i, %
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #24
   %line = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 %in_line, ptr %line, align 8, !tbaa !31
+  store i32 %in_line, ptr %line, align 8, !tbaa !32
   ret void
 
 lpad:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -1131,11 +1131,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %address6) #24
   call void @_ZN7AddressC1EPK16IPv6AddressBytest(ptr noundef nonnull align 4 dereferenceable(22) %address6, ptr noundef null, i16 noundef zeroext 30003)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %socket6) #24
-  store i32 -1, ptr %socket6, align 4, !tbaa !33
+  store i32 -1, ptr %socket6, align 4, !tbaa !34
   %m_timeout_ms.i = getelementptr inbounds nuw i8, ptr %socket6, i64 4
-  store i32 -1, ptr %m_timeout_ms.i, align 4, !tbaa !35
+  store i32 -1, ptr %m_timeout_ms.i, align 4, !tbaa !36
   %m_addr_family.i = getelementptr inbounds nuw i8, ptr %socket6, i64 8
-  store i16 0, ptr %m_addr_family.i, align 4, !tbaa !36
+  store i16 0, ptr %m_addr_family.i, align 4, !tbaa !37
   %call = invoke noundef zeroext i1 @_ZN9UDPSocket4initEbb(ptr noundef nonnull align 4 dereferenceable(10) %socket6, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
@@ -1152,7 +1152,7 @@ if.then:                                          ; preds = %invoke.cont
 
 _ZTW7dstream.exit:                                ; preds = %0, %if.then
   %1 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @dstream)
-  %2 = load ptr, ptr %1, align 8, !tbaa !37
+  %2 = load ptr, ptr %1, align 8, !tbaa !38
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %vtable.i, align 8
   %call.i90 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -1161,7 +1161,7 @@ _ZTW7dstream.exit:                                ; preds = %0, %if.then
 call.i.noexc:                                     ; preds = %_ZTW7dstream.exit
   %cond-lvalue.v.i = select i1 %call.i90, i64 976, i64 984
   %cond-lvalue.i = getelementptr inbounds nuw i8, ptr %1, i64 %cond-lvalue.v.i
-  %4 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !46
+  %4 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !47
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %cleanup, label %if.then.i.i
 
@@ -1170,7 +1170,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then.i.i
-  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !46
+  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !47
   %tobool.not.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i, label %cleanup, label %if.then.i
 
@@ -1180,7 +1180,7 @@ if.then.i:                                        ; preds = %invoke.cont2
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %.pr, i64 %vbase.offset.i
   %_M_ctype.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 240
-  %5 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !47
+  %5 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !48
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -1193,7 +1193,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i
   %_M_widen_ok.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %6 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !54
+  %6 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !55
   %tobool.not.i3.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
@@ -1264,7 +1264,7 @@ for.cond:                                         ; preds = %invoke.cont13, %inv
 
 invoke.cont18:                                    ; preds = %for.cond
   %cmp = icmp slt i32 %call19, 0
-  br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !57
+  br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !58
 
 lpad6:                                            ; preds = %invoke.cont12, %if.end
   %10 = landingpad { ptr, i32 }
@@ -1466,7 +1466,7 @@ define linkonce_odr dso_local void @_ZN11TestManager18registerTestModuleEP8TestB
 entry:
   %0 = load atomic i8, ptr @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !58
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !59
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #24
@@ -1481,15 +1481,15 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !59
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !60
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !61
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !62
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !61
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !62
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -1534,10 +1534,10 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !62
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !61
+  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !63
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !62
   %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !59
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !60
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -1562,7 +1562,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %0 = load ptr, ptr %this, align 8, !tbaa !62
+  %0 = load ptr, ptr %this, align 8, !tbaa !63
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit, label %if.then.i.i
 
@@ -1795,39 +1795,40 @@ attributes #28 = { builtin allocsize(0) }
 !24 = !{!"short", !11, i64 0}
 !25 = !{i64 0, i64 2, !26, i64 4, i64 16, !20, i64 20, i64 2, !26}
 !26 = !{!24, !24, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"int", !11, i64 0}
-!31 = !{!32, !30, i64 64}
-!32 = !{!"_ZTS19TestFailedException", !8, i64 0, !8, i64 32, !30, i64 64}
-!33 = !{!34, !30, i64 0}
-!34 = !{!"_ZTS9UDPSocket", !30, i64 0, !30, i64 4, !24, i64 8}
-!35 = !{!34, !30, i64 4}
-!36 = !{!34, !24, i64 8}
-!37 = !{!38, !10, i64 0}
-!38 = !{!"_ZTS9LogStream", !10, i64 0, !39, i64 8, !43, i64 368, !44, i64 432, !44, i64 704, !45, i64 976, !45, i64 984}
-!39 = !{!"_ZTS18StringStreamBufferILi256ESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !40, i64 0, !42, i64 64, !11, i64 96, !30, i64 352}
-!40 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !41, i64 56}
-!41 = !{!"_ZTSSt6locale", !10, i64 0}
-!42 = !{!"_ZTSSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !17, i64 0, !10, i64 24}
-!43 = !{!"_ZTS17DummyStreamBuffer", !40, i64 0}
-!44 = !{!"_ZTSSo"}
-!45 = !{!"_ZTS11StreamProxy", !10, i64 0}
-!46 = !{!45, !10, i64 0}
-!47 = !{!48, !10, i64 240}
-!48 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !49, i64 0, !10, i64 216, !11, i64 224, !53, i64 225, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256}
-!49 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !50, i64 24, !51, i64 28, !51, i64 32, !10, i64 40, !52, i64 48, !11, i64 64, !30, i64 192, !10, i64 200, !41, i64 208}
-!50 = !{!"_ZTSSt13_Ios_Fmtflags", !11, i64 0}
-!51 = !{!"_ZTSSt12_Ios_Iostate", !11, i64 0}
-!52 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !12, i64 8}
-!53 = !{!"bool", !11, i64 0}
-!54 = !{!55, !11, i64 56}
-!55 = !{!"_ZTSSt5ctypeIcE", !56, i64 0, !10, i64 16, !53, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !11, i64 56, !11, i64 57, !11, i64 313, !11, i64 569}
-!56 = !{!"_ZTSNSt6locale5facetE", !30, i64 8}
-!57 = distinct !{!57, !28}
-!58 = !{!"branch_weights", i32 1, i32 1048575}
-!59 = !{!60, !10, i64 16}
-!60 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!61 = !{!60, !10, i64 8}
-!62 = !{!60, !10, i64 0}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"int", !11, i64 0}
+!32 = !{!33, !31, i64 64}
+!33 = !{!"_ZTS19TestFailedException", !8, i64 0, !8, i64 32, !31, i64 64}
+!34 = !{!35, !31, i64 0}
+!35 = !{!"_ZTS9UDPSocket", !31, i64 0, !31, i64 4, !24, i64 8}
+!36 = !{!35, !31, i64 4}
+!37 = !{!35, !24, i64 8}
+!38 = !{!39, !10, i64 0}
+!39 = !{!"_ZTS9LogStream", !10, i64 0, !40, i64 8, !44, i64 368, !45, i64 432, !45, i64 704, !46, i64 976, !46, i64 984}
+!40 = !{!"_ZTS18StringStreamBufferILi256ESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !41, i64 0, !43, i64 64, !11, i64 96, !31, i64 352}
+!41 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !42, i64 56}
+!42 = !{!"_ZTSSt6locale", !10, i64 0}
+!43 = !{!"_ZTSSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !17, i64 0, !10, i64 24}
+!44 = !{!"_ZTS17DummyStreamBuffer", !41, i64 0}
+!45 = !{!"_ZTSSo"}
+!46 = !{!"_ZTS11StreamProxy", !10, i64 0}
+!47 = !{!46, !10, i64 0}
+!48 = !{!49, !10, i64 240}
+!49 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !50, i64 0, !10, i64 216, !11, i64 224, !54, i64 225, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256}
+!50 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !51, i64 24, !52, i64 28, !52, i64 32, !10, i64 40, !53, i64 48, !11, i64 64, !31, i64 192, !10, i64 200, !42, i64 208}
+!51 = !{!"_ZTSSt13_Ios_Fmtflags", !11, i64 0}
+!52 = !{!"_ZTSSt12_Ios_Iostate", !11, i64 0}
+!53 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !12, i64 8}
+!54 = !{!"bool", !11, i64 0}
+!55 = !{!56, !11, i64 56}
+!56 = !{!"_ZTSSt5ctypeIcE", !57, i64 0, !10, i64 16, !54, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !11, i64 56, !11, i64 57, !11, i64 313, !11, i64 569}
+!57 = !{!"_ZTSNSt6locale5facetE", !31, i64 8}
+!58 = distinct !{!58, !28, !29}
+!59 = !{!"branch_weights", i32 1, i32 1048575}
+!60 = !{!61, !10, i64 16}
+!61 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!62 = !{!61, !10, i64 8}
+!63 = !{!61, !10, i64 0}

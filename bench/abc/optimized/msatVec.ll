@@ -360,7 +360,7 @@ define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr noundef captures(none) %0,
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -470,7 +470,7 @@ define void @Msat_IntVecPushUniqueOrder(ptr noundef captures(none) %0, i32 nound
   store i32 %13, ptr %11, align 4, !tbaa !12
   store i32 %12, ptr %gep, align 4, !tbaa !12
   %15 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %15, label %10, label %._crit_edge, !llvm.loop !16
+  br i1 %15, label %10, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %14, %10, %3
   ret void
@@ -564,7 +564,8 @@ attributes #21 = { nounwind allocsize(1) }
 !10 = !{!4, !9, i64 12}
 !11 = !{!4, !5, i64 0}
 !12 = !{!9, !9, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}

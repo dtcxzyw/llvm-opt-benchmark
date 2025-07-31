@@ -76,13 +76,13 @@ define void @_ZN3gmx19SimulationSignaller14signalInterSimEv(ptr noundef nonnull 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  %9 = load i32, ptr %8, align 4, !tbaa !26
+  %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %13 = load i32, ptr %12, align 8, !tbaa !45
+  %13 = load i32, ptr %12, align 8, !tbaa !46
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %19, label %15
 
@@ -97,14 +97,14 @@ define void @_ZN3gmx19SimulationSignaller14signalInterSimEv(ptr noundef nonnull 
 19:                                               ; preds = %15, %11
   %20 = phi ptr [ %.pre, %15 ], [ %7, %11 ]
   %21 = getelementptr i8, ptr %20, i64 112
-  %.val = load ptr, ptr %21, align 8, !tbaa !46
+  %.val = load ptr, ptr %21, align 8, !tbaa !47
   %.not = icmp eq ptr %.val, null
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !47
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 12, ptr noundef nonnull %23, ptr noundef %25)
   br label %26
 
@@ -141,7 +141,7 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 
 14:                                               ; preds = %.split.us
   %15 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012.us, i32 1
-  store i8 %13, ptr %15, align 1, !tbaa !48
+  store i8 %13, ptr %15, align 1, !tbaa !49
   br label %16
 
 16:                                               ; preds = %14, %.split.us
@@ -149,12 +149,12 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
   store i8 0, ptr %17, align 1, !tbaa !20
   %18 = add nuw nsw i64 %.012.us, 1
   %exitcond14.not = icmp eq i64 %18, 3
-  br i1 %exitcond14.not, label %.loopexit, label %.split.us, !llvm.loop !49
+  br i1 %exitcond14.not, label %.loopexit, label %.split.us, !llvm.loop !50
 
 .split:                                           ; preds = %5, %30
   %.012 = phi i64 [ %31, %30 ], [ 0, %5 ]
   %19 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 2
-  %20 = load i8, ptr %19, align 1, !tbaa !51, !range !18, !noundef !19
+  %20 = load i8, ptr %19, align 1, !tbaa !52, !range !18, !noundef !19
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %30
 
@@ -167,7 +167,7 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 1
-  store i8 %25, ptr %27, align 1, !tbaa !48
+  store i8 %25, ptr %27, align 1, !tbaa !49
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -178,7 +178,7 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 30:                                               ; preds = %.split, %28
   %31 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %31, 3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %30, %16, %1
   ret void
@@ -195,13 +195,13 @@ define void @_ZN3gmx19SimulationSignaller15finalizeSignalsEv(ptr noundef nonnull
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  %9 = load i32, ptr %8, align 4, !tbaa !26
+  %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %13 = load i32, ptr %12, align 8, !tbaa !45
+  %13 = load i32, ptr %12, align 8, !tbaa !46
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %19, label %15
 
@@ -216,14 +216,14 @@ define void @_ZN3gmx19SimulationSignaller15finalizeSignalsEv(ptr noundef nonnull
 19:                                               ; preds = %15, %11
   %20 = phi ptr [ %.pre.i, %15 ], [ %7, %11 ]
   %21 = getelementptr i8, ptr %20, i64 112
-  %.val.i = load ptr, ptr %21, align 8, !tbaa !46
+  %.val.i = load ptr, ptr %21, align 8, !tbaa !47
   %.not.i = icmp eq ptr %.val.i, null
   br i1 %.not.i, label %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !47
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 12, ptr noundef nonnull %23, ptr noundef %25)
   br label %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
 
@@ -250,7 +250,7 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 
 37:                                               ; preds = %.split.us.i
   %38 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.us.i, i32 1
-  store i8 %36, ptr %38, align 1, !tbaa !48
+  store i8 %36, ptr %38, align 1, !tbaa !49
   br label %39
 
 39:                                               ; preds = %37, %.split.us.i
@@ -258,12 +258,12 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
   store i8 0, ptr %40, align 1, !tbaa !20
   %41 = add nuw nsw i64 %.012.us.i, 1
   %exitcond14.not.i = icmp eq i64 %41, 3
-  br i1 %exitcond14.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.us.i, !llvm.loop !49
+  br i1 %exitcond14.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.us.i, !llvm.loop !50
 
 .split.i:                                         ; preds = %29, %53
   %.012.i = phi i64 [ %54, %53 ], [ 0, %29 ]
   %42 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 2
-  %43 = load i8, ptr %42, align 1, !tbaa !51, !range !18, !noundef !19
+  %43 = load i8, ptr %42, align 1, !tbaa !52, !range !18, !noundef !19
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %53
 
@@ -276,7 +276,7 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 1
-  store i8 %48, ptr %50, align 1, !tbaa !48
+  store i8 %48, ptr %50, align 1, !tbaa !49
   br label %51
 
 51:                                               ; preds = %49, %45
@@ -287,7 +287,7 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 53:                                               ; preds = %51, %.split.i
   %54 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %54, 3
-  br i1 %exitcond.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.i, !llvm.loop !53
 
 _ZN3gmx19SimulationSignaller10setSignalsEv.exit:  ; preds = %53, %39, %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
   ret void
@@ -326,32 +326,33 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 !21 = !{!"_ZTSN3gmx16SimulationSignalE", !8, i64 0, !8, i64 1, !12, i64 2}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"float", !8, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !28, i64 60}
-!27 = !{!"_ZTS9t_commrec", !12, i64 0, !28, i64 4, !28, i64 8, !28, i64 12, !28, i64 16, !29, i64 24, !29, i64 32, !28, i64 40, !29, i64 48, !28, i64 56, !28, i64 60, !30, i64 64, !31, i64 96, !38, i64 104, !37, i64 112, !44, i64 120, !28, i64 128}
-!28 = !{!"int", !8, i64 0}
-!29 = !{!"p1 _ZTS10tmpi_comm_", !7, i64 0}
-!30 = !{!"_ZTS14gmx_nodecomm_t", !12, i64 0, !29, i64 8, !28, i64 16, !29, i64 24}
-!31 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !32, i64 0}
-!32 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !33, i64 0}
-!33 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !34, i64 0}
-!34 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !35, i64 0}
-!35 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !36, i64 0}
-!36 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !37, i64 0}
-!37 = !{!"p1 _ZTS12gmx_domdec_t", !7, i64 0}
-!38 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !39, i64 0}
-!39 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !40, i64 0}
-!40 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !41, i64 0}
-!41 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !42, i64 0}
-!42 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !43, i64 0}
-!43 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !44, i64 0}
-!44 = !{!"p1 _ZTS16gmxNvshmemHandle", !7, i64 0}
-!45 = !{!27, !28, i64 56}
-!46 = !{!27, !37, i64 112}
-!47 = !{!27, !29, i64 32}
-!48 = !{!21, !8, i64 1}
-!49 = distinct !{!49, !25, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = !{!21, !12, i64 2}
-!52 = distinct !{!52, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !29, i64 60}
+!28 = !{!"_ZTS9t_commrec", !12, i64 0, !29, i64 4, !29, i64 8, !29, i64 12, !29, i64 16, !30, i64 24, !30, i64 32, !29, i64 40, !30, i64 48, !29, i64 56, !29, i64 60, !31, i64 64, !32, i64 96, !39, i64 104, !38, i64 112, !45, i64 120, !29, i64 128}
+!29 = !{!"int", !8, i64 0}
+!30 = !{!"p1 _ZTS10tmpi_comm_", !7, i64 0}
+!31 = !{!"_ZTS14gmx_nodecomm_t", !12, i64 0, !30, i64 8, !29, i64 16, !30, i64 24}
+!32 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !34, i64 0}
+!34 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !35, i64 0}
+!35 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !36, i64 0}
+!36 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !37, i64 0}
+!37 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !38, i64 0}
+!38 = !{!"p1 _ZTS12gmx_domdec_t", !7, i64 0}
+!39 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !40, i64 0}
+!40 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !41, i64 0}
+!41 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !42, i64 0}
+!42 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !43, i64 0}
+!43 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !44, i64 0}
+!44 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !45, i64 0}
+!45 = !{!"p1 _ZTS16gmxNvshmemHandle", !7, i64 0}
+!46 = !{!28, !29, i64 56}
+!47 = !{!28, !38, i64 112}
+!48 = !{!28, !30, i64 32}
+!49 = !{!21, !8, i64 1}
+!50 = distinct !{!50, !25, !26, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!21, !12, i64 2}
+!53 = distinct !{!53, !25, !26}

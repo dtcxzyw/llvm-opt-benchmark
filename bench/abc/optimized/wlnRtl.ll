@@ -164,7 +164,7 @@ define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %16, %.lr.ph
   %19 = tail call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1000000, ptr noundef nonnull %2)
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12
   %.not18 = icmp eq ptr %13, null
@@ -216,7 +216,7 @@ define range(i32 0, 2) i32 @Wln_ConvertToRtl(ptr noundef %0, ptr noundef %1) loc
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !7
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef %0) #13
   br label %16
 
@@ -226,7 +226,7 @@ define range(i32 0, 2) i32 @Wln_ConvertToRtl(ptr noundef %0, ptr noundef %1) loc
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !7
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.14, ptr noundef %1) #13
   br label %16
 
@@ -302,7 +302,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !7
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #13
   br label %Wln_ConvertToRtl.exit.thread
 
@@ -312,7 +312,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !7
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
   br label %Wln_ConvertToRtl.exit.thread
 
@@ -398,7 +398,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %33 = load ptr, ptr @stdout, align 8, !tbaa !7
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.12, ptr noundef nonnull %9) #13
   br label %.critedge
 
@@ -408,7 +408,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !7
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.26) #13
   br label %.critedge
 
@@ -423,13 +423,13 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br label %.critedge
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr %43, align 8, !tbaa !11
+  %47 = load ptr, ptr %43, align 8, !tbaa !12
   %.not47 = icmp eq ptr %47, null
   br i1 %.not47, label %49, label %48
 
 48:                                               ; preds = %46
   tail call void @free(ptr noundef nonnull %47) #13
-  store ptr null, ptr %43, align 8, !tbaa !11
+  store ptr null, ptr %43, align 8, !tbaa !12
   br label %49
 
 49:                                               ; preds = %46, %48
@@ -449,7 +449,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
 
 58:                                               ; preds = %55, %50
   %59 = phi ptr [ %53, %50 ], [ %57, %55 ]
-  store ptr %59, ptr %43, align 8, !tbaa !11
+  store ptr %59, ptr %43, align 8, !tbaa !12
   %60 = tail call i32 @unlink(ptr noundef nonnull @.str.26) #13
   %.not48 = icmp eq i32 %4, 0
   br i1 %.not48, label %.critedge, label %.preheader
@@ -458,39 +458,39 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   %61 = getelementptr i8, ptr %43, i64 32
   %62 = getelementptr i8, ptr %43, i64 16
   %63 = getelementptr i8, ptr %43, i64 72
-  %.val57 = load i32, ptr %62, align 8, !tbaa !33
-  %.val5158 = load ptr, ptr %63, align 8, !tbaa !34
+  %.val57 = load i32, ptr %62, align 8, !tbaa !34
+  %.val5158 = load ptr, ptr %63, align 8, !tbaa !35
   %64 = getelementptr i8, ptr %.val5158, i64 4
-  %.val51.val59 = load i32, ptr %64, align 4, !tbaa !35
+  %.val51.val59 = load i32, ptr %64, align 4, !tbaa !36
   %65 = icmp sgt i32 %.val51.val59, %.val57
   br i1 %65, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %66
   %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.preheader ]
   %.val5161 = phi ptr [ %.val51, %66 ], [ %.val5158, %.preheader ]
-  %.val52 = load ptr, ptr %61, align 8, !tbaa !36
+  %.val52 = load ptr, ptr %61, align 8, !tbaa !37
   %.not49 = icmp eq ptr %.val52, null
   br i1 %.not49, label %.critedge, label %66
 
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr i8, ptr %.val5161, i64 8
-  %.val53.val = load ptr, ptr %67, align 8, !tbaa !37
+  %.val53.val = load ptr, ptr %67, align 8, !tbaa !38
   %68 = getelementptr inbounds nuw i32, ptr %.val53.val, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4, !tbaa !38
+  %69 = load i32, ptr %68, align 4, !tbaa !39
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %70
   %72 = load i64, ptr %71, align 4
   %73 = xor i64 %72, 536870912
   store i64 %73, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load i32, ptr %62, align 8, !tbaa !33
-  %.val51 = load ptr, ptr %63, align 8, !tbaa !34
+  %.val = load i32, ptr %62, align 8, !tbaa !34
+  %.val51 = load ptr, ptr %63, align 8, !tbaa !35
   %74 = getelementptr i8, ptr %.val51, i64 4
-  %.val51.val = load i32, ptr %74, align 4, !tbaa !35
+  %.val51.val = load i32, ptr %74, align 4, !tbaa !36
   %75 = sub nsw i32 %.val51.val, %.val
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !39
+  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.lr.ph, %66, %.preheader, %38, %32, %58, %45
   %.035 = phi ptr [ null, %45 ], [ %43, %58 ], [ null, %32 ], [ null, %38 ], [ %43, %.preheader ], [ %43, %66 ], [ %43, %.lr.ph ]
@@ -533,40 +533,41 @@ attributes #13 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"Gia_Man_t_", !13, i64 0, !13, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !15, i64 32, !16, i64 40, !14, i64 48, !14, i64 52, !14, i64 56, !17, i64 64, !17, i64 72, !18, i64 80, !18, i64 96, !14, i64 112, !14, i64 116, !14, i64 120, !18, i64 128, !16, i64 144, !16, i64 152, !17, i64 160, !14, i64 168, !14, i64 172, !14, i64 176, !14, i64 180, !16, i64 184, !19, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !14, i64 224, !14, i64 228, !16, i64 232, !14, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !20, i64 272, !20, i64 280, !17, i64 288, !8, i64 296, !17, i64 304, !17, i64 312, !13, i64 320, !17, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !17, i64 360, !21, i64 368, !21, i64 376, !22, i64 384, !18, i64 392, !18, i64 408, !17, i64 424, !17, i64 432, !17, i64 440, !17, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !17, i64 480, !17, i64 488, !17, i64 496, !17, i64 504, !13, i64 512, !23, i64 520, !24, i64 528, !25, i64 536, !25, i64 544, !17, i64 552, !17, i64 560, !17, i64 568, !17, i64 576, !17, i64 584, !14, i64 592, !26, i64 596, !26, i64 600, !17, i64 608, !16, i64 616, !14, i64 624, !22, i64 632, !22, i64 640, !22, i64 648, !17, i64 656, !17, i64 664, !17, i64 672, !17, i64 680, !17, i64 688, !17, i64 696, !17, i64 704, !17, i64 712, !27, i64 720, !25, i64 728, !8, i64 736, !8, i64 744, !28, i64 752, !28, i64 760, !8, i64 768, !16, i64 776, !14, i64 784, !14, i64 788, !14, i64 792, !14, i64 796, !14, i64 800, !14, i64 804, !14, i64 808, !14, i64 812, !14, i64 816, !14, i64 820, !14, i64 824, !14, i64 828, !29, i64 832, !29, i64 840, !29, i64 848, !29, i64 856, !17, i64 864, !17, i64 872, !17, i64 880, !30, i64 888, !14, i64 896, !14, i64 900, !14, i64 904, !17, i64 912, !14, i64 920, !14, i64 924, !17, i64 928, !17, i64 936, !22, i64 944, !29, i64 952, !17, i64 960, !17, i64 968, !14, i64 976, !14, i64 980, !29, i64 984, !18, i64 992, !18, i64 1008, !18, i64 1024, !31, i64 1040, !32, i64 1048, !32, i64 1056, !14, i64 1064, !14, i64 1068, !14, i64 1072, !14, i64 1076, !32, i64 1080, !17, i64 1088, !17, i64 1096, !17, i64 1104, !22, i64 1112}
-!13 = !{!"p1 omnipotent char", !8, i64 0}
-!14 = !{!"int", !9, i64 0}
-!15 = !{!"p1 _ZTS10Gia_Obj_t_", !8, i64 0}
-!16 = !{!"p1 int", !8, i64 0}
-!17 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
-!18 = !{!"Vec_Int_t_", !14, i64 0, !14, i64 4, !16, i64 8}
-!19 = !{!"p1 _ZTS10Gia_Rpr_t_", !8, i64 0}
-!20 = !{!"p1 _ZTS10Vec_Wec_t_", !8, i64 0}
-!21 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
-!22 = !{!"p1 _ZTS10Vec_Ptr_t_", !8, i64 0}
-!23 = !{!"p1 _ZTS10Gia_Plc_t_", !8, i64 0}
-!24 = !{!"p1 _ZTS10Gia_Man_t_", !8, i64 0}
-!25 = !{!"p1 _ZTS10Vec_Flt_t_", !8, i64 0}
-!26 = !{!"float", !9, i64 0}
-!27 = !{!"p1 _ZTS10Vec_Vec_t_", !8, i64 0}
-!28 = !{!"long", !9, i64 0}
-!29 = !{!"p1 _ZTS10Vec_Wrd_t_", !8, i64 0}
-!30 = !{!"p1 _ZTS10Vec_Bit_t_", !8, i64 0}
-!31 = !{!"p1 _ZTS10Gia_Dat_t_", !8, i64 0}
-!32 = !{!"p1 _ZTS10Vec_Str_t_", !8, i64 0}
-!33 = !{!12, !14, i64 16}
-!34 = !{!12, !17, i64 72}
-!35 = !{!18, !14, i64 4}
-!36 = !{!12, !15, i64 32}
-!37 = !{!18, !16, i64 8}
-!38 = !{!14, !14, i64 0}
-!39 = distinct !{!39, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"Gia_Man_t_", !14, i64 0, !14, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !16, i64 32, !17, i64 40, !15, i64 48, !15, i64 52, !15, i64 56, !18, i64 64, !18, i64 72, !19, i64 80, !19, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !19, i64 128, !17, i64 144, !17, i64 152, !18, i64 160, !15, i64 168, !15, i64 172, !15, i64 176, !15, i64 180, !17, i64 184, !20, i64 192, !17, i64 200, !17, i64 208, !17, i64 216, !15, i64 224, !15, i64 228, !17, i64 232, !15, i64 240, !18, i64 248, !18, i64 256, !18, i64 264, !21, i64 272, !21, i64 280, !18, i64 288, !9, i64 296, !18, i64 304, !18, i64 312, !14, i64 320, !18, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !22, i64 368, !22, i64 376, !23, i64 384, !19, i64 392, !19, i64 408, !18, i64 424, !18, i64 432, !18, i64 440, !18, i64 448, !18, i64 456, !18, i64 464, !18, i64 472, !18, i64 480, !18, i64 488, !18, i64 496, !18, i64 504, !14, i64 512, !24, i64 520, !25, i64 528, !26, i64 536, !26, i64 544, !18, i64 552, !18, i64 560, !18, i64 568, !18, i64 576, !18, i64 584, !15, i64 592, !27, i64 596, !27, i64 600, !18, i64 608, !17, i64 616, !15, i64 624, !23, i64 632, !23, i64 640, !23, i64 648, !18, i64 656, !18, i64 664, !18, i64 672, !18, i64 680, !18, i64 688, !18, i64 696, !18, i64 704, !18, i64 712, !28, i64 720, !26, i64 728, !9, i64 736, !9, i64 744, !29, i64 752, !29, i64 760, !9, i64 768, !17, i64 776, !15, i64 784, !15, i64 788, !15, i64 792, !15, i64 796, !15, i64 800, !15, i64 804, !15, i64 808, !15, i64 812, !15, i64 816, !15, i64 820, !15, i64 824, !15, i64 828, !30, i64 832, !30, i64 840, !30, i64 848, !30, i64 856, !18, i64 864, !18, i64 872, !18, i64 880, !31, i64 888, !15, i64 896, !15, i64 900, !15, i64 904, !18, i64 912, !15, i64 920, !15, i64 924, !18, i64 928, !18, i64 936, !23, i64 944, !30, i64 952, !18, i64 960, !18, i64 968, !15, i64 976, !15, i64 980, !30, i64 984, !19, i64 992, !19, i64 1008, !19, i64 1024, !32, i64 1040, !33, i64 1048, !33, i64 1056, !15, i64 1064, !15, i64 1068, !15, i64 1072, !15, i64 1076, !33, i64 1080, !18, i64 1088, !18, i64 1096, !18, i64 1104, !23, i64 1112}
+!14 = !{!"p1 omnipotent char", !9, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!"p1 _ZTS10Gia_Obj_t_", !9, i64 0}
+!17 = !{!"p1 int", !9, i64 0}
+!18 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!19 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !17, i64 8}
+!20 = !{!"p1 _ZTS10Gia_Rpr_t_", !9, i64 0}
+!21 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
+!22 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!23 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!24 = !{!"p1 _ZTS10Gia_Plc_t_", !9, i64 0}
+!25 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
+!26 = !{!"p1 _ZTS10Vec_Flt_t_", !9, i64 0}
+!27 = !{!"float", !10, i64 0}
+!28 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
+!29 = !{!"long", !10, i64 0}
+!30 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
+!31 = !{!"p1 _ZTS10Vec_Bit_t_", !9, i64 0}
+!32 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
+!33 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
+!34 = !{!13, !15, i64 16}
+!35 = !{!13, !18, i64 72}
+!36 = !{!19, !15, i64 4}
+!37 = !{!13, !16, i64 32}
+!38 = !{!19, !17, i64 8}
+!39 = !{!15, !15, i64 0}
+!40 = distinct !{!40, !4, !5}

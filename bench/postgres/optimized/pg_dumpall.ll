@@ -744,7 +744,7 @@ sub_1183:                                         ; preds = %.tail.thread, %.thr
 
 143:                                              ; preds = %142, %140
   %144 = call zeroext i1 @filter_read_item(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
-  br i1 %144, label %.lr.ph.i, label %read_dumpall_filters.exit, !llvm.loop !6
+  br i1 %144, label %.lr.ph.i, label %read_dumpall_filters.exit, !llvm.loop !7
 
 read_dumpall_filters.exit:                        ; preds = %143, %128
   call void @filter_free(ptr noundef nonnull %3) #15
@@ -1420,7 +1420,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
   %32 = getelementptr inbounds nuw i8, ptr %.0104155, i64 56
   %33 = load ptr, ptr %32, align 8
   %.not129 = icmp eq ptr %33, null
-  br i1 %.not129, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not129, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %31
   %34 = add i32 %.1107, 1
@@ -1470,7 +1470,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
   %54 = getelementptr inbounds nuw i8, ptr %.1105157, i64 56
   %55 = load ptr, ptr %54, align 8
   %.not130 = icmp eq ptr %55, null
-  br i1 %.not130, label %.loopexit, label %.lr.ph160, !llvm.loop !8
+  br i1 %.not130, label %.loopexit, label %.lr.ph160, !llvm.loop !9
 
 56:                                               ; preds = %16
   %57 = call ptr @pg_malloc0(i64 noundef 56) #15
@@ -1583,7 +1583,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
   %104 = call ptr @simple_prompt(ptr noundef nonnull @.str.301, i1 noundef zeroext false) #15
   store ptr %104, ptr @connectDatabase.password, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br label %16
+  br label %16, !llvm.loop !10
 
 105:                                              ; preds = %99, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
@@ -1656,7 +1656,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
   %135 = getelementptr inbounds ptr, ptr %.1113, i64 %134
   %136 = load ptr, ptr %135, align 8
   %.not.i = icmp eq ptr %136, null
-  br i1 %.not.i, label %constructConnStr.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %constructConnStr.exit, label %.lr.ph.i, !llvm.loop !11
 
 constructConnStr.exit:                            ; preds = %132, %112
   %137 = load ptr, ptr %113, align 8
@@ -1756,7 +1756,7 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef nonnull %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
   %.020 = load ptr, ptr %.0204, align 8
   %.not = icmp eq ptr %.020, null
-  br i1 %.not, label %._crit_edge7, label %.lr.ph6, !llvm.loop !10
+  br i1 %.not, label %._crit_edge7, label %.lr.ph6, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.01 = phi i32 [ %18, %.lr.ph ], [ 0, %12 ]
@@ -1765,7 +1765,7 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef nonnull %0) unna
   %18 = add nuw nsw i32 %.01, 1
   %19 = call i32 @PQntuples(ptr noundef nonnull %14) #15
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 21:                                               ; preds = %1, %._crit_edge7
   ret void
@@ -1888,7 +1888,7 @@ define internal fastcc void @dropDBs(ptr noundef nonnull %0) unnamed_addr #4 {
   %24 = add nuw nsw i32 %.014, 1
   %25 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %23, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -1926,7 +1926,7 @@ define internal fastcc void @dropTablespaces(ptr noundef nonnull %0) unnamed_add
   %17 = add nuw nsw i32 %.08, 1
   %18 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -1971,7 +1971,7 @@ define internal fastcc void @dropRoles(ptr noundef nonnull %0) unnamed_addr #4 {
   %22 = add nuw nsw i32 %.014, 1
   %23 = tail call i32 @PQntuples(ptr noundef nonnull %6) #15
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   tail call void @PQclear(ptr noundef nonnull %6) #15
@@ -2288,7 +2288,7 @@ sub_1169:                                         ; preds = %sub_0168
   %122 = add nuw nsw i32 %.0172, 1
   %123 = tail call i32 @PQntuples(ptr noundef nonnull %7) #15
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %sub_0, label %._crit_edge, !llvm.loop !15
+  br i1 %124, label %sub_0, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %121, %27
   %125 = tail call i32 @PQntuples(ptr noundef nonnull %7) #15
@@ -2339,7 +2339,7 @@ sub_1169:                                         ; preds = %sub_0168
   %149 = add nuw nsw i32 %.020.i, 1
   %150 = tail call i32 @PQntuples(ptr noundef nonnull %136) #15
   %151 = icmp slt i32 %149, %150
-  br i1 %151, label %.lr.ph.i, label %dumpUserConfig.exit, !llvm.loop !16
+  br i1 %151, label %.lr.ph.i, label %dumpUserConfig.exit, !llvm.loop !18
 
 dumpUserConfig.exit:                              ; preds = %.lr.ph.i, %142
   tail call void @PQclear(ptr noundef nonnull %136) #15
@@ -2347,7 +2347,7 @@ dumpUserConfig.exit:                              ; preds = %.lr.ph.i, %142
   %152 = add nuw nsw i32 %.1173, 1
   %153 = tail call i32 @PQntuples(ptr noundef nonnull %7) #15
   %154 = icmp slt i32 %152, %153
-  br i1 %154, label %.lr.ph, label %._crit_edge175, !llvm.loop !17
+  br i1 %154, label %.lr.ph, label %._crit_edge175, !llvm.loop !19
 
 ._crit_edge175:                                   ; preds = %dumpUserConfig.exit, %130
   tail call void @PQclear(ptr noundef nonnull %7) #15
@@ -2407,7 +2407,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_
 26:                                               ; preds = %23
   %27 = add i32 %.092136, 1
   %28 = icmp slt i32 %27, %20
-  br i1 %28, label %23, label %29, !llvm.loop !18
+  br i1 %28, label %23, label %29, !llvm.loop !20
 
 29:                                               ; preds = %23, %26
   %.092.lcssa = phi i32 [ %.092136, %23 ], [ %27, %26 ]
@@ -2432,7 +2432,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_
   %.0.i.i.i = select i1 %43, i64 %41, i64 %46
   %47 = shl i64 %.0.i.i.i, 4
   %48 = icmp ugt i64 %47, 9223372036854775806
-  br i1 %48, label %49, label %rolename_compute_size.exit.i, !prof !19
+  br i1 %48, label %49, label %rolename_compute_size.exit.i, !prof !21
 
 49:                                               ; preds = %29
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #15
@@ -2451,7 +2451,7 @@ rolename_compute_size.exit.i:                     ; preds = %29
   %.0.i.i.i.i = select i1 %53, i64 %.0.i.i.i, i64 %56
   %57 = shl i64 %.0.i.i.i.i, 4
   %58 = icmp ugt i64 %57, 9223372036854775806
-  br i1 %58, label %59, label %rolename_create.exit, !prof !19
+  br i1 %58, label %59, label %rolename_create.exit, !prof !21
 
 59:                                               ; preds = %rolename_compute_size.exit.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #15
@@ -2484,7 +2484,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
 .loopexit:                                        ; preds = %rolename_lookup.exit.thread, %.preheader
   %.1.lcssa = phi i32 [ %.094141, %.preheader ], [ %.2, %rolename_lookup.exit.thread ]
   %72 = icmp sgt i32 %.1.lcssa, 0
-  br i1 %72, label %73, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %72, label %73, label %._crit_edge.loopexit, !llvm.loop !22
 
 73:                                               ; preds = %.lr.ph142, %.loopexit
   %.094141 = phi i32 [ %31, %.lr.ph142 ], [ %.1.lcssa, %.loopexit ]
@@ -2508,7 +2508,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   %77 = sub i32 %76, %.0143
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %33, i64 %78
-  %80 = load i8, ptr %79, align 1, !range !21, !noundef !22
+  %80 = load i8, ptr %79, align 1, !range !23, !noundef !24
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %rolename_lookup.exit.thread, label %82
 
@@ -2566,7 +2566,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   %112 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %95, i64 %111
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %rolename_lookup.exit.thread, label %.lr.ph.i.i
+  br i1 %114, label %rolename_lookup.exit.thread, label %.lr.ph.i.i, !llvm.loop !25
 
 rolename_lookup.exit:                             ; preds = %104, %90, %89
   store i8 1, ptr %79, align 1
@@ -2580,7 +2580,7 @@ rolename_lookup.exit:                             ; preds = %104, %90, %89
   %.pre.i = load i32, ptr %70, align 8
   %.pre73.i = load i32, ptr %67, align 8
   %120 = icmp ult i32 %.pre.i, %.pre73.i
-  br i1 %120, label %183, label %._crit_edge165, !prof !23
+  br i1 %120, label %183, label %._crit_edge165, !prof !26
 
 ._crit_edge165:                                   ; preds = %118
   %.pre = load i64, ptr %34, align 8
@@ -2594,7 +2594,7 @@ rolename_lookup.exit:                             ; preds = %104, %90, %89
 122:                                              ; preds = %._crit_edge165, %.loopexit.loopexit.i.i
   %123 = phi i64 [ %.pre, %._crit_edge165 ], [ %121, %.loopexit.loopexit.i.i ]
   %124 = icmp eq i64 %123, 4294967296
-  br i1 %124, label %125, label %126, !prof !19
+  br i1 %124, label %125, label %126, !prof !21
 
 125:                                              ; preds = %122
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.258) #15
@@ -2613,7 +2613,7 @@ rolename_lookup.exit:                             ; preds = %104, %90, %89
   %.0.i.i.i106 = select i1 %131, i64 %129, i64 %134
   %135 = shl i64 %.0.i.i.i106, 4
   %136 = icmp ugt i64 %135, 9223372036854775806
-  br i1 %136, label %137, label %rolename_compute_size.exit.i107, !prof !19
+  br i1 %136, label %137, label %rolename_compute_size.exit.i107, !prof !21
 
 137:                                              ; preds = %126
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #15
@@ -2631,7 +2631,7 @@ rolename_compute_size.exit.i107:                  ; preds = %126
   %.0.i.i.i.i108 = select i1 %140, i64 %.0.i.i.i106, i64 %143
   %144 = shl i64 %.0.i.i.i.i108, 4
   %145 = icmp ugt i64 %144, 9223372036854775806
-  br i1 %145, label %146, label %rolename_update_parameters.exit.i, !prof !19
+  br i1 %145, label %146, label %rolename_update_parameters.exit.i, !prof !21
 
 146:                                              ; preds = %rolename_compute_size.exit.i107
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #15
@@ -2671,7 +2671,7 @@ rolename_update_parameters.exit.i:                ; preds = %rolename_compute_si
   %161 = add i32 %.063.i, 1
   %162 = zext i32 %161 to i64
   %163 = icmp ugt i64 %123, %162
-  br i1 %163, label %.lr.ph.i110, label %.lr.ph70.i.preheader, !llvm.loop !24
+  br i1 %163, label %.lr.ph.i110, label %.lr.ph70.i.preheader, !llvm.loop !27
 
 .lr.ph70.i.preheader:                             ; preds = %160, %156, %.lr.ph.i110
   %.05168.i.ph = phi i32 [ %.063.i, %.lr.ph.i110 ], [ %.063.i, %156 ], [ 0, %160 ]
@@ -2700,7 +2700,7 @@ rolename_update_parameters.exit.i:                ; preds = %rolename_compute_si
   %173 = load i32, ptr %172, align 8
   %174 = icmp eq i32 %173, 0
   %175 = add i32 %.048.i, 1
-  br i1 %174, label %176, label %170
+  br i1 %174, label %176, label %170, !llvm.loop !28
 
 176:                                              ; preds = %170
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false)
@@ -2714,7 +2714,7 @@ rolename_update_parameters.exit.i:                ; preds = %rolename_compute_si
   %180 = add i32 %.169.i, 1
   %181 = zext i32 %180 to i64
   %182 = icmp ugt i64 %123, %181
-  br i1 %182, label %.lr.ph70.i, label %rolename_grow.exit, !llvm.loop !25
+  br i1 %182, label %.lr.ph70.i, label %rolename_grow.exit, !llvm.loop !29
 
 rolename_grow.exit:                               ; preds = %177, %rolename_update_parameters.exit.i
   tail call void @pfree(ptr noundef %128) #15
@@ -2789,7 +2789,7 @@ rolename_distance.exit.i.i:                       ; preds = %204, %202
   %.079.i28.i = phi i32 [ %216, %.preheader113.i.i ], [ 0, %.preheader113.i.preheader.i ]
   %216 = add i32 %.079.i28.i, 1
   %217 = icmp sgt i32 %216, 150
-  br i1 %217, label %218, label %.preheader113.i.i, !prof !19
+  br i1 %217, label %218, label %.preheader113.i.i, !prof !21
 
 218:                                              ; preds = %.lr.ph29.i
   %219 = load i32, ptr %70, align 8
@@ -2825,7 +2825,7 @@ rolename_distance.exit.i.i:                       ; preds = %204, %202
   %233 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %184, i64 %232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.285136.i.i, ptr noundef nonnull align 8 dereferenceable(16) %233, i64 16, i1 false)
   %.not94.i.i = icmp eq i32 %231, %.077.i24.i
-  br i1 %.not94.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i105, !llvm.loop !26
+  br i1 %.not94.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i105, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i105, %.preheader.i.i
   %234 = load i32, ptr %70, align 8
@@ -2840,7 +2840,7 @@ rolename_distance.exit.i.i:                       ; preds = %204, %202
   %238 = add i32 %.077.i24.i, 1
   %239 = add i32 %.089.i23.i, 1
   %240 = icmp ugt i32 %239, 25
-  br i1 %240, label %241, label %248, !prof !19
+  br i1 %240, label %241, label %248, !prof !21
 
 241:                                              ; preds = %237
   %242 = load i32, ptr %70, align 8
@@ -2949,7 +2949,7 @@ rolename_lookup.exit.thread:                      ; preds = %109, %93, %.lr.ph, 
   %.2 = phi i32 [ %115, %291 ], [ %.1138, %.lr.ph ], [ %.1138, %93 ], [ %.1138, %109 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre166 = load ptr, ptr %51, align 8
@@ -2961,7 +2961,7 @@ rolename_lookup.exit.thread:                      ; preds = %109, %93, %.lr.ph, 
   tail call void @pfree(ptr noundef nonnull %34) #15
   tail call void @pg_free(ptr noundef %33) #15
   %295 = icmp slt i32 %.092.lcssa, %20
-  br i1 %295, label %.lr.ph145, label %._crit_edge146, !llvm.loop !28
+  br i1 %295, label %.lr.ph145, label %._crit_edge146, !llvm.loop !32
 
 ._crit_edge146:                                   ; preds = %._crit_edge, %19
   tail call void @PQclear(ptr noundef nonnull %11) #15
@@ -3016,7 +3016,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %0) unnamed_ad
   %25 = add nuw nsw i32 %.026, 1
   %26 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %21, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -3145,7 +3145,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   %55 = add nuw nsw i32 %.074, 1
   %56 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %51, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -3276,7 +3276,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   %54 = add nuw nsw i32 %.026, 1
   %55 = call i32 @PQntuples(ptr noundef nonnull %4) #15
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %53, %10
   call void @PQclear(ptr noundef nonnull %4) #15
@@ -3392,7 +3392,7 @@ define internal fastcc i32 @hash_string(ptr noundef %0) unnamed_addr #11 {
   %24 = xor i64 %23, -9187201950435737472
   %25 = and i64 %24, %22
   %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !36
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %5
   %.0.copyload.i.i.i.in = phi i64 [ %6, %5 ], [ %21, %.lr.ph.i.i ]
@@ -3506,7 +3506,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, 
 81:                                               ; preds = %78
   %82 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, 8
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !37
 
 .critedge.i.i:                                    ; preds = %78
   switch i64 %.014.i.i, label %.sink.split.i.i6.i [
@@ -3600,7 +3600,7 @@ fasthash_accum.exit.i.i:                          ; preds = %.sink.split.i.i6.i,
   %.0.lcssa20.i.i = phi i64 [ %.0.lcssa23.i.i, %.sink.split.i.i6.i ], [ %.014.i.i, %.critedge.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.01216.i.i, i64 %.0.lcssa20.i.i
   %.not.i8.i = icmp eq i8 %131, 0
-  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !33
+  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !38
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %75
   %.sroa.19.4 = phi i64 [ %.sroa.19.3, %fasthash_accum_cstring_aligned.exit.i ], [ -8645972361240307355, %75 ], [ %.sroa.19.1, %fasthash_accum.exit.i.i ]
@@ -3711,33 +3711,38 @@ attributes #18 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = distinct !{!20, !5}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = distinct !{!22, !5, !6}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = distinct !{!25, !6}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}

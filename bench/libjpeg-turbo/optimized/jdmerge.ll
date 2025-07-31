@@ -162,11 +162,11 @@ define internal void @start_pass_merged_upsample(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 0, ptr %4, align 8, !tbaa !63
+  store i32 0, ptr %4, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %6 = load i32, ptr %5, align 4, !tbaa !64
+  %6 = load i32, ptr %5, align 4, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 %6, ptr %7, align 8, !tbaa !65
+  store i32 %6, ptr %7, align 8, !tbaa !66
   ret void
 }
 
@@ -177,7 +177,7 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %12 = load i32, ptr %11, align 8, !tbaa !63
+  %12 = load i32, ptr %11, align 8, !tbaa !64
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %28, label %13
 
@@ -202,20 +202,20 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr nou
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %26
   tail call void @jcopy_sample_rows(ptr noundef nonnull %24, i32 noundef 0, ptr noundef %27, i32 noundef 0, i32 noundef 1, i32 noundef %.0) #6
-  store i32 0, ptr %11, align 8, !tbaa !63
+  store i32 0, ptr %11, align 8, !tbaa !64
   br label %50
 
 28:                                               ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %30 = load i32, ptr %29, align 8, !tbaa !65
+  %30 = load i32, ptr %29, align 8, !tbaa !66
   %31 = load i32, ptr %5, align 4, !tbaa !59
   %32 = sub i32 %6, %31
   %spec.select = tail call i32 @llvm.umin.i32(i32 %30, i32 %32)
   %.2 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2)
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %4, i64 %33
-  %35 = load ptr, ptr %34, align 8, !tbaa !66
-  store ptr %35, ptr %8, align 16, !tbaa !66
+  %35 = load ptr, ptr %34, align 8, !tbaa !67
+  store ptr %35, ptr %8, align 16, !tbaa !67
   %36 = icmp ugt i32 %spec.select, 1
   br i1 %36, label %37, label %42
 
@@ -223,19 +223,19 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr nou
   %38 = add i32 %31, 1
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %4, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
   br label %45
 
 42:                                               ; preds = %28
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %44 = load ptr, ptr %43, align 8, !tbaa !54
-  store i32 1, ptr %11, align 8, !tbaa !63
+  store i32 1, ptr %11, align 8, !tbaa !64
   br label %45
 
 45:                                               ; preds = %42, %37
   %.sink = phi ptr [ %41, %37 ], [ %44, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink, ptr %46, align 8, !tbaa !66
+  store ptr %.sink, ptr %46, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !50
   %49 = load i32, ptr %2, align 4, !tbaa !59
@@ -248,10 +248,10 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr nou
   %52 = add i32 %51, %.034
   store i32 %52, ptr %5, align 4, !tbaa !59
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %54 = load i32, ptr %53, align 8, !tbaa !65
+  %54 = load i32, ptr %53, align 8, !tbaa !66
   %55 = sub i32 %54, %.034
-  store i32 %55, ptr %53, align 8, !tbaa !65
-  %56 = load i32, ptr %11, align 8, !tbaa !63
+  store i32 %55, ptr %53, align 8, !tbaa !66
+  %56 = load i32, ptr %11, align 8, !tbaa !64
   %.not37 = icmp eq i32 %56, 0
   br i1 %.not37, label %57, label %60
 
@@ -291,7 +291,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -300,27 +300,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !58
-  %20 = load ptr, ptr %1, align 8, !tbaa !68
+  %20 = load ptr, ptr %1, align 8, !tbaa !69
   %21 = shl i32 %2, 1
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !67
   %25 = or disjoint i32 %21, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !66
+  %28 = load ptr, ptr %27, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !68
+  %30 = load ptr, ptr %29, align 8, !tbaa !69
   %31 = zext i32 %2 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !66
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !68
+  %35 = load ptr, ptr %34, align 8, !tbaa !69
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
-  %37 = load ptr, ptr %36, align 8, !tbaa !66
-  %38 = load ptr, ptr %3, align 8, !tbaa !66
+  %37 = load ptr, ptr %36, align 8, !tbaa !67
+  %38 = load ptr, ptr %3, align 8, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8, !tbaa !45
   %.not.i156 = icmp ult i32 %42, 2
@@ -441,7 +441,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %132 = getelementptr inbounds nuw i8, ptr %.0125.i158, i64 6
   %133 = add nsw i32 %.0.i163, -1
   %.not.i = icmp eq i32 %133, 0
-  br i1 %.not.i, label %._crit_edge166.loopexit, label %.lr.ph165, !llvm.loop !69
+  br i1 %.not.i, label %._crit_edge166.loopexit, label %.lr.ph165, !llvm.loop !70
 
 ._crit_edge166.loopexit:                          ; preds = %.lr.ph165
   %.pre235 = load i32, ptr %41, align 8, !tbaa !45
@@ -519,7 +519,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %186 = load ptr, ptr %185, align 8, !tbaa !39
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %188 = load ptr, ptr %187, align 8, !tbaa !67
+  %188 = load ptr, ptr %187, align 8, !tbaa !68
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 48
   %190 = load ptr, ptr %189, align 8, !tbaa !55
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 56
@@ -528,27 +528,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %194 = load ptr, ptr %193, align 8, !tbaa !57
   %195 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %196 = load ptr, ptr %195, align 8, !tbaa !58
-  %197 = load ptr, ptr %1, align 8, !tbaa !68
+  %197 = load ptr, ptr %1, align 8, !tbaa !69
   %198 = shl i32 %2, 1
   %199 = zext i32 %198 to i64
   %200 = getelementptr inbounds nuw ptr, ptr %197, i64 %199
-  %201 = load ptr, ptr %200, align 8, !tbaa !66
+  %201 = load ptr, ptr %200, align 8, !tbaa !67
   %202 = or disjoint i32 %198, 1
   %203 = zext i32 %202 to i64
   %204 = getelementptr inbounds nuw ptr, ptr %197, i64 %203
-  %205 = load ptr, ptr %204, align 8, !tbaa !66
+  %205 = load ptr, ptr %204, align 8, !tbaa !67
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !68
+  %207 = load ptr, ptr %206, align 8, !tbaa !69
   %208 = zext i32 %2 to i64
   %209 = getelementptr inbounds nuw ptr, ptr %207, i64 %208
-  %210 = load ptr, ptr %209, align 8, !tbaa !66
+  %210 = load ptr, ptr %209, align 8, !tbaa !67
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %212 = load ptr, ptr %211, align 8, !tbaa !68
+  %212 = load ptr, ptr %211, align 8, !tbaa !69
   %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %208
-  %214 = load ptr, ptr %213, align 8, !tbaa !66
-  %215 = load ptr, ptr %3, align 8, !tbaa !66
+  %214 = load ptr, ptr %213, align 8, !tbaa !67
+  %215 = load ptr, ptr %3, align 8, !tbaa !67
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %217 = load ptr, ptr %216, align 8, !tbaa !66
+  %217 = load ptr, ptr %216, align 8, !tbaa !67
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %219 = load i32, ptr %218, align 8, !tbaa !45
   %.not.i29139 = icmp ult i32 %219, 2
@@ -677,7 +677,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %313 = getelementptr inbounds nuw i8, ptr %.0131.i141, i64 8
   %314 = add nsw i32 %.0.i28146, -1
   %.not.i29 = icmp eq i32 %314, 0
-  br i1 %.not.i29, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !70
+  br i1 %.not.i29, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !71
 
 ._crit_edge149.loopexit:                          ; preds = %.lr.ph148
   %.pre234 = load i32, ptr %218, align 8, !tbaa !45
@@ -759,7 +759,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %369 = load ptr, ptr %368, align 8, !tbaa !39
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %371 = load ptr, ptr %370, align 8, !tbaa !67
+  %371 = load ptr, ptr %370, align 8, !tbaa !68
   %372 = getelementptr inbounds nuw i8, ptr %369, i64 48
   %373 = load ptr, ptr %372, align 8, !tbaa !55
   %374 = getelementptr inbounds nuw i8, ptr %369, i64 56
@@ -768,27 +768,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %377 = load ptr, ptr %376, align 8, !tbaa !57
   %378 = getelementptr inbounds nuw i8, ptr %369, i64 72
   %379 = load ptr, ptr %378, align 8, !tbaa !58
-  %380 = load ptr, ptr %1, align 8, !tbaa !68
+  %380 = load ptr, ptr %1, align 8, !tbaa !69
   %381 = shl i32 %2, 1
   %382 = zext i32 %381 to i64
   %383 = getelementptr inbounds nuw ptr, ptr %380, i64 %382
-  %384 = load ptr, ptr %383, align 8, !tbaa !66
+  %384 = load ptr, ptr %383, align 8, !tbaa !67
   %385 = or disjoint i32 %381, 1
   %386 = zext i32 %385 to i64
   %387 = getelementptr inbounds nuw ptr, ptr %380, i64 %386
-  %388 = load ptr, ptr %387, align 8, !tbaa !66
+  %388 = load ptr, ptr %387, align 8, !tbaa !67
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %390 = load ptr, ptr %389, align 8, !tbaa !68
+  %390 = load ptr, ptr %389, align 8, !tbaa !69
   %391 = zext i32 %2 to i64
   %392 = getelementptr inbounds nuw ptr, ptr %390, i64 %391
-  %393 = load ptr, ptr %392, align 8, !tbaa !66
+  %393 = load ptr, ptr %392, align 8, !tbaa !67
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %395 = load ptr, ptr %394, align 8, !tbaa !68
+  %395 = load ptr, ptr %394, align 8, !tbaa !69
   %396 = getelementptr inbounds nuw ptr, ptr %395, i64 %391
-  %397 = load ptr, ptr %396, align 8, !tbaa !66
-  %398 = load ptr, ptr %3, align 8, !tbaa !66
+  %397 = load ptr, ptr %396, align 8, !tbaa !67
+  %398 = load ptr, ptr %3, align 8, !tbaa !67
   %399 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %400 = load ptr, ptr %399, align 8, !tbaa !66
+  %400 = load ptr, ptr %399, align 8, !tbaa !67
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %402 = load i32, ptr %401, align 8, !tbaa !45
   %.not.i37122 = icmp ult i32 %402, 2
@@ -909,7 +909,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %492 = getelementptr inbounds nuw i8, ptr %.0125.i31124, i64 6
   %493 = add nsw i32 %.0.i36129, -1
   %.not.i37 = icmp eq i32 %493, 0
-  br i1 %.not.i37, label %._crit_edge132.loopexit, label %.lr.ph131, !llvm.loop !71
+  br i1 %.not.i37, label %._crit_edge132.loopexit, label %.lr.ph131, !llvm.loop !72
 
 ._crit_edge132.loopexit:                          ; preds = %.lr.ph131
   %.pre233 = load i32, ptr %401, align 8, !tbaa !45
@@ -987,7 +987,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %546 = load ptr, ptr %545, align 8, !tbaa !39
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %548 = load ptr, ptr %547, align 8, !tbaa !67
+  %548 = load ptr, ptr %547, align 8, !tbaa !68
   %549 = getelementptr inbounds nuw i8, ptr %546, i64 48
   %550 = load ptr, ptr %549, align 8, !tbaa !55
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 56
@@ -996,27 +996,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %554 = load ptr, ptr %553, align 8, !tbaa !57
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 72
   %556 = load ptr, ptr %555, align 8, !tbaa !58
-  %557 = load ptr, ptr %1, align 8, !tbaa !68
+  %557 = load ptr, ptr %1, align 8, !tbaa !69
   %558 = shl i32 %2, 1
   %559 = zext i32 %558 to i64
   %560 = getelementptr inbounds nuw ptr, ptr %557, i64 %559
-  %561 = load ptr, ptr %560, align 8, !tbaa !66
+  %561 = load ptr, ptr %560, align 8, !tbaa !67
   %562 = or disjoint i32 %558, 1
   %563 = zext i32 %562 to i64
   %564 = getelementptr inbounds nuw ptr, ptr %557, i64 %563
-  %565 = load ptr, ptr %564, align 8, !tbaa !66
+  %565 = load ptr, ptr %564, align 8, !tbaa !67
   %566 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %567 = load ptr, ptr %566, align 8, !tbaa !68
+  %567 = load ptr, ptr %566, align 8, !tbaa !69
   %568 = zext i32 %2 to i64
   %569 = getelementptr inbounds nuw ptr, ptr %567, i64 %568
-  %570 = load ptr, ptr %569, align 8, !tbaa !66
+  %570 = load ptr, ptr %569, align 8, !tbaa !67
   %571 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %572 = load ptr, ptr %571, align 8, !tbaa !68
+  %572 = load ptr, ptr %571, align 8, !tbaa !69
   %573 = getelementptr inbounds nuw ptr, ptr %572, i64 %568
-  %574 = load ptr, ptr %573, align 8, !tbaa !66
-  %575 = load ptr, ptr %3, align 8, !tbaa !66
+  %574 = load ptr, ptr %573, align 8, !tbaa !67
+  %575 = load ptr, ptr %3, align 8, !tbaa !67
   %576 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %577 = load ptr, ptr %576, align 8, !tbaa !66
+  %577 = load ptr, ptr %576, align 8, !tbaa !67
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %579 = load i32, ptr %578, align 8, !tbaa !45
   %.not.i46105 = icmp ult i32 %579, 2
@@ -1145,7 +1145,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %673 = getelementptr inbounds nuw i8, ptr %.0131.i40107, i64 8
   %674 = add nsw i32 %.0.i45112, -1
   %.not.i46 = icmp eq i32 %674, 0
-  br i1 %.not.i46, label %._crit_edge115.loopexit, label %.lr.ph114, !llvm.loop !72
+  br i1 %.not.i46, label %._crit_edge115.loopexit, label %.lr.ph114, !llvm.loop !73
 
 ._crit_edge115.loopexit:                          ; preds = %.lr.ph114
   %.pre232 = load i32, ptr %578, align 8, !tbaa !45
@@ -1227,7 +1227,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %728 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %729 = load ptr, ptr %728, align 8, !tbaa !39
   %730 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %731 = load ptr, ptr %730, align 8, !tbaa !67
+  %731 = load ptr, ptr %730, align 8, !tbaa !68
   %732 = getelementptr inbounds nuw i8, ptr %729, i64 48
   %733 = load ptr, ptr %732, align 8, !tbaa !55
   %734 = getelementptr inbounds nuw i8, ptr %729, i64 56
@@ -1236,27 +1236,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %737 = load ptr, ptr %736, align 8, !tbaa !57
   %738 = getelementptr inbounds nuw i8, ptr %729, i64 72
   %739 = load ptr, ptr %738, align 8, !tbaa !58
-  %740 = load ptr, ptr %1, align 8, !tbaa !68
+  %740 = load ptr, ptr %1, align 8, !tbaa !69
   %741 = shl i32 %2, 1
   %742 = zext i32 %741 to i64
   %743 = getelementptr inbounds nuw ptr, ptr %740, i64 %742
-  %744 = load ptr, ptr %743, align 8, !tbaa !66
+  %744 = load ptr, ptr %743, align 8, !tbaa !67
   %745 = or disjoint i32 %741, 1
   %746 = zext i32 %745 to i64
   %747 = getelementptr inbounds nuw ptr, ptr %740, i64 %746
-  %748 = load ptr, ptr %747, align 8, !tbaa !66
+  %748 = load ptr, ptr %747, align 8, !tbaa !67
   %749 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %750 = load ptr, ptr %749, align 8, !tbaa !68
+  %750 = load ptr, ptr %749, align 8, !tbaa !69
   %751 = zext i32 %2 to i64
   %752 = getelementptr inbounds nuw ptr, ptr %750, i64 %751
-  %753 = load ptr, ptr %752, align 8, !tbaa !66
+  %753 = load ptr, ptr %752, align 8, !tbaa !67
   %754 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %755 = load ptr, ptr %754, align 8, !tbaa !68
+  %755 = load ptr, ptr %754, align 8, !tbaa !69
   %756 = getelementptr inbounds nuw ptr, ptr %755, i64 %751
-  %757 = load ptr, ptr %756, align 8, !tbaa !66
-  %758 = load ptr, ptr %3, align 8, !tbaa !66
+  %757 = load ptr, ptr %756, align 8, !tbaa !67
+  %758 = load ptr, ptr %3, align 8, !tbaa !67
   %759 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %760 = load ptr, ptr %759, align 8, !tbaa !66
+  %760 = load ptr, ptr %759, align 8, !tbaa !67
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %762 = load i32, ptr %761, align 8, !tbaa !45
   %.not.i5588 = icmp ult i32 %762, 2
@@ -1385,7 +1385,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %856 = getelementptr inbounds nuw i8, ptr %.0131.i4990, i64 8
   %857 = add nsw i32 %.0.i5495, -1
   %.not.i55 = icmp eq i32 %857, 0
-  br i1 %.not.i55, label %._crit_edge98.loopexit, label %.lr.ph97, !llvm.loop !73
+  br i1 %.not.i55, label %._crit_edge98.loopexit, label %.lr.ph97, !llvm.loop !74
 
 ._crit_edge98.loopexit:                           ; preds = %.lr.ph97
   %.pre231 = load i32, ptr %761, align 8, !tbaa !45
@@ -1467,7 +1467,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %911 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %912 = load ptr, ptr %911, align 8, !tbaa !39
   %913 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %914 = load ptr, ptr %913, align 8, !tbaa !67
+  %914 = load ptr, ptr %913, align 8, !tbaa !68
   %915 = getelementptr inbounds nuw i8, ptr %912, i64 48
   %916 = load ptr, ptr %915, align 8, !tbaa !55
   %917 = getelementptr inbounds nuw i8, ptr %912, i64 56
@@ -1476,27 +1476,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %920 = load ptr, ptr %919, align 8, !tbaa !57
   %921 = getelementptr inbounds nuw i8, ptr %912, i64 72
   %922 = load ptr, ptr %921, align 8, !tbaa !58
-  %923 = load ptr, ptr %1, align 8, !tbaa !68
+  %923 = load ptr, ptr %1, align 8, !tbaa !69
   %924 = shl i32 %2, 1
   %925 = zext i32 %924 to i64
   %926 = getelementptr inbounds nuw ptr, ptr %923, i64 %925
-  %927 = load ptr, ptr %926, align 8, !tbaa !66
+  %927 = load ptr, ptr %926, align 8, !tbaa !67
   %928 = or disjoint i32 %924, 1
   %929 = zext i32 %928 to i64
   %930 = getelementptr inbounds nuw ptr, ptr %923, i64 %929
-  %931 = load ptr, ptr %930, align 8, !tbaa !66
+  %931 = load ptr, ptr %930, align 8, !tbaa !67
   %932 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %933 = load ptr, ptr %932, align 8, !tbaa !68
+  %933 = load ptr, ptr %932, align 8, !tbaa !69
   %934 = zext i32 %2 to i64
   %935 = getelementptr inbounds nuw ptr, ptr %933, i64 %934
-  %936 = load ptr, ptr %935, align 8, !tbaa !66
+  %936 = load ptr, ptr %935, align 8, !tbaa !67
   %937 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %938 = load ptr, ptr %937, align 8, !tbaa !68
+  %938 = load ptr, ptr %937, align 8, !tbaa !69
   %939 = getelementptr inbounds nuw ptr, ptr %938, i64 %934
-  %940 = load ptr, ptr %939, align 8, !tbaa !66
-  %941 = load ptr, ptr %3, align 8, !tbaa !66
+  %940 = load ptr, ptr %939, align 8, !tbaa !67
+  %941 = load ptr, ptr %3, align 8, !tbaa !67
   %942 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %943 = load ptr, ptr %942, align 8, !tbaa !66
+  %943 = load ptr, ptr %942, align 8, !tbaa !67
   %944 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %945 = load i32, ptr %944, align 8, !tbaa !45
   %.not.i6475 = icmp ult i32 %945, 2
@@ -1625,7 +1625,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %1039 = getelementptr inbounds nuw i8, ptr %.0131.i5877, i64 8
   %1040 = add nsw i32 %.0.i6382, -1
   %.not.i64 = icmp eq i32 %1040, 0
-  br i1 %.not.i64, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not.i64, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %944, align 8, !tbaa !45
@@ -1707,7 +1707,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %1094 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %1095 = load ptr, ptr %1094, align 8, !tbaa !39
   %1096 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %1097 = load ptr, ptr %1096, align 8, !tbaa !67
+  %1097 = load ptr, ptr %1096, align 8, !tbaa !68
   %1098 = getelementptr inbounds nuw i8, ptr %1095, i64 48
   %1099 = load ptr, ptr %1098, align 8, !tbaa !55
   %1100 = getelementptr inbounds nuw i8, ptr %1095, i64 56
@@ -1716,27 +1716,27 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %1103 = load ptr, ptr %1102, align 8, !tbaa !57
   %1104 = getelementptr inbounds nuw i8, ptr %1095, i64 72
   %1105 = load ptr, ptr %1104, align 8, !tbaa !58
-  %1106 = load ptr, ptr %1, align 8, !tbaa !68
+  %1106 = load ptr, ptr %1, align 8, !tbaa !69
   %1107 = shl i32 %2, 1
   %1108 = zext i32 %1107 to i64
   %1109 = getelementptr inbounds nuw ptr, ptr %1106, i64 %1108
-  %1110 = load ptr, ptr %1109, align 8, !tbaa !66
+  %1110 = load ptr, ptr %1109, align 8, !tbaa !67
   %1111 = or disjoint i32 %1107, 1
   %1112 = zext i32 %1111 to i64
   %1113 = getelementptr inbounds nuw ptr, ptr %1106, i64 %1112
-  %1114 = load ptr, ptr %1113, align 8, !tbaa !66
+  %1114 = load ptr, ptr %1113, align 8, !tbaa !67
   %1115 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1116 = load ptr, ptr %1115, align 8, !tbaa !68
+  %1116 = load ptr, ptr %1115, align 8, !tbaa !69
   %1117 = zext i32 %2 to i64
   %1118 = getelementptr inbounds nuw ptr, ptr %1116, i64 %1117
-  %1119 = load ptr, ptr %1118, align 8, !tbaa !66
+  %1119 = load ptr, ptr %1118, align 8, !tbaa !67
   %1120 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1121 = load ptr, ptr %1120, align 8, !tbaa !68
+  %1121 = load ptr, ptr %1120, align 8, !tbaa !69
   %1122 = getelementptr inbounds nuw ptr, ptr %1121, i64 %1117
-  %1123 = load ptr, ptr %1122, align 8, !tbaa !66
-  %1124 = load ptr, ptr %3, align 8, !tbaa !66
+  %1123 = load ptr, ptr %1122, align 8, !tbaa !67
+  %1124 = load ptr, ptr %3, align 8, !tbaa !67
   %1125 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %1126 = load ptr, ptr %1125, align 8, !tbaa !66
+  %1126 = load ptr, ptr %1125, align 8, !tbaa !67
   %1127 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1128 = load i32, ptr %1127, align 8, !tbaa !45
   %.not.i73173 = icmp ult i32 %1128, 2
@@ -1857,7 +1857,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %1218 = getelementptr inbounds nuw i8, ptr %.0125.i67175, i64 6
   %1219 = add nsw i32 %.0.i72180, -1
   %.not.i73 = icmp eq i32 %1219, 0
-  br i1 %.not.i73, label %._crit_edge183.loopexit, label %.lr.ph182, !llvm.loop !75
+  br i1 %.not.i73, label %._crit_edge183.loopexit, label %.lr.ph182, !llvm.loop !76
 
 ._crit_edge183.loopexit:                          ; preds = %.lr.ph182
   %.pre236 = load i32, ptr %1127, align 8, !tbaa !45
@@ -1940,7 +1940,7 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %8 = load ptr, ptr %7, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -1950,7 +1950,7 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !76
+  %18 = load i32, ptr %17, align 8, !tbaa !77
   %19 = and i32 %18, 3
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %20
@@ -1960,27 +1960,27 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !60
-  %28 = load ptr, ptr %1, align 8, !tbaa !68
+  %28 = load ptr, ptr %1, align 8, !tbaa !69
   %29 = shl i32 %2, 1
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !66
+  %32 = load ptr, ptr %31, align 8, !tbaa !67
   %33 = or disjoint i32 %29, 1
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw ptr, ptr %28, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !66
+  %36 = load ptr, ptr %35, align 8, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !68
+  %38 = load ptr, ptr %37, align 8, !tbaa !69
   %39 = zext i32 %2 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !68
+  %43 = load ptr, ptr %42, align 8, !tbaa !69
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %39
-  %45 = load ptr, ptr %44, align 8, !tbaa !66
-  %46 = load ptr, ptr %3, align 8, !tbaa !66
+  %45 = load ptr, ptr %44, align 8, !tbaa !67
+  %46 = load ptr, ptr %3, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !66
+  %48 = load ptr, ptr %47, align 8, !tbaa !67
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %50 = load i32, ptr %49, align 8, !tbaa !45
   %.not.i7 = icmp ult i32 %50, 2
@@ -2082,9 +2082,9 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %131 = lshr i8 %122, 3
   %132 = zext nneg i8 %131 to i16
   %133 = or disjoint i16 %130, %132
-  store i16 %101, ptr %.0168.i8, align 2, !tbaa !77
+  store i16 %101, ptr %.0168.i8, align 2, !tbaa !78
   %134 = getelementptr inbounds nuw i8, ptr %.0168.i8, i64 2
-  store i16 %133, ptr %134, align 2, !tbaa !77
+  store i16 %133, ptr %134, align 2, !tbaa !78
   %135 = getelementptr inbounds nuw i8, ptr %.0168.i8, i64 4
   %136 = getelementptr inbounds nuw i8, ptr %.0165.i11, i64 1
   %137 = load i8, ptr %.0165.i11, align 1, !tbaa !34
@@ -2151,13 +2151,13 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %198 = lshr i8 %189, 3
   %199 = zext nneg i8 %198 to i16
   %200 = or disjoint i16 %197, %199
-  store i16 %168, ptr %.0167.i9, align 2, !tbaa !77
+  store i16 %168, ptr %.0167.i9, align 2, !tbaa !78
   %201 = getelementptr inbounds nuw i8, ptr %.0167.i9, i64 2
-  store i16 %200, ptr %201, align 2, !tbaa !77
+  store i16 %200, ptr %201, align 2, !tbaa !78
   %202 = getelementptr inbounds nuw i8, ptr %.0167.i9, i64 4
   %203 = add nsw i32 %.0162.i14, -1
   %.not.i = icmp eq i32 %203, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0168.i.lcssa = phi ptr [ %46, %4 ], [ %135, %.lr.ph ]
@@ -2216,7 +2216,7 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %246 = lshr i8 %240, 3
   %247 = zext nneg i8 %246 to i16
   %248 = or disjoint i16 %245, %247
-  store i16 %248, ptr %.0168.i.lcssa, align 2, !tbaa !77
+  store i16 %248, ptr %.0168.i.lcssa, align 2, !tbaa !78
   %249 = load i8, ptr %.0165.i.lcssa, align 1, !tbaa !34
   %250 = zext i8 %249 to i32
   %251 = add nsw i32 %210, %250
@@ -2245,7 +2245,7 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %274 = lshr i8 %268, 3
   %275 = zext nneg i8 %274 to i16
   %276 = or disjoint i16 %273, %275
-  store i16 %276, ptr %.0167.i.lcssa, align 2, !tbaa !77
+  store i16 %276, ptr %.0167.i.lcssa, align 2, !tbaa !78
   br label %h2v2_merged_upsample_565D_le.exit
 
 h2v2_merged_upsample_565D_le.exit:                ; preds = %._crit_edge, %205
@@ -2257,7 +2257,7 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %8 = load ptr, ptr %7, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -2266,27 +2266,27 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
-  %17 = load ptr, ptr %1, align 8, !tbaa !68
+  %17 = load ptr, ptr %1, align 8, !tbaa !69
   %18 = shl i32 %2, 1
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !66
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
   %22 = or disjoint i32 %18, 1
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !66
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !68
+  %27 = load ptr, ptr %26, align 8, !tbaa !69
   %28 = zext i32 %2 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
-  %34 = load ptr, ptr %33, align 8, !tbaa !66
-  %35 = load ptr, ptr %3, align 8, !tbaa !66
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
+  %35 = load ptr, ptr %3, align 8, !tbaa !67
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !66
+  %37 = load ptr, ptr %36, align 8, !tbaa !67
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load i32, ptr %38, align 8, !tbaa !45
   %.not.i7 = icmp ult i32 %39, 2
@@ -2371,9 +2371,9 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %105 = lshr i8 %99, 3
   %106 = zext nneg i8 %105 to i16
   %107 = or disjoint i16 %104, %106
-  store i16 %82, ptr %.0138.i8, align 2, !tbaa !77
+  store i16 %82, ptr %.0138.i8, align 2, !tbaa !78
   %108 = getelementptr inbounds nuw i8, ptr %.0138.i8, i64 2
-  store i16 %107, ptr %108, align 2, !tbaa !77
+  store i16 %107, ptr %108, align 2, !tbaa !78
   %109 = getelementptr inbounds nuw i8, ptr %.0138.i8, i64 4
   %110 = getelementptr inbounds nuw i8, ptr %.0135.i11, i64 1
   %111 = load i8, ptr %.0135.i11, align 1, !tbaa !34
@@ -2425,13 +2425,13 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %157 = lshr i8 %151, 3
   %158 = zext nneg i8 %157 to i16
   %159 = or disjoint i16 %156, %158
-  store i16 %134, ptr %.0137.i9, align 2, !tbaa !77
+  store i16 %134, ptr %.0137.i9, align 2, !tbaa !78
   %160 = getelementptr inbounds nuw i8, ptr %.0137.i9, i64 2
-  store i16 %159, ptr %160, align 2, !tbaa !77
+  store i16 %159, ptr %160, align 2, !tbaa !78
   %161 = getelementptr inbounds nuw i8, ptr %.0137.i9, i64 4
   %162 = add nsw i32 %.0.i14, -1
   %.not.i = icmp eq i32 %162, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0138.i.lcssa = phi ptr [ %35, %4 ], [ %109, %.lr.ph ]
@@ -2484,7 +2484,7 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %201 = lshr i8 %195, 3
   %202 = zext nneg i8 %201 to i16
   %203 = or disjoint i16 %200, %202
-  store i16 %203, ptr %.0138.i.lcssa, align 2, !tbaa !77
+  store i16 %203, ptr %.0138.i.lcssa, align 2, !tbaa !78
   %204 = load i8, ptr %.0135.i.lcssa, align 1, !tbaa !34
   %205 = zext i8 %204 to i32
   %206 = add nsw i32 %169, %205
@@ -2509,7 +2509,7 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %225 = lshr i8 %219, 3
   %226 = zext nneg i8 %225 to i16
   %227 = or disjoint i16 %224, %226
-  store i16 %227, ptr %.0137.i.lcssa, align 2, !tbaa !77
+  store i16 %227, ptr %.0137.i.lcssa, align 2, !tbaa !78
   br label %h2v2_merged_upsample_565_le.exit
 
 h2v2_merged_upsample_565_le.exit:                 ; preds = %._crit_edge, %164
@@ -2561,7 +2561,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -2570,19 +2570,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !58
-  %20 = load ptr, ptr %1, align 8, !tbaa !68
+  %20 = load ptr, ptr %1, align 8, !tbaa !69
   %21 = zext i32 %2 to i64
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !68
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %21
-  %27 = load ptr, ptr %26, align 8, !tbaa !66
+  %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !68
+  %29 = load ptr, ptr %28, align 8, !tbaa !69
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %21
-  %31 = load ptr, ptr %30, align 8, !tbaa !66
-  %32 = load ptr, ptr %3, align 8, !tbaa !66
+  %31 = load ptr, ptr %30, align 8, !tbaa !67
+  %32 = load ptr, ptr %3, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load i32, ptr %33, align 8, !tbaa !45
   %.not.i127 = icmp ult i32 %34, 2
@@ -2659,7 +2659,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %88 = getelementptr inbounds nuw i8, ptr %.080.i128, i64 6
   %89 = add nsw i32 %.0.i132, -1
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %._crit_edge135.loopexit, label %.lr.ph134, !llvm.loop !80
+  br i1 %.not.i, label %._crit_edge135.loopexit, label %.lr.ph134, !llvm.loop !81
 
 ._crit_edge135.loopexit:                          ; preds = %.lr.ph134
   %.pre184 = load i32, ptr %33, align 8, !tbaa !45
@@ -2716,7 +2716,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %126 = load ptr, ptr %125, align 8, !tbaa !39
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %128 = load ptr, ptr %127, align 8, !tbaa !67
+  %128 = load ptr, ptr %127, align 8, !tbaa !68
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %130 = load ptr, ptr %129, align 8, !tbaa !55
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 56
@@ -2725,19 +2725,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %134 = load ptr, ptr %133, align 8, !tbaa !57
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %136 = load ptr, ptr %135, align 8, !tbaa !58
-  %137 = load ptr, ptr %1, align 8, !tbaa !68
+  %137 = load ptr, ptr %1, align 8, !tbaa !69
   %138 = zext i32 %2 to i64
   %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
-  %140 = load ptr, ptr %139, align 8, !tbaa !66
+  %140 = load ptr, ptr %139, align 8, !tbaa !67
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !68
+  %142 = load ptr, ptr %141, align 8, !tbaa !69
   %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %138
-  %144 = load ptr, ptr %143, align 8, !tbaa !66
+  %144 = load ptr, ptr %143, align 8, !tbaa !67
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %146 = load ptr, ptr %145, align 8, !tbaa !68
+  %146 = load ptr, ptr %145, align 8, !tbaa !69
   %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %138
-  %148 = load ptr, ptr %147, align 8, !tbaa !66
-  %149 = load ptr, ptr %3, align 8, !tbaa !66
+  %148 = load ptr, ptr %147, align 8, !tbaa !67
+  %149 = load ptr, ptr %3, align 8, !tbaa !67
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %151 = load i32, ptr %150, align 8, !tbaa !45
   %.not.i30114 = icmp ult i32 %151, 2
@@ -2818,7 +2818,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %207 = getelementptr inbounds nuw i8, ptr %.083.i115, i64 8
   %208 = add nsw i32 %.0.i29119, -1
   %.not.i30 = icmp eq i32 %208, 0
-  br i1 %.not.i30, label %._crit_edge122.loopexit, label %.lr.ph121, !llvm.loop !81
+  br i1 %.not.i30, label %._crit_edge122.loopexit, label %.lr.ph121, !llvm.loop !82
 
 ._crit_edge122.loopexit:                          ; preds = %.lr.ph121
   %.pre183 = load i32, ptr %150, align 8, !tbaa !45
@@ -2877,7 +2877,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %246 = load ptr, ptr %245, align 8, !tbaa !39
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %248 = load ptr, ptr %247, align 8, !tbaa !67
+  %248 = load ptr, ptr %247, align 8, !tbaa !68
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 48
   %250 = load ptr, ptr %249, align 8, !tbaa !55
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 56
@@ -2886,19 +2886,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %254 = load ptr, ptr %253, align 8, !tbaa !57
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 72
   %256 = load ptr, ptr %255, align 8, !tbaa !58
-  %257 = load ptr, ptr %1, align 8, !tbaa !68
+  %257 = load ptr, ptr %1, align 8, !tbaa !69
   %258 = zext i32 %2 to i64
   %259 = getelementptr inbounds nuw ptr, ptr %257, i64 %258
-  %260 = load ptr, ptr %259, align 8, !tbaa !66
+  %260 = load ptr, ptr %259, align 8, !tbaa !67
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %262 = load ptr, ptr %261, align 8, !tbaa !68
+  %262 = load ptr, ptr %261, align 8, !tbaa !69
   %263 = getelementptr inbounds nuw ptr, ptr %262, i64 %258
-  %264 = load ptr, ptr %263, align 8, !tbaa !66
+  %264 = load ptr, ptr %263, align 8, !tbaa !67
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %266 = load ptr, ptr %265, align 8, !tbaa !68
+  %266 = load ptr, ptr %265, align 8, !tbaa !69
   %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %258
-  %268 = load ptr, ptr %267, align 8, !tbaa !66
-  %269 = load ptr, ptr %3, align 8, !tbaa !66
+  %268 = load ptr, ptr %267, align 8, !tbaa !67
+  %269 = load ptr, ptr %3, align 8, !tbaa !67
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %271 = load i32, ptr %270, align 8, !tbaa !45
   %.not.i36101 = icmp ult i32 %271, 2
@@ -2975,7 +2975,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %325 = getelementptr inbounds nuw i8, ptr %.080.i31102, i64 6
   %326 = add nsw i32 %.0.i35106, -1
   %.not.i36 = icmp eq i32 %326, 0
-  br i1 %.not.i36, label %._crit_edge109.loopexit, label %.lr.ph108, !llvm.loop !82
+  br i1 %.not.i36, label %._crit_edge109.loopexit, label %.lr.ph108, !llvm.loop !83
 
 ._crit_edge109.loopexit:                          ; preds = %.lr.ph108
   %.pre182 = load i32, ptr %270, align 8, !tbaa !45
@@ -3032,7 +3032,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %363 = load ptr, ptr %362, align 8, !tbaa !39
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %365 = load ptr, ptr %364, align 8, !tbaa !67
+  %365 = load ptr, ptr %364, align 8, !tbaa !68
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 48
   %367 = load ptr, ptr %366, align 8, !tbaa !55
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 56
@@ -3041,19 +3041,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %371 = load ptr, ptr %370, align 8, !tbaa !57
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 72
   %373 = load ptr, ptr %372, align 8, !tbaa !58
-  %374 = load ptr, ptr %1, align 8, !tbaa !68
+  %374 = load ptr, ptr %1, align 8, !tbaa !69
   %375 = zext i32 %2 to i64
   %376 = getelementptr inbounds nuw ptr, ptr %374, i64 %375
-  %377 = load ptr, ptr %376, align 8, !tbaa !66
+  %377 = load ptr, ptr %376, align 8, !tbaa !67
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %379 = load ptr, ptr %378, align 8, !tbaa !68
+  %379 = load ptr, ptr %378, align 8, !tbaa !69
   %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %375
-  %381 = load ptr, ptr %380, align 8, !tbaa !66
+  %381 = load ptr, ptr %380, align 8, !tbaa !67
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %383 = load ptr, ptr %382, align 8, !tbaa !68
+  %383 = load ptr, ptr %382, align 8, !tbaa !69
   %384 = getelementptr inbounds nuw ptr, ptr %383, i64 %375
-  %385 = load ptr, ptr %384, align 8, !tbaa !66
-  %386 = load ptr, ptr %3, align 8, !tbaa !66
+  %385 = load ptr, ptr %384, align 8, !tbaa !67
+  %386 = load ptr, ptr %3, align 8, !tbaa !67
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %388 = load i32, ptr %387, align 8, !tbaa !45
   %.not.i4388 = icmp ult i32 %388, 2
@@ -3134,7 +3134,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %444 = getelementptr inbounds nuw i8, ptr %.083.i3889, i64 8
   %445 = add nsw i32 %.0.i4293, -1
   %.not.i43 = icmp eq i32 %445, 0
-  br i1 %.not.i43, label %._crit_edge96.loopexit, label %.lr.ph95, !llvm.loop !83
+  br i1 %.not.i43, label %._crit_edge96.loopexit, label %.lr.ph95, !llvm.loop !84
 
 ._crit_edge96.loopexit:                           ; preds = %.lr.ph95
   %.pre181 = load i32, ptr %387, align 8, !tbaa !45
@@ -3193,7 +3193,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %483 = load ptr, ptr %482, align 8, !tbaa !39
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %485 = load ptr, ptr %484, align 8, !tbaa !67
+  %485 = load ptr, ptr %484, align 8, !tbaa !68
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 48
   %487 = load ptr, ptr %486, align 8, !tbaa !55
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 56
@@ -3202,19 +3202,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %491 = load ptr, ptr %490, align 8, !tbaa !57
   %492 = getelementptr inbounds nuw i8, ptr %483, i64 72
   %493 = load ptr, ptr %492, align 8, !tbaa !58
-  %494 = load ptr, ptr %1, align 8, !tbaa !68
+  %494 = load ptr, ptr %1, align 8, !tbaa !69
   %495 = zext i32 %2 to i64
   %496 = getelementptr inbounds nuw ptr, ptr %494, i64 %495
-  %497 = load ptr, ptr %496, align 8, !tbaa !66
+  %497 = load ptr, ptr %496, align 8, !tbaa !67
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %499 = load ptr, ptr %498, align 8, !tbaa !68
+  %499 = load ptr, ptr %498, align 8, !tbaa !69
   %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %495
-  %501 = load ptr, ptr %500, align 8, !tbaa !66
+  %501 = load ptr, ptr %500, align 8, !tbaa !67
   %502 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %503 = load ptr, ptr %502, align 8, !tbaa !68
+  %503 = load ptr, ptr %502, align 8, !tbaa !69
   %504 = getelementptr inbounds nuw ptr, ptr %503, i64 %495
-  %505 = load ptr, ptr %504, align 8, !tbaa !66
-  %506 = load ptr, ptr %3, align 8, !tbaa !66
+  %505 = load ptr, ptr %504, align 8, !tbaa !67
+  %506 = load ptr, ptr %3, align 8, !tbaa !67
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %508 = load i32, ptr %507, align 8, !tbaa !45
   %.not.i5075 = icmp ult i32 %508, 2
@@ -3295,7 +3295,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %564 = getelementptr inbounds nuw i8, ptr %.083.i4576, i64 8
   %565 = add nsw i32 %.0.i4980, -1
   %.not.i50 = icmp eq i32 %565, 0
-  br i1 %.not.i50, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !84
+  br i1 %.not.i50, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !85
 
 ._crit_edge83.loopexit:                           ; preds = %.lr.ph82
   %.pre180 = load i32, ptr %507, align 8, !tbaa !45
@@ -3354,7 +3354,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %603 = load ptr, ptr %602, align 8, !tbaa !39
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %605 = load ptr, ptr %604, align 8, !tbaa !67
+  %605 = load ptr, ptr %604, align 8, !tbaa !68
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 48
   %607 = load ptr, ptr %606, align 8, !tbaa !55
   %608 = getelementptr inbounds nuw i8, ptr %603, i64 56
@@ -3363,19 +3363,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %611 = load ptr, ptr %610, align 8, !tbaa !57
   %612 = getelementptr inbounds nuw i8, ptr %603, i64 72
   %613 = load ptr, ptr %612, align 8, !tbaa !58
-  %614 = load ptr, ptr %1, align 8, !tbaa !68
+  %614 = load ptr, ptr %1, align 8, !tbaa !69
   %615 = zext i32 %2 to i64
   %616 = getelementptr inbounds nuw ptr, ptr %614, i64 %615
-  %617 = load ptr, ptr %616, align 8, !tbaa !66
+  %617 = load ptr, ptr %616, align 8, !tbaa !67
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %619 = load ptr, ptr %618, align 8, !tbaa !68
+  %619 = load ptr, ptr %618, align 8, !tbaa !69
   %620 = getelementptr inbounds nuw ptr, ptr %619, i64 %615
-  %621 = load ptr, ptr %620, align 8, !tbaa !66
+  %621 = load ptr, ptr %620, align 8, !tbaa !67
   %622 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %623 = load ptr, ptr %622, align 8, !tbaa !68
+  %623 = load ptr, ptr %622, align 8, !tbaa !69
   %624 = getelementptr inbounds nuw ptr, ptr %623, i64 %615
-  %625 = load ptr, ptr %624, align 8, !tbaa !66
-  %626 = load ptr, ptr %3, align 8, !tbaa !66
+  %625 = load ptr, ptr %624, align 8, !tbaa !67
+  %626 = load ptr, ptr %3, align 8, !tbaa !67
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %628 = load i32, ptr %627, align 8, !tbaa !45
   %.not.i5766 = icmp ult i32 %628, 2
@@ -3456,7 +3456,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %684 = getelementptr inbounds nuw i8, ptr %.083.i5267, i64 8
   %685 = add nsw i32 %.0.i5671, -1
   %.not.i57 = icmp eq i32 %685, 0
-  br i1 %.not.i57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %.not.i57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %627, align 8, !tbaa !45
@@ -3515,7 +3515,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %722 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %723 = load ptr, ptr %722, align 8, !tbaa !39
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %725 = load ptr, ptr %724, align 8, !tbaa !67
+  %725 = load ptr, ptr %724, align 8, !tbaa !68
   %726 = getelementptr inbounds nuw i8, ptr %723, i64 48
   %727 = load ptr, ptr %726, align 8, !tbaa !55
   %728 = getelementptr inbounds nuw i8, ptr %723, i64 56
@@ -3524,19 +3524,19 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %731 = load ptr, ptr %730, align 8, !tbaa !57
   %732 = getelementptr inbounds nuw i8, ptr %723, i64 72
   %733 = load ptr, ptr %732, align 8, !tbaa !58
-  %734 = load ptr, ptr %1, align 8, !tbaa !68
+  %734 = load ptr, ptr %1, align 8, !tbaa !69
   %735 = zext i32 %2 to i64
   %736 = getelementptr inbounds nuw ptr, ptr %734, i64 %735
-  %737 = load ptr, ptr %736, align 8, !tbaa !66
+  %737 = load ptr, ptr %736, align 8, !tbaa !67
   %738 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %739 = load ptr, ptr %738, align 8, !tbaa !68
+  %739 = load ptr, ptr %738, align 8, !tbaa !69
   %740 = getelementptr inbounds nuw ptr, ptr %739, i64 %735
-  %741 = load ptr, ptr %740, align 8, !tbaa !66
+  %741 = load ptr, ptr %740, align 8, !tbaa !67
   %742 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %743 = load ptr, ptr %742, align 8, !tbaa !68
+  %743 = load ptr, ptr %742, align 8, !tbaa !69
   %744 = getelementptr inbounds nuw ptr, ptr %743, i64 %735
-  %745 = load ptr, ptr %744, align 8, !tbaa !66
-  %746 = load ptr, ptr %3, align 8, !tbaa !66
+  %745 = load ptr, ptr %744, align 8, !tbaa !67
+  %746 = load ptr, ptr %3, align 8, !tbaa !67
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %748 = load i32, ptr %747, align 8, !tbaa !45
   %.not.i64140 = icmp ult i32 %748, 2
@@ -3613,7 +3613,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %802 = getelementptr inbounds nuw i8, ptr %.080.i59141, i64 6
   %803 = add nsw i32 %.0.i63145, -1
   %.not.i64 = icmp eq i32 %803, 0
-  br i1 %.not.i64, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !86
+  br i1 %.not.i64, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !87
 
 ._crit_edge148.loopexit:                          ; preds = %.lr.ph147
   %.pre185 = load i32, ptr %747, align 8, !tbaa !45
@@ -3675,7 +3675,7 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %8 = load ptr, ptr %7, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -3685,24 +3685,24 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !76
+  %18 = load i32, ptr %17, align 8, !tbaa !77
   %19 = and i32 %18, 3
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !60
-  %23 = load ptr, ptr %1, align 8, !tbaa !68
+  %23 = load ptr, ptr %1, align 8, !tbaa !69
   %24 = zext i32 %2 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !66
+  %26 = load ptr, ptr %25, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !68
+  %28 = load ptr, ptr %27, align 8, !tbaa !69
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
-  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %24
-  %34 = load ptr, ptr %33, align 8, !tbaa !66
-  %35 = load ptr, ptr %3, align 8, !tbaa !66
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
+  %35 = load ptr, ptr %3, align 8, !tbaa !67
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8, !tbaa !45
   %.not.i7 = icmp ult i32 %37, 2
@@ -3801,13 +3801,13 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %118 = lshr i8 %109, 3
   %119 = zext nneg i8 %118 to i16
   %120 = or disjoint i16 %117, %119
-  store i16 %88, ptr %.0101.i8, align 2, !tbaa !77
+  store i16 %88, ptr %.0101.i8, align 2, !tbaa !78
   %121 = getelementptr inbounds nuw i8, ptr %.0101.i8, i64 2
-  store i16 %120, ptr %121, align 2, !tbaa !77
+  store i16 %120, ptr %121, align 2, !tbaa !78
   %122 = getelementptr inbounds nuw i8, ptr %.0101.i8, i64 4
   %123 = add nsw i32 %.097.i12, -1
   %.not.i = icmp eq i32 %123, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0101.i.lcssa = phi ptr [ %35, %4 ], [ %122, %.lr.ph ]
@@ -3863,7 +3863,7 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %166 = lshr i8 %160, 3
   %167 = zext nneg i8 %166 to i16
   %168 = or disjoint i16 %165, %167
-  store i16 %168, ptr %.0101.i.lcssa, align 2, !tbaa !77
+  store i16 %168, ptr %.0101.i.lcssa, align 2, !tbaa !78
   br label %h2v1_merged_upsample_565D_le.exit
 
 h2v1_merged_upsample_565D_le.exit:                ; preds = %._crit_edge, %125
@@ -3875,7 +3875,7 @@ define internal void @h2v1_merged_upsample_565(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %8 = load ptr, ptr %7, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -3884,19 +3884,19 @@ define internal void @h2v1_merged_upsample_565(ptr noundef readonly captures(non
   %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
-  %17 = load ptr, ptr %1, align 8, !tbaa !68
+  %17 = load ptr, ptr %1, align 8, !tbaa !69
   %18 = zext i32 %2 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !68
+  %22 = load ptr, ptr %21, align 8, !tbaa !69
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %18
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !67
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !68
+  %26 = load ptr, ptr %25, align 8, !tbaa !69
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %18
-  %28 = load ptr, ptr %27, align 8, !tbaa !66
-  %29 = load ptr, ptr %3, align 8, !tbaa !66
+  %28 = load ptr, ptr %27, align 8, !tbaa !67
+  %29 = load ptr, ptr %3, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load i32, ptr %30, align 8, !tbaa !45
   %.not.i7 = icmp ult i32 %31, 2
@@ -3979,13 +3979,13 @@ define internal void @h2v1_merged_upsample_565(ptr noundef readonly captures(non
   %97 = lshr i8 %91, 3
   %98 = zext nneg i8 %97 to i16
   %99 = or disjoint i16 %96, %98
-  store i16 %74, ptr %.086.i8, align 2, !tbaa !77
+  store i16 %74, ptr %.086.i8, align 2, !tbaa !78
   %100 = getelementptr inbounds nuw i8, ptr %.086.i8, i64 2
-  store i16 %99, ptr %100, align 2, !tbaa !77
+  store i16 %99, ptr %100, align 2, !tbaa !78
   %101 = getelementptr inbounds nuw i8, ptr %.086.i8, i64 4
   %102 = add nsw i32 %.0.i12, -1
   %.not.i = icmp eq i32 %102, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.086.i.lcssa = phi ptr [ %29, %4 ], [ %101, %.lr.ph ]
@@ -4036,7 +4036,7 @@ define internal void @h2v1_merged_upsample_565(ptr noundef readonly captures(non
   %141 = lshr i8 %135, 3
   %142 = zext nneg i8 %141 to i16
   %143 = or disjoint i16 %140, %142
-  store i16 %143, ptr %.086.i.lcssa, align 2, !tbaa !77
+  store i16 %143, ptr %.086.i.lcssa, align 2, !tbaa !78
   br label %h2v1_merged_upsample_565_le.exit
 
 h2v1_merged_upsample_565_le.exit:                 ; preds = %._crit_edge, %104
@@ -4122,31 +4122,32 @@ attributes #6 = { nounwind }
 !58 = !{!41, !43, i64 72}
 !59 = !{!11, !11, i64 0}
 !60 = !{!33, !33, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!41, !11, i64 88}
-!64 = !{!4, !11, i64 140}
-!65 = !{!41, !11, i64 96}
-!66 = !{!18, !18, i64 0}
-!67 = !{!4, !18, i64 424}
-!68 = !{!14, !14, i64 0}
-!69 = distinct !{!69, !62}
-!70 = distinct !{!70, !62}
-!71 = distinct !{!71, !62}
-!72 = distinct !{!72, !62}
-!73 = distinct !{!73, !62}
-!74 = distinct !{!74, !62}
-!75 = distinct !{!75, !62}
-!76 = !{!4, !11, i64 168}
-!77 = !{!16, !16, i64 0}
-!78 = distinct !{!78, !62}
-!79 = distinct !{!79, !62}
-!80 = distinct !{!80, !62}
-!81 = distinct !{!81, !62}
-!82 = distinct !{!82, !62}
-!83 = distinct !{!83, !62}
-!84 = distinct !{!84, !62}
-!85 = distinct !{!85, !62}
-!86 = distinct !{!86, !62}
-!87 = distinct !{!87, !62}
-!88 = distinct !{!88, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!41, !11, i64 88}
+!65 = !{!4, !11, i64 140}
+!66 = !{!41, !11, i64 96}
+!67 = !{!18, !18, i64 0}
+!68 = !{!4, !18, i64 424}
+!69 = !{!14, !14, i64 0}
+!70 = distinct !{!70, !62, !63}
+!71 = distinct !{!71, !62, !63}
+!72 = distinct !{!72, !62, !63}
+!73 = distinct !{!73, !62, !63}
+!74 = distinct !{!74, !62, !63}
+!75 = distinct !{!75, !62, !63}
+!76 = distinct !{!76, !62, !63}
+!77 = !{!4, !11, i64 168}
+!78 = !{!16, !16, i64 0}
+!79 = distinct !{!79, !62, !63}
+!80 = distinct !{!80, !62, !63}
+!81 = distinct !{!81, !62, !63}
+!82 = distinct !{!82, !62, !63}
+!83 = distinct !{!83, !62, !63}
+!84 = distinct !{!84, !62, !63}
+!85 = distinct !{!85, !62, !63}
+!86 = distinct !{!86, !62, !63}
+!87 = distinct !{!87, !62, !63}
+!88 = distinct !{!88, !62, !63}
+!89 = distinct !{!89, !62, !63}

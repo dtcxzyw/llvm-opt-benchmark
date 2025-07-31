@@ -101,12 +101,12 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !24
+  %7 = load i64, ptr %6, align 8, !tbaa !25
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr %3, align 8, !tbaa !29
+  %9 = load i64, ptr %3, align 8, !tbaa !30
   %.not40 = icmp ult i64 %9, %7
   br i1 %.not40, label %10, label %63
 
@@ -131,12 +131,12 @@ define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0,
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %.not43 = icmp eq ptr %22, null
   br i1 %.not43, label %23, label %62
 
 23:                                               ; preds = %20
-  store ptr %11, ptr %21, align 8, !tbaa !30
+  store ptr %11, ptr %21, align 8, !tbaa !31
   br label %35
 
 24:                                               ; preds = %15
@@ -175,13 +175,13 @@ define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0,
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  %38 = load ptr, ptr %37, align 8, !tbaa !32
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %.thread47
 
 40:                                               ; preds = %36
   %41 = tail call ptr @OPENSSL_sk_new_null() #3
-  store ptr %41, ptr %37, align 8, !tbaa !31
+  store ptr %41, ptr %37, align 8, !tbaa !32
   %42 = icmp eq ptr %41, null
   br i1 %42, label %52, label %.thread47
 
@@ -192,17 +192,17 @@ define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0,
   br i1 %.not45, label %52, label %45
 
 45:                                               ; preds = %.thread47, %35
-  %46 = load i64, ptr %3, align 8, !tbaa !29
+  %46 = load i64, ptr %3, align 8, !tbaa !30
   %47 = add i64 %46, 1
-  store i64 %47, ptr %3, align 8, !tbaa !29
+  store i64 %47, ptr %3, align 8, !tbaa !30
   %.not46 = icmp eq ptr %2, null
   br i1 %.not46, label %63, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !32
+  %50 = load i32, ptr %49, align 8, !tbaa !33
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8, !tbaa !32
+  store i32 %51, ptr %49, align 8, !tbaa !33
   br label %63
 
 52:                                               ; preds = %.thread47, %40
@@ -214,12 +214,12 @@ define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0,
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !30
+  %55 = load ptr, ptr %54, align 8, !tbaa !31
   %56 = icmp eq ptr %55, %11
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  store ptr null, ptr %54, align 8, !tbaa !30
+  store ptr null, ptr %54, align 8, !tbaa !31
   br label %62
 
 58:                                               ; preds = %53
@@ -263,20 +263,20 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define range(i32 0, 2) i32 @ossl_policy_node_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !33
+  %6 = load i32, ptr %5, align 8, !tbaa !34
   %7 = and i32 %6, 1024
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %4, align 8, !tbaa !34
+  %9 = load i32, ptr %4, align 8, !tbaa !35
   %10 = and i32 %9, 3
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #3
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit
@@ -291,14 +291,14 @@ define range(i32 0, 2) i32 @ossl_policy_node_match(ptr noundef readonly captures
 
 19:                                               ; preds = %.lr.ph
   %20 = add nuw nsw i32 %.01216, 1
-  %21 = load ptr, ptr %11, align 8, !tbaa !35
+  %21 = load ptr, ptr %11, align 8, !tbaa !36
   %22 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #3
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !36
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.preheader, %19
   %.01216 = phi i32 [ %20, %19 ], [ 0, %.preheader ]
-  %24 = load ptr, ptr %11, align 8, !tbaa !35
+  %24 = load ptr, ptr %11, align 8, !tbaa !36
   %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %.01216) #3
   %26 = tail call i32 @OBJ_cmp(ptr noundef %25, ptr noundef %2) #3
   %.not14 = icmp eq i32 %26, 0
@@ -340,18 +340,19 @@ attributes #3 = { nounwind }
 !19 = !{!"p1 _ZTS7x509_st", !5, i64 0}
 !20 = !{!"p1 _ZTS25stack_st_X509_POLICY_NODE", !5, i64 0}
 !21 = !{!9, !4, i64 8}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !26, i64 8}
-!25 = !{!"X509_POLICY_TREE_st", !26, i64 0, !26, i64 8, !27, i64 16, !11, i64 24, !28, i64 32, !20, i64 40, !20, i64 48, !11, i64 56}
-!26 = !{!"long", !6, i64 0}
-!27 = !{!"p1 _ZTS20X509_POLICY_LEVEL_st", !5, i64 0}
-!28 = !{!"p1 _ZTS25stack_st_X509_POLICY_DATA", !5, i64 0}
-!29 = !{!25, !26, i64 0}
-!30 = !{!18, !4, i64 16}
-!31 = !{!25, !28, i64 32}
-!32 = !{!9, !11, i64 16}
-!33 = !{!18, !11, i64 24}
-!34 = !{!13, !11, i64 0}
-!35 = !{!13, !16, i64 24}
-!36 = distinct !{!36, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !27, i64 8}
+!26 = !{!"X509_POLICY_TREE_st", !27, i64 0, !27, i64 8, !28, i64 16, !11, i64 24, !29, i64 32, !20, i64 40, !20, i64 48, !11, i64 56}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!"p1 _ZTS20X509_POLICY_LEVEL_st", !5, i64 0}
+!29 = !{!"p1 _ZTS25stack_st_X509_POLICY_DATA", !5, i64 0}
+!30 = !{!26, !27, i64 0}
+!31 = !{!18, !4, i64 16}
+!32 = !{!26, !29, i64 32}
+!33 = !{!9, !11, i64 16}
+!34 = !{!18, !11, i64 24}
+!35 = !{!13, !11, i64 0}
+!36 = !{!13, !16, i64 24}
+!37 = distinct !{!37, !23, !24}

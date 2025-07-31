@@ -352,17 +352,17 @@ define hidden void @_PyRawMutex_LockSlow(ptr noundef captures(none) %0) local_un
 .backedge.outer.backedge:                         ; preds = %15, %11
   %.pn = phi { i64, i1 } [ %13, %11 ], [ %16, %15 ]
   %.0.ph.be = extractvalue { i64, i1 } %.pn, 0
-  br label %.backedge.outer
+  br label %.backedge.outer, !llvm.loop !15
 
 15:                                               ; preds = %.backedge
-  store ptr %10, ptr %2, align 8, !tbaa !15
+  store ptr %10, ptr %2, align 8, !tbaa !17
   %16 = cmpxchg ptr %0, i64 %.0.ph, i64 %6 seq_cst seq_cst, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   br i1 %17, label %18, label %.backedge.outer.backedge
 
 18:                                               ; preds = %15
   %19 = call i32 @_PySemaphore_Wait(ptr noundef nonnull %3, i64 noundef -1, i32 noundef 0) #8
-  br label %.backedge
+  br label %.backedge, !llvm.loop !15
 
 20:                                               ; preds = %11
   call void @_PySemaphore_Destroy(ptr noundef nonnull %3) #8
@@ -395,7 +395,7 @@ define hidden void @_PyRawMutex_UnlockSlow(ptr noundef captures(none) %0) local_
 
 6:                                                ; preds = %.lr.ph
   %7 = inttoptr i64 %5 to ptr
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = ptrtoint ptr %8 to i64
   %10 = cmpxchg ptr %0, i64 %.022, i64 %9 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 1
@@ -416,7 +416,7 @@ define hidden void @_PyRawMutex_UnlockSlow(ptr noundef captures(none) %0) local_
   %.1 = extractvalue { i64, i1 } %.pn, 0
   %17 = and i64 %.1, 1
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 _Py_atomic_compare_exchange_uintptr.exit14:       ; preds = %14, %12
   ret void
@@ -469,7 +469,7 @@ _Py_atomic_compare_exchange_uint8.exit.i:         ; preds = %3
   br i1 %6, label %PyEvent_WaitTimed.exit, label %.backedge
 
 .backedge:                                        ; preds = %_Py_atomic_compare_exchange_uint8.exit.i, %PyEvent_WaitTimed.exit
-  br label %3, !llvm.loop !20
+  br label %3, !llvm.loop !23
 
 PyEvent_WaitTimed.exit:                           ; preds = %3, %_Py_atomic_compare_exchange_uint8.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
@@ -575,7 +575,7 @@ thread-pre-split:                                 ; preds = %18, %7
   %19 = or disjoint i8 %6, 2
   %20 = cmpxchg ptr %0, i8 %6, i8 %19 seq_cst seq_cst, align 1
   %21 = extractvalue { i8, i1 } %20, 1
-  br i1 %21, label %.thread, label %thread-pre-split
+  br i1 %21, label %.thread, label %thread-pre-split, !llvm.loop !25
 
 .thread:                                          ; preds = %18
   store i8 %19, ptr %4, align 1, !tbaa !12
@@ -588,7 +588,7 @@ thread-pre-split:                                 ; preds = %18, %7
 
 .backedge.backedge:                               ; preds = %22, %thread-pre-split
   %.be = phi i8 [ %storemerge, %thread-pre-split ], [ %24, %22 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !25
 
 unlock_once.exit:                                 ; preds = %.backedge, %15, %.split6.i
   %.0 = phi i32 [ %11, %.split6.i ], [ %11, %15 ], [ 0, %.backedge ]
@@ -618,9 +618,9 @@ define dso_local void @_PyRecursiveMutex_Lock(ptr noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !26
   %8 = add i64 %7, 1
-  store i64 %8, ptr %6, align 8, !tbaa !22
+  store i64 %8, ptr %6, align 8, !tbaa !26
   br label %14
 
 9:                                                ; preds = %1
@@ -650,9 +650,9 @@ define hidden range(i32 0, 3) i32 @_PyRecursiveMutex_LockTimed(ptr noundef %0, i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !22
+  %9 = load i64, ptr %8, align 8, !tbaa !26
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !22
+  store i64 %10, ptr %8, align 8, !tbaa !26
   br label %15
 
 11:                                               ; preds = %3
@@ -679,13 +679,13 @@ define dso_local void @_PyRecursiveMutex_Unlock(ptr noundef %0) local_unnamed_ad
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !26
   %.not7.i = icmp eq i64 %7, 0
   br i1 %.not7.i, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = add i64 %7, -1
-  store i64 %9, ptr %6, align 8, !tbaa !22
+  store i64 %9, ptr %6, align 8, !tbaa !26
   br label %.loopexit
 
 10:                                               ; preds = %5
@@ -746,13 +746,13 @@ define hidden range(i32 -1, 1) i32 @_PyRecursiveMutex_TryUnlock(ptr noundef %0) 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !26
   %.not7 = icmp eq i64 %7, 0
   br i1 %.not7, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = add i64 %7, -1
-  store i64 %9, ptr %6, align 8, !tbaa !22
+  store i64 %9, ptr %6, align 8, !tbaa !26
   br label %_PyMutex_Unlock.exit
 
 10:                                               ; preds = %5
@@ -846,7 +846,7 @@ rwmutex_set_parked_and_wait.exit:                 ; preds = %13, %15
 
 .backedge.backedge:                               ; preds = %rwmutex_set_parked_and_wait.exit, %rwmutex_set_parked_and_wait.exit9, %_Py_atomic_compare_exchange_uintptr.exit
   %.0.be = phi i64 [ %26, %_Py_atomic_compare_exchange_uintptr.exit ], [ %21, %rwmutex_set_parked_and_wait.exit9 ], [ %.1.i, %rwmutex_set_parked_and_wait.exit ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !30
 
 18:                                               ; preds = %.backedge
   %19 = and i64 %.0, 2
@@ -948,7 +948,7 @@ rwmutex_set_parked_and_wait.exit:                 ; preds = %19, %21
 
 .backedge.backedge:                               ; preds = %rwmutex_set_parked_and_wait.exit, %_Py_atomic_compare_exchange_uintptr.exit
   %.0.be = phi i64 [ %10, %_Py_atomic_compare_exchange_uintptr.exit ], [ %.1.i, %rwmutex_set_parked_and_wait.exit ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -999,7 +999,7 @@ define dso_local void @_PySeqLock_LockWrite(ptr noundef captures(none) %0) local
 
 .backedge:                                        ; preds = %13, %5
   %.0.be = phi i32 [ %14, %13 ], [ %7, %5 ]
-  br label %3
+  br label %3, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
@@ -1030,7 +1030,7 @@ define dso_local range(i32 0, -1) i32 @_PySeqLock_BeginRead(ptr noundef readonly
   %5 = load atomic i32, ptr %0 acquire, align 4
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ %2, %1 ], [ %5, %.lr.ph ]
@@ -1055,13 +1055,13 @@ define dso_local range(i32 0, 2) i32 @_PySeqLock_EndRead(ptr noundef readonly ca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @_PySeqLock_AfterFork(ptr noundef captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i32, ptr %0, align 4, !tbaa !27
+  %2 = load i32, ptr %0, align 4, !tbaa !34
   %3 = and i32 %2, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  store i32 0, ptr %0, align 4, !tbaa !27
+  store i32 0, ptr %0, align 4, !tbaa !34
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -1148,17 +1148,24 @@ attributes #9 = { noreturn nounwind }
 !12 = !{!6, !6, i64 0}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"raw_mutex_entry", !17, i64 0, !19, i64 8}
-!17 = !{!"p1 _ZTS15raw_mutex_entry", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!"_PySemaphore", !6, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !5, i64 16}
-!23 = !{!"", !24, i64 0, !25, i64 8, !5, i64 16}
-!24 = !{!"PyMutex", !6, i64 0}
-!25 = !{!"long long", !6, i64 0}
-!26 = distinct !{!26, !21}
-!27 = !{!28, !10, i64 0}
-!28 = !{!"", !10, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"raw_mutex_entry", !19, i64 0, !21, i64 8}
+!19 = !{!"p1 _ZTS15raw_mutex_entry", !20, i64 0}
+!20 = !{!"any pointer", !6, i64 0}
+!21 = !{!"_PySemaphore", !6, i64 0}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !24, !16}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !16}
+!26 = !{!27, !5, i64 16}
+!27 = !{!"", !28, i64 0, !29, i64 8, !5, i64 16}
+!28 = !{!"PyMutex", !6, i64 0}
+!29 = !{!"long long", !6, i64 0}
+!30 = distinct !{!30, !16}
+!31 = distinct !{!31, !16}
+!32 = distinct !{!32, !16}
+!33 = distinct !{!33, !24, !16}
+!34 = !{!35, !10, i64 0}
+!35 = !{!"", !10, i64 0}

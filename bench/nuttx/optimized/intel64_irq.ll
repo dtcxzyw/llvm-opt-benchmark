@@ -186,7 +186,7 @@ up_apic_init.exit:                                ; preds = %32
   tail call void asm sideeffect "movl $0,($1)", "r,r,~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr nonnull inttoptr (i64 4273995792 to ptr)) #4, !srcloc !6
   %49 = add nuw nsw i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %49, %39
-  br i1 %exitcond.not.i, label %up_ioapic_init.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %up_ioapic_init.exit, label %.lr.ph.i, !llvm.loop !15
 
 up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_init.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3904) getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 192), i8 0, i64 3904, i1 false)
@@ -722,9 +722,9 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   store i16 767, ptr %1, align 2
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i64 ptrtoint (ptr @g_idt_entries to i64), ptr %242, align 2
-  call void asm sideeffect "lidt $0", "*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.idt_ptr_s) %1) #4, !srcloc !15
+  call void asm sideeffect "lidt $0", "*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.idt_ptr_s) %1) #4, !srcloc !16
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1)
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !16
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !17
   ret void
 }
 
@@ -893,8 +893,9 @@ attributes #4 = { nounwind }
 !9 = !{i64 6377}
 !10 = !{i64 955424}
 !11 = !{i64 211232}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{i64 210294}
-!16 = !{i64 214412}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{i64 210294}
+!17 = !{i64 214412}

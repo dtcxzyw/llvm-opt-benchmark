@@ -604,7 +604,7 @@ define void @"_ZN4core3ptr53drop_in_place$LT$$u5b$anki_proto_gen..Method$u5d$$GT
   %26 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }], ptr %0, i64 0, i64 %.1
   %27 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr align 8 %26) #7
-          to label %21 unwind label %29
+          to label %21 unwind label %29, !llvm.loop !6
 
 28:                                               ; preds = %21
   resume { ptr, i32 } %eh.lpad-body
@@ -734,7 +734,7 @@ define void @"_ZN4core3ptr61drop_in_place$LT$$u5b$anki_proto_gen..BackendService
   %6 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !8
 
 8:                                                ; preds = %3
   ret void
@@ -753,7 +753,7 @@ define void @"_ZN4core3ptr61drop_in_place$LT$$u5b$anki_proto_gen..BackendService
   %14 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr align 8 %14) #7
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !9
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -783,7 +783,7 @@ define void @"_ZN4core3ptr64drop_in_place$LT$$u5b$anki_proto_gen..CollectionServ
   %6 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !10
 
 8:                                                ; preds = %3
   ret void
@@ -802,7 +802,7 @@ define void @"_ZN4core3ptr64drop_in_place$LT$$u5b$anki_proto_gen..CollectionServ
   %14 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr align 8 %14) #7
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !11
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -955,7 +955,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..
   %9 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %3, i64 0, i64 %.0.i.i
   %10 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !8
 
 11:                                               ; preds = %15, %13
   %.1.i.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -971,7 +971,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..
   %16 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr nonnull align 8 %16) #7
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
@@ -1086,7 +1086,7 @@ define void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..
   %9 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %3, i64 0, i64 %.0.i.i
   %10 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !10
 
 11:                                               ; preds = %15, %13
   %.1.i.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -1102,7 +1102,7 @@ define void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..
   %16 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr nonnull align 8 %16) #7
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !11
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
@@ -1473,7 +1473,7 @@ define void @"_ZN4core3ptr84drop_in_place$LT$core..option..IntoIter$LT$anki_prot
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7cf0a2e20ab31ad8E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = load i64, ptr %0, align 8, !range !6, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !12, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
@@ -1517,7 +1517,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %8 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %2, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr nonnull align 8 %8)
-          to label %5 unwind label %12
+          to label %5 unwind label %12, !llvm.loop !10
 
 10:                                               ; preds = %14, %12
   %.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
@@ -1533,7 +1533,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %15 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %2, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$anki_proto_gen..CollectionService$GT$17ha8ab4cc9831e9ad2E"(ptr nonnull align 8 %15) #7
-          to label %10 unwind label %18
+          to label %10 unwind label %18, !llvm.loop !11
 
 17:                                               ; preds = %10
   resume { ptr, i32 } %13
@@ -1573,7 +1573,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %8 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %2, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr nonnull align 8 %8)
-          to label %5 unwind label %12
+          to label %5 unwind label %12, !llvm.loop !8
 
 10:                                               ; preds = %14, %12
   %.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
@@ -1589,7 +1589,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %15 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }], ptr %2, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..BackendService$GT$17h2c205bd263528003E"(ptr nonnull align 8 %15) #7
-          to label %10 unwind label %18
+          to label %10 unwind label %18, !llvm.loop !9
 
 17:                                               ; preds = %10
   resume { ptr, i32 } %13
@@ -1790,4 +1790,10 @@ attributes #8 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{i64 0, i64 -9223372036854775807}
-!6 = !{i64 0, i64 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i64 0, i64 2}

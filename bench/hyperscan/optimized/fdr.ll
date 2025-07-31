@@ -677,7 +677,7 @@ getInitState.exit.split.us:                       ; preds = %getInitState.exit, 
   %or.cond.i.us = select i1 %.not383.i.us, i1 %.not384.i.us, i1 false
   %.not385.i.us = icmp eq i64 %270, %237
   %or.cond422.i.us = select i1 %or.cond.i.us, i1 %.not385.i.us, i1 false
-  br i1 %or.cond422.i.us, label %258, label %.thread.us.preheader
+  br i1 %or.cond422.i.us, label %258, label %.thread.us.preheader, !llvm.loop !7
 
 .thread.us.preheader:                             ; preds = %267, %262, %258
   br label %.thread.us
@@ -694,7 +694,7 @@ getInitState.exit.split.us:                       ; preds = %getInitState.exit, 
   %278 = getelementptr inbounds nuw i8, ptr %211, i64 %276
   %279 = load i64, ptr %278, align 8
   %.not386.i.us = icmp eq i64 %279, %237
-  br i1 %.not386.i.us, label %.thread.us, label %split949
+  br i1 %.not386.i.us, label %.thread.us, label %split949, !llvm.loop !9
 
 split949:                                         ; preds = %277, %.thread.us
   %280 = icmp ugt i64 %215, %276
@@ -836,7 +836,7 @@ split949:                                         ; preds = %277, %.thread.us
   %.19518.us = phi i64 [ %.18517.us, %340 ], [ %348, %343 ]
   %indvars.iv.next887 = add nuw nsw i64 %indvars.iv886, 2
   %350 = icmp samesign ult i64 %indvars.iv.next887, %896
-  br i1 %350, label %295, label %.critedge.i.us
+  br i1 %350, label %295, label %.critedge.i.us, !llvm.loop !10
 
 351:                                              ; preds = %.lr.ph733.us, %424
   %indvars.iv889 = phi i64 [ 0, %.lr.ph733.us ], [ %indvars.iv.next890, %424 ]
@@ -967,7 +967,7 @@ split949:                                         ; preds = %277, %.thread.us
   %.28527.us = phi i64 [ %.27526.us, %415 ], [ %423, %418 ]
   %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 4
   %425 = icmp samesign ult i64 %indvars.iv.next890, %904
-  br i1 %425, label %351, label %.critedge.i.us
+  br i1 %425, label %351, label %.critedge.i.us, !llvm.loop !11
 
 426:                                              ; preds = %.lr.ph739.us, %.thread962
   %indvars.iv892 = phi i64 [ 0, %.lr.ph739.us ], [ %indvars.iv.next893, %.thread962 ]
@@ -1024,7 +1024,7 @@ split949:                                         ; preds = %277, %.thread.us
   %.33532.us = phi i64 [ %448, %444 ], [ %454, %450 ], [ %442, %438 ], [ %436, %432 ], [ %.29528737.us, %429 ]
   %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 4
   %455 = icmp samesign ult i64 %indvars.iv.next893, %910
-  br i1 %455, label %426, label %.critedge.i.us
+  br i1 %455, label %426, label %.critedge.i.us, !llvm.loop !12
 
 456:                                              ; preds = %.lr.ph757.us, %._crit_edge753.us
   %indvars.iv901 = phi i64 [ 0, %.lr.ph757.us ], [ %indvars.iv.next902, %._crit_edge753.us ]
@@ -1165,7 +1165,7 @@ split949:                                         ; preds = %277, %.thread.us
   %.44543.lcssa.us = phi i64 [ %.43542.us, %529 ], [ %.45.us, %542 ]
   %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 2
   %532 = icmp samesign ult i64 %indvars.iv.next902, %925
-  br i1 %532, label %456, label %.critedge.i.us
+  br i1 %532, label %456, label %.critedge.i.us, !llvm.loop !13
 
 533:                                              ; preds = %.lr.ph752.us, %542
   %534 = phi i16 [ %530, %.lr.ph752.us ], [ %543, %542 ]
@@ -1190,7 +1190,7 @@ split949:                                         ; preds = %277, %.thread.us
   %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
   %544 = zext i16 %543 to i64
   %545 = icmp samesign ult i64 %indvars.iv.next899, %544
-  br i1 %545, label %533, label %._crit_edge753.us
+  br i1 %545, label %533, label %._crit_edge753.us, !llvm.loop !14
 
 546:                                              ; preds = %.lr.ph746.us, %555
   %547 = phi i16 [ %492, %.lr.ph746.us ], [ %556, %555 ]
@@ -1215,7 +1215,7 @@ split949:                                         ; preds = %277, %.thread.us
   %indvars.iv.next896 = add nuw nsw i64 %indvars.iv895, 1
   %557 = zext i16 %556 to i64
   %558 = icmp samesign ult i64 %indvars.iv.next896, %557
-  br i1 %558, label %546, label %._crit_edge747.us
+  br i1 %558, label %546, label %._crit_edge747.us, !llvm.loop !15
 
 .critedge.i.us:                                   ; preds = %295, %349, %351, %424, %426, %.thread962, %456, %._crit_edge753.us, %.preheader593.us, %.preheader591.us, %.preheader589.us, %.preheader.us, %291, %287
   %.13512.us = phi i64 [ %.1500.us, %287 ], [ %.1500.us, %291 ], [ %.1500.us, %.preheader.us ], [ %.1500.us, %.preheader589.us ], [ %.1500.us, %.preheader591.us ], [ %.1500.us, %.preheader593.us ], [ %.44543.lcssa.us, %._crit_edge753.us ], [ %.34533755.us, %456 ], [ %.33532.us, %.thread962 ], [ %.29528737.us, %426 ], [ %.28527.us, %424 ], [ %.20519731.us, %351 ], [ %.19518.us, %349 ], [ %.12511725.us, %295 ]
@@ -1227,7 +1227,7 @@ split949:                                         ; preds = %277, %.thread.us
   %562 = add i32 %.3.i718.us, 1
   %563 = zext i32 %562 to i64
   %564 = icmp ugt i64 %215, %563
-  br i1 %564, label %.lr.ph720.us, label %._crit_edge721.us
+  br i1 %564, label %.lr.ph720.us, label %._crit_edge721.us, !llvm.loop !16
 
 565:                                              ; preds = %247
   %566 = shl i32 %.1485.us, 1
@@ -1265,13 +1265,13 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   call void @llvm.prefetch.p0(ptr nonnull %581, i32 0, i32 3, i32 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  %582 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0473.us) #9, !srcloc !7
+  %582 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0473.us) #9, !srcloc !17
   %583 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 1
-  %584 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %583) #9, !srcloc !7
+  %584 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %583) #9, !srcloc !17
   %585 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 2
-  %586 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %585) #9, !srcloc !7
+  %586 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %585) #9, !srcloc !17
   %587 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 3
-  %588 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %587) #9, !srcloc !7
+  %588 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %587) #9, !srcloc !17
   %589 = getelementptr inbounds nuw i64, ptr %17, i64 %582
   %590 = load i64, ptr %589, align 8
   %591 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %590, i64 0
@@ -1285,13 +1285,13 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %599 = load i64, ptr %598, align 8
   %600 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %599, i64 0
   %601 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 4
-  %602 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %601) #9, !srcloc !7
+  %602 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %601) #9, !srcloc !17
   %603 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 5
-  %604 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %603) #9, !srcloc !7
+  %604 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %603) #9, !srcloc !17
   %605 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 6
-  %606 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %605) #9, !srcloc !7
+  %606 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %605) #9, !srcloc !17
   %607 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 7
-  %608 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %607) #9, !srcloc !7
+  %608 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %607) #9, !srcloc !17
   %609 = getelementptr inbounds nuw i64, ptr %17, i64 %602
   %610 = load i64, ptr %609, align 8
   %611 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %610, i64 0
@@ -1334,13 +1334,13 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %648 = xor i64 %646, -1
   store i64 %648, ptr %5, align 8
   %649 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 8
-  %650 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %649) #9, !srcloc !7
+  %650 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %649) #9, !srcloc !17
   %651 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 9
-  %652 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %651) #9, !srcloc !7
+  %652 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %651) #9, !srcloc !17
   %653 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 10
-  %654 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %653) #9, !srcloc !7
+  %654 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %653) #9, !srcloc !17
   %655 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 11
-  %656 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %655) #9, !srcloc !7
+  %656 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %655) #9, !srcloc !17
   %657 = getelementptr inbounds nuw i64, ptr %17, i64 %650
   %658 = load i64, ptr %657, align 8
   %659 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %658, i64 0
@@ -1354,13 +1354,13 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %667 = load i64, ptr %666, align 8
   %668 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %667, i64 0
   %669 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 12
-  %670 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %669) #9, !srcloc !7
+  %670 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %669) #9, !srcloc !17
   %671 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 13
-  %672 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %671) #9, !srcloc !7
+  %672 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %671) #9, !srcloc !17
   %673 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 14
-  %674 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %673) #9, !srcloc !7
+  %674 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %673) #9, !srcloc !17
   %675 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 15
-  %676 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %675) #9, !srcloc !7
+  %676 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %675) #9, !srcloc !17
   %677 = getelementptr inbounds nuw i64, ptr %17, i64 %670
   %678 = load i64, ptr %677, align 8
   %679 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %678, i64 0
@@ -1416,7 +1416,7 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %722 = phi i64 [ %648, %717 ], [ %800, %confWithBit.exit315.us ]
   %.120.us = phi i64 [ %.3502.us, %717 ], [ %.121.us, %confWithBit.exit315.us ]
   %.9.us = phi i32 [ %.1476.us, %717 ], [ %.10.us, %confWithBit.exit315.us ]
-  %723 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %722) #10, !srcloc !8
+  %723 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %722) #10, !srcloc !18
   %724 = extractvalue { i64, i64 } %723, 0
   %725 = extractvalue { i64, i64 } %723, 1
   store i64 %725, ptr %5, align 8
@@ -1530,7 +1530,7 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %797 = load i8, ptr %796, align 2
   %798 = getelementptr inbounds nuw i8, ptr %.044.i310.us, i64 32
   %.not50.i312.us = icmp eq i8 %797, 0
-  br i1 %.not50.i312.us, label %799, label %764
+  br i1 %.not50.i312.us, label %799, label %764, !llvm.loop !19
 
 799:                                              ; preds = %795
   store ptr null, ptr %762, align 16
@@ -1542,7 +1542,7 @@ confWithBit.exit315.us:                           ; preds = %799, %736, %730, %7
   %.121.us = phi i64 [ %.120.us, %721 ], [ %.120.us, %730 ], [ %.120.us, %736 ], [ %.154.us, %799 ]
   %.10.us = phi i32 [ %.9.us, %721 ], [ %.9.us, %730 ], [ %.9.us, %736 ], [ %.43.us, %799 ]
   %.not30.i.us = icmp eq i64 %800, 0
-  br i1 %.not30.i.us, label %do_confirm_fdr.exitthread-pre-split.us, label %721, !prof !5
+  br i1 %.not30.i.us, label %do_confirm_fdr.exitthread-pre-split.us, label %721, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exitthread-pre-split.us:           ; preds = %confWithBit.exit315.us
   %.pr.us = load i64, ptr %6, align 8
@@ -1566,7 +1566,7 @@ do_confirm_fdr.exit.us:                           ; preds = %do_confirm_fdr.exit
   %807 = phi i64 [ %801, %802 ], [ %887, %confWithBit.exit308.us ]
   %.123.us = phi i64 [ %.122.us, %802 ], [ %.124.us, %confWithBit.exit308.us ]
   %.12.us = phi i32 [ %.11.us, %802 ], [ %.13.us, %confWithBit.exit308.us ]
-  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %807) #10, !srcloc !8
+  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %807) #10, !srcloc !18
   %809 = extractvalue { i64, i64 } %808, 0
   %810 = extractvalue { i64, i64 } %808, 1
   store i64 %810, ptr %6, align 8
@@ -1682,7 +1682,7 @@ do_confirm_fdr.exit.us:                           ; preds = %do_confirm_fdr.exit
   %884 = load i8, ptr %883, align 2
   %885 = getelementptr inbounds nuw i8, ptr %.044.i303.us, i64 32
   %.not50.i305.us = icmp eq i8 %884, 0
-  br i1 %.not50.i305.us, label %886, label %851
+  br i1 %.not50.i305.us, label %886, label %851, !llvm.loop !19
 
 886:                                              ; preds = %882
   store ptr null, ptr %849, align 16
@@ -1694,7 +1694,7 @@ confWithBit.exit308.us:                           ; preds = %886, %823, %817, %8
   %.124.us = phi i64 [ %.123.us, %806 ], [ %.123.us, %817 ], [ %.123.us, %823 ], [ %.151.us, %886 ]
   %.13.us = phi i32 [ %.12.us, %806 ], [ %.12.us, %817 ], [ %.12.us, %823 ], [ %.40.us, %886 ]
   %.not30.i257.us = icmp eq i64 %887, 0
-  br i1 %.not30.i257.us, label %do_confirm_fdr.exit258.us, label %806, !prof !5
+  br i1 %.not30.i257.us, label %do_confirm_fdr.exit258.us, label %806, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exit258.us:                        ; preds = %confWithBit.exit308.us, %do_confirm_fdr.exit.us
   %.125.us = phi i64 [ %.122.us, %do_confirm_fdr.exit.us ], [ %.124.us, %confWithBit.exit308.us ]
@@ -1702,7 +1702,7 @@ do_confirm_fdr.exit258.us:                        ; preds = %confWithBit.exit308
   %.not128.us = icmp eq i64 %.125.us, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br i1 %.not128.us, label %.thread577, label %206
+  br i1 %.not128.us, label %.thread577, label %206, !llvm.loop !22
 
 .preheader.us:                                    ; preds = %294
   br i1 %.not814, label %.critedge.i.us, label %.lr.ph757.us
@@ -1719,7 +1719,7 @@ do_confirm_fdr.exit258.us:                        ; preds = %confWithBit.exit308
 .thread546.loopexit.us:                           ; preds = %206
   %888 = add nuw nsw i64 %.0104769.us, 1
   %exitcond904.not = icmp eq i64 %888, %.0.i
-  br i1 %exitcond904.not, label %.thread577, label %getInitState.exit.split.us, !llvm.loop !9
+  br i1 %exitcond904.not, label %.thread577, label %getInitState.exit.split.us, !llvm.loop !23
 
 .lr.ph727.us:                                     ; preds = %.preheader593.us
   %889 = getelementptr inbounds nuw i8, ptr %231, i64 80
@@ -1903,7 +1903,7 @@ getInitState.exit.split.us772:                    ; preds = %getInitState.exit, 
   %or.cond.i188.us = select i1 %.not383.i186.us, i1 %.not384.i187.us, i1 false
   %.not385.i189.us = icmp eq i64 %1010, %977
   %or.cond422.i190.us = select i1 %or.cond.i188.us, i1 %.not385.i189.us, i1 false
-  br i1 %or.cond422.i190.us, label %998, label %.thread554.us.preheader
+  br i1 %or.cond422.i190.us, label %998, label %.thread554.us.preheader, !llvm.loop !7
 
 .thread554.us.preheader:                          ; preds = %1007, %1002, %998
   br label %.thread554.us
@@ -1920,7 +1920,7 @@ getInitState.exit.split.us772:                    ; preds = %getInitState.exit, 
   %1018 = getelementptr inbounds nuw i8, ptr %951, i64 %1016
   %1019 = load i64, ptr %1018, align 8
   %.not386.i182.us = icmp eq i64 %1019, %977
-  br i1 %.not386.i182.us, label %.thread554.us, label %split947
+  br i1 %.not386.i182.us, label %.thread554.us, label %split947, !llvm.loop !9
 
 split947:                                         ; preds = %1017, %.thread554.us
   %1020 = icmp ugt i64 %955, %1016
@@ -2062,7 +2062,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %.55.us = phi i64 [ %.54.us, %1080 ], [ %1088, %1083 ]
   %indvars.iv.next868 = add nuw nsw i64 %indvars.iv867, 2
   %1090 = icmp samesign ult i64 %indvars.iv.next868, %1572
-  br i1 %1090, label %1035, label %.critedge.i143.us
+  br i1 %1090, label %1035, label %.critedge.i143.us, !llvm.loop !10
 
 1091:                                             ; preds = %.lr.ph686.us, %1164
   %indvars.iv870 = phi i64 [ 0, %.lr.ph686.us ], [ %indvars.iv.next871, %1164 ]
@@ -2193,7 +2193,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %.64.us = phi i64 [ %.63.us, %1155 ], [ %1163, %1158 ]
   %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870, 4
   %1165 = icmp samesign ult i64 %indvars.iv.next871, %1580
-  br i1 %1165, label %1091, label %.critedge.i143.us
+  br i1 %1165, label %1091, label %.critedge.i143.us, !llvm.loop !11
 
 1166:                                             ; preds = %.lr.ph692.us, %.thread973
   %indvars.iv873 = phi i64 [ 0, %.lr.ph692.us ], [ %indvars.iv.next874, %.thread973 ]
@@ -2250,7 +2250,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %.69.us = phi i64 [ %1188, %1184 ], [ %1194, %1190 ], [ %1182, %1178 ], [ %1176, %1172 ], [ %.65690.us, %1169 ]
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 4
   %1195 = icmp samesign ult i64 %indvars.iv.next874, %1586
-  br i1 %1195, label %1166, label %.critedge.i143.us
+  br i1 %1195, label %1166, label %.critedge.i143.us, !llvm.loop !12
 
 1196:                                             ; preds = %.lr.ph710.us, %._crit_edge706.us
   %indvars.iv882 = phi i64 [ 0, %.lr.ph710.us ], [ %indvars.iv.next883, %._crit_edge706.us ]
@@ -2391,7 +2391,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %.80.lcssa.us = phi i64 [ %.79.us, %1269 ], [ %.81.us, %1282 ]
   %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 2
   %1272 = icmp samesign ult i64 %indvars.iv.next883, %1601
-  br i1 %1272, label %1196, label %.critedge.i143.us
+  br i1 %1272, label %1196, label %.critedge.i143.us, !llvm.loop !13
 
 1273:                                             ; preds = %.lr.ph705.us, %1282
   %1274 = phi i16 [ %1270, %.lr.ph705.us ], [ %1283, %1282 ]
@@ -2416,7 +2416,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
   %1284 = zext i16 %1283 to i64
   %1285 = icmp samesign ult i64 %indvars.iv.next880, %1284
-  br i1 %1285, label %1273, label %._crit_edge706.us
+  br i1 %1285, label %1273, label %._crit_edge706.us, !llvm.loop !14
 
 1286:                                             ; preds = %.lr.ph699.us, %1295
   %1287 = phi i16 [ %1232, %.lr.ph699.us ], [ %1296, %1295 ]
@@ -2441,7 +2441,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
   %1297 = zext i16 %1296 to i64
   %1298 = icmp samesign ult i64 %indvars.iv.next877, %1297
-  br i1 %1298, label %1286, label %._crit_edge700.us
+  br i1 %1298, label %1286, label %._crit_edge700.us, !llvm.loop !15
 
 .critedge.i143.us:                                ; preds = %1035, %1089, %1091, %1164, %1166, %.thread973, %1196, %._crit_edge706.us, %.preheader600.us, %.preheader598.us, %.preheader596.us, %.preheader595.us, %1031, %1027
   %.49.us = phi i64 [ %.6505.us, %1027 ], [ %.6505.us, %1031 ], [ %.6505.us, %.preheader595.us ], [ %.6505.us, %.preheader596.us ], [ %.6505.us, %.preheader598.us ], [ %.6505.us, %.preheader600.us ], [ %.80.lcssa.us, %._crit_edge706.us ], [ %.70708.us, %1196 ], [ %.69.us, %.thread973 ], [ %.65690.us, %1166 ], [ %.64.us, %1164 ], [ %.56684.us, %1091 ], [ %.55.us, %1089 ], [ %.48678.us, %1035 ]
@@ -2453,7 +2453,7 @@ split947:                                         ; preds = %1017, %.thread554.u
   %1302 = add i32 %.3.i139671.us, 1
   %1303 = zext i32 %1302 to i64
   %1304 = icmp ugt i64 %955, %1303
-  br i1 %1304, label %.lr.ph673.us, label %._crit_edge674.us
+  br i1 %1304, label %.lr.ph673.us, label %._crit_edge674.us, !llvm.loop !16
 
 1305:                                             ; preds = %987
   %1306 = shl i32 %.6490.us, 1
@@ -2491,13 +2491,13 @@ floodDetect.exit192.us:                           ; preds = %1307, %1305, %.crit
   call void @llvm.prefetch.p0(ptr nonnull %1321, i32 0, i32 3, i32 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  %1322 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0472.us) #9, !srcloc !7
+  %1322 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0472.us) #9, !srcloc !17
   %1323 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 2
-  %1324 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1323) #9, !srcloc !7
+  %1324 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1323) #9, !srcloc !17
   %1325 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 4
-  %1326 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1325) #9, !srcloc !7
+  %1326 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1325) #9, !srcloc !17
   %1327 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 6
-  %1328 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1327) #9, !srcloc !7
+  %1328 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1327) #9, !srcloc !17
   %1329 = getelementptr inbounds nuw i64, ptr %17, i64 %1322
   %1330 = load i64, ptr %1329, align 8
   %1331 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1330, i64 0
@@ -2511,13 +2511,13 @@ floodDetect.exit192.us:                           ; preds = %1307, %1305, %.crit
   %1339 = load i64, ptr %1338, align 8
   %1340 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1339, i64 0
   %1341 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 8
-  %1342 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1341) #9, !srcloc !7
+  %1342 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1341) #9, !srcloc !17
   %1343 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 10
-  %1344 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1343) #9, !srcloc !7
+  %1344 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1343) #9, !srcloc !17
   %1345 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 12
-  %1346 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1345) #9, !srcloc !7
+  %1346 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1345) #9, !srcloc !17
   %1347 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 14
-  %1348 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1347) #9, !srcloc !7
+  %1348 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1347) #9, !srcloc !17
   %1349 = getelementptr inbounds nuw i64, ptr %17, i64 %1342
   %1350 = load i64, ptr %1349, align 8
   %1351 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1350, i64 0
@@ -2578,7 +2578,7 @@ floodDetect.exit192.us:                           ; preds = %1307, %1305, %.crit
   %1398 = phi i64 [ %1376, %1393 ], [ %1476, %confWithBit.exit301.us ]
   %.126.us = phi i64 [ %.8507.us, %1393 ], [ %.127.us, %confWithBit.exit301.us ]
   %.15.us = phi i32 [ %.5480.us, %1393 ], [ %.16.us, %confWithBit.exit301.us ]
-  %1399 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %1398) #10, !srcloc !8
+  %1399 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %1398) #10, !srcloc !18
   %1400 = extractvalue { i64, i64 } %1399, 0
   %1401 = extractvalue { i64, i64 } %1399, 1
   store i64 %1401, ptr %7, align 8
@@ -2692,7 +2692,7 @@ floodDetect.exit192.us:                           ; preds = %1307, %1305, %.crit
   %1473 = load i8, ptr %1472, align 2
   %1474 = getelementptr inbounds nuw i8, ptr %.044.i296.us, i64 32
   %.not50.i298.us = icmp eq i8 %1473, 0
-  br i1 %.not50.i298.us, label %1475, label %1440
+  br i1 %.not50.i298.us, label %1475, label %1440, !llvm.loop !19
 
 1475:                                             ; preds = %1471
   store ptr null, ptr %1438, align 16
@@ -2704,7 +2704,7 @@ confWithBit.exit301.us:                           ; preds = %1475, %1412, %1406,
   %.127.us = phi i64 [ %.126.us, %1397 ], [ %.126.us, %1406 ], [ %.126.us, %1412 ], [ %.148.us, %1475 ]
   %.16.us = phi i32 [ %.15.us, %1397 ], [ %.15.us, %1406 ], [ %.15.us, %1412 ], [ %.37.us, %1475 ]
   %.not30.i262.us = icmp eq i64 %1476, 0
-  br i1 %.not30.i262.us, label %do_confirm_fdr.exit263thread-pre-split.us, label %1397, !prof !5
+  br i1 %.not30.i262.us, label %do_confirm_fdr.exit263thread-pre-split.us, label %1397, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exit263thread-pre-split.us:        ; preds = %confWithBit.exit301.us
   %.pr557.us = load i64, ptr %8, align 8
@@ -2728,7 +2728,7 @@ do_confirm_fdr.exit263.us:                        ; preds = %do_confirm_fdr.exit
   %1483 = phi i64 [ %1477, %1478 ], [ %1563, %confWithBit.exit294.us ]
   %.129.us = phi i64 [ %.128.us, %1478 ], [ %.130.us, %confWithBit.exit294.us ]
   %.18.us = phi i32 [ %.17.us, %1478 ], [ %.19.us, %confWithBit.exit294.us ]
-  %1484 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %1483) #10, !srcloc !8
+  %1484 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %1483) #10, !srcloc !18
   %1485 = extractvalue { i64, i64 } %1484, 0
   %1486 = extractvalue { i64, i64 } %1484, 1
   store i64 %1486, ptr %8, align 8
@@ -2844,7 +2844,7 @@ do_confirm_fdr.exit263.us:                        ; preds = %do_confirm_fdr.exit
   %1560 = load i8, ptr %1559, align 2
   %1561 = getelementptr inbounds nuw i8, ptr %.044.i289.us, i64 32
   %.not50.i291.us = icmp eq i8 %1560, 0
-  br i1 %.not50.i291.us, label %1562, label %1527
+  br i1 %.not50.i291.us, label %1562, label %1527, !llvm.loop !19
 
 1562:                                             ; preds = %1558
   store ptr null, ptr %1525, align 16
@@ -2856,7 +2856,7 @@ confWithBit.exit294.us:                           ; preds = %1562, %1499, %1493,
   %.130.us = phi i64 [ %.129.us, %1482 ], [ %.129.us, %1493 ], [ %.129.us, %1499 ], [ %.145.us, %1562 ]
   %.19.us = phi i32 [ %.18.us, %1482 ], [ %.18.us, %1493 ], [ %.18.us, %1499 ], [ %.34.us, %1562 ]
   %.not30.i267.us = icmp eq i64 %1563, 0
-  br i1 %.not30.i267.us, label %do_confirm_fdr.exit268.us, label %1482, !prof !5
+  br i1 %.not30.i267.us, label %do_confirm_fdr.exit268.us, label %1482, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exit268.us:                        ; preds = %confWithBit.exit294.us, %do_confirm_fdr.exit263.us
   %.131.us = phi i64 [ %.128.us, %do_confirm_fdr.exit263.us ], [ %.130.us, %confWithBit.exit294.us ]
@@ -2864,7 +2864,7 @@ do_confirm_fdr.exit268.us:                        ; preds = %confWithBit.exit294
   %.not125.us = icmp eq i64 %.131.us, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  br i1 %.not125.us, label %.thread577, label %946
+  br i1 %.not125.us, label %.thread577, label %946, !llvm.loop !25
 
 .preheader595.us:                                 ; preds = %1034
   br i1 %.not810, label %.critedge.i143.us, label %.lr.ph710.us
@@ -2881,7 +2881,7 @@ do_confirm_fdr.exit268.us:                        ; preds = %confWithBit.exit294
 .thread546.loopexit609.us:                        ; preds = %946
   %1564 = add nuw nsw i64 %.0104769.us774, 1
   %exitcond885.not = icmp eq i64 %1564, %.0.i
-  br i1 %exitcond885.not, label %.thread577, label %getInitState.exit.split.us772, !llvm.loop !11
+  br i1 %exitcond885.not, label %.thread577, label %getInitState.exit.split.us772, !llvm.loop !26
 
 .lr.ph680.us:                                     ; preds = %.preheader600.us
   %1565 = getelementptr inbounds nuw i8, ptr %971, i64 80
@@ -3065,7 +3065,7 @@ getInitState.exit.split.us788:                    ; preds = %getInitState.exit, 
   %or.cond.i248.us = select i1 %.not383.i246.us, i1 %.not384.i247.us, i1 false
   %.not385.i249.us = icmp eq i64 %1686, %1653
   %or.cond422.i250.us = select i1 %or.cond.i248.us, i1 %.not385.i249.us, i1 false
-  br i1 %or.cond422.i250.us, label %1674, label %.thread566.us.preheader
+  br i1 %or.cond422.i250.us, label %1674, label %.thread566.us.preheader, !llvm.loop !7
 
 .thread566.us.preheader:                          ; preds = %1683, %1678, %1674
   br label %.thread566.us
@@ -3082,7 +3082,7 @@ getInitState.exit.split.us788:                    ; preds = %getInitState.exit, 
   %1694 = getelementptr inbounds nuw i8, ptr %1627, i64 %1692
   %1695 = load i64, ptr %1694, align 8
   %.not386.i242.us = icmp eq i64 %1695, %1653
-  br i1 %.not386.i242.us, label %.thread566.us, label %split
+  br i1 %.not386.i242.us, label %.thread566.us, label %split, !llvm.loop !9
 
 split:                                            ; preds = %1693, %.thread566.us
   %1696 = icmp ugt i64 %1631, %1692
@@ -3224,7 +3224,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %.91.us = phi i64 [ %.90.us, %1756 ], [ %1764, %1759 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1766 = icmp samesign ult i64 %indvars.iv.next, %2212
-  br i1 %1766, label %1711, label %.critedge.i203.us
+  br i1 %1766, label %1711, label %.critedge.i203.us, !llvm.loop !10
 
 1767:                                             ; preds = %.lr.ph641.us, %1840
   %indvars.iv852 = phi i64 [ 0, %.lr.ph641.us ], [ %indvars.iv.next853, %1840 ]
@@ -3355,7 +3355,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %.100.us = phi i64 [ %.99.us, %1831 ], [ %1839, %1834 ]
   %indvars.iv.next853 = add nuw nsw i64 %indvars.iv852, 4
   %1841 = icmp samesign ult i64 %indvars.iv.next853, %2220
-  br i1 %1841, label %1767, label %.critedge.i203.us
+  br i1 %1841, label %1767, label %.critedge.i203.us, !llvm.loop !11
 
 1842:                                             ; preds = %.lr.ph647.us, %.thread984
   %indvars.iv855 = phi i64 [ 0, %.lr.ph647.us ], [ %indvars.iv.next856, %.thread984 ]
@@ -3412,7 +3412,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %.105.us = phi i64 [ %1864, %1860 ], [ %1870, %1866 ], [ %1858, %1854 ], [ %1852, %1848 ], [ %.101645.us, %1845 ]
   %indvars.iv.next856 = add nuw nsw i64 %indvars.iv855, 4
   %1871 = icmp samesign ult i64 %indvars.iv.next856, %2226
-  br i1 %1871, label %1842, label %.critedge.i203.us
+  br i1 %1871, label %1842, label %.critedge.i203.us, !llvm.loop !12
 
 1872:                                             ; preds = %.lr.ph665.us, %._crit_edge661.us
   %indvars.iv864 = phi i64 [ 0, %.lr.ph665.us ], [ %indvars.iv.next865, %._crit_edge661.us ]
@@ -3553,7 +3553,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %.116.lcssa.us = phi i64 [ %.115.us, %1945 ], [ %.117.us, %1958 ]
   %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 2
   %1948 = icmp samesign ult i64 %indvars.iv.next865, %2241
-  br i1 %1948, label %1872, label %.critedge.i203.us
+  br i1 %1948, label %1872, label %.critedge.i203.us, !llvm.loop !13
 
 1949:                                             ; preds = %.lr.ph660.us, %1958
   %1950 = phi i16 [ %1946, %.lr.ph660.us ], [ %1959, %1958 ]
@@ -3578,7 +3578,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
   %1960 = zext i16 %1959 to i64
   %1961 = icmp samesign ult i64 %indvars.iv.next862, %1960
-  br i1 %1961, label %1949, label %._crit_edge661.us
+  br i1 %1961, label %1949, label %._crit_edge661.us, !llvm.loop !14
 
 1962:                                             ; preds = %.lr.ph654.us, %1971
   %1963 = phi i16 [ %1908, %.lr.ph654.us ], [ %1972, %1971 ]
@@ -3603,7 +3603,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 1
   %1973 = zext i16 %1972 to i64
   %1974 = icmp samesign ult i64 %indvars.iv.next859, %1973
-  br i1 %1974, label %1962, label %._crit_edge655.us
+  br i1 %1974, label %1962, label %._crit_edge655.us, !llvm.loop !15
 
 .critedge.i203.us:                                ; preds = %1711, %1765, %1767, %1840, %1842, %.thread984, %1872, %._crit_edge661.us, %.preheader607.us, %.preheader605.us, %.preheader603.us, %.preheader602.us, %1707, %1703
   %.85.us = phi i64 [ %.9508.us, %1703 ], [ %.9508.us, %1707 ], [ %.9508.us, %.preheader602.us ], [ %.9508.us, %.preheader603.us ], [ %.9508.us, %.preheader605.us ], [ %.9508.us, %.preheader607.us ], [ %.116.lcssa.us, %._crit_edge661.us ], [ %.106663.us, %1872 ], [ %.105.us, %.thread984 ], [ %.101645.us, %1842 ], [ %.100.us, %1840 ], [ %.92639.us, %1767 ], [ %.91.us, %1765 ], [ %.84633.us, %1711 ]
@@ -3615,7 +3615,7 @@ split:                                            ; preds = %1693, %.thread566.u
   %1978 = add i32 %.3.i199630.us, 1
   %1979 = zext i32 %1978 to i64
   %1980 = icmp ugt i64 %1631, %1979
-  br i1 %1980, label %.lr.ph.us, label %._crit_edge.us
+  br i1 %1980, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !16
 
 1981:                                             ; preds = %1663
   %1982 = shl i32 %.9493.us, 1
@@ -3653,13 +3653,13 @@ floodDetect.exit252.us:                           ; preds = %1983, %1981, %.crit
   call void @llvm.prefetch.p0(ptr nonnull %1997, i32 0, i32 3, i32 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  %1998 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0.us) #9, !srcloc !7
+  %1998 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0.us) #9, !srcloc !17
   %1999 = getelementptr inbounds nuw i8, ptr %.0.us, i64 4
-  %2000 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1999) #9, !srcloc !7
+  %2000 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1999) #9, !srcloc !17
   %2001 = getelementptr inbounds nuw i8, ptr %.0.us, i64 8
-  %2002 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %2001) #9, !srcloc !7
+  %2002 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %2001) #9, !srcloc !17
   %2003 = getelementptr inbounds nuw i8, ptr %.0.us, i64 12
-  %2004 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %2003) #9, !srcloc !7
+  %2004 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %2003) #9, !srcloc !17
   %2005 = getelementptr inbounds nuw i64, ptr %17, i64 %1998
   %2006 = load i64, ptr %2005, align 8
   %2007 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %2006, i64 0
@@ -3704,7 +3704,7 @@ floodDetect.exit252.us:                           ; preds = %1983, %1981, %.crit
   %2038 = phi i64 [ %2027, %2033 ], [ %2116, %confWithBit.exit287.us ]
   %.132.us = phi i64 [ %.11510.us, %2033 ], [ %.133.us, %confWithBit.exit287.us ]
   %.21.us = phi i32 [ %.7482.us, %2033 ], [ %.22.us, %confWithBit.exit287.us ]
-  %2039 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %2038) #10, !srcloc !8
+  %2039 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %2038) #10, !srcloc !18
   %2040 = extractvalue { i64, i64 } %2039, 0
   %2041 = extractvalue { i64, i64 } %2039, 1
   store i64 %2041, ptr %9, align 8
@@ -3818,7 +3818,7 @@ floodDetect.exit252.us:                           ; preds = %1983, %1981, %.crit
   %2113 = load i8, ptr %2112, align 2
   %2114 = getelementptr inbounds nuw i8, ptr %.044.i282.us, i64 32
   %.not50.i284.us = icmp eq i8 %2113, 0
-  br i1 %.not50.i284.us, label %2115, label %2080
+  br i1 %.not50.i284.us, label %2115, label %2080, !llvm.loop !19
 
 2115:                                             ; preds = %2111
   store ptr null, ptr %2078, align 16
@@ -3830,7 +3830,7 @@ confWithBit.exit287.us:                           ; preds = %2115, %2052, %2046,
   %.133.us = phi i64 [ %.132.us, %2037 ], [ %.132.us, %2046 ], [ %.132.us, %2052 ], [ %.142.us, %2115 ]
   %.22.us = phi i32 [ %.21.us, %2037 ], [ %.21.us, %2046 ], [ %.21.us, %2052 ], [ %.31.us, %2115 ]
   %.not30.i272.us = icmp eq i64 %2116, 0
-  br i1 %.not30.i272.us, label %do_confirm_fdr.exit273thread-pre-split.us, label %2037, !prof !5
+  br i1 %.not30.i272.us, label %do_confirm_fdr.exit273thread-pre-split.us, label %2037, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exit273thread-pre-split.us:        ; preds = %confWithBit.exit287.us
   %.pr569.us = load i64, ptr %10, align 8
@@ -3854,7 +3854,7 @@ do_confirm_fdr.exit273.us:                        ; preds = %do_confirm_fdr.exit
   %2123 = phi i64 [ %2117, %2118 ], [ %2203, %confWithBit.exit.us ]
   %.135.us = phi i64 [ %.134.us, %2118 ], [ %.136.us, %confWithBit.exit.us ]
   %.24.us = phi i32 [ %.23.us, %2118 ], [ %.25.us, %confWithBit.exit.us ]
-  %2124 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %2123) #10, !srcloc !8
+  %2124 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %2123) #10, !srcloc !18
   %2125 = extractvalue { i64, i64 } %2124, 0
   %2126 = extractvalue { i64, i64 } %2124, 1
   store i64 %2126, ptr %10, align 8
@@ -3970,7 +3970,7 @@ do_confirm_fdr.exit273.us:                        ; preds = %do_confirm_fdr.exit
   %2200 = load i8, ptr %2199, align 2
   %2201 = getelementptr inbounds nuw i8, ptr %.044.i.us, i64 32
   %.not50.i.us = icmp eq i8 %2200, 0
-  br i1 %.not50.i.us, label %2202, label %2167
+  br i1 %.not50.i.us, label %2202, label %2167, !llvm.loop !19
 
 2202:                                             ; preds = %2198
   store ptr null, ptr %2165, align 16
@@ -3982,7 +3982,7 @@ confWithBit.exit.us:                              ; preds = %2202, %2139, %2133,
   %.136.us = phi i64 [ %.135.us, %2122 ], [ %.135.us, %2133 ], [ %.135.us, %2139 ], [ %.139.us, %2202 ]
   %.25.us = phi i32 [ %.24.us, %2122 ], [ %.24.us, %2133 ], [ %.24.us, %2139 ], [ %.28.us, %2202 ]
   %.not30.i277.us = icmp eq i64 %2203, 0
-  br i1 %.not30.i277.us, label %do_confirm_fdr.exit278.us, label %2122, !prof !5
+  br i1 %.not30.i277.us, label %do_confirm_fdr.exit278.us, label %2122, !prof !5, !llvm.loop !20
 
 do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us, %do_confirm_fdr.exit273.us
   %.137.us = phi i64 [ %.134.us, %do_confirm_fdr.exit273.us ], [ %.136.us, %confWithBit.exit.us ]
@@ -3990,7 +3990,7 @@ do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us
   %.not122.us = icmp eq i64 %.137.us, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  br i1 %.not122.us, label %.thread577, label %1622
+  br i1 %.not122.us, label %.thread577, label %1622, !llvm.loop !27
 
 .preheader602.us:                                 ; preds = %1710
   br i1 %.not806, label %.critedge.i203.us, label %.lr.ph665.us
@@ -4007,7 +4007,7 @@ do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us
 .thread546.loopexit611.us:                        ; preds = %1622
   %2204 = add nuw nsw i64 %.0104769.us790, 1
   %exitcond.not = icmp eq i64 %2204, %.0.i
-  br i1 %exitcond.not, label %.thread577, label %getInitState.exit.split.us788, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread577, label %getInitState.exit.split.us788, !llvm.loop !28
 
 .lr.ph635.us:                                     ; preds = %.preheader607.us
   %2205 = getelementptr inbounds nuw i8, ptr %1647, i64 80
@@ -4141,9 +4141,25 @@ attributes #10 = { nounwind memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = !{i64 5545}
-!8 = !{i64 4538185, i64 4538215}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = !{i64 5545}
+!18 = !{i64 4538185, i64 4538215}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8, !24}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8, !24}

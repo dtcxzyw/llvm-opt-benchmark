@@ -433,7 +433,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   %51 = sub i64 %.178106, %38
   %52 = getelementptr inbounds i8, ptr %.281105, i64 %38
   %53 = icmp ugt i64 %51, %38
-  br i1 %53, label %46, label %.loopexit, !llvm.loop !14
+  br i1 %53, label %46, label %.loopexit, !llvm.loop !15
 
 54:                                               ; preds = %.lr.ph, %58
   %.075102 = phi i64 [ %39, %.lr.ph ], [ %61, %58 ]
@@ -449,7 +449,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   %60 = getelementptr inbounds nuw i8, ptr %.4100, i64 %42
   %61 = sub i64 %.075102, %36
   %62 = icmp ugt i64 %61, %36
-  br i1 %62, label %54, label %._crit_edge, !llvm.loop !15
+  br i1 %62, label %54, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %58, %.preheader93
   %.4.lcssa = phi ptr [ %.079, %.preheader93 ], [ %60, %58 ]
@@ -510,7 +510,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
 
 12:                                               ; preds = %11
   %13 = sext i32 %9 to i64
-  store i64 %13, ptr %2, align 8, !tbaa !16
+  store i64 %13, ptr %2, align 8, !tbaa !17
   br label %14
 
 14:                                               ; preds = %12, %11
@@ -543,7 +543,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
   store i8 %26, ptr %27, align 1, !tbaa !11
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %.loopexit, label %21, !llvm.loop !18
+  br i1 %exitcond58.not, label %.loopexit, label %21, !llvm.loop !19
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -581,7 +581,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
   store i8 %46, ptr %47, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !20
 
 .loopexit:                                        ; preds = %41, %21, %38, %.preheader
   %48 = load ptr, ptr %0, align 8, !tbaa !3
@@ -646,11 +646,12 @@ attributes #7 = { nounwind }
 !9 = !{!"int", !7, i64 0}
 !10 = !{!4, !9, i64 136}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}

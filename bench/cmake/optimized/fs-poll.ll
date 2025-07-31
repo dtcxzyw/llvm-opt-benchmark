@@ -500,7 +500,7 @@ define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %9, i64 %10, i1 false)
   store i64 %10, ptr %2, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  store i8 0, ptr %15, align 1, !tbaa !69
+  store i8 0, ptr %15, align 1, !tbaa !70
   br label %16
 
 16:                                               ; preds = %14, %12, %5
@@ -677,6 +677,7 @@ attributes #9 = { noreturn nounwind }
 !64 = !{!26, !22, i64 88}
 !65 = !{i64 0, i64 8, !66, i64 8, i64 8, !66, i64 16, i64 8, !66, i64 24, i64 8, !66, i64 32, i64 8, !66, i64 40, i64 8, !66, i64 48, i64 8, !66, i64 56, i64 8, !66, i64 64, i64 8, !66, i64 72, i64 8, !66, i64 80, i64 8, !66, i64 88, i64 8, !66, i64 96, i64 8, !66, i64 104, i64 8, !66, i64 112, i64 8, !66, i64 120, i64 8, !66, i64 128, i64 8, !66, i64 136, i64 8, !66, i64 144, i64 8, !66, i64 152, i64 8, !66}
 !66 = !{!22, !22, i64 0}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!7, !7, i64 0}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = !{!7, !7, i64 0}

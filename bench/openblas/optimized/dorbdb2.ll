@@ -332,7 +332,7 @@ define void @dorbdb2_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %201 = getelementptr double, ptr %200, i64 %199
   call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %188, ptr noundef nonnull @c__1, ptr noundef nonnull %191, ptr noundef %201, ptr noundef nonnull %6, ptr noundef nonnull %174) #6
   %.not313.not = icmp slt i64 %indvars.iv350, %178
-  br i1 %.not313.not, label %179, label %.loopexit, !llvm.loop !11
+  br i1 %.not313.not, label %179, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %179, %._crit_edge, %.thread, %.thread322
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #6
@@ -406,6 +406,7 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

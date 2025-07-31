@@ -6709,7 +6709,7 @@ if.end122:                                        ; preds = %if.end111, %if.else
   store i64 %inc126, ptr %evaluationNumber_, align 8, !tbaa !60
   %41 = load i64, ptr %maxEvaluations_, align 8, !tbaa !45
   %cmp10.not = icmp ugt i64 %inc126, %41
-  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !73
+  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !74
 
 do.body:                                          ; preds = %if.end122, %if.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #19
@@ -6983,6 +6983,7 @@ attributes #22 = { builtin nounwind }
 !68 = !{!46, !22, i64 0}
 !69 = !{!70, !22, i64 72}
 !70 = !{!"_ZTSN8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassE", !19, i64 0, !22, i64 72}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = distinct !{!73, !72}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = distinct !{!74, !72, !73}

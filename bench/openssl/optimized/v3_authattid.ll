@@ -80,13 +80,13 @@ define internal range(i32 0, 2) i32 @i2r_auth_attr_id(ptr readnone captures(none
 
 15:                                               ; preds = %12
   %16 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.01215) #3
-  %17 = load ptr, ptr %16, align 8, !tbaa !5
+  %17 = load ptr, ptr %16, align 8, !tbaa !6
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %23, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef range(i32 -2147483644, -2147483648) %7, ptr noundef nonnull @.str.2) #3
-  %20 = load ptr, ptr %16, align 8, !tbaa !5
+  %20 = load ptr, ptr %16, align 8, !tbaa !6
   %21 = tail call i32 @OSSL_GENERAL_NAMES_print(ptr noundef %2, ptr noundef %20, i32 noundef range(i32 -2147483644, -2147483648) %7) #3
   %22 = tail call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull @.str.3) #3
   br label %25
@@ -105,13 +105,13 @@ define internal range(i32 0, 2) i32 @i2r_auth_attr_id(ptr readnone captures(none
 30:                                               ; preds = %25
   %31 = tail call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull @.str.3) #3
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %33 = load ptr, ptr %32, align 8, !tbaa !17
   %.not22.i = icmp eq ptr %33, null
   br i1 %.not22.i, label %41, label %34
 
 34:                                               ; preds = %30
   %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef range(i32 -2147483644, -2147483648) %7, ptr noundef nonnull @.str.2) #3
-  %36 = load ptr, ptr %32, align 8, !tbaa !16
+  %36 = load ptr, ptr %32, align 8, !tbaa !17
   %37 = tail call i32 @i2a_ASN1_STRING(ptr noundef %2, ptr noundef %36, i32 noundef 3) #3
   %38 = icmp slt i32 %37, 1
   br i1 %38, label %i2r_ISSUER_SERIAL.exit.thread, label %39
@@ -160,17 +160,18 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"ossl_issuer_serial_st", !7, i64 0, !11, i64 8, !15, i64 32}
-!7 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !13, i64 8, !14, i64 16}
-!12 = !{!"int", !9, i64 0}
-!13 = !{!"p1 omnipotent char", !8, i64 0}
-!14 = !{!"long", !9, i64 0}
-!15 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!16 = !{!6, !15, i64 32}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"ossl_issuer_serial_st", !8, i64 0, !12, i64 8, !16, i64 32}
+!8 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !14, i64 8, !15, i64 16}
+!13 = !{!"int", !10, i64 0}
+!14 = !{!"p1 omnipotent char", !9, i64 0}
+!15 = !{!"long", !10, i64 0}
+!16 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!17 = !{!7, !16, i64 32}

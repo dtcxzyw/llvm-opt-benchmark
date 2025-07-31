@@ -174,7 +174,7 @@ define hidden void @_mi_random_init(ptr noundef %0) local_unnamed_addr #1 {
 26:                                               ; preds = %24, %20, %20
   %.227.i = phi i64 [ %25, %24 ], [ %.02546.i, %20 ], [ %.02546.i, %20 ]
   %27 = icmp ult i64 %.227.i, 32
-  br i1 %27, label %.preheader.i, label %.thread42.i
+  br i1 %27, label %.preheader.i, label %.thread42.i, !llvm.loop !16
 
 .thread42.i:                                      ; preds = %26
   %28 = call i32 @close(i32 noundef %14) #10
@@ -238,7 +238,7 @@ _mi_os_random_weak.exit:                          ; preds = %40
   store i32 %61, ptr %62, align 4, !tbaa !3
   %63 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %63, 8
-  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !17
 
 .loopexit:                                        ; preds = %51, %.thread42.i, %os_random_buf.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 132, i1 false)
@@ -253,7 +253,7 @@ _mi_os_random_weak.exit:                          ; preds = %40
   store i32 %67, ptr %68, align 4, !tbaa !3
   %69 = add nuw nsw i64 %.01819.i, 1
   %exitcond.not.i7 = icmp eq i64 %69, 4
-  br i1 %exitcond.not.i7, label %.preheader.i8.preheader, label %64, !llvm.loop !16
+  br i1 %exitcond.not.i7, label %.preheader.i8.preheader, label %64, !llvm.loop !18
 
 .preheader.i8.preheader:                          ; preds = %64
   %scevgep = getelementptr i8, ptr %0, i64 16
@@ -449,7 +449,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   %130 = tail call noundef i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 7)
   %131 = add nuw nsw i64 %.01953, 2
   %132 = icmp samesign ult i64 %.01953, 18
-  br i1 %132, label %18, label %.preheader, !llvm.loop !17
+  br i1 %132, label %18, label %.preheader, !llvm.loop !19
 
 133:                                              ; preds = %139
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -472,7 +472,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16
-  br i1 %exitcond.not, label %133, label %139, !llvm.loop !18
+  br i1 %exitcond.not, label %133, label %139, !llvm.loop !20
 
 147:                                              ; preds = %133
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -542,9 +542,11 @@ attributes #11 = { nounwind willreturn memory(none) }
 !10 = !{!"timespec", !11, i64 0, !11, i64 8}
 !11 = !{!"long", !5, i64 0}
 !12 = !{!10, !11, i64 8}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}

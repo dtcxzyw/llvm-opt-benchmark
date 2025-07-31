@@ -8277,7 +8277,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Source_ToTarget_Tr
   %8 = load i32, ptr @hf_s1ap_Source_ToTarget_TransparentContainer_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %9 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %8, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
-  %10 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ne ptr %12, null
@@ -8347,7 +8347,7 @@ s1ap_get_private_data.exit.i:                     ; preds = %23, %16
 
 46:                                               ; preds = %s1ap_get_private_data.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 58
-  %48 = load i8, ptr %47, align 2, !range !8, !noundef !9
+  %48 = load i8, ptr %47, align 2, !range !9, !noundef !10
   %49 = trunc nuw i8 %48 to i1
   %50 = load ptr, ptr %6, align 8
   %51 = load ptr, ptr %17, align 8
@@ -8751,7 +8751,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Target_ToSource_Tr
   %8 = load i32, ptr @hf_s1ap_Target_ToSource_TransparentContainer_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %9 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %8, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
-  %10 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ne ptr %12, null
@@ -11248,7 +11248,7 @@ s1ap_get_private_data.exit.i:                     ; preds = %14, %4
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @wmem_array_get_count(ptr noundef %49)
   %51 = icmp ult i32 %46, %50
-  br i1 %51, label %.lr.ph.i, label %dissect_s1ap_RAT_Type.exit, !llvm.loop !10
+  br i1 %51, label %.lr.ph.i, label %dissect_s1ap_RAT_Type.exit, !llvm.loop !11
 
 dissect_s1ap_RAT_Type.exit:                       ; preds = %.lr.ph.i, %s1ap_get_private_data.exit.i, %21, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
@@ -14393,7 +14393,7 @@ define internal i32 @dissect_s1ap_T_uERLFReportContainer(ptr noundef %0, i32 nou
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %13, null
-  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond, label %16, label %77
@@ -15485,7 +15485,7 @@ define internal i32 @dissect_s1ap_RRC_Container(ptr noundef %0, i32 noundef %1, 
   %20 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %21 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %21, null
-  %22 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %22 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %23 = trunc nuw i8 %22 to i1
   %or.cond99 = select i1 %.not, i1 %23, i1 false
   br i1 %or.cond99, label %24, label %214
@@ -16045,7 +16045,7 @@ define internal i32 @dissect_s1ap_LastVisitedUTRANCellInformation(ptr noundef %0
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %13, null
-  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond, label %16, label %77
@@ -16209,7 +16209,7 @@ define internal i32 @dissect_s1ap_LastVisitedNGRANCellInformation(ptr noundef %0
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %13, null
-  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond, label %16, label %77
@@ -17174,7 +17174,7 @@ define internal fastcc i32 @dissect_s1ap_UERadioCapability(ptr noundef %0, ptr n
   %11 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %12 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %12, null
-  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %14 = trunc nuw i8 %13 to i1
   %or.cond45 = select i1 %.not, i1 %14, i1 false
   br i1 %or.cond45, label %15, label %98
@@ -17961,7 +17961,7 @@ define internal fastcc i32 @dissect_s1ap_UERadioCapabilityForPaging(ptr noundef 
   %11 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %12 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %12, null
-  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %14 = trunc nuw i8 %13 to i1
   %or.cond45 = select i1 %.not, i1 %14, i1 false
   br i1 %or.cond45, label %15, label %98
@@ -18174,7 +18174,7 @@ define internal i32 @dissect_s1ap_UE_RLF_Report_Container(ptr noundef %0, i32 no
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %13, null
-  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond, label %16, label %77
@@ -18337,7 +18337,7 @@ define internal i32 @dissect_s1ap_UE_RLF_Report_Container_for_extended_bands(ptr
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %13, null
-  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %14 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond, label %16, label %77
@@ -18549,7 +18549,7 @@ define internal i32 @dissect_s1ap_CELevel(ptr noundef %0, i32 noundef %1, ptr no
   %16 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %17 = load ptr, ptr %6, align 8
   %.not = icmp ne ptr %17, null
-  %18 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %18 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %19 = trunc nuw i8 %18 to i1
   %or.cond70 = select i1 %.not, i1 %19, i1 false
   br i1 %or.cond70, label %20, label %142
@@ -19419,7 +19419,7 @@ define internal fastcc i32 @dissect_s1ap_UE_HistoryInformationFromTheUE(ptr noun
   %10 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %11 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %11, null
-  %12 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %12 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %.not, i1 %13, i1 false
   br i1 %or.cond, label %14, label %75
@@ -20044,7 +20044,7 @@ define internal fastcc i32 @dissect_s1ap_NB_IoT_RLF_Report_Container(ptr noundef
   %11 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %12 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %12, null
-  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !8
+  %13 = load i8, ptr @g_s1ap_dissect_container, align 1, !range !9
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %.not, i1 %14, i1 false
   br i1 %or.cond, label %15, label %76
@@ -20732,8 +20732,9 @@ attributes #11 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}

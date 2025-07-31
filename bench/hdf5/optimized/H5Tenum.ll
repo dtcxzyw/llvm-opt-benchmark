@@ -446,7 +446,7 @@ define range(i32 -1, 1) i32 @H5T__enum_insert(ptr noundef readonly captures(none
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !34
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #11
   %.not50 = icmp eq i32 %22, 0
   br i1 %.not50, label %23, label %27
@@ -540,7 +540,7 @@ define range(i32 -1, 1) i32 @H5T__enum_insert(ptr noundef readonly captures(none
   %80 = load ptr, ptr %79, align 8, !tbaa !31
   %81 = zext i32 %75 to i64
   %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
-  store ptr %77, ptr %82, align 8, !tbaa !34
+  store ptr %77, ptr %82, align 8, !tbaa !35
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %84 = load ptr, ptr %83, align 8, !tbaa !31
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -645,7 +645,7 @@ define range(i32 -1, 1) i32 @H5Tget_member_value(i64 noundef %0, i32 noundef %1,
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !25
   %.not = icmp eq i32 %49, 8
-  br i1 %.not, label %54, label %50, !prof !36
+  br i1 %.not, label %54, label %50, !prof !37
 
 50:                                               ; preds = %45
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -657,7 +657,7 @@ define range(i32 -1, 1) i32 @H5Tget_member_value(i64 noundef %0, i32 noundef %1,
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %56 = load i32, ptr %55, align 4, !tbaa !31
   %.not23 = icmp ult i32 %1, %56
-  br i1 %.not23, label %61, label %57, !prof !36
+  br i1 %.not23, label %61, label %57, !prof !37
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -937,19 +937,19 @@ define range(i32 -1, 1) i32 @H5Tenum_nameof(i64 noundef %0, ptr noundef readonly
   %.156.i = phi i32 [ %116, %115 ], [ %.05586.i, %106 ]
   %.152.i = phi i32 [ %.05187.i, %115 ], [ %108, %106 ]
   %118 = icmp ult i32 %.156.i, %.152.i
-  br i1 %118, label %106, label %._crit_edge.i, !llvm.loop !37
+  br i1 %118, label %106, label %._crit_edge.i, !llvm.loop !38
 
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 72
   %121 = load ptr, ptr %120, align 8, !tbaa !31
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %109
-  %123 = load ptr, ptr %122, align 8, !tbaa !34
+  %123 = load ptr, ptr %122, align 8, !tbaa !35
   %124 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %123, i64 noundef %3) #10
   %125 = load ptr, ptr %98, align 8, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8, !tbaa !31
   %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %109
-  %129 = load ptr, ptr %128, align 8, !tbaa !34
+  %129 = load ptr, ptr %128, align 8, !tbaa !35
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #11
   %.not69.i = icmp ult i64 %130, %3
   br i1 %.not69.i, label %.thread75.i.thread, label %131
@@ -1179,7 +1179,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %103 = lshr i32 %102, 1
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw ptr, ptr %100, i64 %104
-  %106 = load ptr, ptr %105, align 8, !tbaa !34
+  %106 = load ptr, ptr %105, align 8, !tbaa !35
   %107 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %106) #11
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %112, label %109
@@ -1196,7 +1196,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %.136.i = phi i32 [ %111, %110 ], [ %.03556.i, %101 ]
   %.132.i = phi i32 [ %.03157.i, %110 ], [ %103, %101 ]
   %113 = icmp ult i32 %.136.i, %.132.i
-  br i1 %113, label %101, label %._crit_edge.i, !llvm.loop !38
+  br i1 %113, label %101, label %._crit_edge.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %112, %94
   %114 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -1316,10 +1316,11 @@ attributes #11 = { nounwind willreturn memory(read) }
 !29 = !{!26, !27, i64 32}
 !30 = !{!26, !12, i64 16}
 !31 = !{!5, !5, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 omnipotent char", !19, i64 0}
-!36 = !{!"branch_weights", i32 -2147483648, i32 0}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 omnipotent char", !19, i64 0}
+!37 = !{!"branch_weights", i32 -2147483648, i32 0}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34}

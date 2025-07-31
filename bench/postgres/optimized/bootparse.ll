@@ -65,7 +65,7 @@ define dso_local range(i32 0, 2) i32 @boot_yyparse(ptr noundef %0) local_unnamed
   %.1318 = phi i32 [ %536, %535 ], [ %66, %70 ]
   %.1 = phi i32 [ %.7, %535 ], [ -2, %70 ]
   %8 = getelementptr inbounds nuw i8, ptr %.1333, i64 1
-  br label %9
+  br label %9, !llvm.loop !4
 
 9:                                                ; preds = %7, %1
   %.0344 = phi ptr [ %4, %1 ], [ %.1345, %7 ]
@@ -289,7 +289,7 @@ do_start.exit:                                    ; preds = %85, %88
   call void @MemoryContextReset(ptr noundef %94) #12
   %95 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %95, 0
-  br i1 %.not.i, label %97, label %96, !prof !4
+  br i1 %.not.i, label %97, label %96, !prof !6
 
 96:                                               ; preds = %do_start.exit
   call void @ProcessInterrupts() #12
@@ -328,7 +328,7 @@ do_start.exit384:                                 ; preds = %103, %106
   call void @MemoryContextReset(ptr noundef %112) #12
   %113 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i385 = icmp eq i32 %113, 0
-  br i1 %.not.i385, label %115, label %114, !prof !4
+  br i1 %.not.i385, label %115, label %114, !prof !6
 
 114:                                              ; preds = %do_start.exit384
   call void @ProcessInterrupts() #12
@@ -387,7 +387,7 @@ do_start.exit388:                                 ; preds = %121, %124
   call void @MemoryContextReset(ptr noundef %143) #12
   %144 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i389 = icmp eq i32 %144, 0
-  br i1 %.not.i389, label %146, label %145, !prof !4
+  br i1 %.not.i389, label %146, label %145, !prof !6
 
 145:                                              ; preds = %141
   call void @ProcessInterrupts() #12
@@ -493,7 +493,7 @@ do_start.exit392:                                 ; preds = %152, %155
   call void @MemoryContextReset(ptr noundef %198) #12
   %199 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i393 = icmp eq i32 %199, 0
-  br i1 %.not.i393, label %201, label %200, !prof !4
+  br i1 %.not.i393, label %201, label %200, !prof !6
 
 200:                                              ; preds = %196
   call void @ProcessInterrupts() #12
@@ -571,7 +571,7 @@ do_start.exit396:                                 ; preds = %207, %210
   call void @MemoryContextReset(ptr noundef %234) #12
   %235 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i397 = icmp eq i32 %235, 0
-  br i1 %.not.i397, label %237, label %236, !prof !4
+  br i1 %.not.i397, label %237, label %236, !prof !6
 
 236:                                              ; preds = %232
   call void @ProcessInterrupts() #12
@@ -652,7 +652,7 @@ do_start.exit400:                                 ; preds = %250, %253
   call void @MemoryContextReset(ptr noundef %280) #12
   %281 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i401 = icmp eq i32 %281, 0
-  br i1 %.not.i401, label %283, label %282, !prof !4
+  br i1 %.not.i401, label %283, label %282, !prof !6
 
 282:                                              ; preds = %do_start.exit400
   call void @ProcessInterrupts() #12
@@ -735,7 +735,7 @@ do_start.exit404:                                 ; preds = %296, %299
   call void @MemoryContextReset(ptr noundef %327) #12
   %328 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i405 = icmp eq i32 %328, 0
-  br i1 %.not.i405, label %330, label %329, !prof !4
+  br i1 %.not.i405, label %330, label %329, !prof !6
 
 329:                                              ; preds = %do_start.exit404
   call void @ProcessInterrupts() #12
@@ -788,7 +788,7 @@ do_start.exit408:                                 ; preds = %341, %344
   call void @MemoryContextReset(ptr noundef %354) #12
   %355 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i409 = icmp eq i32 %355, 0
-  br i1 %.not.i409, label %357, label %356, !prof !4
+  br i1 %.not.i409, label %357, label %356, !prof !6
 
 356:                                              ; preds = %do_start.exit408
   call void @ProcessInterrupts() #12
@@ -826,7 +826,7 @@ do_start.exit412:                                 ; preds = %363, %366
   call void @MemoryContextReset(ptr noundef %371) #12
   %372 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i413 = icmp eq i32 %372, 0
-  br i1 %.not.i413, label %374, label %373, !prof !4
+  br i1 %.not.i413, label %374, label %373, !prof !6
 
 373:                                              ; preds = %do_start.exit412
   call void @ProcessInterrupts() #12
@@ -1149,7 +1149,7 @@ do_end.exit:                                      ; preds = %376, %374, %359, %3
 
 542:                                              ; preds = %.lr.ph
   %543 = getelementptr inbounds i8, ptr %.5337502, i64 -1
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !7
 
 544:                                              ; preds = %13, %19
   call void @boot_yyerror(ptr noundef %0, ptr noundef nonnull @.str.18) #14
@@ -1288,4 +1288,7 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !5}

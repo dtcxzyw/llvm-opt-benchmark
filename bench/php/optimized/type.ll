@@ -830,7 +830,7 @@ zval_get_long.exit:                               ; preds = %28, %30
   %57 = icmp ne i16 %56, 0
   %58 = icmp ne i64 %51, 0
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph, label %._crit_edge
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.0125.lcssa = phi ptr [ %37, %36 ], [ %50, %.lr.ph ]
@@ -1291,7 +1291,7 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
 .critedge:                                        ; preds = %5
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !76
+  %13 = load i32, ptr %12, align 4, !tbaa !78
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %zend_array_is_list.exit, label %15
 
@@ -1304,7 +1304,7 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !77
+  %21 = load i32, ptr %20, align 8, !tbaa !79
   %22 = icmp eq i32 %21, %13
   br i1 %22, label %zend_array_is_list.exit, label %23
 
@@ -1336,13 +1336,13 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
   %34 = getelementptr inbounds nuw i8, ptr %.045.i65, i64 16
   %35 = add nuw nsw i64 %.046.i64, 1
   %.not51.i = icmp eq ptr %34, %27
-  br i1 %.not51.i, label %zend_array_is_list.exit, label %.lr.ph
+  br i1 %.not51.i, label %zend_array_is_list.exit, label %.lr.ph, !llvm.loop !80
 
 36:                                               ; preds = %15
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !77
+  %40 = load i32, ptr %39, align 8, !tbaa !79
   %41 = zext i32 %40 to i64
   %.idx78 = shl nuw nsw i64 %41, 5
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx78
@@ -1359,13 +1359,13 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
 
 46:                                               ; preds = %.lr.ph72
   %47 = getelementptr inbounds nuw i8, ptr %.041.i70, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !78
+  %48 = load ptr, ptr %47, align 8, !tbaa !81
   %.not49.i = icmp eq ptr %48, null
   br i1 %.not49.i, label %49, label %zend_array_is_list.exit
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %.041.i70, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !80
+  %51 = load i64, ptr %50, align 8, !tbaa !83
   %52 = add i64 %.238.i71, 1
   %.not50.i = icmp eq i64 %51, %.238.i71
   br i1 %.not50.i, label %select.unfold, label %zend_array_is_list.exit
@@ -1374,7 +1374,7 @@ select.unfold:                                    ; preds = %49, %.lr.ph72
   %.339.i = phi i64 [ %.238.i71, %.lr.ph72 ], [ %52, %49 ]
   %53 = getelementptr inbounds nuw i8, ptr %.041.i70, i64 32
   %.not48.i = icmp eq ptr %53, %42
-  br i1 %.not48.i, label %zend_array_is_list.exit, label %.lr.ph72
+  br i1 %.not48.i, label %zend_array_is_list.exit, label %.lr.ph72, !llvm.loop !84
 
 zend_array_is_list.exit:                          ; preds = %31, %33, %49, %46, %select.unfold, %23, %36, %19, %.critedge
   %54 = phi i32 [ 3, %.critedge ], [ 3, %19 ], [ 3, %36 ], [ 3, %23 ], [ 2, %49 ], [ 2, %46 ], [ 3, %select.unfold ], [ 2, %31 ], [ 3, %33 ]
@@ -1544,7 +1544,7 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr noundef writeonly captur
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
-  store i8 0, ptr %4, align 1, !tbaa !81
+  store i8 0, ptr %4, align 1, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = add i32 %6, -4
@@ -1566,14 +1566,14 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr noundef writeonly captur
   switch i8 %14, label %zend_parse_arg_bool_ex.exit [
     i8 3, label %zend_parse_arg_bool_ex.exit.thread
     i8 2, label %zend_parse_arg_bool_ex.exit.thread.fold.split
-  ], !prof !82
+  ], !prof !86
 
 zend_parse_arg_bool_ex.exit.thread.fold.split:    ; preds = %12
   br label %zend_parse_arg_bool_ex.exit.thread
 
 zend_parse_arg_bool_ex.exit.thread:               ; preds = %12, %zend_parse_arg_bool_ex.exit.thread.fold.split
   %storemerge.i = phi i8 [ 1, %12 ], [ 0, %zend_parse_arg_bool_ex.exit.thread.fold.split ]
-  store i8 %storemerge.i, ptr %4, align 1, !tbaa !81
+  store i8 %storemerge.i, ptr %4, align 1, !tbaa !85
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %12
@@ -1582,7 +1582,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %12
   br i1 %16, label %zend_parse_arg_bool_ex.exit._crit_edge, label %17, !prof !41
 
 zend_parse_arg_bool_ex.exit._crit_edge:           ; preds = %zend_parse_arg_bool_ex.exit
-  %.pre.pre = load i8, ptr %4, align 1, !tbaa !81, !range !83
+  %.pre.pre = load i8, ptr %4, align 1, !tbaa !85, !range !87
   %.pre93.pre = load i32, ptr %5, align 4, !tbaa !4
   br label %.critedge
 
@@ -1810,11 +1810,15 @@ attributes #12 = { nounwind willreturn memory(none) }
 !73 = !{!"p1 short", !18, i64 0}
 !74 = !{!75, !75, i64 0}
 !75 = !{!"short", !5, i64 0}
-!76 = !{!29, !11, i64 28}
-!77 = !{!29, !11, i64 24}
-!78 = !{!79, !20, i64 24}
-!79 = !{!"_Bucket", !44, i64 0, !14, i64 16, !20, i64 24}
-!80 = !{!79, !14, i64 16}
-!81 = !{!47, !47, i64 0}
-!82 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
-!83 = !{i8 0, i8 2}
+!76 = distinct !{!76, !77}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = !{!29, !11, i64 28}
+!79 = !{!29, !11, i64 24}
+!80 = distinct !{!80, !77}
+!81 = !{!82, !20, i64 24}
+!82 = !{!"_Bucket", !44, i64 0, !14, i64 16, !20, i64 24}
+!83 = !{!82, !14, i64 16}
+!84 = distinct !{!84, !77}
+!85 = !{!47, !47, i64 0}
+!86 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!87 = !{i8 0, i8 2}

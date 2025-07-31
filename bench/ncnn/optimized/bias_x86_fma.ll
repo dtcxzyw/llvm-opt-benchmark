@@ -274,7 +274,7 @@ define internal void @_ZNK4ncnn12Bias_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %54 = or disjoint i32 %53, 3
   %55 = load i32, ptr %5, align 4, !tbaa !22
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph57, label %.preheader, !llvm.loop !37
+  br i1 %56, label %.lr.ph57, label %.preheader, !llvm.loop !38
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.262 = phi ptr [ %59, %.lr.ph63 ], [ %.1.lcssa, %.preheader ]
@@ -285,13 +285,13 @@ define internal void @_ZNK4ncnn12Bias_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %59 = getelementptr inbounds nuw i8, ptr %.262, i64 4
   %60 = add nuw nsw i32 %.24361, 1
   %exitcond.not = icmp eq i32 %60, %48
-  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !39
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond74.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond74.not, label %._crit_edge67, label %.noexc
+  br i1 %exitcond74.not, label %._crit_edge67, label %.noexc, !llvm.loop !40
 
 ._crit_edge67:                                    ; preds = %._crit_edge64, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -335,7 +335,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #5
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare !callback !39 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #5
+declare !callback !41 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
@@ -405,9 +405,11 @@ attributes #14 = { builtin nounwind }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"float", !10, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = !{!40}
-!40 = !{i64 2, i64 -1, i64 -1, i1 true}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = distinct !{!39, !36, !37}
+!40 = distinct !{!40, !37}
+!41 = !{!42}
+!42 = !{i64 2, i64 -1, i64 -1, i1 true}

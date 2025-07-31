@@ -531,7 +531,7 @@ define dso_local void @mdunlink(i64 %0, i64 %1, i32 noundef %2, i1 noundef zeroe
   tail call fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %.010, i1 noundef zeroext %3)
   %6 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %6, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 7:                                                ; preds = %4
   tail call fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3)
@@ -697,7 +697,7 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %68 = call i32 @unlink(ptr noundef %62) #15
   %69 = icmp slt i32 %68, 0
   %70 = add i32 %.0.us, 1
-  br i1 %69, label %.split.us, label %.thread92.split.us, !llvm.loop !9
+  br i1 %69, label %.split.us, label %.thread92.split.us, !llvm.loop !10
 
 .thread92.split:                                  ; preds = %.thread92, %do_truncate.exit86
   %.0 = phi i32 [ %87, %do_truncate.exit86 ], [ 1, %.thread92 ]
@@ -739,7 +739,7 @@ do_truncate.exit86:                               ; preds = %82, %.thread92.spli
   %85 = call i32 @unlink(ptr noundef %62) #15
   %86 = icmp slt i32 %85, 0
   %87 = add i32 %.0, 1
-  br i1 %86, label %.split.us, label %.thread92.split
+  br i1 %86, label %.split.us, label %.thread92.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %do_truncate.exit86, %.thread92.split.us
   %88 = tail call ptr @__errno_location() #16
@@ -948,7 +948,7 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us
 50:                                               ; preds = %.split.us
   %51 = add i32 %.06190.us, 1
   %exitcond127.not = icmp eq i32 %.06190.us, %6
-  br i1 %exitcond127.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond127.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %90
   %.15891 = phi ptr [ %70, %90 ], [ %.057, %.lr.ph ]
@@ -1042,7 +1042,7 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
 90:                                               ; preds = %.split63
   %91 = add i32 %.06190, 1
   %exitcond.not = icmp eq i32 %.06190, %6
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !14
 
 .critedge:                                        ; preds = %90, %50, %29, %73, %81, %27, %18, %12
   %.0 = phi ptr [ %17, %12 ], [ null, %18 ], [ null, %27 ], [ null, %81 ], [ null, %73 ], [ %.057, %29 ], [ %48, %50 ], [ %70, %90 ]
@@ -1100,7 +1100,7 @@ define dso_local void @mdzeroextend(ptr noundef captures(none) %0, i32 noundef %
   %29 = sub nsw i32 %.03943.us, %.040.us
   %30 = add i32 %.040.us, %.044.us
   %31 = icmp sgt i32 %29, 0
-  br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
+  br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
 
 32:                                               ; preds = %5
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1182,7 +1182,7 @@ define dso_local void @mdzeroextend(ptr noundef captures(none) %0, i32 noundef %
   %76 = sub nsw i32 %.03943, %.040
   %77 = add i32 %.040, %.044
   %78 = icmp sgt i32 %76, 0
-  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %75, %28, %.preheader
   ret void
@@ -1236,7 +1236,7 @@ define dso_local noundef zeroext i1 @mdprefetch(ptr noundef captures(none) %0, i
   %24 = add i32 %19, %.02130
   %25 = sub nsw i32 %.02329, %19
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %.thread
+  br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !17
 
 .thread:                                          ; preds = %14, %.lr.ph, %.preheader, %4
   %.020 = phi i1 [ false, %4 ], [ true, %.preheader ], [ %.not.not, %.lr.ph ], [ %.not.not, %14 ]
@@ -1321,7 +1321,7 @@ define dso_local void @mdreadv(ptr noundef captures(none) %0, i32 noundef %1, i3
   %.1.i = phi ptr [ %.029.i, %29 ], [ %32, %31 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !18
 
 buffers_to_iovec.exit:                            ; preds = %35, %16
   %.023.lcssa.i = phi i32 [ 1, %16 ], [ %.124.i, %35 ]
@@ -1380,7 +1380,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %77, %buffers_to_iov
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %64, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge91.loopexit, label %.lr.ph84, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge91.loopexit, label %.lr.ph84, !llvm.loop !19
 
 65:                                               ; preds = %53
   %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1407,7 +1407,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %77, %buffers_to_iov
   %81 = call i64 @FileReadV(i32 noundef %80, ptr noundef nonnull %6, i32 noundef %79, i64 noundef %78, i32 noundef 167772177) #15
   %82 = trunc i64 %81 to i32
   %83 = icmp slt i32 %82, 0
-  br i1 %83, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
+  br i1 %83, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge91.loopexit:                           ; preds = %73, %.lr.ph84, %58
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #15
@@ -1496,7 +1496,7 @@ define dso_local void @mdwritev(ptr noundef captures(none) %0, i32 noundef %1, i
   %.1.i = phi ptr [ %.029.i, %31 ], [ %34, %33 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !18
 
 buffers_to_iovec.exit:                            ; preds = %37, %18
   %.023.lcssa.i = phi i32 [ 1, %18 ], [ %.124.i, %37 ]
@@ -1547,7 +1547,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %61, %buffers_to_iov
   %65 = call i64 @FileWriteV(i32 noundef %64, ptr noundef nonnull %7, i32 noundef %63, i64 noundef %62, i32 noundef 167772180) #15
   %66 = and i64 %65, 2147483648
   %.not53 = icmp eq i64 %66, 0
-  br i1 %.not53, label %.lr.ph, label %buffers_to_iovec.exit._crit_edge
+  br i1 %.not53, label %.lr.ph, label %buffers_to_iovec.exit._crit_edge, !llvm.loop !21
 
 67:                                               ; preds = %.lr.ph
   br i1 %5, label %._crit_edge75.loopexit, label %68
@@ -1617,7 +1617,7 @@ _mdfd_getseg.exit:                                ; preds = %10
   %28 = sub i32 %.02135, %.023
   %29 = add i32 %.023, %.02036
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.thread, label %10, !llvm.loop !22
 
 .thread:                                          ; preds = %15, %_mdfd_getseg.exit, %10, %4
   ret void
@@ -1684,7 +1684,7 @@ _mdnblocks.exit:                                  ; preds = %14
   %35 = add i32 %.0, 1
   %36 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %35, i32 noundef 0)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %14
+  br i1 %37, label %38, label %14, !llvm.loop !23
 
 38:                                               ; preds = %34
   %39 = shl i32 %35, 17
@@ -1951,7 +1951,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 
 91:                                               ; preds = %_fdvec_resize.exit, %90, %88
   %92 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %92, label %32, label %.thread
+  br i1 %92, label %32, label %.thread, !llvm.loop !24
 
 .thread:                                          ; preds = %91, %72, %22, %20, %6
   ret void
@@ -1973,7 +1973,7 @@ define dso_local void @mdregistersync(ptr noundef captures(none) %0, i32 noundef
   %9 = tail call fastcc ptr @_mdfd_openseg(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0, i32 noundef 0)
   %.not = icmp eq ptr %9, null
   %10 = add i32 %.0, 1
-  br i1 %.not, label %.preheader, label %8, !llvm.loop !17
+  br i1 %.not, label %.preheader, label %8, !llvm.loop !25
 
 .preheader:                                       ; preds = %8
   %11 = icmp sgt i32 %.0, 0
@@ -2044,7 +2044,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 
 42:                                               ; preds = %_fdvec_resize.exit, %16
   %43 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %43, label %16, label %._crit_edge, !llvm.loop !18
+  br i1 %43, label %16, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %42, %.preheader
   ret void
@@ -2064,7 +2064,7 @@ define dso_local void @mdimmedsync(ptr noundef captures(none) %0, i32 noundef %1
   %9 = tail call fastcc ptr @_mdfd_openseg(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0, i32 noundef 0)
   %.not = icmp eq ptr %9, null
   %10 = add i32 %.0, 1
-  br i1 %.not, label %.preheader, label %8, !llvm.loop !19
+  br i1 %.not, label %.preheader, label %8, !llvm.loop !27
 
 .preheader:                                       ; preds = %8
   %11 = icmp sgt i32 %.0, 0
@@ -2153,7 +2153,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 
 54:                                               ; preds = %_fdvec_resize.exit, %30
   %55 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %55, label %16, label %._crit_edge, !llvm.loop !20
+  br i1 %55, label %16, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %54, %.preheader
   ret void
@@ -2218,14 +2218,14 @@ define dso_local void @DropRelationFiles(ptr noundef readonly captures(none) %0,
   tail call void @XLogDropRelation(i64 %.sroa.0.0.copyload.us, i32 %.sroa.2.0.copyload.us, i32 noundef %.02527.us) #15
   %11 = add nuw nsw i32 %.02527.us, 1
   %exitcond35.not = icmp eq i32 %11, 4
-  br i1 %exitcond35.not, label %.loopexit.us, label %10, !llvm.loop !21
+  br i1 %exitcond35.not, label %.loopexit.us, label %10, !llvm.loop !29
 
 .loopexit.us:                                     ; preds = %10
   %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv36
   store ptr %9, ptr %12, align 8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.lr.ph31.preheader, label %.preheader.us, !llvm.loop !22
+  br i1 %exitcond40.not, label %.lr.ph31.preheader, label %.preheader.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2238,7 +2238,7 @@ define dso_local void @DropRelationFiles(ptr noundef readonly captures(none) %0,
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
-  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph.split, !llvm.loop !31
 
 .lr.ph31.preheader:                               ; preds = %.lr.ph.split, %.loopexit.us
   tail call void @smgrdounlinkall(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2) #15
@@ -2252,7 +2252,7 @@ define dso_local void @DropRelationFiles(ptr noundef readonly captures(none) %0,
   tail call void @smgrclose(ptr noundef %17) #15
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !24
+  br i1 %exitcond45.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !32
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge.thread46
   tail call void @pfree(ptr noundef %6) #15
@@ -2462,22 +2462,30 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !10}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !10}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !10}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8, !11}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !11}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8, !11}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}

@@ -111,7 +111,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   br i1 %exitcond.not, label %.critedge, label %Kit_TruthCopy.exit, !llvm.loop !18
 
 .critedge:                                        ; preds = %Kit_TruthCopy.exit, %Kit_TruthCopy.exit.preheader
-  %49 = load i32, ptr %1, align 8, !tbaa !20
+  %49 = load i32, ptr %1, align 8, !tbaa !21
   %50 = icmp eq i32 %.val34, %49
   br i1 %50, label %51, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -141,7 +141,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
 Vec_PtrGrow.exit.i:                               ; preds = %58, %56
   %60 = phi ptr [ %57, %56 ], [ %59, %58 ]
   store ptr %60, ptr %54, align 8, !tbaa !15
-  store i32 16, ptr %1, align 8, !tbaa !20
+  store i32 16, ptr %1, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 61:                                               ; preds = %51
@@ -164,7 +164,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %58, %56
 71:                                               ; preds = %69, %67
   %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
   store ptr %72, ptr %63, align 8, !tbaa !15
-  store i32 %62, ptr %1, align 8, !tbaa !20
+  store i32 %62, ptr %1, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %71
@@ -230,7 +230,7 @@ Kit_TruthCopy.exit:
   %35 = load ptr, ptr %0, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !3
-  %38 = load i32, ptr %35, align 8, !tbaa !20
+  %38 = load i32, ptr %35, align 8, !tbaa !21
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -260,7 +260,7 @@ Kit_TruthCopy.exit:
 Vec_PtrGrow.exit.i:                               ; preds = %47, %45
   %49 = phi ptr [ %46, %45 ], [ %48, %47 ]
   store ptr %49, ptr %43, align 8, !tbaa !15
-  store i32 16, ptr %35, align 8, !tbaa !20
+  store i32 16, ptr %35, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 50:                                               ; preds = %40
@@ -283,7 +283,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %47, %45
 60:                                               ; preds = %58, %56
   %61 = phi ptr [ %57, %56 ], [ %59, %58 ]
   store ptr %61, ptr %52, align 8, !tbaa !15
-  store i32 %51, ptr %35, align 8, !tbaa !20
+  store i32 %51, ptr %35, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %60
@@ -372,7 +372,7 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %.1 = phi i32 [ %52, %44 ], [ %.02629, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %54, label %39, !llvm.loop !21
+  br i1 %exitcond.not, label %54, label %39, !llvm.loop !22
 
 54:                                               ; preds = %53
   %55 = load i32, ptr %4, align 8
@@ -444,7 +444,7 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %35 = and i32 %34, 31
   %36 = zext nneg i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %15, label %._crit_edge, !llvm.loop !22
+  br i1 %37, label %15, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %15, %1
   %.lcssa = phi i32 [ %4, %1 ], [ %33, %15 ]
@@ -480,7 +480,7 @@ define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr noundef 
   %.1 = phi i32 [ %10, %7 ], [ %.078, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !24
 
 12:                                               ; preds = %11
   %13 = add nuw nsw i32 %.1, 1
@@ -511,7 +511,7 @@ define i32 @Lpk_SuppToVars(i32 noundef %0, ptr noundef writeonly captures(none) 
   %.1 = phi i32 [ %8, %6 ], [ %.09, %3 ]
   %12 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %12, 16
-  br i1 %exitcond.not, label %13, label %3, !llvm.loop !24
+  br i1 %exitcond.not, label %13, label %3, !llvm.loop !25
 
 13:                                               ; preds = %11
   ret i32 %.1
@@ -562,10 +562,11 @@ attributes #14 = { nounwind allocsize(1) }
 !15 = !{!4, !8, i64 8}
 !16 = !{!8, !8, i64 0}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!4, !5, i64 0}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!4, !5, i64 0}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}

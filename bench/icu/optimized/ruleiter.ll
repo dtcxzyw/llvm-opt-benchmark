@@ -256,7 +256,7 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu
   br i1 %.not31, label %119, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %117, %115
-  br label %.backedge, !llvm.loop !26
+  br label %.backedge, !llvm.loop !28
 
 119:                                              ; preds = %117, %116
   %120 = icmp eq i32 %.0.i3853, 92
@@ -273,7 +273,7 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %123, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 0, ptr %7, align 4, !tbaa !28
+  store i32 0, ptr %7, align 4, !tbaa !30
   %124 = load ptr, ptr %11, align 8, !tbaa !14
   %.not.i35 = icmp eq ptr %124, null
   %125 = load ptr, ptr %0, align 8
@@ -281,7 +281,7 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = select i1 %.not.i35, ptr %125, ptr %124
   %.in = select i1 %.not.i35, ptr %127, ptr %12
-  %129 = load i32, ptr %.in, align 8, !tbaa !28
+  %129 = load i32, ptr %.in, align 8, !tbaa !30
   %130 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %128, i32 noundef %129, i32 noundef 12)
           to label %_ZNK6icu_7721RuleCharacterIterator9lookaheadERNS_13UnicodeStringEi.exit unwind label %166
 
@@ -290,7 +290,7 @@ _ZNK6icu_7721RuleCharacterIterator9lookaheadERNS_13UnicodeStringEi.exit: ; preds
           to label %132 unwind label %166
 
 132:                                              ; preds = %_ZNK6icu_7721RuleCharacterIterator9lookaheadERNS_13UnicodeStringEi.exit
-  %133 = load i32, ptr %7, align 4, !tbaa !28
+  %133 = load i32, ptr %7, align 4, !tbaa !30
   %134 = load ptr, ptr %11, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %134, null
   br i1 %.not.i.i, label %148, label %135
@@ -585,33 +585,33 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %5, %18, %19, %35
 define void @_ZNK6icu_7721RuleCharacterIterator6getPosERNS0_3PosE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !14
-  store ptr %4, ptr %1, align 8, !tbaa !29
+  store ptr %4, ptr %1, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %8, ptr %9, align 8, !tbaa !31
+  store i32 %8, ptr %9, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %11, ptr %12, align 4, !tbaa !32
+  store i32 %11, ptr %12, align 4, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !29
+  %3 = load ptr, ptr %1, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !31
+  %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %8, ptr %9, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !32
+  %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %11, ptr %12, align 8, !tbaa !15
   ret void
@@ -716,7 +716,7 @@ _ZNK6icu_7721RuleCharacterIterator8_currentEv.exit: ; preds = %8, %11, %25
 
 _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit.backedge: ; preds = %60, %45, %44, %32
   %.be = phi ptr [ null, %60 ], [ null, %45 ], [ null, %44 ], [ %31, %32 ]
-  br label %_ZN6icu_7721RuleCharacterIterator8_advanceEi.exit
+  br label %_ZN6icu_7721RuleCharacterIterator8_advanceEi.exit, !llvm.loop !35
 
 _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit.thread: ; preds = %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit, %2
   ret void
@@ -771,8 +771,11 @@ attributes #10 = { nounwind }
 !25 = !{!"vtable pointer", !7, i64 0}
 !26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!13, !13, i64 0}
-!29 = !{!30, !4, i64 0}
-!30 = !{!"_ZTSN6icu_7721RuleCharacterIterator3PosE", !4, i64 0, !13, i64 8, !13, i64 12}
-!31 = !{!30, !13, i64 8}
-!32 = !{!30, !13, i64 12}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!13, !13, i64 0}
+!31 = !{!32, !4, i64 0}
+!32 = !{!"_ZTSN6icu_7721RuleCharacterIterator3PosE", !4, i64 0, !13, i64 8, !13, i64 12}
+!33 = !{!32, !13, i64 8}
+!34 = !{!32, !13, i64 12}
+!35 = distinct !{!35, !29}

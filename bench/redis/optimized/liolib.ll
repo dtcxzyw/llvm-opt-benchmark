@@ -554,7 +554,7 @@ define internal fastcc range(i32 0, 2) i32 @read_line(ptr noundef %0, ptr nounde
   %23 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #9
   %24 = call ptr @fgets(ptr noundef %23, i32 noundef 8192, ptr noundef %1)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 26:                                               ; preds = %._crit_edge, %17
   %.1.ph = phi i32 [ 1, %17 ], [ %9, %._crit_edge ]
@@ -640,7 +640,7 @@ define internal fastcc i32 @g_read(ptr noundef %0, ptr noundef %1, i32 noundef r
   %34 = icmp ne i64 %33, 0
   %35 = icmp eq i64 %30, %spec.select.i
   %36 = and i1 %35, %34
-  br i1 %36, label %28, label %37, !llvm.loop !16
+  br i1 %36, label %28, label %37, !llvm.loop !18
 
 37:                                               ; preds = %28
   call void @luaL_pushresult(ptr noundef nonnull %6) #9
@@ -688,7 +688,7 @@ read_chars.exit:                                  ; preds = %37, %39
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = load double, ptr %5, align 8, !tbaa !18
+  %58 = load double, ptr %5, align 8, !tbaa !20
   call void @lua_pushnumber(ptr noundef %0, double noundef %58) #9
   br label %read_number.exit
 
@@ -723,7 +723,7 @@ read_number.exit:                                 ; preds = %57, %59
   %69 = icmp ne i64 %68, 0
   %70 = icmp eq i64 %65, %spec.select.i61
   %71 = and i1 %70, %69
-  br i1 %71, label %63, label %72, !llvm.loop !16
+  br i1 %71, label %63, label %72, !llvm.loop !18
 
 72:                                               ; preds = %63
   call void @luaL_pushresult(ptr noundef nonnull %4) #9
@@ -749,7 +749,7 @@ read_chars.exit62:                                ; preds = %72, %74
   %80 = icmp ne i32 %16, 0
   %81 = icmp ne i32 %.4, 0
   %82 = select i1 %80, i1 %81, i1 false
-  br i1 %82, label %15, label %.loopexit, !llvm.loop !20
+  br i1 %82, label %15, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.thread, %9
   %.049 = phi i32 [ %10, %9 ], [ %.4, %.thread ]
@@ -861,9 +861,9 @@ define internal fastcc range(i32 1, 4) i32 @g_write(ptr noundef %0, ptr noundef 
   br i1 %.not17, label %22, label %16
 
 16:                                               ; preds = %14
-  %17 = load i64, ptr %4, align 8, !tbaa !21
+  %17 = load i64, ptr %4, align 8, !tbaa !23
   %18 = call i64 @fwrite(ptr noundef %15, i64 noundef 1, i64 noundef %17, ptr noundef %1)
-  %19 = load i64, ptr %4, align 8, !tbaa !21
+  %19 = load i64, ptr %4, align 8, !tbaa !23
   %20 = icmp eq i64 %18, %19
   %21 = zext i1 %20 to i32
   br label %22
@@ -883,7 +883,7 @@ define internal fastcc range(i32 1, 4) i32 @g_write(ptr noundef %0, ptr noundef 
   %.01623.be = phi i32 [ %.016, %24 ], [ %.01626, %.thread ]
   %.01521.be = phi i32 [ %.1, %24 ], [ 0, %.thread ]
   %.022.be = add nuw nsw i32 %.022, 1
-  br label %.lr.ph, !llvm.loop !23
+  br label %.lr.ph, !llvm.loop !25
 
 .thread:                                          ; preds = %8
   %.01626 = add nsw i32 %.01623, -1
@@ -1303,10 +1303,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !14 = !{!"p1 omnipotent char", !6, i64 0}
 !15 = !{!"p1 _ZTS9lua_State", !6, i64 0}
 !16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !7, i64 0}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !7, i64 0}
-!23 = distinct !{!23, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !19, !17}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !7, i64 0}
+!22 = distinct !{!22, !19, !17}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = distinct !{!25, !19, !17}

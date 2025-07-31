@@ -75,7 +75,7 @@ define dso_local void @sha256_transform(ptr noundef captures(none) %0, ptr nound
   store i32 %43, ptr %44, align 4, !tbaa !5
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 64
-  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -137,7 +137,7 @@ define dso_local void @sha256_transform(ptr noundef captures(none) %0, ptr nound
   %90 = add i32 %88, %78
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 64
-  br i1 %exitcond122.not, label %91, label %61, !llvm.loop !13
+  br i1 %exitcond122.not, label %91, label %61, !llvm.loop !14
 
 91:                                               ; preds = %61
   %92 = add i32 %90, %46
@@ -169,9 +169,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @sha256_init(ptr noundef writeonly captures(none) initializes((64, 68), (72, 112)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %2, align 8, !tbaa !14
+  store i32 0, ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %3, align 8, !tbaa !17
+  store i64 0, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1779033703, ptr %4, align 8, !tbaa !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -199,7 +199,7 @@ define dso_local void @sha256_update(ptr noundef captures(none) %0, ptr noundef 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre = load i32, ptr %4, align 8, !tbaa !14
+  %.pre = load i32, ptr %4, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %.lr.ph, %19
@@ -211,18 +211,18 @@ define dso_local void @sha256_update(ptr noundef captures(none) %0, ptr noundef 
   %11 = zext i32 %7 to i64
   %12 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %11
   store i8 %10, ptr %12, align 1, !tbaa !9
-  %13 = load i32, ptr %4, align 8, !tbaa !14
+  %13 = load i32, ptr %4, align 8, !tbaa !15
   %14 = add i32 %13, 1
-  store i32 %14, ptr %4, align 8, !tbaa !14
+  store i32 %14, ptr %4, align 8, !tbaa !15
   %15 = icmp eq i32 %14, 64
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %6
   tail call void @sha256_transform(ptr noundef nonnull %0, ptr noundef nonnull %0)
-  %17 = load i64, ptr %5, align 8, !tbaa !17
+  %17 = load i64, ptr %5, align 8, !tbaa !18
   %18 = add i64 %17, 512
-  store i64 %18, ptr %5, align 8, !tbaa !17
-  store i32 0, ptr %4, align 8, !tbaa !14
+  store i64 %18, ptr %5, align 8, !tbaa !18
+  store i32 0, ptr %4, align 8, !tbaa !15
   br label %19
 
 19:                                               ; preds = %6, %16
@@ -230,7 +230,7 @@ define dso_local void @sha256_update(ptr noundef captures(none) %0, ptr noundef 
   %21 = add i32 %.013, 1
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %2, %22
-  br i1 %23, label %6, label %._crit_edge, !llvm.loop !18
+  br i1 %23, label %6, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %19, %3
   ret void
@@ -239,7 +239,7 @@ define dso_local void @sha256_update(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @sha256_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !14
+  %4 = load i32, ptr %3, align 8, !tbaa !15
   %5 = icmp ult i32 %4, 56
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %6
@@ -278,13 +278,13 @@ define dso_local void @sha256_final(ptr noundef captures(none) %0, ptr noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph74.preheader, %8, %._crit_edge
-  %17 = load i32, ptr %3, align 8, !tbaa !14
+  %17 = load i32, ptr %3, align 8, !tbaa !15
   %18 = shl i32 %17, 3
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %21 = load i64, ptr %20, align 8, !tbaa !18
   %22 = add i64 %21, %19
-  store i64 %22, ptr %20, align 8, !tbaa !17
+  store i64 %22, ptr %20, align 8, !tbaa !18
   %23 = trunc i64 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 63
   store i8 %23, ptr %24, align 1, !tbaa !9
@@ -374,7 +374,7 @@ define dso_local void @sha256_final(ptr noundef captures(none) %0, ptr noundef w
   store i8 %87, ptr %88, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %89, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %89, label %54, !llvm.loop !20
 
 89:                                               ; preds = %54
   ret void
@@ -405,13 +405,14 @@ attributes #5 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = !{!15, !6, i64 64}
-!15 = !{!"", !7, i64 0, !6, i64 64, !16, i64 72, !7, i64 80}
-!16 = !{!"long long", !7, i64 0}
-!17 = !{!15, !16, i64 72}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = !{!16, !6, i64 64}
+!16 = !{!"", !7, i64 0, !6, i64 64, !17, i64 72, !7, i64 80}
+!17 = !{!"long long", !7, i64 0}
+!18 = !{!16, !17, i64 72}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}

@@ -275,7 +275,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   store i16 1024, ptr %160, align 2
   %161 = add nuw nsw i64 %159, 1
   %162 = icmp eq i64 %161, 14134
-  br i1 %162, label %163, label %158, !llvm.loop !7
+  br i1 %162, label %163, label %158, !llvm.loop !11
 
 163:                                              ; preds = %158
   store i32 -1, ptr %0, align 8
@@ -308,7 +308,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %175 = load i64, ptr %9, align 8
   %176 = load i64, ptr %10, align 8
   %177 = icmp eq i64 %175, %176
-  br i1 %177, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %177, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.preheader, %174
   %178 = phi i32 [ %186, %174 ], [ %.pre31, %.preheader.preheader ]
@@ -326,7 +326,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %188 = add i32 %187, -1
   store i32 %188, ptr %25, align 8
   %189 = icmp eq i32 %188, 0
-  br i1 %189, label %.critedge.loopexit, label %174, !llvm.loop !10
+  br i1 %189, label %.critedge.loopexit, label %174, !llvm.loop !13
 
 .critedge.loopexit:                               ; preds = %.preheader
   %.pre32 = load i32, ptr %4, align 4
@@ -683,14 +683,14 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   store i64 %398, ptr %9, align 8
   %399 = load i32, ptr %4, align 4
   %400 = icmp eq i32 %399, 0
-  br i1 %400, label %.thread24, label %.preheader28, !llvm.loop !11
+  br i1 %400, label %.thread24, label %.preheader28, !llvm.loop !14
 
 .thread24:                                        ; preds = %393, %347
   store i32 0, ptr %3, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.thread24, %343, %339, %334, %113, %106, %97, %88, %87, %84, %76, %72, %40
-  br label %34, !llvm.loop !12
+  br label %34, !llvm.loop !15
 
 .loopexit:                                        ; preds = %343, %335, %331, %328, %325, %281, %279, %243, %239, %170, %164, %149, %123, %85, %73, %63, %41, %38, %353, %.preheader28, %174
   %401 = phi i32 [ 0, %174 ], [ 0, %.preheader28 ], [ 0, %353 ], [ 0, %170 ], [ 7, %281 ], [ 7, %279 ], [ 7, %243 ], [ 7, %239 ], [ 7, %149 ], [ 7, %123 ], [ 0, %38 ], [ 0, %335 ], [ 0, %343 ], [ 7, %325 ], [ 7, %328 ], [ 7, %331 ], [ 7, %164 ], [ 7, %85 ], [ 7, %73 ], [ 7, %63 ], [ 1, %41 ]
@@ -908,7 +908,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %51 = select i1 %50, i64 0, i64 %43
   %52 = add i32 %40, -1
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %39, !llvm.loop !13
+  br i1 %53, label %54, label %39, !llvm.loop !16
 
 54:                                               ; preds = %39
   %55 = load i64, ptr %16, align 8
@@ -1109,7 +1109,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %198 = zext i1 %183 to i32
   %199 = or disjoint i32 %197, %198
   %200 = icmp ult i32 %162, 128
-  br i1 %200, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %200, label %.preheader, label %.loopexit, !llvm.loop !17
 
 201:                                              ; preds = %144
   %202 = load i32, ptr %66, align 4
@@ -1207,7 +1207,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %265 = or disjoint i32 %263, %264
   %266 = xor i32 %261, %225
   %267 = icmp ult i32 %221, 128
-  br i1 %267, label %217, label %.loopexit, !llvm.loop !15
+  br i1 %267, label %217, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %259, %194
   %268 = phi i32 [ %199, %194 ], [ %265, %259 ]
@@ -1590,7 +1590,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %507 = zext i1 %491 to i32
   %508 = or disjoint i32 %506, %507
   %509 = icmp ult i32 %470, 32
-  br i1 %509, label %467, label %510, !llvm.loop !14
+  br i1 %509, label %467, label %510, !llvm.loop !19
 
 510:                                              ; preds = %502
   %511 = add nsw i32 %508, -64
@@ -1688,7 +1688,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %571 = phi i32 [ %566, %560 ], [ %553, %.thread81 ]
   %572 = add nuw i32 %530, 1
   %573 = icmp eq i32 %572, %527
-  br i1 %573, label %.loopexit84, label %528, !llvm.loop !16
+  br i1 %573, label %.loopexit84, label %528, !llvm.loop !20
 
 574:                                              ; preds = %514
   %575 = add nsw i32 %515, -5
@@ -1732,7 +1732,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %602, ptr %66, align 4
   %603 = add i32 %580, -1
   %604 = icmp eq i32 %603, 0
-  br i1 %604, label %605, label %576, !llvm.loop !17
+  br i1 %604, label %605, label %576, !llvm.loop !21
 
 605:                                              ; preds = %592
   %606 = shl i32 %602, 4
@@ -1806,7 +1806,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i16 %.sink106, ptr %614, align 2
   %652 = add nuw nsw i32 %612, 1
   %653 = icmp eq i32 %652, 4
-  br i1 %653, label %.loopexit84, label %607, !llvm.loop !16
+  br i1 %653, label %.loopexit84, label %607, !llvm.loop !22
 
 .loopexit84:                                      ; preds = %648, %570, %513, %447, %366
   %654 = load i32, ptr %66, align 4
@@ -1861,7 +1861,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %688 = select i1 %687, i64 0, i64 %680
   %689 = add i32 %677, -1
   %690 = icmp eq i32 %689, 0
-  br i1 %690, label %691, label %676, !llvm.loop !13
+  br i1 %690, label %691, label %676, !llvm.loop !23
 
 691:                                              ; preds = %676
   %692 = load i64, ptr %86, align 8
@@ -1877,7 +1877,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %697 = phi i64 [ %693, %695 ], [ %693, %691 ], [ %274, %285 ], [ %274, %283 ], [ %274, %280 ]
   %698 = load i64, ptr %5, align 8
   %699 = icmp ult i64 %697, %698
-  br i1 %699, label %92, label %.loopexit86, !llvm.loop !18
+  br i1 %699, label %92, label %.loopexit86, !llvm.loop !24
 
 .loopexit86:                                      ; preds = %696, %92, %59
   %700 = load i32, ptr %0, align 8
@@ -2105,7 +2105,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
   %132 = zext i1 %115 to i32
   %133 = or disjoint i32 %131, %132
   %134 = icmp ult i32 %133, %88
-  br i1 %134, label %92, label %135, !llvm.loop !14
+  br i1 %134, label %92, label %135, !llvm.loop !25
 
 135:                                              ; preds = %129
   %136 = sub nuw i32 %133, %88
@@ -2147,15 +2147,22 @@ attributes #9 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
 !13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}
+!18 = distinct !{!18, !8, !9, !10}
+!19 = distinct !{!19, !8, !9, !10}
+!20 = distinct !{!20, !8, !9, !10}
+!21 = distinct !{!21, !8, !9, !10}
+!22 = distinct !{!22, !8, !9, !10}
+!23 = distinct !{!23, !8, !9, !10}
+!24 = distinct !{!24, !8, !9, !10}
+!25 = distinct !{!25, !8, !9, !10}

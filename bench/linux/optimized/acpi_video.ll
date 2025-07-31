@@ -305,7 +305,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   %94 = add i32 %91, %93
   %95 = add nuw nsw i64 %85, 1
   %96 = icmp eq i64 %95, %47
-  br i1 %96, label %97, label %84, !llvm.loop !8
+  br i1 %96, label %97, label %84, !llvm.loop !9
 
 97:                                               ; preds = %84
   %98 = icmp slt i32 %94, 2
@@ -341,7 +341,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   store i32 %117, ptr %118, align 4
   %119 = add nsw i64 %111, -1
   %120 = icmp samesign ugt i64 %111, 2
-  br i1 %120, label %110, label %.loopexit, !llvm.loop !9
+  br i1 %120, label %110, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %110, %.thread12
   %121 = add i32 %101, %102
@@ -530,7 +530,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   store i32 1, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #18
-  store i64 0, ptr %10, align 8, !annotation !10
+  store i64 0, ptr %10, align 8, !annotation !11
   store i32 1, ptr %10, align 8
   store ptr %9, ptr %25, align 8
   store i64 2, ptr %26, align 8
@@ -582,7 +582,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   store i32 1, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  store i64 0, ptr %7, align 8, !annotation !10
+  store i64 0, ptr %7, align 8, !annotation !11
   store i32 1, ptr %7, align 8
   store ptr %6, ptr %29, align 8
   store i64 1, ptr %30, align 8
@@ -638,7 +638,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %112 = load i8, ptr %17, align 8
   %113 = zext i8 %112 to i64
   %114 = icmp samesign ult i64 %111, %113
-  br i1 %114, label %31, label %.loopexit, !llvm.loop !11
+  br i1 %114, label %31, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %110, %105, %16, %12, %4
   %115 = phi i32 [ %107, %105 ], [ -22, %12 ], [ -22, %4 ], [ -19, %16 ], [ -19, %110 ]
@@ -712,7 +712,7 @@ define dso_local void @acpi_video_register_backlight() #0 align 16 {
   tail call fastcc void @acpi_video_bus_register_backlight(ptr noundef %4)
   %5 = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %5, @video_bus_head
-  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %0
   tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #18
@@ -729,7 +729,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %7 = alloca %struct.backlight_properties, align 4
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 8, !range !13, !noundef !14
+  %10 = load i8, ptr %9, align 8, !range !14, !noundef !15
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %381
 
@@ -785,7 +785,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %48 = add nuw nsw i64 %42, 1
   %49 = icmp eq i64 %48, %40
   %50 = select i1 %47, i1 true, i1 %49
-  br i1 %50, label %51, label %41, !llvm.loop !15
+  br i1 %50, label %51, label %41, !llvm.loop !16
 
 51:                                               ; preds = %41
   br i1 %47, label %52, label %375
@@ -804,18 +804,18 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
 
 60:                                               ; preds = %55, %52
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  store ptr null, ptr %8, align 8, !annotation !10
+  store ptr null, ptr %8, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   store ptr null, ptr %6, align 8
   %61 = getelementptr i8, ptr %24, i64 120
   %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @acpi_video_get_levels(ptr noundef %62, ptr noundef nonnull %6, ptr noundef nonnull %4), !range !16
+  %63 = call i32 @acpi_video_get_levels(ptr noundef %62, ptr noundef nonnull %6, ptr noundef nonnull %4), !range !17
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %373
 
@@ -864,7 +864,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %92 = load i32, ptr %4, align 4
   %93 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !11
   %94 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
   br i1 %94, label %192, label %95
 
@@ -926,7 +926,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
 131:                                              ; preds = %120
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %132 = icmp eq i64 %indvars.iv.next.i, %119
-  br i1 %132, label %acpi_video_device_lcd_set_level.exit, label %120, !llvm.loop !17
+  br i1 %132, label %acpi_video_device_lcd_set_level.exit, label %120, !llvm.loop !18
 
 133:                                              ; preds = %128, %124
   %134 = load i8, ptr %70, align 1
@@ -1095,7 +1095,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
 239:                                              ; preds = %233
   %240 = add nuw nsw i64 %234, 1
   %241 = icmp eq i64 %240, %232
-  br i1 %241, label %.thread, label %233, !llvm.loop !18
+  br i1 %241, label %.thread, label %233, !llvm.loop !19
 
 242:                                              ; preds = %233
   %243 = trunc i64 %234 to i32
@@ -1169,7 +1169,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
 285:                                              ; preds = %274
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %286 = icmp eq i64 %indvars.iv.next.i17, %273
-  br i1 %286, label %.loopexit.i15, label %274, !llvm.loop !17
+  br i1 %286, label %.loopexit.i15, label %274, !llvm.loop !18
 
 .loopexit.i15:                                    ; preds = %285, %264
   %287 = load ptr, ptr %61, align 8
@@ -1240,7 +1240,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
 
 321:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store i64 0, ptr %2, align 8, !annotation !10
+  store i64 0, ptr %2, align 8, !annotation !11
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 264
   %323 = load ptr, ptr %322, align 8
   call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %323, ptr noundef nonnull %2)
@@ -1274,7 +1274,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
 343:                                              ; preds = %334
   %344 = add nuw nsw i64 %335, 1
   %345 = icmp eq i64 %344, %333
-  br i1 %345, label %.loopexit, label %334, !llvm.loop !19
+  br i1 %345, label %.loopexit, label %334, !llvm.loop !20
 
 .loopexit:                                        ; preds = %343, %340, %321
   %346 = phi i32 [ %342, %340 ], [ 0, %321 ], [ 0, %343 ]
@@ -1335,7 +1335,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
 375:                                              ; preds = %374, %55, %51
   %376 = load ptr, ptr %24, align 8
   %377 = icmp eq ptr %376, %17
-  br i1 %377, label %.loopexit19, label %23, !llvm.loop !20
+  br i1 %377, label %.loopexit19, label %23, !llvm.loop !21
 
 .loopexit19:                                      ; preds = %375, %15
   call void @mutex_unlock(ptr noundef nonnull %16) #18
@@ -1374,7 +1374,7 @@ define internal i32 @acpi_video_init() #5 section ".init.text" align 16 {
   br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc i32 @intel_opregion_present() #22, !range !21
+  %4 = tail call fastcc i32 @intel_opregion_present() #22, !range !22
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -1466,7 +1466,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
 
 12:                                               ; preds = %1
   %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #21
-  %14 = load i8, ptr @allow_duplicates, align 1, !range !13, !noundef !14
+  %14 = load i8, ptr @allow_duplicates, align 1, !range !14, !noundef !15
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %192, label %16
 
@@ -1612,7 +1612,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   br label %101
 
 101:                                              ; preds = %97, %92
-  store i8 0, ptr %2, align 1, !annotation !10
+  store i8 0, ptr %2, align 1, !annotation !11
   %102 = load ptr, ptr %18, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
@@ -1717,7 +1717,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   tail call fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %18)
   %160 = call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef nonnull %2) #18
   %161 = icmp eq i32 %160, 1
-  %162 = load i8, ptr %2, align 1, !range !13
+  %162 = load i8, ptr %2, align 1, !range !14
   %163 = icmp eq i8 %162, 0
   %164 = select i1 %161, i1 %163, i1 false
   br i1 %164, label %165, label %166
@@ -1774,7 +1774,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %185, align 8
   call void @kfree(ptr noundef %183) #18
   %188 = icmp eq ptr %184, %140
-  br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %178
   call void @mutex_unlock(ptr noundef nonnull %139) #18
@@ -1841,7 +1841,7 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
   tail call void @kfree(ptr noundef %18) #18
   %23 = icmp eq ptr %19, %14
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %7
   tail call void @mutex_unlock(ptr noundef nonnull %13) #18
@@ -1949,7 +1949,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
 26:                                               ; preds = %.critedge, %25
   %27 = load ptr, ptr %10, align 8
   %28 = icmp eq ptr %27, %4
-  br i1 %28, label %.loopexit, label %9, !llvm.loop !23
+  br i1 %28, label %.loopexit, label %9, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %1
   call void @mutex_unlock(ptr noundef nonnull %3) #18
@@ -2009,15 +2009,15 @@ select.unfold:                                    ; preds = %11, %5
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 2, ptr %33, align 8
   %34 = getelementptr i8, ptr %2, i64 76
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 8, ptr elementtype(i8) %34) #18, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 8, ptr elementtype(i8) %34) #18, !srcloc !26
   %35 = getelementptr i8, ptr %2, i64 78
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 2, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 4, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 8, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 2, ptr elementtype(i8) %34) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 16, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 32, ptr elementtype(i8) %35) #18, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 2, ptr elementtype(i8) %35) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 4, ptr elementtype(i8) %35) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 8, ptr elementtype(i8) %35) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 2, ptr elementtype(i8) %34) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 16, ptr elementtype(i8) %35) #18, !srcloc !26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 32, ptr elementtype(i8) %35) #18, !srcloc !26
   %36 = tail call i32 @input_register_device(ptr noundef nonnull %2) #18
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %60
@@ -2056,7 +2056,7 @@ select.unfold:                                    ; preds = %11, %5
 57:                                               ; preds = %53, %51
   %58 = load ptr, ptr %43, align 8
   %59 = icmp eq ptr %58, %40
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %57, %38
   tail call void @mutex_unlock(ptr noundef nonnull %39) #18
@@ -2164,14 +2164,14 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   %40 = add nuw nsw i64 %28, 1
   %41 = zext i8 %39 to i64
   %42 = icmp samesign ult i64 %40, %41
-  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !26
+  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %38, %.split
   %43 = phi i8 [ %22, %.split ], [ %39, %38 ]
   %44 = phi i8 [ 0, %.split ], [ %39, %38 ]
   %45 = load ptr, ptr %24, align 8
   %46 = icmp eq ptr %45, %14
-  br i1 %46, label %.loopexit6, label %.split, !llvm.loop !27
+  br i1 %46, label %.loopexit6, label %.split, !llvm.loop !29
 
 .loopexit6:                                       ; preds = %.loopexit, %17, %12
   tail call void @mutex_unlock(ptr noundef nonnull %13) #18
@@ -2241,7 +2241,7 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef no
 19:                                               ; preds = %11, %.preheader
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %3
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %19, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #18
@@ -2275,7 +2275,7 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !range !13, !noundef !14
+  %3 = load i8, ptr %2, align 8, !range !14, !noundef !15
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %39, label %5
 
@@ -2338,7 +2338,7 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
 36:                                               ; preds = %29, %25
   %37 = load ptr, ptr %12, align 8
   %38 = icmp eq ptr %37, %9
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %36, %5
   tail call void @mutex_unlock(ptr noundef nonnull %8) #18
@@ -2462,7 +2462,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %65 = phi i32 [ %45, %51 ], [ %62, %55 ]
   %66 = add nuw i32 %44, 1
   %67 = icmp ult i32 %66, %64
-  br i1 %67, label %42, label %68, !llvm.loop !31
+  br i1 %67, label %42, label %68, !llvm.loop !33
 
 68:                                               ; preds = %63
   %69 = trunc i32 %65 to i8
@@ -2495,7 +2495,7 @@ declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr nou
 define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @acpi_evaluate_integer(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %3) #18
@@ -2544,7 +2544,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 31:                                               ; preds = %34
   %32 = add nuw nsw i64 %35, 1
   %33 = icmp eq i64 %32, %30
-  br i1 %33, label %.thread.preheader, label %34, !llvm.loop !32
+  br i1 %33, label %.thread.preheader, label %34, !llvm.loop !34
 
 34:                                               ; preds = %31, %27
   %35 = phi i64 [ 0, %27 ], [ %32, %31 ]
@@ -2561,7 +2561,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 
 43:                                               ; preds = %41
   %44 = icmp sgt i32 %37, -1
-  %45 = load i8, ptr @device_id_scheme, align 1, !range !13
+  %45 = load i8, ptr @device_id_scheme, align 1, !range !14
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %44, i1 %46, i1 false
   br i1 %47, label %.thread.preheader, label %48
@@ -2610,7 +2610,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 65:                                               ; preds = %.thread
   %66 = add nuw nsw i64 %68, 1
   %67 = icmp eq i64 %66, %30
-  br i1 %67, label %.sink.split, label %.thread, !llvm.loop !33
+  br i1 %67, label %.sink.split, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %.thread.preheader, %65
   %68 = phi i64 [ %66, %65 ], [ 0, %.thread.preheader ]
@@ -2688,7 +2688,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %107 = add nuw nsw i64 %95, 1
   %108 = zext i8 %106 to i64
   %109 = icmp samesign ult i64 %107, %108
-  br i1 %109, label %93, label %.loopexit, !llvm.loop !26
+  br i1 %109, label %93, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %105, %90
   %110 = load ptr, ptr %17, align 8
@@ -2832,7 +2832,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   br i1 %8, label %118, label %9
 
 9:                                                ; preds = %1
-  store i64 0, ptr %2, align 8, !annotation !10
+  store i64 0, ptr %2, align 8, !annotation !11
   %10 = getelementptr i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -2877,7 +2877,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   %37 = phi i32 [ %30, %34 ], [ %27, %25 ]
   %38 = add nuw nsw i64 %26, 1
   %39 = icmp eq i64 %38, %24
-  br i1 %39, label %40, label %25, !llvm.loop !34
+  br i1 %39, label %40, label %25, !llvm.loop !37
 
 40:                                               ; preds = %36, %34
   %41 = phi i32 [ %37, %36 ], [ 0, %34 ]
@@ -2904,7 +2904,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   %60 = select i1 %59, i32 %50, i32 %47
   %61 = add nuw nsw i64 %44, 1
   %62 = icmp eq i64 %61, %24
-  br i1 %62, label %.loopexit, label %43, !llvm.loop !35
+  br i1 %62, label %.loopexit, label %43, !llvm.loop !38
 
 .loopexit:                                        ; preds = %43, %.thread
   %63 = phi i32 [ %20, %.thread ], [ %42, %43 ]
@@ -2986,7 +2986,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
 107:                                              ; preds = %97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = icmp eq i64 %indvars.iv.next.i, %96
-  br i1 %108, label %acpi_video_device_lcd_set_level.exit.sink.split, label %97, !llvm.loop !17
+  br i1 %108, label %acpi_video_device_lcd_set_level.exit.sink.split, label %97, !llvm.loop !18
 
 109:                                              ; preds = %104, %101
   %110 = phi ptr [ %.pre, %104 ], [ null, %101 ]
@@ -3094,7 +3094,7 @@ define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef
 55:                                               ; preds = %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = icmp eq i64 %indvars.iv.next, %54
-  br i1 %56, label %.loopexit, label %57, !llvm.loop !36
+  br i1 %56, label %.loopexit, label %57, !llvm.loop !39
 
 57:                                               ; preds = %55, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 2, %51 ]
@@ -3199,27 +3199,27 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   ]
 
 22:                                               ; preds = %21
-  %23 = load i8, ptr @brightness_switch_enabled, align 1, !range !13, !noundef !14
+  %23 = load i8, ptr @brightness_switch_enabled, align 1, !range !14, !noundef !15
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %43, label %37
 
 25:                                               ; preds = %21
-  %26 = load i8, ptr @brightness_switch_enabled, align 1, !range !13, !noundef !14
+  %26 = load i8, ptr @brightness_switch_enabled, align 1, !range !14, !noundef !15
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %43, label %37
 
 28:                                               ; preds = %21
-  %29 = load i8, ptr @brightness_switch_enabled, align 1, !range !13, !noundef !14
+  %29 = load i8, ptr @brightness_switch_enabled, align 1, !range !14, !noundef !15
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %43, label %37
 
 31:                                               ; preds = %21
-  %32 = load i8, ptr @brightness_switch_enabled, align 1, !range !13, !noundef !14
+  %32 = load i8, ptr @brightness_switch_enabled, align 1, !range !14, !noundef !15
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %43, label %37
 
 34:                                               ; preds = %21
-  %35 = load i8, ptr @brightness_switch_enabled, align 1, !range !13, !noundef !14
+  %35 = load i8, ptr @brightness_switch_enabled, align 1, !range !14, !noundef !15
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %43, label %37
 
@@ -3380,7 +3380,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
 57:                                               ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = icmp eq i64 %indvars.iv.next.i, %45
-  br i1 %58, label %.loopexit.i, label %46, !llvm.loop !17
+  br i1 %58, label %.loopexit.i, label %46, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %57, %36
   %59 = load ptr, ptr %25, align 8
@@ -3394,7 +3394,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %54, %
   %63 = load i8, ptr %8, align 8
   %64 = zext i8 %63 to i64
   %65 = icmp samesign ult i64 %62, %64
-  br i1 %65, label %13, label %.loopexit, !llvm.loop !37
+  br i1 %65, label %13, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %acpi_video_device_lcd_set_level.exit, %4, %3
   %66 = phi i32 [ 0, %3 ], [ 1, %4 ], [ 1, %acpi_video_device_lcd_set_level.exit ]
@@ -3417,7 +3417,7 @@ declare dso_local ptr @backlight_device_register(ptr noundef, ptr noundef, ptr n
 define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightness(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store i64 0, ptr %2, align 8, !annotation !10
+  store i64 0, ptr %2, align 8, !annotation !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %4, ptr noundef nonnull %2)
@@ -3451,7 +3451,7 @@ define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightnes
 23:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp eq i64 %indvars.iv.next, %14
-  br i1 %24, label %.loopexit, label %15, !llvm.loop !19
+  br i1 %24, label %.loopexit, label %15, !llvm.loop !41
 
 .loopexit:                                        ; preds = %23, %20, %1
   %25 = phi i32 [ %22, %20 ], [ 0, %1 ], [ 0, %23 ]
@@ -3536,7 +3536,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
 47:                                               ; preds = %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = icmp eq i64 %indvars.iv.next.i, %35
-  br i1 %48, label %.loopexit.i, label %36, !llvm.loop !17
+  br i1 %48, label %.loopexit.i, label %36, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %47, %26
   %49 = load ptr, ptr %15, align 8
@@ -3573,7 +3573,7 @@ define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr noundef r
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !11
   call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %5, ptr noundef nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
@@ -3608,7 +3608,7 @@ define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr noundef r
 26:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = icmp eq i64 %indvars.iv.next, %15
-  br i1 %27, label %.loopexit, label %16, !llvm.loop !38
+  br i1 %27, label %.loopexit, label %16, !llvm.loop !42
 
 .loopexit:                                        ; preds = %26, %21, %2
   %28 = phi i32 [ 0, %21 ], [ -22, %2 ], [ -22, %26 ]
@@ -3690,7 +3690,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
 52:                                               ; preds = %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = icmp eq i64 %indvars.iv.next.i, %40
-  br i1 %53, label %.loopexit.i, label %41, !llvm.loop !17
+  br i1 %53, label %.loopexit.i, label %41, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %52, %31
   %54 = load ptr, ptr %20, align 8
@@ -3708,7 +3708,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %49, %
 define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_addr #5 section ".init.text" align 16 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #18
-  store i32 0, ptr %1, align 4, !annotation !10
+  store i32 0, ptr %1, align 4, !annotation !11
   %2 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -3729,7 +3729,7 @@ define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_add
 12:                                               ; preds = %19, %19, %15, %6
   %13 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #18
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %6, !llvm.loop !39
+  br i1 %14, label %.loopexit, label %6, !llvm.loop !43
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 60
@@ -3752,7 +3752,7 @@ define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_add
   %26 = select i1 %25, i32 %5, i32 1
   %27 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #18
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %22, %12, %0
   %29 = phi i32 [ 0, %0 ], [ %5, %12 ], [ %26, %22 ]
@@ -3809,38 +3809,43 @@ attributes #22 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !6, !7}
-!16 = !{i32 -22, i32 1}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = !{i32 0, i32 2}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = !{i64 2147842303, i64 2147842342, i64 2147842363, i64 2147842400, i64 2147842423, i64 2147842293}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7, !28}
-!28 = !{!"llvm.loop.unswitch.partial.disable"}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = !{i32 -22, i32 1}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = !{i32 0, i32 2}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = !{i64 2147842303, i64 2147842342, i64 2147842363, i64 2147842400, i64 2147842423, i64 2147842293}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8, !30}
+!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = distinct !{!43, !6, !7, !8}
+!44 = distinct !{!44, !6, !7, !8}

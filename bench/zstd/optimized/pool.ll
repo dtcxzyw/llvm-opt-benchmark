@@ -139,7 +139,7 @@ ZSTD_customCalloc.exit64:                         ; preds = %33, %35
 48:                                               ; preds = %46
   store i64 %0, ptr %38, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 40
-  store i64 %0, ptr %49, align 8, !tbaa !24
+  store i64 %0, ptr %49, align 8, !tbaa !25
   br label %50
 
 50:                                               ; preds = %45, %48, %30, %ZSTD_customCalloc.exit, %3, %41
@@ -181,12 +181,12 @@ define void @POOL_free(ptr noundef %0) local_unnamed_addr #0 {
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %14 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i64, ptr %15, i64 %.09.i
-  %17 = load i64, ptr %16, align 8, !tbaa !25
+  %17 = load i64, ptr %16, align 8, !tbaa !26
   %18 = tail call i32 @pthread_join(i64 noundef %17, ptr noundef null) #9
   %19 = add nuw i64 %.09.i, 1
   %20 = load i64, ptr %11, align 8, !tbaa !19
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %14, label %POOL_join.exit, !llvm.loop !26
+  br i1 %21, label %14, label %POOL_join.exit, !llvm.loop !27
 
 POOL_join.exit:                                   ; preds = %14, %2
   %22 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
@@ -292,7 +292,7 @@ define internal noundef ptr @POOL_thread(ptr noundef returned %0) #0 {
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %4, align 8, !tbaa !15
-  %19 = load i64, ptr %5, align 8, !tbaa !24
+  %19 = load i64, ptr %5, align 8, !tbaa !25
   %.not28 = icmp ult i64 %18, %19
   br i1 %.not28, label %25, label %.critedge
 
@@ -307,11 +307,11 @@ define internal noundef ptr @POOL_thread(ptr noundef returned %0) #0 {
 
 23:                                               ; preds = %.critedge
   %24 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %7, ptr noundef nonnull %2) #9
-  br label %15, !llvm.loop !27
+  br label %15, !llvm.loop !28
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %8, align 8, !tbaa !14
-  %27 = load i64, ptr %9, align 8, !tbaa !28
+  %27 = load i64, ptr %9, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %26, i64 %27
   %.sroa.0.0.copyload = load ptr, ptr %28, align 8, !tbaa !21
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -319,10 +319,10 @@ define internal noundef ptr @POOL_thread(ptr noundef returned %0) #0 {
   %29 = add i64 %27, 1
   %30 = load i64, ptr %10, align 8, !tbaa !8
   %31 = urem i64 %29, %30
-  store i64 %31, ptr %9, align 8, !tbaa !28
+  store i64 %31, ptr %9, align 8, !tbaa !29
   %32 = add nuw i64 %18, 1
   store i64 %32, ptr %4, align 8, !tbaa !15
-  %33 = load i64, ptr %11, align 8, !tbaa !29
+  %33 = load i64, ptr %11, align 8, !tbaa !30
   %34 = icmp eq i64 %31, %33
   %35 = zext i1 %34 to i32
   store i32 %35, ptr %3, align 8, !tbaa !16
@@ -335,7 +335,7 @@ define internal noundef ptr @POOL_thread(ptr noundef returned %0) #0 {
   store i64 %40, ptr %4, align 8, !tbaa !15
   %41 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %12) #9
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
-  br label %13
+  br label %13, !llvm.loop !31
 
 43:                                               ; preds = %1, %21
   ret ptr %0
@@ -368,7 +368,7 @@ define void @POOL_joinJobs(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %7, %9
   %11 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %2) #9
-  br label %7, !llvm.loop !30
+  br label %7, !llvm.loop !32
 
 12:                                               ; preds = %9
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @POOL_resize(ptr noundef %0, i64 noundef %1) local_un
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %1, ptr %11, align 8, !tbaa !24
+  store i64 %1, ptr %11, align 8, !tbaa !25
   br label %POOL_resize_internal.exit
 
 12:                                               ; preds = %4
@@ -499,12 +499,12 @@ ZSTD_customFree.exit.i:                           ; preds = %28, %27, %19
 34:                                               ; preds = %.lr.ph.i
   %35 = add i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %35, %1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %34, %ZSTD_customFree.exit.i
   store i64 %1, ptr %7, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %1, ptr %36, align 8, !tbaa !24
+  store i64 %1, ptr %36, align 8, !tbaa !25
   br label %POOL_resize_internal.exit
 
 POOL_resize_internal.exit:                        ; preds = %9, %10, %ZSTD_customCalloc.exit.i, %33, %._crit_edge.i
@@ -542,8 +542,8 @@ define void @POOL_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unna
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %10, align 8, !tbaa !28
-  %19 = load i64, ptr %11, align 8, !tbaa !29
+  %18 = load i64, ptr %10, align 8, !tbaa !29
+  %19 = load i64, ptr %11, align 8, !tbaa !30
   %20 = add i64 %19, 1
   %21 = urem i64 %20, %15
   %22 = icmp eq i64 %18, %21
@@ -551,7 +551,7 @@ define void @POOL_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unna
 
 23:                                               ; preds = %14
   %24 = load i64, ptr %7, align 8, !tbaa !15
-  %25 = load i64, ptr %8, align 8, !tbaa !24
+  %25 = load i64, ptr %8, align 8, !tbaa !25
   %26 = icmp eq i64 %24, %25
   br i1 %26, label %isQueueFull.exit.thread, label %isQueueFull.exit
 
@@ -567,7 +567,7 @@ isQueueFull.exit.thread:                          ; preds = %17, %23, %isQueueFu
 
 29:                                               ; preds = %isQueueFull.exit.thread
   %30 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %13, ptr noundef nonnull %4) #9
-  br label %14, !llvm.loop !32
+  br label %14, !llvm.loop !34
 
 .critedge:                                        ; preds = %isQueueFull.exit, %17
   %.pre = load i32, ptr %12, align 8, !tbaa !17
@@ -578,14 +578,14 @@ isQueueFull.exit.thread:                          ; preds = %17, %23, %isQueueFu
   store i32 0, ptr %9, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = load i64, ptr %11, align 8, !tbaa !29
+  %35 = load i64, ptr %11, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %34, i64 %35
   store ptr %1, ptr %36, align 8, !tbaa !21
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !21
   %37 = add i64 %35, 1
   %38 = urem i64 %37, %15
-  store i64 %38, ptr %11, align 8, !tbaa !29
+  store i64 %38, ptr %11, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %40 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %39) #9
   br label %POOL_add_internal.exit
@@ -606,9 +606,9 @@ define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i64, ptr %12, align 8, !tbaa !29
+  %13 = load i64, ptr %12, align 8, !tbaa !30
   %14 = add i64 %13, 1
   %15 = urem i64 %14, %7
   %16 = icmp eq i64 %11, %15
@@ -618,7 +618,7 @@ define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !24
+  %21 = load i64, ptr %20, align 8, !tbaa !25
   %22 = icmp eq i64 %19, %21
   br i1 %22, label %isQueueFull.exit.thread, label %isQueueFull.exit
 
@@ -640,14 +640,14 @@ isQueueFull.exit:                                 ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load i64, ptr %32, align 8, !tbaa !29
+  %33 = load i64, ptr %32, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %31, i64 %33
   store ptr %1, ptr %34, align 8, !tbaa !21
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !21
   %35 = add i64 %33, 1
   %36 = urem i64 %35, %7
-  store i64 %36, ptr %32, align 8, !tbaa !29
+  store i64 %36, ptr %32, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %37) #9
   br label %isQueueFull.exit.thread
@@ -707,14 +707,16 @@ attributes #9 = { nounwind }
 !19 = !{!9, !11, i64 32}
 !20 = !{i64 0, i64 8, !21, i64 8, i64 8, !21, i64 16, i64 8, !21}
 !21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!9, !11, i64 40}
-!25 = !{!11, !11, i64 0}
-!26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23}
-!28 = !{!9, !11, i64 56}
-!29 = !{!9, !11, i64 64}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!9, !11, i64 40}
+!26 = !{!11, !11, i64 0}
+!27 = distinct !{!27, !23, !24}
+!28 = distinct !{!28, !23, !24}
+!29 = !{!9, !11, i64 56}
+!30 = !{!9, !11, i64 64}
+!31 = distinct !{!31, !24}
+!32 = distinct !{!32, !23, !24}
+!33 = distinct !{!33, !23, !24}
+!34 = distinct !{!34, !23, !24}

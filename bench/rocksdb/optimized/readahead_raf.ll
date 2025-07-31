@@ -953,16 +953,16 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt8functionIFvRN7rocksdb13FSReadRequestEPvEEclES2_S3_.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !97
+  %46 = load ptr, ptr %45, align 8, !tbaa !98
   call void %46(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  store i8 0, ptr %0, align 8, !tbaa !48, !alias.scope !99
+  store i8 0, ptr %0, align 8, !tbaa !48, !alias.scope !100
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %47, align 1, !tbaa !63, !alias.scope !99
+  store i8 0, ptr %47, align 1, !tbaa !63, !alias.scope !100
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %49, align 8, !tbaa !64, !alias.scope !99
-  store i32 0, ptr %48, align 2, !alias.scope !99
+  store ptr null, ptr %49, align 8, !tbaa !64, !alias.scope !100
+  store i32 0, ptr %48, align 2, !alias.scope !100
   ret void
 }
 
@@ -1169,10 +1169,11 @@ attributes #18 = { noreturn nounwind }
 !92 = !{}
 !93 = !{!49, !53, i64 4}
 !94 = !{!49, !10, i64 5}
-!95 = distinct !{!95, !96}
+!95 = distinct !{!95, !96, !97}
 !96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!98, !9, i64 24}
-!98 = !{!"_ZTSSt8functionIFvRN7rocksdb13FSReadRequestEPvEE", !32, i64 0, !9, i64 24}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN7rocksdb8IOStatus2OKEv: argument 0"}
-!101 = distinct !{!101, !"_ZN7rocksdb8IOStatus2OKEv"}
+!97 = !{!"llvm.loop.estimated_trip_count"}
+!98 = !{!99, !9, i64 24}
+!99 = !{!"_ZTSSt8functionIFvRN7rocksdb13FSReadRequestEPvEE", !32, i64 0, !9, i64 24}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN7rocksdb8IOStatus2OKEv: argument 0"}
+!102 = distinct !{!102, !"_ZN7rocksdb8IOStatus2OKEv"}

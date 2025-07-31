@@ -341,7 +341,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i64, ptr %178, align 8, !tbaa !25
   %180 = icmp ult i64 %186, %179
-  br i1 %180, label %.lr.ph282, label %.critedge, !llvm.loop !32
+  br i1 %180, label %.lr.ph282, label %.critedge, !llvm.loop !33
 
 .lr.ph282:                                        ; preds = %.lr.ph239.preheader, %.lr.ph239
   %.2238281 = phi i64 [ %186, %.lr.ph239 ], [ 0, %.lr.ph239.preheader ]
@@ -359,7 +359,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load i64, ptr %188, align 8, !tbaa !25
   %190 = icmp ult i64 %186, %189
-  br i1 %190, label %.lr.ph239, label %..critedge.loopexit277_crit_edge284, !llvm.loop !32
+  br i1 %190, label %.lr.ph239, label %..critedge.loopexit277_crit_edge284, !llvm.loop !33
 
 191:                                              ; preds = %147
   %192 = getelementptr inbounds nuw i8, ptr %148, i64 16
@@ -378,7 +378,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
 196:                                              ; preds = %.lr.ph
   %197 = add i64 %.3235, -1
   %.not182 = icmp eq i64 %197, 0
-  br i1 %.not182, label %.critedge9, label %.lr.ph, !llvm.loop !33
+  br i1 %.not182, label %.critedge9, label %.lr.ph, !llvm.loop !34
 
 .critedge9:                                       ; preds = %.lr.ph, %196, %191
   %.3.lcssa = phi i64 [ 0, %191 ], [ 0, %196 ], [ %.3235, %.lr.ph ]
@@ -404,7 +404,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   br label %.critedge, !llvm.loop !30
 
 ..critedge.loopexit277_crit_edge284:              ; preds = %184
-  br label %.critedge, !llvm.loop !32
+  br label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph282, %.lr.ph239, %.lr.ph290, %.lr.ph246, %.lr.ph239.preheader, %..critedge.loopexit277_crit_edge284, %.lr.ph246.preheader, %..critedge.loopexit_crit_edge293, %.preheader230, %.preheader229, %.critedge9, %201
   %206 = phi ptr [ %.pre, %201 ], [ %198, %.critedge9 ], [ %157, %.preheader229 ], [ %151, %.preheader230 ], [ %173, %..critedge.loopexit_crit_edge293 ], [ %157, %.lr.ph246.preheader ], [ %187, %..critedge.loopexit277_crit_edge284 ], [ %151, %.lr.ph239.preheader ], [ %173, %.lr.ph246 ], [ %167, %.lr.ph290 ], [ %187, %.lr.ph239 ], [ %181, %.lr.ph282 ]
@@ -444,7 +444,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load i64, ptr %221, align 8, !tbaa !25
   %223 = icmp ult i64 %218, %222
-  br i1 %223, label %.lr.ph257, label %._crit_edge, !llvm.loop !34
+  br i1 %223, label %.lr.ph257, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph257, %.preheader
   %.lcssa = phi i64 [ %216, %.preheader ], [ %222, %.lr.ph257 ]
@@ -462,7 +462,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load i64, ptr %229, align 8, !tbaa !25
   %231 = icmp ult i64 %226, %230
-  br i1 %231, label %.lr.ph255, label %.loopexit, !llvm.loop !35
+  br i1 %231, label %.lr.ph255, label %.loopexit, !llvm.loop !36
 
 .lr.ph253:                                        ; preds = %.preheader227, %.lr.ph253
   %.6252 = phi i64 [ %232, %.lr.ph253 ], [ %.1162, %.preheader227 ]
@@ -473,7 +473,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load i64, ptr %235, align 8, !tbaa !25
   %237 = icmp ult i64 %232, %236
-  br i1 %237, label %.lr.ph253, label %.loopexit, !llvm.loop !36
+  br i1 %237, label %.lr.ph253, label %.loopexit, !llvm.loop !37
 
 238:                                              ; preds = %.critedge
   %239 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
@@ -497,7 +497,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %249 = getelementptr inbounds i8, ptr %.1156261, i64 %134
   %250 = add nuw i64 %.0152262, 1
   %exitcond.not = icmp eq i64 %250, %4
-  br i1 %exitcond.not, label %.loopexit233, label %.lr.ph263, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit233, label %.lr.ph263, !llvm.loop !38
 
 251:                                              ; preds = %16
   %252 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
@@ -573,11 +573,12 @@ attributes #7 = { nounwind allocsize(0,1) }
 !27 = !{!"p1 _ZTS5H5T_t", !13, i64 0}
 !28 = !{!5, !5, i64 0}
 !29 = !{!11, !12, i64 4}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = distinct !{!33, !31}
-!34 = distinct !{!34, !31}
-!35 = distinct !{!35, !31}
-!36 = distinct !{!36, !31}
-!37 = distinct !{!37, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = distinct !{!34, !31, !32}
+!35 = distinct !{!35, !31, !32}
+!36 = distinct !{!36, !31, !32}
+!37 = distinct !{!37, !31, !32}
+!38 = distinct !{!38, !31, !32}

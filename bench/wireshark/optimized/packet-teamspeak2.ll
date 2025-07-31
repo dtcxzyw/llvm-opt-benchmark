@@ -848,7 +848,7 @@ ts2_parse_channellist.exit:                       ; preds = %.lr.ph.i, %103
   %198 = icmp slt i32 %195, %197
   %199 = icmp slt i32 %196, %166
   %200 = select i1 %198, i1 %199, i1 false
-  br i1 %200, label %.lr.ph.i103, label %ts2_parse_playerlist.exit, !llvm.loop !10
+  br i1 %200, label %.lr.ph.i103, label %ts2_parse_playerlist.exit, !llvm.loop !11
 
 ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %.036.lcssa.i = phi i32 [ 4, %163 ], [ %195, %.lr.ph.i103 ]
@@ -1120,6 +1120,7 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

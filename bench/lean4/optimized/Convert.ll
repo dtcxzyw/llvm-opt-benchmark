@@ -343,7 +343,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_CNF_Clause_convertLRAT_x27.exit: ; preds = %
 lean_obj_tag.exit44:                              ; preds = %57, %60
   %.0.i42 = phi i32 [ %59, %57 ], [ %62, %60 ]
   %63 = icmp eq i32 %.0.i42, 0
-  br i1 %63, label %4, label %64
+  br i1 %63, label %4, label %64, !llvm.loop !13
 
 64:                                               ; preds = %lean_obj_tag.exit44
   %.val = load i32, ptr %45, align 4, !tbaa !10
@@ -418,7 +418,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 .sink.split:                                      ; preds = %64, %lean_alloc_ctor.exit
   %.sink = phi ptr [ %84, %lean_alloc_ctor.exit ], [ %45, %64 ]
   %89 = tail call ptr @lean_array_push(ptr noundef %.026.ph, ptr noundef nonnull %.sink) #3
-  br label %.outer
+  br label %.outer, !llvm.loop !13
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -640,9 +640,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultClause_ofArray_folder_match__5_splitter___rarg___boxed, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 3, ptr %8, align 8, !tbaa !13
+  store i16 3, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !13
+  store i16 0, ptr %9, align 2, !tbaa !15
   ret ptr %3
 }
 
@@ -694,9 +694,9 @@ l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRA
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultClause_ofArray_folder_match__5_splitter___rarg___boxed, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 3, ptr %8, align 8, !tbaa !13
+  store i16 3, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !13
+  store i16 0, ptr %9, align 2, !tbaa !15
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -969,9 +969,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRAT_Internal_CNF_convertLRAT_x27_match__1_splitter___rarg___boxed, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 3, ptr %8, align 8, !tbaa !13
+  store i16 3, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !13
+  store i16 0, ptr %9, align 2, !tbaa !15
   ret ptr %3
 }
 
@@ -1023,9 +1023,9 @@ l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRA
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Convert_0__Std_Tactic_BVDecide_LRAT_Internal_CNF_convertLRAT_x27_match__1_splitter___rarg___boxed, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 3, ptr %8, align 8, !tbaa !13
+  store i16 3, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !13
+  store i16 0, ptr %9, align 2, !tbaa !15
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -1138,9 +1138,9 @@ _init_l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1.exit: ; preds = %
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___lambda__1___boxed, ptr %32, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 1, ptr %33, align 8, !tbaa !13
+  store i16 1, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 0, ptr %34, align 2, !tbaa !13
+  store i16 0, ptr %34, align 2, !tbaa !15
   store ptr %28, ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1, align 8, !tbaa !6
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #3
   %35 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -1213,5 +1213,7 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!11, !12, i64 0}
 !11 = !{!"", !12, i64 0, !12, i64 4, !12, i64 6, !12, i64 7}
 !12 = !{!"int", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"short", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !8, i64 0}

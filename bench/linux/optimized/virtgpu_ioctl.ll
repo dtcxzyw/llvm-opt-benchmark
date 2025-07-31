@@ -984,7 +984,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   %58 = load ptr, ptr %48, align 8
   store ptr %58, ptr %4, align 8
   %59 = icmp eq ptr %58, %45
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %57, %40
   tail call void @_raw_spin_unlock(ptr noundef nonnull %16) #6
@@ -1045,14 +1045,14 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   br i1 %89, label %104, label %90
 
 90:                                               ; preds = %._crit_edge.thread, %._crit_edge, %64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !18
   %91 = icmp slt i32 %44, 0
-  br i1 %91, label %92, label %93, !prof !18
+  br i1 %91, label %92, label %93, !prof !19
 
 92:                                               ; preds = %90
-  call void asm sideeffect "48: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 48b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 48) #6, !srcloc !19
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 249, i32 2307, i64 12) #6, !srcloc !20
-  call void asm sideeffect "49: nop\0A\09.pushsection .discard.instr_end\0A\09.long 49b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 49) #6, !srcloc !21
+  call void asm sideeffect "48: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 48b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 48) #6, !srcloc !20
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 249, i32 2307, i64 12) #6, !srcloc !21
+  call void asm sideeffect "49: nop\0A\09.pushsection .discard.instr_end\0A\09.long 49b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 49) #6, !srcloc !22
   br label %104
 
 93:                                               ; preds = %90
@@ -1461,7 +1461,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
 86:                                               ; preds = %85, %76, %70, %62
   %87 = add nuw nsw i64 %46, 1
   %88 = icmp eq i64 %87, %10
-  br i1 %88, label %.loopexit8, label %45, !llvm.loop !22
+  br i1 %88, label %.loopexit8, label %45, !llvm.loop !23
 
 .loopexit8:                                       ; preds = %86, %35
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1486,7 +1486,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   %102 = or i64 %101, %100
   %103 = add nuw nsw i64 %99, 1
   %104 = icmp eq i64 %103, %97
-  br i1 %104, label %105, label %98, !llvm.loop !23
+  br i1 %104, label %105, label %98, !llvm.loop !24
 
 105:                                              ; preds = %98
   %106 = xor i64 %102, -1
@@ -1692,14 +1692,15 @@ attributes #7 = { nounwind memory(none) }
 !10 = !{!"branch_weights", i32 2000, i32 1}
 !11 = !{i64 2150021352}
 !12 = !{ptr @dma_fence_release, ptr @drm_gem_object_free}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{i64 2156109309}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2149655002, i64 2149654816, i64 2149654868, i64 2149654914, i64 2149654942}
-!20 = !{i64 2149655073, i64 2149655102, i64 2149655148, i64 2149655206, i64 2149655260, i64 2149655314, i64 2149655369, i64 2149655400, i64 2149655708, i64 2149655714, i64 2149655761, i64 2149655784, i64 2149655810}
-!21 = !{i64 2149656265, i64 2149656081, i64 2149656131, i64 2149656177, i64 2149656205}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = !{i64 2156109309}
+!19 = !{!"branch_weights", i32 1, i32 2000}
+!20 = !{i64 2149655002, i64 2149654816, i64 2149654868, i64 2149654914, i64 2149654942}
+!21 = !{i64 2149655073, i64 2149655102, i64 2149655148, i64 2149655206, i64 2149655260, i64 2149655314, i64 2149655369, i64 2149655400, i64 2149655708, i64 2149655714, i64 2149655761, i64 2149655784, i64 2149655810}
+!22 = !{i64 2149656265, i64 2149656081, i64 2149656131, i64 2149656177, i64 2149656205}
+!23 = distinct !{!23, !14, !15, !16}
+!24 = distinct !{!24, !14, !15, !16}

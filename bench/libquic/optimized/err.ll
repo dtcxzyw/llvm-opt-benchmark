@@ -656,7 +656,7 @@ ERR_lib_error_string.exit.thread:                 ; preds = %7, %ERR_lib_error_s
   br i1 %or.cond.i.i, label %ERR_reason_error_string.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = load i64, ptr @kOpenSSLReasonValuesLen, align 8, !tbaa !26
+  %35 = load i64, ptr @kOpenSSLReasonValuesLen, align 8, !tbaa !27
   %36 = shl nuw nsw i32 %.pre, 11
   %37 = or disjoint i32 %36, %8
   %.not24.i.i.i = icmp eq i64 %35, 0
@@ -686,7 +686,7 @@ ERR_lib_error_string.exit.thread:                 ; preds = %7, %ERR_lib_error_s
   %.118.i.i.i = phi i64 [ %.01720.i.i.i, %46 ], [ %39, %.lr.ph.i.i.i ]
   %.1.i.i.i = phi i64 [ %47, %46 ], [ %.01621.i.i.i, %.lr.ph.i.i.i ]
   %49 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
-  br i1 %49, label %.lr.ph.i.i.i, label %ERR_reason_error_string.exit, !llvm.loop !28
+  br i1 %49, label %.lr.ph.i.i.i, label %ERR_reason_error_string.exit, !llvm.loop !29
 
 bsearch.exit.i.i:                                 ; preds = %45
   %50 = and i32 %42, 32767
@@ -749,7 +749,7 @@ ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, 
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %68, !llvm.loop !29
+  br i1 %exitcond.not, label %.critedge, label %68, !llvm.loop !30
 
 .critedge:                                        ; preds = %76, %73, %60, %3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
@@ -815,7 +815,7 @@ define hidden ptr @ERR_reason_error_string(i32 noundef %0) local_unnamed_addr #0
   br i1 %or.cond.i, label %err_string_lookup.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = load i64, ptr @kOpenSSLReasonValuesLen, align 8, !tbaa !26
+  %23 = load i64, ptr @kOpenSSLReasonValuesLen, align 8, !tbaa !27
   %24 = shl nuw nsw i32 %2, 11
   %25 = or disjoint i32 %24, %3
   %.not24.i.i = icmp eq i64 %23, 0
@@ -845,7 +845,7 @@ define hidden ptr @ERR_reason_error_string(i32 noundef %0) local_unnamed_addr #0
   %.118.i.i = phi i64 [ %.01720.i.i, %34 ], [ %27, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %35, %34 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %37 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %37, label %.lr.ph.i.i, label %err_string_lookup.exit, !llvm.loop !28
+  br i1 %37, label %.lr.ph.i.i, label %err_string_lookup.exit, !llvm.loop !29
 
 bsearch.exit.i:                                   ; preds = %33
   %38 = and i32 %30, 32767
@@ -935,7 +935,7 @@ err_get_state.exit:                               ; preds = %2, %11, %13
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   %28 = call i32 %0(ptr noundef nonnull %4, i64 noundef %27, ptr noundef %1) #17
   %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %16
+  br i1 %29, label %30, label %16, !llvm.loop !31
 
 30:                                               ; preds = %19, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
@@ -1125,13 +1125,13 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   %.1.i = phi i64 [ %.049.i, %18 ], [ %.2.i, %35 ]
   %38 = add nuw i32 %.03048.i, 1
   %exitcond.not.i = icmp eq i32 %38, %0
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %7, !llvm.loop !30
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %7, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %37, %.preheader.i
   %.033.lcssa.i = phi ptr [ %3, %.preheader.i ], [ %.134.i, %37 ]
   %.031.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.132.i, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i, i64 %.031.lcssa.i
-  store i8 0, ptr %39, align 1, !tbaa !31
+  store i8 0, ptr %39, align 1, !tbaa !33
   %40 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %err_get_state.exit.i.i
@@ -1204,7 +1204,7 @@ define hidden void @ERR_add_error_dataf(ptr noundef %0, ...) local_unnamed_addr 
   call void @llvm.va_start.p0(ptr nonnull %2)
   %6 = call i32 @BIO_vsnprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef %0, ptr noundef nonnull %2) #17
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  store i8 0, ptr %7, align 1, !tbaa !31
+  store i8 0, ptr %7, align 1, !tbaa !33
   call void @llvm.va_end.p0(ptr nonnull %2)
   %8 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
   %9 = icmp eq ptr %8, null
@@ -1363,7 +1363,7 @@ err_get_state.exit:                               ; preds = %5, %0
   store i32 %storemerge, ptr %8, align 8, !tbaa !12
   %28 = load i32, ptr %7, align 4, !tbaa !6
   %.not = icmp eq i32 %28, %storemerge
-  br i1 %.not, label %err_get_state.exit.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %err_get_state.exit.thread, label %.lr.ph, !llvm.loop !34
 
 err_get_state.exit.thread:                        ; preds = %24, %err_get_state.exit, %5, %3, %.thread
   %.0 = phi i32 [ 1, %.thread ], [ 0, %3 ], [ 0, %5 ], [ 0, %err_get_state.exit ], [ 0, %24 ]
@@ -1418,7 +1418,7 @@ err_clear.exit:                                   ; preds = %.preheader, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !33
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !35
 
 10:                                               ; preds = %err_clear.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -1492,13 +1492,15 @@ attributes #21 = { nounwind allocsize(1) }
 !21 = !{!14, !16, i64 20}
 !22 = !{!10, !10, i64 0}
 !23 = !{!7, !11, i64 392}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"long", !8, i64 0}
-!28 = distinct !{!28, !25}
-!29 = distinct !{!29, !25}
-!30 = distinct !{!30, !25}
-!31 = !{!8, !8, i64 0}
-!32 = distinct !{!32, !25}
-!33 = distinct !{!33, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"long", !8, i64 0}
+!29 = distinct !{!29, !25, !26}
+!30 = distinct !{!30, !25, !26}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !25, !26}
+!33 = !{!8, !8, i64 0}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}

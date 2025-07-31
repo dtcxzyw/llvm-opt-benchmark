@@ -535,7 +535,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 .loopexit:                                        ; preds = %.lr.ph265, %.preheader, %145
   %.5 = phi i32 [ %137, %145 ], [ %135, %.preheader ], [ %143, %.lr.ph265 ]
   %148 = icmp ult i32 %.5, %119
-  br i1 %148, label %.lr.ph268, label %.loopexit258, !llvm.loop !8
+  br i1 %148, label %.lr.ph268, label %.loopexit258, !llvm.loop !9
 
 149:                                              ; preds = %6
   %150 = load i32, ptr @hf_mint_control, align 4
@@ -587,7 +587,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %188 = load i32, ptr @hf_mint_mlcp_value, align 4
   %189 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %188, ptr noundef %0, i32 noundef %183, i32 noundef %184, i32 noundef 0)
   %190 = icmp ult i32 %185, %175
-  br i1 %190, label %.lr.ph, label %.loopexit258, !llvm.loop !9
+  br i1 %190, label %.lr.ph, label %.loopexit258, !llvm.loop !10
 
 191:                                              ; preds = %6
   %192 = sub i32 %4, %41
@@ -841,7 +841,8 @@ attributes #7 = { nounwind returns_twice }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

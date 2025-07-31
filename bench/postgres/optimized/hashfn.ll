@@ -212,7 +212,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %135 = getelementptr inbounds nuw i8, ptr %.0206209, i64 12
   %136 = add i32 %.1213, -12
   %137 = icmp ugt i32 %136, 11
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader208
   %.0206.lcssa = phi ptr [ %0, %.preheader208 ], [ %135, %.lr.ph ]
@@ -460,7 +460,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %70 = getelementptr inbounds nuw i8, ptr %.0267, i64 12
   %71 = add i32 %.0222266, -12
   %72 = icmp ugt i32 %71, 11
-  br i1 %72, label %.lr.ph268, label %._crit_edge269, !llvm.loop !6
+  br i1 %72, label %.lr.ph268, label %._crit_edge269, !llvm.loop !7
 
 ._crit_edge269:                                   ; preds = %.lr.ph268, %.preheader
   %.1241.lcssa = phi i32 [ %.0240, %.preheader ], [ %65, %.lr.ph268 ]
@@ -613,7 +613,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %165 = getelementptr inbounds nuw i8, ptr %.0250254, i64 12
   %166 = add i32 %.1258, -12
   %167 = icmp ugt i32 %166, 11
-  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader253
   %.0250.lcssa = phi ptr [ %0, %.preheader253 ], [ %165, %.lr.ph ]
@@ -925,8 +925,9 @@ attributes #6 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}

@@ -355,7 +355,7 @@ define void @dlatrd_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 213:                                              ; preds = %._crit_edge, %166
   %.pre-phi = phi i32 [ %.pre267, %._crit_edge ], [ %169, %166 ]
   %.not209.not = icmp slt i32 %148, %147
-  br i1 %.not209.not, label %.lr.ph263, label %.loopexit, !llvm.loop !11
+  br i1 %.not209.not, label %.lr.ph263, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %143, %213, %26, %146, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
@@ -405,6 +405,7 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

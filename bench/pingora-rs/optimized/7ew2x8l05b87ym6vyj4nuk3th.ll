@@ -116,7 +116,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %24 = getelementptr inbounds nuw { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %17, i64 %.sroa.0.0.i.i
   %25 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr225drop_in_place$LT$thread_local..Entry$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$$GT$17h5228a277ab1dce84E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24)
-          to label %.preheader unwind label %28
+          to label %.preheader unwind label %28, !llvm.loop !10
 
 26:                                               ; preds = %30, %28
   %.sroa.0.1.i.i = phi i64 [ %25, %28 ], [ %32, %30 ]
@@ -132,7 +132,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %31 = getelementptr inbounds nuw { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %17, i64 %.sroa.0.1.i.i
   %32 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr225drop_in_place$LT$thread_local..Entry$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$$GT$17h5228a277ab1dce84E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31) #10
-          to label %26 unwind label %33
+          to label %26 unwind label %33, !llvm.loop !12
 
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
@@ -217,7 +217,7 @@ define hidden noundef align 8 ptr @_ZN12thread_local7RawIter4next17hf2ee5f5cc5cf
   store i64 %16, ptr %3, align 8
   store i64 0, ptr %6, align 8
   %17 = icmp ult i64 %16, 63
-  br i1 %17, label %8, label %.loopexit2
+  br i1 %17, label %8, label %.loopexit2, !llvm.loop !13
 
 .preheader:                                       ; preds = %8, %21
   %18 = load i64, ptr %6, align 8, !noundef !9
@@ -232,7 +232,7 @@ define hidden noundef align 8 ptr @_ZN12thread_local7RawIter4next17hf2ee5f5cc5cf
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load atomic i8, ptr %24 acquire, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %.preheader, label %27
+  br i1 %26, label %.preheader, label %27, !llvm.loop !14
 
 27:                                               ; preds = %21
   %28 = load i64, ptr %0, align 8, !noundef !9
@@ -303,3 +303,8 @@ attributes #12 = { nounwind }
 !7 = distinct !{!7, !8, !"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17hb24b459a5147bd42E: argument 0"}
 !8 = distinct !{!8, !"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17hb24b459a5147bd42E"}
 !9 = !{}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}

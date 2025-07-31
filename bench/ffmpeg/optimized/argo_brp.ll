@@ -298,10 +298,10 @@ read_extradata.exit:                              ; preds = %55, %64
 
 127:                                              ; preds = %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !71
+  %129 = load ptr, ptr %128, align 8, !tbaa !72
   %130 = zext nneg i32 %.pre to i64
   %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
-  %132 = load ptr, ptr %131, align 8, !tbaa !72
+  %132 = load ptr, ptr %131, align 8, !tbaa !73
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %134 = getelementptr inbounds nuw %struct.ArgoBRPStreamHeader, ptr %133, i64 %130
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
@@ -372,7 +372,7 @@ read_extradata.exit:                              ; preds = %55, %64
 170:                                              ; preds = %164
   %171 = add nuw nsw i32 %.0199, 1
   %exitcond.not = icmp eq i32 %171, 10
-  br i1 %exitcond.not, label %.thread212, label %154, !llvm.loop !74
+  br i1 %exitcond.not, label %.thread212, label %154, !llvm.loop !75
 
 172:                                              ; preds = %157
   %173 = icmp eq i32 %.0199, 10
@@ -425,11 +425,11 @@ read_extradata.exit:                              ; preds = %55, %64
   %195 = zext i32 %159 to i64
   %196 = load ptr, ptr %135, align 8, !tbaa !50
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 152
-  %198 = load i32, ptr %197, align 8, !tbaa !75
+  %198 = load i32, ptr %197, align 8, !tbaa !76
   %199 = sext i32 %198 to i64
   %200 = call i64 @av_rescale_rnd(i64 noundef %195, i64 noundef %199, i64 noundef 1000, i32 noundef 3) #9
   %201 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store i64 %200, ptr %201, align 8, !tbaa !76
+  store i64 %200, ptr %201, align 8, !tbaa !77
   %202 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %203 = load i32, ptr %202, align 4, !tbaa !40
   %204 = zext i32 %203 to i64
@@ -483,16 +483,16 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %22 = load i32, ptr %21, align 4, !tbaa !77
+  %22 = load i32, ptr %21, align 4, !tbaa !78
   %.not = icmp ult i32 %12, %22
   br i1 %.not, label %23, label %99
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !71
+  %25 = load ptr, ptr %24, align 8, !tbaa !72
   %26 = zext nneg i32 %12 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %28 = load ptr, ptr %27, align 8, !tbaa !73
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %30 = getelementptr inbounds nuw %struct.ArgoBRPStreamHeader, ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1548
@@ -513,33 +513,33 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
 40:                                               ; preds = %36
   call void @ff_argo_asf_parse_chunk_header(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %42 = load i16, ptr %41, align 4, !tbaa !78
+  %42 = load i16, ptr %41, align 4, !tbaa !79
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 1564
-  %44 = load i16, ptr %43, align 4, !tbaa !79
+  %44 = load i16, ptr %43, align 4, !tbaa !80
   %.not46 = icmp eq i16 %42, %44
   br i1 %.not46, label %45, label %99
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %47 = load i32, ptr %46, align 4, !tbaa !80
+  %47 = load i32, ptr %46, align 4, !tbaa !81
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 1568
-  %49 = load i32, ptr %48, align 4, !tbaa !81
+  %49 = load i32, ptr %48, align 4, !tbaa !82
   %.not47 = icmp eq i32 %47, %49
   br i1 %.not47, label %50, label %99
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load i32, ptr %51, align 4, !tbaa !82
+  %52 = load i32, ptr %51, align 4, !tbaa !83
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 1560
-  %54 = load i32, ptr %53, align 4, !tbaa !83
+  %54 = load i32, ptr %53, align 4, !tbaa !84
   %.not48 = icmp eq i32 %52, %54
   br i1 %.not48, label %55, label %99
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %57 = load i16, ptr %56, align 2, !tbaa !84
+  %57 = load i16, ptr %56, align 2, !tbaa !85
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 1566
-  %59 = load i16, ptr %58, align 2, !tbaa !85
+  %59 = load i16, ptr %58, align 2, !tbaa !86
   %.not49 = icmp eq i16 %57, %59
   br i1 %.not49, label %60, label %99
 
@@ -565,15 +565,15 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !86
-  %73 = load i32, ptr %4, align 4, !tbaa !87
+  %72 = load i32, ptr %71, align 4, !tbaa !87
+  %73 = load i32, ptr %4, align 4, !tbaa !88
   %74 = mul i32 %73, %72
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %75, ptr %76, align 8, !tbaa !88
+  store i64 %75, ptr %76, align 8, !tbaa !89
   %77 = zext i32 %14 to i64
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %79 = load i16, ptr %78, align 4, !tbaa !78
+  %79 = load i16, ptr %78, align 4, !tbaa !79
   %80 = zext i16 %79 to i64
   %81 = call i64 @av_rescale_rnd(i64 noundef %77, i64 noundef %80, i64 noundef 1000, i32 noundef 3) #9
   br label %96
@@ -591,7 +591,7 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
   %90 = zext i32 %89 to i64
   %91 = call i64 @av_rescale_rnd(i64 noundef 1, i64 noundef %87, i64 noundef %90, i32 noundef 3) #9
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %91, ptr %92, align 8, !tbaa !88
+  store i64 %91, ptr %92, align 8, !tbaa !89
   %93 = zext i32 %14 to i64
   br label %96
 
@@ -602,9 +602,9 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
 96:                                               ; preds = %85, %94, %70
   %.sink = phi i64 [ %93, %85 ], [ %95, %94 ], [ %81, %70 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sink, ptr %97, align 8, !tbaa !89
+  store i64 %.sink, ptr %97, align 8, !tbaa !90
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %12, ptr %98, align 4, !tbaa !90
+  store i32 %12, ptr %98, align 4, !tbaa !91
   br label %99
 
 99:                                               ; preds = %66, %62, %40, %45, %50, %55, %36, %34, %18, %20, %11, %2, %96
@@ -735,25 +735,26 @@ attributes #9 = { nounwind willreturn memory(none) }
 !66 = !{!"ArgoMASKHeader", !10, i64 0, !10, i64 4, !10, i64 8}
 !67 = !{!66, !10, i64 4}
 !68 = !{!66, !10, i64 8}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!13, !18, i64 48}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!74 = distinct !{!74, !70}
-!75 = !{!52, !10, i64 152}
-!76 = !{!44, !22, i64 40}
-!77 = !{!13, !10, i64 44}
-!78 = !{!32, !33, i64 12}
-!79 = !{!29, !33, i64 1564}
-!80 = !{!32, !10, i64 16}
-!81 = !{!29, !10, i64 1568}
-!82 = !{!32, !10, i64 8}
-!83 = !{!29, !10, i64 1560}
-!84 = !{!32, !33, i64 14}
-!85 = !{!29, !33, i64 1566}
-!86 = !{!32, !10, i64 4}
-!87 = !{!32, !10, i64 0}
-!88 = !{!47, !22, i64 64}
-!89 = !{!47, !22, i64 8}
-!90 = !{!47, !10, i64 36}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = !{!13, !18, i64 48}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!75 = distinct !{!75, !70, !71}
+!76 = !{!52, !10, i64 152}
+!77 = !{!44, !22, i64 40}
+!78 = !{!13, !10, i64 44}
+!79 = !{!32, !33, i64 12}
+!80 = !{!29, !33, i64 1564}
+!81 = !{!32, !10, i64 16}
+!82 = !{!29, !10, i64 1568}
+!83 = !{!32, !10, i64 8}
+!84 = !{!29, !10, i64 1560}
+!85 = !{!32, !33, i64 14}
+!86 = !{!29, !33, i64 1566}
+!87 = !{!32, !10, i64 4}
+!88 = !{!32, !10, i64 0}
+!89 = !{!47, !22, i64 64}
+!90 = !{!47, !22, i64 8}
+!91 = !{!47, !10, i64 36}

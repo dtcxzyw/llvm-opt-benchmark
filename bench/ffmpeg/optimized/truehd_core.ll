@@ -174,7 +174,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %102, ptr %37, align 8, !tbaa !27
   %103 = trunc nuw i32 %100 to i16
   %104 = getelementptr inbounds nuw i8, ptr %60, i64 6
-  store i16 %103, ptr %104, align 2, !tbaa !36
+  store i16 %103, ptr %104, align 2, !tbaa !37
   %105 = add nsw i32 %.0112136, 4
   %spec.select = select i1 %74, i32 %105, i32 %.0112136
   br label %106
@@ -184,7 +184,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   %.2 = phi i32 [ %.1113, %61 ], [ %spec.select, %92 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
-  br i1 %exitcond151.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %exitcond151.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %106
   %107 = add nuw nsw i32 %.1107, 4
@@ -305,7 +305,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 182:                                              ; preds = %151
   %183 = getelementptr inbounds nuw i8, ptr %152, i64 6
-  %184 = load i16, ptr %183, align 2, !tbaa !36
+  %184 = load i16, ptr %183, align 2, !tbaa !37
   %185 = call i16 @llvm.bswap.i16(i16 %184)
   %186 = load ptr, ptr %15, align 8, !tbaa !20
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %150
@@ -325,7 +325,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   %spec.select127 = call i32 @llvm.smin.i32(i32 %194, i32 3)
   %195 = sext i32 %spec.select127 to i64
   %196 = icmp slt i64 %indvars.iv.next153, %195
-  br i1 %196, label %151, label %._crit_edge145, !llvm.loop !38
+  br i1 %196, label %151, label %._crit_edge145, !llvm.loop !39
 
 ._crit_edge145:                                   ; preds = %193, %142
   %.0104.lcssa = phi i16 [ %147, %142 ], [ %.1105, %193 ]
@@ -451,8 +451,9 @@ attributes #7 = { nounwind }
 !31 = !{!32, !33, i64 4}
 !32 = !{!"AccessUnit", !8, i64 0, !33, i64 4, !33, i64 6}
 !33 = !{!"short", !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!32, !33, i64 6}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!32, !33, i64 6}
+!38 = distinct !{!38, !35, !36}
+!39 = distinct !{!39, !35, !36}

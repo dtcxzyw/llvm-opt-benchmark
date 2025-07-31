@@ -796,7 +796,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %316 = zext i32 %315 to i64
   %317 = icmp samesign ult i64 %indvars.iv.next, %316
-  br i1 %317, label %267, label %._crit_edge, !llvm.loop !12
+  br i1 %317, label %267, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %314, %_print_jag_prec.exit
   %318 = load ptr, ptr %145, align 8
@@ -965,7 +965,7 @@ _get_freq.exit.i:                                 ; preds = %385, %383, %381
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
   %400 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %378)
   %.not21.i = icmp eq ptr %400, null
-  br i1 %.not21.i, label %.sink.split.i, label %.lr.ph.i209, !llvm.loop !13
+  br i1 %.not21.i, label %.sink.split.i, label %.lr.ph.i209, !llvm.loop !14
 
 .sink.split.i:                                    ; preds = %_get_freq.exit.i, %_get_freq.exit.thread.i, %.preheader.i, %367, %364, %359, %355
   %.sink.i = phi ptr [ %348, %359 ], [ %348, %367 ], [ %348, %364 ], [ %348, %355 ], [ %378, %.preheader.i ], [ %378, %_get_freq.exit.thread.i ], [ %378, %_get_freq.exit.i ]
@@ -1275,7 +1275,7 @@ _record_profile.exit:                             ; preds = %487, %490, %563
   %.1 = phi i64 [ %.0221, %72 ], [ %.0221, %112 ], [ %.0221, %115 ], [ %.0221, %111 ], [ %321, %_record_profile.exit ], [ %321, %469 ], [ %321, %468 ]
   %584 = call ptr @slurm_list_next(ptr noundef %53) #17
   %.not186 = icmp eq ptr %584, null
-  br i1 %.not186, label %._crit_edge224, label %72
+  br i1 %.not186, label %._crit_edge224, label %72, !llvm.loop !15
 
 ._crit_edge224:                                   ; preds = %583, %52
   %.0164.lcssa = phi i64 [ 0, %52 ], [ %.1165, %583 ]
@@ -1332,7 +1332,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 .loopexit:                                        ; preds = %138, %.preheader
   %17 = call ptr @slurm_list_dequeue(ptr noundef %9) #17
   %.not22 = icmp eq ptr %17, null
-  br i1 %.not22, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %.not22, label %._crit_edge, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %18 = phi ptr [ %10, %.preheader.lr.ph ], [ %17, %.loopexit ]
@@ -1439,12 +1439,12 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
   %71 = load i32, ptr %30, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i, %72
-  br i1 %73, label %34, label %_aggregate_prec.exit, !llvm.loop !15
+  br i1 %73, label %34, label %_aggregate_prec.exit, !llvm.loop !17
 
 _aggregate_prec.exit:                             ; preds = %70, %.lr.ph
   store i8 1, ptr %21, align 8
   %74 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %75 = load i8, ptr %74, align 8, !range !16, !noundef !17
+  %75 = load i8, ptr %74, align 8, !range !18, !noundef !19
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %138
 
@@ -1542,7 +1542,7 @@ _aggregate_prec.exit:                             ; preds = %70, %.lr.ph
   %124 = load i32, ptr %30, align 8
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next.i40, %125
-  br i1 %126, label %87, label %_aggregate_prec.exit41, !llvm.loop !15
+  br i1 %126, label %87, label %_aggregate_prec.exit41, !llvm.loop !17
 
 _aggregate_prec.exit41:                           ; preds = %123, %77
   store i8 1, ptr %21, align 8
@@ -1571,7 +1571,7 @@ _aggregate_prec.exit41:                           ; preds = %123, %77
   call void @slurm_list_append(ptr noundef %9, ptr noundef nonnull %21) #17
   %139 = call ptr @slurm_list_find_first(ptr noundef %0, ptr noundef nonnull @_list_find_prec_by_ppid, ptr noundef nonnull %19) #17
   %.not24 = icmp eq ptr %139, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit, %8
   %.not23 = icmp eq ptr %9, null
@@ -1825,7 +1825,7 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr readnone cap
   %138 = load i32, ptr %122, align 8
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next.i.i, %139
-  br i1 %140, label %.lr.ph.i.i, label %_init_tres.exit.i, !llvm.loop !19
+  br i1 %140, label %.lr.ph.i.i, label %_init_tres.exit.i, !llvm.loop !21
 
 _init_tres.exit.i:                                ; preds = %.lr.ph.i.i, %121
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %20) #17
@@ -2191,7 +2191,7 @@ _set_smaps_file.exit.i:                           ; preds = %239, %238, %236
 250:                                              ; preds = %248
   %251 = call i32 @slurm_xstrncmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.40, i64 noundef 4) #17
   %.not31.i.i = icmp eq i32 %251, 0
-  br i1 %.not31.i.i, label %.preheader.i.i, label %248, !llvm.loop !20
+  br i1 %.not31.i.i, label %.preheader.i.i, label %248, !llvm.loop !22
 
 .preheader.i.i:                                   ; preds = %250
   %252 = tail call ptr @__ctype_b_loc() #19
@@ -2201,7 +2201,7 @@ _set_smaps_file.exit.i:                           ; preds = %239, %238, %236
 254:                                              ; preds = %255
   %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i37.i, 128
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %255, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %255, !llvm.loop !23
 
 255:                                              ; preds = %254, %.preheader.i.i
   %indvars.iv.i36.i = phi i64 [ 4, %.preheader.i.i ], [ %indvars.iv.next.i37.i, %254 ]
@@ -2227,7 +2227,7 @@ _set_smaps_file.exit.i:                           ; preds = %239, %238, %236
 
 .loopexit.i.i:                                    ; preds = %254, %266, %262
   %.1.i.i = phi i64 [ %268, %266 ], [ %.022.ph.i.i, %262 ], [ %.022.ph.i.i, %254 ]
-  br label %.outer.i.i, !llvm.loop !20
+  br label %.outer.i.i, !llvm.loop !22
 
 269:                                              ; preds = %248
   %270 = call i32 @ferror(ptr noundef nonnull %241) #17
@@ -2382,7 +2382,7 @@ _handle_stats.exit:                               ; preds = %107, %.sink.split.i
   %324 = load i32, ptr %62, align 4
   %325 = sext i32 %324 to i64
   %326 = icmp slt i64 %indvars.iv.next, %325
-  br i1 %326, label %71, label %._crit_edge, !llvm.loop !22
+  br i1 %326, label %71, label %._crit_edge, !llvm.loop !24
 
 327:                                              ; preds = %3
   %.not17 = icmp eq ptr %64, null
@@ -2484,7 +2484,7 @@ define internal noundef i32 @_init_tres(ptr noundef readonly captures(none) %0, 
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %7, label %._crit_edge, !llvm.loop !19
+  br i1 %20, label %7, label %._crit_edge, !llvm.loop !21
 }
 
 declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #1
@@ -2530,7 +2530,7 @@ define internal noundef i32 @_reset_visited(ptr noundef writeonly captures(none)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_list_find_prec_by_pid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
-  %3 = load i8, ptr %0, align 8, !range !16, !noundef !17
+  %3 = load i8, ptr %0, align 8, !range !18, !noundef !19
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %10, label %5
 
@@ -2555,7 +2555,7 @@ declare ptr @slurm_list_dequeue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_list_find_prec_by_ppid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
-  %3 = load i8, ptr %0, align 8, !range !16, !noundef !17
+  %3 = load i8, ptr %0, align 8, !range !18, !noundef !19
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %10, label %5
 
@@ -2657,7 +2657,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
   %19 = add nuw nsw i32 %.02332, 1
   %20 = call i64 @read(i32 noundef %5, ptr noundef nonnull %3, i64 noundef 4095) #17
   %21 = icmp eq i64 %20, -1
-  br i1 %21, label %11, label %._crit_edge
+  br i1 %21, label %11, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.lcssa = phi i64 [ %7, %.preheader ], [ %20, %18 ]
@@ -2811,15 +2811,18 @@ attributes #20 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !9, !10, !12}
+!14 = distinct !{!14, !9, !10, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !9, !10, !12}
+!17 = distinct !{!17, !9, !10, !12}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !9, !10, !12}
+!21 = distinct !{!21, !9, !10, !12}
+!22 = distinct !{!22, !9, !10, !12}
+!23 = distinct !{!23, !9, !10, !12}
+!24 = distinct !{!24, !9, !10, !12}
+!25 = distinct !{!25, !12}

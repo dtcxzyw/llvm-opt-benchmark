@@ -264,7 +264,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10: ; preds = %25, %27
 29:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %30 = add nsw i32 %.013, -1
   %.not14 = icmp eq i32 %.013, 0
-  br i1 %.not14, label %6, label %7, !llvm.loop !29
+  br i1 %.not14, label %6, label %7, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -304,7 +304,7 @@ define void @_Z9printBitsPcN9Imath_3_24halfE(ptr noundef writeonly captures(none
   %17 = add nsw i32 %.01213, -1
   %18 = add nsw i32 %.1, 1
   %.not15 = icmp eq i32 %.01213, 0
-  br i1 %.not15, label %4, label %6, !llvm.loop !30
+  br i1 %.not15, label %4, label %6, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -343,7 +343,7 @@ define void @_Z9printBitsPcf(ptr noundef writeonly captures(none) %0, float noun
   %18 = add nsw i32 %.01213, -1
   %19 = add nsw i32 %.1, 1
   %.not15 = icmp eq i32 %.01213, 0
-  br i1 %.not15, label %4, label %6, !llvm.loop !31
+  br i1 %.not15, label %4, label %6, !llvm.loop !32
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -405,8 +405,9 @@ attributes #8 = { nounwind }
 !24 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
 !25 = !{!"_ZTSSt6locale", !26, i64 0}
 !26 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !28}
-!31 = distinct !{!31, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = distinct !{!31, !28, !29}
+!32 = distinct !{!32, !28, !29}

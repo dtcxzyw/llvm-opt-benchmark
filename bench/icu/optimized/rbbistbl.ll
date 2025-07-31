@@ -716,7 +716,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %24, %16
 37:                                               ; preds = %35
   %.not26 = icmp eq i8 %36, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %.not26, label %.thread, label %14
+  br i1 %.not26, label %.thread, label %14, !llvm.loop !45
 
 38:                                               ; preds = %35, %32
   %39 = landingpad { ptr, i32 }
@@ -938,3 +938,5 @@ attributes #15 = { noreturn nounwind }
 !42 = !{!7, !7, i64 0}
 !43 = !{!44, !44, i64 0}
 !44 = !{!"char16_t", !7, i64 0}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.estimated_trip_count"}

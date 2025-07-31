@@ -1742,7 +1742,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %15 = alloca %struct.ossl_param_st, align 8
   %16 = alloca %struct.ossl_param_st, align 8
   store i32 %2, ptr %5, align 4, !tbaa !13
-  store i64 %3, ptr %6, align 8, !tbaa !41
+  store i64 %3, ptr %6, align 8, !tbaa !42
   %17 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 5) #8
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
@@ -1813,7 +1813,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #8
   %47 = load ptr, ptr %41, align 8, !tbaa !31
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.6, ptr noundef %47, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.040, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.040, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #8
   br label %48
 
@@ -1826,7 +1826,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %50 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #8
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.7, ptr noundef nonnull %29, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
   br label %51
 
@@ -1840,7 +1840,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %54 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #8
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #8
   br label %55
 
@@ -1854,7 +1854,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %58 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #8
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.3, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.3, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #8
   br label %59
 
@@ -1868,7 +1868,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %62 = getelementptr inbounds nuw i8, ptr %.4, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #8
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.4, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.4, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #8
   br label %63
 
@@ -1877,16 +1877,16 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   %64 = getelementptr inbounds nuw i8, ptr %.5, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #8
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.12, ptr noundef nonnull %5) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.5, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.5, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #8
   %65 = getelementptr inbounds nuw i8, ptr %.5, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #8
   call void @OSSL_PARAM_construct_time_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.13, ptr noundef nonnull %6) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #8
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #8
   %66 = call i32 @EVP_RAND_instantiate(ptr noundef nonnull %30, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #8
   %.not55 = icmp eq i32 %66, 0
@@ -2036,8 +2036,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !36 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16}
 !37 = !{!36, !24, i64 16}
 !38 = !{!24, !24, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long", !6, i64 0}
-!43 = !{i64 0, i64 8, !38, i64 8, i64 4, !13, i64 16, i64 8, !10, i64 24, i64 8, !41, i64 32, i64 8, !41}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long", !6, i64 0}
+!44 = !{i64 0, i64 8, !38, i64 8, i64 4, !13, i64 16, i64 8, !10, i64 24, i64 8, !42, i64 32, i64 8, !42}

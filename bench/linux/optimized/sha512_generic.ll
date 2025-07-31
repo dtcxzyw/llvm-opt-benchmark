@@ -216,7 +216,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %80 = add i64 %79, %76
   store i64 %80, ptr %77, align 8
   %81 = icmp eq i64 %68, 16
-  br i1 %81, label %.loopexit, label %.preheader2, !llvm.loop !10
+  br i1 %81, label %.loopexit, label %.preheader2, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader2, %.preheader, %31
   %82 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 50)
@@ -467,7 +467,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %327 = add i64 %325, %315
   %328 = add nuw nsw i64 %32, 8
   %329 = icmp samesign ult i64 %32, 72
-  br i1 %329, label %31, label %330, !llvm.loop !11
+  br i1 %329, label %31, label %330, !llvm.loop !12
 
 330:                                              ; preds = %.loopexit
   %331 = add nsw i32 %29, -1
@@ -490,7 +490,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
   %340 = getelementptr i8, ptr %30, i64 128
   %341 = icmp eq i32 %331, 0
-  br i1 %341, label %342, label %20, !llvm.loop !12
+  br i1 %341, label %342, label %20, !llvm.loop !13
 
 342:                                              ; preds = %330
   ret void
@@ -627,11 +627,11 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr noundef re
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %91 = add i32 %86, -8
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %sha512_final.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %92, label %sha512_final.exit, label %.preheader.i, !llvm.loop !14
 
 sha512_final.exit:                                ; preds = %.preheader.i, %64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %5, i8 0, i64 208, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #9, !srcloc !14
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #9, !srcloc !15
   ret i32 0
 }
 
@@ -698,11 +698,11 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr noundef writeonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = add i32 %40, -8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %3, i8 0, i64 208, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #9, !srcloc !14
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #9, !srcloc !15
   ret i32 0
 }
 
@@ -808,11 +808,12 @@ attributes #9 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{i64 2148890123}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = !{i64 2148890123}

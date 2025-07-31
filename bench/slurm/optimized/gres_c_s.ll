@@ -244,7 +244,7 @@ _build_sharing_list.exit.thread:                  ; preds = %24
   tail call void @free(ptr noundef nonnull %61) #7
   %95 = tail call ptr @slurm_hostlist_shift(ptr noundef %51) #7
   %.not53.i = icmp eq ptr %95, null
-  br i1 %.not53.i, label %._crit_edge.i, label %60, !llvm.loop !11
+  br i1 %.not53.i, label %._crit_edge.i, label %60, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %78, %50
   tail call void @slurm_hostlist_destroy(ptr noundef %51) #7
@@ -274,7 +274,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @slurm_xstrcmp(ptr noundef %105, ptr noundef %98) #7
   %.not77.i = icmp eq i32 %106, 0
-  br i1 %.not77.i, label %107, label %101, !llvm.loop !12
+  br i1 %.not77.i, label %107, label %101, !llvm.loop !13
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 56
@@ -445,7 +445,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   tail call void @free(ptr noundef nonnull %170) #7
   %201 = tail call ptr @slurm_hostlist_shift(ptr noundef %156) #7
   %.not84.i = icmp eq ptr %201, null
-  br i1 %.not84.i, label %._crit_edge.i50, label %169, !llvm.loop !13
+  br i1 %.not84.i, label %._crit_edge.i50, label %169, !llvm.loop !14
 
 ._crit_edge.i50:                                  ; preds = %187, %155
   tail call void @slurm_hostlist_destroy(ptr noundef %156) #7
@@ -455,7 +455,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   %.169.i = phi i32 [ 0, %._crit_edge.i50 ], [ 1, %138 ]
   %.1.i = phi i32 [ %153, %._crit_edge.i50 ], [ 0, %138 ]
   %203 = tail call i32 @slurm_list_delete_item(ptr noundef %100) #7
-  br label %.outer.i47, !llvm.loop !12
+  br label %.outer.i47, !llvm.loop !13
 
 204:                                              ; preds = %101
   tail call void @slurm_list_iterator_destroy(ptr noundef %100) #7
@@ -519,7 +519,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %227) #7
   %233 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
   %.not.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i, label %_distribute_count.exit.i, label %226, !llvm.loop !14
+  br i1 %.not.i.i, label %_distribute_count.exit.i, label %226, !llvm.loop !15
 
 _distribute_count.exit.i:                         ; preds = %226, %219
   %234 = tail call i32 @slurm_list_flush(ptr noundef %.070.i) #7
@@ -615,7 +615,7 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %237) #7
   %277 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
   %.not48.i = icmp eq ptr %277, null
-  br i1 %.not48.i, label %._crit_edge.i57, label %.lr.ph.i52, !llvm.loop !15
+  br i1 %.not48.i, label %._crit_edge.i57, label %.lr.ph.i52, !llvm.loop !16
 
 ._crit_edge.i57:                                  ; preds = %276, %235
   %278 = tail call i32 @slurm_list_delete_all(ptr noundef %.070.i, ptr noundef nonnull @_delete_leftovers, ptr noundef null) #7
@@ -682,7 +682,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
 295:                                              ; preds = %293
   %296 = load i32, ptr %294, align 8
   %297 = tail call zeroext i1 @gres_id_shared(i32 noundef %296) #7
-  br i1 %297, label %298, label %293, !llvm.loop !16
+  br i1 %297, label %298, label %293, !llvm.loop !17
 
 298:                                              ; preds = %295
   %299 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 240, ptr noundef nonnull @__func__._build_shared_dev_info) #7
@@ -722,7 +722,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   %317 = mul nuw nsw i32 %.022.i.i, 10
   %.016.i.i = add nsw i32 %.01623.i.i, -1
   %318 = icmp sgt i32 %.01623.i.i, 0
-  br i1 %318, label %.lr.ph.i.i62, label %_compute_local_id.exit.i, !llvm.loop !17
+  br i1 %318, label %.lr.ph.i.i62, label %_compute_local_id.exit.i, !llvm.loop !18
 
 _compute_local_id.exit.i:                         ; preds = %312, %.lr.ph.i.i62, %304, %298
   %.017.i.i = phi i32 [ -1, %298 ], [ -1, %304 ], [ %.01521.i.i, %.lr.ph.i.i62 ], [ %316, %312 ]
@@ -732,7 +732,7 @@ _compute_local_id.exit.i:                         ; preds = %312, %.lr.ph.i.i62,
   tail call void @slurm_list_append(ptr noundef %320, ptr noundef nonnull %299) #7
   %321 = load i64, ptr %300, align 8
   %322 = add i64 %321, %.0.ph.i60
-  br label %.outer.i59, !llvm.loop !16
+  br label %.outer.i59, !llvm.loop !17
 
 _build_shared_dev_info.exit:                      ; preds = %293
   tail call void @slurm_list_iterator_destroy(ptr noundef %292) #7
@@ -837,7 +837,7 @@ define dso_local void @gres_c_s_send_stepd(ptr noundef %0) local_unnamed_addr #0
   tail call void @slurm_pack64(i64 noundef %13, ptr noundef %0) #7
   %14 = tail call ptr @slurm_list_next(ptr noundef %7) #7
   %.not10 = icmp eq ptr %14, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %7) #7
@@ -919,7 +919,7 @@ define dso_local void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0
   %24 = add nuw i32 %.013, 1
   %25 = load i32, ptr %4, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .thread:                                          ; preds = %16, %.lr.ph, %1
   %27 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.7) #7
@@ -1115,15 +1115,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}

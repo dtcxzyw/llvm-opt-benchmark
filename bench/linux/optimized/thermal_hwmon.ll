@@ -339,7 +339,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   call void @mutex_unlock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
   %15 = icmp eq ptr %10, null
-  br i1 %15, label %58, label %16, !prof !9
+  br i1 %15, label %58, label %16, !prof !10
 
 16:                                               ; preds = %thermal_hwmon_lookup_by_type.exit
   tail call void @mutex_lock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
@@ -360,12 +360,12 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
-  br i1 %25, label %26, label %18, !llvm.loop !10
+  br i1 %25, label %26, label %18, !llvm.loop !11
 
 26:                                               ; preds = %22
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
   %27 = icmp eq ptr %20, null
-  br i1 %27, label %58, label %28, !prof !9
+  br i1 %27, label %58, label %28, !prof !10
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %7, i64 -32
@@ -523,8 +523,9 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"branch_weights", i32 0, i32 -2147483648}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"branch_weights", i32 0, i32 -2147483648}
+!11 = distinct !{!11, !7, !8, !9}

@@ -124,10 +124,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   %67 = and i32 %.039, %66
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %.042) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !8
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !9
   %69 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   store ptr %11, ptr %10, align 8
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -221,7 +221,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   br i1 %.not.i, label %up_irq_restore.exit, label %111
 
 111:                                              ; preds = %109
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   br label %up_irq_restore.exit
 
 112:                                              ; preds = %80, %74, %92
@@ -247,7 +247,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   br i1 %.not.i61, label %up_irq_restore.exit, label %119
 
 119:                                              ; preds = %117
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %119, %117, %111, %109, %14, %6, %17, %56, %53
@@ -421,10 +421,10 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #8, !srcloc !8
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #8, !srcloc !9
   %10 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   br i1 %2, label %.preheader, label %29
 
 .preheader:                                       ; preds = %3
@@ -434,7 +434,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
 12:                                               ; preds = %13
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
-  br i1 %exitcond43.not, label %17, label %13, !llvm.loop !11
+  br i1 %exitcond43.not, label %17, label %13, !llvm.loop !12
 
 13:                                               ; preds = %.preheader, %12
   %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %12 ]
@@ -478,7 +478,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
 33:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !13
 
 34:                                               ; preds = %.preheader28, %33
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %33 ]
@@ -500,7 +500,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
   br i1 %.not.i, label %up_irq_restore.exit, label %41
 
 41:                                               ; preds = %.loopexit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %.loopexit, %41
@@ -549,10 +549,11 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 389981, i64 389999}
-!9 = !{i64 390600}
-!10 = !{i64 390721}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 389981, i64 389999}
+!10 = !{i64 390600}
+!11 = !{i64 390721}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

@@ -456,7 +456,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   br i1 %214, label %215, label %216
 
 215:                                              ; preds = %210
-  br i1 %90, label %91, label %.thread670
+  br i1 %90, label %91, label %.thread670, !llvm.loop !9
 
 216:                                              ; preds = %210
   %217 = icmp eq i32 %211, %13
@@ -570,7 +570,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
   %.not1036 = icmp eq i8 %284, 0
-  br i1 %.not1036, label %._crit_edge1030, label %.lr.ph1029, !llvm.loop !8
+  br i1 %.not1036, label %._crit_edge1030, label %.lr.ph1029, !llvm.loop !10
 
 ._crit_edge1030:                                  ; preds = %281, %.thread670
   %.7543.lcssa = phi ptr [ %.6542, %.thread670 ], [ %255, %281 ]
@@ -640,7 +640,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %315 = load i16, ptr %314, align 2
   %316 = sext i16 %315 to i32
   %.not649 = icmp sgt i32 %12, %316
-  br i1 %.not649, label %._crit_edge978.loopexit, label %.lr.ph977, !llvm.loop !9
+  br i1 %.not649, label %._crit_edge978.loopexit, label %.lr.ph977, !llvm.loop !11
 
 ._crit_edge978.loopexit:                          ; preds = %313
   %317 = trunc nsw i64 %indvars.iv.next to i32
@@ -774,12 +774,12 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 395:                                              ; preds = %.lr.ph984
   %396 = lshr i32 %.3982, 1
   %.not652 = icmp slt i32 %396, %5
-  br i1 %.not652, label %.loopexit717, label %.lr.ph984, !llvm.loop !10
+  br i1 %.not652, label %.loopexit717, label %.lr.ph984, !llvm.loop !12
 
 .lr.ph984:                                        ; preds = %393, %395
   %.3982 = phi i32 [ %396, %395 ], [ %.14729981717, %393 ]
   %397 = icmp ult i32 %.3982, 2
-  br i1 %397, label %.thread670, label %395, !llvm.loop !10
+  br i1 %397, label %.thread670, label %395, !llvm.loop !12
 
 .loopexit717:                                     ; preds = %395, %393, %326
   %.9545 = phi ptr [ %.85449881726, %326 ], [ %367, %393 ], [ %367, %395 ]
@@ -832,7 +832,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %.0555.ph.be = phi i32 [ %409, %407 ], [ %.0555, %411 ], [ %.0555, %.critedge ]
   %.0552.ph.be = phi i32 [ %410, %407 ], [ %.0552, %411 ], [ %.0552, %.critedge ]
   %.0549.ph.be = phi i32 [ %404, %407 ], [ %412, %411 ], [ %404, %.critedge ]
-  br label %.outer
+  br label %.outer, !llvm.loop !9
 
 411:                                              ; preds = %405
   %412 = add nsw i32 %.0555, -1
@@ -923,8 +923,10 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

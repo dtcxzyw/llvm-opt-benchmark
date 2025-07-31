@@ -710,7 +710,7 @@ define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void %19(double noundef %21, ptr noundef %23, double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %9
   %.0 = phi i32 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph ]
@@ -752,7 +752,7 @@ define i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr
   tail call void %15(double noundef %17, ptr noundef nonnull %2, double noundef 1.000000e+00, ptr noundef %19, ptr noundef %21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi i32 [ %12, %11 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -792,7 +792,7 @@ define i32 @N_VDotProdMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store double %17, ptr %18, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0 = phi i32 [ %11, %10 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -837,7 +837,7 @@ define i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr nound
   tail call void %19(double noundef %1, ptr noundef %21, double noundef %3, ptr noundef %23, ptr noundef %25) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %13
   %.0 = phi i32 [ %14, %13 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -882,7 +882,7 @@ define i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   tail call void %17(double noundef %19, ptr noundef %21, ptr noundef %23) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi i32 [ %12, %11 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -923,7 +923,7 @@ define i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef %
   tail call void %16(double noundef %1, ptr noundef %18) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0 = phi i32 [ %11, %10 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -968,7 +968,7 @@ define i32 @N_VWrmsNormVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %
   store double %22, ptr %23, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi i32 [ %12, %11 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -1010,7 +1010,7 @@ define i32 @N_VWrmsNormMaskVectorArray(i32 noundef %0, ptr noundef %1, ptr nound
   store double %20, ptr %21, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi i32 [ %12, %11 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -1064,22 +1064,22 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   %27 = load double, ptr %26, align 8, !tbaa !69
   %28 = load ptr, ptr %19, align 8, !tbaa !71
   %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv89
-  %30 = load ptr, ptr %29, align 8, !tbaa !73
+  %30 = load ptr, ptr %29, align 8, !tbaa !82
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv94
   %32 = load ptr, ptr %31, align 8, !tbaa !71
   %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv89
-  %34 = load ptr, ptr %33, align 8, !tbaa !73
+  %34 = load ptr, ptr %33, align 8, !tbaa !82
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv94
   %36 = load ptr, ptr %35, align 8, !tbaa !71
   tail call void %25(double noundef %27, ptr noundef %28, double noundef 1.000000e+00, ptr noundef %32, ptr noundef %36) #13
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge.us74, label %20
+  br i1 %exitcond93.not, label %._crit_edge.us74, label %20, !llvm.loop !84
 
 ._crit_edge.us74:                                 ; preds = %20
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond98.not, label %.loopexit, label %.preheader.us, !llvm.loop !85
 
 37:                                               ; preds = %14
   %38 = sext i32 %1 to i64
@@ -1105,25 +1105,25 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 44:                                               ; preds = %.preheader65.us, %44
   %indvars.iv79 = phi i64 [ 0, %.preheader65.us ], [ %indvars.iv.next80, %44 ]
   %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv79
-  %46 = load ptr, ptr %45, align 8, !tbaa !73
+  %46 = load ptr, ptr %45, align 8, !tbaa !82
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv84
   %48 = load ptr, ptr %47, align 8, !tbaa !71
   %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv79
   store ptr %48, ptr %49, align 8, !tbaa !71
   %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv79
-  %51 = load ptr, ptr %50, align 8, !tbaa !73
+  %51 = load ptr, ptr %50, align 8, !tbaa !82
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv84
   %53 = load ptr, ptr %52, align 8, !tbaa !71
   %54 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv79
   store ptr %53, ptr %54, align 8, !tbaa !71
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge.us, label %44
+  br i1 %exitcond83.not, label %._crit_edge.us, label %44, !llvm.loop !87
 
 55:                                               ; preds = %._crit_edge.us
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge68, label %.preheader65.us, !llvm.loop !77
+  br i1 %exitcond88.not, label %._crit_edge68, label %.preheader65.us, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %44
   %56 = load ptr, ptr %3, align 8, !tbaa !71
@@ -1140,7 +1140,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 64:                                               ; preds = %.preheader65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
-  br i1 %exitcond.not, label %._crit_edge68, label %.preheader65
+  br i1 %exitcond.not, label %._crit_edge68, label %.preheader65, !llvm.loop !89
 
 .preheader65:                                     ; preds = %.preheader65.lr.ph, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader65.lr.ph ]
@@ -1207,7 +1207,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = load double, ptr %2, align 8, !tbaa !69
-  %24 = load ptr, ptr %3, align 8, !tbaa !73
+  %24 = load ptr, ptr %3, align 8, !tbaa !82
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv95
   %26 = load ptr, ptr %25, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
@@ -1225,19 +1225,19 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv90
   %36 = load double, ptr %35, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv90
-  %38 = load ptr, ptr %37, align 8, !tbaa !73
+  %38 = load ptr, ptr %37, align 8, !tbaa !82
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv95
   %40 = load ptr, ptr %39, align 8, !tbaa !71
   %41 = load ptr, ptr %27, align 8, !tbaa !71
   tail call void %34(double noundef %36, ptr noundef %40, double noundef 1.000000e+00, ptr noundef %41, ptr noundef %41) #13
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge.us70, label %29
+  br i1 %exitcond94.not, label %._crit_edge.us70, label %29, !llvm.loop !90
 
 ._crit_edge.us70:                                 ; preds = %29
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !78
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !91
 
 42:                                               ; preds = %13
   %43 = sext i32 %1 to i64
@@ -1262,19 +1262,19 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 48:                                               ; preds = %.preheader60.us, %48
   %indvars.iv75 = phi i64 [ 0, %.preheader60.us ], [ %indvars.iv.next76, %48 ]
   %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv75
-  %50 = load ptr, ptr %49, align 8, !tbaa !73
+  %50 = load ptr, ptr %49, align 8, !tbaa !82
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv80
   %52 = load ptr, ptr %51, align 8, !tbaa !71
   %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv75
   store ptr %52, ptr %53, align 8, !tbaa !71
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge.us, label %48
+  br i1 %exitcond79.not, label %._crit_edge.us, label %48, !llvm.loop !92
 
 54:                                               ; preds = %._crit_edge.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge63, label %.preheader60.us, !llvm.loop !79
+  br i1 %exitcond84.not, label %._crit_edge63, label %.preheader60.us, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %48
   %55 = load ptr, ptr %4, align 8, !tbaa !71
@@ -1291,7 +1291,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 63:                                               ; preds = %.preheader60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
-  br i1 %exitcond.not, label %._crit_edge63, label %.preheader60
+  br i1 %exitcond.not, label %._crit_edge63, label %.preheader60, !llvm.loop !94
 
 .preheader60:                                     ; preds = %.preheader60.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.preheader60.lr.ph ]
@@ -1319,7 +1319,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %76 = load ptr, ptr %75, align 8, !tbaa !28
   %77 = load double, ptr %2, align 8, !tbaa !69
-  %78 = load ptr, ptr %3, align 8, !tbaa !73
+  %78 = load ptr, ptr %3, align 8, !tbaa !82
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv85
   %80 = load ptr, ptr %79, align 8, !tbaa !71
   %81 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
@@ -1327,7 +1327,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   tail call void %76(double noundef %77, ptr noundef %80, ptr noundef %82) #13
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count98
-  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph69.split
+  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph69.split, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph69.split, %._crit_edge.us70, %.preheader, %._crit_edge63, %11
   %.0 = phi i32 [ %12, %11 ], [ %.2, %._crit_edge63 ], [ 0, %.preheader ], [ 0, %._crit_edge.us70 ], [ 0, %.lr.ph69.split ]
@@ -1461,7 +1461,7 @@ define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   store double %20, ptr %21, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %9
   %.017 = phi i32 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph ]
@@ -1606,7 +1606,7 @@ N_VDestroy.exit.i:                                ; preds = %36, %31, %.lr.ph.i
   store ptr null, ptr %23, align 8, !tbaa !71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %N_VDestroyVectorArray.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %N_VDestroyVectorArray.exit, label %.lr.ph.i, !llvm.loop !97
 
 N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, %.preheader.i
   tail call void @free(ptr noundef nonnull %7) #13
@@ -1615,7 +1615,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
 37:                                               ; preds = %N_VCloneEmpty.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !98
 
 .loopexit:                                        ; preds = %37, %2, %N_VDestroyVectorArray.exit
   %.012 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ %7, %2 ], [ %7, %37 ]
@@ -1681,7 +1681,7 @@ N_VDestroy.exit:                                  ; preds = %.lr.ph, %13, %18
   store ptr null, ptr %5, align 8, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %N_VDestroy.exit, %.preheader
   tail call void @free(ptr noundef nonnull %0) #13
@@ -1781,7 +1781,7 @@ N_VDestroy.exit.i:                                ; preds = %36, %31, %.lr.ph.i
   store ptr null, ptr %23, align 8, !tbaa !71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %N_VDestroyVectorArray.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %N_VDestroyVectorArray.exit, label %.lr.ph.i, !llvm.loop !97
 
 N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, %.preheader.i
   tail call void @free(ptr noundef nonnull %7) #13
@@ -1790,7 +1790,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
 37:                                               ; preds = %N_VClone.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !99
 
 .loopexit:                                        ; preds = %37, %2, %N_VDestroyVectorArray.exit
   %.012 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ %7, %2 ], [ %7, %37 ]
@@ -1974,10 +1974,30 @@ attributes #13 = { nounwind }
 !70 = !{!"double", !6, i64 0}
 !71 = !{!72, !72, i64 0}
 !72 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !76}
-!78 = distinct !{!78, !76}
-!79 = distinct !{!79, !76}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = distinct !{!75, !74}
+!76 = distinct !{!76, !74}
+!77 = distinct !{!77, !74}
+!78 = distinct !{!78, !74}
+!79 = distinct !{!79, !74}
+!80 = distinct !{!80, !74}
+!81 = distinct !{!81, !74}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
+!84 = distinct !{!84, !74}
+!85 = distinct !{!85, !74, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = distinct !{!87, !74}
+!88 = distinct !{!88, !74, !86}
+!89 = distinct !{!89, !74}
+!90 = distinct !{!90, !74}
+!91 = distinct !{!91, !74, !86}
+!92 = distinct !{!92, !74}
+!93 = distinct !{!93, !74, !86}
+!94 = distinct !{!94, !74}
+!95 = distinct !{!95, !74}
+!96 = distinct !{!96, !74}
+!97 = distinct !{!97, !74}
+!98 = distinct !{!98, !74}
+!99 = distinct !{!99, !74}

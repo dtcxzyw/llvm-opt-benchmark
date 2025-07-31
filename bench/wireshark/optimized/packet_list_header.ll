@@ -3198,23 +3198,23 @@ _ZN7QStringD2Ev.exit370:                          ; preds = %509, %_ZN17QArrayDa
 522:                                              ; preds = %520
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN7QAction9triggeredEb to i64), ptr %3, align 8, !noalias !37
+  store i64 ptrtoint (ptr @_ZN7QAction9triggeredEb to i64), ptr %3, align 8, !noalias !38
   %.fca.1.gep14.i374 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep14.i374, align 8, !noalias !37
-  store i64 ptrtoint (ptr @_ZN16PacketListHeader12removeColumnEv to i64), ptr %4, align 8, !noalias !37
+  store i64 0, ptr %.fca.1.gep14.i374, align 8, !noalias !38
+  store i64 ptrtoint (ptr @_ZN16PacketListHeader12removeColumnEv to i64), ptr %4, align 8, !noalias !38
   %.fca.1.gep.i375 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i375, align 8, !noalias !37
+  store i64 0, ptr %.fca.1.gep.i375, align 8, !noalias !38
   %523 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12
           to label %.noexc377 unwind label %331
 
 .noexc377:                                        ; preds = %522
-  store i32 1, ptr %523, align 4, !noalias !37
+  store i32 1, ptr %523, align 4, !noalias !38
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM16PacketListHeaderFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %524, align 8, !noalias !37
+  store ptr @_ZN9QtPrivate11QSlotObjectIM16PacketListHeaderFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %524, align 8, !noalias !38
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 16
-  store i64 ptrtoint (ptr @_ZN16PacketListHeader12removeColumnEv to i64), ptr %525, align 8, !noalias !37
+  store i64 ptrtoint (ptr @_ZN16PacketListHeader12removeColumnEv to i64), ptr %525, align 8, !noalias !38
   %.repack7.i.i376 = getelementptr inbounds nuw i8, ptr %523, i64 24
-  store i64 0, ptr %.repack7.i.i376, align 8, !noalias !37
+  store i64 0, ptr %.repack7.i.i376, align 8, !noalias !38
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %67, ptr noundef %508, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %523, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN7QAction16staticMetaObjectE)
           to label %526 unwind label %331
 
@@ -4502,8 +4502,9 @@ attributes #13 = { builtin nounwind }
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !34 = distinct !{!34, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!39 = distinct !{!39, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!40 = distinct !{!40, !"_ZN7QObject7connectIM7QActionFvbEM16PacketListHeaderFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}

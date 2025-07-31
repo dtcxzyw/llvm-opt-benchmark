@@ -148,7 +148,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   %54 = icmp ne i32 %53, 0
   %55 = icmp samesign ult i64 %indvars.iv69, 15
   %56 = and i1 %54, %55
-  br i1 %56, label %.lr.ph49, label %.preheader.loopexit, !llvm.loop !8
+  br i1 %56, label %.lr.ph49, label %.preheader.loopexit, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph54.preheader, %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
@@ -163,7 +163,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   %63 = or i32 %.134.lcssa, %.138.lcssa
   %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %._crit_edge61, label %.preheader40, !llvm.loop !9
+  br i1 %.not, label %._crit_edge61, label %.preheader40, !llvm.loop !10
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
@@ -193,7 +193,7 @@ define hidden void @knxip_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr n
 
 13:                                               ; preds = %12
   %14 = zext nneg i8 %7 to i64
-  %15 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef readonly %6, i64 noundef range(i64 1, 256) %14, i64 noundef 16) #14, !alias.scope !10
+  %15 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef readonly %6, i64 noundef range(i64 1, 256) %14, i64 noundef 16) #14, !alias.scope !11
   br label %build_b0.exit
 
 build_b0.exit:                                    ; preds = %12, %13
@@ -295,11 +295,11 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   %45 = icmp ne i32 %44, 0
   %46 = icmp samesign ult i64 %indvars.iv, 15
   %47 = and i1 %45, %46
-  br i1 %47, label %.lr.ph, label %.preheader, !llvm.loop !14
+  br i1 %47, label %.lr.ph, label %.preheader, !llvm.loop !15
 
 .loopexit52:                                      ; preds = %59
   %.not49 = icmp eq i32 %66, 0
-  br i1 %.not49, label %._crit_edge, label %48, !llvm.loop !15
+  br i1 %.not49, label %._crit_edge, label %48, !llvm.loop !16
 
 48:                                               ; preds = %.lr.ph67, %.loopexit52
   %.13566 = phi ptr [ %.034.lcssa, %.lr.ph67 ], [ %65, %.loopexit52 ]
@@ -339,7 +339,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   store i8 %64, ptr %.23661, align 1
   %66 = add nsw i32 %.24359, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit52, label %59, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit52, label %59, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit52, %.preheader
   %.135.lcssa = phi ptr [ %.034.lcssa, %.preheader ], [ %65, %.loopexit52 ]
@@ -367,7 +367,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   store i8 %71, ptr %.372, align 1
   %73 = add nsw i8 %.04471, -1
   %.not51 = icmp eq i8 %73, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph75, !llvm.loop !17
+  br i1 %.not51, label %.loopexit, label %.lr.ph75, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph75, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #14
@@ -403,7 +403,7 @@ define hidden ptr @knxip_ccm_encrypt(ptr noundef captures(address_is_null, ret: 
 
 12:                                               ; preds = %11
   %13 = zext nneg i8 %6 to i64
-  %14 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef readonly %5, i64 noundef range(i64 1, 256) %13, i64 noundef 16) #14, !alias.scope !18
+  %14 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef readonly %5, i64 noundef range(i64 1, 256) %13, i64 noundef 16) #14, !alias.scope !19
   br label %build_ctr0.exit
 
 build_ctr0.exit:                                  ; preds = %11, %12
@@ -436,7 +436,7 @@ define hidden ptr @knxip_ccm_decrypt(ptr noundef captures(address_is_null, ret: 
 
 11:                                               ; preds = %10
   %12 = zext nneg i8 %5 to i64
-  %13 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef readonly %4, i64 noundef range(i64 1, 256) %12, i64 noundef 16) #14, !alias.scope !22
+  %13 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef readonly %4, i64 noundef range(i64 1, 256) %12, i64 noundef 16) #14, !alias.scope !23
   br label %build_ctr0.exit
 
 build_ctr0.exit:                                  ; preds = %10, %11
@@ -479,7 +479,7 @@ define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none
   tail call void @wmem_free(ptr noundef %13, ptr noundef nonnull %11)
   %14 = load ptr, ptr @knx_keyring_mca_keys, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %.preheader20.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %.preheader20.i, label %.lr.ph.i, !llvm.loop !27
 
 .preheader19.i:                                   ; preds = %.lr.ph23.i, %.preheader20.i
   %15 = load ptr, ptr @knx_keyring_ga_senders, align 8
@@ -494,7 +494,7 @@ define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none
   tail call void @wmem_free(ptr noundef %18, ptr noundef nonnull %16)
   %19 = load ptr, ptr @knx_keyring_ga_keys, align 8
   %.not14.i = icmp eq ptr %19, null
-  br i1 %.not14.i, label %.preheader19.i, label %.lr.ph23.i, !llvm.loop !27
+  br i1 %.not14.i, label %.preheader19.i, label %.lr.ph23.i, !llvm.loop !28
 
 .preheader18.i:                                   ; preds = %.lr.ph25.i, %.preheader19.i
   %20 = load ptr, ptr @knx_keyring_ia_keys, align 8
@@ -509,7 +509,7 @@ define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none
   tail call void @wmem_free(ptr noundef %23, ptr noundef nonnull %21)
   %24 = load ptr, ptr @knx_keyring_ga_senders, align 8
   %.not15.i = icmp eq ptr %24, null
-  br i1 %.not15.i, label %.preheader18.i, label %.lr.ph25.i, !llvm.loop !28
+  br i1 %.not15.i, label %.preheader18.i, label %.lr.ph25.i, !llvm.loop !29
 
 .preheader.i:                                     ; preds = %.lr.ph27.i, %.preheader18.i
   %25 = load ptr, ptr @knx_keyring_ia_seqs, align 8
@@ -524,7 +524,7 @@ define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none
   tail call void @wmem_free(ptr noundef %28, ptr noundef nonnull %26)
   %29 = load ptr, ptr @knx_keyring_ia_keys, align 8
   %.not16.i = icmp eq ptr %29, null
-  br i1 %.not16.i, label %.preheader.i, label %.lr.ph27.i, !llvm.loop !29
+  br i1 %.not16.i, label %.preheader.i, label %.lr.ph27.i, !llvm.loop !30
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
   %30 = phi ptr [ %33, %.lr.ph29.i ], [ %25, %.preheader.i ]
@@ -534,7 +534,7 @@ define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none
   tail call void @wmem_free(ptr noundef %32, ptr noundef nonnull %30)
   %33 = load ptr, ptr @knx_keyring_ia_seqs, align 8
   %.not17.i = icmp eq ptr %33, null
-  br i1 %.not17.i, label %clear_keyring_data.exit, label %.lr.ph29.i, !llvm.loop !30
+  br i1 %.not17.i, label %clear_keyring_data.exit, label %.lr.ph29.i, !llvm.loop !31
 
 clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.preheader.i
   %34 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
@@ -658,7 +658,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   %.1 = phi i64 [ %75, %74 ], [ %.076178, %72 ]
   %78 = call i32 @fgetc(ptr noundef nonnull %34)
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %.lr.ph179, label %._crit_edge, !llvm.loop !31
+  br i1 %79, label %.lr.ph179, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %77, %.lr.ph179, %60
   %.076.lcssa = phi i64 [ 1, %60 ], [ %.076178, %.lr.ph179 ], [ %.1, %77 ]
@@ -691,7 +691,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 89:                                               ; preds = %.lr.ph185
   %90 = call i32 @fgetc(ptr noundef nonnull %34)
   %91 = icmp sgt i32 %90, -1
-  br i1 %91, label %.lr.ph185, label %.thread, !llvm.loop !32
+  br i1 %91, label %.lr.ph185, label %.thread, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph185
   %92 = icmp eq i32 %.279184, 61
@@ -709,7 +709,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 256
   %.not114 = icmp eq i16 %100, 0
-  br i1 %.not114, label %.critedge5, label %.preheader159, !llvm.loop !33
+  br i1 %.not114, label %.critedge5, label %.preheader159, !llvm.loop !34
 
 .critedge5:                                       ; preds = %95
   %101 = icmp eq i32 %93, 34
@@ -746,7 +746,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   %.3 = phi i64 [ %112, %110 ], [ %.2186, %108 ]
   %115 = call i32 @fgetc(ptr noundef nonnull %34)
   %116 = icmp sgt i32 %115, -1
-  br i1 %116, label %.lr.ph187, label %._crit_edge188, !llvm.loop !34
+  br i1 %116, label %.lr.ph187, label %._crit_edge188, !llvm.loop !35
 
 ._crit_edge188:                                   ; preds = %114, %106, %.preheader
   %.2.lcssa = phi i64 [ 0, %.preheader ], [ %.2186, %106 ], [ %.3, %114 ]
@@ -885,7 +885,7 @@ read_ia.exit.i:                                   ; preds = %153, %148, %146, %1
 172:                                              ; preds = %168, %.lr.ph.i149
   %173 = load ptr, ptr %164, align 8
   %.not.i150 = icmp eq ptr %173, null
-  br i1 %.not.i150, label %._crit_edge.i, label %.lr.ph.i149, !llvm.loop !35
+  br i1 %.not.i150, label %._crit_edge.i, label %.lr.ph.i149, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %172, %read_ia.exit.i
   %.0.lcssa.i = phi ptr [ @knx_keyring_ga_senders, %read_ia.exit.i ], [ %164, %172 ]
@@ -918,7 +918,7 @@ read_ia.exit.i:                                   ; preds = %153, %148, %146, %1
 add_ga_sender.exit:                               ; preds = %168, %181, %184
   %187 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @read_knx_keyring_xml_file.delim) #14
   %.not136 = icmp eq ptr %187, null
-  br i1 %.not136, label %.loopexit, label %144, !llvm.loop !36
+  br i1 %.not136, label %.loopexit, label %144, !llvm.loop !37
 
 188:                                              ; preds = %126
   %bcmp120 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %8, ptr noundef nonnull dereferenceable(7) @.str.12, i64 7)
@@ -967,7 +967,7 @@ add_ga_sender.exit:                               ; preds = %168, %181, %184
   %.287 = phi i8 [ %.085174, %._crit_edge188 ], [ %.085174, %122 ], [ %.085174, %125 ], [ %.085174, %123 ], [ %.085174, %129 ], [ %.085174, %134 ], [ %.085174, %133 ], [ %.085174, %135 ], [ %.085174, %192 ], [ %.085174, %196 ], [ %.085174, %195 ], [ %.085174, %200 ], [ %.085174, %197 ], [ %.085174, %.critedge5 ], [ %.085174, %.critedge ], [ 1, %82 ], [ %.085174, %188 ], [ %.085174, %137 ], [ %.085174, %add_ga_sender.exit ]
   %.178 = phi i32 [ %.380, %._crit_edge188 ], [ %.380, %122 ], [ %.380, %125 ], [ %.380, %123 ], [ %.380, %129 ], [ %.380, %134 ], [ %.380, %133 ], [ %.380, %135 ], [ %.380, %192 ], [ %.380, %196 ], [ %.380, %195 ], [ %.380, %200 ], [ %.380, %197 ], [ %93, %.critedge5 ], [ %.279184, %.critedge ], [ %.lcssa168, %82 ], [ %.380, %188 ], [ %.380, %137 ], [ %.380, %add_ga_sender.exit ]
   %201 = icmp slt i32 %.178, 0
-  br i1 %201, label %.thread, label %.outer
+  br i1 %201, label %.thread, label %.outer, !llvm.loop !38
 
 202:                                              ; preds = %52
   %203 = and i32 %56, 256
@@ -993,7 +993,7 @@ add_ga_sender.exit:                               ; preds = %168, %181, %184
   %.182 = phi i8 [ 0, %51 ], [ %.081176, %202 ], [ 0, %.lr.ph ], [ %.182.ph, %.sink.split ]
   %205 = call i32 @fgetc(ptr noundef nonnull %34)
   %206 = icmp sgt i32 %205, -1
-  br i1 %206, label %.lr.ph, label %.thread, !llvm.loop !37
+  br i1 %206, label %.lr.ph, label %.thread, !llvm.loop !38
 
 .thread:                                          ; preds = %.outer, %.loopexit, %.preheader160, %204, %89, %.preheader159
   %207 = call i32 @fclose(ptr noundef nonnull %34)
@@ -1075,7 +1075,7 @@ define internal fastcc void @add_mca_key(ptr noundef readonly captures(none) %0,
 19:                                               ; preds = %16, %.lr.ph
   %20 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %19, %9
   %.024.lcssa = phi ptr [ @knx_keyring_mca_keys, %9 ], [ %13, %19 ]
@@ -1106,7 +1106,7 @@ define internal fastcc void @add_mca_key(ptr noundef readonly captures(none) %0,
   %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %37)
   %39 = add nsw i8 %.06.i, -1
   %.not.i = icmp eq i8 %39, 0
-  br i1 %.not.i, label %fprintf_hex.exit, label %34, !llvm.loop !39
+  br i1 %.not.i, label %fprintf_hex.exit, label %34, !llvm.loop !40
 
 fprintf_hex.exit:                                 ; preds = %34
   %40 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %2)
@@ -1212,7 +1212,7 @@ define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef %1, 
 20:                                               ; preds = %17, %.lr.ph
   %21 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %20, %9
   %.023.lcssa = phi ptr [ @knx_keyring_ga_keys, %9 ], [ %13, %20 ]
@@ -1237,7 +1237,7 @@ define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef %1, 
   %33 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %32)
   %34 = add nsw i8 %.06.i, -1
   %.not.i = icmp eq i8 %34, 0
-  br i1 %.not.i, label %fprintf_hex.exit, label %29, !llvm.loop !39
+  br i1 %.not.i, label %fprintf_hex.exit, label %29, !llvm.loop !40
 
 fprintf_hex.exit:                                 ; preds = %29
   %35 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %2)
@@ -1345,7 +1345,7 @@ define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef %1, 
 20:                                               ; preds = %17, %.lr.ph
   %21 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %20, %9
   %.023.lcssa = phi ptr [ @knx_keyring_ia_keys, %9 ], [ %13, %20 ]
@@ -1370,7 +1370,7 @@ define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef %1, 
   %33 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %32)
   %34 = add nsw i8 %.06.i, -1
   %.not.i = icmp eq i8 %34, 0
-  br i1 %.not.i, label %fprintf_hex.exit, label %29, !llvm.loop !39
+  br i1 %.not.i, label %fprintf_hex.exit, label %29, !llvm.loop !40
 
 fprintf_hex.exit:                                 ; preds = %29
   %35 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %2)
@@ -1427,7 +1427,7 @@ define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef %1, 
 17:                                               ; preds = %13, %.lr.ph
   %18 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %17, %3
   %.0.lcssa = phi ptr [ @knx_keyring_ia_seqs, %3 ], [ %9, %17 ]
@@ -1552,40 +1552,41 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
-!24 = distinct !{!24, !"memcpy.inline"}
-!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}

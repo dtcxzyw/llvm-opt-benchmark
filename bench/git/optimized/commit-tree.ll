@@ -252,12 +252,12 @@ define internal noundef i32 @parse_parent_arg_callback(ptr noundef readonly capt
 
 .lr.ph.i:                                         ; preds = %15, %19
   %.014.i = phi ptr [ %.0.i, %19 ], [ %.012.i, %15 ]
-  %21 = load ptr, ptr %.014.i, align 8, !tbaa !30
+  %21 = load ptr, ptr %.014.i, align 8, !tbaa !31
   %22 = icmp eq ptr %21, %17
   br i1 %22, label %23, label %19
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !33
+  %24 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
   %.not4.i.i = icmp eq i32 %24, 0
   br i1 %.not4.i.i, label %_.exit.i, label %25
 
@@ -311,7 +311,7 @@ define internal noundef i32 @parse_message_arg_callback(ptr noundef readonly cap
   br i1 %.not8, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr %5, align 8, !tbaa !34
+  %13 = load i64, ptr %5, align 8, !tbaa !35
   %.not.i.i = icmp eq i64 %13, 0
   %.neg.i = add i64 %11, 1
   %.not.i = icmp eq i64 %13, %.neg.i
@@ -331,11 +331,11 @@ strbuf_addch.exit:                                ; preds = %12, %strbuf_avail.e
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   store i64 %.pre-phi.i, ptr %10, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
-  store i8 10, ptr %17, align 1, !tbaa !35
+  store i8 10, ptr %17, align 1, !tbaa !36
   %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = load i64, ptr %10, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  store i8 0, ptr %20, align 1, !tbaa !35
+  store i8 0, ptr %20, align 1, !tbaa !36
   br label %21
 
 21:                                               ; preds = %strbuf_addch.exit, %9
@@ -350,12 +350,12 @@ strbuf_addch.exit:                                ; preds = %12, %strbuf_avail.e
   %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = getelementptr i8, ptr %26, i64 %23
   %28 = getelementptr i8, ptr %27, i64 -1
-  %29 = load i8, ptr %28, align 1, !tbaa !35
+  %29 = load i8, ptr %28, align 1, !tbaa !36
   %.not6.i.i = icmp eq i8 %29, 10
   br i1 %.not6.i.i, label %strbuf_complete_line.exit, label %30
 
 30:                                               ; preds = %24
-  %31 = load i64, ptr %5, align 8, !tbaa !34
+  %31 = load i64, ptr %5, align 8, !tbaa !35
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %.neg.i.i.i = add i64 %23, 1
   %.not.i.i.i = icmp eq i64 %31, %.neg.i.i.i
@@ -375,11 +375,11 @@ strbuf_addch.exit.i.i:                            ; preds = %strbuf_avail.exit.t
   %33 = phi i64 [ %.pre.i.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %23, %30 ]
   store i64 %.pre-phi.i.i.i, ptr %10, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  store i8 10, ptr %34, align 1, !tbaa !35
+  store i8 10, ptr %34, align 1, !tbaa !36
   %35 = load ptr, ptr %25, align 8, !tbaa !27
   %36 = load i64, ptr %10, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
-  store i8 0, ptr %37, align 1, !tbaa !35
+  store i8 0, ptr %37, align 1, !tbaa !36
   br label %strbuf_complete_line.exit
 
 strbuf_complete_line.exit:                        ; preds = %21, %24, %strbuf_addch.exit.i.i
@@ -412,7 +412,7 @@ define internal noundef i32 @parse_file_arg_callback(ptr noundef readonly captur
   br i1 %.not14, label %sub_0, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr %5, align 8, !tbaa !34
+  %13 = load i64, ptr %5, align 8, !tbaa !35
   %.not.i.i = icmp eq i64 %13, 0
   %.neg.i = add i64 %11, 1
   %.not.i = icmp eq i64 %13, %.neg.i
@@ -432,11 +432,11 @@ strbuf_addch.exit:                                ; preds = %12, %strbuf_avail.e
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   store i64 %.pre-phi.i, ptr %10, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
-  store i8 10, ptr %17, align 1, !tbaa !35
+  store i8 10, ptr %17, align 1, !tbaa !36
   %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = load i64, ptr %10, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  store i8 0, ptr %20, align 1, !tbaa !35
+  store i8 0, ptr %20, align 1, !tbaa !36
   br label %sub_0
 
 sub_0:                                            ; preds = %9, %strbuf_addch.exit
@@ -495,12 +495,12 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !35
+  %2 = load i8, ptr %0, align 1, !tbaa !36
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !33
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -606,11 +606,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !25 = !{!26, !13, i64 8}
 !26 = !{!"strbuf", !13, i64 0, !13, i64 8, !12, i64 16}
 !27 = !{!26, !12, i64 16}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"commit_list", !32, i64 0, !5, i64 8}
-!32 = !{!"p1 _ZTS6commit", !6, i64 0}
-!33 = !{!11, !11, i64 0}
-!34 = !{!26, !13, i64 0}
-!35 = !{!7, !7, i64 0}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"commit_list", !33, i64 0, !5, i64 8}
+!33 = !{!"p1 _ZTS6commit", !6, i64 0}
+!34 = !{!11, !11, i64 0}
+!35 = !{!26, !13, i64 0}
+!36 = !{!7, !7, i64 0}

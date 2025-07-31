@@ -217,7 +217,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   %.not77 = icmp eq ptr %10, null
   %spec.store.select = select i1 %.not77, ptr getelementptr inbounds nuw (i8, ptr @h265_profiles, i64 160), ptr %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !38
+  %12 = load i8, ptr %11, align 1, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %14 = load i8, ptr %13, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
@@ -237,7 +237,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 9
-  %23 = load i8, ptr %22, align 1, !tbaa !39
+  %23 = load i8, ptr %22, align 1, !tbaa !40
   %.not78 = icmp eq i8 %23, 0
   br i1 %.not78, label %29, label %24
 
@@ -274,13 +274,13 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !40
+  %41 = load i32, ptr %40, align 8, !tbaa !41
   %.not81 = icmp eq i32 %41, 0
   br i1 %.not81, label %.thread92, label %42
 
 42:                                               ; preds = %39, %37
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !43
+  %44 = load i32, ptr %43, align 8, !tbaa !44
   %45 = icmp ugt i32 %18, %44
   %46 = shl i32 %44, 3
   %or.cond = icmp ult i32 %46, %invariant.umax
@@ -289,33 +289,33 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  %49 = load i16, ptr %48, align 4, !tbaa !44
+  %49 = load i16, ptr %48, align 4, !tbaa !45
   %50 = zext i16 %49 to i32
   %51 = icmp sgt i32 %4, %50
   br i1 %51, label %.thread92, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 22
-  %54 = load i8, ptr %53, align 2, !tbaa !45
+  %54 = load i8, ptr %53, align 2, !tbaa !46
   %55 = zext i8 %54 to i32
   %56 = icmp sgt i32 %5, %55
   br i1 %56, label %.thread92, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 23
-  %59 = load i8, ptr %58, align 1, !tbaa !46
+  %59 = load i8, ptr %58, align 1, !tbaa !47
   %60 = zext i8 %59 to i32
   %61 = icmp sgt i32 %6, %60
   br i1 %61, label %.thread92, label %62
 
 62:                                               ; preds = %57
   %.060.in = getelementptr inbounds nuw i8, ptr %38, i64 %.060.in.v
-  %.060 = load i32, ptr %.060.in, align 4, !tbaa !47
+  %.060 = load i32, ptr %.060.in, align 4, !tbaa !48
   %.not82 = icmp eq i32 %.060, 0
   br i1 %.not82, label %.thread92, label %63
 
 63:                                               ; preds = %62
-  %64 = load i16, ptr %34, align 2, !tbaa !48
+  %64 = load i16, ptr %34, align 2, !tbaa !49
   %65 = zext i16 %64 to i64
   %66 = sext i32 %.060 to i64
   %67 = mul nsw i64 %66, %35
@@ -329,7 +329,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   br i1 %.not83, label %78, label %72
 
 72:                                               ; preds = %70
-  %73 = load i8, ptr %36, align 8, !tbaa !49
+  %73 = load i8, ptr %36, align 8, !tbaa !50
   %74 = icmp ugt i8 %73, 4
   %75 = zext i8 %73 to i32
   %76 = shl nuw nsw i32 %75, 2
@@ -342,7 +342,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   br i1 %.not84, label %86, label %80
 
 80:                                               ; preds = %78
-  %81 = load i8, ptr %36, align 8, !tbaa !49
+  %81 = load i8, ptr %36, align 8, !tbaa !50
   %82 = icmp ugt i8 %81, 8
   %83 = zext i8 %81 to i32
   %84 = shl nuw nsw i32 %83, 1
@@ -353,7 +353,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   %87 = mul i32 %44, 3
   %88 = lshr i32 %87, 2
   %.not85 = icmp ugt i32 %18, %88
-  %89 = load i8, ptr %36, align 8, !tbaa !49
+  %89 = load i8, ptr %36, align 8, !tbaa !50
   br i1 %.not85, label %95, label %90
 
 90:                                               ; preds = %86
@@ -378,7 +378,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 .thread92:                                        ; preds = %63, %62, %57, %52, %47, %42, %39, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %99, label %37, !llvm.loop !50
+  br i1 %exitcond.not, label %99, label %37, !llvm.loop !51
 
 99:                                               ; preds = %.thread92, %97
   %.2 = phi ptr [ %38, %97 ], [ null, %.thread92 ]
@@ -430,18 +430,19 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !33 = !{!5, !6, i64 46}
 !34 = !{!10, !6, i64 19}
 !35 = !{!5, !6, i64 47}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!5, !6, i64 1}
-!39 = !{!10, !6, i64 9}
-!40 = !{!41, !42, i64 32}
-!41 = !{!"H265LevelDescriptor", !6, i64 0, !6, i64 4, !42, i64 8, !42, i64 12, !42, i64 16, !13, i64 20, !6, i64 22, !6, i64 23, !42, i64 24, !42, i64 28, !42, i64 32, !6, i64 36, !6, i64 37}
-!42 = !{!"int", !6, i64 0}
-!43 = !{!41, !42, i64 8}
-!44 = !{!41, !13, i64 20}
-!45 = !{!41, !6, i64 22}
-!46 = !{!41, !6, i64 23}
-!47 = !{!42, !42, i64 0}
-!48 = !{!10, !13, i64 22}
-!49 = !{!10, !6, i64 32}
-!50 = distinct !{!50, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!5, !6, i64 1}
+!40 = !{!10, !6, i64 9}
+!41 = !{!42, !43, i64 32}
+!42 = !{!"H265LevelDescriptor", !6, i64 0, !6, i64 4, !43, i64 8, !43, i64 12, !43, i64 16, !13, i64 20, !6, i64 22, !6, i64 23, !43, i64 24, !43, i64 28, !43, i64 32, !6, i64 36, !6, i64 37}
+!43 = !{!"int", !6, i64 0}
+!44 = !{!42, !43, i64 8}
+!45 = !{!42, !13, i64 20}
+!46 = !{!42, !6, i64 22}
+!47 = !{!42, !6, i64 23}
+!48 = !{!43, !43, i64 0}
+!49 = !{!10, !13, i64 22}
+!50 = !{!10, !6, i64 32}
+!51 = distinct !{!51, !37, !38}

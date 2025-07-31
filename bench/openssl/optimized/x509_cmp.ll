@@ -761,7 +761,7 @@ define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr noundef captures(none) %
 11:                                               ; preds = %ossl_x509_add_cert_new.exit.us
   %12 = add nuw nsw i32 %.01418.us, 1
   %exitcond24.not = icmp eq i32 %12, %4
-  br i1 %exitcond24.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !69
+  br i1 %exitcond24.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !70
 
 13:                                               ; preds = %.lr.ph.split.us
   %14 = tail call ptr @OPENSSL_sk_new_null() #9
@@ -778,7 +778,7 @@ ossl_x509_add_cert_new.exit.us:                   ; preds = %.lr.ph.split.us, %1
 18:                                               ; preds = %ossl_x509_add_cert_new.exit
   %19 = add nuw nsw i32 %.01418, 1
   %exitcond.not = icmp eq i32 %19, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !72
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %18
   %.01418 = phi i32 [ %19, %18 ], [ 0, %.lr.ph ]
@@ -825,7 +825,7 @@ define ptr @X509_find_by_issuer_and_serial(ptr noundef %0, ptr noundef %1, ptr n
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !73
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %1, ptr %7, align 8, !tbaa !27
   %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
@@ -856,7 +856,7 @@ X509_issuer_and_serial_cmp.exit.thread:           ; preds = %12, %.lr.ph, %X509_
   %20 = add nuw nsw i32 %.013, 1
   %21 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !75
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %X509_issuer_and_serial_cmp.exit, %X509_issuer_and_serial_cmp.exit.thread, %5, %3
   %.010 = phi ptr [ null, %3 ], [ null, %5 ], [ %10, %X509_issuer_and_serial_cmp.exit ], [ null, %X509_issuer_and_serial_cmp.exit.thread ]
@@ -877,7 +877,7 @@ define ptr @X509_find_by_subject(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %6 = add nuw nsw i32 %.09, 1
   %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #9
   %8 = icmp slt i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 .lr.ph:                                           ; preds = %2, %5
   %.09 = phi i32 [ %6, %5 ], [ 0, %2 ]
@@ -900,7 +900,7 @@ define ptr @X509_get0_pubkey(ptr noundef readonly captures(address_is_null) %0) 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !78
   %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #9
   br label %7
 
@@ -918,7 +918,7 @@ define ptr @X509_get_pubkey(ptr noundef readonly captures(address_is_null) %0) l
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !78
   %6 = tail call ptr @X509_PUBKEY_get(ptr noundef %5) #9
   br label %7
 
@@ -936,7 +936,7 @@ define range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly captures
 
 X509_get0_pubkey.exit:                            ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !78
   %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %X509_get0_pubkey.exit.thread, label %8
@@ -1031,7 +1031,7 @@ X509_get0_pubkey.exit:                            ; preds = %16, %14
   %.03893 = phi i32 [ 1, %16 ], [ 0, %14 ]
   %.04291 = phi ptr [ %17, %16 ], [ %1, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %.04291, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !77
+  %20 = load ptr, ptr %19, align 8, !tbaa !78
   %21 = tail call ptr @X509_PUBKEY_get0(ptr noundef %20) #9
   %22 = icmp eq ptr %2, null
   br i1 %22, label %24, label %37
@@ -1174,7 +1174,7 @@ X509_get0_pubkey.exit65.thread:                   ; preds = %59
 
 X509_get0_pubkey.exit65:                          ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %62 = load ptr, ptr %61, align 8, !tbaa !77
+  %62 = load ptr, ptr %61, align 8, !tbaa !78
   %63 = call ptr @X509_PUBKEY_get0(ptr noundef %62) #9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
@@ -1237,7 +1237,7 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   %80 = add nuw nsw i32 %.2161, 1
   %81 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
   %82 = icmp slt i32 %80, %81
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %79, %check_suite_b.exit63
   %.187.lcssa = phi i64 [ %.3, %check_suite_b.exit63 ], [ %.5, %79 ]
@@ -1342,7 +1342,7 @@ define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %9 = load ptr, ptr %8, align 8, !tbaa !80
   %10 = tail call i32 @OBJ_obj2nid(ptr noundef %9) #9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -1430,7 +1430,7 @@ define ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr #0 {
   %9 = add nuw nsw i32 %.01519, 1
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
   %11 = icmp slt i32 %9, %10
-  br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !80
+  br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
 .lr.ph21:                                         ; preds = %.preheader, %.lr.ph21
   %.120 = phi i32 [ %12, %.lr.ph21 ], [ %.01519, %.preheader ]
@@ -1438,7 +1438,7 @@ define ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr #0 {
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %12) #9
   tail call void @X509_free(ptr noundef %13) #9
   %14 = icmp sgt i32 %.120, 1
-  br i1 %14, label %.lr.ph21, label %._crit_edge, !llvm.loop !81
+  br i1 %14, label %.lr.ph21, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %.preheader
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %2) #9
@@ -1545,18 +1545,19 @@ attributes #10 = { nounwind willreturn memory(read) }
 !64 = !{!28, !11, i64 112}
 !65 = !{!66, !66, i64 0}
 !66 = !{!"p1 _ZTS13stack_st_X509", !6, i64 0}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !68}
-!72 = !{i64 0, i64 4, !55, i64 4, i64 4, !55, i64 8, i64 8, !73, i64 16, i64 8, !74}
-!73 = !{!11, !11, i64 0}
-!74 = !{!12, !12, i64 0}
-!75 = distinct !{!75, !68}
-!76 = distinct !{!76, !68}
-!77 = !{!28, !18, i64 80}
-!78 = distinct !{!78, !68}
-!79 = !{!48, !14, i64 8}
-!80 = distinct !{!80, !68}
-!81 = distinct !{!81, !68}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !68, !69}
+!73 = !{i64 0, i64 4, !55, i64 4, i64 4, !55, i64 8, i64 8, !74, i64 16, i64 8, !75}
+!74 = !{!11, !11, i64 0}
+!75 = !{!12, !12, i64 0}
+!76 = distinct !{!76, !68, !69}
+!77 = distinct !{!77, !68, !69}
+!78 = !{!28, !18, i64 80}
+!79 = distinct !{!79, !68, !69}
+!80 = !{!48, !14, i64 8}
+!81 = distinct !{!81, !68, !69}
+!82 = distinct !{!82, !68, !69}

@@ -85,7 +85,7 @@ define range(i32 -12, 1) i32 @ff_ccfifo_init(ptr noundef initializes((0, 56)) %0
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 1, ptr %28, align 4, !tbaa !23
+  store i32 1, ptr %28, align 4, !tbaa !24
   br label %30
 
 29:                                               ; preds = %8, %3
@@ -104,7 +104,7 @@ declare ptr @av_fifo_alloc2(i64 noundef, i64 noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @ff_ccfifo_injectbytes(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !23
+  %5 = load i32, ptr %4, align 4, !tbaa !24
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.loopexit
 
@@ -181,16 +181,16 @@ define range(i32 -22, 1) i32 @ff_ccfifo_injectbytes(ptr noundef readonly capture
   %indvars.iv = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %51 = mul nsw i64 %indvars.iv, 3
   %52 = getelementptr inbounds i8, ptr %1, i64 %51
-  store i8 -6, ptr %52, align 1, !tbaa !24
+  store i8 -6, ptr %52, align 1, !tbaa !25
   %53 = getelementptr i8, ptr %52, i64 1
-  store i8 0, ptr %53, align 1, !tbaa !24
+  store i8 0, ptr %53, align 1, !tbaa !25
   %54 = getelementptr i8, ptr %52, i64 2
-  store i8 0, ptr %54, align 1, !tbaa !24
+  store i8 0, ptr %54, align 1, !tbaa !25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %7, align 8, !tbaa !18
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %6, %3
   %.035 = phi i32 [ 0, %3 ], [ -22, %6 ], [ 0, %40 ], [ 0, %.lr.ph ]
@@ -204,13 +204,13 @@ declare i32 @av_fifo_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @ff_ccfifo_inject(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !24
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %23, label %10
 
@@ -225,9 +225,9 @@ define range(i32 -22, 1) i32 @ff_ccfifo_inject(ptr noundef readonly captures(non
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !33
+  %19 = load i64, ptr %18, align 8, !tbaa !34
   %20 = tail call i32 @ff_ccfifo_injectbytes(ptr noundef nonnull %0, ptr noundef %17, i64 noundef %19)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %23
@@ -249,7 +249,7 @@ declare void @av_frame_remove_side_data(ptr noundef, i32 noundef) local_unnamed_
 define noundef i32 @ff_ccfifo_extractbytes(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = udiv i64 %2, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %16
 
@@ -258,16 +258,16 @@ define noundef i32 @ff_ccfifo_extractbytes(ptr noundef %0, ptr noundef %1, i64 n
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !34
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !35
+  %15 = load i32, ptr %14, align 4, !tbaa !36
   tail call void (ptr, i32, i32, ptr, ptr, ...) @av_log_once(ptr noundef %10, i32 noundef 24, i32 noundef 48, ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %15) #3
   br label %.loopexit
 
 16:                                               ; preds = %3
   %17 = trunc i64 %4 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 1, ptr %18, align 8, !tbaa !26
+  store i32 1, ptr %18, align 8, !tbaa !27
   %19 = icmp sgt i32 %17, 0
   br i1 %19, label %.lr.ph, label %.loopexit
 
@@ -280,7 +280,7 @@ define noundef i32 @ff_ccfifo_extractbytes(ptr noundef %0, ptr noundef %1, i64 n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %22 = mul nuw nsw i64 %indvars.iv, 3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !24
+  %24 = load i8, ptr %23, align 1, !tbaa !25
   %25 = and i8 %24, 2
   %or.cond.not.not = icmp eq i8 %25, 0
   br i1 %or.cond.not.not, label %.sink.split, label %26
@@ -292,14 +292,14 @@ define noundef i32 @ff_ccfifo_extractbytes(ptr noundef %0, ptr noundef %1, i64 n
 
 .sink.split:                                      ; preds = %26, %21
   %.sink.in = phi ptr [ %0, %21 ], [ %20, %26 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !36
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
   %28 = tail call i32 @av_fifo_write(ptr noundef %.sink, ptr noundef nonnull %23, i64 noundef 1) #3
   br label %29
 
 29:                                               ; preds = %.sink.split, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !38
 
 .loopexit:                                        ; preds = %29, %16, %8
   ret i32 0
@@ -317,12 +317,12 @@ define noundef i32 @ff_ccfifo_extract(ptr noundef %0, ptr noundef %1) local_unna
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = udiv i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !23
+  %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %21
 
@@ -331,16 +331,16 @@ define noundef i32 @ff_ccfifo_extract(ptr noundef %0, ptr noundef %1) local_unna
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !34
+  %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !35
+  %20 = load i32, ptr %19, align 4, !tbaa !36
   tail call void (ptr, i32, i32, ptr, ptr, ...) @av_log_once(ptr noundef %15, i32 noundef 24, i32 noundef 48, ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef %18, i32 noundef %20) #3
   br label %ff_ccfifo_extractbytes.exit
 
 21:                                               ; preds = %4
   %22 = trunc i64 %9 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 1, ptr %23, align 8, !tbaa !26
+  store i32 1, ptr %23, align 8, !tbaa !27
   %24 = icmp sgt i32 %22, 0
   br i1 %24, label %.lr.ph.i, label %ff_ccfifo_extractbytes.exit
 
@@ -353,7 +353,7 @@ define noundef i32 @ff_ccfifo_extract(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %27 = mul nuw nsw i64 %indvars.iv.i, 3
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !24
+  %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = and i8 %29, 2
   %or.cond.not.not.i = icmp eq i8 %30, 0
   br i1 %or.cond.not.not.i, label %.sink.split.i, label %31
@@ -365,17 +365,17 @@ define noundef i32 @ff_ccfifo_extract(ptr noundef %0, ptr noundef %1) local_unna
 
 .sink.split.i:                                    ; preds = %31, %26
   %.sink.in.i = phi ptr [ %0, %26 ], [ %25, %31 ]
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !36
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !37
   %33 = tail call i32 @av_fifo_write(ptr noundef %.sink.i, ptr noundef nonnull %28, i64 noundef 1) #3
   br label %34
 
 34:                                               ; preds = %.sink.split.i, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ff_ccfifo_extractbytes.exit, label %26, !llvm.loop !37
+  br i1 %exitcond.not.i, label %ff_ccfifo_extractbytes.exit, label %26, !llvm.loop !38
 
 ff_ccfifo_extractbytes.exit:                      ; preds = %34, %13, %21
-  %35 = load i32, ptr %10, align 4, !tbaa !23
+  %35 = load i32, ptr %10, align 4, !tbaa !24
   %.not7 = icmp eq i32 %35, 0
   br i1 %.not7, label %36, label %37
 
@@ -417,20 +417,21 @@ attributes #3 = { nounwind }
 !18 = !{!5, !11, i64 24}
 !19 = !{!15, !11, i64 12}
 !20 = !{!5, !11, i64 28}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!5, !11, i64 36}
-!24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !22}
-!26 = !{!5, !11, i64 32}
-!27 = !{!28, !29, i64 8}
-!28 = !{!"AVFrameSideData", !11, i64 0, !29, i64 8, !30, i64 16, !31, i64 24, !32, i64 32}
-!29 = !{!"p1 omnipotent char", !7, i64 0}
-!30 = !{!"long", !8, i64 0}
-!31 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!32 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!33 = !{!28, !30, i64 16}
-!34 = !{!5, !11, i64 16}
-!35 = !{!5, !11, i64 20}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!5, !11, i64 36}
+!25 = !{!8, !8, i64 0}
+!26 = distinct !{!26, !22, !23}
+!27 = !{!5, !11, i64 32}
+!28 = !{!29, !30, i64 8}
+!29 = !{!"AVFrameSideData", !11, i64 0, !30, i64 8, !31, i64 16, !32, i64 24, !33, i64 32}
+!30 = !{!"p1 omnipotent char", !7, i64 0}
+!31 = !{!"long", !8, i64 0}
+!32 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!33 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!34 = !{!29, !31, i64 16}
+!35 = !{!5, !11, i64 16}
+!36 = !{!5, !11, i64 20}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !22, !23}

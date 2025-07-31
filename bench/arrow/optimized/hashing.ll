@@ -333,7 +333,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i: ; preds = %25, %23
   br i1 %44, label %.lr.ph.preheader.i.us.i, label %._crit_edge.i.us.i
 
 .lr.ph.preheader.i.us.i:                          ; preds = %42
-  %45 = load i8, ptr %.sroa.6.1.us.i, align 1, !tbaa !34
+  %45 = load i8, ptr %.sroa.6.1.us.i, align 1, !tbaa !35
   %wide.trip.count.i.us.i = zext nneg i32 %.sroa.15.0.us.i to i64
   br label %.lr.ph.i.us.i
 
@@ -354,16 +354,16 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i: ; preds = %25, %23
   %52 = add nsw i64 %.sroa.16.025.i.us.i, 1
   %53 = add nuw nsw i64 %.sroa.4.024.i.us.i, 1
   %54 = icmp eq i64 %52, 8
-  br i1 %54, label %55, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !35
+  br i1 %54, label %55, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !36
 
 55:                                               ; preds = %.lr.ph.i.us.i
   %56 = add nsw i64 %.sroa.1319.023.i.us.i, 1
   %57 = icmp slt i64 %53, %43
-  br i1 %57, label %58, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !36
+  br i1 %57, label %58, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !37
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %.sroa.6.1.us.i, i64 %56
-  %60 = load i8, ptr %59, align 1, !tbaa !34
+  %60 = load i8, ptr %59, align 1, !tbaa !35
   br label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i
 
 _ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i: ; preds = %58, %55, %.lr.ph.i.us.i
@@ -371,7 +371,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i: ; preds = %58, %55, %.lr.ph
   %.sroa.1319.1.i.us.i = phi i64 [ %56, %58 ], [ %56, %55 ], [ %.sroa.1319.023.i.us.i, %.lr.ph.i.us.i ]
   %.sroa.16.1.i.us.i = phi i64 [ 0, %58 ], [ 0, %55 ], [ %52, %.lr.ph.i.us.i ]
   %exitcond.not.i.us.i = icmp eq i64 %53, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.loopexit.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !37
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.loopexit.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i.us.i:                      ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i
   %61 = zext i8 %spec.select.i33.us.i to i32
@@ -394,7 +394,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; pr
   %67 = or disjoint i64 %66, %65
   %68 = add nsw i32 %.026.us.i, -1
   %.not30.us.i = icmp eq i32 %68, 0
-  br i1 %.not30.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !38
+  br i1 %.not30.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !39
 
 .preheader.split.i:                               ; preds = %.preheader.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
   %.sroa.15.0.i = phi i32 [ %.sroa.15.1.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %15, %.preheader.i ]
@@ -411,7 +411,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; pr
   br i1 %72, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %70
-  %73 = load i8, ptr %.sroa.6.1.i, align 1, !tbaa !34
+  %73 = load i8, ptr %.sroa.6.1.i, align 1, !tbaa !35
   %wide.trip.count.i.i = zext nneg i32 %.sroa.15.0.i to i64
   br label %.lr.ph.i.i
 
@@ -442,16 +442,16 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; pr
   %83 = add nsw i64 %.sroa.16.025.i.i, 1
   %84 = add nuw nsw i64 %.sroa.4.024.i.i, 1
   %85 = icmp eq i64 %83, 8
-  br i1 %85, label %86, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !35
+  br i1 %85, label %86, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !36
 
 86:                                               ; preds = %.lr.ph.i.i
   %87 = add nsw i64 %.sroa.1319.023.i.i, 1
   %88 = icmp slt i64 %84, %71
-  br i1 %88, label %89, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !36
+  br i1 %88, label %89, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !37
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %.sroa.6.1.i, i64 %87
-  %91 = load i8, ptr %90, align 1, !tbaa !34
+  %91 = load i8, ptr %90, align 1, !tbaa !35
   br label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
 
 _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %89, %86, %.lr.ph.i.i
@@ -459,7 +459,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %89, %86, %.lr.ph.i.
   %.sroa.1319.1.i.i = phi i64 [ %87, %89 ], [ %87, %86 ], [ %.sroa.1319.023.i.i, %.lr.ph.i.i ]
   %.sroa.16.1.i.i = phi i64 [ 0, %89 ], [ 0, %86 ], [ %83, %.lr.ph.i.i ]
   %exitcond.not.i.i = icmp eq i64 %84, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
 92:                                               ; preds = %.preheader.split.i
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.i, i64 1
@@ -485,7 +485,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %104 = or disjoint i64 %101, %103
   %105 = add nsw i32 %.026.i, -1
   %.not30.i = icmp eq i32 %105, 0
-  br i1 %.not30.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !40
+  br i1 %.not30.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !41
 
 .split.us.i:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
   %.us-phi.i = phi i64 [ %67, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ]
@@ -544,12 +544,13 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !29 = !{!30, !27, i64 0}
 !30 = !{!"_ZTSN5arrow18TypedChunkLocationImEE", !27, i64 0, !27, i64 8}
 !31 = !{!30, !27, i64 8}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!6, !6, i64 0}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!6, !6, i64 0}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !33, !34}

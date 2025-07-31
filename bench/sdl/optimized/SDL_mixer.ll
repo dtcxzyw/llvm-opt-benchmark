@@ -74,7 +74,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %35 = getelementptr inbounds nuw i8, ptr %.0126196, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %.0128195, i64 1
   %.not154 = icmp eq i32 %27, 0
-  br i1 %.not154, label %.loopexit, label %.lr.ph198, !llvm.loop !5
+  br i1 %.not154, label %.loopexit, label %.lr.ph198, !llvm.loop !6
 
 37:                                               ; preds = %10
   %.not152189 = icmp ult i32 %3, 2
@@ -100,7 +100,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   store i16 %47, ptr %.1192, align 2
   %48 = getelementptr inbounds nuw i8, ptr %.1192, i64 2
   %.not152 = icmp eq i32 %39, 0
-  br i1 %.not152, label %.loopexit, label %.lr.ph193, !llvm.loop !6
+  br i1 %.not152, label %.loopexit, label %.lr.ph193, !llvm.loop !7
 
 49:                                               ; preds = %10
   %.not151185 = icmp ult i32 %3, 2
@@ -141,7 +141,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   store i16 %.0133, ptr %.2187, align 2
   %68 = getelementptr inbounds nuw i8, ptr %.2187, i64 2
   %.not151 = icmp eq i32 %51, 0
-  br i1 %.not151, label %.loopexit, label %.lr.ph188, !llvm.loop !7
+  br i1 %.not151, label %.loopexit, label %.lr.ph188, !llvm.loop !8
 
 69:                                               ; preds = %10
   %.not150180 = icmp ult i32 %3, 4
@@ -171,7 +171,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %82 = getelementptr inbounds nuw i8, ptr %.0136181, i64 4
   store i32 %.0139, ptr %.0136181, align 4
   %.not150 = icmp eq i32 %73, 0
-  br i1 %.not150, label %.loopexit, label %72, !llvm.loop !8
+  br i1 %.not150, label %.loopexit, label %72, !llvm.loop !9
 
 83:                                               ; preds = %10
   %.not149175 = icmp ult i32 %3, 4
@@ -205,7 +205,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %101 = getelementptr inbounds nuw i8, ptr %.0137177, i64 4
   store i32 %.0134, ptr %.0137177, align 4
   %.not149 = icmp eq i32 %87, 0
-  br i1 %.not149, label %.loopexit, label %86, !llvm.loop !9
+  br i1 %.not149, label %.loopexit, label %86, !llvm.loop !10
 
 102:                                              ; preds = %10
   %.not148171 = icmp ult i32 %3, 4
@@ -240,7 +240,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %115 = getelementptr inbounds nuw i8, ptr %.0130173, i64 4
   store float %.0127, ptr %.0130173, align 4
   %.not148 = icmp eq i32 %104, 0
-  br i1 %.not148, label %.loopexit, label %.lr.ph174, !llvm.loop !10
+  br i1 %.not148, label %.loopexit, label %.lr.ph174, !llvm.loop !11
 
 116:                                              ; preds = %10
   %.not168 = icmp ult i32 %3, 4
@@ -281,7 +281,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %135 = getelementptr inbounds nuw i8, ptr %.0124170, i64 4
   store i32 %134, ptr %.0124170, align 4
   %.not = icmp eq i32 %118, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 136:                                              ; preds = %10
   %137 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #4
@@ -328,12 +328,13 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}

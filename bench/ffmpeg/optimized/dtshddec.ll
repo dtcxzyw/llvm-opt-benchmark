@@ -185,7 +185,7 @@ define internal range(i32 -2147483648, 1) i32 @dtshd_read_header(ptr noundef %0)
   %100 = tail call i64 @avio_rb64(ptr noundef %5) #4
   %101 = tail call i32 @avio_feof(ptr noundef %5) #4
   %.not76 = icmp eq i32 %101, 0
-  br i1 %.not76, label %18, label %._crit_edge
+  br i1 %.not76, label %18, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %98, %7
   %.069.lcssa = phi i64 [ undef, %7 ], [ %.2, %98 ]
@@ -235,7 +235,7 @@ define internal i32 @raw_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %18, align 4, !tbaa !60
+  store i32 0, ptr %18, align 4, !tbaa !62
   br label %19
 
 19:                                               ; preds = %11, %2, %17
@@ -347,4 +347,6 @@ attributes #4 = { nounwind }
 !57 = !{!36, !10, i64 132}
 !58 = !{!36, !10, i64 164}
 !59 = !{!36, !10, i64 168}
-!60 = !{!32, !10, i64 36}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!32, !10, i64 36}

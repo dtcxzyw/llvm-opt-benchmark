@@ -62,7 +62,7 @@ for.cond:                                         ; preds = %for.body
   %4 = load i32, ptr @nthreads, align 4
   %5 = zext i32 %4 to i64
   %cmp1 = icmp samesign ult i64 %indvars.iv.next, %5
-  br i1 %cmp1, label %for.body, label %for.end
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %post.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %post.exit ]
@@ -260,7 +260,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %3 = load i32, ptr @nthreads, align 4
   %4 = zext i32 %3 to i64
   %cmp29.i = icmp samesign ult i64 %indvars.iv.next.i, %4
-  br i1 %cmp29.i, label %for.body.i, label %for.cond35.preheader.i
+  br i1 %cmp29.i, label %for.body.i, label %for.cond35.preheader.i, !llvm.loop !7
 
 for.cond35.preheader.i:                           ; preds = %for.cond.i
   %5 = icmp eq i32 %3, 0
@@ -284,7 +284,7 @@ for.body38.i:                                     ; preds = %for.cond35.preheade
   %inc40.i = add nuw i32 %i.112.i, 1
   %7 = load i32, ptr @nthreads, align 4
   %cmp36.i = icmp ult i32 %inc40.i, %7
-  br i1 %cmp36.i, label %for.body38.i, label %init_threads.exit
+  br i1 %cmp36.i, label %for.body38.i, label %init_threads.exit, !llvm.loop !8
 
 init_threads.exit:                                ; preds = %for.body38.i, %if.end28.i, %for.cond35.preheader.i
   call void @uv_sem_destroy(ptr noundef nonnull %sem.i) #9
@@ -350,7 +350,7 @@ while.body:                                       ; preds = %uv__queue_move.exit
   %inc = add nuw nsw i32 %nevents.013, 1
   %10 = load ptr, ptr %wq, align 8
   %cmp.i.not = icmp eq ptr %wq, %10
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body
   %cmp5.not = icmp eq i32 %nevents.013, 0
@@ -621,7 +621,7 @@ while.body:                                       ; preds = %while.cond, %land.r
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.body, %if.end26, %if.then35, %if.then12, %if.end13
-  br label %while.cond
+  br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %lor.rhs
   %cmp7 = icmp eq ptr %0, @exit_message
@@ -774,3 +774,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

@@ -141,7 +141,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr noundef readonly 
   %18 = icmp ne i64 %indvars.iv.i.i, 0
   %or.cond.not.i.i = and i1 %18, %17
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %or.cond.not.i.i, label %11, label %mbedtls_ctr_increment_counter.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %mbedtls_ctr_increment_counter.exit.i, !llvm.loop !15
 
 mbedtls_ctr_increment_counter.exit.i:             ; preds = %11
   %19 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %.01118.i) #14
@@ -152,7 +152,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 16
   %22 = add nuw nsw i32 %.01019.i, 16
   %23 = icmp samesign ult i32 %.01019.i, 32
-  br i1 %23, label %.preheader17.i, label %.preheader16.i, !llvm.loop !15
+  br i1 %23, label %.preheader17.i, label %.preheader16.i, !llvm.loop !17
 
 .preheader16.i:                                   ; preds = %20, %.preheader16.i
   %.0.i20.i = phi i64 [ %24, %.preheader16.i ], [ 0, %20 ]
@@ -164,7 +164,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %11
   %27 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %27, ptr %25, align 8
   %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
-  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
+  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !19
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
   %28 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 256) #14
@@ -219,20 +219,20 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
   store i32 %13, ptr %11, align 16
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 23
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 48, ptr %14, align 1, !tbaa !18
+  store i8 48, ptr %14, align 1, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %1, i64 %2, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %2
-  store i8 -128, ptr %16, align 1, !tbaa !18
+  store i8 -128, ptr %16, align 1, !tbaa !20
   br label %17
 
 17:                                               ; preds = %10, %17
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %17 ]
   %18 = trunc i64 %indvars.iv to i8
   %19 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %indvars.iv
-  store i8 %18, ptr %19, align 1, !tbaa !18
+  store i8 %18, ptr %19, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %20, label %17, !llvm.loop !19
+  br i1 %exitcond.not, label %20, label %17, !llvm.loop !21
 
 20:                                               ; preds = %17
   %21 = add nuw nsw i64 %2, 25
@@ -272,16 +272,16 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
   %32 = call i64 @llvm.usub.sat.i64(i64 %.0, i64 16)
   %33 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %7) #14
   %.not53 = icmp eq i32 %33, 0
-  br i1 %.not53, label %27, label %.loopexit, !llvm.loop !20
+  br i1 %.not53, label %27, label %.loopexit, !llvm.loop !22
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %35, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %36 = add i8 %26, 1
-  store i8 %36, ptr %23, align 1, !tbaa !18
+  store i8 %36, ptr %23, align 1, !tbaa !20
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 16
   %37 = icmp samesign ult i64 %indvars.iv67, 32
-  br i1 %37, label %25, label %38, !llvm.loop !21
+  br i1 %37, label %25, label %38, !llvm.loop !23
 
 38:                                               ; preds = %34
   %39 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 256) #14
@@ -304,7 +304,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %.14263, i64 16
   %46 = add nuw nsw i32 %.164, 16
   %47 = icmp samesign ult i32 %.164, 32
-  br i1 %47, label %42, label %.loopexit, !llvm.loop !22
+  br i1 %47, label %42, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader56, %44, %42, %38, %20
   %.039 = phi i32 [ %22, %20 ], [ %39, %38 ], [ 0, %44 ], [ %43, %42 ], [ %33, %.preheader56 ]
@@ -362,7 +362,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = call i32 %17(ptr noundef %19, ptr noundef nonnull %6, i64 noundef %8) #14
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %62
@@ -374,7 +374,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %16, align 8, !tbaa !14
-  %25 = load ptr, ptr %18, align 8, !tbaa !23
+  %25 = load ptr, ptr %18, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %27 = call i32 %24(ptr noundef %25, ptr noundef nonnull %26, i64 noundef %3) #14
   %.not41 = icmp eq i32 %27, 0
@@ -427,7 +427,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
   %47 = icmp ne i64 %indvars.iv.i.i, 0
   %or.cond.not.i.i = and i1 %47, %46
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %or.cond.not.i.i, label %40, label %mbedtls_ctr_increment_counter.exit.i
+  br i1 %or.cond.not.i.i, label %40, label %mbedtls_ctr_increment_counter.exit.i, !llvm.loop !15
 
 mbedtls_ctr_increment_counter.exit.i:             ; preds = %40
   %48 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %39, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %.01118.i) #14
@@ -438,7 +438,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 16
   %51 = add nuw nsw i32 %.01019.i, 16
   %52 = icmp samesign ult i32 %.01019.i, 32
-  br i1 %52, label %.preheader17.i, label %.preheader16.i, !llvm.loop !15
+  br i1 %52, label %.preheader17.i, label %.preheader16.i, !llvm.loop !17
 
 .preheader16.i:                                   ; preds = %49, %.preheader16.i
   %.0.i20.i = phi i64 [ %53, %.preheader16.i ], [ 0, %49 ]
@@ -450,7 +450,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %40
   %56 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %56, ptr %54, align 8
   %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
-  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
+  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !19
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
   %57 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 256) #14
@@ -491,7 +491,7 @@ define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef initializes((328, 344)) %0,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %1, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %2, ptr %8, align 8, !tbaa !23
+  store ptr %2, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = icmp eq i64 %10, 0
@@ -595,7 +595,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef 
   %35 = icmp ne i64 %indvars.iv.i.i, 0
   %or.cond.not.i.i = and i1 %35, %34
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %or.cond.not.i.i, label %28, label %mbedtls_ctr_increment_counter.exit.i
+  br i1 %or.cond.not.i.i, label %28, label %mbedtls_ctr_increment_counter.exit.i, !llvm.loop !15
 
 mbedtls_ctr_increment_counter.exit.i:             ; preds = %28
   %36 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %.01118.i) #14
@@ -606,7 +606,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 16
   %39 = add nuw nsw i32 %.01019.i, 16
   %40 = icmp samesign ult i32 %.01019.i, 32
-  br i1 %40, label %.preheader17.i, label %.preheader16.i, !llvm.loop !15
+  br i1 %40, label %.preheader17.i, label %.preheader16.i, !llvm.loop !17
 
 .preheader16.i:                                   ; preds = %37, %.preheader16.i
   %.0.i20.i = phi i64 [ %41, %.preheader16.i ], [ 0, %37 ]
@@ -618,7 +618,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %28
   %44 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %44, ptr %42, align 8
   %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
-  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
+  br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !19
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
   %45 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %27, ptr noundef nonnull %7, i32 noundef 256) #14
@@ -665,7 +665,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %mbedtls_xor.exit.i
   %56 = icmp ne i64 %indvars.iv.i, 0
   %or.cond.not.i = and i1 %56, %55
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  br i1 %or.cond.not.i, label %49, label %mbedtls_ctr_increment_counter.exit
+  br i1 %or.cond.not.i, label %49, label %mbedtls_ctr_increment_counter.exit, !llvm.loop !15
 
 mbedtls_ctr_increment_counter.exit:               ; preds = %49
   %57 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %47, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %48) #14
@@ -678,7 +678,7 @@ mbedtls_ctr_increment_counter.exit:               ; preds = %49
   %60 = getelementptr inbounds nuw i8, ptr %.03079, i64 %59
   %61 = sub i64 %.03178, %59
   %.not45 = icmp eq i64 %61, 0
-  br i1 %.not45, label %._crit_edge, label %.preheader, !llvm.loop !24
+  br i1 %.not45, label %._crit_edge, label %.preheader, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %58, %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
@@ -704,7 +704,7 @@ mbedtls_ctr_increment_counter.exit:               ; preds = %49
   %70 = icmp ne i64 %indvars.iv.i.i52, 0
   %or.cond.not.i.i54 = and i1 %70, %69
   %indvars.iv.next.i.i55 = add nsw i64 %indvars.iv.i.i52, -1
-  br i1 %or.cond.not.i.i54, label %63, label %mbedtls_ctr_increment_counter.exit.i56
+  br i1 %or.cond.not.i.i54, label %63, label %mbedtls_ctr_increment_counter.exit.i56, !llvm.loop !15
 
 mbedtls_ctr_increment_counter.exit.i56:           ; preds = %63
   %71 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %62, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %.01118.i51) #14
@@ -715,7 +715,7 @@ mbedtls_ctr_increment_counter.exit.i56:           ; preds = %63
   %73 = getelementptr inbounds nuw i8, ptr %.01118.i51, i64 16
   %74 = add nuw nsw i32 %.01019.i50, 16
   %75 = icmp samesign ult i32 %.01019.i50, 32
-  br i1 %75, label %.preheader17.i49, label %.preheader16.i59, !llvm.loop !15
+  br i1 %75, label %.preheader17.i49, label %.preheader16.i59, !llvm.loop !17
 
 .preheader16.i59:                                 ; preds = %72, %.preheader16.i59
   %.0.i20.i60 = phi i64 [ %76, %.preheader16.i59 ], [ 0, %72 ]
@@ -727,7 +727,7 @@ mbedtls_ctr_increment_counter.exit.i56:           ; preds = %63
   %79 = xor i64 %.0.copyload.i.i62, %.0.copyload.i15.i61
   store i64 %79, ptr %77, align 8
   %.not.i.i63 = icmp samesign ugt i64 %.0.i20.i60, 39
-  br i1 %.not.i.i63, label %mbedtls_xor.exit.i64, label %.preheader16.i59, !llvm.loop !17
+  br i1 %.not.i.i63, label %mbedtls_xor.exit.i64, label %.preheader16.i59, !llvm.loop !19
 
 mbedtls_xor.exit.i64:                             ; preds = %.preheader16.i59
   %80 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %62, ptr noundef nonnull %6, i32 noundef 256) #14
@@ -894,7 +894,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) lo
   br label %10
 
 10:                                               ; preds = %8, %1
-  store i64 0, ptr @test_offset, align 8, !tbaa !25
+  store i64 0, ptr @test_offset, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 32, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 328
@@ -916,7 +916,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) lo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr @ctr_drbg_self_test_entropy, ptr %12, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 336
-  store ptr @entropy_source_pr, ptr %17, align 8, !tbaa !23
+  store ptr @entropy_source_pr, ptr %17, align 8, !tbaa !25
   %18 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 256) #14
   %.not.i37 = icmp eq i32 %18, 0
   br i1 %.not.i37, label %mbedtls_ctr_drbg_seed.exit, label %mbedtls_ctr_drbg_seed.exit.thread
@@ -993,7 +993,7 @@ mbedtls_ctr_drbg_seed.exit:                       ; preds = %15
   call void @mbedtls_aes_init(ptr noundef nonnull %5) #14
   store i32 -1, ptr %6, align 8, !tbaa !3
   store i32 10000, ptr %7, align 8, !tbaa !11
-  store i64 0, ptr @test_offset, align 8, !tbaa !25
+  store i64 0, ptr @test_offset, align 8, !tbaa !27
   store i64 32, ptr %11, align 8, !tbaa !13
   %39 = load ptr, ptr %12, align 8, !tbaa !14
   %.not.i39 = icmp eq ptr %39, null
@@ -1084,11 +1084,11 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @ctr_drbg_self_test_entropy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #9 {
-  %4 = load i64, ptr @test_offset, align 8, !tbaa !25
+  %4 = load i64, ptr @test_offset, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %2, i1 false)
   %6 = add i64 %4, %2
-  store i64 %6, ptr @test_offset, align 8, !tbaa !25
+  store i64 %6, ptr @test_offset, align 8, !tbaa !27
   ret i32 0
 }
 
@@ -1144,13 +1144,15 @@ attributes #14 = { nounwind }
 !13 = !{!4, !8, i64 24}
 !14 = !{!4, !10, i64 328}
 !15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = !{!4, !10, i64 336}
-!24 = distinct !{!24, !16}
-!25 = !{!8, !8, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !18, !16}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18, !16}
+!20 = !{!5, !5, i64 0}
+!21 = distinct !{!21, !18, !16}
+!22 = distinct !{!22, !18, !16}
+!23 = distinct !{!23, !18, !16}
+!24 = distinct !{!24, !18, !16}
+!25 = !{!4, !10, i64 336}
+!26 = distinct !{!26, !18, !16}
+!27 = !{!8, !8, i64 0}

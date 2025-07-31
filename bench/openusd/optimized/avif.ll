@@ -426,7 +426,7 @@ avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFo
 .loopexit:                                        ; preds = %47, %24, %42, %avifImagePlaneRowBytes.exit57, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond122.not, label %51, label %18, !llvm.loop !6
+  br i1 %exitcond122.not, label %51, label %18, !llvm.loop !7
 
 51:                                               ; preds = %.loopexit
   ret void
@@ -899,7 +899,7 @@ avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatI
 .loopexit.i:                                      ; preds = %151, %146, %avifImagePlaneRowBytes.exit57.i, %128, %122
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond122.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond122.not.i, label %avifImageCopySamples.exit, label %122, !llvm.loop !6
+  br i1 %exitcond122.not.i, label %avifImageCopySamples.exit, label %122, !llvm.loop !7
 
 avifImageCopySamples.exit:                        ; preds = %.loopexit.i, %109, %102, %96, %99, %82, %75, %avifImageFreePlanes.exit
   %.0 = phi i32 [ %74, %avifImageFreePlanes.exit ], [ %81, %75 ], [ %88, %82 ], [ 24, %99 ], [ 24, %96 ], [ %103, %102 ], [ %110, %109 ], [ 0, %.loopexit.i ]
@@ -1105,7 +1105,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
 60:                                               ; preds = %54, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !8
 
 .loopexit:                                        ; preds = %60, %34, %21, %17
   %61 = and i32 %1, 2
@@ -1375,7 +1375,7 @@ avifImageFreePlanes.exit:                         ; preds = %47, %50
 132:                                              ; preds = %106, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %106, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %106, !llvm.loop !9
 
 .loopexit:                                        ; preds = %132, %avifImageFreePlanes.exit
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1624,7 +1624,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
 13:                                               ; preds = %.lr.ph37.us
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.loopexit.us, label %.lr.ph37.us, !llvm.loop !9
+  br i1 %exitcond57.not, label %.loopexit.us, label %.lr.ph37.us, !llvm.loop !10
 
 .lr.ph37.us:                                      ; preds = %.preheader.us, %13
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %13 ], [ 0, %.preheader.us ]
@@ -1640,7 +1640,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %.02538.us, i64 %18
   %20 = add nuw i32 %.02440.us, 1
   %exitcond58.not = icmp eq i32 %20, %9
-  br i1 %exitcond58.not, label %.loopexit30, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond58.not, label %.loopexit30, label %.preheader.us, !llvm.loop !11
 
 .lr.ph41.split:                                   ; preds = %.lr.ph41
   br i1 %.not46, label %.loopexit30, label %.preheader31.us.preheader
@@ -1657,7 +1657,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
 21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit32_crit_edge.us, label %22, !llvm.loop !12
+  br i1 %exitcond.not, label %..loopexit32_crit_edge.us, label %22, !llvm.loop !13
 
 22:                                               ; preds = %.preheader31.us, %21
   %indvars.iv = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next, %21 ]
@@ -1673,7 +1673,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   %28 = getelementptr inbounds nuw i8, ptr %.02538.us43, i64 %27
   %29 = add nuw i32 %.02440.us42, 1
   %exitcond52.not = icmp eq i32 %29, %9
-  br i1 %exitcond52.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !13
+  br i1 %exitcond52.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !14
 
 .loopexit30:                                      ; preds = %..loopexit32_crit_edge.us, %22, %.loopexit.us, %.lr.ph37.us, %.lr.ph41.split, %4, %1
   %.023 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.lr.ph41.split ], [ 0, %.lr.ph37.us ], [ 1, %.loopexit.us ], [ 0, %22 ], [ 1, %..loopexit32_crit_edge.us ]
@@ -2410,7 +2410,7 @@ define hidden void @avifCodecSpecificOptionsClear(ptr noundef captures(none) %0)
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i32 0, ptr %2, align 4
@@ -2437,7 +2437,7 @@ define hidden void @avifCodecSpecificOptionsDestroy(ptr noundef %0) local_unname
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next.i, %10
-  br i1 %11, label %.lr.ph.i, label %avifCodecSpecificOptionsClear.exit, !llvm.loop !14
+  br i1 %11, label %.lr.ph.i, label %avifCodecSpecificOptionsClear.exit, !llvm.loop !15
 
 avifCodecSpecificOptionsClear.exit:               ; preds = %.lr.ph.i, %1
   store i32 0, ptr %2, align 4
@@ -2521,7 +2521,7 @@ avifStrdup.exit:                                  ; preds = %13
 36:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %36, %3
   %.not = icmp eq ptr %2, null
@@ -2676,15 +2676,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !11}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6, !12}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}

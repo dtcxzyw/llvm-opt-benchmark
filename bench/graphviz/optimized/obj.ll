@@ -576,7 +576,7 @@ agroot.exit16:                                    ; preds = %agroot.exit, %22, %
 37:                                               ; preds = %.preheader
   %38 = tail call ptr @agparent(ptr noundef nonnull %.0) #11
   %.not13 = icmp eq ptr %38, null
-  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !48
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -683,6 +683,7 @@ attributes #15 = { cold noreturn nounwind }
 !42 = !{!38, !11, i64 8}
 !43 = !{!44, !44, i64 0}
 !44 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}

@@ -848,7 +848,7 @@ define noundef zeroext i1 @_ZNK6icu_7710CharString8containsENS_11StringPieceE(pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %13, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.critedge, label %11, !llvm.loop !20
+  br i1 %or.cond, label %.critedge, label %11, !llvm.loop !21
 
 .critedge:                                        ; preds = %11, %4, %3
   %.08 = phi i1 [ false, %3 ], [ false, %4 ], [ %13, %11 ]
@@ -1161,7 +1161,7 @@ _ZN6icu_7710CharString6appendEcR10UErrorCode.exit30: ; preds = %41, %47
   %62 = load i32, ptr %2, align 4, !tbaa !13
   %63 = icmp slt i32 %62, 1
   %indvars.iv.next39 = add i64 %indvars.iv38, -1
-  br i1 %63, label %40, label %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit28, !llvm.loop !21
+  br i1 %63, label %40, label %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit28, !llvm.loop !22
 
 64:                                               ; preds = %40
   %65 = load i32, ptr %24, align 8, !tbaa !15
@@ -1189,7 +1189,7 @@ _ZN6icu_7710CharString6appendEcR10UErrorCode.exit30: ; preds = %41, %47
   store i8 %74, ptr %73, align 1, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %76 = icmp slt i64 %indvars.iv.next42, %indvars.iv.next
-  br i1 %76, label %.lr.ph, label %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit28, !llvm.loop !22
+  br i1 %76, label %.lr.ph, label %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit28, !llvm.loop !23
 
 _ZN6icu_7710CharString6appendEcR10UErrorCode.exit28: ; preds = %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit30, %.lr.ph, %64, %30, %25, %_ZN6icu_7710CharString6appendEcR10UErrorCode.exit
   ret ptr %0
@@ -1529,8 +1529,9 @@ attributes #21 = { nounwind willreturn memory(read) }
 !15 = !{!16, !9, i64 56}
 !16 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}

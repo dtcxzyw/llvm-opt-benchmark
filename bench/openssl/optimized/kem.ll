@@ -260,15 +260,15 @@ EVP_KEM_free.exit130:                             ; preds = %CRYPTO_DOWN_REF.exi
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.296.ph, ptr %98, align 8, !tbaa !42
+  store ptr %.296.ph, ptr %98, align 8, !tbaa !43
   %99 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !43
+  %100 = load ptr, ptr %99, align 8, !tbaa !44
   %101 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !37
   %103 = call ptr @ossl_provider_ctx(ptr noundef %102) #5
   %104 = call ptr %100(ptr noundef %103) #5
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %104, ptr %105, align 8, !tbaa !42
+  store ptr %104, ptr %105, align 8, !tbaa !43
   %106 = icmp eq ptr %104, null
   br i1 %106, label %107, label %108
 
@@ -290,7 +290,7 @@ EVP_KEM_free.exit130:                             ; preds = %CRYPTO_DOWN_REF.exi
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 128
-  %112 = load ptr, ptr %111, align 8, !tbaa !44
+  %112 = load ptr, ptr %111, align 8, !tbaa !45
   %.not122 = icmp eq ptr %112, null
   br i1 %.not122, label %120, label %113
 
@@ -300,7 +300,7 @@ EVP_KEM_free.exit130:                             ; preds = %CRYPTO_DOWN_REF.exi
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 48
-  %117 = load ptr, ptr %116, align 8, !tbaa !45
+  %117 = load ptr, ptr %116, align 8, !tbaa !46
   %.not123 = icmp eq ptr %117, null
   br i1 %.not123, label %120, label %118
 
@@ -320,7 +320,7 @@ EVP_KEM_free.exit130:                             ; preds = %CRYPTO_DOWN_REF.exi
 
 122:                                              ; preds = %121
   %123 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 136
-  %124 = load ptr, ptr %123, align 8, !tbaa !46
+  %124 = load ptr, ptr %123, align 8, !tbaa !47
   %.not119 = icmp eq ptr %124, null
   br i1 %.not119, label %134, label %125
 
@@ -330,13 +330,13 @@ EVP_KEM_free.exit130:                             ; preds = %CRYPTO_DOWN_REF.exi
 
 127:                                              ; preds = %121
   %128 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !45
+  %129 = load ptr, ptr %128, align 8, !tbaa !46
   %.not120 = icmp eq ptr %129, null
   br i1 %.not120, label %134, label %130
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %.296.ph, i64 64
-  %132 = load ptr, ptr %131, align 8, !tbaa !47
+  %132 = load ptr, ptr %131, align 8, !tbaa !48
   %133 = call i32 %132(ptr noundef nonnull %104, ptr noundef nonnull %.189.ph, ptr noundef %2) #5
   br label %136
 
@@ -399,7 +399,7 @@ define i32 @EVP_PKEY_encapsulate(ptr noundef readonly captures(address_is_null) 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !42
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
@@ -416,9 +416,9 @@ define i32 @EVP_PKEY_encapsulate(ptr noundef readonly captures(address_is_null) 
   br i1 %or.cond, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %11, align 8, !tbaa !42
+  %20 = load ptr, ptr %11, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %22 = load ptr, ptr %21, align 8, !tbaa !49
   %23 = tail call i32 %22(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   br label %24
 
@@ -481,7 +481,7 @@ define i32 @EVP_PKEY_decapsulate(ptr noundef readonly captures(address_is_null) 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
@@ -493,9 +493,9 @@ define i32 @EVP_PKEY_decapsulate(ptr noundef readonly captures(address_is_null) 
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
+  %22 = load ptr, ptr %21, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !49
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = tail call i32 %24(ptr noundef nonnull %17, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #5
   br label %26
 
@@ -572,7 +572,7 @@ declare ptr @evp_generic_fetch(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
   %6 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 144, ptr noundef nonnull @.str, i32 noundef 286) #5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -585,11 +585,11 @@ define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr 
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !53
+  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !54
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %10, align 8, !tbaa !37
   %11 = tail call i32 @ossl_provider_up_ref(ptr noundef %2) #5
-  store i32 %0, ptr %6, align 8, !tbaa !54
+  store i32 %0, ptr %6, align 8, !tbaa !55
   %12 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %1) #5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !34
@@ -598,9 +598,9 @@ define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !56
+  store ptr %17, ptr %18, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -623,7 +623,7 @@ define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr 
   %.090 = phi i32 [ 0, %15 ], [ %.191, %98 ]
   %.088 = phi i32 [ 0, %15 ], [ %.189, %98 ]
   %.0 = phi i32 [ 0, %15 ], [ %.1, %98 ]
-  %33 = load i32, ptr %.096, align 8, !tbaa !57
+  %33 = load i32, ptr %.096, align 8, !tbaa !58
   switch i32 %33, label %98 [
     i32 0, label %100
     i32 1, label %34
@@ -642,157 +642,157 @@ define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr 
   ]
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %31, align 8, !tbaa !43
+  %35 = load ptr, ptr %31, align 8, !tbaa !44
   %.not114 = icmp eq ptr %35, null
   br i1 %.not114, label %36, label %98
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %.096, i64 8
-  %.096.val = load ptr, ptr %37, align 8, !tbaa !59
-  store ptr %.096.val, ptr %31, align 8, !tbaa !43
+  %.096.val = load ptr, ptr %37, align 8, !tbaa !60
+  store ptr %.096.val, ptr %31, align 8, !tbaa !44
   %38 = add nsw i32 %.094, 1
   br label %98
 
 39:                                               ; preds = %32
-  %40 = load ptr, ptr %30, align 8, !tbaa !45
+  %40 = load ptr, ptr %30, align 8, !tbaa !46
   %.not113 = icmp eq ptr %40, null
   br i1 %.not113, label %41, label %98
 
 41:                                               ; preds = %39
   %42 = getelementptr i8, ptr %.096, i64 8
-  %.096.val116 = load ptr, ptr %42, align 8, !tbaa !59
-  store ptr %.096.val116, ptr %30, align 8, !tbaa !45
+  %.096.val116 = load ptr, ptr %42, align 8, !tbaa !60
+  store ptr %.096.val116, ptr %30, align 8, !tbaa !46
   %43 = add nsw i32 %.092, 1
   br label %98
 
 44:                                               ; preds = %32
-  %45 = load ptr, ptr %29, align 8, !tbaa !44
+  %45 = load ptr, ptr %29, align 8, !tbaa !45
   %.not112 = icmp eq ptr %45, null
   br i1 %.not112, label %46, label %98
 
 46:                                               ; preds = %44
   %47 = getelementptr i8, ptr %.096, i64 8
-  %.096.val117 = load ptr, ptr %47, align 8, !tbaa !59
-  store ptr %.096.val117, ptr %29, align 8, !tbaa !44
+  %.096.val117 = load ptr, ptr %47, align 8, !tbaa !60
+  store ptr %.096.val117, ptr %29, align 8, !tbaa !45
   %48 = add nsw i32 %.092, 1
   br label %98
 
 49:                                               ; preds = %32
-  %50 = load ptr, ptr %28, align 8, !tbaa !48
+  %50 = load ptr, ptr %28, align 8, !tbaa !49
   %.not111 = icmp eq ptr %50, null
   br i1 %.not111, label %51, label %98
 
 51:                                               ; preds = %49
   %52 = getelementptr i8, ptr %.096, i64 8
-  %.096.val118 = load ptr, ptr %52, align 8, !tbaa !59
-  store ptr %.096.val118, ptr %28, align 8, !tbaa !48
+  %.096.val118 = load ptr, ptr %52, align 8, !tbaa !60
+  store ptr %.096.val118, ptr %28, align 8, !tbaa !49
   %53 = add nsw i32 %.092, 1
   br label %98
 
 54:                                               ; preds = %32
-  %55 = load ptr, ptr %27, align 8, !tbaa !47
+  %55 = load ptr, ptr %27, align 8, !tbaa !48
   %.not110 = icmp eq ptr %55, null
   br i1 %.not110, label %56, label %98
 
 56:                                               ; preds = %54
   %57 = getelementptr i8, ptr %.096, i64 8
-  %.096.val119 = load ptr, ptr %57, align 8, !tbaa !59
-  store ptr %.096.val119, ptr %27, align 8, !tbaa !47
+  %.096.val119 = load ptr, ptr %57, align 8, !tbaa !60
+  store ptr %.096.val119, ptr %27, align 8, !tbaa !48
   %58 = add nsw i32 %.090, 1
   br label %98
 
 59:                                               ; preds = %32
-  %60 = load ptr, ptr %26, align 8, !tbaa !46
+  %60 = load ptr, ptr %26, align 8, !tbaa !47
   %.not109 = icmp eq ptr %60, null
   br i1 %.not109, label %61, label %98
 
 61:                                               ; preds = %59
   %62 = getelementptr i8, ptr %.096, i64 8
-  %.096.val120 = load ptr, ptr %62, align 8, !tbaa !59
-  store ptr %.096.val120, ptr %26, align 8, !tbaa !46
+  %.096.val120 = load ptr, ptr %62, align 8, !tbaa !60
+  store ptr %.096.val120, ptr %26, align 8, !tbaa !47
   %63 = add nsw i32 %.090, 1
   br label %98
 
 64:                                               ; preds = %32
-  %65 = load ptr, ptr %25, align 8, !tbaa !49
+  %65 = load ptr, ptr %25, align 8, !tbaa !50
   %.not108 = icmp eq ptr %65, null
   br i1 %.not108, label %66, label %98
 
 66:                                               ; preds = %64
   %67 = getelementptr i8, ptr %.096, i64 8
-  %.096.val121 = load ptr, ptr %67, align 8, !tbaa !59
-  store ptr %.096.val121, ptr %25, align 8, !tbaa !49
+  %.096.val121 = load ptr, ptr %67, align 8, !tbaa !60
+  store ptr %.096.val121, ptr %25, align 8, !tbaa !50
   %68 = add nsw i32 %.090, 1
   br label %98
 
 69:                                               ; preds = %32
-  %70 = load ptr, ptr %24, align 8, !tbaa !60
+  %70 = load ptr, ptr %24, align 8, !tbaa !61
   %.not107 = icmp eq ptr %70, null
   br i1 %.not107, label %71, label %98
 
 71:                                               ; preds = %69
   %72 = getelementptr i8, ptr %.096, i64 8
-  %.096.val122 = load ptr, ptr %72, align 8, !tbaa !59
-  store ptr %.096.val122, ptr %24, align 8, !tbaa !60
+  %.096.val122 = load ptr, ptr %72, align 8, !tbaa !60
+  store ptr %.096.val122, ptr %24, align 8, !tbaa !61
   %73 = add nsw i32 %.094, 1
   br label %98
 
 74:                                               ; preds = %32
-  %75 = load ptr, ptr %23, align 8, !tbaa !61
+  %75 = load ptr, ptr %23, align 8, !tbaa !62
   %.not106 = icmp eq ptr %75, null
   br i1 %.not106, label %76, label %98
 
 76:                                               ; preds = %74
   %77 = getelementptr i8, ptr %.096, i64 8
-  %.096.val123 = load ptr, ptr %77, align 8, !tbaa !59
-  store ptr %.096.val123, ptr %23, align 8, !tbaa !61
+  %.096.val123 = load ptr, ptr %77, align 8, !tbaa !60
+  store ptr %.096.val123, ptr %23, align 8, !tbaa !62
   br label %98
 
 78:                                               ; preds = %32
-  %79 = load ptr, ptr %22, align 8, !tbaa !62
+  %79 = load ptr, ptr %22, align 8, !tbaa !63
   %.not105 = icmp eq ptr %79, null
   br i1 %.not105, label %80, label %98
 
 80:                                               ; preds = %78
   %81 = getelementptr i8, ptr %.096, i64 8
-  %.096.val124 = load ptr, ptr %81, align 8, !tbaa !59
-  store ptr %.096.val124, ptr %22, align 8, !tbaa !62
+  %.096.val124 = load ptr, ptr %81, align 8, !tbaa !60
+  store ptr %.096.val124, ptr %22, align 8, !tbaa !63
   %82 = add nsw i32 %.088, 1
   br label %98
 
 83:                                               ; preds = %32
-  %84 = load ptr, ptr %21, align 8, !tbaa !63
+  %84 = load ptr, ptr %21, align 8, !tbaa !64
   %.not104 = icmp eq ptr %84, null
   br i1 %.not104, label %85, label %98
 
 85:                                               ; preds = %83
   %86 = getelementptr i8, ptr %.096, i64 8
-  %.096.val125 = load ptr, ptr %86, align 8, !tbaa !59
-  store ptr %.096.val125, ptr %21, align 8, !tbaa !63
+  %.096.val125 = load ptr, ptr %86, align 8, !tbaa !60
+  store ptr %.096.val125, ptr %21, align 8, !tbaa !64
   %87 = add nsw i32 %.088, 1
   br label %98
 
 88:                                               ; preds = %32
-  %89 = load ptr, ptr %20, align 8, !tbaa !64
+  %89 = load ptr, ptr %20, align 8, !tbaa !65
   %.not103 = icmp eq ptr %89, null
   br i1 %.not103, label %90, label %98
 
 90:                                               ; preds = %88
   %91 = getelementptr i8, ptr %.096, i64 8
-  %.096.val126 = load ptr, ptr %91, align 8, !tbaa !59
-  store ptr %.096.val126, ptr %20, align 8, !tbaa !64
+  %.096.val126 = load ptr, ptr %91, align 8, !tbaa !60
+  store ptr %.096.val126, ptr %20, align 8, !tbaa !65
   %92 = add nsw i32 %.0, 1
   br label %98
 
 93:                                               ; preds = %32
-  %94 = load ptr, ptr %19, align 8, !tbaa !65
+  %94 = load ptr, ptr %19, align 8, !tbaa !66
   %.not102 = icmp eq ptr %94, null
   br i1 %.not102, label %95, label %98
 
 95:                                               ; preds = %93
   %96 = getelementptr i8, ptr %.096, i64 8
-  %.096.val127 = load ptr, ptr %96, align 8, !tbaa !59
-  store ptr %.096.val127, ptr %19, align 8, !tbaa !65
+  %.096.val127 = load ptr, ptr %96, align 8, !tbaa !60
+  store ptr %.096.val127, ptr %19, align 8, !tbaa !66
   %97 = add nsw i32 %.0, 1
   br label %98
 
@@ -803,7 +803,7 @@ define internal ptr @evp_kem_from_algorithm(i32 noundef %0, ptr noundef %1, ptr 
   %.189 = phi i32 [ %.088, %34 ], [ %.088, %36 ], [ %.088, %39 ], [ %.088, %41 ], [ %.088, %44 ], [ %.088, %46 ], [ %.088, %49 ], [ %.088, %51 ], [ %.088, %54 ], [ %.088, %56 ], [ %.088, %59 ], [ %.088, %61 ], [ %.088, %64 ], [ %.088, %66 ], [ %.088, %69 ], [ %.088, %71 ], [ %.088, %74 ], [ %.088, %76 ], [ %.088, %78 ], [ %82, %80 ], [ %.088, %83 ], [ %87, %85 ], [ %.088, %88 ], [ %.088, %90 ], [ %.088, %93 ], [ %.088, %95 ], [ %.088, %32 ]
   %.1 = phi i32 [ %.0, %34 ], [ %.0, %36 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %44 ], [ %.0, %46 ], [ %.0, %49 ], [ %.0, %51 ], [ %.0, %54 ], [ %.0, %56 ], [ %.0, %59 ], [ %.0, %61 ], [ %.0, %64 ], [ %.0, %66 ], [ %.0, %69 ], [ %.0, %71 ], [ %.0, %74 ], [ %.0, %76 ], [ %.0, %78 ], [ %.0, %80 ], [ %.0, %83 ], [ %.0, %85 ], [ %.0, %88 ], [ %92, %90 ], [ %.0, %93 ], [ %97, %95 ], [ %.0, %32 ]
   %99 = getelementptr inbounds nuw i8, ptr %.096, i64 16
-  br label %32, !llvm.loop !66
+  br label %32, !llvm.loop !67
 
 100:                                              ; preds = %32
   %.not100 = icmp eq i32 %.094, 2
@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @EVP_KEM_is_a(ptr noundef readonly captures(address_i
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = load i32, ptr %0, align 8, !tbaa !54
+  %6 = load i32, ptr %0, align 8, !tbaa !55
   %7 = tail call i32 @evp_is_a(ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef %1) #5
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -936,7 +936,7 @@ declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_kem_get_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load i32, ptr %0, align 8, !tbaa !54
+  %2 = load i32, ptr %0, align 8, !tbaa !55
   ret i32 %2
 }
 
@@ -950,7 +950,7 @@ define ptr @EVP_KEM_get0_name(ptr noundef readonly captures(none) %0) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KEM_get0_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   ret ptr %3
 }
 
@@ -970,7 +970,7 @@ define i32 @EVP_KEM_names_do_all(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %0, align 8, !tbaa !54
+  %7 = load i32, ptr %0, align 8, !tbaa !55
   %8 = tail call i32 @evp_names_do_all(ptr noundef nonnull %5, i32 noundef %7, ptr noundef %1, ptr noundef %2) #5
   br label %9
 
@@ -988,7 +988,7 @@ define ptr @EVP_KEM_gettable_ctx_params(ptr noundef readonly captures(address_is
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
 
@@ -996,7 +996,7 @@ define ptr @EVP_KEM_gettable_ctx_params(ptr noundef readonly captures(address_is
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #5
-  %11 = load ptr, ptr %4, align 8, !tbaa !63
+  %11 = load ptr, ptr %4, align 8, !tbaa !64
   %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #5
   br label %13
 
@@ -1014,7 +1014,7 @@ define ptr @EVP_KEM_settable_ctx_params(ptr noundef readonly captures(address_is
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
 
@@ -1022,7 +1022,7 @@ define ptr @EVP_KEM_settable_ctx_params(ptr noundef readonly captures(address_is
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #5
-  %11 = load ptr, ptr %4, align 8, !tbaa !65
+  %11 = load ptr, ptr %4, align 8, !tbaa !66
   %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #5
   br label %13
 
@@ -1100,30 +1100,31 @@ attributes #5 = { nounwind }
 !37 = !{!35, !36, i64 24}
 !38 = !{!9, !11, i64 8}
 !39 = !{!9, !12, i64 16}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!6, !6, i64 0}
-!43 = !{!35, !5, i64 40}
-!44 = !{!35, !5, i64 128}
-!45 = !{!35, !5, i64 48}
-!46 = !{!35, !5, i64 136}
-!47 = !{!35, !5, i64 64}
-!48 = !{!35, !5, i64 56}
-!49 = !{!35, !5, i64 72}
-!50 = !{!51, !52, i64 16}
-!51 = !{!"ossl_algorithm_st", !12, i64 0, !12, i64 8, !52, i64 16, !12, i64 24}
-!52 = !{!"p1 _ZTS16ossl_dispatch_st", !5, i64 0}
-!53 = !{!25, !6, i64 0}
-!54 = !{!35, !10, i64 0}
-!55 = !{!51, !12, i64 24}
-!56 = !{!35, !12, i64 16}
-!57 = !{!58, !10, i64 0}
-!58 = !{!"ossl_dispatch_st", !10, i64 0, !5, i64 8}
-!59 = !{!58, !5, i64 8}
-!60 = !{!35, !5, i64 80}
-!61 = !{!35, !5, i64 88}
-!62 = !{!35, !5, i64 96}
-!63 = !{!35, !5, i64 104}
-!64 = !{!35, !5, i64 112}
-!65 = !{!35, !5, i64 120}
-!66 = distinct !{!66, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!6, !6, i64 0}
+!44 = !{!35, !5, i64 40}
+!45 = !{!35, !5, i64 128}
+!46 = !{!35, !5, i64 48}
+!47 = !{!35, !5, i64 136}
+!48 = !{!35, !5, i64 64}
+!49 = !{!35, !5, i64 56}
+!50 = !{!35, !5, i64 72}
+!51 = !{!52, !53, i64 16}
+!52 = !{!"ossl_algorithm_st", !12, i64 0, !12, i64 8, !53, i64 16, !12, i64 24}
+!53 = !{!"p1 _ZTS16ossl_dispatch_st", !5, i64 0}
+!54 = !{!25, !6, i64 0}
+!55 = !{!35, !10, i64 0}
+!56 = !{!52, !12, i64 24}
+!57 = !{!35, !12, i64 16}
+!58 = !{!59, !10, i64 0}
+!59 = !{!"ossl_dispatch_st", !10, i64 0, !5, i64 8}
+!60 = !{!59, !5, i64 8}
+!61 = !{!35, !5, i64 80}
+!62 = !{!35, !5, i64 88}
+!63 = !{!35, !5, i64 96}
+!64 = !{!35, !5, i64 104}
+!65 = !{!35, !5, i64 112}
+!66 = !{!35, !5, i64 120}
+!67 = distinct !{!67, !41, !42}

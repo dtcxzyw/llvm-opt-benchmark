@@ -1083,7 +1083,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !168
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -1301,3 +1301,5 @@ attributes #21 = { noreturn nounwind }
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZNK3irr4core8CMatrix4IfEmlERKS2_: %agg.result"}
 !167 = distinct !{!167, !"_ZNK3irr4core8CMatrix4IfEmlERKS2_"}
+!168 = distinct !{!168, !169}
+!169 = !{!"llvm.loop.estimated_trip_count"}

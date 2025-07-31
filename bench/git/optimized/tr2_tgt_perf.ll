@@ -1116,7 +1116,7 @@ strbuf_addch.exit62.i:                            ; preds = %strbuf_avail.exit.t
 54:                                               ; preds = %._crit_edge.i, %strbuf_setlen.exit.i
   %55 = call i32 @tr2_sid_depth() #7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, i32 noundef %55) #7
-  %56 = load ptr, ptr %11, align 8, !tbaa !64
+  %56 = load ptr, ptr %11, align 8, !tbaa !65
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef %56, i32 noundef 12, ptr noundef %2) #7
   %57 = load i64, ptr %12, align 8, !tbaa !15
   %.not48.i = icmp eq ptr %3, null
@@ -1124,7 +1124,7 @@ strbuf_addch.exit62.i:                            ; preds = %strbuf_avail.exit.t
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 420
-  %60 = load i32, ptr %59, align 4, !tbaa !69
+  %60 = load i32, ptr %59, align 4, !tbaa !70
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.7, i32 noundef %60) #7
   %.pre77.i = load i64, ptr %12, align 8, !tbaa !15
   br label %61
@@ -1165,7 +1165,7 @@ strbuf_addch.exit72.i:                            ; preds = %strbuf_avail.exit.t
   store i8 0, ptr %73, align 1, !tbaa !4
   %74 = load i64, ptr %12, align 8, !tbaa !15
   %75 = icmp ult i64 %74, %64
-  br i1 %75, label %.lr.ph75.i, label %._crit_edge76.i, !llvm.loop !70
+  br i1 %75, label %.lr.ph75.i, label %._crit_edge76.i, !llvm.loop !71
 
 ._crit_edge76.i:                                  ; preds = %strbuf_addch.exit72.i, %61
   call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull @.str.4, i64 noundef 3) #7
@@ -1203,7 +1203,7 @@ strbuf_addch.exit72.i:                            ; preds = %strbuf_avail.exit.t
   %88 = select i1 %.not51.i, ptr @.str.12, ptr %6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.11, i32 noundef 12, i32 noundef 12, ptr noundef nonnull %88) #7
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %90 = load i64, ptr %89, align 8, !tbaa !71
+  %90 = load i64, ptr %89, align 8, !tbaa !72
   %.not52.i = icmp eq i64 %90, 0
   br i1 %.not52.i, label %perf_fmt_prepare.exit, label %91
 
@@ -1335,13 +1335,14 @@ attributes #8 = { nounwind willreturn memory(read) }
 !59 = !{!60, !10, i64 0}
 !60 = !{!"tr2_counter", !10, i64 0}
 !61 = !{!58, !13, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!65, !13, i64 0}
-!65 = !{!"tr2tls_thread_ctx", !13, i64 0, !66, i64 8, !10, i64 16, !10, i64 24, !8, i64 32, !67, i64 40, !68, i64 136, !8, i64 184, !8, i64 184, !8, i64 184, !8, i64 184}
-!66 = !{!"p1 long", !14, i64 0}
-!67 = !{!"tr2_timer_block", !5, i64 0}
-!68 = !{!"tr2_counter_block", !5, i64 0}
-!69 = !{!30, !8, i64 420}
-!70 = distinct !{!70, !63}
-!71 = !{!65, !10, i64 24}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!66, !13, i64 0}
+!66 = !{!"tr2tls_thread_ctx", !13, i64 0, !67, i64 8, !10, i64 16, !10, i64 24, !8, i64 32, !68, i64 40, !69, i64 136, !8, i64 184, !8, i64 184, !8, i64 184, !8, i64 184}
+!67 = !{!"p1 long", !14, i64 0}
+!68 = !{!"tr2_timer_block", !5, i64 0}
+!69 = !{!"tr2_counter_block", !5, i64 0}
+!70 = !{!30, !8, i64 420}
+!71 = distinct !{!71, !63, !64}
+!72 = !{!66, !10, i64 24}

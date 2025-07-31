@@ -620,7 +620,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %203 = load i32, ptr %202, align 4
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv.next124, %204
-  br i1 %205, label %.lr.ph112, label %._crit_edge113, !llvm.loop !7
+  br i1 %205, label %.lr.ph112, label %._crit_edge113, !llvm.loop !8
 
 ._crit_edge113:                                   ; preds = %200, %182
   %206 = invoke noundef ptr @_Z26rcAllocHeightfieldLayerSetv()
@@ -686,7 +686,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %247 = call noundef i32 @llvm.smin.i32(i32 %246, i32 32)
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next127, %248
-  br i1 %249, label %254, label %.preheader.loopexit, !llvm.loop !8
+  br i1 %249, label %254, label %.preheader.loopexit, !llvm.loop !9
 
 .preheader.loopexit:                              ; preds = %243
   %.pre = load i32, ptr %219, align 8
@@ -794,7 +794,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %313 = call noundef i32 @llvm.smin.i32(i32 %312, i32 %5)
   %314 = sext i32 %313 to i64
   %315 = icmp slt i64 %indvars.iv.next130, %314
-  br i1 %315, label %308, label %.loopexit.loopexit, !llvm.loop !9
+  br i1 %315, label %308, label %.loopexit.loopexit, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %308
   %316 = trunc nuw nsw i64 %indvars.iv.next130 to i32
@@ -843,7 +843,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   store ptr null, ptr %331, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN20RasterizationContextD2Ev.exit, label %330, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN20RasterizationContextD2Ev.exit, label %330, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %330
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -957,7 +957,7 @@ define linkonce_odr dso_local void @_ZN20RasterizationContextD2Ev(ptr noundef no
   store ptr null, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %19, label %15, !llvm.loop !10
+  br i1 %exitcond.not, label %19, label %15, !llvm.loop !11
 
 19:                                               ; preds = %18
   ret void
@@ -1039,7 +1039,7 @@ define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %21, label %.preheader, !llvm.loop !11
+  br i1 %38, label %21, label %.preheader, !llvm.loop !12
 
 39:                                               ; preds = %.lr.ph35, %61
   %40 = phi i32 [ %36, %.lr.ph35 ], [ %62, %61 ]
@@ -1077,7 +1077,7 @@ define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, 
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next38, %63
-  br i1 %64, label %39, label %._crit_edge, !llvm.loop !12
+  br i1 %64, label %39, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %61, %2, %.preheader
   ret void
@@ -1174,7 +1174,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %50 = icmp samesign ult i64 %indvars.iv.next66, %25
   %or.cond = select i1 %38, i1 %50, i1 false
-  br i1 %or.cond, label %.lr.ph.split.us, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, !llvm.loop !13
+  br i1 %or.cond, label %.lr.ph.split.us, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, !llvm.loop !14
 
 .split.us:                                        ; preds = %39, %.lr.ph.split.us
   %51 = landingpad { ptr, i32 }
@@ -1339,7 +1339,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = icmp samesign uge i64 %indvars.iv.next, %25
   %or.cond61.not = select i1 %switch, i1 true, i1 %124
-  br i1 %or.cond61.not, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, label %.lr.ph.split, !llvm.loop !15
+  br i1 %or.cond61.not, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge: ; preds = %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us, %5
   ret void
@@ -1497,7 +1497,7 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
 79:                                               ; preds = %24, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !17
 
 .loopexit:                                        ; preds = %79, %6
   ret void
@@ -1616,7 +1616,7 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
   %71 = phi float [ %35, %46 ], [ %67, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %72, label %33, !llvm.loop !17
+  br i1 %exitcond.i, label %72, label %33, !llvm.loop !18
 
 _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %50, %40, %46
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -1637,7 +1637,7 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %50, %40, %46
   %76 = load i32, ptr %7, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %17, label %._crit_edge, !llvm.loop !18
+  br i1 %78, label %17, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %75, %3
   %.014.lcssa = phi ptr [ null, %3 ], [ %.115, %75 ]
@@ -1717,7 +1717,7 @@ switch.lookup:                                    ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %13, label %._crit_edge, !llvm.loop !19
+  br i1 %44, label %13, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %41, %2
   ret void
@@ -2169,7 +2169,7 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull
   %29 = phi i32 [ %18, %.lr.ph.split ], [ %spec.select41, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph, %9
   %.lcssa33 = phi i32 [ 0, %9 ], [ 0, %.lr.ph ], [ %28, %27 ]
@@ -2235,7 +2235,7 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next45, %66
-  br i1 %67, label %42, label %._crit_edge40, !llvm.loop !21
+  br i1 %67, label %42, label %._crit_edge40, !llvm.loop !22
 
 ._crit_edge40:                                    ; preds = %62, %._crit_edge
   %68 = tail call i32 @fclose(ptr noundef nonnull %8)
@@ -2401,7 +2401,7 @@ define dso_local void @_ZN20Sample_TempObstacles7loadAllEPKc(ptr noundef nonnull
   %80 = add nuw nsw i32 %.046, 1
   %81 = load i32, ptr %46, align 4
   %82 = icmp slt i32 %80, %81
-  br i1 %82, label %52, label %._crit_edge, !llvm.loop !22
+  br i1 %82, label %52, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %79, %56, %61, %.preheader
   %83 = call i32 @fclose(ptr noundef nonnull %6)
@@ -2620,7 +2620,7 @@ define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr noundef 
   %spec.select = add nuw nsw i32 %.0913, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %30, label %24, !llvm.loop !23
+  br i1 %exitcond.not, label %30, label %24, !llvm.loop !24
 
 30:                                               ; preds = %24
   %31 = icmp eq i32 %spec.select, 8
@@ -3151,7 +3151,7 @@ define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr no
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %17, %.preheader, %1
   ret void
@@ -3480,7 +3480,7 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %190, %194
 ._crit_edge.us:                                   ; preds = %227, %203
   %206 = add nuw nsw i32 %.05771.us, 1
   %exitcond86.not = icmp eq i32 %206, %34
-  br i1 %exitcond86.not, label %._crit_edge73.us, label %203, !llvm.loop !25
+  br i1 %exitcond86.not, label %._crit_edge73.us, label %203, !llvm.loop !26
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %227
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %227 ]
@@ -3518,12 +3518,12 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %190, %194
 227:                                              ; preds = %226, %214
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !27
 
 ._crit_edge73.us:                                 ; preds = %._crit_edge.us
   %228 = add nuw nsw i32 %.05574.us, 1
   %exitcond87.not = icmp eq i32 %228, %37
-  br i1 %exitcond87.not, label %._crit_edge75, label %.preheader69.us, !llvm.loop !27
+  br i1 %exitcond87.not, label %._crit_edge75, label %.preheader69.us, !llvm.loop !28
 
 ._crit_edge75:                                    ; preds = %._crit_edge73.us, %_ZN9rcContext11resetTimersEv.exit
   %229 = load ptr, ptr %187, align 8
@@ -3555,12 +3555,12 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %._crit_edge75, %233
   %241 = call noundef i32 @_ZN11dtTileCache19buildNavMeshTilesAtEiiP9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(912) %239, i32 noundef %.05376.us, i32 noundef %.05477.us, ptr noundef %240)
   %242 = add nuw nsw i32 %.05376.us, 1
   %exitcond88.not = icmp eq i32 %242, %34
-  br i1 %exitcond88.not, label %._crit_edge.us80, label %238, !llvm.loop !28
+  br i1 %exitcond88.not, label %._crit_edge.us80, label %238, !llvm.loop !29
 
 ._crit_edge.us80:                                 ; preds = %238
   %243 = add nuw nsw i32 %.05477.us, 1
   %exitcond89.not = icmp eq i32 %243, %37
-  br i1 %exitcond89.not, label %._crit_edge78, label %.preheader.us, !llvm.loop !29
+  br i1 %exitcond89.not, label %._crit_edge78, label %.preheader.us, !llvm.loop !30
 
 ._crit_edge78:                                    ; preds = %._crit_edge.us80, %_ZN9rcContext10startTimerE12rcTimerLabel.exit
   %244 = load ptr, ptr %187, align 8
@@ -3629,7 +3629,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit: ; preds = %_ZN9rcContext
   %280 = add nuw nsw i32 %.05182, 1
   %281 = call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %269)
   %282 = icmp slt i32 %280, %281
-  br i1 %282, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %282, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %279
   %283 = sitofp i32 %.1 to float
@@ -3878,7 +3878,7 @@ define linkonce_odr dso_local void @_ZN11MeshProcess7processEP21dtNavMeshCreateP
   %14 = load i32, ptr %5, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %13, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4265,7 +4265,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool10handleMenuEv(pt
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next.i, %25
-  br i1 %26, label %.lr.ph.i, label %_ZN20Sample_TempObstacles21clearAllTempObstaclesEv.exit, !llvm.loop !24
+  br i1 %26, label %.lr.ph.i, label %_ZN20Sample_TempObstacles21clearAllTempObstaclesEv.exit, !llvm.loop !25
 
 _ZN20Sample_TempObstacles21clearAllTempObstaclesEv.exit: ; preds = %21, %.preheader.i, %3, %1
   tail call void @_Z14imguiSeparatorv()
@@ -4483,30 +4483,31 @@ attributes #18 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6, !14}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6, !14}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7, !15}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7, !15}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}

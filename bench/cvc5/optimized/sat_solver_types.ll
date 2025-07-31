@@ -88,5 +88,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !8 = !{!9, !10, i64 0}
 !9 = !{!"_ZTSN4cvc58internal4prop10SatLiteralE", !10, i64 0}
 !10 = !{!"long", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!"llvm.loop.estimated_trip_count"}

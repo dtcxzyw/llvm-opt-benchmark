@@ -83,12 +83,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Aig_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !31
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %.not = icmp slt i32 %5, %7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !31
+  %9 = load i32, ptr %8, align 4, !tbaa !32
   %.not46 = icmp slt i32 %9, %7
   %or.cond = select i1 %.not, i1 %.not46, i1 false
   br i1 %or.cond, label %34, label %._crit_edge
@@ -108,7 +108,7 @@ define void @Aig_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef readonl
   %18 = shl nsw i64 %17, 2
   %19 = tail call ptr @realloc(ptr noundef nonnull %13, i64 noundef %18) #9
   %.pre48 = load i32, ptr %6, align 8, !tbaa !23
-  %.pre50.pre = load i32, ptr %15, align 4, !tbaa !31
+  %.pre50.pre = load i32, ptr %15, align 4, !tbaa !32
   br label %25
 
 20:                                               ; preds = %._crit_edge
@@ -169,18 +169,18 @@ Aig_ObjWhatFanin.exit:                            ; preds = %34, %41
   %58 = getelementptr inbounds nuw i32, ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %57
-  %61 = load i32, ptr %4, align 4, !tbaa !31
+  %61 = load i32, ptr %4, align 4, !tbaa !32
   %62 = mul nsw i32 %61, 5
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %50, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !32
+  %65 = load i32, ptr %64, align 4, !tbaa !33
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %Aig_ObjWhatFanin.exit
-  store i32 %48, ptr %64, align 4, !tbaa !32
-  store i32 %48, ptr %58, align 4, !tbaa !32
-  store i32 %48, ptr %60, align 4, !tbaa !32
+  store i32 %48, ptr %64, align 4, !tbaa !33
+  store i32 %48, ptr %58, align 4, !tbaa !33
+  store i32 %48, ptr %60, align 4, !tbaa !33
   br label %87
 
 68:                                               ; preds = %Aig_ObjWhatFanin.exit
@@ -192,7 +192,7 @@ Aig_ObjWhatFanin.exit:                            ; preds = %34, %41
   %74 = and i32 %65, 1
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i32, ptr %73, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !32
+  %77 = load i32, ptr %76, align 4, !tbaa !33
   %78 = ashr i32 %77, 1
   %79 = mul nsw i32 %78, 5
   %80 = sext i32 %79 to i64
@@ -201,11 +201,11 @@ Aig_ObjWhatFanin.exit:                            ; preds = %34, %41
   %83 = and i32 %77, 1
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i32, ptr %82, i64 %84
-  store i32 %77, ptr %58, align 4, !tbaa !32
-  %86 = load i32, ptr %64, align 4, !tbaa !32
-  store i32 %86, ptr %60, align 4, !tbaa !32
-  store i32 %48, ptr %76, align 4, !tbaa !32
-  store i32 %48, ptr %85, align 4, !tbaa !32
+  store i32 %77, ptr %58, align 4, !tbaa !33
+  %86 = load i32, ptr %64, align 4, !tbaa !33
+  store i32 %86, ptr %60, align 4, !tbaa !33
+  store i32 %48, ptr %76, align 4, !tbaa !33
+  store i32 %48, ptr %85, align 4, !tbaa !33
   br label %87
 
 87:                                               ; preds = %68, %67
@@ -239,7 +239,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Aig_ObjRemoveFanout(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !31
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   %6 = getelementptr i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %6, align 8, !tbaa !27
   %7 = ptrtoint ptr %.val.i to i64
@@ -274,7 +274,7 @@ Aig_ObjWhatFanin.exit:                            ; preds = %3, %11
   %28 = getelementptr inbounds nuw i32, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %27
-  %31 = load i32, ptr %30, align 4, !tbaa !32
+  %31 = load i32, ptr %30, align 4, !tbaa !33
   %32 = ashr i32 %31, 1
   %33 = mul nsw i32 %32, 5
   %34 = sext i32 %33 to i64
@@ -283,13 +283,13 @@ Aig_ObjWhatFanin.exit:                            ; preds = %3, %11
   %37 = and i32 %31, 1
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
-  %40 = load i32, ptr %28, align 4, !tbaa !32
+  %40 = load i32, ptr %28, align 4, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %42 = load i32, ptr %41, align 4, !tbaa !31
+  %42 = load i32, ptr %41, align 4, !tbaa !32
   %43 = mul nsw i32 %42, 5
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %20, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !32
+  %46 = load i32, ptr %45, align 4, !tbaa !33
   %47 = icmp eq i32 %46, %18
   br i1 %47, label %48, label %52
 
@@ -298,19 +298,19 @@ Aig_ObjWhatFanin.exit:                            ; preds = %3, %11
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %48
-  store i32 0, ptr %45, align 4, !tbaa !32
-  store i32 0, ptr %39, align 4, !tbaa !32
+  store i32 0, ptr %45, align 4, !tbaa !33
+  store i32 0, ptr %39, align 4, !tbaa !33
   br label %55
 
 51:                                               ; preds = %48
-  store i32 %31, ptr %45, align 4, !tbaa !32
-  %.pre = load i32, ptr %28, align 4, !tbaa !32
+  store i32 %31, ptr %45, align 4, !tbaa !33
+  %.pre = load i32, ptr %28, align 4, !tbaa !33
   br label %52
 
 52:                                               ; preds = %51, %Aig_ObjWhatFanin.exit
   %53 = phi i32 [ %.pre, %51 ], [ %40, %Aig_ObjWhatFanin.exit ]
-  store i32 %53, ptr %39, align 4, !tbaa !32
-  %54 = load i32, ptr %30, align 4, !tbaa !32
+  store i32 %53, ptr %39, align 4, !tbaa !33
+  %54 = load i32, ptr %30, align 4, !tbaa !33
   br label %55
 
 55:                                               ; preds = %52, %50
@@ -323,9 +323,9 @@ Aig_ObjWhatFanin.exit:                            ; preds = %3, %11
   %61 = and i32 %40, 1
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i32, ptr %60, i64 %62
-  store i32 %storemerge, ptr %63, align 4, !tbaa !32
-  store i32 0, ptr %28, align 4, !tbaa !32
-  store i32 0, ptr %30, align 4, !tbaa !32
+  store i32 %storemerge, ptr %63, align 4, !tbaa !33
+  store i32 0, ptr %28, align 4, !tbaa !33
+  store i32 0, ptr %30, align 4, !tbaa !33
   ret void
 }
 
@@ -375,7 +375,8 @@ attributes #10 = { nounwind }
 !26 = !{!6, !6, i64 0}
 !27 = !{!11, !10, i64 8}
 !28 = !{!11, !10, i64 16}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!11, !12, i64 36}
-!32 = !{!12, !12, i64 0}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!11, !12, i64 36}
+!33 = !{!12, !12, i64 0}

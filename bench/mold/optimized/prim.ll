@@ -408,7 +408,7 @@ unix_mmap.exit:                                   ; preds = %5, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   %23 = zext nneg i32 %2 to i64
   %24 = shl nuw i64 1, %23
-  store i64 %24, ptr %6, align 8, !tbaa !22
+  store i64 %24, ptr %6, align 8, !tbaa !23
   %25 = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef nonnull %.3.i, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #10
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %30, label %26
@@ -447,9 +447,9 @@ define hidden i64 @_mi_prim_numa_node() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
-  store i64 0, ptr %1, align 8, !tbaa !22
+  store i64 0, ptr %1, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store i64 0, ptr %2, align 8, !tbaa !22
+  store i64 0, ptr %2, align 8, !tbaa !23
   %3 = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #10
   %.not = icmp eq i64 %3, 0
   %4 = load i64, ptr %1, align 8
@@ -479,7 +479,7 @@ define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unn
   %5 = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %1, i32 noundef 4) #10
   %6 = and i64 %5, 4294967295
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %2, label %split, !llvm.loop !23
+  br i1 %.not, label %2, label %split, !llvm.loop !24
 
 split:                                            ; preds = %3
   %7 = add nuw nsw i32 %.0, 1
@@ -499,10 +499,10 @@ define hidden i64 @_mi_prim_clock_now() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #11
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #10
-  %3 = load i64, ptr %1, align 8, !tbaa !24
+  %3 = load i64, ptr %1, align 8, !tbaa !25
   %4 = mul nsw i64 %3, 1000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !26
+  %6 = load i64, ptr %5, align 8, !tbaa !27
   %7 = sdiv i64 %6, 1000000
   %8 = add nsw i64 %7, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #11
@@ -517,32 +517,32 @@ define hidden void @_mi_prim_process_info(ptr noundef writeonly captures(none) i
   %2 = alloca %struct.rusage, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
   %3 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %2) #10
-  %.val = load i64, ptr %2, align 8, !tbaa !27
+  %.val = load i64, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val4 = load i64, ptr %4, align 8, !tbaa !29
+  %.val4 = load i64, ptr %4, align 8, !tbaa !30
   %5 = mul nsw i64 %.val, 1000
   %6 = sdiv i64 %.val4, 1000
   %7 = add nsw i64 %6, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !30
+  store i64 %7, ptr %8, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val5 = load i64, ptr %9, align 8, !tbaa !27
+  %.val5 = load i64, ptr %9, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6 = load i64, ptr %10, align 8, !tbaa !29
+  %.val6 = load i64, ptr %10, align 8, !tbaa !30
   %11 = mul nsw i64 %.val5, 1000
   %12 = sdiv i64 %.val6, 1000
   %13 = add nsw i64 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %13, ptr %14, align 8, !tbaa !32
+  store i64 %13, ptr %14, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %16 = load i64, ptr %15, align 8, !tbaa !33
+  %16 = load i64, ptr %15, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %16, ptr %17, align 8, !tbaa !34
+  store i64 %16, ptr %17, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !33
+  %19 = load i64, ptr %18, align 8, !tbaa !34
   %20 = shl nsw i64 %19, 10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %20, ptr %21, align 8, !tbaa !35
+  store i64 %20, ptr %21, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
   ret void
 }
@@ -552,7 +552,7 @@ declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree nounwind uwtable
 define hidden void @_mi_prim_out_stderr(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !36
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !37
   %3 = tail call i32 @fputs(ptr noundef %0, ptr noundef %2) #14
   ret void
 }
@@ -580,17 +580,17 @@ define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.024 = phi i64 [ %15, %.lr.ph ], [ 0, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.024
-  %12 = load i8, ptr %11, align 1, !tbaa !33
+  %12 = load i8, ptr %11, align 1, !tbaa !34
   %13 = tail call signext i8 @_mi_toupper(i8 noundef signext %12) #10
   %14 = getelementptr inbounds nuw [65 x i8], ptr %4, i64 0, i64 %.024
-  store i8 %13, ptr %14, align 1, !tbaa !33
+  store i8 %13, ptr %14, align 1, !tbaa !34
   %15 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %15, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %16 = getelementptr inbounds nuw [65 x i8], ptr %4, i64 0, i64 %10
-  store i8 0, ptr %16, align 1, !tbaa !33
+  store i8 0, ptr %16, align 1, !tbaa !34
   %17 = call ptr @getenv(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #11
   %18 = icmp eq ptr %17, null
@@ -680,7 +680,7 @@ define hidden zeroext i1 @_mi_prim_random_buf(ptr noundef %0, i64 noundef %1) lo
 27:                                               ; preds = %22, %22, %25
   %.227 = phi i64 [ %26, %25 ], [ %.02546, %22 ], [ %.02546, %22 ]
   %28 = icmp ult i64 %.227, %1
-  br i1 %28, label %.lr.ph, label %.thread42.loopexit
+  br i1 %28, label %.lr.ph, label %.thread42.loopexit, !llvm.loop !40
 
 .thread42.loopexit:                               ; preds = %22, %27
   %.025.lcssa.ph = phi i64 [ %.227, %27 ], [ %.02546, %22 ]
@@ -780,7 +780,7 @@ define hidden noundef zeroext i1 @_mi_allocator_init(ptr noundef writeonly captu
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  store ptr null, ptr %0, align 8, !tbaa !39
+  store ptr null, ptr %0, align 8, !tbaa !41
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -892,24 +892,26 @@ attributes #14 = { cold "no-builtin-malloc" }
 !17 = !{!8, !8, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"any pointer", !6, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !21}
-!24 = !{!25, !5, i64 0}
-!25 = !{!"timespec", !5, i64 0, !5, i64 8}
-!26 = !{!25, !5, i64 8}
-!27 = !{!28, !5, i64 0}
-!28 = !{!"timeval", !5, i64 0, !5, i64 8}
-!29 = !{!28, !5, i64 8}
-!30 = !{!31, !5, i64 8}
-!31 = !{!"mi_process_info_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
-!32 = !{!31, !5, i64 16}
-!33 = !{!6, !6, i64 0}
-!34 = !{!31, !5, i64 56}
-!35 = !{!31, !5, i64 32}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
-!38 = distinct !{!38, !21}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 omnipotent char", !19, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !21, !22}
+!25 = !{!26, !5, i64 0}
+!26 = !{!"timespec", !5, i64 0, !5, i64 8}
+!27 = !{!26, !5, i64 8}
+!28 = !{!29, !5, i64 0}
+!29 = !{!"timeval", !5, i64 0, !5, i64 8}
+!30 = !{!29, !5, i64 8}
+!31 = !{!32, !5, i64 8}
+!32 = !{!"mi_process_info_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!33 = !{!32, !5, i64 16}
+!34 = !{!6, !6, i64 0}
+!35 = !{!32, !5, i64 56}
+!36 = !{!32, !5, i64 32}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
+!39 = distinct !{!39, !21, !22}
+!40 = distinct !{!40, !22}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 omnipotent char", !19, i64 0}

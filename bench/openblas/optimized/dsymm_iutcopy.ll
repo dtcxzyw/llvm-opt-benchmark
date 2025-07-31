@@ -473,7 +473,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %210 = add nsw i64 %.06191075, 16
   %211 = add nsw i64 %.06371073, -1
   %212 = icmp sgt i64 %.06371073, 1
-  br i1 %212, label %13, label %._crit_edge1078, !llvm.loop !9
+  br i1 %212, label %13, label %._crit_edge1078, !llvm.loop !10
 
 ._crit_edge1078:                                  ; preds = %._crit_edge, %7
   %.0623.lcssa = phi ptr [ %6, %7 ], [ %.1624.lcssa, %._crit_edge ]
@@ -681,7 +681,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %315 = add nsw i64 %.16391081, -1
   %316 = add nsw i64 %.16331082, -1
   %317 = icmp samesign ugt i64 %.16331082, 1
-  br i1 %317, label %.lr.ph1093, label %._crit_edge1094, !llvm.loop !10
+  br i1 %317, label %.lr.ph1093, label %._crit_edge1094, !llvm.loop !11
 
 ._crit_edge1094:                                  ; preds = %.lr.ph1093, %273
   %.3626.lcssa = phi ptr [ %.0623.lcssa, %273 ], [ %314, %.lr.ph1093 ]
@@ -792,7 +792,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %374 = add nsw i64 %.26401096, -1
   %375 = add nsw i64 %.26341097, -1
   %376 = icmp samesign ugt i64 %.26341097, 1
-  br i1 %376, label %.lr.ph1104, label %._crit_edge1105, !llvm.loop !11
+  br i1 %376, label %.lr.ph1104, label %._crit_edge1105, !llvm.loop !12
 
 ._crit_edge1105:                                  ; preds = %.lr.ph1104, %352
   %.5628.lcssa = phi ptr [ %.2625, %352 ], [ %373, %.lr.ph1104 ]
@@ -852,7 +852,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %406 = add nsw i64 %.36411107, -1
   %407 = add nsw i64 %.36351108, -1
   %408 = icmp samesign ugt i64 %.36351108, 1
-  br i1 %408, label %.lr.ph1113, label %._crit_edge1114, !llvm.loop !12
+  br i1 %408, label %.lr.ph1113, label %._crit_edge1114, !llvm.loop !13
 
 ._crit_edge1114:                                  ; preds = %.lr.ph1113, %380
   %.7630.lcssa = phi ptr [ %.4627, %380 ], [ %405, %.lr.ph1113 ]
@@ -895,7 +895,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %426 = add nsw i64 %.46421116, -1
   %427 = add nsw i64 %.46361117, -1
   %428 = icmp samesign ugt i64 %.46361117, 1
-  br i1 %428, label %.lr.ph1121, label %.loopexit, !llvm.loop !13
+  br i1 %428, label %.lr.ph1121, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph1121, %410
   ret i32 0
@@ -912,10 +912,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

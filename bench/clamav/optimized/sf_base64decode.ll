@@ -120,7 +120,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %73 = icmp ult ptr %72, %10
   %74 = icmp ult i64 %.1, %9
   %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %17, label %._crit_edge
+  br i1 %75, label %17, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %26, %55, %71, %45, %31, %5
   %76 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 0, %71 ], [ 0, %45 ], [ 0, %55 ], [ -1, %26 ]
@@ -148,3 +148,5 @@ attributes #2 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

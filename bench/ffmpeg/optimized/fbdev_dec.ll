@@ -291,7 +291,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %50 = sub nsw i64 %49, %48
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.14, i64 noundef %49, i64 noundef %48, i64 noundef %50) #8
   %51 = icmp slt i64 %50, 1
-  br i1 %51, label %._crit_edge, label %33
+  br i1 %51, label %._crit_edge, label %33, !llvm.loop !68
 
 52:                                               ; preds = %._crit_edge
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -313,7 +313,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 63:                                               ; preds = %58, %52
   %64 = call i64 @av_gettime() #8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %64, ptr %65, align 8, !tbaa !67
+  store i64 %64, ptr %65, align 8, !tbaa !69
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %68 = load i32, ptr %67, align 8, !tbaa !38
@@ -322,19 +322,19 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 .lr.ph48:                                         ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !68
+  %71 = load ptr, ptr %70, align 8, !tbaa !70
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %73 = load ptr, ptr %72, align 8, !tbaa !45
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %75 = load i32, ptr %74, align 4, !tbaa !69
+  %75 = load i32, ptr %74, align 4, !tbaa !71
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %77 = load i32, ptr %76, align 8, !tbaa !40
   %78 = mul i32 %75, %77
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 %79
-  %81 = load i32, ptr %66, align 8, !tbaa !70
+  %81 = load i32, ptr %66, align 8, !tbaa !72
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %83 = load i32, ptr %82, align 4, !tbaa !71
+  %83 = load i32, ptr %82, align 4, !tbaa !73
   %84 = mul i32 %81, %83
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 %85
@@ -349,7 +349,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %.04144 = phi i32 [ 0, %.lr.ph48 ], [ %97, %88 ]
   %90 = sext i32 %89 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.046, ptr align 1 %.03945, i64 %90, i1 false)
-  %91 = load i32, ptr %66, align 8, !tbaa !70
+  %91 = load i32, ptr %66, align 8, !tbaa !72
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %.03945, i64 %92
   %94 = load i32, ptr %87, align 4, !tbaa !41
@@ -358,7 +358,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %97 = add nuw nsw i32 %.04144, 1
   %98 = load i32, ptr %67, align 8, !tbaa !38
   %99 = icmp slt i32 %97, %98
-  br i1 %99, label %88, label %._crit_edge49, !llvm.loop !72
+  br i1 %99, label %88, label %._crit_edge49, !llvm.loop !74
 
 ._crit_edge49:                                    ; preds = %88, %63
   %100 = load i32, ptr %29, align 8, !tbaa !42
@@ -524,11 +524,13 @@ attributes #9 = { nounwind willreturn memory(none) }
 !62 = !{!63, !19, i64 0}
 !63 = !{!"timespec", !19, i64 0, !19, i64 8}
 !64 = !{!63, !19, i64 8}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!49, !19, i64 8}
-!68 = !{!49, !18, i64 24}
-!69 = !{!28, !13, i64 68}
-!70 = !{!28, !13, i64 264}
-!71 = !{!28, !13, i64 72}
-!72 = distinct !{!72, !66}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = distinct !{!68, !67}
+!69 = !{!49, !19, i64 8}
+!70 = !{!49, !18, i64 24}
+!71 = !{!28, !13, i64 68}
+!72 = !{!28, !13, i64 264}
+!73 = !{!28, !13, i64 72}
+!74 = distinct !{!74, !66, !67}

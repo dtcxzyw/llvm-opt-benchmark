@@ -331,7 +331,7 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   store i16 %.0.i.i, ptr %.134.i, align 2, !tbaa !46
   %139 = xor i32 %.12732.i, %96
   %140 = icmp ult ptr %112, %105
-  br i1 %140, label %.lr.ph35.i, label %decode_audio_s16.exit, !llvm.loop !50
+  br i1 %140, label %.lr.ph35.i, label %decode_audio_s16.exit, !llvm.loop !51
 
 decode_audio_s16.exit:                            ; preds = %133, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
@@ -357,7 +357,7 @@ decode_audio_s16.exit:                            ; preds = %133, %.preheader.i
   %152 = ptrtoint ptr %151 to i64
   %153 = sub i64 %93, %152
   %.not105 = icmp slt i64 %153, %150
-  br i1 %.not105, label %.loopexit, label %99, !llvm.loop !51
+  br i1 %.not105, label %.loopexit, label %99, !llvm.loop !52
 
 .loopexit:                                        ; preds = %148, %.preheader, %83
   store i32 1, ptr %2, align 4, !tbaa !38
@@ -464,7 +464,8 @@ attributes #9 = { noreturn nounwind }
 !45 = !{!14, !14, i64 0}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"short", !8, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = distinct !{!51, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50}
+!52 = distinct !{!52, !49, !50}

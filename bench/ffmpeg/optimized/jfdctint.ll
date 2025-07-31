@@ -211,7 +211,7 @@ row_fdct_8.exit:                                  ; preds = %2, %row_fdct_8.exit
   %176 = getelementptr inbounds nuw i8, ptr %.08083, i64 2
   %177 = add nsw i32 %.084, -1
   %.not85 = icmp eq i32 %.084, 0
-  br i1 %.not85, label %178, label %row_fdct_8.exit, !llvm.loop !10
+  br i1 %.not85, label %178, label %row_fdct_8.exit, !llvm.loop !11
 
 178:                                              ; preds = %row_fdct_8.exit
   ret void
@@ -414,7 +414,7 @@ row_fdct_8.exit:                                  ; preds = %2, %row_fdct_8.exit
   %164 = getelementptr inbounds nuw i8, ptr %.06468, i64 2
   %165 = add nsw i32 %.069, -1
   %.not71 = icmp eq i32 %.069, 0
-  br i1 %.not71, label %166, label %row_fdct_8.exit, !llvm.loop !11
+  br i1 %.not71, label %166, label %row_fdct_8.exit, !llvm.loop !12
 
 166:                                              ; preds = %row_fdct_8.exit
   ret void
@@ -524,7 +524,7 @@ define hidden void @ff_jpeg_fdct_islow_10(ptr noundef captures(none) %0) local_u
   %87 = getelementptr inbounds nuw i8, ptr %.079.i81, i64 16
   %88 = add nsw i32 %.0.i82, -1
   %.not = icmp eq i32 %.0.i82, 0
-  br i1 %.not, label %row_fdct_10.exit, label %2, !llvm.loop !12
+  br i1 %.not, label %row_fdct_10.exit, label %2, !llvm.loop !13
 
 row_fdct_10.exit:                                 ; preds = %2, %row_fdct_10.exit
   %.084 = phi i32 [ %177, %row_fdct_10.exit ], [ 7, %2 ]
@@ -628,7 +628,7 @@ row_fdct_10.exit:                                 ; preds = %2, %row_fdct_10.exi
   %176 = getelementptr inbounds nuw i8, ptr %.08083, i64 2
   %177 = add nsw i32 %.084, -1
   %.not85 = icmp eq i32 %.084, 0
-  br i1 %.not85, label %178, label %row_fdct_10.exit, !llvm.loop !13
+  br i1 %.not85, label %178, label %row_fdct_10.exit, !llvm.loop !14
 
 178:                                              ; preds = %row_fdct_10.exit
   ret void
@@ -738,7 +738,7 @@ define hidden void @ff_fdct248_islow_10(ptr noundef captures(none) %0) local_unn
   %87 = getelementptr inbounds nuw i8, ptr %.079.i66, i64 16
   %88 = add nsw i32 %.0.i67, -1
   %.not = icmp eq i32 %.0.i67, 0
-  br i1 %.not, label %row_fdct_10.exit, label %2, !llvm.loop !12
+  br i1 %.not, label %row_fdct_10.exit, label %2, !llvm.loop !13
 
 row_fdct_10.exit:                                 ; preds = %2, %row_fdct_10.exit
   %.069 = phi i32 [ %165, %row_fdct_10.exit ], [ 7, %2 ]
@@ -831,7 +831,7 @@ row_fdct_10.exit:                                 ; preds = %2, %row_fdct_10.exi
   %164 = getelementptr inbounds nuw i8, ptr %.06468, i64 2
   %165 = add nsw i32 %.069, -1
   %.not71 = icmp eq i32 %.069, 0
-  br i1 %.not71, label %166, label %row_fdct_10.exit, !llvm.loop !14
+  br i1 %.not71, label %166, label %row_fdct_10.exit, !llvm.loop !15
 
 166:                                              ; preds = %row_fdct_10.exit
   ret void
@@ -849,10 +849,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

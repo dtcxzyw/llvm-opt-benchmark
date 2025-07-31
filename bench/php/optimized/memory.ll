@@ -1329,7 +1329,7 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 %77
   %80 = icmp eq ptr %58, %79
   %81 = select i1 %.not168, i1 %80, i1 false
-  br i1 %81, label %.lr.ph, label %._crit_edge
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %76, %53
   %.1144.lcssa = phi i64 [ %.0143, %53 ], [ %78, %76 ]
@@ -1646,3 +1646,5 @@ attributes #23 = { nounwind allocsize(0,1) }
 !49 = !{!47, !20, i64 8}
 !50 = !{!47, !19, i64 40}
 !51 = !{!47, !16, i64 16}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.estimated_trip_count"}

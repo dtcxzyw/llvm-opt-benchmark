@@ -29,7 +29,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8413a6a015ff070cE(i32
 12:                                               ; preds = %10
   %.fca.1.extract = extractvalue { i32, i32 } %7, 1
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he452fa5a1f100584E"(ptr align 8 %2, i32 %.fca.1.extract)
-          to label %6 unwind label %8
+          to label %6 unwind label %8, !llvm.loop !3
 
 13:                                               ; preds = %10
   call void @"_ZN4core3ptr976drop_in_place$LT$core..iter..adapters..map..map_fold$LT$u32$C$prost_reflect..descriptor..MethodDescriptor$C$$LP$$RP$$C$prost_reflect..descriptor..api..$LT$impl$u20$prost_reflect..descriptor..ServiceDescriptor$GT$..methods..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..adapters..map..map_fold$LT$prost_reflect..descriptor..MethodDescriptor$C$anki_proto_gen..Method$C$$LP$$RP$$C$anki_proto_gen..Method..from_proto$C$core..iter..traits..iterator..Iterator..for_each..call$LT$anki_proto_gen..Method$C$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u32$GT$$C$prost_reflect..descriptor..api..$LT$impl$u20$prost_reflect..descriptor..ServiceDescriptor$GT$..methods..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$anki_proto_gen..Method..from_proto$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30ae3080564a2bfcE"(ptr align 8 %2)
@@ -63,7 +63,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8d00b7c9752bbe91E(i32
   %9 = call { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17ha41f11d50ec6c876E"(ptr nonnull align 4 %4)
   %.fca.0.extract = extractvalue { i32, i32 } %9, 0
   %10 = icmp eq i32 %.fca.0.extract, 1
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -107,3 +107,6 @@ attributes #5 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

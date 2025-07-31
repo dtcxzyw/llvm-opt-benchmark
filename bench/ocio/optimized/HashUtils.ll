@@ -553,7 +553,7 @@ define internal fastcc { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(pt
 _ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i:     ; preds = %14
   %32 = add nuw nsw i64 %.0.i13, 1
   %exitcond13.not = icmp eq i64 %32, 16
-  br i1 %exitcond13.not, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit, label %8, !llvm.loop !41
+  br i1 %exitcond13.not, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit, label %8, !llvm.loop !42
 
 _ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit:   ; preds = %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i, %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit
   %.0.i35.i4 = phi i64 [ %47, %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit ], [ 0, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i ]
@@ -574,12 +574,12 @@ _ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit:   ; preds = %_ZL24XXH3_accumulat
   store <2 x i64> %46, ptr %33, align 16, !tbaa !3
   %47 = add nuw nsw i64 %.0.i35.i4, 1
   %exitcond14.not = icmp eq i64 %47, 4
-  br i1 %exitcond14.not, label %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit, !llvm.loop !42
+  br i1 %exitcond14.not, label %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit, !llvm.loop !43
 
 _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit
   %48 = add nuw nsw i64 %.0.i5, 1
   %exitcond15.not = icmp eq i64 %48, %5
-  br i1 %exitcond15.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond15.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, %2
   %49 = and i64 %4, -1024
@@ -625,7 +625,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL15XXH3_accumulat
 _ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i5:    ; preds = %58
   %76 = add nuw nsw i64 %.0.i37, 1
   %exitcond17.not = icmp eq i64 %76, %51
-  br i1 %exitcond17.not, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit6, label %.lr.ph9, !llvm.loop !41
+  br i1 %exitcond17.not, label %_ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit6, label %.lr.ph9, !llvm.loop !42
 
 _ZL15XXH3_accumulatePmPKhS1_mPFvPvPKvS4_E.exit6:  ; preds = %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i5, %._crit_edge
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -665,11 +665,11 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit: ; preds =
   %.idx.i = shl nuw nsw i64 %.011.i, 4
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %100 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %.idx.i
-  %101 = load i64, ptr %99, align 16, !tbaa !44
+  %101 = load i64, ptr %99, align 16, !tbaa !45
   %.0.copyload.i.i = load i64, ptr %100, align 1
   %102 = xor i64 %.0.copyload.i.i, %101
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !44
+  %104 = load i64, ptr %103, align 8, !tbaa !45
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.0.copyload.i9.i = load i64, ptr %105, align 1
   %106 = xor i64 %.0.copyload.i9.i, %104
@@ -682,7 +682,7 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit: ; preds =
   %113 = add i64 %.0810.i, %112
   %114 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %114, 4
-  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %98, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %98, !llvm.loop !46
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %98
   %115 = mul i64 %1, -4417276706812531889
@@ -695,11 +695,11 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %98
   %.idx.i9 = shl nuw nsw i64 %.011.i7, 4
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i9
   %119 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 117), i64 %.idx.i9
-  %120 = load i64, ptr %118, align 16, !tbaa !44
+  %120 = load i64, ptr %118, align 16, !tbaa !45
   %.0.copyload.i.i10 = load i64, ptr %119, align 1
   %121 = xor i64 %.0.copyload.i.i10, %120
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %123 = load i64, ptr %122, align 8, !tbaa !44
+  %123 = load i64, ptr %122, align 8, !tbaa !45
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.0.copyload.i9.i11 = load i64, ptr %124, align 1
   %125 = xor i64 %.0.copyload.i9.i11, %123
@@ -712,7 +712,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %98
   %132 = add i64 %.0810.i8, %131
   %133 = add nuw nsw i64 %.011.i7, 1
   %exitcond.not.i12 = icmp eq i64 %133, 4
-  br i1 %exitcond.not.i12, label %_ZL14XXH3_mergeAccsPKmPKhm.exit13, label %117, !llvm.loop !45
+  br i1 %exitcond.not.i12, label %_ZL14XXH3_mergeAccsPKmPKhm.exit13, label %117, !llvm.loop !46
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit13:                ; preds = %117
   %134 = lshr i64 %113, 37
@@ -781,7 +781,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %35 = xor i64 %33, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %36, label %4, !llvm.loop !46
+  br i1 %exitcond.not, label %36, label %4, !llvm.loop !47
 
 36:                                               ; preds = %4
   %37 = trunc nuw nsw i64 %1 to i32
@@ -849,7 +849,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %80 = xor i64 %78, %79
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count
-  br i1 %exitcond15.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond15.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.sroa.020.1.lcssa = phi i64 [ %43, %36 ], [ %67, %.lr.ph ]
@@ -1001,12 +1001,13 @@ attributes #15 = { builtin nounwind }
 !36 = !{!32, !29, i64 0}
 !37 = !{!38, !10, i64 8}
 !38 = !{!"_ZTSSi", !10, i64 8}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = distinct !{!43, !40}
-!44 = !{!10, !10, i64 0}
-!45 = distinct !{!45, !40}
-!46 = distinct !{!46, !40}
-!47 = distinct !{!47, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = distinct !{!44, !40, !41}
+!45 = !{!10, !10, i64 0}
+!46 = distinct !{!46, !40, !41}
+!47 = distinct !{!47, !40, !41}
+!48 = distinct !{!48, !40, !41}

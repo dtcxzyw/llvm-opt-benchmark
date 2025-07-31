@@ -214,7 +214,7 @@ thread-pre-split.i:                               ; preds = %55
 71:                                               ; preds = %.preheader.i
   %72 = load i8, ptr %70, align 1
   %73 = icmp eq i8 %72, 41
-  br i1 %73, label %74, label %.preheader.i
+  br i1 %73, label %74, label %.preheader.i, !llvm.loop !7
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %8, align 8
@@ -371,7 +371,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 
 148:                                              ; preds = %parse_slash_copy.exit
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %150 = load i8, ptr %149, align 8, !range !6, !noundef !7
+  %150 = load i8, ptr %149, align 8, !range !8, !noundef !9
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %154, label %152
 
@@ -381,7 +381,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br label %154
 
 154:                                              ; preds = %152, %148, %parse_slash_copy.exit
-  %155 = load i8, ptr %89, align 2, !range !6, !noundef !7
+  %155 = load i8, ptr %89, align 2, !range !8, !noundef !9
   %156 = trunc nuw i8 %155 to i1
   %157 = load ptr, ptr %146, align 8
   %.not62 = icmp eq ptr %157, null
@@ -392,7 +392,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %161 = load i8, ptr %160, align 8, !range !6, !noundef !7
+  %161 = load i8, ptr %160, align 8, !range !8, !noundef !9
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %168
 
@@ -410,7 +410,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 
 170:                                              ; preds = %158
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 25
-  %172 = load i8, ptr %171, align 1, !range !6, !noundef !7
+  %172 = load i8, ptr %171, align 1, !range !8, !noundef !9
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %176, label %174
 
@@ -427,7 +427,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %181 = load i8, ptr %180, align 8, !range !6, !noundef !7
+  %181 = load i8, ptr %180, align 8, !range !8, !noundef !9
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %188
 
@@ -446,7 +446,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 
 190:                                              ; preds = %178
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 25
-  %192 = load i8, ptr %191, align 1, !range !6, !noundef !7
+  %192 = load i8, ptr %191, align 1, !range !8, !noundef !9
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %196, label %194
 
@@ -462,7 +462,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   %.050 = phi ptr [ %167, %163 ], [ %169, %168 ], [ %177, %176 ], [ %175, %174 ], [ %187, %183 ], [ %189, %188 ], [ %197, %196 ], [ %195, %194 ]
   %.not63 = icmp eq ptr %.050, null
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %200 = load i8, ptr %199, align 8, !range !6, !noundef !7
+  %200 = load i8, ptr %199, align 8, !range !8, !noundef !9
   %201 = trunc nuw i8 %200 to i1
   br i1 %.not63, label %free_copy_options.exit, label %207
 
@@ -532,7 +532,7 @@ free_copy_options.exit71:                         ; preds = %free_copy_options.e
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #11
   %227 = load ptr, ptr %8, align 8
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef %227) #11
-  %228 = load i8, ptr %89, align 2, !range !6, !noundef !7
+  %228 = load i8, ptr %89, align 2, !range !8, !noundef !9
   %229 = trunc nuw i8 %228 to i1
   %.str.7..str.8 = select i1 %229, ptr @.str.7, ptr @.str.8
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.7..str.8) #11
@@ -556,7 +556,7 @@ free_copy_options.exit71:                         ; preds = %free_copy_options.e
   br i1 %.not65, label %free_copy_options.exit73, label %237
 
 237:                                              ; preds = %233
-  %238 = load i8, ptr %199, align 8, !range !6, !noundef !7
+  %238 = load i8, ptr %199, align 8, !range !8, !noundef !9
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %240, label %250
 
@@ -694,7 +694,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef captures(
 9:                                                ; preds = %8, %.lr.ph.split.us
   %10 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #11
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %11, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %12 = phi i32 [ %23, %22 ], [ %5, %.lr.ph ]
@@ -727,7 +727,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef captures(
   %.1 = phi i8 [ %.2, %20 ], [ %.027, %.lr.ph.split ]
   %23 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #11
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %._crit_edge, label %.lr.ph.split
+  br i1 %24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %22, %9, %3
   %.0.lcssa = phi i8 [ 1, %3 ], [ 1, %9 ], [ %.1, %22 ]
@@ -809,7 +809,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %14 = call i32 @isatty(i32 noundef %13) #11
   %.not73 = icmp ne i32 %14, 0
   %.not73.not = xor i1 %.not73, true
-  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !6
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !8
   %16 = trunc nuw i8 %15 to i1
   %or.cond86 = select i1 %.not73.not, i1 true, i1 %16
   br i1 %or.cond86, label %19, label %17
@@ -846,7 +846,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 31:                                               ; preds = %27
   %32 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %29) #11
   %33 = icmp slt i32 %32, 1
-  br i1 %33, label %.thread, label %27
+  br i1 %33, label %.thread, label %27, !llvm.loop !13
 
 .preheader:                                       ; preds = %19, %77
   %.05898 = phi i1 [ %.159, %77 ], [ true, %19 ]
@@ -946,7 +946,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 
 77:                                               ; preds = %74, %70
   %.566 = phi i32 [ %.162, %70 ], [ 0, %74 ]
-  br i1 %72, label %.thread, label %.preheader
+  br i1 %72, label %.thread, label %.preheader, !llvm.loop !14
 
 .thread:                                          ; preds = %74, %77, %31, %27
   %.3 = phi i8 [ 0, %31 ], [ 1, %27 ], [ 0, %74 ], [ 1, %77 ]
@@ -989,7 +989,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   store ptr %97, ptr %3, align 8
   %98 = call i32 @PQresultStatus(ptr noundef %97) #11
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %88
   %.8.lcssa = phi i8 [ %.0, %88 ], [ 0, %.lr.ph ]
@@ -1088,10 +1088,15 @@ attributes #14 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !6, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !5, !6}

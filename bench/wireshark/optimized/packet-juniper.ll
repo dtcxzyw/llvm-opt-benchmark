@@ -1912,7 +1912,7 @@ juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, 
   %92 = trunc nuw nsw i32 %38 to i16
   %93 = sub i16 %.08796, %92
   %94 = icmp ugt i16 %93, 2
-  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %19, %13
   %.088 = phi i16 [ 4, %13 ], [ %22, %19 ], [ %22, %90 ], [ %22, %.lr.ph ]
@@ -2071,6 +2071,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

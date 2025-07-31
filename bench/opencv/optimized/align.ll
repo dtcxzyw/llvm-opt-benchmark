@@ -280,7 +280,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
   %61 = icmp ult i64 %54, %60
-  br i1 %61, label %12, label %._crit_edge, !llvm.loop !51
+  br i1 %61, label %12, label %._crit_edge, !llvm.loop !52
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -319,11 +319,11 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatEii(ptr dead_on_un
   %9 = alloca %"class.cv::_InputArray", align 8
   %10 = alloca %"class.cv::Scalar_", align 8
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6) #13
-  %11 = load i32, ptr %2, align 8, !tbaa !52
+  %11 = load i32, ptr %2, align 8, !tbaa !53
   %12 = and i32 %11, 4095
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, i32 noundef %4, i32 noundef %3, i32 noundef %12)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #13
-  %13 = load ptr, ptr %6, align 8, !tbaa !24, !noalias !53
+  %13 = load ptr, ptr %6, align 8, !tbaa !24, !noalias !54
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -369,16 +369,16 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatEii(ptr dead_on_un
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !57
-  %34 = load i32, ptr %31, align 4, !tbaa !57
+  %33 = load i32, ptr %32, align 4, !tbaa !58
+  %34 = load i32, ptr %31, align 4, !tbaa !58
   %.sroa.2.0.insert.ext.i = zext i32 %34 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %33 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  store double 2.550000e+02, ptr %10, align 8, !tbaa !58
+  store double 2.550000e+02, ptr %10, align 8, !tbaa !59
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv15warpPerspectiveERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_5Size_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0.0.insert.insert.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -416,15 +416,15 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatES4_ffi(ptr dead_o
   %9 = alloca %"class.cv::Mat", align 8
   %10 = alloca %"class.cv::MatExpr", align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %12 = load ptr, ptr %11, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !61
   %15 = load float, ptr %12, align 4, !tbaa !40
   %16 = fptosi float %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load float, ptr %17, align 4, !tbaa !40
   %19 = fptosi float %18 to i32
-  %20 = load i64, ptr %14, align 8, !tbaa !61
+  %20 = load i64, ptr %14, align 8, !tbaa !62
   %21 = shl i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !40
@@ -457,12 +457,12 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatES4_ffi(ptr dead_o
   store i32 %.sroa.speculated47, ptr %42, align 4, !tbaa !42
   %43 = add nsw i32 %34, %24
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !63
+  %45 = load i32, ptr %44, align 4, !tbaa !64
   %46 = add nsw i32 %45, -1
   %.sroa.speculated42 = tail call i32 @llvm.smin.i32(i32 %46, i32 %43)
   %47 = add nsw i32 %38, %27
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !64
+  %49 = load i32, ptr %48, align 8, !tbaa !65
   %50 = add nsw i32 %49, -1
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %50, i32 %47)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
@@ -470,13 +470,13 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatES4_ffi(ptr dead_o
   %51 = add i32 %reass.sub65, 1
   %reass.sub66 = sub i32 %.sroa.speculated, %.sroa.speculated47
   %52 = add i32 %reass.sub66, 1
-  store i32 %.sroa.speculated52, ptr %8, align 4, !tbaa !65
+  store i32 %.sroa.speculated52, ptr %8, align 4, !tbaa !66
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %.sroa.speculated47, ptr %53, align 4, !tbaa !67
+  store i32 %.sroa.speculated47, ptr %53, align 4, !tbaa !68
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %51, ptr %54, align 4, !tbaa !68
+  store i32 %51, ptr %54, align 4, !tbaa !69
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %52, ptr %55, align 4, !tbaa !69
+  store i32 %52, ptr %55, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #13
   call void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 4 dereferenceable(16) %8)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9)
@@ -652,24 +652,25 @@ attributes #16 = { builtin nounwind }
 !46 = distinct !{!46, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
 !47 = !{!48}
 !48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = !{!5, !6, i64 0}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!56 = !{!13, !14, i64 0}
-!57 = !{!6, !6, i64 0}
-!58 = !{!27, !27, i64 0}
-!59 = !{!5, !9, i64 16}
-!60 = !{!5, !16, i64 72}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"long", !7, i64 0}
-!63 = !{!5, !6, i64 12}
-!64 = !{!5, !6, i64 8}
-!65 = !{!66, !6, i64 0}
-!66 = !{!"_ZTSN2cv5Rect_IiEE", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12}
-!67 = !{!66, !6, i64 4}
-!68 = !{!66, !6, i64 8}
-!69 = !{!66, !6, i64 12}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = !{!5, !6, i64 0}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!56 = distinct !{!56, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!57 = !{!13, !14, i64 0}
+!58 = !{!6, !6, i64 0}
+!59 = !{!27, !27, i64 0}
+!60 = !{!5, !9, i64 16}
+!61 = !{!5, !16, i64 72}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"long", !7, i64 0}
+!64 = !{!5, !6, i64 12}
+!65 = !{!5, !6, i64 8}
+!66 = !{!67, !6, i64 0}
+!67 = !{!"_ZTSN2cv5Rect_IiEE", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12}
+!68 = !{!67, !6, i64 4}
+!69 = !{!67, !6, i64 8}
+!70 = !{!67, !6, i64 12}

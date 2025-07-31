@@ -553,7 +553,7 @@ _set_cond.exit:                                   ; preds = %19, %151
   %246 = load ptr, ptr @stderr, align 8
   %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.32, ptr noundef nonnull %175) #11
   call void @slurm_xfree(ptr noundef nonnull %8) #9
-  br label %255, !llvm.loop !13
+  br label %255, !llvm.loop !14
 
 248:                                              ; preds = %238, %230, %220, %212, %203, %195, %187
   %249 = load ptr, ptr %8, align 8
@@ -576,7 +576,7 @@ _set_cond.exit:                                   ; preds = %19, %151
 255:                                              ; preds = %252, %245
   %256 = call ptr @list_next(ptr noundef %173) #9
   %.not46.i = icmp eq ptr %256, null
-  br i1 %.not46.i, label %._crit_edge.i60, label %.lr.ph.i59
+  br i1 %.not46.i, label %._crit_edge.i60, label %.lr.ph.i59, !llvm.loop !15
 
 ._crit_edge.i60:                                  ; preds = %255, %172
   call void @list_iterator_destroy(ptr noundef %173) #9
@@ -663,7 +663,7 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 .outer.i:                                         ; preds = %285, %284
   %287 = call ptr @list_next(ptr noundef %267) #9
   %.not25.i = icmp eq ptr %287, null
-  br i1 %.not25.i, label %.outer._crit_edge.i, label %.lr.ph.i62, !llvm.loop !14
+  br i1 %.not25.i, label %.outer._crit_edge.i, label %.lr.ph.i62, !llvm.loop !16
 
 288:                                              ; preds = %277
   store ptr %283, ptr %275, align 8
@@ -681,7 +681,7 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
   %294 = call i32 @list_delete_item(ptr noundef %267) #9
   %295 = call ptr @list_next(ptr noundef %267) #9
   %.not.i63 = icmp eq ptr %295, null
-  br i1 %.not.i63, label %.outer._crit_edge.i, label %277, !llvm.loop !14
+  br i1 %.not.i63, label %.outer._crit_edge.i, label %277, !llvm.loop !16
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %293, %266
   call void @list_iterator_destroy(ptr noundef %267) #9
@@ -782,7 +782,7 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
   %.1.i65 = phi ptr [ %.014.i, %.lr.ph.i64 ], [ %332, %335 ], [ %.014.i, %336 ]
   %338 = call ptr @list_next(ptr noundef %330) #9
   %.not.i66 = icmp eq ptr %338, null
-  br i1 %.not.i66, label %_set_usage_column_width.exit, label %.lr.ph.i64, !llvm.loop !15
+  br i1 %.not.i66, label %_set_usage_column_width.exit, label %.lr.ph.i64, !llvm.loop !17
 
 _set_usage_column_width.exit:                     ; preds = %337, %328
   %.09.lcssa.i = phi ptr [ null, %328 ], [ %.110.i, %337 ]
@@ -908,7 +908,7 @@ _set_usage_column_width.exit:                     ; preds = %337, %328
 391:                                              ; preds = %390, %389
   %392 = call ptr @list_next(ptr noundef %385) #9
   %.not10.i.i = icmp eq ptr %392, null
-  br i1 %.not10.i.i, label %_set_user_acct.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not10.i.i, label %_set_user_acct.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 _set_user_acct.exit.i:                            ; preds = %391, %383
   call void @list_iterator_destroy(ptr noundef %385) #9
@@ -1070,7 +1070,7 @@ _set_user_acct.exit.i:                            ; preds = %391, %383
   %473 = add nuw nsw i32 %.06077.i, 1
   %474 = call ptr @list_next(ptr noundef %373) #9
   %.not.i70 = icmp eq ptr %474, null
-  br i1 %.not.i70, label %_user_top_tres_report.exit, label %377, !llvm.loop !17
+  br i1 %.not.i70, label %_user_top_tres_report.exit, label %377, !llvm.loop !19
 
 _user_top_tres_report.exit:                       ; preds = %472, %367
   call void @list_iterator_destroy(ptr noundef %373) #9
@@ -1085,20 +1085,20 @@ _user_top_tres_report.exit:                       ; preds = %472, %367
 .backedge:                                        ; preds = %_user_top_tres_report.exit, %362
   %475 = call ptr @list_next(ptr noundef %357) #9
   %.not56 = icmp eq ptr %475, null
-  br i1 %.not56, label %._crit_edge, label %362, !llvm.loop !18
+  br i1 %.not56, label %._crit_edge, label %362, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.backedge, %355
   call void @list_iterator_destroy(ptr noundef %357) #9
   %476 = add nuw nsw i32 %.037, 1
   %477 = load i32, ptr @top_limit, align 4
   %.not57 = icmp ult i32 %476, %477
-  br i1 %.not57, label %353, label %478
+  br i1 %.not57, label %353, label %478, !llvm.loop !21
 
 478:                                              ; preds = %._crit_edge, %353
   call void @list_iterator_destroy(ptr noundef %350) #9
   %479 = call ptr @list_next(ptr noundef %344) #9
   %.not53 = icmp eq ptr %479, null
-  br i1 %.not53, label %._crit_edge79, label %.lr.ph78, !llvm.loop !19
+  br i1 %.not53, label %._crit_edge79, label %.lr.ph78, !llvm.loop !22
 
 ._crit_edge79:                                    ; preds = %478, %_set_usage_column_width.exit
   call void @list_iterator_destroy(ptr noundef %344) #9
@@ -1230,7 +1230,7 @@ define internal noundef i32 @_set_user_acct(ptr noundef %0, ptr readnone capture
 13:                                               ; preds = %12, %11
   %14 = tail call ptr @list_next(ptr noundef %7) #9
   %.not10 = icmp eq ptr %14, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %13, %4
   tail call void @list_iterator_destroy(ptr noundef %7) #9
@@ -1307,13 +1307,16 @@ attributes #12 = { cold }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
 !14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}
+!18 = distinct !{!18, !11, !12, !13}
+!19 = distinct !{!19, !11, !12, !13}
+!20 = distinct !{!20, !11, !12, !13}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !11, !12, !13}

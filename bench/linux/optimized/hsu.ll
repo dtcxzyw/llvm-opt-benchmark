@@ -391,12 +391,12 @@ define dso_local i32 @hsu_dma_probe(ptr noundef captures(none) %0) #0 align 16 {
   %44 = load i16, ptr %19, align 8
   %45 = zext i16 %44 to i64
   %46 = icmp samesign ult i64 %43, %45
-  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %27
   %47 = getelementptr i8, ptr %9, i64 73
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47, i32 4, ptr elementtype(i8) %47) #11, !srcloc !16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47, i32 1, ptr elementtype(i8) %47) #11, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47, i32 4, ptr elementtype(i8) %47) #11, !srcloc !17
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47, i32 1, ptr elementtype(i8) %47) #11, !srcloc !17
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 192
   store ptr @hsu_dma_free_chan_resources, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 264
@@ -580,7 +580,7 @@ define internal void @hsu_dma_free_chan_resources(ptr noundef %0) #0 align 16 {
   store i32 %56, ptr %54, align 4
   %57 = load ptr, ptr %53, align 8
   %58 = icmp eq ptr %57, %2
-  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %50
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #11
@@ -637,7 +637,7 @@ define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %
   %35 = add nuw nsw i64 %22, 1
   %36 = tail call ptr @sg_next(ptr noundef %23) #11
   %37 = icmp eq i64 %35, %11
-  br i1 %37, label %.loopexit, label %21, !llvm.loop !18
+  br i1 %37, label %.loopexit, label %21, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %17
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -748,7 +748,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %8 = icmp eq ptr %2, null
   br i1 %8, label %13, label %9
 
@@ -817,7 +817,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
   %48 = add i32 %47, %44
   %49 = add nuw i32 %43, 1
   %50 = icmp eq i32 %49, %35
-  br i1 %50, label %.loopexit, label %42, !llvm.loop !20
+  br i1 %50, label %.loopexit, label %42, !llvm.loop !21
 
 51:                                               ; preds = %51, %.loopexit
   %52 = phi i64 [ 3, %.loopexit ], [ %60, %51 ]
@@ -830,7 +830,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
   %59 = add i32 %58, %53
   %60 = add nsw i64 %52, -1
   %61 = icmp eq i64 %52, 0
-  br i1 %61, label %62, label %51, !llvm.loop !21
+  br i1 %61, label %62, label %51, !llvm.loop !22
 
 62:                                               ; preds = %51
   br i1 %8, label %65, label %63
@@ -1134,7 +1134,7 @@ define dso_local noundef i32 @hsu_dma_remove(ptr noundef readonly captures(none)
   %14 = load i16, ptr %4, align 8
   %15 = zext i16 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %9, label %.loopexit, !llvm.loop !22
+  br i1 %16, label %9, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %9, %1
   ret i32 0
@@ -1223,14 +1223,15 @@ attributes #16 = { nounwind allocsize(0) }
 !9 = !{i64 2154874062, i64 2154874091, i64 2154874137, i64 2154874195, i64 2154874249, i64 2154874303, i64 2154874358, i64 2154874389}
 !10 = !{i64 2148345479, i64 2148345518, i64 2148345539, i64 2148345576, i64 2148345599, i64 2148345608, i64 2148345711}
 !11 = !{i64 2154616290}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13, !14, !15}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{i64 2148339028, i64 2148339067, i64 2148339088, i64 2148339125, i64 2148339148, i64 2148339018}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = !{i64 2154874960}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = distinct !{!22, !13, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !13, !14, !15}
+!17 = !{i64 2148339028, i64 2148339067, i64 2148339088, i64 2148339125, i64 2148339148, i64 2148339018}
+!18 = distinct !{!18, !13, !14, !15}
+!19 = distinct !{!19, !13, !14, !15}
+!20 = !{i64 2154874960}
+!21 = distinct !{!21, !13, !14, !15}
+!22 = distinct !{!22, !13, !14, !15}
+!23 = distinct !{!23, !13, !14, !15}

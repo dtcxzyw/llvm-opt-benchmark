@@ -265,7 +265,7 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %.sroa.12.1.us = getelementptr inbounds i32, ptr %.sroa.12.0116.us, i64 %.sroa.12.1.idx.us
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge118, label %.lr.ph.us, !llvm.loop !56
+  br i1 %exitcond125.not, label %._crit_edge118, label %.lr.ph.us, !llvm.loop !57
 
 ._crit_edge118:                                   ; preds = %._crit_edge.us, %.lr.ph117, %.critedge
   ret i32 0
@@ -440,7 +440,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %113 = getelementptr inbounds nuw i32, ptr %56, i64 %106
   store i32 %.0182.us, ptr %113, align 4, !tbaa !52
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %101
   %114 = icmp slt i64 %indvars.iv227, %46
@@ -448,7 +448,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %.sroa.14.1.us = getelementptr inbounds i32, ptr %.sroa.14.0222.us, i64 %.sroa.14.1.idx.us
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %._crit_edge224, label %.lr.ph.us, !llvm.loop !59
+  br i1 %exitcond231.not, label %._crit_edge224, label %.lr.ph.us, !llvm.loop !60
 
 ._crit_edge224:                                   ; preds = %._crit_edge.us, %.lr.ph223, %.critedge
   ret i32 0
@@ -527,9 +527,10 @@ attributes #7 = { nounwind willreturn memory(read) }
 !51 = !{!46, !13, i64 104}
 !52 = !{!13, !13, i64 0}
 !53 = !{!25, !25, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !55}
-!59 = distinct !{!59, !55, !57}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = distinct !{!57, !55, !56, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !55, !56}
+!60 = distinct !{!60, !55, !56, !58}

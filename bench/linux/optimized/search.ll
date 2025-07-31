@@ -99,7 +99,7 @@ define dso_local i32 @pci_for_each_dma_alias(ptr noundef %0, ptr noundef readonl
   %49 = trunc nuw i32 %48 to i16
   %50 = tail call i32 %1(ptr noundef %4, i16 noundef zeroext %49, ptr noundef %2) #6
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.preheader17, label %.loopexit, !llvm.loop !6
+  br i1 %51, label %.preheader17, label %.loopexit, !llvm.loop !9
 
 .thread:                                          ; preds = %.preheader17, %21, %17
   %52 = load ptr, ptr %5, align 8
@@ -203,7 +203,7 @@ select.unfold:                                    ; preds = %83, %74, %69, %117,
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %42, %60, %117, %74, %83, %select.unfold, %25, %.thread, %3
   %126 = phi i32 [ %15, %3 ], [ 0, %.thread ], [ %33, %25 ], [ %119, %117 ], [ %94, %83 ], [ %81, %74 ], [ 0, %60 ], [ 0, %select.unfold ], [ %50, %42 ]
@@ -245,7 +245,7 @@ define dso_local ptr @pci_find_bus(i32 noundef %0, i32 noundef %1) #0 align 16 {
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #6
   %16 = icmp eq ptr %14, null
   %17 = or i1 %15, %16
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !12
 
 18:                                               ; preds = %.preheader
   %19 = tail call fastcc ptr @pci_do_find_bus(ptr noundef nonnull %8, i8 noundef zeroext %3)
@@ -289,7 +289,7 @@ define internal fastcc ptr @pci_do_find_bus(ptr noundef readonly captures(addres
 12:                                               ; preds = %8
   %13 = tail call fastcc ptr @pci_do_find_bus(ptr noundef %10, i8 noundef zeroext %1)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %8, label %.loopexit, !llvm.loop !11
+  br i1 %14, label %8, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %12, %8, %2
   %15 = phi ptr [ %0, %2 ], [ null, %8 ], [ %13, %12 ]
@@ -318,7 +318,7 @@ define dso_local noundef ptr @pci_get_slot(ptr noundef readonly captures(address
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
-  br i1 %11, label %12, label %4, !llvm.loop !12
+  br i1 %11, label %12, label %4, !llvm.loop !14
 
 12:                                               ; preds = %8, %4
   %13 = phi ptr [ %6, %8 ], [ null, %4 ]
@@ -336,7 +336,7 @@ define dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef %0, i32 noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 0, ptr %6, align 8, !annotation !13
+  store i64 0, ptr %6, align 8, !annotation !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %7 = call ptr @bus_find_device(ptr noundef nonnull @pci_bus_type, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @match_pci_dev_by_id) #6
@@ -377,7 +377,7 @@ define dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef %0, i32 noundef %1
 
 29:                                               ; preds = %25, %20, %.preheader
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
-  store i64 0, ptr %12, align 8, !annotation !13
+  store i64 0, ptr %12, align 8, !annotation !15
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
@@ -388,7 +388,7 @@ define dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef %0, i32 noundef %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %34 = icmp eq ptr %33, null
   %35 = or i1 %32, %34
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %29, %25, %3
   %36 = phi ptr [ null, %3 ], [ null, %29 ], [ %13, %25 ]
@@ -400,7 +400,7 @@ define dso_local ptr @pci_get_device(i32 noundef %0, i32 noundef %1, ptr noundef
   %4 = alloca %struct.pci_device_id, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 0, ptr %5, align 8, !annotation !13
+  store i64 0, ptr %5, align 8, !annotation !15
   store i32 %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %6, align 4
@@ -427,7 +427,7 @@ define dso_local ptr @pci_get_subsys(i32 noundef %0, i32 noundef %1, i32 noundef
   %6 = alloca %struct.pci_device_id, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 0, ptr %7, align 8, !annotation !13
+  store i64 0, ptr %7, align 8, !annotation !15
   store i32 %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %8, align 4
@@ -457,7 +457,7 @@ define dso_local ptr @pci_get_class(i32 noundef %0, ptr noundef %1) #0 align 16 
   %3 = alloca %struct.pci_device_id, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 0, ptr %4, align 8, !annotation !13
+  store i64 0, ptr %4, align 8, !annotation !15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 -1, i64 16, i1 false)
   store i32 %0, ptr %5, align 8
@@ -482,7 +482,7 @@ define dso_local ptr @pci_get_base_class(i32 noundef %0, ptr noundef %1) #0 alig
   %3 = alloca %struct.pci_device_id, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 0, ptr %4, align 8, !annotation !13
+  store i64 0, ptr %4, align 8, !annotation !15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = shl i32 %0, 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 -1, i64 16, i1 false)
@@ -533,7 +533,7 @@ define dso_local noundef range(i32 0, 2) i32 @pci_dev_present(ptr noundef %0) #0
   %18 = icmp eq ptr %17, null
   %19 = or i1 %16, %18
   %20 = getelementptr i8, ptr %3, i64 40
-  br i1 %19, label %2, label %21, !llvm.loop !15
+  br i1 %19, label %2, label %21, !llvm.loop !17
 
 21:                                               ; preds = %14
   tail call void @pci_dev_put(ptr noundef nonnull %17) #6
@@ -646,10 +646,12 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!"auto-init"}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !7, !8, !10}
+!12 = distinct !{!12, !7, !8, !10}
+!13 = distinct !{!13, !7, !8, !10}
+!14 = distinct !{!14, !7, !8, !10}
+!15 = !{!"auto-init"}
+!16 = distinct !{!16, !7, !8, !10}
+!17 = distinct !{!17, !7, !8, !10}

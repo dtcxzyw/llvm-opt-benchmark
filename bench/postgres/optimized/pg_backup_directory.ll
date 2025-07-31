@@ -540,7 +540,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   %24 = load ptr, ptr %11, align 8
   call void @ParallelBackupEnd(ptr noundef nonnull %0, ptr noundef %24) #14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %26 = load i8, ptr %25, align 8, !range !7, !noundef !8
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %32
 
@@ -650,7 +650,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly capture
   %41 = load ptr, ptr %24, align 8
   %42 = call ptr %41(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %21) #14
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %._crit_edge.i, label %29, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %29, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -980,7 +980,7 @@ define internal void @_PrepParallelRestore(ptr noundef readonly captures(none) %
   %.0 = load ptr, ptr %.0.in, align 8
   %42 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, %42
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %41, %1
   ret void
@@ -1127,7 +1127,7 @@ define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef nonnull 
   %17 = load i64, ptr %3, align 8
   %18 = icmp ne i64 %17, 0
   %19 = select i1 %16, i1 %18, i1 false
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   call void @free(ptr noundef %7) #14
@@ -1215,10 +1215,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

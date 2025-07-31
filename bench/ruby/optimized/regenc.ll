@@ -348,7 +348,7 @@ onigenc_mbclen.exit:                              ; preds = %12, %21, %25
   %28 = sext i32 %.017.i to i64
   %29 = getelementptr i8, ptr %.010, i64 %28
   %30 = icmp samesign ugt i32 %.089, 1
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !22
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %onigenc_mbclen.exit, %4
   %.0.lcssa = phi ptr [ %1, %4 ], [ %29, %onigenc_mbclen.exit ]
@@ -400,7 +400,7 @@ onigenc_mbclen.exit:                              ; preds = %17, %10, %19
   %24 = getelementptr i8, ptr %.011, i64 %23
   %25 = add i32 %.0810, 1
   %26 = icmp ult ptr %24, %2
-  br i1 %26, label %6, label %._crit_edge, !llvm.loop !23
+  br i1 %26, label %6, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %onigenc_mbclen.exit, %3
   %.08.lcssa = phi i32 [ 0, %3 ], [ %25, %onigenc_mbclen.exit ]
@@ -416,7 +416,7 @@ define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) local_
 5:                                                ; preds = %onigenc_mbclen.exit, %2
   %.024 = phi i32 [ 0, %2 ], [ %33, %onigenc_mbclen.exit ]
   %.023 = phi ptr [ %1, %2 ], [ %32, %onigenc_mbclen.exit ]
-  %6 = load i8, ptr %.023, align 1, !tbaa !24
+  %6 = load i8, ptr %.023, align 1, !tbaa !25
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %.thread29
 
@@ -433,14 +433,14 @@ define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) local_
   %.02136.pn = phi ptr [ %.02136, %13 ], [ %.023, %.preheader ]
   %.02035 = phi i32 [ %14, %13 ], [ %9, %.preheader ]
   %.02136 = getelementptr i8, ptr %.02136.pn, i64 1
-  %12 = load i8, ptr %.02136, align 1, !tbaa !24
+  %12 = load i8, ptr %.02136, align 1, !tbaa !25
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %.thread29
 
 13:                                               ; preds = %.lr.ph
   %14 = add nsw i32 %.02035, -1
   %15 = icmp sgt i32 %.02035, 2
-  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !25
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !26
 
 .thread29:                                        ; preds = %.lr.ph, %.preheader, %5
   %16 = load i32, ptr %4, align 8, !tbaa !17
@@ -472,7 +472,7 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
   %31 = sext i32 %.017.i to i64
   %32 = getelementptr i8, ptr %.023, i64 %31
   %33 = add i32 %.024, 1
-  br label %5
+  br label %5, !llvm.loop !27
 
 .thread:                                          ; preds = %8, %13
   ret i32 %.024
@@ -486,7 +486,7 @@ define dso_local noundef i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr nound
 
 5:                                                ; preds = %onigenc_mbclen.exit, %2
   %.025 = phi ptr [ %1, %2 ], [ %32, %onigenc_mbclen.exit ]
-  %6 = load i8, ptr %.025, align 1, !tbaa !24
+  %6 = load i8, ptr %.025, align 1, !tbaa !25
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %.thread27
 
@@ -503,14 +503,14 @@ define dso_local noundef i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr nound
   %.02334.pn = phi ptr [ %.02334, %13 ], [ %.025, %.preheader ]
   %.02233 = phi i32 [ %14, %13 ], [ %9, %.preheader ]
   %.02334 = getelementptr i8, ptr %.02334.pn, i64 1
-  %12 = load i8, ptr %.02334, align 1, !tbaa !24
+  %12 = load i8, ptr %.02334, align 1, !tbaa !25
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %.thread27
 
 13:                                               ; preds = %.lr.ph
   %14 = add nsw i32 %.02233, -1
   %15 = icmp sgt i32 %.02233, 2
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 .thread27:                                        ; preds = %.lr.ph, %.preheader, %5
   %16 = load i32, ptr %4, align 8, !tbaa !17
@@ -541,7 +541,7 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
   %.017.i = phi i32 [ %.0.i, %22 ], [ %30, %28 ], [ %16, %26 ]
   %31 = sext i32 %.017.i to i64
   %32 = getelementptr i8, ptr %.025, i64 %31
-  br label %5
+  br label %5, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %8, %13
   %33 = ptrtoint ptr %.025 to i64
@@ -568,21 +568,21 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noun
 6:                                                ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond.not, label %15, label %7, !llvm.loop !27
+  br i1 %exitcond.not, label %15, label %7, !llvm.loop !30
 
 7:                                                ; preds = %4, %6
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %8 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !28
-  store i32 %10, ptr %5, align 4, !tbaa !30
-  %11 = load i32, ptr %8, align 8, !tbaa !31
+  %10 = load i32, ptr %9, align 4, !tbaa !31
+  store i32 %10, ptr %5, align 4, !tbaa !33
+  %11 = load i32, ptr %8, align 8, !tbaa !34
   %12 = call i32 %1(i32 noundef %11, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #11
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %15
 
 13:                                               ; preds = %7
-  store i32 %11, ptr %5, align 4, !tbaa !30
+  store i32 %11, ptr %5, align 4, !tbaa !33
   %14 = call i32 %1(i32 noundef %10, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #11
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %6, label %15
@@ -595,7 +595,7 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
-  %6 = load i8, ptr %1, align 1, !tbaa !24
+  %6 = load i8, ptr %1, align 1, !tbaa !25
   %7 = add i8 %6, -65
   %or.cond = icmp ult i8 %7, 26
   br i1 %or.cond, label %.sink.split, label %8
@@ -607,14 +607,14 @@ define dso_local range(i32 0, 2) i32 @onigenc_ascii_get_case_fold_codes_by_str(i
 
 .sink.split:                                      ; preds = %8, %5
   %.sink17 = phi i32 [ 32, %5 ], [ -32, %8 ]
-  store i32 1, ptr %3, align 4, !tbaa !32
+  store i32 1, ptr %3, align 4, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %10, align 4, !tbaa !34
-  %11 = load i8, ptr %1, align 1, !tbaa !24
+  store i32 1, ptr %10, align 4, !tbaa !37
+  %11 = load i8, ptr %1, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %.sink17, %12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %13, ptr %14, align 4, !tbaa !30
+  store i32 %13, ptr %14, align 4, !tbaa !33
   br label %15
 
 15:                                               ; preds = %.sink.split, %8
@@ -634,21 +634,21 @@ define dso_local i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr n
 10:                                               ; preds = %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
-  br i1 %exitcond.not.i, label %onigenc_ascii_apply_all_case_fold.exit, label %11, !llvm.loop !27
+  br i1 %exitcond.not.i, label %onigenc_ascii_apply_all_case_fold.exit, label %11, !llvm.loop !30
 
 11:                                               ; preds = %10, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %10 ]
   %12 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !28
-  store i32 %14, ptr %8, align 4, !tbaa !30
-  %15 = load i32, ptr %12, align 8, !tbaa !31
+  %14 = load i32, ptr %13, align 4, !tbaa !31
+  store i32 %14, ptr %8, align 4, !tbaa !33
+  %15 = load i32, ptr %12, align 8, !tbaa !34
   %16 = call i32 %4(i32 noundef %15, ptr noundef nonnull %8, i32 noundef 1, ptr noundef %5) #11
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %onigenc_ascii_apply_all_case_fold.exit.thread
 
 17:                                               ; preds = %11
-  store i32 %15, ptr %8, align 4, !tbaa !30
+  store i32 %15, ptr %8, align 4, !tbaa !33
   %18 = call i32 %4(i32 noundef %14, ptr noundef nonnull %8, i32 noundef 1, ptr noundef %5) #11
   %.not17.i = icmp eq i32 %18, 0
   br i1 %.not17.i, label %10, label %onigenc_ascii_apply_all_case_fold.exit.thread
@@ -670,23 +670,23 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
 20:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !28
-  store i32 %23, ptr %9, align 4, !tbaa !30
-  %24 = load i32, ptr %21, align 4, !tbaa !31
+  %23 = load i32, ptr %22, align 4, !tbaa !31
+  store i32 %23, ptr %9, align 4, !tbaa !33
+  %24 = load i32, ptr %21, align 4, !tbaa !34
   %25 = call i32 %4(i32 noundef %24, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
   %.not33 = icmp eq i32 %25, 0
   br i1 %.not33, label %26, label %.loopexit
 
 26:                                               ; preds = %.lr.ph
-  %27 = load i32, ptr %21, align 4, !tbaa !31
-  store i32 %27, ptr %9, align 4, !tbaa !30
-  %28 = load i32, ptr %22, align 4, !tbaa !28
+  %27 = load i32, ptr %21, align 4, !tbaa !34
+  store i32 %27, ptr %9, align 4, !tbaa !33
+  %28 = load i32, ptr %22, align 4, !tbaa !31
   %29 = call i32 %4(i32 noundef %28, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
   %.not34 = icmp eq i32 %29, 0
   br i1 %.not34, label %20, label %.loopexit
@@ -710,21 +710,21 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readnone captures(address) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #6 {
-  %8 = load i8, ptr %4, align 1, !tbaa !24
+  %8 = load i8, ptr %4, align 1, !tbaa !25
   %9 = add i8 %8, -65
   %or.cond82 = icmp ult i8 %9, 26
   br i1 %or.cond82, label %10, label %27
 
 10:                                               ; preds = %7
-  store i32 1, ptr %6, align 4, !tbaa !32
+  store i32 1, ptr %6, align 4, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %11, align 4, !tbaa !34
-  %12 = load i8, ptr %4, align 1, !tbaa !24
+  store i32 1, ptr %11, align 4, !tbaa !37
+  %12 = load i8, ptr %4, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, 32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %14, ptr %15, align 4, !tbaa !30
-  %16 = load i8, ptr %4, align 1, !tbaa !24
+  store i32 %14, ptr %15, align 4, !tbaa !33
+  %16 = load i8, ptr %4, align 1, !tbaa !25
   %17 = icmp eq i8 %16, 83
   %18 = icmp ne i32 %2, 0
   %or.cond = and i1 %18, %17
@@ -736,7 +736,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %19
-  %23 = load i8, ptr %20, align 1, !tbaa !24
+  %23 = load i8, ptr %20, align 1, !tbaa !25
   switch i8 %23, label %.loopexit [
     i8 83, label %24
     i8 115, label %24
@@ -744,9 +744,9 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 24:                                               ; preds = %22, %22
   %25 = getelementptr i8, ptr %6, i64 20
-  store i32 2, ptr %25, align 4, !tbaa !32
+  store i32 2, ptr %25, align 4, !tbaa !35
   %26 = getelementptr i8, ptr %6, i64 24
-  store i32 1, ptr %26, align 4, !tbaa !34
+  store i32 1, ptr %26, align 4, !tbaa !37
   br label %.loopexit.sink.split
 
 27:                                               ; preds = %7
@@ -755,15 +755,15 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br i1 %or.cond83, label %29, label %46
 
 29:                                               ; preds = %27
-  store i32 1, ptr %6, align 4, !tbaa !32
+  store i32 1, ptr %6, align 4, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %30, align 4, !tbaa !34
-  %31 = load i8, ptr %4, align 1, !tbaa !24
+  store i32 1, ptr %30, align 4, !tbaa !37
+  %31 = load i8, ptr %4, align 1, !tbaa !25
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -32
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %33, ptr %34, align 4, !tbaa !30
-  %35 = load i8, ptr %4, align 1, !tbaa !24
+  store i32 %33, ptr %34, align 4, !tbaa !33
+  %35 = load i8, ptr %4, align 1, !tbaa !25
   %36 = icmp eq i8 %35, 115
   %37 = icmp ne i32 %2, 0
   %or.cond3 = and i1 %37, %36
@@ -775,7 +775,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %38
-  %42 = load i8, ptr %39, align 1, !tbaa !24
+  %42 = load i8, ptr %39, align 1, !tbaa !25
   switch i8 %42, label %.loopexit [
     i8 115, label %43
     i8 83, label %43
@@ -783,9 +783,9 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 43:                                               ; preds = %41, %41
   %44 = getelementptr i8, ptr %6, i64 20
-  store i32 2, ptr %44, align 4, !tbaa !32
+  store i32 2, ptr %44, align 4, !tbaa !35
   %45 = getelementptr i8, ptr %6, i64 24
-  store i32 1, ptr %45, align 4, !tbaa !34
+  store i32 1, ptr %45, align 4, !tbaa !37
   br label %.loopexit.sink.split
 
 46:                                               ; preds = %27
@@ -804,67 +804,67 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %66
 
 50:                                               ; preds = %46
-  store i32 1, ptr %6, align 4, !tbaa !32
+  store i32 1, ptr %6, align 4, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 2, ptr %51, align 4, !tbaa !34
+  store i32 2, ptr %51, align 4, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 115, ptr %52, align 4, !tbaa !30
+  store i32 115, ptr %52, align 4, !tbaa !33
   %53 = getelementptr i8, ptr %6, i64 12
-  store i32 115, ptr %53, align 4, !tbaa !30
+  store i32 115, ptr %53, align 4, !tbaa !33
   %54 = getelementptr i8, ptr %6, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !32
+  store i32 1, ptr %54, align 4, !tbaa !35
   %55 = getelementptr i8, ptr %6, i64 24
-  store i32 2, ptr %55, align 4, !tbaa !34
+  store i32 2, ptr %55, align 4, !tbaa !37
   %56 = getelementptr i8, ptr %6, i64 28
-  store i32 83, ptr %56, align 4, !tbaa !30
+  store i32 83, ptr %56, align 4, !tbaa !33
   %57 = getelementptr i8, ptr %6, i64 32
-  store i32 83, ptr %57, align 4, !tbaa !30
+  store i32 83, ptr %57, align 4, !tbaa !33
   %58 = getelementptr i8, ptr %6, i64 40
-  store i32 1, ptr %58, align 4, !tbaa !32
+  store i32 1, ptr %58, align 4, !tbaa !35
   %59 = getelementptr i8, ptr %6, i64 44
-  store i32 2, ptr %59, align 4, !tbaa !34
+  store i32 2, ptr %59, align 4, !tbaa !37
   %60 = getelementptr i8, ptr %6, i64 48
-  store i32 115, ptr %60, align 4, !tbaa !30
+  store i32 115, ptr %60, align 4, !tbaa !33
   %61 = getelementptr i8, ptr %6, i64 52
-  store i32 83, ptr %61, align 4, !tbaa !30
+  store i32 83, ptr %61, align 4, !tbaa !33
   %62 = getelementptr i8, ptr %6, i64 60
-  store i32 1, ptr %62, align 4, !tbaa !32
+  store i32 1, ptr %62, align 4, !tbaa !35
   %63 = getelementptr i8, ptr %6, i64 64
-  store i32 2, ptr %63, align 4, !tbaa !34
+  store i32 2, ptr %63, align 4, !tbaa !37
   %64 = getelementptr i8, ptr %6, i64 68
-  store i32 83, ptr %64, align 4, !tbaa !30
+  store i32 83, ptr %64, align 4, !tbaa !33
   br label %.loopexit.sink.split
 
 65:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !39
 
 66:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %67 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %68 = load i32, ptr %67, align 4, !tbaa !31
+  %68 = load i32, ptr %67, align 4, !tbaa !34
   %69 = icmp eq i32 %68, %49
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %66
-  store i32 1, ptr %6, align 4, !tbaa !32
+  store i32 1, ptr %6, align 4, !tbaa !35
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %71, align 4, !tbaa !34
+  store i32 1, ptr %71, align 4, !tbaa !37
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !28
+  %73 = load i32, ptr %72, align 4, !tbaa !31
   br label %.loopexit.sink.split
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !28
+  %76 = load i32, ptr %75, align 4, !tbaa !31
   %77 = icmp eq i32 %76, %49
   br i1 %77, label %78, label %65
 
 78:                                               ; preds = %74
-  store i32 1, ptr %6, align 4, !tbaa !32
+  store i32 1, ptr %6, align 4, !tbaa !35
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %79, align 4, !tbaa !34
+  store i32 1, ptr %79, align 4, !tbaa !37
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %24, %43, %50, %78, %70
@@ -872,7 +872,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   %.sink = phi i32 [ %73, %70 ], [ %68, %78 ], [ 115, %50 ], [ 223, %43 ], [ 223, %24 ]
   %.074.ph = phi i32 [ 1, %70 ], [ 1, %78 ], [ 4, %50 ], [ 2, %43 ], [ 2, %24 ]
   %80 = getelementptr i8, ptr %6, i64 %.sink105
-  store i32 %.sink, ptr %80, align 4, !tbaa !30
+  store i32 %.sink, ptr %80, align 4, !tbaa !33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %.loopexit.sink.split, %.preheader, %29, %38, %41, %10, %19, %22
@@ -891,7 +891,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef re
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = load i8, ptr %0, align 1, !tbaa !24
+  %6 = load i8, ptr %0, align 1, !tbaa !25
   %7 = icmp eq i8 %6, 10
   br i1 %7, label %9, label %8
 
@@ -906,11 +906,11 @@ define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @onigenc_ascii_mbc_case_fold(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #8 {
   %6 = load ptr, ptr %1, align 8, !tbaa !19
-  %7 = load i8, ptr %6, align 1, !tbaa !24
+  %7 = load i8, ptr %6, align 1, !tbaa !25
   %8 = zext i8 %7 to i64
   %9 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !24
-  store i8 %10, ptr %3, align 1, !tbaa !24
+  %10 = load i8, ptr %9, align 1, !tbaa !25
+  store i8 %10, ptr %3, align 1, !tbaa !25
   %11 = load ptr, ptr %1, align 8, !tbaa !19
   %12 = getelementptr i8, ptr %11, i64 1
   store ptr %12, ptr %1, align 8, !tbaa !19
@@ -924,7 +924,7 @@ define dso_local noundef i32 @onigenc_single_byte_mbc_enc_len(ptr noundef readno
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 256) i32 @onigenc_single_byte_mbc_to_code(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
-  %4 = load i8, ptr %0, align 1, !tbaa !24
+  %4 = load i8, ptr %0, align 1, !tbaa !25
   %5 = zext i8 %4 to i32
   ret i32 %5
 }
@@ -940,13 +940,13 @@ define dso_local noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, pt
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr @rb_eRangeError, align 8, !tbaa !37
+  %6 = load i64, ptr @rb_eRangeError, align 8, !tbaa !40
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str, i32 noundef %0) #12
   unreachable
 
 7:                                                ; preds = %3
   %8 = trunc nuw i32 %0 to i8
-  store i8 %8, ptr %1, align 1, !tbaa !24
+  store i8 %8, ptr %1, align 1, !tbaa !25
   ret i32 1
 }
 
@@ -976,7 +976,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_ascii_is_code_ctype(i32 noundef %0
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
   %7 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !39
+  %8 = load i16, ptr %7, align 2, !tbaa !42
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
   %11 = and i32 %10, 1
@@ -1001,7 +1001,7 @@ define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef %0, ptr noundef %1, pt
   br i1 %10, label %onigenc_mbclen.exit, label %.preheader.thread
 
 .preheader.thread:                                ; preds = %9
-  %11 = load i8, ptr %1, align 1, !tbaa !24
+  %11 = load i8, ptr %1, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   br label %.loopexit
 
@@ -1040,7 +1040,7 @@ define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef %0, ptr noundef %1, pt
 
 onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
   %35 = phi i32 [ %.0.i, %17 ], [ %31, %27 ], [ %34, %32 ], [ %5, %9 ]
-  %36 = load i8, ptr %1, align 1, !tbaa !24
+  %36 = load i8, ptr %1, align 1, !tbaa !25
   %37 = zext i8 %36 to i32
   %38 = icmp eq i32 %35, 1
   br i1 %38, label %.loopexit, label %.preheader
@@ -1056,7 +1056,7 @@ onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
   %.02331 = phi ptr [ %.023, %.lr.ph ], [ %.02326, %.preheader ]
   %.030 = phi i32 [ %43, %.lr.ph ], [ %37, %.preheader ]
   %.02229 = phi i32 [ %44, %.lr.ph ], [ 1, %.preheader ]
-  %40 = load i8, ptr %.02331, align 1, !tbaa !24
+  %40 = load i8, ptr %.02331, align 1, !tbaa !25
   %41 = zext i8 %40 to i32
   %42 = shl i32 %.030, 8
   %43 = or disjoint i32 %42, %41
@@ -1065,7 +1065,7 @@ onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
   %45 = icmp slt i32 %44, %35
   %.not = icmp ult ptr %.023, %2
   %or.cond = and i1 %45, %.not
-  br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.thread, %.preheader, %onigenc_mbclen.exit
   %.021 = phi i32 [ %37, %onigenc_mbclen.exit ], [ %37, %.preheader ], [ %12, %.preheader.thread ], [ %43, %.lr.ph ]
@@ -1075,15 +1075,15 @@ onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_mbn_mbc_case_fold(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   %6 = load ptr, ptr %2, align 8, !tbaa !19
-  %7 = load i8, ptr %6, align 1, !tbaa !24
+  %7 = load i8, ptr %6, align 1, !tbaa !25
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
   %10 = zext nneg i8 %7 to i64
   %11 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !24
-  store i8 %12, ptr %4, align 1, !tbaa !24
+  %12 = load i8, ptr %11, align 1, !tbaa !25
+  store i8 %12, ptr %4, align 1, !tbaa !25
   %13 = load ptr, ptr %2, align 8, !tbaa !19
   %14 = getelementptr i8, ptr %13, i64 1
   br label %56
@@ -1146,12 +1146,12 @@ onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
   %.02127 = phi ptr [ %48, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %.02326 = phi ptr [ %50, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %48 = getelementptr i8, ptr %.02127, i64 1
-  %49 = load i8, ptr %.02127, align 1, !tbaa !24
+  %49 = load i8, ptr %.02127, align 1, !tbaa !25
   %50 = getelementptr i8, ptr %.02326, i64 1
-  store i8 %49, ptr %.02326, align 1, !tbaa !24
+  store i8 %49, ptr %.02326, align 1, !tbaa !25
   %51 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %51, %47
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21, %onigenc_mbclen.exit
   %52 = phi i32 [ %45, %onigenc_mbclen.exit ], [ 0, %21 ], [ %47, %.lr.ph ]
@@ -1205,14 +1205,14 @@ define dso_local i32 @onigenc_mb2_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %6 = lshr i32 %1, 8
   %7 = trunc i32 %6 to i8
   %8 = getelementptr i8, ptr %2, i64 1
-  store i8 %7, ptr %2, align 1, !tbaa !24
+  store i8 %7, ptr %2, align 1, !tbaa !25
   br label %9
 
 9:                                                ; preds = %5, %3
   %.0 = phi ptr [ %8, %5 ], [ %2, %3 ]
   %10 = trunc i32 %1 to i8
   %11 = getelementptr i8, ptr %.0, i64 1
-  store i8 %10, ptr %.0, align 1, !tbaa !24
+  store i8 %10, ptr %.0, align 1, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1279,7 +1279,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %4 = lshr i32 %1, 24
   %5 = trunc nuw i32 %4 to i8
   %6 = getelementptr i8, ptr %2, i64 1
-  store i8 %5, ptr %2, align 1, !tbaa !24
+  store i8 %5, ptr %2, align 1, !tbaa !25
   br label %8
 
 7:                                                ; preds = %3
@@ -1291,7 +1291,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %9 = lshr i32 %1, 16
   %10 = trunc i32 %9 to i8
   %11 = getelementptr i8, ptr %.041, i64 1
-  store i8 %10, ptr %.041, align 1, !tbaa !24
+  store i8 %10, ptr %.041, align 1, !tbaa !25
   br label %12
 
 12:                                               ; preds = %7, %8
@@ -1306,14 +1306,14 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %15 = lshr i32 %1, 8
   %16 = trunc i32 %15 to i8
   %17 = getelementptr i8, ptr %.1, i64 1
-  store i8 %16, ptr %.1, align 1, !tbaa !24
+  store i8 %16, ptr %.1, align 1, !tbaa !25
   br label %18
 
 18:                                               ; preds = %12, %14
   %.2 = phi ptr [ %17, %14 ], [ %2, %12 ]
   %19 = trunc i32 %1 to i8
   %20 = getelementptr i8, ptr %.2, i64 1
-  store i8 %19, ptr %.2, align 1, !tbaa !24
+  store i8 %19, ptr %.2, align 1, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1411,7 +1411,7 @@ onigenc_mbclen.exit.i:                            ; preds = %18, %16, %9
   %23 = getelementptr i8, ptr %.011.i, i64 %22
   %24 = add i32 %.0810.i, 1
   %25 = icmp ult ptr %23, %2
-  br i1 %25, label %.lr.ph.i, label %onigenc_strlen.exit, !llvm.loop !23
+  br i1 %25, label %.lr.ph.i, label %onigenc_strlen.exit, !llvm.loop !24
 
 onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit.i, %3
   %.08.lcssa.i = phi i32 [ 0, %3 ], [ %24, %onigenc_mbclen.exit.i ]
@@ -1425,7 +1425,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
 31:                                               ; preds = %onigenc_strlen.exit, %.critedge
   %indvars.iv = phi ptr [ getelementptr inbounds nuw (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %.critedge ]
   %.01325 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %.critedge ]
-  %32 = load i16, ptr %.01325, align 4, !tbaa !43
+  %32 = load i16, ptr %.01325, align 4, !tbaa !46
   %33 = sext i16 %32 to i32
   %34 = icmp eq i32 %.08.lcssa.i, %33
   br i1 %34, label %35, label %.critedge
@@ -1446,12 +1446,12 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br i1 %.not.i, label %41, label %onigenc_with_ascii_strnicmp.exit
 
 onigenc_with_ascii_strnicmp.exit:                 ; preds = %38
-  %39 = load i8, ptr %.02635.i, align 1, !tbaa !24
+  %39 = load i8, ptr %.02635.i, align 1, !tbaa !25
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %onigenc_with_ascii_strnicmp.exit.thread, label %.critedge
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %26, align 8, !tbaa !45
+  %42 = load ptr, ptr %26, align 8, !tbaa !48
   %43 = tail call i32 %42(ptr noundef %.02734.i, ptr noundef nonnull %2, ptr noundef %0) #11
   %44 = icmp slt i32 %43, 128
   br i1 %44, label %45, label %50
@@ -1459,16 +1459,16 @@ onigenc_with_ascii_strnicmp.exit:                 ; preds = %38
 45:                                               ; preds = %41
   %46 = sext i32 %43 to i64
   %47 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !24
+  %48 = load i8, ptr %47, align 1, !tbaa !25
   %49 = zext i8 %48 to i32
   br label %50
 
 50:                                               ; preds = %45, %41
   %.0.i = phi i32 [ %49, %45 ], [ %43, %41 ]
-  %51 = load i8, ptr %.02635.i, align 1, !tbaa !24
+  %51 = load i8, ptr %.02635.i, align 1, !tbaa !25
   %52 = zext i8 %51 to i64
   %53 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !24
+  %54 = load i8, ptr %53, align 1, !tbaa !25
   %55 = zext i8 %54 to i32
   %.not32.i = icmp eq i32 %.0.i, %55
   br i1 %.not32.i, label %56, label %.critedge
@@ -1511,18 +1511,18 @@ onigenc_mbclen.exit.i16:                          ; preds = %74, %72, %65, %56
   %79 = sext i32 %78 to i64
   %80 = getelementptr i8, ptr %.02734.i, i64 %79
   %exitcond.not = icmp eq ptr %.02635.i, %scevgep32
-  br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !46
+  br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !49
 
 onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_ascii_strnicmp.exit, %onigenc_mbclen.exit.i16
   %81 = getelementptr inbounds nuw i8, ptr %.01325, i64 8
-  %82 = load i32, ptr %81, align 4, !tbaa !47
+  %82 = load i32, ptr %81, align 4, !tbaa !50
   br label %.loopexit
 
 .critedge:                                        ; preds = %50, %31, %onigenc_with_ascii_strnicmp.exit
   %83 = getelementptr i8, ptr %.01325, i64 12
   %84 = icmp ult ptr %83, getelementptr inbounds nuw (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
   %scevgep = getelementptr i8, ptr %indvars.iv, i64 12
-  br i1 %84, label %31, label %.loopexit, !llvm.loop !48
+  br i1 %84, label %31, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.critedge, %onigenc_with_ascii_strnicmp.exit.thread
   %.0 = phi i32 [ %82, %onigenc_with_ascii_strnicmp.exit.thread ], [ -223, %.critedge ]
@@ -1550,12 +1550,12 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr %.02635, align 1, !tbaa !24
+  %14 = load i8, ptr %.02635, align 1, !tbaa !25
   %15 = zext i8 %14 to i32
   br label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %7, align 8, !tbaa !48
   %18 = tail call i32 %17(ptr noundef %.02734, ptr noundef nonnull %2, ptr noundef %0) #11
   %19 = icmp slt i32 %18, 128
   br i1 %19, label %20, label %25
@@ -1563,16 +1563,16 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
 20:                                               ; preds = %16
   %21 = sext i32 %18 to i64
   %22 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !24
+  %23 = load i8, ptr %22, align 1, !tbaa !25
   %24 = zext i8 %23 to i32
   br label %25
 
 25:                                               ; preds = %20, %16
   %.0 = phi i32 [ %24, %20 ], [ %18, %16 ]
-  %26 = load i8, ptr %.02635, align 1, !tbaa !24
+  %26 = load i8, ptr %.02635, align 1, !tbaa !25
   %27 = zext i8 %26 to i64
   %28 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !24
+  %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 %30, %.0
   %.not32 = icmp eq i32 %31, 0
@@ -1616,7 +1616,7 @@ onigenc_mbclen.exit:                              ; preds = %50, %41, %48, %32
   %55 = sext i32 %54 to i64
   %56 = getelementptr i8, ptr %.02734, i64 %55
   %57 = icmp samesign ugt i32 %.in, 1
-  br i1 %57, label %11, label %.loopexit, !llvm.loop !46
+  br i1 %57, label %11, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %25, %onigenc_mbclen.exit, %5, %13
   %.024 = phi i32 [ %15, %13 ], [ 0, %5 ], [ %31, %25 ], [ 0, %onigenc_mbclen.exit ]
@@ -1631,7 +1631,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef %0, 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !39
+  %8 = load i16, ptr %7, align 2, !tbaa !42
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
   %11 = and i32 %10, 1
@@ -1646,7 +1646,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef %0, 
 
 13:                                               ; preds = %12, %12, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !49
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = tail call i32 %15(i32 noundef %1, ptr noundef %0) #11
   %17 = icmp sgt i32 %16, 1
   %18 = zext i1 %17 to i32
@@ -1665,7 +1665,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef %0, 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !39
+  %8 = load i16, ptr %7, align 2, !tbaa !42
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
   %11 = and i32 %10, 1
@@ -1680,7 +1680,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef %0, 
 
 13:                                               ; preds = %12, %12, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !49
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = tail call i32 %15(i32 noundef %1, ptr noundef %0) #11
   %17 = icmp sgt i32 %16, 1
   %18 = zext i1 %17 to i32
@@ -1712,14 +1712,14 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr %.02430, align 1, !tbaa !24
+  %14 = load i8, ptr %.02430, align 1, !tbaa !25
   %15 = zext i8 %14 to i32
   br label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %7, align 8, !tbaa !48
   %18 = tail call i32 %17(ptr noundef %.02231, ptr noundef nonnull %2, ptr noundef %0) #11
-  %19 = load i8, ptr %.02430, align 1, !tbaa !24
+  %19 = load i8, ptr %.02430, align 1, !tbaa !25
   %20 = zext i8 %19 to i32
   %21 = sub i32 %20, %18
   %.not28 = icmp eq i32 %21, 0
@@ -1763,7 +1763,7 @@ onigenc_mbclen.exit:                              ; preds = %40, %31, %38, %22
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %.02231, i64 %45
   %47 = icmp samesign ugt i32 %.in, 1
-  br i1 %47, label %11, label %.loopexit, !llvm.loop !50
+  br i1 %47, label %11, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %16, %onigenc_mbclen.exit, %5, %13
   %.0 = phi i32 [ %15, %13 ], [ 0, %5 ], [ %21, %16 ], [ 0, %onigenc_mbclen.exit ]
@@ -1772,7 +1772,7 @@ onigenc_mbclen.exit:                              ; preds = %40, %31, %38, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5) local_unnamed_addr #3 {
-  %7 = load i32, ptr %0, align 4, !tbaa !30
+  %7 = load i32, ptr %0, align 4, !tbaa !33
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = icmp ult ptr %8, %2
   %10 = icmp ult ptr %3, %4
@@ -1794,7 +1794,7 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0,
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %12, align 8, !tbaa !45
+  %20 = load ptr, ptr %12, align 8, !tbaa !48
   %21 = load ptr, ptr %1, align 8, !tbaa !19
   %22 = tail call i32 %20(ptr noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %5) #11
   %23 = load ptr, ptr %1, align 8, !tbaa !19
@@ -1829,7 +1829,7 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0,
 37:                                               ; preds = %31, %34, %28
   %.044 = phi i32 [ %30, %28 ], [ %36, %34 ], [ %22, %31 ]
   %.1 = phi i32 [ %29, %28 ], [ %35, %34 ], [ %.04258, %31 ]
-  %38 = load ptr, ptr %13, align 8, !tbaa !51
+  %38 = load ptr, ptr %13, align 8, !tbaa !54
   %39 = tail call i32 %38(i32 noundef %.044, ptr noundef %.04357, ptr noundef nonnull %5) #11
   %40 = sext i32 %39 to i64
   %41 = getelementptr i8, ptr %.04357, i64 %40
@@ -1841,12 +1841,12 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0,
   %45 = icmp ult ptr %44, %2
   %46 = icmp ult ptr %41, %4
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %14, label %._crit_edge, !llvm.loop !52
+  br i1 %47, label %14, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %37, %6
   %.043.lcssa = phi ptr [ %3, %6 ], [ %41, %37 ]
   %.042.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %37 ]
-  store i32 %.042.lcssa, ptr %0, align 4, !tbaa !30
+  store i32 %.042.lcssa, ptr %0, align 4, !tbaa !33
   %48 = ptrtoint ptr %.043.lcssa to i64
   %49 = ptrtoint ptr %3 to i64
   %50 = sub i64 %48, %49
@@ -1860,7 +1860,7 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #10 {
-  %7 = load i32, ptr %0, align 4, !tbaa !30
+  %7 = load i32, ptr %0, align 4, !tbaa !33
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = icmp ult ptr %8, %2
   %10 = icmp ult ptr %3, %4
@@ -1873,7 +1873,7 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captur
   %.02736 = phi ptr [ %27, %26 ], [ %3, %6 ]
   %13 = getelementptr i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8, !tbaa !19
-  %14 = load i8, ptr %12, align 1, !tbaa !24
+  %14 = load i8, ptr %12, align 1, !tbaa !25
   %15 = add i8 %14, -123
   %or.cond = icmp ult i8 %15, -26
   %16 = and i32 %.037, 8192
@@ -1903,7 +1903,7 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captur
   %.028 = phi i8 [ %19, %17 ], [ %25, %23 ], [ %14, %20 ]
   %.1 = phi i32 [ %18, %17 ], [ %24, %23 ], [ %.037, %20 ]
   %27 = getelementptr i8, ptr %.02736, i64 1
-  store i8 %.028, ptr %.02736, align 1, !tbaa !24
+  store i8 %.028, ptr %.02736, align 1, !tbaa !25
   %28 = and i32 %.1, 32768
   %.not33 = icmp eq i32 %28, 0
   %29 = xor i32 %.1, 57344
@@ -1912,12 +1912,12 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captur
   %31 = icmp ult ptr %30, %2
   %32 = icmp ult ptr %27, %4
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %26, %6
   %.027.lcssa = phi ptr [ %3, %6 ], [ %27, %26 ]
   %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %26 ]
-  store i32 %.0.lcssa, ptr %0, align 4, !tbaa !30
+  store i32 %.0.lcssa, ptr %0, align 4, !tbaa !33
   %34 = ptrtoint ptr %.027.lcssa to i64
   %35 = ptrtoint ptr %3 to i64
   %36 = sub i64 %34, %35
@@ -1961,37 +1961,40 @@ attributes #12 = { noreturn nounwind }
 !17 = !{!13, !15, i64 16}
 !18 = !{!13, !15, i64 20}
 !19 = !{!14, !14, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = !{!29, !15, i64 4}
-!29 = !{!"", !15, i64 0, !15, i64 4}
-!30 = !{!15, !15, i64 0}
-!31 = !{!29, !15, i64 0}
-!32 = !{!33, !15, i64 0}
-!33 = !{!"", !15, i64 0, !15, i64 4, !10, i64 8}
-!34 = !{!33, !15, i64 4}
-!35 = distinct !{!35, !21}
-!36 = distinct !{!36, !21}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"long", !10, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"short", !10, i64 0}
-!41 = distinct !{!41, !21}
-!42 = distinct !{!42, !21}
-!43 = !{!44, !40, i64 0}
-!44 = !{!"", !40, i64 0, !10, i64 2, !15, i64 8}
-!45 = !{!13, !9, i64 32}
-!46 = distinct !{!46, !21}
-!47 = !{!44, !15, i64 8}
-!48 = distinct !{!48, !21}
-!49 = !{!13, !9, i64 40}
-!50 = distinct !{!50, !21}
-!51 = !{!13, !9, i64 48}
-!52 = distinct !{!52, !21}
-!53 = distinct !{!53, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !21, !22}
+!27 = distinct !{!27, !22}
+!28 = distinct !{!28, !21, !22}
+!29 = distinct !{!29, !22}
+!30 = distinct !{!30, !21, !22}
+!31 = !{!32, !15, i64 4}
+!32 = !{!"", !15, i64 0, !15, i64 4}
+!33 = !{!15, !15, i64 0}
+!34 = !{!32, !15, i64 0}
+!35 = !{!36, !15, i64 0}
+!36 = !{!"", !15, i64 0, !15, i64 4, !10, i64 8}
+!37 = !{!36, !15, i64 4}
+!38 = distinct !{!38, !21, !22}
+!39 = distinct !{!39, !21, !22}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"long", !10, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"short", !10, i64 0}
+!44 = distinct !{!44, !21, !22}
+!45 = distinct !{!45, !21, !22}
+!46 = !{!47, !43, i64 0}
+!47 = !{!"", !43, i64 0, !10, i64 2, !15, i64 8}
+!48 = !{!13, !9, i64 32}
+!49 = distinct !{!49, !21, !22}
+!50 = !{!47, !15, i64 8}
+!51 = distinct !{!51, !21, !22}
+!52 = !{!13, !9, i64 40}
+!53 = distinct !{!53, !21, !22}
+!54 = !{!13, !9, i64 48}
+!55 = distinct !{!55, !21, !22}
+!56 = distinct !{!56, !21, !22}

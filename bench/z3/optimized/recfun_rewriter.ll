@@ -181,7 +181,7 @@ _ZNK6recfun4util10is_definedEP9func_decl.exit:    ; preds = %_ZNK4decl13get_fami
 53:                                               ; preds = %48, %.lr.ph39.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.138.i.i.i.i.i, i64 16
   %.not27.i.i.i.i.i = icmp eq ptr %54, %36
-  br i1 %.not27.i.i.i.i.i, label %_ZNK6recfun4util10is_definedEP9func_decl.exit.thread, label %.lr.ph39.i.i.i.i.i, !llvm.loop !36
+  br i1 %.not27.i.i.i.i.i, label %_ZNK6recfun4util10is_definedEP9func_decl.exit.thread, label %.lr.ph39.i.i.i.i.i, !llvm.loop !37
 
 _ZNK6recfun4util7has_defEP9func_decl.exit:        ; preds = %40, %48
   br i1 %.not35.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -233,9 +233,9 @@ _ZNK6recfun4util7has_defEP9func_decl.exit:        ; preds = %40, %48
 _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %56, %64
   %.026.i.i.i.i.i.i = phi ptr [ %.138.i.i.i.i.i.i, %64 ], [ %.036.i.i.i.i.i.i, %56 ]
   %71 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i.i.i, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !37
+  %72 = load ptr, ptr %71, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 88
-  %74 = load ptr, ptr %73, align 8, !tbaa !38
+  %74 = load ptr, ptr %73, align 8, !tbaa !39
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %_ZNK6recfun4util10is_definedEP9func_decl.exit.thread, label %.preheader.preheader
 
@@ -249,14 +249,14 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %56, %64
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.02661 = phi i1 [ true, %.preheader.preheader ], [ %spec.select, %.preheader ]
-  %76 = load ptr, ptr %0, align 8, !tbaa !41
+  %76 = load ptr, ptr %0, align 8, !tbaa !42
   %77 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8, !tbaa !43
+  %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %76, ptr noundef %78)
   %spec.select = select i1 %79, i1 %.02661, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %75, label %.preheader, !llvm.loop !44
+  br i1 %exitcond.not, label %75, label %.preheader, !llvm.loop !45
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -276,7 +276,7 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %56, %64
 
 87:                                               ; preds = %80, %83
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #13
-  %88 = load ptr, ptr %0, align 8, !tbaa !41
+  %88 = load ptr, ptr %0, align 8, !tbaa !42
   call void @_ZN8datatype4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(976) %88)
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -289,7 +289,7 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %56, %64
 95:                                               ; preds = %87, %_ZNK8datatype4util14is_constructorEPK4expr.exit.thread
   %indvars.iv69 = phi i64 [ 0, %87 ], [ %indvars.iv.next70, %_ZNK8datatype4util14is_constructorEPK4expr.exit.thread ]
   %96 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv69
-  %97 = load ptr, ptr %96, align 8, !tbaa !43
+  %97 = load ptr, ptr %96, align 8, !tbaa !44
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 65535
@@ -305,7 +305,7 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %56, %64
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !45
+  %109 = load ptr, ptr %108, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !3
   %.not.i.i.i.i.i31 = icmp eq ptr %111, null
@@ -326,26 +326,26 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %_ZNK8datatype4util
   %120 = add i32 %2, %119
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %121 = load ptr, ptr %0, align 8, !tbaa !41
-  store ptr %74, ptr %7, align 8, !tbaa !38
-  store ptr %121, ptr %89, align 8, !tbaa !49
-  %122 = load i32, ptr %90, align 4, !tbaa !50
+  %121 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %74, ptr %7, align 8, !tbaa !39
+  store ptr %121, ptr %89, align 8, !tbaa !50
+  %122 = load i32, ptr %90, align 4, !tbaa !51
   %123 = add i32 %122, 1
-  store i32 %123, ptr %90, align 4, !tbaa !50
+  store i32 %123, ptr %90, align 4, !tbaa !51
   invoke void @_ZN8subtermsC1ERK7obj_refI4expr11ast_managerEbP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
           to label %_ZN8subterms3allERK7obj_refI4expr11ast_managerEP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE.exit.i unwind label %163
 
 _ZN8subterms3allERK7obj_refI4expr11ast_managerEP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE.exit.i: ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
-  %124 = load ptr, ptr %7, align 8, !tbaa !38
+  %124 = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i.i24.i = icmp eq ptr %124, null
   br i1 %.not.i.i24.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i, label %125
 
 125:                                              ; preds = %_ZN8subterms3allERK7obj_refI4expr11ast_managerEP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE.exit.i
-  %126 = load ptr, ptr %89, align 8, !tbaa !51
+  %126 = load ptr, ptr %89, align 8, !tbaa !52
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %128 = load i32, ptr %127, align 4, !tbaa !50
+  %128 = load i32, ptr %127, align 4, !tbaa !51
   %129 = add i32 %128, -1
-  store i32 %129, ptr %127, align 4, !tbaa !50
+  store i32 %129, ptr %127, align 4, !tbaa !51
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i
 
@@ -380,7 +380,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i:       ; preds = %131, %125, %_ZN8sub
   br i1 %136, label %171, label %138
 
 138:                                              ; preds = %137
-  %139 = load ptr, ptr %91, align 8, !tbaa !52
+  %139 = load ptr, ptr %91, align 8, !tbaa !53
   %140 = icmp eq ptr %139, null
   br i1 %140, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i.i, label %141
 
@@ -396,7 +396,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i:       ; preds = %131, %125, %_ZN8sub
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i.i: ; preds = %141, %138
-  %145 = load ptr, ptr %92, align 8, !tbaa !55
+  %145 = load ptr, ptr %92, align 8, !tbaa !56
   %.not.i.i.i.i = icmp eq ptr %145, null
   br i1 %.not.i.i.i.i, label %_ZN8subterms8iteratorD2Ev.exit.i, label %146
 
@@ -414,7 +414,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i.i: ; preds = %14
 
 _ZN8subterms8iteratorD2Ev.exit.i:                 ; preds = %146, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #13
-  %151 = load ptr, ptr %93, align 8, !tbaa !52
+  %151 = load ptr, ptr %93, align 8, !tbaa !53
   %152 = icmp eq ptr %151, null
   br i1 %152, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i, label %153
 
@@ -430,7 +430,7 @@ _ZN8subterms8iteratorD2Ev.exit.i:                 ; preds = %146, %_ZN8obj_markI
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %153, %_ZN8subterms8iteratorD2Ev.exit.i
-  %157 = load ptr, ptr %94, align 8, !tbaa !55
+  %157 = load ptr, ptr %94, align 8, !tbaa !56
   %.not.i.i.i26.i = icmp eq ptr %157, null
   br i1 %.not.i.i.i26.i, label %"_ZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEj.exit", label %158
 
@@ -482,7 +482,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
 178:                                              ; preds = %173
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %181 = load i32, ptr %180, align 8, !tbaa !59
+  %181 = load i32, ptr %180, align 8, !tbaa !60
   %182 = zext i32 %181 to i64
   %.idx.i.i = shl nuw nsw i64 %182, 3
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 %.idx.i.i
@@ -491,7 +491,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %178, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i"
   %.0132.i.i = phi ptr [ %192, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ], [ %179, %178 ]
-  %184 = load ptr, ptr %.0132.i.i, align 8, !tbaa !43
+  %184 = load ptr, ptr %.0132.i.i, align 8, !tbaa !44
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 65535
@@ -500,14 +500,14 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
 
 "_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.i.i": ; preds = %.lr.ph.i.i
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %190 = load i32, ptr %189, align 8, !tbaa !60
+  %190 = load i32, ptr %189, align 8, !tbaa !61
   %191 = icmp eq i32 %190, %120
   br i1 %191, label %193, label %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i"
 
 "_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i": ; preds = %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.i.i", %.lr.ph.i.i
   %192 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %192, %183
-  br i1 %.not.not.i.i, label %.critedge.i, label %.lr.ph.i.i
+  br i1 %.not.not.i.i, label %.critedge.i, label %.lr.ph.i.i, !llvm.loop !64
 
 193:                                              ; preds = %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.i.i"
   %194 = invoke noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -521,7 +521,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
 
 198:                                              ; preds = %.noexc.i
   %199 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %200 = load ptr, ptr %199, align 8, !tbaa !45
+  %200 = load ptr, ptr %199, align 8, !tbaa !46
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8, !tbaa !3
   %.not.i.i.i.i.i32 = icmp eq ptr %202, null
@@ -547,7 +547,7 @@ _ZNK8datatype4util11is_accessorEPK4expr.exit.i:   ; preds = %198
   br i1 %213, label %214, label %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i
 
 214:                                              ; preds = %.noexc28.i
-  %215 = load ptr, ptr %199, align 8, !tbaa !45
+  %215 = load ptr, ptr %199, align 8, !tbaa !46
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8, !tbaa !3
   %.not.i.i.i.i.i.i33 = icmp eq ptr %217, null
@@ -580,7 +580,7 @@ _ZNK8datatype4util5is_isEPK4expr.exit.thread.i:   ; preds = %_ZNK8datatype4util5
 
 232:                                              ; preds = %.noexc30.i
   %233 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %234 = load ptr, ptr %233, align 8, !tbaa !45
+  %234 = load ptr, ptr %233, align 8, !tbaa !46
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %236 = load ptr, ptr %235, align 8, !tbaa !3
   %.not.i.i.i.i.i29.i = icmp eq ptr %236, null
@@ -607,7 +607,7 @@ _ZNK8datatype4util14is_recognizer0EPK3app.exit.thread.i.i: ; preds = %_ZNK8datat
 
 247:                                              ; preds = %.noexc31.i
   %248 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %249 = load ptr, ptr %248, align 8, !tbaa !45
+  %249 = load ptr, ptr %248, align 8, !tbaa !46
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %251 = load ptr, ptr %250, align 8, !tbaa !3
   %.not.i.i.i.i4.i.i = icmp eq ptr %251, null
@@ -634,7 +634,7 @@ _ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i: ; preds = %_ZNK8datat
 .critedge.i:                                      ; preds = %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i", %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i, %247, %.noexc31.i, %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i, %_ZNK8datatype4util5is_isEPK4expr.exit.i, %_ZNK8datatype4util11is_accessorEPK4expr.exit.i, %178, %173
   %.1.i = phi i1 [ %.0.i, %_ZNK8datatype4util11is_accessorEPK4expr.exit.i ], [ %.0.i, %_ZNK8datatype4util5is_isEPK4expr.exit.i ], [ %.0.i, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i ], [ false, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i ], [ %.0.i, %173 ], [ %.0.i, %178 ], [ false, %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i ], [ false, %.noexc31.i ], [ false, %247 ], [ %.0.i, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ]
   %260 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(56) %8)
-          to label %.preheader.i unwind label %169
+          to label %.preheader.i unwind label %169, !llvm.loop !65
 
 261:                                              ; preds = %258, %169
   %.pn19.i = phi { ptr, i32 } [ %170, %169 ], [ %259, %258 ]
@@ -671,7 +671,7 @@ common.resume:                                    ; preds = %163, %263, %283
 _ZNK8datatype4util14is_constructorEPK4expr.exit.thread: ; preds = %107, %102, %95, %_ZNK8datatype4util14is_constructorEPK4expr.exit, %"_ZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEj.exit"
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond74.not, label %264, label %95, !llvm.loop !63
+  br i1 %exitcond74.not, label %264, label %95, !llvm.loop !66
 
 264:                                              ; preds = %_ZNK8datatype4util14is_constructorEPK4expr.exit.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #13
@@ -679,33 +679,33 @@ _ZNK8datatype4util14is_constructorEPK4expr.exit.thread: ; preds = %107, %102, %9
 
 .thread49:                                        ; preds = %75, %.thread51
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %11) #13
-  %265 = load ptr, ptr %0, align 8, !tbaa !41
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %11, align 8, !tbaa !64
+  %265 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %11, align 8, !tbaa !67
   %266 = getelementptr inbounds nuw i8, ptr %11, i64 536
   call void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %11, ptr noundef nonnull align 8 dereferenceable(976) %265, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %266)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %11, align 8, !tbaa !64
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %11, align 8, !tbaa !67
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 544
-  store i8 1, ptr %267, align 8, !tbaa !66
+  store i8 1, ptr %267, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
-  %268 = load ptr, ptr %73, align 8, !tbaa !38
+  %268 = load ptr, ptr %73, align 8, !tbaa !39
   invoke void @_ZN9var_substclEP4exprjPKS1_(ptr dead_on_unwind nonnull writable sret(%class.obj_ref.7) align 8 %12, ptr noundef nonnull align 8 dereferenceable(545) %11, ptr noundef %268, i32 noundef %2, ptr noundef %3)
           to label %269 unwind label %283
 
 269:                                              ; preds = %.thread49
-  %270 = load ptr, ptr %4, align 8, !tbaa !43
-  %271 = load ptr, ptr %12, align 8, !tbaa !43
-  store ptr %271, ptr %4, align 8, !tbaa !43
-  store ptr %270, ptr %12, align 8, !tbaa !43
+  %270 = load ptr, ptr %4, align 8, !tbaa !44
+  %271 = load ptr, ptr %12, align 8, !tbaa !44
+  store ptr %271, ptr %4, align 8, !tbaa !44
+  store ptr %270, ptr %12, align 8, !tbaa !44
   %.not.i.i.i34 = icmp eq ptr %270, null
   br i1 %.not.i.i.i34, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %272
 
 272:                                              ; preds = %269
   %273 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %274 = load ptr, ptr %273, align 8, !tbaa !51
+  %274 = load ptr, ptr %273, align 8, !tbaa !52
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %276 = load i32, ptr %275, align 4, !tbaa !50
+  %276 = load i32, ptr %275, align 4, !tbaa !51
   %277 = add i32 %276, -1
-  store i32 %277, ptr %275, align 4, !tbaa !50
+  store i32 %277, ptr %275, align 4, !tbaa !51
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %279, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
@@ -755,17 +755,17 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !39
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !50
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = add i32 %7, -1
-  store i32 %8, ptr %6, align 4, !tbaa !50
+  store i32 %8, ptr %6, align 4, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit
 
@@ -799,7 +799,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorpp
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit, label %5
 
@@ -816,7 +816,7 @@ define linkonce_odr hidden void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull a
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %1, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %11
 
@@ -839,19 +839,19 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN8obj_markI4expr1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8subtermsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !106
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE5resetEv.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !107
+  %9 = load i32, ptr %8, align 4, !tbaa !110
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 0, i64 %11, i1 false)
@@ -859,19 +859,19 @@ define linkonce_odr hidden void @_ZN8subtermsD2Ev(ptr noundef nonnull align 8 de
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE5resetEv.exit: ; preds = %4, %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !108
+  store i32 0, ptr %12, align 8, !tbaa !111
   br label %13
 
 13:                                               ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE5resetEv.exit, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !55
+  %16 = load ptr, ptr %15, align 8, !tbaa !56
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %13
   %18 = getelementptr inbounds i8, ptr %16, i64 -4
-  %19 = load i32, ptr %18, align 4, !tbaa !109
+  %19 = load i32, ptr %18, align 4, !tbaa !112
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
@@ -880,16 +880,16 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %13
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i
   %.06.i.i = phi ptr [ %31, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i ], [ %16, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ]
-  %23 = load ptr, ptr %.06.i.i, align 8, !tbaa !43
-  %24 = load ptr, ptr %14, align 8, !tbaa !110
+  %23 = load ptr, ptr %.06.i.i, align 8, !tbaa !44
+  %24 = load ptr, ptr %14, align 8, !tbaa !113
   %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !tbaa !50
+  store i32 %28, ptr %26, align 4, !tbaa !51
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i
 
@@ -900,10 +900,10 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %13
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i: ; preds = %30, %25, %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %32 = icmp ult ptr %31, %22
-  br i1 %32, label %.lr.ph.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, !llvm.loop !111
+  br i1 %32, label %.lr.ph.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, !llvm.loop !114
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i
-  %.pre.i = load ptr, ptr %15, align 8, !tbaa !55
+  %.pre.i = load ptr, ptr %15, align 8, !tbaa !56
   %.not.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4.i
 
@@ -966,9 +966,9 @@ declare void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI16beta_reducer_cfgE, i64 16), ptr %0, align 8, !tbaa !64
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI16beta_reducer_cfgE, i64 16), ptr %0, align 8, !tbaa !67
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %3 = load ptr, ptr %2, align 8, !tbaa !112
+  %3 = load ptr, ptr %2, align 8, !tbaa !115
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %4
 
@@ -986,17 +986,17 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr n
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %10 = load ptr, ptr %9, align 8, !tbaa !113
+  %10 = load ptr, ptr %9, align 8, !tbaa !116
   %.not.i.i1 = icmp eq ptr %10, null
   br i1 %.not.i.i1, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN6vectorIjLb0EjED2Ev.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %13 = load ptr, ptr %12, align 8, !tbaa !114
+  %13 = load ptr, ptr %12, align 8, !tbaa !117
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 4, !tbaa !50
+  store i32 %16, ptr %14, align 4, !tbaa !51
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %_ZN7obj_refI3app11ast_managerED2Ev.exit
 
@@ -1013,17 +1013,17 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED2Ev.exit, %11, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %23 = load ptr, ptr %22, align 8, !tbaa !113
+  %23 = load ptr, ptr %22, align 8, !tbaa !116
   %.not.i.i2 = icmp eq ptr %23, null
   br i1 %.not.i.i2, label %_ZN7obj_refI3app11ast_managerED2Ev.exit3, label %24
 
 24:                                               ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %26 = load ptr, ptr %25, align 8, !tbaa !114
+  %26 = load ptr, ptr %25, align 8, !tbaa !117
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %28 = load i32, ptr %27, align 4, !tbaa !50
+  %28 = load i32, ptr %27, align 4, !tbaa !51
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !tbaa !50
+  store i32 %29, ptr %27, align 4, !tbaa !51
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZN7obj_refI3app11ast_managerED2Ev.exit3
 
@@ -1040,17 +1040,17 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %24, %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %36 = load ptr, ptr %35, align 8, !tbaa !38
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
   %.not.i.i4 = icmp eq ptr %36, null
   br i1 %.not.i.i4, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %37
 
 37:                                               ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %39 = load ptr, ptr %38, align 8, !tbaa !51
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !50
+  %41 = load i32, ptr %40, align 4, !tbaa !51
   %42 = add i32 %41, -1
-  store i32 %42, ptr %40, align 4, !tbaa !50
+  store i32 %42, ptr %40, align 4, !tbaa !51
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
@@ -1071,7 +1071,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #13
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %51 = load ptr, ptr %50, align 8, !tbaa !55
+  %51 = load ptr, ptr %50, align 8, !tbaa !56
   %.not.i.i5 = icmp eq ptr %51, null
   br i1 %.not.i.i5, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %52
 
@@ -1166,84 +1166,87 @@ attributes #15 = { builtin nounwind }
 !31 = !{!"_ZTSN7obj_mapI9func_declPN6recfun3defEE8key_dataE", !32, i64 0, !33, i64 8}
 !32 = !{!"p1 _ZTS9func_decl", !11, i64 0}
 !33 = !{!"p1 _ZTSN6recfun3defE", !11, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!33, !33, i64 0}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"_ZTS7obj_refI4expr11ast_managerE", !40, i64 0, !15, i64 8}
-!40 = !{!"p1 _ZTS4expr", !11, i64 0}
-!41 = !{!42, !15, i64 0}
-!42 = !{!"_ZTS15recfun_rewriter", !15, i64 0, !14, i64 8}
-!43 = !{!40, !40, i64 0}
-!44 = distinct !{!44, !35}
-!45 = !{!46, !32, i64 16}
-!46 = !{!"_ZTS3app", !47, i64 0, !32, i64 16, !6, i64 24, !48, i64 28, !7, i64 32}
-!47 = !{!"_ZTS4expr", !5, i64 0}
-!48 = !{!"_ZTS9app_flags", !6, i64 0, !6, i64 2, !6, i64 2, !6, i64 2}
-!49 = !{!15, !15, i64 0}
-!50 = !{!5, !6, i64 8}
-!51 = !{!39, !15, i64 8}
-!52 = !{!53, !54, i64 8}
-!53 = !{!"_ZTS10bit_vector", !6, i64 0, !6, i64 4, !54, i64 8}
-!54 = !{!"p1 int", !11, i64 0}
-!55 = !{!56, !57, i64 0}
-!56 = !{!"_ZTS6vectorIP4exprLb0EjE", !57, i64 0}
-!57 = !{!"p2 _ZTS4expr", !58, i64 0}
-!58 = !{!"any p2 pointer", !11, i64 0}
-!59 = !{!46, !6, i64 24}
-!60 = !{!61, !6, i64 16}
-!61 = !{!"_ZTS3var", !47, i64 0, !6, i64 16, !62, i64 24}
-!62 = !{!"p1 _ZTS4sort", !11, i64 0}
-!63 = distinct !{!63, !35}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"vtable pointer", !8, i64 0}
-!66 = !{!67, !21, i64 544}
-!67 = !{!"_ZTS9var_subst", !68, i64 0, !21, i64 544}
-!68 = !{!"_ZTS12beta_reducer", !69, i64 0, !102, i64 536}
-!69 = !{!"_ZTS12rewriter_tplI16beta_reducer_cfgE", !70, i64 0, !94, i64 144, !6, i64 152, !81, i64 160, !95, i64 168, !97, i64 328, !39, i64 480, !98, i64 496, !98, i64 512, !100, i64 528}
-!70 = !{!"_ZTS13rewriter_core", !15, i64 8, !21, i64 16, !21, i64 17, !71, i64 24, !74, i64 32, !75, i64 40, !78, i64 48, !71, i64 64, !74, i64 72, !82, i64 80, !88, i64 96, !40, i64 120, !6, i64 128, !91, i64 136}
-!71 = !{!"_ZTS10ptr_vectorI9act_cacheE", !72, i64 0}
-!72 = !{!"_ZTS6vectorIP9act_cacheLb0EjE", !73, i64 0}
-!73 = !{!"p2 _ZTS9act_cache", !58, i64 0}
-!74 = !{!"p1 _ZTS9act_cache", !11, i64 0}
-!75 = !{!"_ZTS7svectorIN13rewriter_core5frameEjE", !76, i64 0}
-!76 = !{!"_ZTS6vectorIN13rewriter_core5frameELb0EjE", !77, i64 0}
-!77 = !{!"p1 _ZTSN13rewriter_core5frameE", !11, i64 0}
-!78 = !{!"_ZTS10ref_vectorI4expr11ast_managerE", !79, i64 0}
-!79 = !{!"_ZTS15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE", !80, i64 0, !81, i64 8}
-!80 = !{!"_ZTS19ref_manager_wrapperI4expr11ast_managerE", !15, i64 0}
-!81 = !{!"_ZTS10ptr_vectorI4exprE", !56, i64 0}
-!82 = !{!"_ZTS10ref_vectorI3app11ast_managerE", !83, i64 0}
-!83 = !{!"_ZTS15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE", !84, i64 0, !85, i64 8}
-!84 = !{!"_ZTS19ref_manager_wrapperI3app11ast_managerE", !15, i64 0}
-!85 = !{!"_ZTS10ptr_vectorI3appE", !86, i64 0}
-!86 = !{!"_ZTS6vectorIP3appLb0EjE", !87, i64 0}
-!87 = !{!"p2 _ZTS3app", !58, i64 0}
-!88 = !{!"_ZTS13obj_hashtableI4exprE", !89, i64 0}
-!89 = !{!"_ZTS14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE", !90, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!90 = !{!"p1 _ZTS14obj_hash_entryI4exprE", !11, i64 0}
-!91 = !{!"_ZTS7svectorIN13rewriter_core5scopeEjE", !92, i64 0}
-!92 = !{!"_ZTS6vectorIN13rewriter_core5scopeELb0EjE", !93, i64 0}
-!93 = !{!"p1 _ZTSN13rewriter_core5scopeE", !11, i64 0}
-!94 = !{!"p1 _ZTS16beta_reducer_cfg", !11, i64 0}
-!95 = !{!"_ZTS11var_shifter", !96, i64 0, !6, i64 144, !6, i64 148, !6, i64 152}
-!96 = !{!"_ZTS16var_shifter_core", !70, i64 0}
-!97 = !{!"_ZTS15inv_var_shifter", !96, i64 0, !6, i64 144}
-!98 = !{!"_ZTS7obj_refI3app11ast_managerE", !99, i64 0, !15, i64 8}
-!99 = !{!"p1 _ZTS3app", !11, i64 0}
-!100 = !{!"_ZTS7svectorIjjE", !101, i64 0}
-!101 = !{!"_ZTS6vectorIjLb0EjE", !54, i64 0}
-!102 = !{!"_ZTS16beta_reducer_cfg"}
-!103 = !{!104, !106, i64 32}
-!104 = !{!"_ZTS8subterms", !21, i64 0, !78, i64 8, !105, i64 24, !106, i64 32}
-!105 = !{!"p1 _ZTS10ptr_vectorI4exprE", !11, i64 0}
-!106 = !{!"p1 _ZTS8obj_markI4expr10bit_vector14default_t2uintIS0_EE", !11, i64 0}
-!107 = !{!53, !6, i64 4}
-!108 = !{!53, !6, i64 0}
-!109 = !{!6, !6, i64 0}
-!110 = !{!80, !15, i64 0}
-!111 = distinct !{!111, !35}
-!112 = !{!101, !54, i64 0}
-!113 = !{!98, !99, i64 0}
-!114 = !{!98, !15, i64 8}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = !{!33, !33, i64 0}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTS7obj_refI4expr11ast_managerE", !41, i64 0, !15, i64 8}
+!41 = !{!"p1 _ZTS4expr", !11, i64 0}
+!42 = !{!43, !15, i64 0}
+!43 = !{!"_ZTS15recfun_rewriter", !15, i64 0, !14, i64 8}
+!44 = !{!41, !41, i64 0}
+!45 = distinct !{!45, !35, !36}
+!46 = !{!47, !32, i64 16}
+!47 = !{!"_ZTS3app", !48, i64 0, !32, i64 16, !6, i64 24, !49, i64 28, !7, i64 32}
+!48 = !{!"_ZTS4expr", !5, i64 0}
+!49 = !{!"_ZTS9app_flags", !6, i64 0, !6, i64 2, !6, i64 2, !6, i64 2}
+!50 = !{!15, !15, i64 0}
+!51 = !{!5, !6, i64 8}
+!52 = !{!40, !15, i64 8}
+!53 = !{!54, !55, i64 8}
+!54 = !{!"_ZTS10bit_vector", !6, i64 0, !6, i64 4, !55, i64 8}
+!55 = !{!"p1 int", !11, i64 0}
+!56 = !{!57, !58, i64 0}
+!57 = !{!"_ZTS6vectorIP4exprLb0EjE", !58, i64 0}
+!58 = !{!"p2 _ZTS4expr", !59, i64 0}
+!59 = !{!"any p2 pointer", !11, i64 0}
+!60 = !{!47, !6, i64 24}
+!61 = !{!62, !6, i64 16}
+!62 = !{!"_ZTS3var", !48, i64 0, !6, i64 16, !63, i64 24}
+!63 = !{!"p1 _ZTS4sort", !11, i64 0}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = distinct !{!66, !35, !36}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"vtable pointer", !8, i64 0}
+!69 = !{!70, !21, i64 544}
+!70 = !{!"_ZTS9var_subst", !71, i64 0, !21, i64 544}
+!71 = !{!"_ZTS12beta_reducer", !72, i64 0, !105, i64 536}
+!72 = !{!"_ZTS12rewriter_tplI16beta_reducer_cfgE", !73, i64 0, !97, i64 144, !6, i64 152, !84, i64 160, !98, i64 168, !100, i64 328, !40, i64 480, !101, i64 496, !101, i64 512, !103, i64 528}
+!73 = !{!"_ZTS13rewriter_core", !15, i64 8, !21, i64 16, !21, i64 17, !74, i64 24, !77, i64 32, !78, i64 40, !81, i64 48, !74, i64 64, !77, i64 72, !85, i64 80, !91, i64 96, !41, i64 120, !6, i64 128, !94, i64 136}
+!74 = !{!"_ZTS10ptr_vectorI9act_cacheE", !75, i64 0}
+!75 = !{!"_ZTS6vectorIP9act_cacheLb0EjE", !76, i64 0}
+!76 = !{!"p2 _ZTS9act_cache", !59, i64 0}
+!77 = !{!"p1 _ZTS9act_cache", !11, i64 0}
+!78 = !{!"_ZTS7svectorIN13rewriter_core5frameEjE", !79, i64 0}
+!79 = !{!"_ZTS6vectorIN13rewriter_core5frameELb0EjE", !80, i64 0}
+!80 = !{!"p1 _ZTSN13rewriter_core5frameE", !11, i64 0}
+!81 = !{!"_ZTS10ref_vectorI4expr11ast_managerE", !82, i64 0}
+!82 = !{!"_ZTS15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE", !83, i64 0, !84, i64 8}
+!83 = !{!"_ZTS19ref_manager_wrapperI4expr11ast_managerE", !15, i64 0}
+!84 = !{!"_ZTS10ptr_vectorI4exprE", !57, i64 0}
+!85 = !{!"_ZTS10ref_vectorI3app11ast_managerE", !86, i64 0}
+!86 = !{!"_ZTS15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE", !87, i64 0, !88, i64 8}
+!87 = !{!"_ZTS19ref_manager_wrapperI3app11ast_managerE", !15, i64 0}
+!88 = !{!"_ZTS10ptr_vectorI3appE", !89, i64 0}
+!89 = !{!"_ZTS6vectorIP3appLb0EjE", !90, i64 0}
+!90 = !{!"p2 _ZTS3app", !59, i64 0}
+!91 = !{!"_ZTS13obj_hashtableI4exprE", !92, i64 0}
+!92 = !{!"_ZTS14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE", !93, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!93 = !{!"p1 _ZTS14obj_hash_entryI4exprE", !11, i64 0}
+!94 = !{!"_ZTS7svectorIN13rewriter_core5scopeEjE", !95, i64 0}
+!95 = !{!"_ZTS6vectorIN13rewriter_core5scopeELb0EjE", !96, i64 0}
+!96 = !{!"p1 _ZTSN13rewriter_core5scopeE", !11, i64 0}
+!97 = !{!"p1 _ZTS16beta_reducer_cfg", !11, i64 0}
+!98 = !{!"_ZTS11var_shifter", !99, i64 0, !6, i64 144, !6, i64 148, !6, i64 152}
+!99 = !{!"_ZTS16var_shifter_core", !73, i64 0}
+!100 = !{!"_ZTS15inv_var_shifter", !99, i64 0, !6, i64 144}
+!101 = !{!"_ZTS7obj_refI3app11ast_managerE", !102, i64 0, !15, i64 8}
+!102 = !{!"p1 _ZTS3app", !11, i64 0}
+!103 = !{!"_ZTS7svectorIjjE", !104, i64 0}
+!104 = !{!"_ZTS6vectorIjLb0EjE", !55, i64 0}
+!105 = !{!"_ZTS16beta_reducer_cfg"}
+!106 = !{!107, !109, i64 32}
+!107 = !{!"_ZTS8subterms", !21, i64 0, !81, i64 8, !108, i64 24, !109, i64 32}
+!108 = !{!"p1 _ZTS10ptr_vectorI4exprE", !11, i64 0}
+!109 = !{!"p1 _ZTS8obj_markI4expr10bit_vector14default_t2uintIS0_EE", !11, i64 0}
+!110 = !{!54, !6, i64 4}
+!111 = !{!54, !6, i64 0}
+!112 = !{!6, !6, i64 0}
+!113 = !{!83, !15, i64 0}
+!114 = distinct !{!114, !35, !36}
+!115 = !{!104, !55, i64 0}
+!116 = !{!101, !102, i64 0}
+!117 = !{!101, !15, i64 8}

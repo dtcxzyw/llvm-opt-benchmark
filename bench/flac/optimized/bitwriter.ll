@@ -1611,7 +1611,7 @@ bitwriter_grow_.exit.i:                           ; preds = %70, %53, %50
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %97, %83, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %bitwriter_grow_.exit.thread, label %43, !llvm.loop !24
+  br i1 %exitcond.not, label %bitwriter_grow_.exit.thread, label %43, !llvm.loop !25
 
 bitwriter_grow_.exit.thread:                      ; preds = %FLAC__bitwriter_write_raw_uint32_nocheck.exit, %43, %57, %61, %bitwriter_grow_.exit, %26, %19
   %.011 = phi i32 [ 0, %19 ], [ 0, %26 ], [ 1, %bitwriter_grow_.exit ], [ 1, %FLAC__bitwriter_write_raw_uint32_nocheck.exit ], [ 0, %43 ], [ 0, %57 ], [ 0, %61 ]
@@ -2219,7 +2219,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %storemerge218 = phi i32 [ 0, %153 ], [ 32, %151 ]
   %163 = add i32 %.0193230, -32
   %164 = icmp ugt i32 %163, 64
-  br i1 %164, label %.lr.ph, label %.thread, !llvm.loop !25
+  br i1 %164, label %.lr.ph, label %.thread, !llvm.loop !26
 
 165:                                              ; preds = %148
   %166 = sub i32 32, %reass.sub
@@ -2346,7 +2346,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %226 = getelementptr inbounds nuw i8, ptr %.0180239, i64 4
   %227 = add i32 %.0192235, -1
   %.not211 = icmp eq i32 %227, 0
-  br i1 %.not211, label %._crit_edge241, label %68, !llvm.loop !26
+  br i1 %.not211, label %._crit_edge241, label %68, !llvm.loop !27
 
 ._crit_edge241:                                   ; preds = %224, %bitwriter_grow_.exit
   %.1188.lcssa = phi i64 [ %.0187, %bitwriter_grow_.exit ], [ %.3190, %224 ]
@@ -5004,8 +5004,9 @@ attributes #19 = { nounwind allocsize(1) }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 omnipotent char", !6, i64 0}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = distinct !{!27, !23, !24}

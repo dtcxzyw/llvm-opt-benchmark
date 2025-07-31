@@ -930,7 +930,7 @@ sws_test_colorspace.exit:                         ; preds = %24, %24, %24, %24, 
 
 31:                                               ; preds = %sws_test_colorspace.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = load i32, ptr %32, align 4, !tbaa !64
+  %33 = load i32, ptr %32, align 4, !tbaa !65
   br i1 %.not.i, label %36, label %34
 
 34:                                               ; preds = %31
@@ -1027,7 +1027,7 @@ sws_test_colorspace.exit.i.us:                    ; preds = %23, %23, %23, %23, 
   br i1 %narrow.i.not.i.us, label %.thread, label %sws_test_transfer.exit.i.us
 
 sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace.exit.i.us
-  %28 = load i32, ptr %8, align 4, !tbaa !64
+  %28 = load i32, ptr %8, align 4, !tbaa !65
   %29 = tail call ptr @av_csp_itu_eotf(i32 noundef %28) #8
   %30 = icmp ne i32 %28, 2
   %31 = icmp eq ptr %29, null
@@ -1045,7 +1045,7 @@ sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace
   %.not10.not.us = icmp ne i32 %37, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   %or.cond28 = and i1 %.not10.not.us, %12
-  br i1 %or.cond28, label %.split.us, label %.loopexit, !llvm.loop !65
+  br i1 %or.cond28, label %.split.us, label %.loopexit, !llvm.loop !66
 
 .split:                                           ; preds = %2, %63
   %38 = phi i1 [ false, %63 ], [ true, %2 ]
@@ -1094,7 +1094,7 @@ sws_test_colorspace.exit.i:                       ; preds = %50, %50, %50, %50, 
   br i1 %narrow.i.not.i, label %.thread, label %sws_test_transfer.exit.i
 
 sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace.exit.i
-  %55 = load i32, ptr %8, align 4, !tbaa !64
+  %55 = load i32, ptr %8, align 4, !tbaa !65
   %56 = tail call ptr @av_csp_itu_eotf_inv(i32 noundef %55) #8
   %57 = icmp ne i32 %55, 2
   %58 = icmp eq ptr %56, null
@@ -1116,7 +1116,7 @@ sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace
   %.not10.not = icmp ne i32 %64, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   %or.cond29 = and i1 %.not10.not, %38
-  br i1 %or.cond29, label %.split, label %.loopexit, !llvm.loop !67
+  br i1 %or.cond29, label %.split, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %63, %36, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %36 ], [ 1, %63 ]
@@ -1527,7 +1527,7 @@ ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_eq
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   %or.cond22 = and i1 %.not11.not, %38
-  br i1 %or.cond22, label %37, label %.loopexit, !llvm.loop !68
+  br i1 %or.cond22, label %37, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %ff_fmt_equal.exit.thread15, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %ff_fmt_equal.exit.thread15 ]
@@ -1610,10 +1610,11 @@ attributes #10 = { nounwind willreturn memory(none) }
 !59 = !{!60, !6, i64 80}
 !60 = !{!"AVHDRPlusColorTransformParams", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !61, i64 32, !61, i64 34, !6, i64 36, !61, i64 38, !61, i64 40, !61, i64 42, !11, i64 44, !6, i64 48, !12, i64 72, !6, i64 80, !6, i64 84, !12, i64 264, !6, i64 272, !12, i64 276, !12, i64 284, !6, i64 292, !6, i64 296, !6, i64 416, !12, i64 420}
 !61 = !{!"short", !6, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!21, !11, i64 44}
-!65 = distinct !{!65, !63, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !63}
-!68 = distinct !{!68, !63}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!21, !11, i64 44}
+!66 = distinct !{!66, !63, !64, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !63, !64}
+!69 = distinct !{!69, !63, !64}

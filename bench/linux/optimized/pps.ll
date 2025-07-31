@@ -324,7 +324,7 @@ define internal range(i64 -110, 1) i64 @pps_cdev_ioctl(ptr noundef readonly capt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
   %9 = inttoptr i64 %2 to ptr
   switch i32 %1, label %119 [
     i32 -2146930527, label %10
@@ -413,7 +413,7 @@ define internal range(i64 -110, 1) i64 @pps_cdev_ioctl(ptr noundef readonly capt
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %56 = load i32, ptr %55, align 8
   %57 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %58 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %56, i64 4, i64 %57) #9, !srcloc !10
+  %58 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %56, i64 4, i64 %57) #9, !srcloc !11
   %59 = extractvalue { ptr, i64 } %58, 0
   %60 = extractvalue { ptr, i64 } %58, 1
   %61 = ptrtoint ptr %59 to i64
@@ -424,14 +424,14 @@ define internal range(i64 -110, 1) i64 @pps_cdev_ioctl(ptr noundef readonly capt
 
 64:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !10
   %65 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %9, i64 noundef 64) #9
   %66 = and i64 %65, 4294967295
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %68, label %.thread
 
 68:                                               ; preds = %64
-  %69 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %8, ptr noundef nonnull %5), !range !11
+  %69 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %8, ptr noundef nonnull %5), !range !12
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %73, label %71
 
@@ -473,7 +473,7 @@ define internal range(i64 -110, 1) i64 @pps_cdev_ioctl(ptr noundef readonly capt
 
 90:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !10
   %91 = tail call zeroext i1 @capable(i32 noundef 25) #9
   br i1 %91, label %92, label %116
 
@@ -539,9 +539,9 @@ define internal range(i64 -110, 1) i64 @pps_cdev_compat_ioctl(ptr noundef readon
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false), !annotation !10
   %12 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %8, i64 noundef 60) #9
   %13 = and i64 %12, 4294967295
   %14 = icmp eq i64 %13, 0
@@ -551,7 +551,7 @@ define internal range(i64 -110, 1) i64 @pps_cdev_compat_ioctl(ptr noundef readon
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false)
-  %18 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %7, ptr noundef nonnull %5), !range !11
+  %18 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %7, ptr noundef nonnull %5), !range !12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %20
 
@@ -668,7 +668,7 @@ define internal fastcc range(i32 -110, 1) i32 @pps_cdev_pps_fetch(ptr noundef %0
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !10
   call void @init_wait_entry(ptr noundef nonnull %3, i32 noundef 0) #9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = call i64 @prepare_to_wait_event(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 1) #9
@@ -721,7 +721,7 @@ define internal fastcc range(i32 -110, 1) i32 @pps_cdev_pps_fetch(ptr noundef %0
 
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
   call void @init_wait_entry(ptr noundef nonnull %4, i32 noundef 0) #9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = call i64 @prepare_to_wait_event(ptr noundef nonnull %43, ptr noundef nonnull %4, i32 noundef 1) #9
@@ -853,9 +853,10 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"auto-init"}
-!10 = !{i64 2154068021}
-!11 = !{i32 -110, i32 1}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"auto-init"}
+!11 = !{i64 2154068021}
+!12 = !{i32 -110, i32 1}

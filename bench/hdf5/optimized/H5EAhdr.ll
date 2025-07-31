@@ -217,18 +217,18 @@ define range(i32 -1, 1) i32 @H5EA__hdr_dest(ptr noundef %0) local_unnamed_addr #
 
 50:                                               ; preds = %.thread, %22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %52 = load ptr, ptr %51, align 8, !tbaa !48
+  %52 = load ptr, ptr %51, align 8, !tbaa !49
   %.not38 = icmp eq ptr %52, null
   br i1 %.not38, label %55, label %53
 
 53:                                               ; preds = %50
   %54 = tail call ptr @H5FL_seq_free(ptr noundef nonnull @H5_H5EA_sblk_info_t_seq_free_list, ptr noundef nonnull %52) #7
-  store ptr %54, ptr %51, align 8, !tbaa !48
+  store ptr %54, ptr %51, align 8, !tbaa !49
   br label %55
 
 55:                                               ; preds = %53, %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %57 = load ptr, ptr %56, align 8, !tbaa !49
+  %57 = load ptr, ptr %56, align 8, !tbaa !50
   %.not39 = icmp eq ptr %57, null
   br i1 %.not39, label %66, label %58
 
@@ -244,7 +244,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_dest(ptr noundef %0) local_unnamed_addr #
   br label %68
 
 65:                                               ; preds = %58
-  store ptr null, ptr %56, align 8, !tbaa !49
+  store ptr null, ptr %56, align 8, !tbaa !50
   br label %66
 
 66:                                               ; preds = %65, %55
@@ -272,46 +272,46 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %12 = load i8, ptr %11, align 1, !tbaa !50
+  %12 = load i8, ptr %11, align 1, !tbaa !51
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %15 = load i8, ptr %14, align 1, !tbaa !51
+  %15 = load i8, ptr %14, align 1, !tbaa !52
   %16 = zext i8 %15 to i64
   %17 = mul nuw nsw i64 %16, 125613361
   %18 = lshr i64 %17, 27
   %19 = and i64 %18, 31
   %20 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !52
+  %21 = load i32, ptr %20, align 4, !tbaa !53
   %22 = add nuw nsw i32 %13, 1
   %23 = sub i32 %22, %21
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i64 %24, ptr %25, align 8, !tbaa !53
+  store i64 %24, ptr %25, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %27 = load i8, ptr %26, align 1, !tbaa !54
+  %27 = load i8, ptr %26, align 1, !tbaa !55
   %28 = zext nneg i8 %27 to i64
   %29 = shl nuw i64 1, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store i64 %29, ptr %30, align 8, !tbaa !55
+  store i64 %29, ptr %30, align 8, !tbaa !56
   %31 = zext i8 %12 to i16
   %32 = add nuw nsw i16 %31, 7
   %33 = lshr i16 %32, 3
   %34 = trunc nuw nsw i16 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i8 %34, ptr %35, align 8, !tbaa !56
+  store i8 %34, ptr %35, align 8, !tbaa !57
   %36 = tail call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_H5EA_sblk_info_t_seq_free_list, i64 noundef %24) #7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr %36, ptr %37, align 8, !tbaa !48
+  store ptr %36, ptr %37, align 8, !tbaa !49
   %38 = icmp eq ptr %36, null
   br i1 %38, label %42, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %39 = load i64, ptr %25, align 8, !tbaa !53
+  %39 = load i64, ptr %25, align 8, !tbaa !54
   %.not57 = icmp eq i64 %39, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %40 = load i8, ptr %14, align 1, !tbaa !51
+  %40 = load i8, ptr %14, align 1, !tbaa !52
   %41 = zext i8 %40 to i64
   br label %46
 
@@ -330,7 +330,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %49 = shl nuw i32 1, %48
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856
-  store i64 %50, ptr %51, align 8, !tbaa !57
+  store i64 %50, ptr %51, align 8, !tbaa !58
   %52 = add nuw i64 %.04856, 1
   %53 = lshr i64 %52, 1
   %54 = trunc i64 %53 to i32
@@ -338,16 +338,16 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %56 = sext i32 %55 to i64
   %57 = mul nsw i64 %41, %56
   %58 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 1
-  store i64 %57, ptr %58, align 8, !tbaa !59
+  store i64 %57, ptr %58, align 8, !tbaa !60
   %59 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 2
-  store i64 %.05054, ptr %59, align 8, !tbaa !60
+  store i64 %.05054, ptr %59, align 8, !tbaa !61
   %60 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 3
-  store i64 %.04955, ptr %60, align 8, !tbaa !61
+  store i64 %.04955, ptr %60, align 8, !tbaa !62
   %61 = mul i64 %57, %50
   %62 = add i64 %61, %.05054
   %63 = add i64 %.04955, %50
   %exitcond.not = icmp eq i64 %52, %39
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %46, %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -358,12 +358,12 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %68 = add i64 %67, 16
   %69 = add i64 %68, %reass.mul
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i64 %69, ptr %70, align 8, !tbaa !63
+  store i64 %69, ptr %70, align 8, !tbaa !64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %69, ptr %71, align 8, !tbaa !64
+  store i64 %69, ptr %71, align 8, !tbaa !65
   %72 = load ptr, ptr %10, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !65
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %83, label %75
 
@@ -402,16 +402,16 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %11 = lshr i64 %10, 27
   %12 = and i64 %11, 31
   %13 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !52
+  %14 = load i32, ptr %13, align 4, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %17 = load i8, ptr %16, align 1, !tbaa !51
+  %17 = load i8, ptr %16, align 1, !tbaa !52
   %18 = zext i8 %17 to i64
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
   %22 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !52
+  %23 = load i32, ptr %22, align 4, !tbaa !53
   %24 = sub i32 %14, %23
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -466,7 +466,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %54 = load ptr, ptr %15, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !66
+  %56 = load i64, ptr %55, align 8, !tbaa !67
   %57 = mul i64 %56, %1
   %58 = tail call ptr @H5FL_fac_init(i64 noundef %57) #7
   %59 = load ptr, ptr %53, align 8, !tbaa !42
@@ -524,15 +524,15 @@ define noundef i32 @H5EA__hdr_free_elmts(ptr noundef readonly captures(none) %0,
   %12 = lshr i64 %11, 27
   %13 = and i64 %12, 31
   %14 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !52
+  %15 = load i32, ptr %14, align 4, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %17 = load i8, ptr %16, align 1, !tbaa !51
+  %17 = load i8, ptr %16, align 1, !tbaa !52
   %18 = zext i8 %17 to i64
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
   %22 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !52
+  %23 = load i32, ptr %22, align 4, !tbaa !53
   %24 = sub i32 %15, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %26 = load ptr, ptr %25, align 8, !tbaa !42
@@ -569,7 +569,7 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  store i64 -1, ptr %17, align 8, !tbaa !67
+  store i64 -1, ptr %17, align 8, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %19 = tail call i32 @H5EA__hdr_init(ptr noundef nonnull %11, ptr noundef %2)
@@ -584,7 +584,7 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  %27 = load i64, ptr %26, align 8, !tbaa !63
+  %27 = load i64, ptr %26, align 8, !tbaa !64
   %28 = tail call i64 @H5MF_alloc(ptr noundef %0, i32 noundef 6, i64 noundef %27) #7
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 368
   store i64 %28, ptr %29, align 8, !tbaa !12
@@ -606,7 +606,7 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 39:                                               ; preds = %35
   %40 = tail call ptr @H5AC_proxy_entry_create() #7
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  store ptr %40, ptr %41, align 8, !tbaa !49
+  store ptr %40, ptr %41, align 8, !tbaa !50
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %._crit_edge
 
@@ -634,7 +634,7 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  %57 = load ptr, ptr %56, align 8, !tbaa !49
+  %57 = load ptr, ptr %56, align 8, !tbaa !50
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %61, label %58
 
@@ -673,7 +673,7 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 
 76:                                               ; preds = %.thread54
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  %78 = load i64, ptr %77, align 8, !tbaa !63
+  %78 = load i64, ptr %77, align 8, !tbaa !64
   %79 = tail call i32 @H5MF_xfree(ptr noundef %0, i32 noundef 6, i64 noundef %75, i64 noundef %78) #7
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %85
@@ -727,7 +727,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_incr(ptr noundef %0) local_unnamed_addr #
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %10 = load i64, ptr %9, align 8, !tbaa !68
+  %10 = load i64, ptr %9, align 8, !tbaa !69
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %19
 
@@ -737,7 +737,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_incr(ptr noundef %0) local_unnamed_addr #
   br i1 %14, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
-  %.pre = load i64, ptr %9, align 8, !tbaa !68
+  %.pre = load i64, ptr %9, align 8, !tbaa !69
   br label %19
 
 15:                                               ; preds = %12
@@ -749,7 +749,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_incr(ptr noundef %0) local_unnamed_addr #
 19:                                               ; preds = %._crit_edge, %8
   %20 = phi i64 [ %.pre, %._crit_edge ], [ %10, %8 ]
   %21 = add i64 %20, 1
-  store i64 %21, ptr %9, align 8, !tbaa !68
+  store i64 %21, ptr %9, align 8, !tbaa !69
   br label %22
 
 22:                                               ; preds = %15, %19, %1
@@ -771,9 +771,9 @@ define range(i32 -1, 1) i32 @H5EA__hdr_decr(ptr noundef %0) local_unnamed_addr #
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %10 = load i64, ptr %9, align 8, !tbaa !68
+  %10 = load i64, ptr %9, align 8, !tbaa !69
   %11 = add i64 %10, -1
-  store i64 %11, ptr %9, align 8, !tbaa !68
+  store i64 %11, ptr %9, align 8, !tbaa !69
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %20
 
@@ -807,9 +807,9 @@ define noundef i32 @H5EA__hdr_fuse_incr(ptr noundef captures(none) %0) local_unn
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !tbaa !69
+  %10 = load i64, ptr %9, align 8, !tbaa !70
   %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8, !tbaa !69
+  store i64 %11, ptr %9, align 8, !tbaa !70
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -828,9 +828,9 @@ define i64 @H5EA__hdr_fuse_decr(ptr noundef captures(none) %0) local_unnamed_add
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !tbaa !69
+  %10 = load i64, ptr %9, align 8, !tbaa !70
   %11 = add i64 %10, -1
-  store i64 %11, ptr %9, align 8, !tbaa !69
+  store i64 %11, ptr %9, align 8, !tbaa !70
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -879,11 +879,11 @@ define ptr @H5EA__hdr_protect(ptr noundef %0, i64 noundef %1, ptr noundef %2, i3
   br i1 %11, label %12, label %44, !prof !9
 
 12:                                               ; preds = %4
-  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %0, ptr %5, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %1, ptr %13, align 8, !tbaa !72
+  store i64 %1, ptr %13, align 8, !tbaa !73
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %2, ptr %14, align 8, !tbaa !73
+  store ptr %2, ptr %14, align 8, !tbaa !74
   %15 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_EARRAY_HDR, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3) #7
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
@@ -904,13 +904,13 @@ define ptr @H5EA__hdr_protect(ptr noundef %0, i64 noundef %1, ptr noundef %2, i3
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 472
-  %28 = load ptr, ptr %27, align 8, !tbaa !49
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %26
   %31 = call ptr @H5AC_proxy_entry_create() #7
-  store ptr %31, ptr %27, align 8, !tbaa !49
+  store ptr %31, ptr %27, align 8, !tbaa !50
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
 
@@ -984,7 +984,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_delete(ptr noundef %0) local_unnamed_addr
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %10 = load i64, ptr %9, align 8, !tbaa !67
+  %10 = load i64, ptr %9, align 8, !tbaa !68
   %.not = icmp eq i64 %10, -1
   br i1 %.not, label %.preheader, label %11
 
@@ -1009,7 +1009,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_delete(ptr noundef %0) local_unnamed_addr
   %22 = trunc nuw i8 %21 to i1
   %23 = xor i1 %22, true
   %24 = select i1 %20, i1 true, i1 %23
-  br i1 %24, label %.lr.ph, label %H5EA__hdr_unprotect.exit.thread, !prof !74
+  br i1 %24, label %.lr.ph, label %H5EA__hdr_unprotect.exit.thread, !prof !75
 
 .lr.ph:                                           ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1024,7 +1024,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_delete(ptr noundef %0) local_unnamed_addr
   %32 = load i64, ptr %25, align 8, !tbaa !12
   %33 = tail call i32 @H5AC_unprotect(ptr noundef %31, ptr noundef nonnull @H5AC_EARRAY_HDR, i64 noundef %32, ptr noundef nonnull %0, i32 noundef %.07.ph) #7
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %.lr.ph12, label %H5EA__hdr_unprotect.exit.thread
+  br i1 %34, label %.lr.ph12, label %H5EA__hdr_unprotect.exit.thread, !llvm.loop !76
 
 .lr.ph12:                                         ; preds = %.lr.ph, %30
   %35 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !10
@@ -1040,10 +1040,13 @@ define range(i32 -1, 1) i32 @H5EA__hdr_delete(ptr noundef %0) local_unnamed_addr
   %45 = trunc nuw i8 %44 to i1
   %46 = xor i1 %45, true
   %47 = select i1 %43, i1 true, i1 %46
-  br i1 %47, label %30, label %H5EA__hdr_unprotect.exit.thread, !prof !75
+  br i1 %47, label %30, label %.H5EA__hdr_unprotect.exit.thread.loopexit_crit_edge, !prof !77, !llvm.loop !76
 
-H5EA__hdr_unprotect.exit.thread:                  ; preds = %.lr.ph12, %30, %.lr.ph, %.preheader, %1
-  %.0 = phi i32 [ 0, %1 ], [ %.1.ph, %.preheader ], [ %.1.ph, %.lr.ph ], [ -1, %30 ], [ -1, %.lr.ph12 ]
+.H5EA__hdr_unprotect.exit.thread.loopexit_crit_edge: ; preds = %.lr.ph12
+  br label %H5EA__hdr_unprotect.exit.thread, !llvm.loop !76
+
+H5EA__hdr_unprotect.exit.thread:                  ; preds = %30, %.lr.ph, %.H5EA__hdr_unprotect.exit.thread.loopexit_crit_edge, %.preheader, %1
+  %.0 = phi i32 [ 0, %1 ], [ %.1.ph, %.preheader ], [ -1, %.H5EA__hdr_unprotect.exit.thread.loopexit_crit_edge ], [ %.1.ph, %.lr.ph ], [ -1, %30 ]
   ret i32 %.0
 }
 
@@ -1117,33 +1120,35 @@ attributes #7 = { nounwind }
 !43 = !{!13, !11, i64 344}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"p1 _ZTS15H5FL_fac_head_t", !16, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!13, !31, i64 440}
-!49 = !{!13, !32, i64 472}
-!50 = !{!13, !5, i64 257}
-!51 = !{!13, !5, i64 259}
-!52 = !{!18, !18, i64 0}
-!53 = !{!13, !11, i64 432}
-!54 = !{!13, !5, i64 261}
-!55 = !{!13, !11, i64 448}
-!56 = !{!13, !5, i64 424}
-!57 = !{!58, !11, i64 0}
-!58 = !{!"H5EA_sblk_info_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!59 = !{!58, !11, i64 8}
-!60 = !{!58, !11, i64 16}
-!61 = !{!58, !11, i64 24}
-!62 = distinct !{!62, !47}
-!63 = !{!13, !11, i64 376}
-!64 = !{!13, !11, i64 272}
-!65 = !{!40, !16, i64 24}
-!66 = !{!40, !11, i64 16}
-!67 = !{!13, !11, i64 264}
-!68 = !{!13, !11, i64 360}
-!69 = !{!13, !11, i64 392}
-!70 = !{!71, !30, i64 0}
-!71 = !{!"H5EA_hdr_cache_ud_t", !30, i64 0, !11, i64 8, !16, i64 16}
-!72 = !{!71, !11, i64 8}
-!73 = !{!71, !16, i64 16}
-!74 = !{!"branch_weights", i32 127, i32 1}
-!75 = !{!"branch_weights", i32 255873, i32 127}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!13, !31, i64 440}
+!50 = !{!13, !32, i64 472}
+!51 = !{!13, !5, i64 257}
+!52 = !{!13, !5, i64 259}
+!53 = !{!18, !18, i64 0}
+!54 = !{!13, !11, i64 432}
+!55 = !{!13, !5, i64 261}
+!56 = !{!13, !11, i64 448}
+!57 = !{!13, !5, i64 424}
+!58 = !{!59, !11, i64 0}
+!59 = !{!"H5EA_sblk_info_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!60 = !{!59, !11, i64 8}
+!61 = !{!59, !11, i64 16}
+!62 = !{!59, !11, i64 24}
+!63 = distinct !{!63, !47, !48}
+!64 = !{!13, !11, i64 376}
+!65 = !{!13, !11, i64 272}
+!66 = !{!40, !16, i64 24}
+!67 = !{!40, !11, i64 16}
+!68 = !{!13, !11, i64 264}
+!69 = !{!13, !11, i64 360}
+!70 = !{!13, !11, i64 392}
+!71 = !{!72, !30, i64 0}
+!72 = !{!"H5EA_hdr_cache_ud_t", !30, i64 0, !11, i64 8, !16, i64 16}
+!73 = !{!72, !11, i64 8}
+!74 = !{!72, !16, i64 16}
+!75 = !{!"branch_weights", i32 127, i32 1}
+!76 = distinct !{!76, !48}
+!77 = !{!"branch_weights", i32 255873, i32 127}

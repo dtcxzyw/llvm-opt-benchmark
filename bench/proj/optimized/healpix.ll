@@ -350,7 +350,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
-  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
+  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !60
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
   %54 = and i32 %.149.i.i, 1
@@ -567,7 +567,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
-  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
+  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !60
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
   %54 = and i32 %.149.i.i, 1
@@ -687,14 +687,14 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(p
   %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @.str.3)
   %.sroa.01.0.extract.trunc = trunc i64 %12 to i32
-  store i32 %.sroa.01.0.extract.trunc, ptr %2, align 8, !tbaa !60
+  store i32 %.sroa.01.0.extract.trunc, ptr %2, align 8, !tbaa !61
   %13 = load ptr, ptr %0, align 8, !tbaa !42
   %14 = load ptr, ptr %10, align 8, !tbaa !43
   %15 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %13, ptr noundef %14, ptr noundef nonnull @.str.4)
   %.sroa.0.0.extract.trunc = trunc i64 %15 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.sroa.0.0.extract.trunc, ptr %16, align 4, !tbaa !61
-  %17 = load i32, ptr %2, align 8, !tbaa !60
+  store i32 %.sroa.0.0.extract.trunc, ptr %16, align 4, !tbaa !62
+  %17 = load i32, ptr %2, align 8, !tbaa !61
   %or.cond = icmp ugt i32 %17, 3
   br i1 %or.cond, label %18, label %25
 
@@ -778,7 +778,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit49: ; preds = %41, %44
   store double %59, ptr %55, align 8, !tbaa !52
   %60 = fdiv double 1.000000e+00, %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store double %60, ptr %61, align 8, !tbaa !62
+  store double %60, ptr %61, align 8, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL18e_rhealpix_forward5PJ_LPP8PJconsts, ptr %62, align 8, !tbaa !54
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -864,9 +864,9 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %27, %29
   %.sroa.014.0.i = phi double [ %0, %27 ], [ %42, %29 ]
   %.sroa.3.0.i = phi double [ %28, %27 ], [ %49, %29 ]
-  %50 = load i32, ptr %5, align 8, !tbaa !60
+  %50 = load i32, ptr %5, align 8, !tbaa !61
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !61
+  %52 = load i32, ptr %51, align 4, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.052.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.453.i)
   %53 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
@@ -983,11 +983,11 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %80, %79, %78, %77, 
   %92 = getelementptr inbounds nuw [2 x double], ptr %88, i64 0, i64 %indvars.iv.i27.i
   %93 = load double, ptr %92, align 8, !tbaa !56
   %94 = tail call double @llvm.fmuladd.f64(double %93, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %91)
-  br i1 %90, label %89, label %95, !llvm.loop !63
+  br i1 %90, label %89, label %95, !llvm.loop !64
 
 95:                                               ; preds = %89
   store double %94, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
-  br i1 %87, label %86, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !64
+  br i1 %87, label %86, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !65
 
 _ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %95
   %96 = sitofp i32 %81 to double
@@ -1012,9 +1012,9 @@ _ZL12combine_capsddiii.exit:                      ; preds = %54, %_ZL11dot_produ
 define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
-  %6 = load i32, ptr %5, align 8, !tbaa !60
+  %6 = load i32, ptr %5, align 8, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !61
+  %8 = load i32, ptr %7, align 4, !tbaa !62
   %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
@@ -1132,9 +1132,9 @@ define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(doub
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
   %.sroa.014.0.i = phi double [ %0, %9 ], [ %24, %11 ]
   %.sroa.3.0.i = phi double [ %10, %9 ], [ %31, %11 ]
-  %32 = load i32, ptr %5, align 8, !tbaa !60
+  %32 = load i32, ptr %5, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !61
+  %34 = load i32, ptr %33, align 4, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.052.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.453.i)
   %35 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
@@ -1251,11 +1251,11 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %62, %61, %60, %59, 
   %74 = getelementptr inbounds nuw [2 x double], ptr %70, i64 0, i64 %indvars.iv.i27.i
   %75 = load double, ptr %74, align 8, !tbaa !56
   %76 = tail call double @llvm.fmuladd.f64(double %75, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %73)
-  br i1 %72, label %71, label %77, !llvm.loop !63
+  br i1 %72, label %71, label %77, !llvm.loop !64
 
 77:                                               ; preds = %71
   store double %76, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
-  br i1 %69, label %68, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !64
+  br i1 %69, label %68, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !65
 
 _ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %77
   %78 = sitofp i32 %63 to double
@@ -1280,9 +1280,9 @@ _ZL12combine_capsddiii.exit:                      ; preds = %36, %_ZL11dot_produ
 define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
-  %6 = load i32, ptr %5, align 8, !tbaa !60
+  %6 = load i32, ptr %5, align 8, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !61
+  %8 = load i32, ptr %7, align 4, !tbaa !62
   %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
@@ -1448,7 +1448,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.preheader ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 19
-  br i1 %exitcond64.not.i, label %45, label %.preheader, !llvm.loop !59
+  br i1 %exitcond64.not.i, label %45, label %.preheader, !llvm.loop !60
 
 45:                                               ; preds = %44
   %46 = and i32 %.149.i, 1
@@ -1585,7 +1585,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.149.i20 = phi i32 [ %119, %118 ], [ %.04855.i19, %110 ], [ %.04855.i19, %103 ], [ %.04855.i19, %99 ], [ %.04855.i19, %.preheader27 ]
   %indvars.iv.next61.i21 = add nuw nsw i64 %indvars.iv60.i16, 1
   %exitcond64.not.i22 = icmp eq i64 %indvars.iv.next61.i21, 12
-  br i1 %exitcond64.not.i22, label %121, label %.preheader27, !llvm.loop !59
+  br i1 %exitcond64.not.i22, label %121, label %.preheader27, !llvm.loop !60
 
 121:                                              ; preds = %120
   %122 = and i32 %.149.i20, 1
@@ -1900,11 +1900,11 @@ _ZL10vector_subPKdS0_Pd.exit.critedge:            ; preds = %121, %120, %119, %1
   %133 = getelementptr inbounds nuw [2 x double], ptr %129, i64 0, i64 %indvars.iv.i27
   %134 = load double, ptr %133, align 8, !tbaa !56
   %135 = tail call double @llvm.fmuladd.f64(double %134, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %132)
-  br i1 %131, label %130, label %136, !llvm.loop !63
+  br i1 %131, label %130, label %136, !llvm.loop !64
 
 136:                                              ; preds = %130
   store double %135, ptr %indvars.iv18.i.sroa.phi, align 8, !tbaa !56
-  br i1 %128, label %127, label %_ZL11dot_productPA2_KdPS_Pd.exit, !llvm.loop !64
+  br i1 %128, label %127, label %_ZL11dot_productPA2_KdPS_Pd.exit, !llvm.loop !65
 
 _ZL11dot_productPA2_KdPS_Pd.exit:                 ; preds = %136
   %137 = sitofp i32 %122 to double
@@ -1997,11 +1997,12 @@ attributes #11 = { nounwind }
 !54 = !{!4, !6, i64 104}
 !55 = !{!4, !6, i64 112}
 !56 = !{!14, !14, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58}
-!60 = !{!45, !13, i64 0}
-!61 = !{!45, !13, i64 4}
-!62 = !{!4, !14, i64 184}
-!63 = distinct !{!63, !58}
-!64 = distinct !{!64, !58}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = distinct !{!60, !58, !59}
+!61 = !{!45, !13, i64 0}
+!62 = !{!45, !13, i64 4}
+!63 = !{!4, !14, i64 184}
+!64 = distinct !{!64, !58, !59}
+!65 = distinct !{!65, !58, !59}

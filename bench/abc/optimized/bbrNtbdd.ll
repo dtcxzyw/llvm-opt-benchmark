@@ -185,7 +185,7 @@ define i32 @Aig_ManSizeOfGlobalBdds(ptr noundef readonly captures(none) %0) loca
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !27
-  store i32 %spec.store.select.i, ptr %3, align 8, !tbaa !33
+  store i32 %spec.store.select.i, ptr %3, align 8, !tbaa !34
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_PtrAlloc.exit, label %6
 
@@ -200,7 +200,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %6
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
   %14 = getelementptr i8, ptr %13, i64 4
   %.val1217 = load i32, ptr %14, align 4, !tbaa !27
   %15 = icmp sgt i32 %.val1217, 0
@@ -273,12 +273,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   store ptr %.val, ptr %44, align 8, !tbaa !30
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %45 = load ptr, ptr %12, align 8, !tbaa !34
+  %45 = load ptr, ptr %12, align 8, !tbaa !35
   %46 = getelementptr i8, ptr %45, i64 4
   %.val12 = load i32, ptr %46, align 4, !tbaa !27
   %47 = sext i32 %.val12 to i64
   %48 = icmp slt i64 %indvars.iv.next23, %47
-  br i1 %48, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !35
+  br i1 %48, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !36
 
 ..critedge_crit_edge:                             ; preds = %Vec_PtrPush.exit
   %49 = trunc nsw i64 %indvars.iv.next to i32
@@ -322,14 +322,14 @@ define ptr @Aig_ManComputeGlobalBdds(ptr noundef %0, i32 noundef %1, i32 noundef
 10:                                               ; preds = %9, %5
   tail call void @Aig_ManCleanData(ptr noundef nonnull %0) #8
   %11 = getelementptr i8, ptr %0, i64 48
-  %.val55 = load ptr, ptr %11, align 8, !tbaa !36
+  %.val55 = load ptr, ptr %11, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %.val55, i64 40
   store ptr %13, ptr %14, align 8, !tbaa !8
   tail call void @Cudd_Ref(ptr noundef %13) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !50
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = getelementptr i8, ptr %16, i64 4
   %.val5156 = load i32, ptr %17, align 4, !tbaa !27
   %18 = icmp sgt i32 %.val5156, 0
@@ -346,27 +346,27 @@ define ptr @Aig_ManComputeGlobalBdds(ptr noundef %0, i32 noundef %1, i32 noundef
   %.val53 = load ptr, ptr %22, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !30
-  %25 = load ptr, ptr %19, align 8, !tbaa !51
+  %25 = load ptr, ptr %19, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !52
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %27, ptr %28, align 8, !tbaa !8
-  %29 = load ptr, ptr %19, align 8, !tbaa !51
+  %29 = load ptr, ptr %19, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !52
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
   tail call void @Cudd_Ref(ptr noundef %31) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load ptr, ptr %15, align 8, !tbaa !50
+  %32 = load ptr, ptr %15, align 8, !tbaa !51
   %33 = getelementptr i8, ptr %32, i64 4
   %.val51 = load i32, ptr %33, align 4, !tbaa !27
   %34 = sext i32 %.val51 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %20, label %.critedge, !llvm.loop !53
+  br i1 %35, label %20, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %20, %10
   store i32 0, ptr %6, align 4, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !34
+  %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = getelementptr i8, ptr %37, i64 4
   %.val5058 = load i32, ptr %38, align 4, !tbaa !27
   %39 = icmp sgt i32 %.val5058, 0
@@ -451,12 +451,12 @@ Aig_ManFreeGlobalBdds.exit:                       ; preds = %65, %52
   %76 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %75, ptr %76, align 8, !tbaa !8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %77 = load ptr, ptr %36, align 8, !tbaa !34
+  %77 = load ptr, ptr %36, align 8, !tbaa !35
   %78 = getelementptr i8, ptr %77, i64 4
   %.val50 = load i32, ptr %78, align 4, !tbaa !27
   %79 = sext i32 %.val50 to i64
   %80 = icmp slt i64 %indvars.iv.next63, %79
-  br i1 %80, label %.lr.ph60, label %.critedge2, !llvm.loop !54
+  br i1 %80, label %.lr.ph60, label %.critedge2, !llvm.loop !55
 
 .critedge2:                                       ; preds = %70, %.critedge
   call void @Aig_ManResetRefs(ptr noundef nonnull %0) #8
@@ -544,27 +544,28 @@ attributes #10 = { nounwind allocsize(1) }
 !28 = !{!"Vec_Ptr_t_", !12, i64 0, !12, i64 4, !5, i64 8}
 !29 = !{!28, !5, i64 8}
 !30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!28, !12, i64 0}
-!34 = !{!16, !18, i64 24}
-!35 = distinct !{!35, !32}
-!36 = !{!16, !11, i64 48}
-!37 = !{!38, !40, i64 40}
-!38 = !{!"DdManager", !39, i64 0, !40, i64 40, !40, i64 48, !40, i64 56, !40, i64 64, !40, i64 72, !41, i64 80, !41, i64 88, !12, i64 96, !12, i64 100, !42, i64 104, !42, i64 112, !42, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !12, i64 148, !43, i64 152, !43, i64 160, !44, i64 168, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !42, i64 256, !12, i64 264, !12, i64 268, !12, i64 272, !45, i64 280, !26, i64 288, !42, i64 296, !12, i64 304, !20, i64 312, !20, i64 320, !20, i64 328, !20, i64 336, !45, i64 344, !20, i64 352, !45, i64 360, !12, i64 368, !46, i64 376, !46, i64 384, !45, i64 392, !40, i64 400, !17, i64 408, !45, i64 416, !12, i64 424, !12, i64 428, !12, i64 432, !42, i64 440, !12, i64 448, !12, i64 452, !12, i64 456, !12, i64 460, !42, i64 464, !42, i64 472, !12, i64 480, !12, i64 484, !12, i64 488, !12, i64 492, !12, i64 496, !12, i64 500, !12, i64 504, !12, i64 508, !12, i64 512, !47, i64 520, !47, i64 528, !12, i64 536, !12, i64 540, !12, i64 544, !12, i64 548, !12, i64 552, !12, i64 556, !48, i64 560, !17, i64 568, !49, i64 576, !49, i64 584, !49, i64 592, !49, i64 600, !4, i64 608, !4, i64 616, !12, i64 624, !26, i64 632, !26, i64 640, !26, i64 648, !12, i64 656, !26, i64 664, !26, i64 672, !42, i64 680, !42, i64 688, !42, i64 696, !42, i64 704, !42, i64 712, !42, i64 720, !12, i64 728, !40, i64 736, !40, i64 744, !26, i64 752}
-!39 = !{!"DdNode", !12, i64 0, !12, i64 4, !40, i64 8, !6, i64 16, !26, i64 32}
-!40 = !{!"p1 _ZTS6DdNode", !5, i64 0}
-!41 = !{!"p1 _ZTS7DdCache", !5, i64 0}
-!42 = !{!"double", !6, i64 0}
-!43 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
-!44 = !{!"DdSubtable", !45, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48}
-!45 = !{!"p2 _ZTS6DdNode", !5, i64 0}
-!46 = !{!"p1 long", !5, i64 0}
-!47 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
-!48 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
-!49 = !{!"p1 _ZTS6DdHook", !5, i64 0}
-!50 = !{!16, !18, i64 16}
-!51 = !{!38, !45, i64 344}
-!52 = !{!40, !40, i64 0}
-!53 = distinct !{!53, !32}
-!54 = distinct !{!54, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!28, !12, i64 0}
+!35 = !{!16, !18, i64 24}
+!36 = distinct !{!36, !32, !33}
+!37 = !{!16, !11, i64 48}
+!38 = !{!39, !41, i64 40}
+!39 = !{!"DdManager", !40, i64 0, !41, i64 40, !41, i64 48, !41, i64 56, !41, i64 64, !41, i64 72, !42, i64 80, !42, i64 88, !12, i64 96, !12, i64 100, !43, i64 104, !43, i64 112, !43, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !12, i64 148, !44, i64 152, !44, i64 160, !45, i64 168, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !43, i64 256, !12, i64 264, !12, i64 268, !12, i64 272, !46, i64 280, !26, i64 288, !43, i64 296, !12, i64 304, !20, i64 312, !20, i64 320, !20, i64 328, !20, i64 336, !46, i64 344, !20, i64 352, !46, i64 360, !12, i64 368, !47, i64 376, !47, i64 384, !46, i64 392, !41, i64 400, !17, i64 408, !46, i64 416, !12, i64 424, !12, i64 428, !12, i64 432, !43, i64 440, !12, i64 448, !12, i64 452, !12, i64 456, !12, i64 460, !43, i64 464, !43, i64 472, !12, i64 480, !12, i64 484, !12, i64 488, !12, i64 492, !12, i64 496, !12, i64 500, !12, i64 504, !12, i64 508, !12, i64 512, !48, i64 520, !48, i64 528, !12, i64 536, !12, i64 540, !12, i64 544, !12, i64 548, !12, i64 552, !12, i64 556, !49, i64 560, !17, i64 568, !50, i64 576, !50, i64 584, !50, i64 592, !50, i64 600, !4, i64 608, !4, i64 616, !12, i64 624, !26, i64 632, !26, i64 640, !26, i64 648, !12, i64 656, !26, i64 664, !26, i64 672, !43, i64 680, !43, i64 688, !43, i64 696, !43, i64 704, !43, i64 712, !43, i64 720, !12, i64 728, !41, i64 736, !41, i64 744, !26, i64 752}
+!40 = !{!"DdNode", !12, i64 0, !12, i64 4, !41, i64 8, !6, i64 16, !26, i64 32}
+!41 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!42 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!43 = !{!"double", !6, i64 0}
+!44 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!45 = !{!"DdSubtable", !46, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48}
+!46 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!47 = !{!"p1 long", !5, i64 0}
+!48 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!49 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!50 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!51 = !{!16, !18, i64 16}
+!52 = !{!39, !46, i64 344}
+!53 = !{!41, !41, i64 0}
+!54 = distinct !{!54, !32, !33}
+!55 = distinct !{!55, !32, !33}

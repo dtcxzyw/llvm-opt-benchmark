@@ -876,7 +876,7 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit:            ; preds = %130, %_ZNSt6bitsetI
   %.sroa.0.2 = select i1 %.not70, i64 %164, i64 %162
   %165 = add nuw nsw i64 %.073, 1
   %.not61 = icmp eq i64 %165, 8
-  br i1 %.not61, label %153, label %_ZNSt6bitsetILm8EE9referenceaSEb.exit, !llvm.loop !69
+  br i1 %.not61, label %153, label %_ZNSt6bitsetILm8EE9referenceaSEb.exit, !llvm.loop !70
 
 166:                                              ; preds = %151, %149
   %.pn57 = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ]
@@ -1143,7 +1143,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHas
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1272,8 +1272,9 @@ attributes #22 = { builtin nounwind }
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !66 = distinct !{!66, !"_ZNK2cv11_InputArray6getMatEi"}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68}
-!70 = !{!71, !39, i64 8}
-!71 = !{!"_ZTSSt9type_info", !39, i64 8}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69}
+!71 = !{!72, !39, i64 8}
+!72 = !{!"_ZTSSt9type_info", !39, i64 8}

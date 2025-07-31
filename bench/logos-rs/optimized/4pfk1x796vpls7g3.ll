@@ -121,7 +121,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %42 = icmp eq i64 %.pr, 0
-  br i1 %42, label %._crit_edge, label %.lr.ph
+  br i1 %42, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 43:                                               ; preds = %45, %22
   %44 = landingpad { ptr, i32 }
@@ -198,3 +198,5 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

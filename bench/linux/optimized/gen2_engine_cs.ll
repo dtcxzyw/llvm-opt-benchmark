@@ -127,7 +127,7 @@ define dso_local i32 @gen4_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   store i32 33554432, ptr %49, align 4
   %51 = add nuw nsw i32 %48, 1
   %52 = icmp eq i32 %51, 12
-  br i1 %52, label %53, label %47, !llvm.loop !8
+  br i1 %52, label %53, label %47, !llvm.loop !9
 
 53:                                               ; preds = %47
   %54 = getelementptr i8, ptr %49, i64 8
@@ -205,7 +205,7 @@ define dso_local noundef ptr @gen3_emit_breadcrumb(ptr noundef captures(none) %0
   %13 = getelementptr i8, ptr %7, i64 12
   store i32 %12, ptr %10, align 4
   %14 = icmp eq i32 %8, 0
-  br i1 %14, label %.preheader, label %5, !llvm.loop !9
+  br i1 %14, label %.preheader, label %5, !llvm.loop !10
 
 .preheader:                                       ; preds = %5, %.preheader
   %15 = phi i32 [ %17, %.preheader ], [ 8, %5 ]
@@ -220,7 +220,7 @@ define dso_local noundef ptr @gen3_emit_breadcrumb(ptr noundef captures(none) %0
   %22 = getelementptr i8, ptr %16, i64 12
   store i32 %21, ptr %19, align 4
   %23 = icmp eq i32 %17, 0
-  br i1 %23, label %24, label %.preheader, !llvm.loop !10
+  br i1 %23, label %24, label %.preheader, !llvm.loop !11
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr i8, ptr %16, i64 16
@@ -264,7 +264,7 @@ define dso_local noundef ptr @gen5_emit_breadcrumb(ptr noundef captures(none) %0
   %13 = getelementptr i8, ptr %7, i64 12
   store i32 %12, ptr %10, align 4
   %14 = icmp eq i32 %8, 0
-  br i1 %14, label %.preheader, label %5, !llvm.loop !9
+  br i1 %14, label %.preheader, label %5, !llvm.loop !12
 
 .preheader:                                       ; preds = %5, %.preheader
   %15 = phi i32 [ %17, %.preheader ], [ 8, %5 ]
@@ -279,7 +279,7 @@ define dso_local noundef ptr @gen5_emit_breadcrumb(ptr noundef captures(none) %0
   %22 = getelementptr i8, ptr %16, i64 12
   store i32 %21, ptr %19, align 4
   %23 = icmp eq i32 %17, 0
-  br i1 %23, label %24, label %.preheader, !llvm.loop !10
+  br i1 %23, label %24, label %.preheader, !llvm.loop !13
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr i8, ptr %16, i64 16
@@ -527,7 +527,7 @@ define dso_local void @gen3_irq_enable(ptr noundef readonly captures(none) %0) l
   %20 = load ptr, ptr %16, align 8
   %21 = zext i32 %19 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
-  %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #3, !srcloc !11
+  %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #3, !srcloc !14
   ret void
 }
 
@@ -589,10 +589,13 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i64 2154397762}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{i64 2154397762}

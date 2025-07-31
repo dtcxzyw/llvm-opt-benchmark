@@ -119,7 +119,7 @@ check_retval.exit66:                              ; preds = %31
   store double 1.000000e+00, ptr %gep, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %41, label %40
+  br i1 %exitcond.not, label %41, label %40, !llvm.loop !22
 
 41:                                               ; preds = %40
   %42 = call i32 @KINSetConstraints(ptr noundef nonnull %27, ptr noundef nonnull %21) #7
@@ -217,7 +217,7 @@ check_retval.exit82:                              ; preds = %78
   store double 0x3FE6A09E667F3BCD, ptr %gep125, align 8, !tbaa !20
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 9
-  br i1 %exitcond131.not, label %88, label %87
+  br i1 %exitcond131.not, label %88, label %87, !llvm.loop !24
 
 88:                                               ; preds = %87
   %puts53 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -474,25 +474,25 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %22 = load double, ptr %21, align 8, !tbaa !20
   %23 = tail call double @llvm.fmuladd.f64(double %12, double 4.731000e-03, double -1.238000e-01)
-  %24 = load ptr, ptr %2, align 8, !tbaa !22
+  %24 = load ptr, ptr %2, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
   store double %23, ptr %27, align 8, !tbaa !20
   %28 = tail call double @llvm.fmuladd.f64(double %12, double -3.578000e-01, double -1.637000e-03)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
   store double %28, ptr %30, align 8, !tbaa !20
   %31 = fmul double %10, -3.578000e-01
   %32 = tail call double @llvm.fmuladd.f64(double %8, double 4.731000e-03, double %31)
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
   store double %32, ptr %34, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !31
   store double 0xBFEDE1B089A02752, ptr %36, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !28
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
   store double 1.000000e+00, ptr %38, align 8, !tbaa !20
   %39 = tail call double @llvm.fmuladd.f64(double %12, double 2.238000e-01, double 2.638000e-01)
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -513,11 +513,11 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store double 4.731000e-03, ptr %49, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !28
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double %22, ptr %52, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %54 = load ptr, ptr %53, align 8, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %18, ptr %55, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -538,7 +538,7 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
   store double %64, ptr %65, align 8, !tbaa !20
   %66 = fmul double %16, 2.000000e+00
   %67 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !28
+  %68 = load ptr, ptr %67, align 8, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   store double %66, ptr %69, align 8, !tbaa !20
   %70 = fmul double %18, 2.000000e+00
@@ -556,32 +556,32 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
 76:                                               ; preds = %6, %76
   %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %76 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %77 = load ptr, ptr %gep, align 8, !tbaa !28
+  %77 = load ptr, ptr %gep, align 8, !tbaa !31
   %78 = add nuw nsw i64 %indvars.iv, 7
   %79 = getelementptr inbounds nuw double, ptr %77, i64 %78
   store double -1.000000e+00, ptr %79, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw ptr, ptr %26, i64 %78
-  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %81 = load ptr, ptr %80, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw double, ptr %81, i64 %78
   store double 1.000000e+00, ptr %82, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.preheader, label %76
+  br i1 %exitcond.not, label %.preheader, label %76, !llvm.loop !32
 
 .preheader:                                       ; preds = %76, %.preheader
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader ], [ 1, %76 ]
   %gep68 = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv71
-  %83 = load ptr, ptr %gep68, align 8, !tbaa !28
+  %83 = load ptr, ptr %gep68, align 8, !tbaa !31
   %84 = add nuw nsw i64 %indvars.iv71, 15
   %85 = getelementptr inbounds nuw double, ptr %83, i64 %84
   store double 1.000000e+00, ptr %85, align 8, !tbaa !20
   %86 = getelementptr inbounds nuw ptr, ptr %26, i64 %84
-  %87 = load ptr, ptr %86, align 8, !tbaa !28
+  %87 = load ptr, ptr %86, align 8, !tbaa !31
   %88 = getelementptr inbounds nuw double, ptr %87, i64 %84
   store double 1.000000e+00, ptr %88, align 8, !tbaa !20
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 9
-  br i1 %exitcond74.not, label %89, label %.preheader
+  br i1 %exitcond74.not, label %89, label %.preheader, !llvm.loop !33
 
 89:                                               ; preds = %.preheader
   ret i32 0
@@ -610,7 +610,7 @@ define internal fastcc void @PrintOutput(ptr noundef readonly captures(none) %0)
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, double noundef %8, double noundef %10, double noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %14, label %2
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !34
 
 14:                                               ; preds = %2
   ret void
@@ -684,10 +684,16 @@ attributes #8 = { cold nounwind }
 !19 = !{!"p1 double", !6, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"double", !7, i64 0}
-!22 = !{!23, !6, i64 0}
-!23 = !{!"_generic_SUNMatrix", !6, i64 0, !24, i64 8, !10, i64 16}
-!24 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!25 = !{!26, !27, i64 32}
-!26 = !{!"_SUNMatrixContent_Dense", !17, i64 0, !17, i64 8, !19, i64 16, !17, i64 24, !27, i64 32}
-!27 = !{!"p2 double", !6, i64 0}
-!28 = !{!19, !19, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !23}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"_generic_SUNMatrix", !6, i64 0, !27, i64 8, !10, i64 16}
+!27 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!28 = !{!29, !30, i64 32}
+!29 = !{!"_SUNMatrixContent_Dense", !17, i64 0, !17, i64 8, !19, i64 16, !17, i64 24, !30, i64 32}
+!30 = !{!"p2 double", !6, i64 0}
+!31 = !{!19, !19, i64 0}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}

@@ -267,7 +267,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i.backedge:                  ; preds = %18, %15
   %.be89 = phi ptr [ %16, %15 ], [ %19, %18 ]
-  br label %_ZN4JSON4nextEv.exit.i, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i, !llvm.loop !9
 
 20:                                               ; preds = %13, %.lr.ph.i.preheader.i
   %.0.i.ph = phi i32 [ 47, %.lr.ph.i.preheader.i ], [ %.09.i, %13 ]
@@ -335,7 +335,7 @@ _ZN4JSON4nextEv.exit.i17:                         ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i17.backedge:                ; preds = %43, %40
   %.be = phi ptr [ %41, %40 ], [ %44, %43 ]
-  br label %_ZN4JSON4nextEv.exit.i17, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i17, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit21:                 ; preds = %38
   %.not62 = icmp eq i32 %.09.i14, 0
@@ -398,7 +398,7 @@ _ZN4JSON4nextEv.exit.i27:                         ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i27.backedge:                ; preds = %63, %60
   %.be84 = phi ptr [ %61, %60 ], [ %64, %63 ]
-  br label %_ZN4JSON4nextEv.exit.i27, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i27, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit31:                 ; preds = %58
   %.not = icmp eq i32 %.09.i24, 0
@@ -500,7 +500,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   %97 = phi i32 [ %86, %84 ], [ 0, %93 ], [ %91, %89 ]
   %98 = phi ptr [ %87, %84 ], [ %90, %93 ], [ %90, %89 ]
   %99 = icmp ult ptr %98, %80
-  br i1 %99, label %84, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !9
+  br i1 %99, label %84, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !10
 
 100:                                              ; preds = %76
   %101 = load i32, ptr %21, align 8
@@ -554,7 +554,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   %126 = phi i32 [ %115, %113 ], [ 0, %122 ], [ %120, %118 ]
   %127 = phi ptr [ %116, %113 ], [ %119, %122 ], [ %119, %118 ]
   %128 = icmp ult ptr %127, %109
-  br i1 %128, label %113, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !9
+  br i1 %128, label %113, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !10
 
 129:                                              ; preds = %105
   %130 = load i32, ptr %21, align 8
@@ -608,7 +608,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   %155 = phi i32 [ %144, %142 ], [ 0, %151 ], [ %149, %147 ]
   %156 = phi ptr [ %145, %142 ], [ %148, %151 ], [ %148, %147 ]
   %157 = icmp ult ptr %156, %138
-  br i1 %157, label %142, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !9
+  br i1 %157, label %142, label %_ZN4JSON13skip_to_tokenEv.exit, !llvm.loop !10
 
 158:                                              ; preds = %134
   %159 = load i32, ptr %21, align 8
@@ -683,7 +683,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.backedge:                    ; preds = %15, %18
   %.be = phi ptr [ %16, %15 ], [ %19, %18 ]
-  br label %_ZN4JSON4nextEv.exit, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -738,7 +738,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_objectEv(ptr noundef nonn
   %21 = phi i32 [ %10, %8 ], [ 0, %17 ], [ %15, %13 ]
   %22 = phi ptr [ %11, %8 ], [ %14, %17 ], [ %14, %13 ]
   %23 = icmp ult ptr %22, %4
-  br i1 %23, label %8, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %23, label %8, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %19, %1
   %24 = load i8, ptr %4, align 1
@@ -812,7 +812,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   %51 = phi i32 [ %40, %38 ], [ 0, %47 ], [ %45, %43 ]
   %52 = phi ptr [ %41, %38 ], [ %44, %47 ], [ %44, %43 ]
   %53 = icmp ult ptr %52, %36
-  br i1 %53, label %38, label %_ZN4JSON8mark_posEv.exit13.preheader, !llvm.loop !9
+  br i1 %53, label %38, label %_ZN4JSON8mark_posEv.exit13.preheader, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit13.preheader:             ; preds = %49, %35
   br label %_ZN4JSON8mark_posEv.exit13
@@ -861,7 +861,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
 
 _ZN4JSON8mark_posEv.exit13.backedge:              ; preds = %69, %66
   %.be = phi ptr [ %67, %66 ], [ %70, %69 ]
-  br label %_ZN4JSON8mark_posEv.exit13, !llvm.loop !8
+  br label %_ZN4JSON8mark_posEv.exit13, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %64
   switch i32 %.09.i, label %.thread92 [
@@ -938,7 +938,7 @@ _ZN4JSON4nextEv.exit.i21:                         ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i21.backedge:                ; preds = %92, %90
   %.pre101107.be = phi ptr [ %.pre101, %90 ], [ %93, %92 ]
-  br label %_ZN4JSON4nextEv.exit.i21, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i21, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit25:                 ; preds = %.lr.ph.i.preheader.i23, %88, %85
   %94 = phi ptr [ %.pre101.pre106, %85 ], [ %.pre101, %88 ], [ %.pre101107, %.lr.ph.i.preheader.i23 ]
@@ -978,7 +978,7 @@ _ZN4JSON13skip_to_tokenEv.exit25:                 ; preds = %.lr.ph.i.preheader.
   %109 = phi i32 [ %98, %96 ], [ 0, %105 ], [ %103, %101 ]
   %110 = phi ptr [ %99, %96 ], [ %102, %105 ], [ %102, %101 ]
   %111 = icmp ult ptr %110, %94
-  br i1 %111, label %96, label %_ZN4JSON8mark_posEv.exit32, !llvm.loop !9
+  br i1 %111, label %96, label %_ZN4JSON8mark_posEv.exit32, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit32:                       ; preds = %107, %_ZN4JSON13skip_to_tokenEv.exit25
   %112 = load i8, ptr %94, align 1
@@ -1038,10 +1038,10 @@ _ZN4JSON4nextEv.exit.i47:                         ; preds = %_ZN4JSON4nextEv.exi
 126:                                              ; preds = %124
   %127 = load i8, ptr %.pre103, align 1
   %.not.i.i46 = icmp eq i8 %127, 0
-  br i1 %.not.i.i46, label %_ZN4JSON4nextEv.exit.i47, label %128, !llvm.loop !8
+  br i1 %.not.i.i46, label %_ZN4JSON4nextEv.exit.i47, label %128, !llvm.loop !9
 
 128:                                              ; preds = %126
-  br label %_ZN4JSON4nextEv.exit.i47.sink.split, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i47.sink.split, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit51:                 ; preds = %.lr.ph.i.preheader.i49, %124, %121
   %129 = phi ptr [ %.pre103.pre110, %121 ], [ %.pre103, %124 ], [ %.pre103111, %.lr.ph.i.preheader.i49 ]
@@ -1081,7 +1081,7 @@ _ZN4JSON13skip_to_tokenEv.exit51:                 ; preds = %.lr.ph.i.preheader.
   %144 = phi i32 [ %133, %131 ], [ 0, %140 ], [ %138, %136 ]
   %145 = phi ptr [ %134, %131 ], [ %137, %140 ], [ %137, %136 ]
   %146 = icmp ult ptr %145, %129
-  br i1 %146, label %131, label %_ZN4JSON8mark_posEv.exit58, !llvm.loop !9
+  br i1 %146, label %131, label %_ZN4JSON8mark_posEv.exit58, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit58:                       ; preds = %142, %_ZN4JSON13skip_to_tokenEv.exit51
   %147 = tail call noundef zeroext i1 @_ZN4JSON16parse_json_valueEv(ptr noundef nonnull align 8 dereferenceable(54) %0)
@@ -1137,7 +1137,7 @@ _ZN4JSON4nextEv.exit.i64:                         ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i64.backedge:                ; preds = %162, %160
   %.pre105115.be = phi ptr [ %.pre105, %160 ], [ %163, %162 ]
-  br label %_ZN4JSON4nextEv.exit.i64, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i64, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit68split:            ; preds = %158, %.lr.ph.i.preheader.i66
   %164 = phi ptr [ %.pre105115, %.lr.ph.i.preheader.i66 ], [ %.pre105, %158 ]
@@ -1184,7 +1184,7 @@ _ZN4JSON13skip_to_tokenEv.exit68:                 ; preds = %155, %_ZN4JSON13ski
   %181 = phi i32 [ %170, %168 ], [ 0, %177 ], [ %175, %173 ]
   %182 = phi ptr [ %171, %168 ], [ %174, %177 ], [ %174, %173 ]
   %183 = icmp ult ptr %182, %166
-  br i1 %183, label %168, label %_ZN4JSON8mark_posEv.exit75, !llvm.loop !9
+  br i1 %183, label %168, label %_ZN4JSON8mark_posEv.exit75, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit75:                       ; preds = %179, %_ZN4JSON13skip_to_tokenEv.exit68
   %.promoted.i799 = phi ptr [ %.promoted.i69, %_ZN4JSON13skip_to_tokenEv.exit68 ], [ %182, %179 ]
@@ -1200,7 +1200,7 @@ _ZN4JSON8mark_posEv.exit75:                       ; preds = %179, %_ZN4JSON13ski
 188:                                              ; preds = %.lr.ph.i78
   %189 = add nuw nsw i64 %.020.i79, 1
   %exitcond.not.i80 = icmp eq i64 %189, 2
-  br i1 %exitcond.not.i80, label %._crit_edge.i81, label %.lr.ph.i78, !llvm.loop !10
+  br i1 %exitcond.not.i80, label %._crit_edge.i81, label %.lr.ph.i78, !llvm.loop !11
 
 .lr.ph.i78:                                       ; preds = %_ZN4JSON8mark_posEv.exit75, %188
   %.020.i79 = phi i64 [ %189, %188 ], [ 0, %_ZN4JSON8mark_posEv.exit75 ]
@@ -1217,7 +1217,7 @@ _ZN4JSON8mark_posEv.exit75:                       ; preds = %179, %_ZN4JSON13ski
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit84: ; preds = %.lr.ph.i78
   %194 = getelementptr inbounds nuw i8, ptr %166, i64 1
   store ptr %194, ptr %3, align 8
-  br i1 %.0.i65, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !11
+  br i1 %.0.i65, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !12
 
 _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit84, %75, %72
   %195 = load i32, ptr %27, align 8
@@ -1276,7 +1276,7 @@ define hidden void @_ZN4JSON8mark_posEv(ptr noundef nonnull align 8 captures(non
   %21 = phi i32 [ %10, %8 ], [ 0, %17 ], [ %15, %13 ]
   %22 = phi ptr [ %11, %8 ], [ %14, %17 ], [ %14, %13 ]
   %23 = icmp ult ptr %22, %4
-  br i1 %23, label %8, label %._crit_edge, !llvm.loop !9
+  br i1 %23, label %8, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19, %1
   ret void
@@ -1325,7 +1325,7 @@ define hidden noundef zeroext i1 @_ZN4JSON16parse_json_arrayEv(ptr noundef nonnu
   %21 = phi i32 [ %10, %8 ], [ 0, %17 ], [ %15, %13 ]
   %22 = phi ptr [ %11, %8 ], [ %14, %17 ], [ %14, %13 ]
   %23 = icmp ult ptr %22, %4
-  br i1 %23, label %8, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %23, label %8, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %19, %1
   %24 = load i8, ptr %4, align 1
@@ -1399,7 +1399,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   %51 = phi i32 [ %40, %38 ], [ 0, %47 ], [ %45, %43 ]
   %52 = phi ptr [ %41, %38 ], [ %44, %47 ], [ %44, %43 ]
   %53 = icmp ult ptr %52, %36
-  br i1 %53, label %38, label %_ZN4JSON8mark_posEv.exit13.preheader, !llvm.loop !9
+  br i1 %53, label %38, label %_ZN4JSON8mark_posEv.exit13.preheader, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit13.preheader:             ; preds = %49, %35
   br label %_ZN4JSON8mark_posEv.exit13
@@ -1448,7 +1448,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
 
 _ZN4JSON8mark_posEv.exit13.backedge:              ; preds = %69, %66
   %.be = phi ptr [ %67, %66 ], [ %70, %69 ]
-  br label %_ZN4JSON8mark_posEv.exit13, !llvm.loop !8
+  br label %_ZN4JSON8mark_posEv.exit13, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %64
   switch i32 %.09.i, label %_ZN4JSON13skip_to_tokenEv.exit..thread56_crit_edge [
@@ -1513,7 +1513,7 @@ _ZN4JSON13skip_to_tokenEv.exit..thread56_crit_edge: ; preds = %_ZN4JSON13skip_to
   %92 = phi i32 [ %81, %79 ], [ 0, %88 ], [ %86, %84 ]
   %93 = phi ptr [ %82, %79 ], [ %85, %88 ], [ %85, %84 ]
   %94 = icmp ult ptr %93, %77
-  br i1 %94, label %79, label %_ZN4JSON8mark_posEv.exit22, !llvm.loop !9
+  br i1 %94, label %79, label %_ZN4JSON8mark_posEv.exit22, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit22:                       ; preds = %90, %.thread56
   %95 = tail call noundef zeroext i1 @_ZN4JSON16parse_json_valueEv(ptr noundef nonnull align 8 dereferenceable(54) %0)
@@ -1569,7 +1569,7 @@ _ZN4JSON4nextEv.exit.i28:                         ; preds = %_ZN4JSON4nextEv.exi
 
 _ZN4JSON4nextEv.exit.i28.backedge:                ; preds = %110, %108
   %.pre6567.be = phi ptr [ %.pre65, %108 ], [ %111, %110 ]
-  br label %_ZN4JSON4nextEv.exit.i28, !llvm.loop !8
+  br label %_ZN4JSON4nextEv.exit.i28, !llvm.loop !9
 
 _ZN4JSON13skip_to_tokenEv.exit32split:            ; preds = %106, %.lr.ph.i.preheader.i30
   %112 = phi ptr [ %.pre6567, %.lr.ph.i.preheader.i30 ], [ %.pre65, %106 ]
@@ -1616,7 +1616,7 @@ _ZN4JSON13skip_to_tokenEv.exit32:                 ; preds = %103, %_ZN4JSON13ski
   %129 = phi i32 [ %118, %116 ], [ 0, %125 ], [ %123, %121 ]
   %130 = phi ptr [ %119, %116 ], [ %122, %125 ], [ %122, %121 ]
   %131 = icmp ult ptr %130, %114
-  br i1 %131, label %116, label %_ZN4JSON8mark_posEv.exit39, !llvm.loop !9
+  br i1 %131, label %116, label %_ZN4JSON8mark_posEv.exit39, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit39:                       ; preds = %127, %_ZN4JSON13skip_to_tokenEv.exit32
   %.promoted.i762 = phi ptr [ %.promoted.i33, %_ZN4JSON13skip_to_tokenEv.exit32 ], [ %130, %127 ]
@@ -1632,7 +1632,7 @@ _ZN4JSON8mark_posEv.exit39:                       ; preds = %127, %_ZN4JSON13ski
 136:                                              ; preds = %.lr.ph.i42
   %137 = add nuw nsw i64 %.020.i43, 1
   %exitcond.not.i44 = icmp eq i64 %137, 2
-  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.i42, !llvm.loop !10
+  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.i42, !llvm.loop !11
 
 .lr.ph.i42:                                       ; preds = %_ZN4JSON8mark_posEv.exit39, %136
   %.020.i43 = phi i64 [ %137, %136 ], [ 0, %_ZN4JSON8mark_posEv.exit39 ]
@@ -1649,7 +1649,7 @@ _ZN4JSON8mark_posEv.exit39:                       ; preds = %127, %_ZN4JSON13ski
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit48: ; preds = %.lr.ph.i42
   %142 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %142, ptr %3, align 8
-  br i1 %.0.i29, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !12
+  br i1 %.0.i29, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !13
 
 _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit48, %75, %72
   %143 = load i32, ptr %27, align 8
@@ -1709,7 +1709,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_stringEb(ptr noundef nonn
   %23 = phi i32 [ %12, %10 ], [ 0, %19 ], [ %17, %15 ]
   %24 = phi ptr [ %13, %10 ], [ %16, %19 ], [ %16, %15 ]
   %25 = icmp ult ptr %24, %6
-  br i1 %25, label %10, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %25, label %10, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %21, %2
   %26 = load i8, ptr %6, align 1
@@ -1762,7 +1762,7 @@ _ZN4JSON4nextEv.exit.i9:                          ; preds = %32, %.lr.phthread-p
   %43 = add i64 %.07.i22, -1
   %.not.i10 = icmp eq i64 %43, 0
   %.pre.pre = load i8, ptr %42, align 1
-  br i1 %.not.i10, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !13
+  br i1 %.not.i10, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !14
 
 _ZN4JSON4skipEm.exit:                             ; preds = %_ZN4JSON4nextEv.exit.i9, %32
   %44 = phi i8 [ %37, %32 ], [ %.pre.pre, %_ZN4JSON4nextEv.exit.i9 ]
@@ -1848,7 +1848,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_numberEv(ptr noundef nonn
   %24 = phi i32 [ %13, %11 ], [ 0, %20 ], [ %18, %16 ]
   %25 = phi ptr [ %14, %11 ], [ %17, %20 ], [ %17, %16 ]
   %26 = icmp ult ptr %25, %7
-  br i1 %26, label %11, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %26, label %11, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %22, %1
   %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %7, ptr noundef nonnull @.str.31, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
@@ -1906,7 +1906,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exi
   store ptr %56, ptr %6, align 8
   %57 = add i64 %.07.i4, -1
   %.not.i = icmp eq i64 %57, 0
-  br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !14
 
 58:                                               ; preds = %_ZN4JSON8mark_posEv.exit
   call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 1, ptr noundef nonnull @.str.32)
@@ -1964,7 +1964,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_symbolEPKcNS_9JSON_TYPEE(
   %25 = phi i32 [ %14, %12 ], [ 0, %21 ], [ %19, %17 ]
   %26 = phi ptr [ %15, %12 ], [ %18, %21 ], [ %18, %17 ]
   %27 = icmp ult ptr %26, %8
-  br i1 %27, label %12, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %27, label %12, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2002,7 +2002,7 @@ define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JS
 14:                                               ; preds = %.lr.ph
   %15 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %15, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %.020 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
@@ -2089,7 +2089,7 @@ define hidden noundef zeroext i1 @_ZN4JSON14parse_json_keyEv(ptr noundef nonnull
   %22 = phi i32 [ %11, %9 ], [ 0, %18 ], [ %16, %14 ]
   %23 = phi ptr [ %12, %9 ], [ %15, %18 ], [ %15, %14 ]
   %24 = icmp ult ptr %23, %5
-  br i1 %24, label %9, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %24, label %9, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %20, %1
   %25 = load i8, ptr %5, align 1
@@ -2152,7 +2152,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph, %_ZL7is_wor
   %51 = icmp ult i8 %50, 33
   %52 = icmp eq i8 %50, 58
   %or.cond = or i1 %51, %52
-  br i1 %or.cond, label %_ZL7is_wordh.exit._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %or.cond, label %_ZL7is_wordh.exit._crit_edge, label %.lr.ph, !llvm.loop !15
 
 _ZL7is_wordh.exit._crit_edge:                     ; preds = %_ZN4JSON4nextEv.exit, %_ZL7is_wordh.exit.preheader
   %.lcssa = phi ptr [ %5, %_ZL7is_wordh.exit.preheader ], [ %49, %_ZN4JSON4nextEv.exit ]
@@ -2203,7 +2203,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %2, %.lr.phthread-pr
   store ptr %11, ptr %3, align 8
   %12 = add i64 %.0710, -1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.phthread-pre-split, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.phthread-pre-split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN4JSON4nextEv.exit, %_ZN4JSON4nextEv.exit.thread, %2
   %.0.lcssa = phi i64 [ %1, %2 ], [ %9, %_ZN4JSON4nextEv.exit.thread ], [ %12, %_ZN4JSON4nextEv.exit ]
@@ -2238,7 +2238,7 @@ define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE
 8:                                                ; preds = %21
   %9 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %9, %5
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
 
 10:                                               ; preds = %.lr.ph, %8
   %.024 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
@@ -2288,7 +2288,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %._crit_edge, %.lr.p
   store ptr %26, ptr %23, align 8
   %27 = add i64 %.07.i25, -1
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !14
 
 _ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-split.i, %_ZN4JSON4nextEv.exit.i, %4, %._crit_edge, %22, %20
   %28 = phi i1 [ true, %._crit_edge ], [ false, %22 ], [ false, %20 ], [ true, %4 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
@@ -2314,7 +2314,7 @@ define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr noundef nonnull readonly a
   %10 = icmp ne i64 %8, 0
   %11 = icmp ne i8 %.07, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi i8 [ %.079, %2 ], [ %.07, %.lr.ph ]
@@ -2444,7 +2444,7 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %.preheader, %10
   switch i8 %18, label %.preheader [
     i8 0, label %19
     i8 47, label %40
-  ], !llvm.loop !17
+  ], !llvm.loop !18
 
 19:                                               ; preds = %16, %_ZL10strchrnul_PKci.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2486,7 +2486,7 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %.preheader, %10
   %37 = phi i32 [ %26, %24 ], [ 0, %33 ], [ %31, %29 ]
   %38 = phi ptr [ %27, %24 ], [ %30, %33 ], [ %30, %29 ]
   %39 = icmp ult ptr %38, %3
-  br i1 %39, label %24, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
+  br i1 %39, label %24, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !10
 
 _ZN4JSON8mark_posEv.exit:                         ; preds = %35, %19
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 1, ptr noundef nonnull @.str.45)
@@ -2530,7 +2530,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %2, %_ZN4JSON4nextEv
   %10 = icmp eq i8 %9, 0
   %11 = icmp eq i8 %9, %1
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %._crit_edge, label %_ZN4JSON4nextEv.exit, !llvm.loop !18
+  br i1 %or.cond, label %._crit_edge, label %_ZN4JSON4nextEv.exit, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2594,16 +2594,17 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

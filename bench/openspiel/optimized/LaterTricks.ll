@@ -158,7 +158,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   store i16 %.sink, ptr %92, align 2
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, 4
-  br i1 %exitcond212.not, label %.loopexit, label %52, !llvm.loop !6
+  br i1 %exitcond212.not, label %.loopexit, label %52, !llvm.loop !7
 
 93:                                               ; preds = %8
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -441,7 +441,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   %.1 = phi i32 [ %37, %25 ], [ %.0160204, %20 ], [ %.0160204, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %39, label %17, !llvm.loop !7
+  br i1 %exitcond.not, label %39, label %17, !llvm.loop !8
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1476
@@ -522,7 +522,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   store i16 %.sink, ptr %93, align 2
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 4
-  br i1 %exitcond216.not, label %.loopexit, label %53, !llvm.loop !8
+  br i1 %exitcond216.not, label %.loopexit, label %53, !llvm.loop !9
 
 94:                                               ; preds = %8
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -777,8 +777,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

@@ -784,7 +784,7 @@ define hidden void @rlc_lte_reset_ue_bearers(ptr noundef readonly captures(none)
   br label %31
 
 31:                                               ; preds = %19, %27
-  br i1 %20, label %19, label %17, !llvm.loop !8
+  br i1 %20, label %19, label %17, !llvm.loop !9
 
 .preheader:                                       ; preds = %13, %34
   %.02132 = phi i32 [ 1, %13 ], [ %35, %34 ]
@@ -799,7 +799,7 @@ define hidden void @rlc_lte_reset_ue_bearers(ptr noundef readonly captures(none)
 34:                                               ; preds = %48
   %35 = add nuw nsw i32 %.02132, 1
   %exitcond33.not = icmp eq i32 %35, 33
-  br i1 %exitcond33.not, label %33, label %.preheader, !llvm.loop !9
+  br i1 %exitcond33.not, label %33, label %.preheader, !llvm.loop !10
 
 36:                                               ; preds = %.preheader, %48
   %37 = phi i1 [ true, %.preheader ], [ false, %48 ]
@@ -824,7 +824,7 @@ define hidden void @rlc_lte_reset_ue_bearers(ptr noundef readonly captures(none)
   br label %48
 
 48:                                               ; preds = %36, %44
-  br i1 %37, label %36, label %34, !llvm.loop !10
+  br i1 %37, label %36, label %34, !llvm.loop !11
 
 49:                                               ; preds = %2, %33
   ret void
@@ -1150,7 +1150,7 @@ define internal noundef zeroext i1 @dissect_rlc_lte_heur(ptr noundef %0, ptr nou
 .lr.ph.backedge:                                  ; preds = %.split143.us, %.split139.us, %.split134.us, %.split129.us, %.split124.us, %.split119.us, %.split114.us, %.split109.us
   %.0.ph158.be = phi i8 [ 1, %.split109.us ], [ %.0.ph158, %.split114.us ], [ %.0.ph158, %.split119.us ], [ %.0.ph158, %.split124.us ], [ %.0.ph158, %.split129.us ], [ %.0.ph158, %.split134.us ], [ %.0.ph158, %.split139.us ], [ %.0.ph158, %.split143.us ]
   %.071.ph157.be = phi i32 [ %32, %.split109.us ], [ %34, %.split114.us ], [ %36, %.split119.us ], [ %38, %.split124.us ], [ %40, %.split129.us ], [ %42, %.split134.us ], [ %29, %.split139.us ], [ %45, %.split143.us ]
-  br label %.lr.ph, !llvm.loop !11
+  br label %.lr.ph, !llvm.loop !12
 
 .split.us:                                        ; preds = %.lr.ph
   tail call fastcc void @report_heur_error(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_rlc_lte_unknown_udp_framing_tag, ptr noundef %0, i32 noundef %.071.ph157, i32 noundef 1)
@@ -1715,7 +1715,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %237, %234, %231
   %283 = icmp eq i32 %282, 0
   %284 = and i32 %281, 1
   %285 = icmp eq i32 %284, 0
-  %286 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !12, !noundef !13
+  %286 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !13, !noundef !14
   %287 = trunc nuw i8 %286 to i1
   br i1 %287, label %288, label %show_PDU_in_info.exit170.i
 
@@ -1780,7 +1780,7 @@ show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
   %313 = load i8, ptr @s_number_of_extensions, align 1
   %314 = zext i8 %313 to i64
   %315 = icmp samesign ult i64 %indvars.iv.next213.i, %314
-  br i1 %315, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %315, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !15
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %show_PDU_in_info.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %show_PDU_in_info.exit.i ], [ 0, %.lr.ph.i ]
@@ -1811,7 +1811,7 @@ show_PDU_in_info.exit.i:                          ; preds = %321, %318
   %325 = load i8, ptr @s_number_of_extensions, align 1
   %326 = zext i8 %325 to i64
   %327 = icmp samesign ult i64 %indvars.iv.next.i, %326
-  br i1 %327, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %327, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %show_PDU_in_info.exit.i, %show_PDU_in_info.exit.us.i, %proto_item_set_generated.exit.i
   %.3.lcssa.i = phi i32 [ %.1152.i, %proto_item_set_generated.exit.i ], [ %312, %show_PDU_in_info.exit.us.i ], [ %324, %show_PDU_in_info.exit.i ]
@@ -1911,7 +1911,7 @@ thread-pre-split.i:                               ; preds = %354
   %372 = add i16 %371, %.1189.i
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next216.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %373, label %369, !llvm.loop !17
+  br i1 %exitcond.not.i, label %373, label %369, !llvm.loop !18
 
 373:                                              ; preds = %369
   %374 = add i8 %368, 1
@@ -2008,7 +2008,7 @@ show_PDU_in_info.exit175.i:                       ; preds = %420, %417
   %428 = load i8, ptr @s_number_of_extensions, align 1
   %429 = zext i8 %428 to i64
   %430 = icmp samesign ult i64 %indvars.iv.next218.i, %429
-  br i1 %430, label %.lr.ph193.i, label %.loopexit.i, !llvm.loop !18
+  br i1 %430, label %.lr.ph193.i, label %.loopexit.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %show_PDU_in_info.exit175.i, %385
   %.4.i = phi i32 [ %.2.i, %385 ], [ %427, %show_PDU_in_info.exit175.i ]
@@ -2081,7 +2081,7 @@ proto_item_set_hidden.exit.i172:                  ; preds = %453, %450, %447
   %460 = tail call ptr @proto_item_add_subtree(ptr noundef %458, i32 noundef %459)
   %461 = load i32, ptr @hf_rlc_lte_am_data_control, align 4
   %462 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %460, i32 noundef %461, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
-  %463 = load i8, ptr %15, align 1, !range !12, !noundef !13
+  %463 = load i8, ptr %15, align 1, !range !13, !noundef !14
   %464 = xor i8 %463, 1
   %465 = getelementptr inbounds nuw i8, ptr %31, i64 41
   store i8 %464, ptr %465, align 1
@@ -2261,7 +2261,7 @@ proto_item_set_hidden.exit.i172:                  ; preds = %453, %450, %447
   %.2.i.i = phi i32 [ %.reass.i.i, %560 ], [ %.1.i.i, %543 ]
   %562 = load i64, ptr %11, align 8
   %.not120.i.i = icmp eq i64 %562, 0
-  br i1 %.not120.i.i, label %563, label %495, !llvm.loop !19
+  br i1 %.not120.i.i, label %563, label %495, !llvm.loop !20
 
 563:                                              ; preds = %561
   %.not121.i.i = icmp eq i16 %.1110.i.i, 0
@@ -2482,12 +2482,12 @@ thread-pre-split.i.i:                             ; preds = %590
   %.2.us.i.i.i = phi i16 [ %678, %._crit_edge112.i.i.i ], [ %.16884.us.i.i.i, %672 ], [ %.16884.us.i.i.i, %666 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %666, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %666, !llvm.loop !21
 
 ._crit_edge.us.i.i.i:                             ; preds = %680
   %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 1
   %exitcond105.not.i.i.i = icmp eq i64 %indvars.iv.next103.i.i.i, %wide.trip.count104.i.i.i
-  br i1 %exitcond105.not.i.i.i, label %._crit_edge88.i.i.i, label %.preheader.us.i.i.i, !llvm.loop !21
+  br i1 %exitcond105.not.i.i.i, label %._crit_edge88.i.i.i, label %.preheader.us.i.i.i, !llvm.loop !22
 
 ._crit_edge88.i.i.i:                              ; preds = %._crit_edge.us.i.i.i, %660
   %.067.lcssa.i.i.i = phi i16 [ 0, %660 ], [ %.2.us.i.i.i, %._crit_edge.us.i.i.i ]
@@ -2512,7 +2512,7 @@ thread-pre-split.i.i:                             ; preds = %590
   %688 = getelementptr [512 x i16], ptr %681, i64 0, i64 %indvars.iv106.i.i.i
   store i16 %686, ptr %688, align 2
   %689 = icmp samesign ult i64 %indvars.iv.next107.i.i.i, %682
-  br i1 %689, label %683, label %._crit_edge.i.i.i.loopexit, !llvm.loop !22
+  br i1 %689, label %683, label %._crit_edge.i.i.i.loopexit, !llvm.loop !23
 
 ._crit_edge.i.i.i.loopexit:                       ; preds = %683
   %690 = call i16 @llvm.umin.i16(i16 %.pre, i16 512)
@@ -2906,7 +2906,7 @@ dissect_rlc_lte_am_status_pdu.exit.i:             ; preds = %checkChannelACKWind
   %917 = icmp eq i32 %916, 0
   %918 = and i32 %915, 1
   %919 = icmp eq i32 %918, 0
-  %920 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !12, !noundef !13
+  %920 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !13, !noundef !14
   %921 = trunc nuw i8 %920 to i1
   br i1 %921, label %922, label %show_PDU_in_info.exit230.i
 
@@ -2971,7 +2971,7 @@ show_PDU_in_info.exit.i185:                       ; preds = %946, %943
   %950 = load i8, ptr @s_number_of_extensions, align 1
   %951 = zext i8 %950 to i64
   %952 = icmp samesign ult i64 %indvars.iv.next.i186, %951
-  br i1 %952, label %.lr.ph.i183, label %._crit_edge.loopexit.i, !llvm.loop !23
+  br i1 %952, label %.lr.ph.i183, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %show_PDU_in_info.exit.i185
   %953 = icmp ne i8 %950, 0
@@ -3064,7 +3064,7 @@ thread-pre-split.i180:                            ; preds = %975
   %993 = add i16 %992, %.0197246.i
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
   %exitcond.not.i179 = icmp eq i64 %indvars.iv.next263.i, %wide.trip.count.i178
-  br i1 %exitcond.not.i179, label %994, label %990, !llvm.loop !24
+  br i1 %exitcond.not.i179, label %994, label %990, !llvm.loop !25
 
 994:                                              ; preds = %990
   %995 = load i16, ptr @s_lengths, align 16
@@ -3168,7 +3168,7 @@ show_PDU_in_info.exit235.i:                       ; preds = %1042, %1039
   %1050 = load i8, ptr @s_number_of_extensions, align 1
   %1051 = zext i8 %1050 to i64
   %1052 = icmp samesign ult i64 %indvars.iv.next265.i, %1051
-  br i1 %1052, label %.lr.ph250.i, label %.loopexit.i175, !llvm.loop !25
+  br i1 %1052, label %.lr.ph250.i, label %.loopexit.i175, !llvm.loop !26
 
 .loopexit.i175:                                   ; preds = %show_PDU_in_info.exit235.i, %1029
   %.5.i = phi i32 [ %.3.i, %1029 ], [ %1049, %show_PDU_in_info.exit235.i ]
@@ -3207,7 +3207,7 @@ show_PDU_in_info.exit235.i:                       ; preds = %1042, %1039
   br label %dissect_rlc_lte_am.exit
 
 1072:                                             ; preds = %.loopexit.i175
-  %1073 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !12, !noundef !13
+  %1073 = load i8, ptr @global_rlc_lte_headers_expected, align 1, !range !13, !noundef !14
   %1074 = trunc nuw i8 %1073 to i1
   br i1 %1074, label %dissect_rlc_lte_am.exit, label %1075
 
@@ -3349,14 +3349,14 @@ define internal fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef %1, 
 proto_item_set_hidden.exit:                       ; preds = %5, %13, %16
   %20 = load i32, ptr @hf_rlc_lte_tm_data, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %22 = load i8, ptr @global_rlc_lte_call_rrc_for_ccch, align 1, !range !12, !noundef !13
+  %22 = load i8, ptr @global_rlc_lte_call_rrc_for_ccch, align 1, !range !13, !noundef !14
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %proto_item_set_hidden.exit
   %25 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.324, i32 noundef %25)
-  %.pre = load i8, ptr @global_rlc_lte_call_rrc_for_ccch, align 1, !range !12
+  %.pre = load i8, ptr @global_rlc_lte_call_rrc_for_ccch, align 1, !range !13
   %26 = trunc nuw i8 %.pre to i1
   br i1 %26, label %.thread, label %72
 
@@ -3577,7 +3577,7 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %9 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %.01, i32 noundef 2, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.53)
   %10 = load i32, ptr @ett_rlc_lte_extension_part, align 4
   %11 = call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
-  %12 = load i8, ptr %6, align 4, !range !12, !noundef !13
+  %12 = load i8, ptr %6, align 4, !range !13, !noundef !14
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %26
 
@@ -3625,7 +3625,7 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %45 = icmp ne i64 %44, 0
   %46 = icmp ult i8 %41, -64
   %47 = and i1 %45, %46
-  br i1 %47, label %7, label %._crit_edge, !llvm.loop !26
+  br i1 %47, label %7, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %33
   %48 = and i8 %40, 1
@@ -3634,7 +3634,7 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
 
 49:                                               ; preds = %._crit_edge
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %51 = load i8, ptr %50, align 4, !range !12, !noundef !13
+  %51 = load i8, ptr %50, align 4, !range !13, !noundef !14
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %57
 
@@ -3842,7 +3842,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %129 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %128, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %131 = load i8, ptr %130, align 8, !range !12, !noundef !13
+  %131 = load i8, ptr %130, align 8, !range !13, !noundef !14
   %132 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 %131, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3876,7 +3876,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %149 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %148, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %151 = load i8, ptr %150, align 8, !range !12, !noundef !13
+  %151 = load i8, ptr %150, align 8, !range !13, !noundef !14
   %152 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 %151, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3979,7 +3979,7 @@ reassembly_add_segment.exit:                      ; preds = %163, %164
 
 213:                                              ; preds = %211
   %214 = call i32 @tvb_reported_length(ptr noundef %1)
-  %215 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !12, !noundef !13
+  %215 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !13, !noundef !14
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %217, label %reassembly_add_segment.exit305
 
@@ -4128,7 +4128,7 @@ reassembly_add_segment.exit305:                   ; preds = %223, %222, %213, %2
   %308 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %307, ptr %308, align 4
   %309 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %310 = load i8, ptr %309, align 8, !range !12, !noundef !13
+  %310 = load i8, ptr %309, align 8, !range !13, !noundef !14
   %311 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 %310, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %80, i64 20
@@ -4206,7 +4206,7 @@ reassembly_add_segment.exit307:                   ; preds = %323, %324
 
 350:                                              ; preds = %348
   %351 = call i32 @tvb_reported_length(ptr noundef %1)
-  %352 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !12, !noundef !13
+  %352 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !13, !noundef !14
   %353 = trunc nuw i8 %352 to i1
   br i1 %353, label %354, label %362
 
@@ -4279,7 +4279,7 @@ reassembly_add_segment.exit307:                   ; preds = %323, %324
   %397 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %396, ptr %397, align 4
   %398 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %399 = load i8, ptr %398, align 8, !range !12, !noundef !13
+  %399 = load i8, ptr %398, align 8, !range !13, !noundef !14
   %400 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 %399, ptr %400, align 4
   %401 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
@@ -4405,7 +4405,7 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond, label %31, label %proto_item_set_hidden.exit
 
 31:                                               ; preds = %9
-  %32 = load i8, ptr @global_rlc_lte_call_pdcp_for_srb, align 1, !range !12, !noundef !13
+  %32 = load i8, ptr @global_rlc_lte_call_pdcp_for_srb, align 1, !range !13, !noundef !14
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %38
 
@@ -4690,7 +4690,7 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 162:                                              ; preds = %40, %38
-  %163 = load i8, ptr @global_rlc_lte_call_rrc_for_mcch, align 1, !range !12, !noundef !13
+  %163 = load i8, ptr @global_rlc_lte_call_rrc_for_mcch, align 1, !range !13, !noundef !14
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %207
 
@@ -4809,7 +4809,7 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not5.i149, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 207:                                              ; preds = %165, %162
-  %208 = load i8, ptr @global_rlc_lte_call_ip_for_mtch, align 1, !range !12, !noundef !13
+  %208 = load i8, ptr @global_rlc_lte_call_ip_for_mtch, align 1, !range !13, !noundef !14
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %proto_item_set_hidden.exit
 
@@ -5467,7 +5467,7 @@ proto_item_set_generated.exit265:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit268
 
 proto_item_set_generated.exit268:                 ; preds = %307, %310
-  %314 = load i8, ptr %0, align 4, !range !12, !noundef !13
+  %314 = load i8, ptr %0, align 4, !range !13, !noundef !14
   %315 = trunc nuw i8 %314 to i1
   br i1 %315, label %316, label %proto_item_set_hidden.exit
 
@@ -5484,7 +5484,7 @@ proto_item_set_generated.exit268:                 ; preds = %307, %310
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %proto_item_set_generated.exit268, %301, %318, %316
-  %322 = load i8, ptr %0, align 4, !range !12, !noundef !13
+  %322 = load i8, ptr %0, align 4, !range !13, !noundef !14
   %323 = trunc nuw i8 %322 to i1
   br i1 %323, label %496, label %324
 
@@ -5747,7 +5747,7 @@ proto_item_set_generated.exit288:                 ; preds = %proto_item_set_gene
 
 496:                                              ; preds = %proto_item_set_hidden.exit
   %497 = getelementptr i8, ptr %0, i64 8
-  %.val = load i8, ptr %497, align 4, !range !12, !noundef !13
+  %.val = load i8, ptr %497, align 4, !range !13, !noundef !14
   %498 = trunc nuw i8 %.val to i1
   %499 = load i32, ptr @hf_rlc_lte_sequence_analysis_framing_info_correct, align 4
   br i1 %498, label %500, label %519
@@ -6014,7 +6014,7 @@ define internal fastcc noundef ptr @reassembly_get_reassembled_tvb(ptr noundef n
   %10 = add i32 %.02729, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %6, %3
   %.027.lcssa = phi i32 [ 0, %3 ], [ %10, %6 ]
@@ -6048,11 +6048,11 @@ define internal fastcc noundef ptr @reassembly_get_reassembled_tvb(ptr noundef n
   %29 = select i1 %28, i64 0, i64 %27
   %30 = icmp ne i64 %29, -1
   tail call void @llvm.assume(i1 %30)
-  %31 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef %20, i64 noundef range(i64 0, 65536) %26, i64 noundef %29) #17, !alias.scope !28
+  %31 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef %20, i64 noundef range(i64 0, 65536) %26, i64 noundef %29) #17, !alias.scope !29
   %32 = add i32 %.02831, %23
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %._crit_edge35, label %17, !llvm.loop !32
+  br i1 %exitcond44.not, label %._crit_edge35, label %17, !llvm.loop !33
 
 ._crit_edge35:                                    ; preds = %17, %._crit_edge
   %.028.lcssa = phi i32 [ 0, %._crit_edge ], [ %32, %17 ]
@@ -6104,7 +6104,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %9, %12
   %23 = add i32 %.05575, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %19, %proto_item_set_generated.exit
   %.055.lcssa = phi i32 [ 0, %proto_item_set_generated.exit ], [ %23, %19 ]
@@ -6276,7 +6276,7 @@ proto_item_set_generated.exit74:                  ; preds = %proto_item_set_gene
   %114 = load i16, ptr %0, align 8
   %115 = zext i16 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next84, %115
-  br i1 %116, label %46, label %._crit_edge80, !llvm.loop !34
+  br i1 %116, label %46, label %._crit_edge80, !llvm.loop !35
 
 ._crit_edge80:                                    ; preds = %proto_item_set_generated.exit74, %proto_item_set_generated.exit62
   ret void
@@ -6388,7 +6388,7 @@ proto_item_set_generated.exit31:                  ; preds = %30, %36, %39
   %51 = load i16, ptr %0, align 4
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next, %52
-  br i1 %53, label %30, label %._crit_edge, !llvm.loop !35
+  br i1 %53, label %30, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %proto_item_set_generated.exit31, %proto_item_set_generated.exit28
   %54 = load i32, ptr @hf_rlc_lte_sequence_analysis_repeated_nack_original_frame, align 4
@@ -6488,33 +6488,34 @@ attributes #21 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !15}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8, !16}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = !{!30, !32}
+!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
+!31 = distinct !{!31, !"memcpy.inline"}
+!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}

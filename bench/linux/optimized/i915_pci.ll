@@ -375,7 +375,7 @@ sub_05:                                           ; preds = %10
   store i16 0, ptr %5, align 2, !annotation !5
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 33
-  br i1 %37, label %45, label %38, !llvm.loop !8
+  br i1 %37, label %45, label %38, !llvm.loop !9
 
 38:                                               ; preds = %.lr.ph.split
   %39 = call i32 @kstrtou16(ptr noundef nonnull %35, i32 noundef 16, ptr noundef nonnull %5) #5
@@ -389,7 +389,7 @@ sub_05:                                           ; preds = %10
 .backedge:                                        ; preds = %38, %45
   %44 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
   %.not14 = icmp eq ptr %44, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not14, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 45:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
@@ -440,8 +440,10 @@ attributes #6 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = distinct !{!12, !7}

@@ -142,7 +142,7 @@ define hidden void @_ZN7CmdLineC2EPKcmb(ptr noundef nonnull writeonly align 8 ca
 20:                                               ; preds = %.lr.ph20
   %21 = getelementptr inbounds nuw i8, ptr %.119, i64 1
   %22 = icmp ult ptr %21, %6
-  br i1 %22, label %.lr.ph20, label %.critedge2, !llvm.loop !8
+  br i1 %22, label %.lr.ph20, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph20, %20, %.preheader
   %.1.lcssa = phi ptr [ %.lcssa, %.preheader ], [ %21, %20 ], [ %.119, %.lr.ph20 ]
@@ -199,7 +199,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %17 = add i64 %12, 1
   store i64 %17, ptr %6, align 8
   %exitcond.not = icmp eq i64 %17, %7
-  br i1 %exitcond.not, label %.critedge.thread, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge.thread, label %11, !llvm.loop !10
 
 .critedge:                                        ; preds = %11, %.preheader
   %.lcssa43.promoted = phi i64 [ %.promoted, %.preheader ], [ %12, %11 ]
@@ -284,7 +284,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br i1 %.old, label %.lr.ph55.backedge, label %._crit_edge
 
 .lr.ph55.backedge:                                ; preds = %51, %47
-  br label %.lr.ph55, !llvm.loop !10
+  br label %.lr.ph55, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %51, %47
   %52 = icmp eq i8 %45, %40
@@ -299,7 +299,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %56 = add i64 %.lcssa43.promoted54, 1
   store i64 %56, ptr %6, align 8
   %.not = icmp ugt i64 %56, %7
-  br i1 %.not, label %.critedge2.thread, label %33, !llvm.loop !11
+  br i1 %.not, label %.critedge2.thread, label %33, !llvm.loop !12
 
 .critedge2.thread:                                ; preds = %55, %33, %29
   %57 = phi i64 [ %.lcssa43.promoted84, %29 ], [ %56, %55 ], [ %.lcssa43.promoted54, %33 ]
@@ -387,7 +387,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br i1 %.old71, label %.lr.ph67.backedge, label %._crit_edge68
 
 .lr.ph67.backedge:                                ; preds = %92, %88
-  br label %.lr.ph67, !llvm.loop !12
+  br label %.lr.ph67, !llvm.loop !13
 
 ._crit_edge68:                                    ; preds = %92, %88
   %93 = icmp eq i8 %86, %81
@@ -402,7 +402,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %97 = add i64 %.lcssa43.promoted65, 1
   store i64 %97, ptr %6, align 8
   %.not29 = icmp ugt i64 %97, %7
-  br i1 %.not29, label %.critedge4, label %74, !llvm.loop !13
+  br i1 %.not29, label %.critedge4, label %74, !llvm.loop !14
 
 .critedge4:                                       ; preds = %74, %96, %69
   %.lcssa = phi i64 [ %70, %69 ], [ %97, %96 ], [ %.lcssa43.promoted65, %74 ]
@@ -463,7 +463,7 @@ define hidden void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !14
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !15
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -513,7 +513,7 @@ define hidden void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %.preheader, !llvm.loop !15
+  br i1 %.not, label %9, label %.preheader, !llvm.loop !16
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -605,7 +605,7 @@ define hidden void @_ZN10DCmdParser5parseEP7CmdLinecP10JavaThread(ptr noundef no
   %37 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   %38 = load ptr, ptr %23, align 8
@@ -645,7 +645,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   %53 = call noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(57) %6, ptr noundef nonnull %3)
   %54 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %54, null
-  br i1 %.not33, label %25, label %.loopexit35, !llvm.loop !17
+  br i1 %.not33, label %25, label %.loopexit35, !llvm.loop !18
 
 55:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
@@ -679,7 +679,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %.0.i27 = load ptr, ptr %.0.in.i, align 8
   %.not.i28 = icmp eq ptr %.0.i27, null
-  br i1 %.not.i28, label %.preheader.i, label %.lr.ph.i26, !llvm.loop !18
+  br i1 %.not.i28, label %.preheader.i, label %.lr.ph.i26, !llvm.loop !19
 
 .lr.ph23.i:                                       ; preds = %.preheader.i, %79
   %.122.i = phi ptr [ %.1.i, %79 ], [ %.120.i, %.preheader.i ]
@@ -702,7 +702,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   %80 = getelementptr inbounds nuw i8, ptr %.122.i, i64 8
   %.1.i = load ptr, ptr %80, align 8
   %.not13.i = icmp eq ptr %.1.i, null
-  br i1 %.not13.i, label %_ZN10DCmdParser5checkEP10JavaThread.exit, label %.lr.ph23.i, !llvm.loop !19
+  br i1 %.not13.i, label %_ZN10DCmdParser5checkEP10JavaThread.exit, label %.lr.ph23.i, !llvm.loop !20
 
 .loopexit.sink.split.i:                           ; preds = %59, %71
   %.122.lcssa.sink.i = phi ptr [ %.122.i, %71 ], [ %.019.i, %59 ]
@@ -746,7 +746,7 @@ define hidden noundef ptr @_ZN10DCmdParser18lookup_dcmd_optionEPKcm(ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %8, %11, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ null, %11 ], [ %.013, %8 ]
@@ -794,7 +794,7 @@ define hidden void @_ZN10DCmdParser5checkEP10JavaThread(ptr noundef nonnull read
   %.0.in = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !19
 
 .lr.ph23:                                         ; preds = %.preheader, %27
   %.122 = phi ptr [ %.1, %27 ], [ %.120, %.preheader ]
@@ -817,7 +817,7 @@ define hidden void @_ZN10DCmdParser5checkEP10JavaThread(ptr noundef nonnull read
   %28 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %.1 = load ptr, ptr %28, align 8
   %.not13 = icmp eq ptr %.1, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph23, !llvm.loop !19
+  br i1 %.not13, label %.loopexit, label %.lr.ph23, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %7, %19
   %.122.lcssa.sink = phi ptr [ %.122, %19 ], [ %.019, %7 ]
@@ -863,7 +863,7 @@ define hidden void @_ZNK10DCmdParser10print_helpEP12outputStreamPKc(ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
@@ -908,7 +908,7 @@ define hidden void @_ZNK10DCmdParser10print_helpEP12outputStreamPKc(ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %.149, i64 8
   %.1 = load ptr, ptr %31, align 8
   %.not38 = icmp eq ptr %.1, null
-  br i1 %.not38, label %.loopexit43, label %.lr.ph51, !llvm.loop !21
+  br i1 %.not38, label %.loopexit43, label %.lr.ph51, !llvm.loop !22
 
 .loopexit43:                                      ; preds = %30, %15, %._crit_edge
   %32 = load ptr, ptr %0, align 8
@@ -952,7 +952,7 @@ define hidden void @_ZNK10DCmdParser10print_helpEP12outputStreamPKc(ptr noundef 
   %49 = getelementptr inbounds nuw i8, ptr %.254, i64 8
   %.2 = load ptr, ptr %49, align 8
   %.not40 = icmp eq ptr %.2, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph56, !llvm.loop !22
+  br i1 %.not40, label %.loopexit, label %.lr.ph56, !llvm.loop !23
 
 .loopexit:                                        ; preds = %48, %33, %.loopexit43
   ret void
@@ -988,13 +988,13 @@ define hidden void @_ZN10DCmdParser5resetEP10JavaThread(ptr noundef nonnull read
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(51) %.0, ptr noundef %1) #19
   %9 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %9, null
-  br i1 %.not12, label %4, label %.loopexit, !llvm.loop !23
+  br i1 %.not12, label %4, label %.loopexit, !llvm.loop !24
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.117, i64 8
   %.1 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %.1, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %.117 = phi ptr [ %.1, %10 ], [ %.115, %.preheader ]
@@ -1031,7 +1031,7 @@ define hidden void @_ZN10DCmdParser7cleanupEv(ptr noundef nonnull readonly align
   %.0.in = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !26
 
 .lr.ph15:                                         ; preds = %.preheader, %.lr.ph15
   %.114 = phi ptr [ %.1, %.lr.ph15 ], [ %.112, %.preheader ]
@@ -1042,7 +1042,7 @@ define hidden void @_ZN10DCmdParser7cleanupEv(ptr noundef nonnull readonly align
   %8 = getelementptr inbounds nuw i8, ptr %.114, i64 8
   %.1 = load ptr, ptr %8, align 8
   %.not7 = icmp eq ptr %.1, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph15, !llvm.loop !26
+  br i1 %.not7, label %._crit_edge, label %.lr.ph15, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph15, %.preheader
   ret void
@@ -1059,7 +1059,7 @@ define hidden noundef i32 @_ZNK10DCmdParser13num_argumentsEv(ptr noundef nonnull
   %.07 = load ptr, ptr %.07.in, align 8
   %.not = icmp eq ptr %.07, null
   %3 = add nuw nsw i32 %.0, 1
-  br i1 %.not, label %.preheader, label %2, !llvm.loop !27
+  br i1 %.not, label %.preheader, label %2, !llvm.loop !28
 
 .preheader:                                       ; preds = %2
   %.1810 = load ptr, ptr %0, align 8
@@ -1073,7 +1073,7 @@ define hidden noundef i32 @_ZNK10DCmdParser13num_argumentsEv(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %.1813, i64 8
   %.18 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %.18, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %4, %.lr.ph ]
@@ -1091,7 +1091,7 @@ define hidden noundef ptr @_ZNK10DCmdParser19argument_name_arrayEv(ptr noundef n
   %.07.i = load ptr, ptr %.07.in.i, align 8
   %.not.i = icmp eq ptr %.07.i, null
   %3 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %.preheader.i, label %2, !llvm.loop !27
+  br i1 %.not.i, label %.preheader.i, label %2, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %2
   %.1810.i = load ptr, ptr %0, align 8
@@ -1105,7 +1105,7 @@ define hidden noundef ptr @_ZNK10DCmdParser19argument_name_arrayEv(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %.1813.i, i64 8
   %.18.i = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %.18.i, null
-  br i1 %.not9.i, label %_ZNK10DCmdParser13num_argumentsEv.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not9.i, label %_ZNK10DCmdParser13num_argumentsEv.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZNK10DCmdParser13num_argumentsEv.exit:           ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.i, %.preheader.i ], [ %4, %.lr.ph.i ]
@@ -1172,7 +1172,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %.0.in = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !30
 
 .lr.ph23:                                         ; preds = %.preheader, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14
   %.122 = phi ptr [ %.1, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14 ], [ %.120, %.preheader ]
@@ -1208,7 +1208,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14: ; 
   %50 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %.1 = load ptr, ptr %50, align 8
   %.not10 = icmp eq ptr %.1, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph23, !llvm.loop !30
+  br i1 %.not10, label %._crit_edge, label %.lr.ph23, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14, %.preheader
   ret ptr %6
@@ -1225,7 +1225,7 @@ define hidden noundef ptr @_ZNK10DCmdParser19argument_info_arrayEv(ptr noundef n
   %.07.i = load ptr, ptr %.07.in.i, align 8
   %.not.i = icmp eq ptr %.07.i, null
   %3 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %.preheader.i, label %2, !llvm.loop !27
+  br i1 %.not.i, label %.preheader.i, label %2, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %2
   %.1810.i = load ptr, ptr %0, align 8
@@ -1239,7 +1239,7 @@ define hidden noundef ptr @_ZNK10DCmdParser19argument_info_arrayEv(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %.1813.i, i64 8
   %.18.i = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %.18.i, null
-  br i1 %.not9.i, label %_ZNK10DCmdParser13num_argumentsEv.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not9.i, label %_ZNK10DCmdParser13num_argumentsEv.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZNK10DCmdParser13num_argumentsEv.exit:           ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.i, %.preheader.i ], [ %4, %.lr.ph.i ]
@@ -1336,7 +1336,7 @@ _ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendE
   %.0.in = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !32
 
 .lr.ph37:                                         ; preds = %.preheader, %_ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendERKS1_.exit27
   %.136 = phi ptr [ %.1, %_ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendERKS1_.exit27 ], [ %.134, %.preheader ]
@@ -1400,7 +1400,7 @@ _ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendE
   %91 = getelementptr inbounds nuw i8, ptr %.136, i64 8
   %.1 = load ptr, ptr %91, align 8
   %.not23 = icmp eq ptr %.1, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph37, !llvm.loop !32
+  br i1 %.not23, label %._crit_edge, label %.lr.ph37, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendERKS1_.exit27, %.preheader
   ret ptr %6
@@ -1436,41 +1436,41 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.backedge
   %.sroa.7.04150 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
   %.05.i = phi i64 [ %.sroa.7.04150, %.lr.ph.i ], [ %25, %24 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %.05.i
-  %23 = load i8, ptr %22, align 1, !noalias !33
+  %23 = load i8, ptr %22, align 1, !noalias !34
   %.not.i = icmp eq i8 %23, 10
   br i1 %.not.i, label %.critedge.i, label %24
 
 24:                                               ; preds = %21
   %25 = add i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %25, %10
-  br i1 %exitcond.not.i, label %.critedge.i, label %21, !llvm.loop !36
+  br i1 %exitcond.not.i, label %.critedge.i, label %21, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %24, %21
   %.0.lcssa.i = phi i64 [ %10, %24 ], [ %.05.i, %21 ]
   %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04150
   %27 = sub i64 %.0.lcssa.i, %.sroa.7.04150
-  store ptr %26, ptr %6, align 8, !alias.scope !33
+  store ptr %26, ptr %6, align 8, !alias.scope !34
   %28 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i
   %29 = icmp sgt i64 %27, 0
   br i1 %29, label %.lr.ph.i.preheader.i, label %.critedge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.critedge.i
-  %30 = load i8, ptr %26, align 1, !noalias !33
+  %30 = load i8, ptr %26, align 1, !noalias !34
   %31 = zext i8 %30 to i32
-  %32 = call i32 @isspace(i32 noundef %31) #18, !noalias !33
+  %32 = call i32 @isspace(i32 noundef %31) #18, !noalias !34
   %.not.i8.i = icmp eq i32 %32, 0
   br i1 %.not.i8.i, label %.critedge.i.loopexit.i, label %.lr.ph9.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph9.i
-  %33 = load i8, ptr %37, align 1, !noalias !33
+  %33 = load i8, ptr %37, align 1, !noalias !34
   %34 = zext i8 %33 to i32
-  %35 = call i32 @isspace(i32 noundef %34) #18, !noalias !33
+  %35 = call i32 @isspace(i32 noundef %34) #18, !noalias !34
   %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %.critedge.i.loopexit.i, label %.lr.ph9.i, !llvm.loop !6
 
@@ -1485,7 +1485,7 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i
   %39 = phi ptr [ %37, %..critedge.i.loopexit_crit_edge.i ], [ %26, %.lr.ph.i.preheader.i ], [ %37, %.lr.ph.i.i ]
-  store ptr %39, ptr %6, align 8, !alias.scope !33
+  store ptr %39, ptr %6, align 8, !alias.scope !34
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.loopexit.i, %.critedge.i
@@ -1495,27 +1495,27 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .lr.ph20.i.i:                                     ; preds = %.critedge.i.i, %45
   %.119.i.i = phi ptr [ %46, %45 ], [ %40, %.critedge.i.i ]
-  %42 = load i8, ptr %.119.i.i, align 1, !noalias !33
+  %42 = load i8, ptr %.119.i.i, align 1, !noalias !34
   %43 = zext i8 %42 to i32
-  %44 = call i32 @isspace(i32 noundef %43) #18, !noalias !33
+  %44 = call i32 @isspace(i32 noundef %43) #18, !noalias !34
   %.not16.i.i = icmp eq i32 %44, 0
   br i1 %.not16.i.i, label %45, label %_ZN8DCmdIter4nextEv.exit
 
 45:                                               ; preds = %.lr.ph20.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.119.i.i, i64 1
   %47 = icmp ult ptr %46, %28
-  br i1 %47, label %.lr.ph20.i.i, label %_ZN8DCmdIter4nextEv.exit, !llvm.loop !8
+  br i1 %47, label %.lr.ph20.i.i, label %_ZN8DCmdIter4nextEv.exit, !llvm.loop !9
 
 _ZN8DCmdIter4nextEv.exit:                         ; preds = %.lr.ph20.i.i, %45, %.critedge.i.i
   %.1.lcssa.i.i = phi ptr [ %40, %.critedge.i.i ], [ %46, %45 ], [ %.119.i.i, %.lr.ph20.i.i ]
   %48 = ptrtoint ptr %.1.lcssa.i.i to i64
   %49 = ptrtoint ptr %40 to i64
   %50 = sub i64 %48, %49
-  store i64 %50, ptr %12, align 8, !alias.scope !33
-  store ptr %.1.lcssa.i.i, ptr %14, align 8, !alias.scope !33
+  store i64 %50, ptr %12, align 8, !alias.scope !34
+  store ptr %.1.lcssa.i.i, ptr %14, align 8, !alias.scope !34
   %51 = ptrtoint ptr %28 to i64
   %52 = sub i64 %51, %48
-  store i64 %52, ptr %13, align 8, !alias.scope !33
+  store i64 %52, ptr %13, align 8, !alias.scope !34
   %53 = add i64 %.0.lcssa.i, 1
   %54 = icmp eq ptr %.1.lcssa.i.i, %40
   br i1 %54, label %_ZNK7CmdLine13is_executableEv.exit.thread, label %_ZNK7CmdLine7is_stopEv.exit
@@ -1582,7 +1582,7 @@ _ZNK7CmdLine13is_executableEv.exit.thread:        ; preds = %_ZN8DCmdIter4nextEv
 85:                                               ; preds = %.lr.ph20.i
   %86 = getelementptr inbounds nuw i8, ptr %.119.i, i64 1
   %87 = icmp ult ptr %86, %73
-  br i1 %87, label %.lr.ph20.i, label %_ZN7CmdLineC2EPKcmb.exit, !llvm.loop !8
+  br i1 %87, label %.lr.ph20.i, label %_ZN7CmdLineC2EPKcmb.exit, !llvm.loop !9
 
 _ZN7CmdLineC2EPKcmb.exit:                         ; preds = %.lr.ph20.i, %85, %.critedge.i22
   %.1.lcssa.i = phi ptr [ %.sroa.027.0, %.critedge.i22 ], [ %.119.i, %.lr.ph20.i ], [ %86, %85 ]
@@ -1671,7 +1671,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %116, %118
   br i1 %.old43, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %120, %_ZN12ResourceMarkD2Ev.exit
-  br i1 %11, label %19, label %.lr.ph.i, !llvm.loop !37
+  br i1 %11, label %19, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit:                                        ; preds = %120, %_ZNK7CmdLine7is_stopEv.exit, %_ZN12ResourceMarkD2Ev.exit, %9, %5, %19
   ret void
@@ -1740,7 +1740,7 @@ sub_1:                                            ; preds = %sub_0
   %31 = load ptr, ptr %4, align 8
   %32 = call ptr @strtok_r(ptr noundef %31, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #19
   %.not.not = icmp eq ptr %32, null
-  br i1 %.not.not, label %.loopexit, label %sub_0, !llvm.loop !38
+  br i1 %.not.not, label %.loopexit, label %sub_0, !llvm.loop !39
 
 .loopexit:                                        ; preds = %30, %2, %20
   %.not10 = phi i1 [ true, %20 ], [ false, %2 ], [ false, %30 ]
@@ -1800,7 +1800,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %9, %4
   %28 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.0.i = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %27, %23, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %.010.i = phi ptr [ %..0.i, %23 ], [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ null, %27 ]
@@ -1894,13 +1894,13 @@ define hidden void @_ZN14DCmdWithParser5resetEP10JavaThread(ptr noundef nonnull 
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(51) %.0.i, ptr noundef %1) #19
   %10 = load ptr, ptr %4, align 8
   %.not12.i = icmp eq ptr %10, null
-  br i1 %.not12.i, label %5, label %_ZN10DCmdParser5resetEP10JavaThread.exit, !llvm.loop !23
+  br i1 %.not12.i, label %5, label %_ZN10DCmdParser5resetEP10JavaThread.exit, !llvm.loop !24
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %.1.i = load ptr, ptr %12, align 8
   %.not11.i = icmp eq ptr %.1.i, null
-  br i1 %.not11.i, label %_ZN10DCmdParser5resetEP10JavaThread.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not11.i, label %_ZN10DCmdParser5resetEP10JavaThread.exit, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %11
   %.117.i = phi ptr [ %.1.i, %11 ], [ %.115.i, %.preheader.i ]
@@ -1938,7 +1938,7 @@ define hidden void @_ZN14DCmdWithParser7cleanupEv(ptr noundef nonnull readonly a
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !26
 
 .lr.ph15.i:                                       ; preds = %.preheader.i, %.lr.ph15.i
   %.114.i = phi ptr [ %.1.i, %.lr.ph15.i ], [ %.112.i, %.preheader.i ]
@@ -1949,7 +1949,7 @@ define hidden void @_ZN14DCmdWithParser7cleanupEv(ptr noundef nonnull readonly a
   %9 = getelementptr inbounds nuw i8, ptr %.114.i, i64 8
   %.1.i = load ptr, ptr %9, align 8
   %.not7.i = icmp eq ptr %.1.i, null
-  br i1 %.not7.i, label %_ZN10DCmdParser7cleanupEv.exit, label %.lr.ph15.i, !llvm.loop !26
+  br i1 %.not7.i, label %_ZN10DCmdParser7cleanupEv.exit, label %.lr.ph15.i, !llvm.loop !27
 
 _ZN10DCmdParser7cleanupEv.exit:                   ; preds = %.lr.ph15.i, %.preheader.i
   ret void
@@ -2073,7 +2073,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %1
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8, !nonnull !40, !noundef !40
+  %35 = load ptr, ptr %34, align 8, !nonnull !41, !noundef !41
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -2249,7 +2249,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
   %24 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.0 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %23, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %19
   %.010 = phi ptr [ %..0, %19 ], [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ null, %23 ]
@@ -2401,7 +2401,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %38 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %.0 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %37, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %39
@@ -2525,7 +2525,7 @@ _ZN26GrowableArrayWithAllocatorIP8DCmdInfo13GrowableArrayIS1_EE6appendERKS1_.exi
   %62 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.0 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %61, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %63
@@ -2721,7 +2721,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !43
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !44
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2737,7 +2737,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !44
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !45
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2827,7 +2827,7 @@ _ZN13GrowableArrayIP16DCmdArgumentInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !45
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !46
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2843,7 +2843,7 @@ _ZN13GrowableArrayIP16DCmdArgumentInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !46
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !47
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2924,7 +2924,7 @@ _ZN13GrowableArrayIP8DCmdInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !47
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !48
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2940,7 +2940,7 @@ _ZN13GrowableArrayIP8DCmdInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !48
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !49
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3005,46 +3005,47 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN8DCmdIter4nextEv: argument 0"}
-!35 = distinct !{!35, !"_ZN8DCmdIter4nextEv"}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = !{}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN8DCmdIter4nextEv: argument 0"}
+!36 = distinct !{!36, !"_ZN8DCmdIter4nextEv"}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = !{}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}

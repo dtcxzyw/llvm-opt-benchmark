@@ -54,11 +54,11 @@ define void @_ZN14pingora_limits9estimator9Estimator5reset17hff7d6eee1fa5c102E(p
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 8
   store atomic i64 0, ptr %.sroa.0.06.i.i.i monotonic, align 8
   %12 = icmp eq ptr %11, %9
-  br i1 %12, label %"_ZN14pingora_limits9estimator9Estimator5reset28_$u7b$$u7b$closure$u7d$$u7d$17h019bee0bde0696beE.exit.i", label %.lr.ph.i.i.i
+  br i1 %12, label %"_ZN14pingora_limits9estimator9Estimator5reset28_$u7b$$u7b$closure$u7d$$u7d$17h019bee0bde0696beE.exit.i", label %.lr.ph.i.i.i, !llvm.loop !18
 
 "_ZN14pingora_limits9estimator9Estimator5reset28_$u7b$$u7b$closure$u7d$$u7d$17h019bee0bde0696beE.exit.i": ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %13 = icmp eq ptr %7, %5
-  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf615cc2be1db8a6bE.exit", label %.lr.ph.i
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf615cc2be1db8a6bE.exit", label %.lr.ph.i, !llvm.loop !20
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf615cc2be1db8a6bE.exit": ; preds = %"_ZN14pingora_limits9estimator9Estimator5reset28_$u7b$$u7b$closure$u7d$$u7d$17h019bee0bde0696beE.exit.i", %1
   ret void
@@ -105,3 +105,6 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !15 = !{!6, !9}
 !16 = !{}
 !17 = !{i64 8}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}

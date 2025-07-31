@@ -3142,7 +3142,7 @@ define linkonce_odr void @_ZN6icu_776number4impl31CurrencyPluralInfoAffixProvide
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
   tail call void @_ZN6icu_776number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %.ptr1) #16
   %7 = icmp eq i64 %.add, 8
-  br i1 %7, label %8, label %2
+  br i1 %7, label %8, label %2, !llvm.loop !130
 
 8:                                                ; preds = %2
   tail call void @_ZN6icu_776number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -3169,7 +3169,7 @@ define linkonce_odr void @_ZN6icu_776number4impl31CurrencyPluralInfoAffixProvide
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
   tail call void @_ZN6icu_776number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %.ptr1.i) #16
   %7 = icmp eq i64 %.add.i, 8
-  br i1 %7, label %_ZN6icu_776number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit, label %2
+  br i1 %7, label %_ZN6icu_776number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit, label %2, !llvm.loop !130
 
 _ZN6icu_776number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %2
   tail call void @_ZN6icu_776number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %0) #16
@@ -3385,5 +3385,7 @@ attributes #18 = { noreturn nounwind }
 !124 = !{!"char16_t", !7, i64 0}
 !125 = !{!126, !14, i64 8}
 !126 = !{!"_ZTSN6icu_779ErrorCodeE", !14, i64 8}
-!127 = distinct !{!127, !128}
+!127 = distinct !{!127, !128, !129}
 !128 = !{!"llvm.loop.mustprogress"}
+!129 = !{!"llvm.loop.estimated_trip_count"}
+!130 = distinct !{!130, !129}

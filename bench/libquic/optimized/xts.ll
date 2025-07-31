@@ -190,7 +190,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
   store i8 %59, ptr %60, align 1, !tbaa !22
   %indvars.iv.next87.i = add nuw i64 %indvars.iv86.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next87.i, %.1.lcssa.i
-  br i1 %exitcond89.not.i, label %._crit_edge79.loopexit.i, label %.lr.ph78.i, !llvm.loop !29
+  br i1 %exitcond89.not.i, label %._crit_edge79.loopexit.i, label %.lr.ph78.i, !llvm.loop !30
 
 ._crit_edge79.loopexit.i:                         ; preds = %.lr.ph78.i
   %.pre93.i = load i64, ptr %6, align 8, !tbaa !22
@@ -270,7 +270,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
   store i8 %107, ptr %108, align 1, !tbaa !22
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.1.lcssa.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph76.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph76.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph76.i
   %.pre91.i = load i64, ptr %6, align 8, !tbaa !22
@@ -425,7 +425,8 @@ attributes #8 = { nounwind }
 !24 = !{!"long", !10, i64 0}
 !25 = !{!16, !9, i64 16}
 !26 = !{!16, !9, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = distinct !{!31, !28, !29}

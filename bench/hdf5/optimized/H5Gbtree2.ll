@@ -254,9 +254,9 @@ define internal noundef i32 @H5G__dense_btree2_corder_store(ptr noundef writeonl
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %11, ptr %12, align 8, !tbaa !41
+  store i64 %11, ptr %12, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(7) %13, i64 7, i1 false)
   br label %14
@@ -277,9 +277,9 @@ define internal noundef i32 @H5G__dense_btree2_corder_compare(ptr noundef readon
 
 .sink.split:                                      ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !43
+  %11 = load i64, ptr %10, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !41
+  %13 = load i64, ptr %12, align 8, !tbaa !42
   %.sink = tail call i32 @llvm.scmp.i32.i64(i64 %11, i64 %13)
   store i32 %.sink, ptr %2, align 4, !tbaa !22
   br label %14
@@ -300,7 +300,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_encode(ptr noundef writeon
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !41
+  %12 = load i64, ptr %11, align 8, !tbaa !42
   br label %13
 
 13:                                               ; preds = %10, %13
@@ -313,7 +313,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_encode(ptr noundef writeon
   %16 = add nuw nsw i64 %.01418, 1
   %17 = ashr i64 %.01617, 8
   %exitcond.not = icmp eq i64 %16, 8
-  br i1 %exitcond.not, label %18, label %13, !llvm.loop !44
+  br i1 %exitcond.not, label %18, label %13, !llvm.loop !45
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -336,7 +336,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_decode(ptr noundef readonl
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !41
+  store i64 0, ptr %11, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
@@ -349,10 +349,10 @@ define internal noundef i32 @H5G__dense_btree2_corder_decode(ptr noundef readonl
   %17 = load i8, ptr %16, align 1, !tbaa !35
   %18 = zext i8 %17 to i64
   %19 = or disjoint i64 %15, %18
-  store i64 %19, ptr %11, align 8, !tbaa !41
+  store i64 %19, ptr %11, align 8, !tbaa !42
   %20 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %20, 8
-  br i1 %exitcond.not, label %21, label %13, !llvm.loop !45
+  br i1 %exitcond.not, label %21, label %13, !llvm.loop !46
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %.01011, i64 7
@@ -375,7 +375,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_debug(ptr noundef captures
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !41
+  %14 = load i64, ptr %13, align 8, !tbaa !42
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %14) #10
   br label %16
 
@@ -390,7 +390,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_debug(ptr noundef captures
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.9, i32 noundef %20, ptr noundef nonnull %21) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !47
 
 .loopexit:                                        ; preds = %16, %5
   ret i32 0
@@ -433,7 +433,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_fh_name_cmp(ptr noundef %0, i64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !47
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %23, ptr %24, align 8, !tbaa !32
@@ -537,14 +537,15 @@ attributes #12 = { nounwind willreturn memory(read) }
 !35 = !{!5, !5, i64 0}
 !36 = !{!37, !37, i64 0}
 !37 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!11, !18, i64 32}
-!41 = !{!42, !18, i64 8}
-!42 = !{!"H5G_dense_bt2_corder_rec_t", !5, i64 0, !18, i64 8}
-!43 = !{!12, !18, i64 32}
-!44 = distinct !{!44, !39}
-!45 = distinct !{!45, !39}
-!46 = distinct !{!46, !39}
-!47 = !{!48, !16, i64 24}
-!48 = !{!"H5O_link_t", !17, i64 0, !4, i64 4, !18, i64 8, !17, i64 16, !16, i64 24, !5, i64 32}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!11, !18, i64 32}
+!42 = !{!43, !18, i64 8}
+!43 = !{!"H5G_dense_bt2_corder_rec_t", !5, i64 0, !18, i64 8}
+!44 = !{!12, !18, i64 32}
+!45 = distinct !{!45, !39, !40}
+!46 = distinct !{!46, !39, !40}
+!47 = distinct !{!47, !39, !40}
+!48 = !{!49, !16, i64 24}
+!49 = !{!"H5O_link_t", !17, i64 0, !4, i64 4, !18, i64 8, !17, i64 16, !16, i64 24, !5, i64 32}

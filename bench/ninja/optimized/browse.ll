@@ -573,5 +573,6 @@ attributes #21 = { noreturn nounwind }
 !14 = !{!"any p2 pointer", !6, i64 0}
 !15 = !{!12, !13, i64 16}
 !16 = !{!12, !13, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!"llvm.loop.estimated_trip_count"}

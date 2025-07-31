@@ -259,7 +259,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %.1 = phi i8 [ %.091154, %109 ], [ 1, %101 ], [ 1, %99 ]
   %114 = load ptr, ptr %0, align 8
   %115 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %114, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %115, label %61, label %._crit_edge
+  br i1 %115, label %61, label %._crit_edge, !llvm.loop !6
 
 116:                                              ; preds = %._crit_edge, %105
   %.096145 = phi i64 [ %.096.lcssa, %._crit_edge ], [ %.096151, %105 ]
@@ -673,7 +673,7 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %44, label %45, label %96
 
 45:                                               ; preds = %42
-  %46 = load i8, ptr %16, align 8, !range !6, !noundef !7
+  %46 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %55, label %48
 
@@ -1061,7 +1061,7 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   %147 = sub i64 %.089.i123.i, %145
   %.not.i124.i = icmp ne i64 %147, 0
   %or.cond.not.i125.i = and i1 %146, %.not.i124.i
-  br i1 %or.cond.not.i125.i, label %.preheader136.i, label %s0write.exit126.i, !llvm.loop !8
+  br i1 %or.cond.not.i125.i, label %.preheader136.i, label %s0write.exit126.i, !llvm.loop !10
 
 s0write.exit126.i:                                ; preds = %.preheader136.i
   br i1 %146, label %148, label %lanalyzer_dump_header.exit
@@ -1138,7 +1138,7 @@ s0write.exit126.i:                                ; preds = %.preheader136.i
   %170 = sub i64 %.089.i131.i, %168
   %.not.i132.i = icmp ne i64 %170, 0
   %or.cond.not.i133.i = and i1 %169, %.not.i132.i
-  br i1 %or.cond.not.i133.i, label %.preheader.i, label %lanalyzer_dump_header.exit, !llvm.loop !8
+  br i1 %or.cond.not.i133.i, label %.preheader.i, label %lanalyzer_dump_header.exit, !llvm.loop !10
 
 lanalyzer_dump_header.exit:                       ; preds = %.preheader.i, %3, %44, %47, %49, %51, %53, %55, %57, %59, %61, %63, %68, %74, %80, %84, %89, %94, %98, %103, %108, %.preheader140.preheader.i, %113, %117, %121, %125, %.preheader139.preheader.i, %.preheader138.preheader.i, %131, %133, %135, %137, %.preheader137.preheader.i, %142, %s0write.exit126.i, %148, %.preheader135.preheader.i, %151, %153, %155, %157, %160, %162, %164, %166
   store i64 %34, ptr %33, align 8
@@ -1212,7 +1212,9 @@ attributes #12 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !11, !7}
+!11 = !{!"llvm.loop.mustprogress"}

@@ -134,16 +134,19 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   call void @_ZN8id_arena6add_id17h96739e7e49f18929E(ptr nonnull sret({ [2 x i64], ptr }) align 8 %11, i64 %47, ptr align 8 %48, i32 %49)
   %50 = load ptr, ptr %20, align 8, !noundef !4
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %._crit_edge, label %42
+  br i1 %51, label %._crit_edge, label %42, !llvm.loop !6
+
+..loopexit_crit_edge:                             ; preds = %100
+  br label %.backedge, !llvm.loop !8
 
 ._crit_edge19:                                    ; preds = %.backedge, %._crit_edge
   ret void
 
 52:                                               ; preds = %.lr.ph18, %.backedge
   %53 = phi i8 [ %36, %.lr.ph18 ], [ %75, %.backedge ]
-  %54 = load ptr, ptr %38, align 8, !nonnull !4, !align !6, !noundef !4
+  %54 = load ptr, ptr %38, align 8, !nonnull !4, !align !9, !noundef !4
   %55 = trunc nuw i8 %53 to i1
-  %56 = load i64, ptr %54, align 8, !range !7, !noundef !4
+  %56 = load i64, ptr %54, align 8, !range !10, !noundef !4
   %57 = add nsw i64 %56, -2
   %58 = icmp ult i64 %57, 3
   %59 = select i1 %58, i64 %57, i64 1
@@ -177,12 +180,12 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %54, i1 zeroext %55)
   br label %.backedge
 
-.backedge:                                        ; preds = %.lr.ph16, %._crit_edge14, %74, %77
+.backedge:                                        ; preds = %._crit_edge14, %..loopexit_crit_edge, %74, %77
   call void @_ZN4core4iter8adapters5chain17and_then_or_clear17haf6d79ed9ff7e7e7E(ptr nonnull sret({ i8, [23 x i8] }) align 8 %5, ptr nonnull align 8 %9)
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17he39cba0a2e1b0caaE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %5, ptr nonnull align 8 %35)
   %75 = load i8, ptr %8, align 8, !range !5, !noundef !4
   %76 = icmp eq i8 %75, 2
-  br i1 %76, label %._crit_edge19, label %52
+  br i1 %76, label %._crit_edge19, label %52, !llvm.loop !8
 
 77:                                               ; preds = %52
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -202,7 +205,10 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   %87 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
   %88 = extractvalue { ptr, ptr } %87, 0
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.backedge, label %.lr.ph16
+  br i1 %89, label %.backedge, label %.lr.ph16, !llvm.loop !8
+
+.lr.ph16:                                         ; preds = %._crit_edge14
+  br label %100, !llvm.loop !8
 
 .lr.ph13:                                         ; preds = %61, %.lr.ph13
   %90 = phi { ptr, ptr } [ %97, %.lr.ph13 ], [ %71, %61 ]
@@ -216,18 +222,18 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   %97 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ba2a01b5b63969fE"(ptr nonnull align 8 %7)
   %98 = extractvalue { ptr, ptr } %97, 0
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %._crit_edge14, label %.lr.ph13
+  br i1 %99, label %._crit_edge14, label %.lr.ph13, !llvm.loop !11
 
-.lr.ph16:                                         ; preds = %._crit_edge14, %.lr.ph16
-  %100 = phi { ptr, ptr } [ %103, %.lr.ph16 ], [ %87, %._crit_edge14 ]
-  %101 = extractvalue { ptr, ptr } %100, 1
-  %102 = icmp ne ptr %101, null
-  call void @llvm.assume(i1 %102)
-  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %101, i1 zeroext %55)
-  %103 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
-  %104 = extractvalue { ptr, ptr } %103, 0
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.backedge, label %.lr.ph16
+100:                                              ; preds = %.lr.ph16, %100
+  %101 = phi { ptr, ptr } [ %87, %.lr.ph16 ], [ %104, %100 ]
+  %102 = extractvalue { ptr, ptr } %101, 1
+  %103 = icmp ne ptr %102, null
+  call void @llvm.assume(i1 %103)
+  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %102, i1 zeroext %55)
+  %104 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
+  %105 = extractvalue { ptr, ptr } %104, 0
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %..loopexit_crit_edge, label %100, !llvm.loop !12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -300,7 +306,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %40 = load i64, ptr %39, align 8, !range !8, !noundef !4
+  %40 = load i64, ptr %39, align 8, !range !13, !noundef !4
   %cond55 = icmp eq i64 %40, 13
   br i1 %cond55, label %41, label %.noexc
 
@@ -329,7 +335,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
           to label %55 unwind label %.loopexit63
 
 55:                                               ; preds = %.backedge68
-  %56 = load i64, ptr %19, align 8, !range !9, !noundef !4
+  %56 = load i64, ptr %19, align 8, !range !14, !noundef !4
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %58, label %59
 
@@ -402,7 +408,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
           to label %84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 76:                                               ; preds = %72
-  %77 = load i64, ptr %71, align 8, !range !8, !noundef !4
+  %77 = load i64, ptr %71, align 8, !range !13, !noundef !4
   %cond56 = icmp eq i64 %77, 13
   br i1 %cond56, label %78, label %.noexc53
 
@@ -430,7 +436,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
           to label %91 unwind label %.loopexit.split-lp.loopexit
 
 91:                                               ; preds = %.backedge60
-  %92 = load i64, ptr %13, align 8, !range !9, !noundef !4
+  %92 = load i64, ptr %13, align 8, !range !14, !noundef !4
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %94, label %95
 
@@ -464,12 +470,12 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
           to label %108 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
 105:                                              ; preds = %102
-  %106 = load i64, ptr %101, align 8, !range !8, !noundef !4
+  %106 = load i64, ptr %101, align 8, !range !13, !noundef !4
   %107 = icmp eq i64 %106, 13
   br i1 %107, label %109, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %105, %115, %135, %119
-  br label %.backedge
+  br label %.backedge, !llvm.loop !15
 
 108:                                              ; preds = %104
   call void @"_ZN4core3ptr48drop_in_place$LT$wit_parser..live..LiveTypes$GT$17h5bb8742ced60dd86E"(ptr nonnull align 8 %22)
@@ -485,13 +491,13 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %117 = load i64, ptr %116, align 8, !range !8, !noundef !4
+  %117 = load i64, ptr %116, align 8, !range !13, !noundef !4
   %118 = icmp eq i64 %117, 8
   br i1 %118, label %119, label %.backedge.backedge
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %121 = load i64, ptr %120, align 8, !range !10, !noundef !4
+  %121 = load i64, ptr %120, align 8, !range !16, !noundef !4
   %cond = icmp eq i64 %121, 13
   br i1 %cond, label %122, label %.backedge.backedge
 
@@ -533,12 +539,12 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 138:                                              ; preds = %95
   %139 = getelementptr inbounds nuw i8, ptr %98, i64 80
-  %140 = load i64, ptr %139, align 8, !range !11, !noundef !4
+  %140 = load i64, ptr %139, align 8, !range !17, !noundef !4
   %.not23 = icmp eq i64 %140, -9223372036854775808
   br i1 %.not23, label %.backedge60.backedge, label %141
 
 .backedge60.backedge:                             ; preds = %138, %145
-  br label %.backedge60
+  br label %.backedge60, !llvm.loop !18
 
 141:                                              ; preds = %138
   %142 = invoke align 1 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h7fb09df1ad624528E"(ptr align 8 %0, ptr nonnull align 8 %12)
@@ -555,7 +561,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 .noexc53:                                         ; preds = %76, %78
   invoke void @_ZN10wit_parser4live9LiveTypes8add_type17h8202ea5248302791E(ptr nonnull align 8 %17, ptr align 8 %1, ptr nonnull align 8 %71)
-          to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !19
 
 147:                                              ; preds = %.loopexit.split-lp, %.loopexit.split-lp64
   %148 = landingpad { ptr, i32 }
@@ -565,12 +571,12 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 149:                                              ; preds = %59
   %150 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  %151 = load i64, ptr %150, align 8, !range !11, !noundef !4
+  %151 = load i64, ptr %150, align 8, !range !17, !noundef !4
   %.not = icmp eq i64 %151, -9223372036854775808
   br i1 %.not, label %.backedge68.backedge, label %152
 
 .backedge68.backedge:                             ; preds = %149, %158, %159
-  br label %.backedge68
+  br label %.backedge68, !llvm.loop !20
 
 152:                                              ; preds = %149
   %153 = invoke align 1 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h7fb09df1ad624528E"(ptr align 8 %0, ptr nonnull align 8 %18)
@@ -598,7 +604,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 .noexc:                                           ; preds = %38, %41
   invoke void @_ZN10wit_parser4live9LiveTypes8add_type17h8202ea5248302791E(ptr nonnull align 8 %22, ptr align 8 %1, ptr nonnull align 8 %39)
-          to label %32 unwind label %.loopexit.split-lp64.loopexit
+          to label %32 unwind label %.loopexit.split-lp64.loopexit, !llvm.loop !21
 
 161:                                              ; preds = %.loopexit.split-lp64
   resume { ptr, i32 } %.pn
@@ -644,7 +650,7 @@ define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info1
   %15 = load i32, ptr %10, align 8, !noundef !4
   %16 = call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %13, i64 %14, i32 %15, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.15)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i64, ptr %17, align 8, !range !8, !noundef !4
+  %18 = load i64, ptr %17, align 8, !range !13, !noundef !4
   switch i64 %18, label %default.unreachable538 [
     i64 0, label %20
     i64 1, label %45
@@ -843,7 +849,7 @@ default.unreachable538:                           ; preds = %12
 
 76:                                               ; preds = %12
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %78 = load i64, ptr %77, align 8, !range !8, !noundef !4
+  %78 = load i64, ptr %77, align 8, !range !13, !noundef !4
   switch i64 %78, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit [
     i64 12, label %79
     i64 13, label %80
@@ -893,7 +899,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit: ; pred
 
 86:                                               ; preds = %12
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %88 = load i64, ptr %87, align 8, !range !10, !noundef !4
+  %88 = load i64, ptr %87, align 8, !range !16, !noundef !4
   %89 = icmp eq i64 %88, 14
   br i1 %89, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, label %90
 
@@ -931,7 +937,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %.sroa.0.0.insert.insert.i82 = or disjoint i40 %93, %.sroa.4.0.insert.insert.i77
   store i40 %.sroa.0.0.insert.insert.i82, ptr %8, align 8
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %95 = load i64, ptr %94, align 8, !range !10, !noundef !4
+  %95 = load i64, ptr %94, align 8, !range !16, !noundef !4
   %96 = icmp eq i64 %95, 14
   br i1 %96, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, label %97
 
@@ -995,7 +1001,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
 
 121:                                              ; preds = %12
   %122 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %123 = load i64, ptr %122, align 8, !range !8, !noundef !4
+  %123 = load i64, ptr %122, align 8, !range !13, !noundef !4
   switch i64 %123, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138 [
     i64 12, label %124
     i64 13, label %125
@@ -1047,7 +1053,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; p
 
 131:                                              ; preds = %12
   %132 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %133 = load i64, ptr %132, align 8, !range !10, !noundef !4
+  %133 = load i64, ptr %132, align 8, !range !16, !noundef !4
   %134 = icmp eq i64 %133, 14
   br i1 %134, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, label %135
 
@@ -1088,7 +1094,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
 
 137:                                              ; preds = %12
   %138 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %139 = load i64, ptr %138, align 8, !range !10, !noundef !4
+  %139 = load i64, ptr %138, align 8, !range !16, !noundef !4
   %140 = icmp eq i64 %139, 14
   br i1 %140, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, label %141
 
@@ -1126,7 +1132,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %.sroa.0.0.insert.insert.i193 = or disjoint i40 %144, %.sroa.4.0.insert.insert.i188
   store i40 %.sroa.0.0.insert.insert.i193, ptr %8, align 8
   %145 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %146 = load i64, ptr %145, align 8, !range !10, !noundef !4
+  %146 = load i64, ptr %145, align 8, !range !16, !noundef !4
   %147 = icmp eq i64 %146, 14
   br i1 %147, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, label %148
 
@@ -1190,7 +1196,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
 
 172:                                              ; preds = %12
   %173 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %174 = load i64, ptr %173, align 8, !range !8, !noundef !4
+  %174 = load i64, ptr %173, align 8, !range !13, !noundef !4
   switch i64 %174, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251 [
     i64 12, label %175
     i64 13, label %176
@@ -1249,7 +1255,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251: ; p
   %186 = phi i1 [ %208, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %30, %.lr.ph465.preheader ]
   %187 = phi i1 [ %209, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %31, %.lr.ph465.preheader ]
   %188 = phi i1 [ %210, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %32, %.lr.ph465.preheader ]
-  %189 = load i64, ptr %183, align 8, !range !8, !noundef !4
+  %189 = load i64, ptr %183, align 8, !range !13, !noundef !4
   switch i64 %189, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 [
     i64 12, label %190
     i64 13, label %191
@@ -1289,7 +1295,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279: ; p
   %210 = or i1 %.sroa.7.0.i261, %188
   %211 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4300f30c2ec56335E"(ptr nonnull align 8 %7)
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %.loopexit.loopexit, label %.lr.ph465
+  br i1 %212, label %.loopexit.loopexit, label %.lr.ph465, !llvm.loop !22
 
 .lr.ph449:                                        ; preds = %.lr.ph449.preheader, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
   %213 = phi ptr [ %241, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %57, %.lr.ph449.preheader ]
@@ -1298,7 +1304,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279: ; p
   %216 = phi i1 [ %238, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %60, %.lr.ph449.preheader ]
   %217 = phi i1 [ %239, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %61, %.lr.ph449.preheader ]
   %218 = phi i1 [ %240, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %62, %.lr.ph449.preheader ]
-  %219 = load i64, ptr %213, align 8, !range !8, !noundef !4
+  %219 = load i64, ptr %213, align 8, !range !13, !noundef !4
   switch i64 %219, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 [
     i64 12, label %220
     i64 13, label %221
@@ -1338,7 +1344,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; p
   %240 = or i1 %.sroa.7.0.i290, %218
   %241 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %.loopexit429.loopexit, label %.lr.ph449
+  br i1 %242, label %.loopexit429.loopexit, label %.lr.ph449, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
   %243 = phi ptr [ %271, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %70, %.lr.ph.preheader ]
@@ -1347,7 +1353,7 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; p
   %246 = phi i1 [ %268, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %73, %.lr.ph.preheader ]
   %247 = phi i1 [ %269, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %74, %.lr.ph.preheader ]
   %248 = phi i1 [ %270, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %75, %.lr.ph.preheader ]
-  %249 = load i64, ptr %243, align 8, !range !10, !noundef !4
+  %249 = load i64, ptr %243, align 8, !range !16, !noundef !4
   switch i64 %249, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 [
     i64 13, label %251
     i64 12, label %250
@@ -1387,12 +1393,12 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %270 = or i1 %.sroa.6.0.i323, %248
   %271 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %.loopexit430.loopexit, label %.lr.ph
+  br i1 %272, label %.loopexit430.loopexit, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #1 {
-  %4 = load i64, ptr %2, align 8, !range !8, !noundef !4
+  %4 = load i64, ptr %2, align 8, !range !13, !noundef !4
   switch i64 %4, label %5 [
     i64 12, label %6
     i64 13, label %7
@@ -1611,9 +1617,22 @@ attributes #12 = { cold noreturn nounwind }
 !3 = !{i8 0, i8 2}
 !4 = !{}
 !5 = !{i8 0, i8 3}
-!6 = !{i64 8}
-!7 = !{i64 0, i64 5}
-!8 = !{i64 0, i64 14}
-!9 = !{i64 0, i64 2}
-!10 = !{i64 0, i64 15}
-!11 = !{i64 0, i64 -9223372036854775807}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = !{i64 8}
+!10 = !{i64 0, i64 5}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i64 0, i64 14}
+!14 = !{i64 0, i64 2}
+!15 = distinct !{!15, !7}
+!16 = !{i64 0, i64 15}
+!17 = !{i64 0, i64 -9223372036854775807}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

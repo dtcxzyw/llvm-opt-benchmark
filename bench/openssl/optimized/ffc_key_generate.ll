@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @ossl_ffc_generate_private_key(ptr noundef %0, ptr no
 38:                                               ; preds = %36
   %39 = tail call i32 @BN_cmp(ptr noundef %4, ptr noundef %33) #2
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %.loopexit, label %34
+  br i1 %40, label %.loopexit, label %34, !llvm.loop !13
 
 .loopexit:                                        ; preds = %38, %34, %36, %20, %23, %5
   %.027 = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %23 ], [ 1, %38 ], [ 0, %34 ], [ 0, %36 ]
@@ -121,3 +121,5 @@ attributes #2 = { nounwind }
 !10 = !{!"long", !7, i64 0}
 !11 = !{!"int", !7, i64 0}
 !12 = !{!4, !11, i64 88}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}

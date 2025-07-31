@@ -1545,7 +1545,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
 112:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !7
 
 map_typename_pattern.exit:                        ; preds = %112, %.tail.thread, %107
   %.09.i = phi ptr [ null, %.tail.thread ], [ %111, %107 ], [ %101, %112 ]
@@ -1564,7 +1564,7 @@ map_typename_pattern.exit:                        ; preds = %112, %.tail.thread,
 116:                                              ; preds = %114, %map_typename_pattern.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond112.not, label %.thread, label %sub_0, !llvm.loop !7
+  br i1 %exitcond112.not, label %.thread, label %sub_0, !llvm.loop !8
 
 .thread:                                          ; preds = %116, %.preheader
   %117 = icmp ne ptr %1, null
@@ -1691,7 +1691,7 @@ define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef ze
 23:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !7
 
 map_typename_pattern.exit:                        ; preds = %23, %12, %13, %18
   %.09.i = phi ptr [ %22, %18 ], [ null, %13 ], [ null, %12 ], [ %0, %23 ]
@@ -1850,7 +1850,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
 51:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !7
 
 map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, %46
   %.09.i = phi ptr [ null, %.tail.thread ], [ %50, %46 ], [ %40, %51 ]
@@ -1869,7 +1869,7 @@ map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, 
 55:                                               ; preds = %53, %map_typename_pattern.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %sub_0, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread, label %sub_0, !llvm.loop !9
 
 .thread:                                          ; preds = %55, %27
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.127) #8
@@ -2286,7 +2286,7 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 19:                                               ; preds = %14
-  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %25, label %22
 
@@ -2309,7 +2309,7 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
   %27 = add nuw nsw i32 %.02833, 1
   %28 = call i32 @PQntuples(ptr noundef nonnull %13) #8
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %.02833 = phi i32 [ %27, %26 ], [ 0, %.preheader ]
@@ -2425,7 +2425,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   br i1 %37, label %38, label %sub_01304
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %986, label %41
 
@@ -2745,7 +2745,7 @@ sub_1:                                            ; preds = %.tail1283
   %174 = add nuw nsw i32 %.3985, 1
   %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %176 = icmp slt i32 %175, 140000
-  %177 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 405), align 1, !range !9
+  %177 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 405), align 1, !range !10
   %178 = trunc nuw i8 %177 to i1
   %or.cond26 = select i1 %176, i1 true, i1 %178
   br i1 %or.cond26, label %182, label %179
@@ -2979,7 +2979,7 @@ sub_1:                                            ; preds = %.tail1283
   call void @printTableAddHeader(ptr noundef nonnull %7, ptr noundef %252, i1 noundef zeroext true, i8 noundef signext 108) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1439, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader1439, label %.lr.ph, !llvm.loop !13
 
 .lr.ph1443:                                       ; preds = %.preheader1439, %308
   %.19771441 = phi i32 [ %309, %308 ], [ 0, %.preheader1439 ]
@@ -3142,7 +3142,7 @@ sub_11309:                                        ; preds = %sub_01308
 308:                                              ; preds = %305, %306
   %309 = add nuw nsw i32 %.19771441, 1
   %exitcond1522.not = icmp eq i32 %309, %191
-  br i1 %exitcond1522.not, label %._crit_edge, label %.lr.ph1443, !llvm.loop !13
+  br i1 %exitcond1522.not, label %._crit_edge, label %.lr.ph1443, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %308, %.preheader1439
   br i1 %87, label %310, label %342
@@ -3665,7 +3665,7 @@ sub_01384:                                        ; preds = %.tail1379.thread, %
   call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext 105, i32 noundef %500, i1 noundef zeroext false)
   %501 = add nuw nsw i32 %.21444, 1
   %exitcond1523.not = icmp eq i32 %501, %434
-  br i1 %exitcond1523.not, label %.loopexit1438, label %sub_01348, !llvm.loop !14
+  br i1 %exitcond1523.not, label %.loopexit1438, label %sub_01348, !llvm.loop !15
 
 .loopexit1438:                                    ; preds = %.tail1383.thread, %433
   call void @PQclear(ptr noundef nonnull %432) #8
@@ -3701,7 +3701,7 @@ sub_01384:                                        ; preds = %.tail1379.thread, %
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %514) #8
   %515 = add nuw nsw i32 %.31445, 1
   %exitcond1524.not = icmp eq i32 %515, %508
-  br i1 %exitcond1524.not, label %.loopexit1437, label %511, !llvm.loop !15
+  br i1 %exitcond1524.not, label %.loopexit1437, label %511, !llvm.loop !16
 
 .loopexit1437:                                    ; preds = %511, %507
   call void @PQclear(ptr noundef nonnull %506) #8
@@ -3786,7 +3786,7 @@ sub_01388:                                        ; preds = %532, %548
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %549) #8
   %550 = add nuw nsw i32 %.41446, 1
   %exitcond1525.not = icmp eq i32 %550, %530
-  br i1 %exitcond1525.not, label %.loopexit1436, label %sub_01388, !llvm.loop !16
+  br i1 %exitcond1525.not, label %.loopexit1436, label %sub_01388, !llvm.loop !17
 
 .loopexit1436:                                    ; preds = %548, %529
   call void @PQclear(ptr noundef nonnull %528) #8
@@ -3830,7 +3830,7 @@ sub_01388:                                        ; preds = %532, %548
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %569) #8
   %570 = add nuw nsw i32 %.51447, 1
   %exitcond1526.not = icmp eq i32 %570, %559
-  br i1 %exitcond1526.not, label %.loopexit1435, label %565, !llvm.loop !17
+  br i1 %exitcond1526.not, label %.loopexit1435, label %565, !llvm.loop !18
 
 .loopexit1435:                                    ; preds = %565, %558
   call void @PQclear(ptr noundef nonnull %557) #8
@@ -3958,7 +3958,7 @@ sub_01388:                                        ; preds = %532, %548
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %609) #8
   %610 = add nuw nsw i32 %.61448, 1
   %exitcond1527.not = icmp eq i32 %610, %579
-  br i1 %exitcond1527.not, label %._crit_edge1451, label %.lr.ph1450, !llvm.loop !18
+  br i1 %exitcond1527.not, label %._crit_edge1451, label %.lr.ph1450, !llvm.loop !19
 
 ._crit_edge1451:                                  ; preds = %608, %586
   call void @PQclear(ptr noundef nonnull %577) #8
@@ -4113,7 +4113,7 @@ sub_11405:                                        ; preds = %sub_01404
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %667) #8
   %668 = add nuw nsw i32 %.71453, 1
   %exitcond1529.not = icmp eq i32 %668, %616
-  br i1 %exitcond1529.not, label %.thread1228.sink.split, label %sub_01400, !llvm.loop !19
+  br i1 %exitcond1529.not, label %.thread1228.sink.split, label %sub_01400, !llvm.loop !20
 
 669:                                              ; preds = %._crit_edge1451
   %670 = icmp sgt i32 %.pr1220, 99999
@@ -4230,7 +4230,7 @@ sub_11421:                                        ; preds = %sub_01420
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %715) #8
   %716 = add nuw nsw i32 %.81452, 1
   %exitcond1528.not = icmp eq i32 %716, %677
-  br i1 %exitcond1528.not, label %.thread1228.sink.split, label %sub_01408, !llvm.loop !20
+  br i1 %exitcond1528.not, label %.thread1228.sink.split, label %sub_01408, !llvm.loop !21
 
 .thread1228.sink.split:                           ; preds = %714, %666, %676, %615
   %.sink1551 = phi ptr [ %614, %615 ], [ %675, %676 ], [ %614, %666 ], [ %675, %714 ]
@@ -4316,12 +4316,12 @@ switch.lookup:                                    ; preds = %742
   %.11017.us = phi i1 [ true, %744 ], [ %.010161454.us, %726 ], [ %.010161454.us, %725 ], [ %.010161454.us, %738 ], [ %.010161454.us, %734 ], [ %.010161454.us, %730 ]
   %748 = add nuw nsw i32 %.91455.us, 1
   %exitcond1530.not = icmp eq i32 %748, %722
-  br i1 %exitcond1530.not, label %._crit_edge1457.us, label %725, !llvm.loop !21
+  br i1 %exitcond1530.not, label %._crit_edge1457.us, label %725, !llvm.loop !22
 
 ._crit_edge1457.us:                               ; preds = %.critedge1169.us
   %749 = add nuw nsw i32 %.010151458.us, 1
   %exitcond1531.not = icmp eq i32 %749, 4
-  br i1 %exitcond1531.not, label %.loopexit1432, label %.preheader1430.us, !llvm.loop !22
+  br i1 %exitcond1531.not, label %.loopexit1432, label %.preheader1430.us, !llvm.loop !23
 
 .loopexit1432:                                    ; preds = %._crit_edge1457.us, %721
   call void @PQclear(ptr noundef nonnull %720) #8
@@ -4387,7 +4387,7 @@ switch.lookup:                                    ; preds = %742
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %772) #8
   %773 = add nuw nsw i32 %.101459, 1
   %exitcond1532.not = icmp eq i32 %773, %761
-  br i1 %exitcond1532.not, label %._crit_edge1462, label %.lr.ph1461, !llvm.loop !24
+  br i1 %exitcond1532.not, label %._crit_edge1462, label %.lr.ph1461, !llvm.loop !25
 
 ._crit_edge1462:                                  ; preds = %771, %760
   call void @PQclear(ptr noundef nonnull %759) #8
@@ -4433,7 +4433,7 @@ switch.lookup:                                    ; preds = %742
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %795) #8
   %796 = add nuw nsw i32 %.111463, 1
   %exitcond1533.not = icmp eq i32 %796, %779
-  br i1 %exitcond1533.not, label %.sink.split1552, label %.lr.ph1465, !llvm.loop !25
+  br i1 %exitcond1533.not, label %.sink.split1552, label %.lr.ph1465, !llvm.loop !26
 
 .sink.split1552:                                  ; preds = %.lr.ph1465, %778, %423, %.tail1343.thread
   %.sink1553 = phi ptr [ %367, %.tail1343.thread ], [ %367, %423 ], [ %777, %778 ], [ %777, %.lr.ph1465 ]
@@ -4497,7 +4497,7 @@ switch.lookup:                                    ; preds = %742
   %820 = add nuw nsw i32 %.121467, 1
   %821 = call i32 @PQntuples(ptr noundef nonnull %810) #8
   %822 = icmp slt i32 %820, %821
-  br i1 %822, label %.lr.ph1469, label %.thread1241.sink.split, !llvm.loop !26
+  br i1 %822, label %.lr.ph1469, label %.thread1241.sink.split, !llvm.loop !27
 
 .thread1241.sink.split:                           ; preds = %.lr.ph1469, %811, %814, %801
   %.sink1554 = phi ptr [ %800, %801 ], [ %810, %814 ], [ %810, %811 ], [ %810, %.lr.ph1469 ]
@@ -4629,12 +4629,12 @@ switch.lookup1558:                                ; preds = %.critedge1186.us
   %.11003.us = phi i8 [ %.21004.us, %860 ], [ %.010021470.us, %837 ], [ %.010021470.us, %841 ], [ %.010021470.us, %845 ], [ %.010021470.us, %849 ], [ %.010021470.us, %834 ], [ %.010021470.us, %847 ], [ %.010021470.us, %843 ], [ %.010021470.us, %839 ]
   %862 = add nuw nsw i32 %.131471.us, 1
   %exitcond1534.not = icmp eq i32 %862, %831
-  br i1 %exitcond1534.not, label %._crit_edge1473.us, label %834, !llvm.loop !27
+  br i1 %exitcond1534.not, label %._crit_edge1473.us, label %834, !llvm.loop !28
 
 ._crit_edge1473.us:                               ; preds = %.critedge1184.us
   %863 = add nuw nsw i32 %.010011474.us, 1
   %exitcond1535.not = icmp eq i32 %863, 5
-  br i1 %exitcond1535.not, label %.thread1252, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond1535.not, label %.thread1252, label %.preheader.us, !llvm.loop !29
 
 .thread1252:                                      ; preds = %._crit_edge1473.us, %830
   call void @PQclear(ptr noundef nonnull %829) #8
@@ -4741,7 +4741,7 @@ switch.lookup1558:                                ; preds = %.critedge1186.us
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %901) #8
   %902 = add nuw nsw i32 %.141475, 1
   %exitcond1536.not = icmp eq i32 %902, %888
-  br i1 %exitcond1536.not, label %._crit_edge1478, label %891, !llvm.loop !29
+  br i1 %exitcond1536.not, label %._crit_edge1478, label %891, !llvm.loop !30
 
 ._crit_edge1478:                                  ; preds = %900, %885
   call void @PQclear(ptr noundef nonnull %884) #8
@@ -4864,7 +4864,7 @@ sub_01425:                                        ; preds = %sub_01425.sink.spli
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %947) #8
   %948 = add nuw nsw i32 %.151479, 1
   %exitcond1537.not = icmp eq i32 %948, %909
-  br i1 %exitcond1537.not, label %.loopexit, label %924, !llvm.loop !30
+  br i1 %exitcond1537.not, label %.loopexit, label %924, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %911, %915
   %949 = load ptr, ptr %5, align 8
@@ -4926,7 +4926,7 @@ sub_01425:                                        ; preds = %sub_01425.sink.spli
   %972 = icmp eq ptr %.sroa.110635.0, null
   %not. = xor i1 %3, true
   %or.cond206 = select i1 %not., i1 true, i1 %972
-  %973 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !9
+  %973 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !10
   %974 = trunc nuw i8 %973 to i1
   %or.cond208 = select i1 %or.cond206, i1 true, i1 %974
   br i1 %or.cond208, label %977, label %975
@@ -5331,7 +5331,7 @@ add_role_attribute.exit78:                        ; preds = %93, %95
 122:                                              ; preds = %116, %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %122
   call void @termPQExpBuffer(ptr noundef nonnull %6) #8
@@ -5349,7 +5349,7 @@ add_role_attribute.exit78:                        ; preds = %93, %95
   call void @free(ptr noundef %126) #8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge107, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond120.not, label %._crit_edge107, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge107.critedge:                          ; preds = %33
   call void @termPQExpBuffer(ptr noundef nonnull %6) #8
@@ -5456,7 +5456,7 @@ validateSQLNamePattern.exit21:                    ; preds = %12
 19:                                               ; preds = %16
   %20 = call i32 @PQntuples(ptr noundef nonnull %18) #8
   %21 = icmp ne i32 %20, 0
-  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10
   %23 = trunc nuw i8 %22 to i1
   %or.cond = select i1 %21, i1 true, i1 %23
   br i1 %or.cond, label %31, label %24
@@ -5648,7 +5648,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   store i8 1, ptr %.0.sroa.phi, align 1
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %38 = icmp slt i32 %37, 120000
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !9
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !10
   %40 = trunc nuw i8 %39 to i1
   %or.cond = select i1 %38, i1 true, i1 %40
   %or.cond.not = xor i1 %or.cond, true
@@ -5670,7 +5670,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.258) #8
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %45 = icmp slt i32 %44, 120000
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !9
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 406), align 2, !range !10
   %47 = trunc nuw i8 %46 to i1
   %or.cond7 = select i1 %45, i1 true, i1 %47
   %or.cond7.not = xor i1 %or.cond7, true
@@ -5774,7 +5774,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
 76:                                               ; preds = %73
   %77 = call i32 @PQntuples(ptr noundef nonnull %75) #8
   %78 = icmp ne i32 %77, 0
-  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10
   %80 = trunc nuw i8 %79 to i1
   %or.cond19 = select i1 %78, i1 true, i1 %80
   br i1 %or.cond19, label %112, label %81
@@ -6772,7 +6772,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
   %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next
   store ptr %37, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %39, label %33, !llvm.loop !33
+  br i1 %exitcond.not, label %39, label %33, !llvm.loop !34
 
 39:                                               ; preds = %33
   %40 = shl nuw nsw i64 %indvars.iv, 32
@@ -6811,7 +6811,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
   %49 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not48 = icmp eq ptr %50, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @pg_free(ptr noundef nonnull %.040) #8
@@ -6884,7 +6884,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   br label %37
 
 26:                                               ; preds = %15
-  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %32, label %29
 
@@ -6908,7 +6908,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   %34 = add nuw nsw i32 %.02533.i, 1
   %35 = call i32 @PQntuples(ptr noundef nonnull %14) #8
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %._crit_edge.i, !llvm.loop !35
+  br i1 %36, label %37, label %._crit_edge.i, !llvm.loop !36
 
 37:                                               ; preds = %33, %.lr.ph.i
   %.02533.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %33 ]
@@ -7214,7 +7214,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   br label %35
 
 24:                                               ; preds = %15
-  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %30, label %27
 
@@ -7238,7 +7238,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   %32 = add nuw nsw i32 %.03442.i, 1
   %33 = call i32 @PQntuples(ptr noundef nonnull %14) #8
   %34 = icmp slt i32 %32, %33
-  br i1 %34, label %35, label %._crit_edge.i, !llvm.loop !36
+  br i1 %34, label %35, label %._crit_edge.i, !llvm.loop !37
 
 35:                                               ; preds = %31, %.lr.ph.i
   %.03442.i = phi i32 [ 0, %.lr.ph.i ], [ %32, %31 ]
@@ -7743,7 +7743,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   br label %33
 
 22:                                               ; preds = %15
-  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %28, label %25
 
@@ -7767,7 +7767,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   %30 = add nuw nsw i32 %.01926, 1
   %31 = call i32 @PQntuples(ptr noundef nonnull %14) #8
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %._crit_edge, !llvm.loop !37
+  br i1 %32, label %33, label %._crit_edge, !llvm.loop !38
 
 33:                                               ; preds = %.lr.ph, %29
   %.01926 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
@@ -8029,7 +8029,7 @@ sub_0.lr.ph:                                      ; preds = %.preheader
   br label %sub_0
 
 36:                                               ; preds = %29
-  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !10, !noundef !11
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %42, label %39
 
@@ -8175,7 +8175,7 @@ sub_1:                                            ; preds = %sub_0
   %81 = add nuw nsw i32 %.05573, 1
   %82 = call i32 @PQntuples(ptr noundef nonnull %27) #8
   %83 = icmp slt i32 %81, %82
-  br i1 %83, label %sub_0, label %._crit_edge, !llvm.loop !38
+  br i1 %83, label %sub_0, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %78, %.preheader
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
@@ -8222,7 +8222,7 @@ define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr nounde
   tail call void @printTableAddFooter(ptr noundef nonnull %3, ptr noundef %11) #8
   %12 = add nuw nsw i32 %.035.us, 1
   %exitcond37.not = icmp eq i32 %12, %8
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !39
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %.035 = phi i32 [ %24, %22 ], [ 0, %.lr.ph ]
@@ -8253,7 +8253,7 @@ define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr nounde
   tail call void @printTableAddFooter(ptr noundef nonnull %3, ptr noundef %23) #8
   %24 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %24, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph.split.us, %7
   tail call void @PQclear(ptr noundef nonnull %6) #8
@@ -8885,40 +8885,41 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5, !23}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5, !23}
-!40 = distinct !{!40, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6, !24}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6, !24}
+!41 = distinct !{!41, !5, !6}

@@ -144,7 +144,7 @@ define dso_local void @tcg_optimize(ptr noundef %0) local_unnamed_addr #0 {
   %55 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp ugt ptr %54, %56
-  br i1 %57, label %58, label %60, !prof !6
+  br i1 %57, label %58, label %60, !prof !7
 
 58:                                               ; preds = %52
   %59 = call ptr @tcg_malloc_internal(ptr noundef nonnull %36, i32 noundef 64) #9
@@ -206,7 +206,7 @@ tcg_malloc.exit.i.i.i:                            ; preds = %60, %58
 init_ts_info.exit.i.i:                            ; preds = %.sink.split.i.i.i, %32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %init_arguments.exit.i, label %32, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %init_arguments.exit.i, label %32, !llvm.loop !8
 
 init_arguments.exit.i:                            ; preds = %init_ts_info.exit.i.i, %25
   %.not2.i.i = icmp eq i32 %29, 0
@@ -255,7 +255,7 @@ init_arguments.exit.i:                            ; preds = %init_ts_info.exit.i
   %.011.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
   %.011.i.i.i = load ptr, ptr %.011.in.i.i.i, align 8
   %.not.i.i35.i = icmp eq ptr %.011.i.i.i, %89
-  br i1 %.not.i.i35.i, label %find_better_copy.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i35.i, label %find_better_copy.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 find_better_copy.exit.loopexit.i.i:               ; preds = %.lr.ph.i.i.i
   %107 = ptrtoint ptr %106 to i64
@@ -269,7 +269,7 @@ find_better_copy.exit.i.i:                        ; preds = %find_better_copy.ex
 108:                                              ; preds = %find_better_copy.exit.i.i, %86
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %109 = icmp samesign ult i64 %indvars.iv.next.i36.i, %85
-  br i1 %109, label %86, label %copy_propagate.exit.i, !llvm.loop !9
+  br i1 %109, label %86, label %copy_propagate.exit.i, !llvm.loop !10
 
 copy_propagate.exit.i:                            ; preds = %108, %init_arguments.exit.i
   %110 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -353,7 +353,7 @@ copy_propagate.exit.i:                            ; preds = %108, %init_argument
   %158 = getelementptr inbounds nuw i8, ptr %.042.i661, i64 48
   %159 = load ptr, ptr %158, align 8
   %.not.i662 = icmp eq ptr %159, null
-  br i1 %.not.i662, label %160, label %.preheader.i660, !llvm.loop !10
+  br i1 %.not.i662, label %160, label %.preheader.i660, !llvm.loop !11
 
 160:                                              ; preds = %.preheader.i660
   %161 = load ptr, ptr %153, align 8
@@ -402,7 +402,7 @@ copy_propagate.exit.i:                            ; preds = %108, %init_argument
   %.011.in.i.i645 = getelementptr inbounds nuw i8, ptr %.pn.i.i644, i64 16
   %.011.i.i646 = load ptr, ptr %.011.in.i.i645, align 8
   %.not.i.i647 = icmp eq ptr %.011.i.i646, %145
-  br i1 %.not.i.i647, label %find_better_copy.exit.i648, label %.lr.ph.i.i640, !llvm.loop !8
+  br i1 %.not.i.i647, label %find_better_copy.exit.i648, label %.lr.ph.i.i640, !llvm.loop !9
 
 find_better_copy.exit.i648:                       ; preds = %.lr.ph.i.i640, %.preheader.i.i635, %167
   %.012.i.i649 = phi ptr [ %145, %167 ], [ %145, %.preheader.i.i635 ], [ %180, %.lr.ph.i.i640 ]
@@ -424,7 +424,7 @@ find_better_copy.exit.i648:                       ; preds = %.lr.ph.i.i640, %.pr
   %186 = getelementptr inbounds nuw i8, ptr %.021.i.i655, i64 48
   %.0.i.i656 = load ptr, ptr %186, align 8
   %.not.i41.i657 = icmp eq ptr %.0.i.i656, null
-  br i1 %.not.i41.i657, label %._crit_edge.i.i658, label %.lr.ph.i40.i654, !llvm.loop !11
+  br i1 %.not.i41.i657, label %._crit_edge.i.i658, label %.lr.ph.i40.i654, !llvm.loop !12
 
 ._crit_edge.i.i658:                               ; preds = %.lr.ph.i40.i654
   %.pre.i.i659 = load ptr, ptr %182, align 8
@@ -445,7 +445,7 @@ find_better_copy.exit.i648:                       ; preds = %.lr.ph.i.i640, %.pr
 reset_ts.exit663:                                 ; preds = %188, %._crit_edge.i.i658, %find_better_copy.exit.i648, %163, %160, %137, %130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %130, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.loopexit.i, label %130, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %reset_ts.exit663, %126, %copy_propagate.exit.i
   %193 = and i32 %124, 4
@@ -490,7 +490,7 @@ reset_ts.exit663:                                 ; preds = %188, %._crit_edge.i
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38.i, i64 48
   %211 = load ptr, ptr %210, align 8
   %.not.i.i.i.i = icmp eq ptr %211, %196
-  br i1 %.not.i.i.i.i, label %212, label %.preheader.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %212, label %.preheader.i.i.i.i, !llvm.loop !14
 
 212:                                              ; preds = %.preheader.i.i.i.i
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38.i, i64 48
@@ -513,7 +513,7 @@ reset_ts.exit663:                                 ; preds = %188, %._crit_edge.i
   store ptr %220, ptr %5, align 8
   %222 = call ptr @interval_tree_iter_first(ptr noundef nonnull %18, i64 noundef 0, i64 noundef -1) #9
   %.not.i.i39.i = icmp eq ptr %222, null
-  br i1 %.not.i.i39.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
+  br i1 %.not.i.i39.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i, !llvm.loop !15
 
 remove_mem_copy_all.exit.i:                       ; preds = %219, %194
   %.val.i.i = load ptr, ptr %18, align 8
@@ -571,7 +571,7 @@ remove_mem_copy_all.exit.i:                       ; preds = %219, %194
   %245 = getelementptr inbounds nuw i8, ptr %.042.i629, i64 48
   %246 = load ptr, ptr %245, align 8
   %.not.i630 = icmp eq ptr %246, null
-  br i1 %.not.i630, label %247, label %.preheader.i, !llvm.loop !10
+  br i1 %.not.i630, label %247, label %.preheader.i, !llvm.loop !11
 
 247:                                              ; preds = %.preheader.i
   %248 = load ptr, ptr %240, align 8
@@ -620,7 +620,7 @@ remove_mem_copy_all.exit.i:                       ; preds = %219, %194
   %.011.in.i.i622 = getelementptr inbounds nuw i8, ptr %.pn.i.i621, i64 16
   %.011.i.i623 = load ptr, ptr %.011.in.i.i622, align 8
   %.not.i.i624 = icmp eq ptr %.011.i.i623, %232
-  br i1 %.not.i.i624, label %find_better_copy.exit.i625, label %.lr.ph.i.i617, !llvm.loop !8
+  br i1 %.not.i.i624, label %find_better_copy.exit.i625, label %.lr.ph.i.i617, !llvm.loop !9
 
 find_better_copy.exit.i625:                       ; preds = %.lr.ph.i.i617, %.preheader.i.i, %254
   %.012.i.i626 = phi ptr [ %232, %254 ], [ %232, %.preheader.i.i ], [ %267, %.lr.ph.i.i617 ]
@@ -642,7 +642,7 @@ find_better_copy.exit.i625:                       ; preds = %.lr.ph.i.i617, %.pr
   %273 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 48
   %.0.i.i628 = load ptr, ptr %273, align 8
   %.not.i41.i = icmp eq ptr %.0.i.i628, null
-  br i1 %.not.i41.i, label %._crit_edge.i.i, label %.lr.ph.i40.i, !llvm.loop !11
+  br i1 %.not.i41.i, label %._crit_edge.i.i, label %.lr.ph.i40.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i40.i
   %.pre.i.i = load ptr, ptr %269, align 8
@@ -663,7 +663,7 @@ find_better_copy.exit.i625:                       ; preds = %.lr.ph.i.i617, %.pr
 reset_ts.exit:                                    ; preds = %.lr.ph44.i, %247, %250, %find_better_copy.exit.i625, %._crit_edge.i.i, %275
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
-  br i1 %exitcond52.not.i, label %fold_call.exit, label %.lr.ph44.i, !llvm.loop !14
+  br i1 %exitcond52.not.i, label %fold_call.exit, label %.lr.ph44.i, !llvm.loop !16
 
 fold_call.exit:                                   ; preds = %reset_ts.exit, %224
   store ptr null, ptr %17, align 8
@@ -720,7 +720,7 @@ fold_call.exit:                                   ; preds = %reset_ts.exit, %224
   %314 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %315 = load ptr, ptr %314, align 8
   %316 = icmp ugt ptr %313, %315
-  br i1 %316, label %317, label %319, !prof !6
+  br i1 %316, label %317, label %319, !prof !7
 
 317:                                              ; preds = %311
   %318 = call ptr @tcg_malloc_internal(ptr noundef nonnull %295, i32 noundef 64) #9
@@ -782,7 +782,7 @@ tcg_malloc.exit.i.i:                              ; preds = %319, %317
 init_ts_info.exit.i:                              ; preds = %.sink.split.i.i, %291
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i81
-  br i1 %exitcond.not.i85, label %init_arguments.exit, label %291, !llvm.loop !7
+  br i1 %exitcond.not.i85, label %init_arguments.exit, label %291, !llvm.loop !8
 
 init_arguments.exit:                              ; preds = %init_ts_info.exit.i, %280
   %.not2.i = icmp eq i8 %287, 0
@@ -831,7 +831,7 @@ init_arguments.exit:                              ; preds = %init_ts_info.exit.i
   %.011.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %.011.i.i = load ptr, ptr %.011.in.i.i, align 8
   %.not.i.i92 = icmp eq ptr %.011.i.i, %348
-  br i1 %.not.i.i92, label %find_better_copy.exit.loopexit.i, label %.lr.ph.i.i91, !llvm.loop !8
+  br i1 %.not.i.i92, label %find_better_copy.exit.loopexit.i, label %.lr.ph.i.i91, !llvm.loop !9
 
 find_better_copy.exit.loopexit.i:                 ; preds = %.lr.ph.i.i91
   %366 = ptrtoint ptr %365 to i64
@@ -845,7 +845,7 @@ find_better_copy.exit.i:                          ; preds = %find_better_copy.ex
 367:                                              ; preds = %find_better_copy.exit.i, %345
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i88, 1
   %368 = icmp samesign ult i64 %indvars.iv.next.i93, %344
-  br i1 %368, label %345, label %copy_propagate.exit, !llvm.loop !9
+  br i1 %368, label %345, label %copy_propagate.exit, !llvm.loop !10
 
 copy_propagate.exit:                              ; preds = %367, %init_arguments.exit
   %369 = load i32, ptr %.076705, align 8
@@ -1024,11 +1024,11 @@ copy_propagate.exit:                              ; preds = %367, %init_argument
   %378 = inttoptr i64 %376 to ptr
   %379 = getelementptr i8, ptr %378, i64 48
   %.val.i.i.i.i94 = load ptr, ptr %379, align 8
-  %.val.val.i.i.i.i = load i8, ptr %.val.i.i.i.i94, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i = load i8, ptr %.val.i.i.i.i94, align 8, !range !17, !noundef !18
   %380 = inttoptr i64 %377 to ptr
   %381 = getelementptr i8, ptr %380, i64 48
   %.val.i15.i.i.i = load ptr, ptr %381, align 8
-  %.val.val.i16.i.i.i = load i8, ptr %.val.i15.i.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i = load i8, ptr %.val.i15.i.i.i, align 8, !range !17, !noundef !18
   %382 = icmp samesign ugt i8 %.val.val.i.i.i.i, %.val.val.i16.i.i.i
   br i1 %382, label %387, label %383
 
@@ -1043,7 +1043,7 @@ copy_propagate.exit:                              ; preds = %367, %init_argument
   store i64 %377, ptr %374, align 8
   store i64 %376, ptr %375, align 8
   %.val.i.i5.pre.i.i = load ptr, ptr %381, align 8
-  %.val.val.i.i6.pre.i.i = load i8, ptr %.val.i.i5.pre.i.i, align 8, !range !15
+  %.val.val.i.i6.pre.i.i = load i8, ptr %.val.i.i5.pre.i.i, align 8, !range !17
   br label %swap_commutative.exit.i.i
 
 swap_commutative.exit.i.i:                        ; preds = %387, %383
@@ -1054,7 +1054,7 @@ swap_commutative.exit.i.i:                        ; preds = %387, %383
   %389 = trunc nuw i8 %.val.val.i.i6.i.i to i1
   %390 = getelementptr i8, ptr %.pre-phi, i64 48
   %.val.i12.i.i.i = load ptr, ptr %390, align 8
-  %.val.val.i13.i.i.i = load i8, ptr %.val.i12.i.i.i, align 8, !range !15
+  %.val.val.i13.i.i.i = load i8, ptr %.val.i12.i.i.i, align 8, !range !17
   %391 = trunc nuw i8 %.val.val.i13.i.i.i to i1
   br i1 %389, label %392, label %swap_commutative.exit.i._crit_edge.i
 
@@ -1110,7 +1110,7 @@ swap_commutative.exit.i._crit_edge.i.thread:      ; preds = %392, %arg_is_const_
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %414)
   %indvars.iv.next.i.i100 = add nuw nsw i64 %indvars.iv.i.i99, 1
   %exitcond.not.i.i101 = icmp eq i64 %indvars.iv.next.i.i100, %wide.trip.count.i.i98
-  br i1 %exitcond.not.i.i101, label %fold_add.exit, label %411, !llvm.loop !17
+  br i1 %exitcond.not.i.i101, label %fold_add.exit, label %411, !llvm.loop !19
 
 415:                                              ; preds = %copy_propagate.exit
   %416 = getelementptr inbounds nuw i8, ptr %.076705, i64 40
@@ -1120,11 +1120,11 @@ swap_commutative.exit.i._crit_edge.i.thread:      ; preds = %392, %arg_is_const_
   %420 = inttoptr i64 %418 to ptr
   %421 = getelementptr i8, ptr %420, i64 48
   %.val.i.i.i.i102 = load ptr, ptr %421, align 8
-  %.val.val.i.i.i.i103 = load i8, ptr %.val.i.i.i.i102, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i103 = load i8, ptr %.val.i.i.i.i102, align 8, !range !17, !noundef !18
   %422 = inttoptr i64 %419 to ptr
   %423 = getelementptr i8, ptr %422, i64 48
   %.val.i15.i.i.i104 = load ptr, ptr %423, align 8
-  %.val.val.i16.i.i.i105 = load i8, ptr %.val.i15.i.i.i104, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i105 = load i8, ptr %.val.i15.i.i.i104, align 8, !range !17, !noundef !18
   %424 = icmp samesign ugt i8 %.val.val.i.i.i.i103, %.val.val.i16.i.i.i105
   br i1 %424, label %430, label %425
 
@@ -1140,7 +1140,7 @@ swap_commutative.exit.i._crit_edge.i.thread:      ; preds = %392, %arg_is_const_
   store i64 %419, ptr %416, align 8
   store i64 %418, ptr %417, align 8
   %.val.i.i.pre.i = load ptr, ptr %421, align 8
-  %.val.i.i.i.i.pre.i = load i8, ptr %.val.i.i.pre.i, align 8, !range !15
+  %.val.i.i.i.i.pre.i = load i8, ptr %.val.i.i.pre.i, align 8, !range !17
   br label %fold_commutative.exit.i
 
 fold_commutative.exit.i:                          ; preds = %430, %425
@@ -1184,7 +1184,7 @@ fold_xi_to_x.exit.i117:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %447)
   %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i112, 1
   %exitcond.not.i.i114 = icmp eq i64 %indvars.iv.next.i.i113, %wide.trip.count.i.i111
-  br i1 %exitcond.not.i.i114, label %fold_add.exit, label %444, !llvm.loop !17
+  br i1 %exitcond.not.i.i114, label %fold_add.exit, label %444, !llvm.loop !19
 
 448:                                              ; preds = %copy_propagate.exit, %copy_propagate.exit
   %449 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
@@ -1194,11 +1194,11 @@ fold_xi_to_x.exit.i117:                           ; preds = %arg_is_const_val.ex
   %453 = inttoptr i64 %451 to ptr
   %454 = getelementptr i8, ptr %453, i64 48
   %.val.i.i.i118 = load ptr, ptr %454, align 8
-  %.val.val.i.i.i = load i8, ptr %.val.i.i.i118, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i = load i8, ptr %.val.i.i.i118, align 8, !range !17, !noundef !18
   %455 = inttoptr i64 %452 to ptr
   %456 = getelementptr i8, ptr %455, i64 48
   %.val.i15.i.i = load ptr, ptr %456, align 8
-  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !17, !noundef !18
   %457 = icmp samesign ugt i8 %.val.val.i.i.i, %.val.val.i16.i.i
   br i1 %457, label %463, label %458
 
@@ -1223,11 +1223,11 @@ swap_commutative.exit.i:                          ; preds = %463, %458
   %468 = inttoptr i64 %466 to ptr
   %469 = getelementptr i8, ptr %468, i64 48
   %.val.i.i8.i = load ptr, ptr %469, align 8
-  %.val.val.i.i9.i = load i8, ptr %.val.i.i8.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i9.i = load i8, ptr %.val.i.i8.i, align 8, !range !17, !noundef !18
   %470 = inttoptr i64 %467 to ptr
   %471 = getelementptr i8, ptr %470, i64 48
   %.val.i15.i10.i = load ptr, ptr %471, align 8
-  %.val.val.i16.i11.i = load i8, ptr %.val.i15.i10.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i11.i = load i8, ptr %.val.i15.i10.i, align 8, !range !17, !noundef !18
   %472 = icmp samesign ugt i8 %.val.val.i.i9.i, %.val.val.i16.i11.i
   br i1 %472, label %478, label %473
 
@@ -1287,7 +1287,7 @@ fold_add2.exit:                                   ; preds = %473, %478
   %495 = inttoptr i64 %494 to ptr
   %496 = getelementptr i8, ptr %495, i64 48
   %.val.i.i122 = load ptr, ptr %496, align 8
-  %.val.i.i.i.i123 = load i8, ptr %.val.i.i122, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i123 = load i8, ptr %.val.i.i122, align 8, !range !17, !noundef !18
   %497 = trunc nuw i8 %.val.i.i.i.i123 to i1
   br i1 %497, label %arg_is_const_val.exit.i, label %arg_is_const_val.exit.thread.i
 
@@ -1303,7 +1303,7 @@ arg_is_const_val.exit.i:                          ; preds = %492
   %503 = inttoptr i64 %502 to ptr
   %504 = getelementptr i8, ptr %503, i64 48
   %.val.i52.i = load ptr, ptr %504, align 8
-  %.val.i.i.i53.i = load i8, ptr %.val.i52.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i53.i = load i8, ptr %.val.i52.i, align 8, !range !17, !noundef !18
   %505 = trunc nuw i8 %.val.i.i.i53.i to i1
   br i1 %505, label %arg_is_const_val.exit55.i, label %arg_is_const_val.exit.thread.i
 
@@ -1350,7 +1350,7 @@ arg_is_const_val.exit55.i:                        ; preds = %500
   %525 = inttoptr i64 %524 to ptr
   %526 = getelementptr i8, ptr %525, i64 48
   %.val.i56.i = load ptr, ptr %526, align 8
-  %.val.i.i.i57.i = load i8, ptr %.val.i56.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i57.i = load i8, ptr %.val.i56.i, align 8, !range !17, !noundef !18
   %527 = trunc nuw i8 %.val.i.i.i57.i to i1
   br i1 %527, label %arg_is_const_val.exit59.i, label %arg_is_const_val.exit59.thread.i
 
@@ -1366,7 +1366,7 @@ arg_is_const_val.exit59.thread.i:                 ; preds = %arg_is_const_val.ex
   %532 = inttoptr i64 %531 to ptr
   %533 = getelementptr i8, ptr %532, i64 48
   %.val.i60.i = load ptr, ptr %533, align 8
-  %.val.i.i.i61.i = load i8, ptr %.val.i60.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i61.i = load i8, ptr %.val.i60.i, align 8, !range !17, !noundef !18
   %534 = trunc nuw i8 %.val.i.i.i61.i to i1
   br i1 %534, label %arg_is_const_val.exit63.i, label %arg_is_const_val.exit.thread.i
 
@@ -1464,7 +1464,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   %579 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   %580 = load ptr, ptr %579, align 8
   %.not.i.i.i.i.i = icmp eq ptr %580, %565
-  br i1 %.not.i.i.i.i.i, label %581, label %.preheader.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i, label %581, label %.preheader.i.i.i.i.i, !llvm.loop !14
 
 581:                                              ; preds = %.preheader.i.i.i.i.i
   %582 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
@@ -1487,7 +1487,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   store ptr %589, ptr %5, align 8
   %591 = call ptr @interval_tree_iter_first(ptr noundef nonnull %18, i64 noundef 0, i64 noundef -1) #9
   %.not.i.i.i.i120 = icmp eq ptr %591, null
-  br i1 %.not.i.i.i.i120, label %finish_ebb.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i120, label %finish_ebb.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 finish_ebb.exit.i:                                ; preds = %588, %560
   %.val.i.i.i121 = load ptr, ptr %18, align 8
@@ -1505,7 +1505,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   %596 = inttoptr i64 %595 to ptr
   %597 = getelementptr i8, ptr %596, i64 48
   %.val.i.i124 = load ptr, ptr %597, align 8
-  %.val.i = load i8, ptr %.val.i.i124, align 8, !range !15, !noundef !16
+  %.val.i = load i8, ptr %.val.i.i124, align 8, !range !17, !noundef !18
   %598 = trunc nuw i8 %.val.i to i1
   %599 = load i32, ptr %.076705, align 8
   br i1 %598, label %600, label %609
@@ -1637,7 +1637,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   %671 = inttoptr i64 %670 to ptr
   %672 = getelementptr i8, ptr %671, i64 48
   %.val.i29.i = load ptr, ptr %672, align 8
-  %.val.i127 = load i8, ptr %.val.i.i126, align 8, !range !15, !noundef !16
+  %.val.i127 = load i8, ptr %.val.i.i126, align 8, !range !17, !noundef !18
   %673 = trunc nuw i8 %.val.i127 to i1
   br i1 %673, label %674, label %684
 
@@ -1723,7 +1723,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   %721 = inttoptr i64 %720 to ptr
   %722 = getelementptr i8, ptr %721, i64 48
   %.val.i.i.i134 = load ptr, ptr %722, align 8
-  %.val.val.i.i.i135 = load i8, ptr %.val.i.i.i134, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i135 = load i8, ptr %.val.i.i.i134, align 8, !range !17, !noundef !18
   %723 = trunc nuw i8 %.val.val.i.i.i135 to i1
   br i1 %723, label %fold_const1.exit.thread.i, label %fold_const1.exit.i
 
@@ -1808,12 +1808,12 @@ fold_const1.exit.i:                               ; preds = %718
   %770 = getelementptr inbounds nuw i8, ptr %.076705, i64 64
   %771 = load i64, ptr %770, align 8
   %772 = trunc i64 %771 to i32
-  %.val.i138 = load i8, ptr %.val.i.i136, align 8, !range !15, !noundef !16
+  %.val.i138 = load i8, ptr %.val.i.i136, align 8, !range !17, !noundef !18
   %773 = trunc nuw i8 %.val.i138 to i1
   br i1 %773, label %774, label %795
 
 774:                                              ; preds = %757
-  %.val57.i = load i8, ptr %.val.i60.i137, align 8, !range !15, !noundef !16
+  %.val57.i = load i8, ptr %.val.i60.i137, align 8, !range !17, !noundef !18
   %775 = trunc nuw i8 %.val57.i to i1
   br i1 %775, label %776, label %795
 
@@ -1892,7 +1892,7 @@ ti_is_const_val.exit.i:                           ; preds = %798
   br label %fold_add.exit
 
 ti_is_const_val.exit.thread.i:                    ; preds = %ti_is_const_val.exit.i, %798
-  %.val.i62.i = load i8, ptr %.val.i60.i137, align 8, !range !15, !noundef !16
+  %.val.i62.i = load i8, ptr %.val.i60.i137, align 8, !range !17, !noundef !18
   %810 = trunc nuw i8 %.val.i62.i to i1
   br i1 %810, label %ti_is_const_val.exit64.i, label %ti_is_const_val.exit64.thread.i
 
@@ -2032,14 +2032,14 @@ deposit64.exit72.i:                               ; preds = %843
   %894 = inttoptr i64 %893 to ptr
   %895 = getelementptr i8, ptr %894, i64 48
   %.val.i.i.i143 = load ptr, ptr %895, align 8
-  %.val.val.i.i.i144 = load i8, ptr %.val.i.i.i143, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i144 = load i8, ptr %.val.i.i.i143, align 8, !range !17, !noundef !18
   %896 = trunc nuw i8 %.val.val.i.i.i144 to i1
   %897 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %898 = load i64, ptr %897, align 8
   %899 = inttoptr i64 %898 to ptr
   %900 = getelementptr i8, ptr %899, i64 48
   %.val.i12.i.i = load ptr, ptr %900, align 8
-  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !15
+  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !17
   %901 = trunc nuw i8 %.val.val.i13.i.i to i1
   br i1 %896, label %902, label %912
 
@@ -2094,7 +2094,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %924)
   %indvars.iv.next.i.i149 = add nuw nsw i64 %indvars.iv.i.i148, 1
   %exitcond.not.i.i150 = icmp eq i64 %indvars.iv.next.i.i149, %wide.trip.count.i.i147
-  br i1 %exitcond.not.i.i150, label %fold_add.exit, label %921, !llvm.loop !17
+  br i1 %exitcond.not.i.i150, label %fold_add.exit, label %921, !llvm.loop !19
 
 925:                                              ; preds = %copy_propagate.exit
   %926 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -2103,7 +2103,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   %929 = inttoptr i64 %928 to ptr
   %930 = getelementptr i8, ptr %929, i64 48
   %.val.i.i154 = load ptr, ptr %930, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i154, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i154, align 8, !range !17, !noundef !18
   %931 = trunc nuw i8 %.val.val.i.i to i1
   %932 = load i32, ptr %.076705, align 8
   br i1 %931, label %933, label %940
@@ -2138,7 +2138,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %948)
   %indvars.iv.next.i.i159 = add nuw nsw i64 %indvars.iv.i.i158, 1
   %exitcond.not.i.i160 = icmp eq i64 %indvars.iv.next.i.i159, %wide.trip.count.i.i157
-  br i1 %exitcond.not.i.i160, label %fold_add.exit, label %945, !llvm.loop !17
+  br i1 %exitcond.not.i.i160, label %fold_add.exit, label %945, !llvm.loop !19
 
 949:                                              ; preds = %copy_propagate.exit
   %950 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -2147,7 +2147,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   %953 = inttoptr i64 %952 to ptr
   %954 = getelementptr i8, ptr %953, i64 48
   %.val.i.i162 = load ptr, ptr %954, align 8
-  %.val.val.i.i163 = load i8, ptr %.val.i.i162, align 8, !range !15, !noundef !16
+  %.val.val.i.i163 = load i8, ptr %.val.i.i162, align 8, !range !17, !noundef !18
   %955 = trunc nuw i8 %.val.val.i.i163 to i1
   %956 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %957 = load i64, ptr %956, align 8
@@ -2157,7 +2157,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
 959:                                              ; preds = %949
   %960 = getelementptr i8, ptr %958, i64 48
   %.val.i14.i = load ptr, ptr %960, align 8
-  %.val.val.i15.i = load i8, ptr %.val.i14.i, align 8, !range !15, !noundef !16
+  %.val.val.i15.i = load i8, ptr %.val.i14.i, align 8, !range !17, !noundef !18
   %961 = trunc nuw i8 %.val.val.i15.i to i1
   br i1 %961, label %962, label %._crit_edge.i164
 
@@ -2203,7 +2203,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i167 = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i168 = icmp eq ptr %.0.i.i.i167, %953
-  br i1 %.not.i.i.i168, label %args_are_copies.exit.thread.i, label %.lr.ph.i.i.i165, !llvm.loop !18
+  br i1 %.not.i.i.i168, label %args_are_copies.exit.thread.i, label %.lr.ph.i.i.i165, !llvm.loop !20
 
 args_are_copies.exit.i:                           ; preds = %.lr.ph.i.i.i165, %._crit_edge.i164
   %983 = load i32, ptr %.076705, align 8
@@ -2233,7 +2233,7 @@ args_are_copies.exit.thread.i:                    ; preds = %981, %args_are_copi
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %994)
   %indvars.iv.next.i.i173 = add nuw nsw i64 %indvars.iv.i.i172, 1
   %exitcond.not.i.i174 = icmp eq i64 %indvars.iv.next.i.i173, %wide.trip.count.i.i171
-  br i1 %exitcond.not.i.i174, label %fold_add.exit, label %991, !llvm.loop !17
+  br i1 %exitcond.not.i.i174, label %fold_add.exit, label %991, !llvm.loop !19
 
 995:                                              ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   %996 = getelementptr i8, ptr %.076705, i64 32
@@ -2244,11 +2244,11 @@ args_are_copies.exit.thread.i:                    ; preds = %981, %args_are_copi
   %1001 = inttoptr i64 %999 to ptr
   %1002 = getelementptr i8, ptr %1001, i64 48
   %.val.i.i.i.i175 = load ptr, ptr %1002, align 8
-  %.val.val.i.i.i.i176 = load i8, ptr %.val.i.i.i.i175, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i176 = load i8, ptr %.val.i.i.i.i175, align 8, !range !17, !noundef !18
   %1003 = inttoptr i64 %1000 to ptr
   %1004 = getelementptr i8, ptr %1003, i64 48
   %.val.i15.i.i.i177 = load ptr, ptr %1004, align 8
-  %.val.val.i16.i.i.i178 = load i8, ptr %.val.i15.i.i.i177, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i178 = load i8, ptr %.val.i15.i.i.i177, align 8, !range !17, !noundef !18
   %1005 = icmp samesign ugt i8 %.val.val.i.i.i.i176, %.val.val.i16.i.i.i178
   br i1 %1005, label %1010, label %1006
 
@@ -2263,7 +2263,7 @@ args_are_copies.exit.thread.i:                    ; preds = %981, %args_are_copi
   store i64 %1000, ptr %997, align 8
   store i64 %999, ptr %998, align 8
   %.val.i.i5.pre.i.i193 = load ptr, ptr %1004, align 8
-  %.val.val.i.i6.pre.i.i194 = load i8, ptr %.val.i.i5.pre.i.i193, align 8, !range !15
+  %.val.val.i.i6.pre.i.i194 = load i8, ptr %.val.i.i5.pre.i.i193, align 8, !range !17
   br label %swap_commutative.exit.i.i180
 
 swap_commutative.exit.i.i180:                     ; preds = %1010, %1006
@@ -2274,7 +2274,7 @@ swap_commutative.exit.i.i180:                     ; preds = %1010, %1006
   %1012 = trunc nuw i8 %.val.val.i.i6.i.i181 to i1
   %1013 = getelementptr i8, ptr %.pre-phi774, i64 48
   %.val.i12.i.i.i190 = load ptr, ptr %1013, align 8
-  %.val.val.i13.i.i.i191 = load i8, ptr %.val.i12.i.i.i190, align 8, !range !15
+  %.val.val.i13.i.i.i191 = load i8, ptr %.val.i12.i.i.i190, align 8, !range !17
   %1014 = trunc nuw i8 %.val.val.i13.i.i.i191 to i1
   br i1 %1012, label %1015, label %swap_commutative.exit.i._crit_edge.i183
 
@@ -2389,7 +2389,7 @@ swap_commutative.exit.i._crit_edge.i183.thread:   ; preds = %1015, %arg_is_const
   %1070 = getelementptr inbounds nuw i8, ptr %.076705, i64 56
   %1071 = load i64, ptr %1070, align 8
   %1072 = trunc i64 %1071 to i32
-  %.val.i196 = load i8, ptr %.val.i.i195, align 8, !range !15, !noundef !16
+  %.val.i196 = load i8, ptr %.val.i.i195, align 8, !range !17, !noundef !18
   %1073 = trunc nuw i8 %.val.i196 to i1
   br i1 %1073, label %1074, label %1089
 
@@ -2507,7 +2507,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   %1139 = inttoptr i64 %1138 to ptr
   %1140 = getelementptr i8, ptr %1139, i64 48
   %.val.i.i200 = load ptr, ptr %1140, align 8
-  %.val.val.i.i201 = load i8, ptr %.val.i.i200, align 8, !range !15, !noundef !16
+  %.val.val.i.i201 = load i8, ptr %.val.i.i200, align 8, !range !17, !noundef !18
   %1141 = trunc nuw i8 %.val.val.i.i201 to i1
   br i1 %1141, label %1142, label %1177
 
@@ -2517,7 +2517,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   %1145 = inttoptr i64 %1144 to ptr
   %1146 = getelementptr i8, ptr %1145, i64 48
   %.val.i23.i = load ptr, ptr %1146, align 8
-  %.val.val.i24.i = load i8, ptr %.val.i23.i, align 8, !range !15, !noundef !16
+  %.val.val.i24.i = load i8, ptr %.val.i23.i, align 8, !range !17, !noundef !18
   %1147 = trunc nuw i8 %.val.val.i24.i to i1
   br i1 %1147, label %1148, label %1177
 
@@ -2582,7 +2582,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1186)
   %indvars.iv.next.i.i206 = add nuw nsw i64 %indvars.iv.i.i205, 1
   %exitcond.not.i.i207 = icmp eq i64 %indvars.iv.next.i.i206, %wide.trip.count.i.i204
-  br i1 %exitcond.not.i.i207, label %fold_add.exit, label %1183, !llvm.loop !17
+  br i1 %exitcond.not.i.i207, label %fold_add.exit, label %1183, !llvm.loop !19
 
 1187:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   %1188 = getelementptr inbounds nuw i8, ptr %.076705, i64 40
@@ -2590,7 +2590,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   %1190 = inttoptr i64 %1189 to ptr
   %1191 = getelementptr i8, ptr %1190, i64 48
   %.val.i.i.i208 = load ptr, ptr %1191, align 8
-  %.val.val.i.i.i209 = load i8, ptr %.val.i.i.i208, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i209 = load i8, ptr %.val.i.i.i208, align 8, !range !17, !noundef !18
   %1192 = trunc nuw i8 %.val.val.i.i.i209 to i1
   br i1 %1192, label %fold_const1.exit.thread.i217, label %fold_const1.exit.i210
 
@@ -2707,7 +2707,7 @@ fold_affected_mask.exit.i214:                     ; preds = %.thread.i212, %.thr
   %1250 = inttoptr i64 %1249 to ptr
   %1251 = getelementptr i8, ptr %1250, i64 48
   %.val.i.i.i218 = load ptr, ptr %1251, align 8
-  %.val.val.i.i.i219 = load i8, ptr %.val.i.i.i218, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i219 = load i8, ptr %.val.i.i.i218, align 8, !range !17, !noundef !18
   %1252 = trunc nuw i8 %.val.val.i.i.i219 to i1
   br i1 %1252, label %fold_const1.exit.thread.i228, label %fold_const1.exit.i220
 
@@ -2917,7 +2917,7 @@ fold_tcg_ld.exit:                                 ; preds = %1300, %1300, %1302,
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1349)
   %indvars.iv.next.i.i240 = add nuw nsw i64 %indvars.iv.i.i239, 1
   %exitcond.not.i.i241 = icmp eq i64 %indvars.iv.next.i.i240, %wide.trip.count.i.i238
-  br i1 %exitcond.not.i.i241, label %fold_add.exit, label %1346, !llvm.loop !17
+  br i1 %exitcond.not.i.i241, label %fold_add.exit, label %1346, !llvm.loop !19
 
 1350:                                             ; preds = %1331
   %1351 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -2977,12 +2977,12 @@ fold_tcg_ld.exit:                                 ; preds = %1300, %1300, %1302,
   %.011.in.i.i.i249 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i248, i64 16
   %.011.i.i.i250 = load ptr, ptr %.011.in.i.i.i249, align 8
   %.not.i.i.i251 = icmp eq ptr %.011.i.i.i250, %1366
-  br i1 %.not.i.i.i251, label %find_mem_copy_for.exit.i, label %.lr.ph.i.i.i244, !llvm.loop !8
+  br i1 %.not.i.i.i251, label %find_mem_copy_for.exit.i, label %.lr.ph.i.i.i244, !llvm.loop !9
 
 1380:                                             ; preds = %1360, %.lr.ph.i26.i
   %1381 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i, i64 noundef %1353, i64 noundef %1353) #9
   %.not.i27.i = icmp eq ptr %1381, null
-  br i1 %.not.i27.i, label %find_mem_copy_for.exit.thread.i, label %.lr.ph.i26.i, !llvm.loop !19
+  br i1 %.not.i27.i, label %find_mem_copy_for.exit.thread.i, label %.lr.ph.i26.i, !llvm.loop !21
 
 find_mem_copy_for.exit.i:                         ; preds = %.lr.ph.i.i.i244
   %.not25.i = icmp eq ptr %1379, null
@@ -3045,7 +3045,7 @@ find_mem_copy_for.exit.thread.i:                  ; preds = %1380, %find_mem_cop
   %1410 = load i64, ptr %1409, align 8
   %1411 = getelementptr i8, ptr %1408, i64 48
   %.val.i254 = load ptr, ptr %1411, align 8
-  %.val.val.i = load i8, ptr %.val.i254, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i254, align 8, !range !17, !noundef !18
   %1412 = trunc nuw i8 %.val.val.i to i1
   br i1 %1412, label %1413, label %.critedge.i
 
@@ -3102,12 +3102,12 @@ find_mem_copy_for.exit.thread.i:                  ; preds = %1380, %find_mem_cop
   %.011.in.i.i.i276 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i275, i64 16
   %.011.i.i.i277 = load ptr, ptr %.011.in.i.i.i276, align 8
   %.not.i.i.i278 = icmp eq ptr %.011.i.i.i277, %1424
-  br i1 %.not.i.i.i278, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i.i271, !llvm.loop !8
+  br i1 %.not.i.i.i278, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i.i271, !llvm.loop !9
 
 1438:                                             ; preds = %1418, %.lr.ph.i.i259
   %1439 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i260, i64 noundef %1410, i64 noundef %1410) #9
   %.not.i.i261 = icmp eq ptr %1439, null
-  br i1 %.not.i.i261, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i259, !llvm.loop !19
+  br i1 %.not.i.i261, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i259, !llvm.loop !21
 
 find_mem_copy_for.exit.i262:                      ; preds = %1438, %.lr.ph.i.i.i271, %.preheader.i.i.i265, %1422
   %.012.i.i263 = phi ptr [ %1424, %1422 ], [ %1424, %.preheader.i.i.i265 ], [ %1437, %.lr.ph.i.i.i271 ], [ null, %1438 ]
@@ -3164,7 +3164,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1438, %.lr.ph.i.i.i
   %1463 = getelementptr inbounds nuw i8, ptr %.0.i.i.i257, i64 48
   %1464 = load ptr, ptr %1463, align 8
   %.not.i.i29.i = icmp eq ptr %1464, %1449
-  br i1 %.not.i.i29.i, label %1465, label %.preheader.i.i28.i, !llvm.loop !13
+  br i1 %.not.i.i29.i, label %1465, label %.preheader.i.i28.i, !llvm.loop !14
 
 1465:                                             ; preds = %.preheader.i.i28.i
   %1466 = getelementptr inbounds nuw i8, ptr %.0.i.i.i257, i64 48
@@ -3187,7 +3187,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1438, %.lr.ph.i.i.i
   store ptr %1473, ptr %5, align 8
   %1475 = call ptr @interval_tree_iter_first(ptr noundef nonnull %18, i64 noundef %1410, i64 noundef %1447) #9
   %.not.i30.i = icmp eq ptr %1475, null
-  br i1 %.not.i30.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i
+  br i1 %.not.i30.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i, !llvm.loop !15
 
 remove_mem_copy_in.exit.i:                        ; preds = %1472, %.critedge.i
   call fastcc void @record_mem_copy(ptr noundef nonnull %2, i32 noundef %371, ptr noundef %1408, i64 noundef %1410, i64 noundef %1447)
@@ -3259,7 +3259,7 @@ remove_mem_copy_in.exit.i:                        ; preds = %1472, %.critedge.i
   %.0.in.i.i.i288 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i287, i64 16
   %.0.i.i.i289 = load ptr, ptr %.0.in.i.i.i288, align 8
   %.not.i.i.i290 = icmp eq ptr %.0.i.i.i289, %1497
-  br i1 %.not.i.i.i290, label %.loopexit.i291, label %.lr.ph.i.i.i285, !llvm.loop !18
+  br i1 %.not.i.i.i290, label %.loopexit.i291, label %.lr.ph.i.i.i285, !llvm.loop !20
 
 args_are_copies.exit.i303:                        ; preds = %.lr.ph.i.i.i285, %1491
   %1510 = load i64, ptr %1492, align 8
@@ -3267,8 +3267,8 @@ args_are_copies.exit.i303:                        ; preds = %.lr.ph.i.i.i285, %1
   br label %fold_add.exit
 
 .loopexit.i291:                                   ; preds = %1508, %1504, %1500
-  %.val.val.i.i.i292 = load i8, ptr %.val.i.i.pre.i283, align 8, !range !15, !noundef !16
-  %.val.val.i16.i.i293 = load i8, ptr %.val.i.i.i.i280, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i292 = load i8, ptr %.val.i.i.pre.i283, align 8, !range !17, !noundef !18
+  %.val.val.i16.i.i293 = load i8, ptr %.val.i.i.i.i280, align 8, !range !17, !noundef !18
   %1511 = icmp samesign ugt i8 %.val.val.i.i.i292, %.val.val.i16.i.i293
   br i1 %1511, label %1516, label %1512
 
@@ -3325,12 +3325,12 @@ swap_commutative.exit.i295:                       ; preds = %1516, %1512
   %1546 = getelementptr inbounds nuw i8, ptr %.val.i81.i, i64 56
   %1547 = load i64, ptr %1546, align 8
   %1548 = and i64 %1547, %1545
-  %.val.i297 = load i8, ptr %.val.i.i296, align 8, !range !15, !noundef !16
+  %.val.i297 = load i8, ptr %.val.i.i296, align 8, !range !17, !noundef !18
   %1549 = trunc nuw i8 %.val.i297 to i1
   br i1 %1549, label %1550, label %1593
 
 1550:                                             ; preds = %1532
-  %.val78.i = load i8, ptr %.val.i81.i, align 8, !range !15, !noundef !16
+  %.val78.i = load i8, ptr %.val.i81.i, align 8, !range !17, !noundef !18
   %1551 = trunc nuw i8 %.val78.i to i1
   br i1 %1551, label %1552, label %1593
 
@@ -3474,14 +3474,14 @@ swap_commutative.exit.i295:                       ; preds = %1516, %1512
   %1627 = inttoptr i64 %1626 to ptr
   %1628 = getelementptr i8, ptr %1627, i64 48
   %.val.i.i.i304 = load ptr, ptr %1628, align 8
-  %.val.val.i.i.i305 = load i8, ptr %.val.i.i.i304, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i305 = load i8, ptr %.val.i.i.i304, align 8, !range !17, !noundef !18
   %1629 = trunc nuw i8 %.val.val.i.i.i305 to i1
   %1630 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %1631 = load i64, ptr %1630, align 8
   %1632 = inttoptr i64 %1631 to ptr
   %1633 = getelementptr i8, ptr %1632, i64 48
   %.val.i12.i.i306 = load ptr, ptr %1633, align 8
-  %.val.val.i13.i.i307 = load i8, ptr %.val.i12.i.i306, align 8, !range !15
+  %.val.val.i13.i.i307 = load i8, ptr %.val.i12.i.i306, align 8, !range !17
   %1634 = trunc nuw i8 %.val.val.i13.i.i307 to i1
   br i1 %1629, label %1635, label %1645
 
@@ -3544,7 +3544,7 @@ fold_xi_to_x.exit.i317:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1658)
   %indvars.iv.next.i.i313 = add nuw nsw i64 %indvars.iv.i.i312, 1
   %exitcond.not.i.i314 = icmp eq i64 %indvars.iv.next.i.i313, %wide.trip.count.i.i311
-  br i1 %exitcond.not.i.i314, label %fold_add.exit, label %1655, !llvm.loop !17
+  br i1 %exitcond.not.i.i314, label %fold_add.exit, label %1655, !llvm.loop !19
 
 1659:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   %1660 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -3555,11 +3555,11 @@ fold_xi_to_x.exit.i317:                           ; preds = %arg_is_const_val.ex
   %1665 = inttoptr i64 %1663 to ptr
   %1666 = getelementptr i8, ptr %1665, i64 48
   %.val.i.i.i.i319 = load ptr, ptr %1666, align 8
-  %.val.val.i.i.i.i320 = load i8, ptr %.val.i.i.i.i319, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i320 = load i8, ptr %.val.i.i.i.i319, align 8, !range !17, !noundef !18
   %1667 = inttoptr i64 %1664 to ptr
   %1668 = getelementptr i8, ptr %1667, i64 48
   %.val.i15.i.i.i321 = load ptr, ptr %1668, align 8
-  %.val.val.i16.i.i.i322 = load i8, ptr %.val.i15.i.i.i321, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i322 = load i8, ptr %.val.i15.i.i.i321, align 8, !range !17, !noundef !18
   %1669 = icmp samesign ugt i8 %.val.val.i.i.i.i320, %.val.val.i16.i.i.i322
   br i1 %1669, label %1674, label %1670
 
@@ -3574,7 +3574,7 @@ fold_xi_to_x.exit.i317:                           ; preds = %arg_is_const_val.ex
   store i64 %1664, ptr %1661, align 8
   store i64 %1663, ptr %1662, align 8
   %.val.i.i5.pre.i.i341 = load ptr, ptr %1668, align 8
-  %.val.val.i.i6.pre.i.i342 = load i8, ptr %.val.i.i5.pre.i.i341, align 8, !range !15
+  %.val.val.i.i6.pre.i.i342 = load i8, ptr %.val.i.i5.pre.i.i341, align 8, !range !17
   br label %swap_commutative.exit.i.i324
 
 swap_commutative.exit.i.i324:                     ; preds = %1674, %1670
@@ -3584,7 +3584,7 @@ swap_commutative.exit.i.i324:                     ; preds = %1674, %1670
   %1675 = trunc nuw i8 %.val.val.i.i6.i.i325 to i1
   %1676 = getelementptr i8, ptr %.pre-phi775, i64 48
   %.val.i12.i.i.i338 = load ptr, ptr %1676, align 8
-  %.val.val.i13.i.i.i339 = load i8, ptr %.val.i12.i.i.i338, align 8, !range !15
+  %.val.val.i13.i.i.i339 = load i8, ptr %.val.i12.i.i.i338, align 8, !range !17
   %1677 = trunc nuw i8 %.val.val.i13.i.i.i339 to i1
   br i1 %1675, label %1678, label %swap_commutative.exit.i._crit_edge.i327
 
@@ -3632,7 +3632,7 @@ swap_commutative.exit.i._crit_edge.i327.thread:   ; preds = %1678, %arg_is_const
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1697)
   %indvars.iv.next.i.i334 = add nuw nsw i64 %indvars.iv.i.i333, 1
   %exitcond.not.i.i335 = icmp eq i64 %indvars.iv.next.i.i334, %wide.trip.count.i.i332
-  br i1 %exitcond.not.i.i335, label %fold_add.exit, label %1694, !llvm.loop !17
+  br i1 %exitcond.not.i.i335, label %fold_add.exit, label %1694, !llvm.loop !19
 
 finish_folding.exit.sink.split.i:                 ; preds = %arg_is_const_val.exit.i.i336, %fold_const2_commutative.exit.i340
   %.sink9.i = phi i64 [ %1686, %fold_const2_commutative.exit.i340 ], [ 0, %arg_is_const_val.exit.i.i336 ]
@@ -3651,11 +3651,11 @@ finish_folding.exit.sink.split.i:                 ; preds = %arg_is_const_val.ex
   %1707 = inttoptr i64 %1705 to ptr
   %1708 = getelementptr i8, ptr %1707, i64 48
   %.val.i.i.i343 = load ptr, ptr %1708, align 8
-  %.val.val.i.i.i344 = load i8, ptr %.val.i.i.i343, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i344 = load i8, ptr %.val.i.i.i343, align 8, !range !17, !noundef !18
   %1709 = inttoptr i64 %1706 to ptr
   %1710 = getelementptr i8, ptr %1709, i64 48
   %.val.i15.i.i345 = load ptr, ptr %1710, align 8
-  %.val.val.i16.i.i346 = load i8, ptr %.val.i15.i.i345, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i346 = load i8, ptr %.val.i15.i.i345, align 8, !range !17, !noundef !18
   %1711 = icmp samesign ugt i8 %.val.val.i.i.i344, %.val.val.i16.i.i346
   br i1 %1711, label %1715, label %1712
 
@@ -3669,7 +3669,7 @@ finish_folding.exit.sink.split.i:                 ; preds = %arg_is_const_val.ex
   store i64 %1706, ptr %1703, align 8
   store i64 %1705, ptr %1704, align 8
   %.val.i.pre.i = load ptr, ptr %1710, align 8
-  %.val.val.i.pre.i = load i8, ptr %.val.i.pre.i, align 8, !range !15
+  %.val.val.i.pre.i = load i8, ptr %.val.i.pre.i, align 8, !range !17
   br label %swap_commutative.exit.i348
 
 swap_commutative.exit.i348:                       ; preds = %1715, %1712
@@ -3683,7 +3683,7 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
   %1719 = inttoptr i64 %1716 to ptr
   %1720 = getelementptr i8, ptr %1719, i64 48
   %.val.i32.i = load ptr, ptr %1720, align 8
-  %.val.val.i33.i = load i8, ptr %.val.i32.i, align 8, !range !15, !noundef !16
+  %.val.val.i33.i = load i8, ptr %.val.i32.i, align 8, !range !17, !noundef !18
   %1721 = trunc nuw i8 %.val.val.i33.i to i1
   br i1 %1721, label %1722, label %1762
 
@@ -3777,7 +3777,7 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1771)
   %indvars.iv.next.i.i355 = add nuw nsw i64 %indvars.iv.i.i354, 1
   %exitcond.not.i.i356 = icmp eq i64 %indvars.iv.next.i.i355, %wide.trip.count.i.i353
-  br i1 %exitcond.not.i.i356, label %fold_add.exit, label %1768, !llvm.loop !17
+  br i1 %exitcond.not.i.i356, label %fold_add.exit, label %1768, !llvm.loop !19
 
 1772:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   %1773 = getelementptr i8, ptr %.076705, i64 32
@@ -3788,11 +3788,11 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
   %1778 = inttoptr i64 %1776 to ptr
   %1779 = getelementptr i8, ptr %1778, i64 48
   %.val.i.i.i.i360 = load ptr, ptr %1779, align 8
-  %.val.val.i.i.i.i361 = load i8, ptr %.val.i.i.i.i360, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i361 = load i8, ptr %.val.i.i.i.i360, align 8, !range !17, !noundef !18
   %1780 = inttoptr i64 %1777 to ptr
   %1781 = getelementptr i8, ptr %1780, i64 48
   %.val.i15.i.i.i362 = load ptr, ptr %1781, align 8
-  %.val.val.i16.i.i.i363 = load i8, ptr %.val.i15.i.i.i362, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i363 = load i8, ptr %.val.i15.i.i.i362, align 8, !range !17, !noundef !18
   %1782 = icmp samesign ugt i8 %.val.val.i.i.i.i361, %.val.val.i16.i.i.i363
   br i1 %1782, label %1787, label %1783
 
@@ -3807,7 +3807,7 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
   store i64 %1777, ptr %1774, align 8
   store i64 %1776, ptr %1775, align 8
   %.val.i.i5.pre.i.i380 = load ptr, ptr %1781, align 8
-  %.val.val.i.i6.pre.i.i381 = load i8, ptr %.val.i.i5.pre.i.i380, align 8, !range !15
+  %.val.val.i.i6.pre.i.i381 = load i8, ptr %.val.i.i5.pre.i.i380, align 8, !range !17
   br label %swap_commutative.exit.i.i365
 
 swap_commutative.exit.i.i365:                     ; preds = %1787, %1783
@@ -3817,7 +3817,7 @@ swap_commutative.exit.i.i365:                     ; preds = %1787, %1783
   %1788 = trunc nuw i8 %.val.val.i.i6.i.i366 to i1
   %1789 = getelementptr i8, ptr %.pre-phi776, i64 48
   %.val.i12.i.i.i377 = load ptr, ptr %1789, align 8
-  %.val.val.i13.i.i.i378 = load i8, ptr %.val.i12.i.i.i377, align 8, !range !15
+  %.val.val.i13.i.i.i378 = load i8, ptr %.val.i12.i.i.i377, align 8, !range !17
   %1790 = trunc nuw i8 %.val.val.i13.i.i.i378 to i1
   br i1 %1788, label %1791, label %swap_commutative.exit.i._crit_edge.i368
 
@@ -3923,7 +3923,7 @@ fold_xi_to_not.exit.i375:                         ; preds = %1807, %1805, %1804
   %1841 = inttoptr i64 %1840 to ptr
   %1842 = getelementptr i8, ptr %1841, i64 48
   %.val.i.i.i382 = load ptr, ptr %1842, align 8
-  %.val.val.i.i.i383 = load i8, ptr %.val.i.i.i382, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i383 = load i8, ptr %.val.i.i.i382, align 8, !range !17, !noundef !18
   %1843 = trunc nuw i8 %.val.val.i.i.i383 to i1
   br i1 %1843, label %fold_const1.exit.thread.i386, label %fold_const1.exit.i384
 
@@ -3993,11 +3993,11 @@ fold_const1.exit.i384:                            ; preds = %1838
   %1888 = inttoptr i64 %1886 to ptr
   %1889 = getelementptr i8, ptr %1888, i64 48
   %.val.i.i.i.i387 = load ptr, ptr %1889, align 8
-  %.val.val.i.i.i.i388 = load i8, ptr %.val.i.i.i.i387, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i.i388 = load i8, ptr %.val.i.i.i.i387, align 8, !range !17, !noundef !18
   %1890 = inttoptr i64 %1887 to ptr
   %1891 = getelementptr i8, ptr %1890, i64 48
   %.val.i15.i.i.i389 = load ptr, ptr %1891, align 8
-  %.val.val.i16.i.i.i390 = load i8, ptr %.val.i15.i.i.i389, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i.i390 = load i8, ptr %.val.i15.i.i.i389, align 8, !range !17, !noundef !18
   %1892 = icmp samesign ugt i8 %.val.val.i.i.i.i388, %.val.val.i16.i.i.i390
   br i1 %1892, label %1897, label %1893
 
@@ -4012,7 +4012,7 @@ fold_const1.exit.i384:                            ; preds = %1838
   store i64 %1887, ptr %1884, align 8
   store i64 %1886, ptr %1885, align 8
   %.val.i.i5.pre.i.i409 = load ptr, ptr %1891, align 8
-  %.val.val.i.i6.pre.i.i410 = load i8, ptr %.val.i.i5.pre.i.i409, align 8, !range !15
+  %.val.val.i.i6.pre.i.i410 = load i8, ptr %.val.i.i5.pre.i.i409, align 8, !range !17
   br label %swap_commutative.exit.i.i392
 
 swap_commutative.exit.i.i392:                     ; preds = %1897, %1893
@@ -4022,7 +4022,7 @@ swap_commutative.exit.i.i392:                     ; preds = %1897, %1893
   %1898 = trunc nuw i8 %.val.val.i.i6.i.i393 to i1
   %1899 = getelementptr i8, ptr %.pre-phi777, i64 48
   %.val.i12.i.i.i406 = load ptr, ptr %1899, align 8
-  %.val.val.i13.i.i.i407 = load i8, ptr %.val.i12.i.i.i406, align 8, !range !15
+  %.val.val.i13.i.i.i407 = load i8, ptr %.val.i12.i.i.i406, align 8, !range !17
   %1900 = trunc nuw i8 %.val.val.i13.i.i.i407 to i1
   br i1 %1898, label %1901, label %swap_commutative.exit.i._crit_edge.i395
 
@@ -4309,7 +4309,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2067)
   %indvars.iv.next.i.i429 = add nuw nsw i64 %indvars.iv.i.i428, 1
   %exitcond.not.i.i430 = icmp eq i64 %indvars.iv.next.i.i429, %wide.trip.count.i.i427
-  br i1 %exitcond.not.i.i430, label %fold_add.exit, label %2064, !llvm.loop !17
+  br i1 %exitcond.not.i.i430, label %fold_add.exit, label %2064, !llvm.loop !19
 
 2068:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   store ptr null, ptr %17, align 8
@@ -4322,7 +4322,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
   %2073 = inttoptr i64 %2072 to ptr
   %2074 = getelementptr i8, ptr %2073, i64 48
   %.val.i.i.i431 = load ptr, ptr %2074, align 8
-  %.val.val.i.i.i432 = load i8, ptr %.val.i.i.i431, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i432 = load i8, ptr %.val.i.i.i431, align 8, !range !17, !noundef !18
   %2075 = trunc nuw i8 %.val.val.i.i.i432 to i1
   %2076 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %2077 = load i64, ptr %2076, align 8
@@ -4332,7 +4332,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
 2079:                                             ; preds = %2069
   %2080 = getelementptr i8, ptr %2078, i64 48
   %.val.i12.i.i445 = load ptr, ptr %2080, align 8
-  %.val.val.i13.i.i446 = load i8, ptr %.val.i12.i.i445, align 8, !range !15, !noundef !16
+  %.val.val.i13.i.i446 = load i8, ptr %.val.i12.i.i445, align 8, !range !17, !noundef !18
   %2081 = trunc nuw i8 %.val.val.i13.i.i446 to i1
   br i1 %2081, label %fold_const2.exit.i447, label %._crit_edge.i433
 
@@ -4375,7 +4375,7 @@ fold_const2.exit.i447:                            ; preds = %2079
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i.i, i64 16
   %.0.i.i.i.i435 = load ptr, ptr %.0.in.i.i.i.i, align 8
   %.not.i.i.i.i436 = icmp eq ptr %.0.i.i.i.i435, %2073
-  br i1 %.not.i.i.i.i436, label %.loopexit.i437, label %.lr.ph.i.i.i.i434, !llvm.loop !18
+  br i1 %.not.i.i.i.i436, label %.loopexit.i437, label %.lr.ph.i.i.i.i434, !llvm.loop !20
 
 .loopexit.i437:                                   ; preds = %2098, %2093, %2090
   %2100 = load i32, ptr %.076705, align 8
@@ -4398,7 +4398,7 @@ fold_const2.exit.i447:                            ; preds = %2079
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2108)
   %indvars.iv.next.i.i442 = add nuw nsw i64 %indvars.iv.i.i441, 1
   %exitcond.not.i.i443 = icmp eq i64 %indvars.iv.next.i.i442, %wide.trip.count.i.i440
-  br i1 %exitcond.not.i.i443, label %fold_add.exit, label %2105, !llvm.loop !17
+  br i1 %exitcond.not.i.i443, label %fold_add.exit, label %2105, !llvm.loop !19
 
 finish_folding.exit.sink.split.i444:              ; preds = %.lr.ph.i.i.i.i434, %._crit_edge.i433, %fold_const2.exit.i447
   %.sink11.i = phi i64 [ %2088, %fold_const2.exit.i447 ], [ 0, %._crit_edge.i433 ], [ 0, %.lr.ph.i.i.i.i434 ]
@@ -4414,14 +4414,14 @@ finish_folding.exit.sink.split.i444:              ; preds = %.lr.ph.i.i.i.i434, 
   %2115 = inttoptr i64 %2114 to ptr
   %2116 = getelementptr i8, ptr %2115, i64 48
   %.val.i.i.i448 = load ptr, ptr %2116, align 8
-  %.val.val.i.i.i449 = load i8, ptr %.val.i.i.i448, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i449 = load i8, ptr %.val.i.i.i448, align 8, !range !17, !noundef !18
   %2117 = trunc nuw i8 %.val.val.i.i.i449 to i1
   %2118 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %2119 = load i64, ptr %2118, align 8
   %2120 = inttoptr i64 %2119 to ptr
   %2121 = getelementptr i8, ptr %2120, i64 48
   %.val.i12.i.i464 = load ptr, ptr %2121, align 8
-  %.val.val.i13.i.i465 = load i8, ptr %.val.i12.i.i464, align 8, !range !15
+  %.val.val.i13.i.i465 = load i8, ptr %.val.i12.i.i464, align 8, !range !17
   %2122 = trunc nuw i8 %.val.val.i13.i.i465 to i1
   br i1 %2117, label %2123, label %2136
 
@@ -4617,7 +4617,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2234)
   %indvars.iv.next.i.i456 = add nuw nsw i64 %indvars.iv.i.i455, 1
   %exitcond.not.i.i457 = icmp eq i64 %indvars.iv.next.i.i456, %wide.trip.count.i.i454
-  br i1 %exitcond.not.i.i457, label %fold_add.exit, label %2231, !llvm.loop !17
+  br i1 %exitcond.not.i.i457, label %fold_add.exit, label %2231, !llvm.loop !19
 
 2235:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit
   call fastcc void @fold_setcond(ptr noundef %2, ptr noundef %.076705)
@@ -4697,7 +4697,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   %2276 = inttoptr i64 %2275 to ptr
   %2277 = getelementptr i8, ptr %2276, i64 48
   %.val.i.i475 = load ptr, ptr %2277, align 8
-  %.val.i.i.i.i476 = load i8, ptr %.val.i.i475, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i476 = load i8, ptr %.val.i.i475, align 8, !range !17, !noundef !18
   %2278 = trunc nuw i8 %.val.i.i.i.i476 to i1
   br i1 %2278, label %arg_is_const_val.exit.i477, label %arg_is_const_val.exit.thread.i470
 
@@ -4713,7 +4713,7 @@ arg_is_const_val.exit.i477:                       ; preds = %2273
   %2284 = inttoptr i64 %2283 to ptr
   %2285 = getelementptr i8, ptr %2284, i64 48
   %.val.i45.i = load ptr, ptr %2285, align 8
-  %.val.i.i.i46.i = load i8, ptr %.val.i45.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i46.i = load i8, ptr %.val.i45.i, align 8, !range !17, !noundef !18
   %2286 = trunc nuw i8 %.val.i.i.i46.i to i1
   br i1 %2286, label %arg_is_const_val.exit48.i, label %arg_is_const_val.exit.thread.i470
 
@@ -4760,7 +4760,7 @@ arg_is_const_val.exit48.i:                        ; preds = %2281
   %2306 = inttoptr i64 %2305 to ptr
   %2307 = getelementptr i8, ptr %2306, i64 48
   %.val.i49.i = load ptr, ptr %2307, align 8
-  %.val.i.i.i50.i = load i8, ptr %.val.i49.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i50.i = load i8, ptr %.val.i49.i, align 8, !range !17, !noundef !18
   %2308 = trunc nuw i8 %.val.i.i.i50.i to i1
   br i1 %2308, label %arg_is_const_val.exit52.i, label %arg_is_const_val.exit52.thread.i
 
@@ -4776,7 +4776,7 @@ arg_is_const_val.exit52.thread.i:                 ; preds = %arg_is_const_val.ex
   %2313 = inttoptr i64 %2312 to ptr
   %2314 = getelementptr i8, ptr %2313, i64 48
   %.val.i53.i = load ptr, ptr %2314, align 8
-  %.val.i.i.i54.i = load i8, ptr %.val.i53.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i54.i = load i8, ptr %.val.i53.i, align 8, !range !17, !noundef !18
   %2315 = trunc nuw i8 %.val.i.i.i54.i to i1
   br i1 %2315, label %arg_is_const_val.exit56.i, label %arg_is_const_val.exit.thread.i470
 
@@ -4852,11 +4852,11 @@ arg_is_const_val.exit.thread.i470:                ; preds = %arg_is_const_val.ex
   %2356 = inttoptr i64 %2354 to ptr
   %2357 = getelementptr i8, ptr %2356, i64 48
   %.val.i.i.i479 = load ptr, ptr %2357, align 8
-  %.val.val.i.i.i480 = load i8, ptr %.val.i.i.i479, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i480 = load i8, ptr %.val.i.i.i479, align 8, !range !17, !noundef !18
   %2358 = inttoptr i64 %2355 to ptr
   %2359 = getelementptr i8, ptr %2358, i64 48
   %.val.i15.i.i481 = load ptr, ptr %2359, align 8
-  %.val.val.i16.i.i482 = load i8, ptr %.val.i15.i.i481, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i482 = load i8, ptr %.val.i15.i.i481, align 8, !range !17, !noundef !18
   %2360 = icmp samesign ugt i8 %.val.val.i.i.i480, %.val.val.i16.i.i482
   br i1 %2360, label %2364, label %2361
 
@@ -4900,7 +4900,7 @@ swap_commutative.exit.i484:                       ; preds = %2364, %2361
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2379)
   %indvars.iv.next.i.i489 = add nuw nsw i64 %indvars.iv.i.i488, 1
   %exitcond.not.i.i490 = icmp eq i64 %indvars.iv.next.i.i489, %wide.trip.count.i.i487
-  br i1 %exitcond.not.i.i490, label %fold_add.exit, label %2376, !llvm.loop !17
+  br i1 %exitcond.not.i.i490, label %fold_add.exit, label %2376, !llvm.loop !19
 
 2380:                                             ; preds = %copy_propagate.exit
   %2381 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -4940,7 +4940,7 @@ swap_commutative.exit.i484:                       ; preds = %2364, %2361
   %.0.in.i.i.i498 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i497, i64 16
   %.0.i.i.i499 = load ptr, ptr %.0.in.i.i.i498, align 8
   %.not.i.i.i500 = icmp eq ptr %.0.i.i.i499, %2386
-  br i1 %.not.i.i.i500, label %.loopexit.i501, label %.lr.ph.i.i.i495, !llvm.loop !18
+  br i1 %.not.i.i.i500, label %.loopexit.i501, label %.lr.ph.i.i.i495, !llvm.loop !20
 
 args_are_copies.exit.i516:                        ; preds = %.lr.ph.i.i.i495, %2380
   %2400 = load i64, ptr %2381, align 8
@@ -4955,11 +4955,11 @@ args_are_copies.exit.i516:                        ; preds = %.lr.ph.i.i.i495, %2
   %2405 = inttoptr i64 %2403 to ptr
   %2406 = getelementptr i8, ptr %2405, i64 48
   %.val.i.i.i502 = load ptr, ptr %2406, align 8
-  %.val.val.i.i.i503 = load i8, ptr %.val.i.i.i502, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i503 = load i8, ptr %.val.i.i.i502, align 8, !range !17, !noundef !18
   %2407 = inttoptr i64 %2404 to ptr
   %2408 = getelementptr i8, ptr %2407, i64 48
   %.val.i15.i.i504 = load ptr, ptr %2408, align 8
-  %.val.val.i16.i.i505 = load i8, ptr %.val.i15.i.i504, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i505 = load i8, ptr %.val.i15.i.i504, align 8, !range !17, !noundef !18
   %2409 = icmp samesign ugt i8 %.val.val.i.i.i503, %.val.val.i16.i.i505
   br i1 %2409, label %2413, label %2410
 
@@ -4986,8 +4986,8 @@ swap_commutative.exit.i507:                       ; preds = %2413, %2410
   %.val.i15.i20.i = phi ptr [ %.val.i.i.i.i491, %2410 ], [ %.val.i15.i20.pre.i, %2413 ]
   %2419 = getelementptr i8, ptr %2387, i64 48
   %.val.i.i18.i508 = load ptr, ptr %2419, align 8
-  %.val.val.i.i19.i = load i8, ptr %.val.i.i18.i508, align 8, !range !15, !noundef !16
-  %.val.val.i16.i21.i = load i8, ptr %.val.i15.i20.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i19.i = load i8, ptr %.val.i.i18.i508, align 8, !range !17, !noundef !18
+  %.val.val.i16.i21.i = load i8, ptr %.val.i15.i20.i, align 8, !range !17, !noundef !18
   %2420 = icmp samesign ugt i8 %.val.val.i.i19.i, %.val.val.i16.i21.i
   br i1 %2420, label %2425, label %2421
 
@@ -5029,7 +5029,7 @@ swap_commutative.exit24.i:                        ; preds = %2425, %2421
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2438)
   %indvars.iv.next.i.i513 = add nuw nsw i64 %indvars.iv.i.i512, 1
   %exitcond.not.i.i514 = icmp eq i64 %indvars.iv.next.i.i513, %wide.trip.count.i.i511
-  br i1 %exitcond.not.i.i514, label %fold_add.exit, label %2435, !llvm.loop !17
+  br i1 %exitcond.not.i.i514, label %fold_add.exit, label %2435, !llvm.loop !19
 
 2439:                                             ; preds = %copy_propagate.exit
   %2440 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -5069,7 +5069,7 @@ swap_commutative.exit24.i:                        ; preds = %2425, %2421
   %.0.in.i.i.i524 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i523, i64 16
   %.0.i.i.i525 = load ptr, ptr %.0.in.i.i.i524, align 8
   %.not.i.i.i526 = icmp eq ptr %.0.i.i.i525, %2445
-  br i1 %.not.i.i.i526, label %.loopexit.i527, label %.lr.ph.i.i.i521, !llvm.loop !18
+  br i1 %.not.i.i.i526, label %.loopexit.i527, label %.lr.ph.i.i.i521, !llvm.loop !20
 
 args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2439
   %2459 = load i64, ptr %2440, align 8
@@ -5077,11 +5077,11 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   br label %fold_add.exit
 
 .loopexit.i527:                                   ; preds = %2457, %2452, %2448
-  %.val.val.i.i528 = load i8, ptr %.val.i.i.i.i517, align 8, !range !15, !noundef !16
+  %.val.val.i.i528 = load i8, ptr %.val.i.i.i.i517, align 8, !range !17, !noundef !18
   %2460 = trunc nuw i8 %.val.val.i.i528 to i1
   %2461 = getelementptr i8, ptr %2446, i64 48
   %.val.i78.i = load ptr, ptr %2461, align 8
-  %.val.val.i79.i = load i8, ptr %.val.i78.i, align 8, !range !15
+  %.val.val.i79.i = load i8, ptr %.val.i78.i, align 8, !range !17
   br i1 %2460, label %2462, label %.loopexit.i527._crit_edge
 
 2462:                                             ; preds = %.loopexit.i527
@@ -5219,7 +5219,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2523)
   %indvars.iv.next.i.i533 = add nuw nsw i64 %indvars.iv.i.i532, 1
   %exitcond.not.i.i534 = icmp eq i64 %indvars.iv.next.i.i533, %wide.trip.count.i.i531
-  br i1 %exitcond.not.i.i534, label %fold_add.exit, label %2520, !llvm.loop !17
+  br i1 %exitcond.not.i.i534, label %fold_add.exit, label %2520, !llvm.loop !19
 
 2524:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit
   %2525 = getelementptr inbounds nuw i8, ptr %.076705, i64 40
@@ -5233,7 +5233,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   %2532 = getelementptr inbounds nuw i8, ptr %.076705, i64 56
   %2533 = load i64, ptr %2532, align 8
   %2534 = trunc i64 %2533 to i32
-  %.val.i539 = load i8, ptr %.val.i.i538, align 8, !range !15, !noundef !16
+  %.val.i539 = load i8, ptr %.val.i.i538, align 8, !range !17, !noundef !18
   %2535 = trunc nuw i8 %.val.i539 to i1
   br i1 %2535, label %2536, label %2551
 
@@ -5388,7 +5388,7 @@ sextract64.exit37.i:                              ; preds = %.split27.i
   %2624 = inttoptr i64 %2623 to ptr
   %2625 = getelementptr i8, ptr %2624, i64 48
   %.val.i.i.i550 = load ptr, ptr %2625, align 8
-  %.val.val.i.i.i551 = load i8, ptr %.val.i.i.i550, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i551 = load i8, ptr %.val.i.i.i550, align 8, !range !17, !noundef !18
   %2626 = trunc nuw i8 %.val.val.i.i.i551 to i1
   %2627 = getelementptr inbounds nuw i8, ptr %.076705, i64 48
   %2628 = load i64, ptr %2627, align 8
@@ -5398,7 +5398,7 @@ sextract64.exit37.i:                              ; preds = %.split27.i
 2630:                                             ; preds = %2620
   %2631 = getelementptr i8, ptr %2629, i64 48
   %.val.i12.i.i573 = load ptr, ptr %2631, align 8
-  %.val.val.i13.i.i574 = load i8, ptr %.val.i12.i.i573, align 8, !range !15, !noundef !16
+  %.val.val.i13.i.i574 = load i8, ptr %.val.i12.i.i573, align 8, !range !17, !noundef !18
   %2632 = trunc nuw i8 %.val.val.i13.i.i574 to i1
   br i1 %2632, label %fold_const2.exit.i575, label %._crit_edge.i552
 
@@ -5444,7 +5444,7 @@ fold_const2.exit.i575:                            ; preds = %2630
   %.0.in.i.i.i.i558 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i.i557, i64 16
   %.0.i.i.i.i559 = load ptr, ptr %.0.in.i.i.i.i558, align 8
   %.not.i.i.i.i560 = icmp eq ptr %.0.i.i.i.i559, %2624
-  br i1 %.not.i.i.i.i560, label %.loopexit.i561, label %.lr.ph.i.i.i.i555, !llvm.loop !18
+  br i1 %.not.i.i.i.i560, label %.loopexit.i561, label %.lr.ph.i.i.i.i555, !llvm.loop !20
 
 fold_xx_to_i.exit.i:                              ; preds = %.lr.ph.i.i.i.i555, %._crit_edge.i552
   %2652 = load i64, ptr %2621, align 8
@@ -5453,7 +5453,7 @@ fold_xx_to_i.exit.i:                              ; preds = %.lr.ph.i.i.i.i555, 
   br label %fold_add.exit
 
 .loopexit.i561:                                   ; preds = %2650, %2646, %2643
-  %.val.i.i.i.i18.i = load i8, ptr %.val.i.i17.pre.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i18.i = load i8, ptr %.val.i.i17.pre.i, align 8, !range !17, !noundef !18
   %2654 = trunc nuw i8 %.val.i.i.i.i18.i to i1
   br i1 %2654, label %arg_is_const_val.exit.i.i570, label %2658
 
@@ -5477,7 +5477,7 @@ fold_xi_to_x.exit.i572:                           ; preds = %arg_is_const_val.ex
   %2662 = inttoptr i64 %2661 to ptr
   %2663 = getelementptr i8, ptr %2662, i64 48
   %.val.i.i562 = load ptr, ptr %2663, align 8
-  %.val.val.i.i563 = load i8, ptr %.val.i.i562, align 8, !range !15, !noundef !16
+  %.val.val.i.i563 = load i8, ptr %.val.i.i562, align 8, !range !17, !noundef !18
   %2664 = trunc nuw i8 %.val.val.i.i563 to i1
   br i1 %2664, label %2665, label %2676
 
@@ -5517,7 +5517,7 @@ fold_xi_to_x.exit.i572:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2685)
   %indvars.iv.next.i.i568 = add nuw nsw i64 %indvars.iv.i.i567, 1
   %exitcond.not.i.i569 = icmp eq i64 %indvars.iv.next.i.i568, %wide.trip.count.i.i566
-  br i1 %exitcond.not.i.i569, label %fold_add.exit, label %2682, !llvm.loop !17
+  br i1 %exitcond.not.i.i569, label %fold_add.exit, label %2682, !llvm.loop !19
 
 2686:                                             ; preds = %copy_propagate.exit
   %2687 = getelementptr inbounds nuw i8, ptr %.076705, i64 40
@@ -5556,7 +5556,7 @@ fold_xi_to_x.exit.i572:                           ; preds = %arg_is_const_val.ex
   %.0.in.i.i.i.i584 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i.i583, i64 16
   %.0.i.i.i.i585 = load ptr, ptr %.0.in.i.i.i.i584, align 8
   %.not.i.i.i.i586 = icmp eq ptr %.0.i.i.i.i585, %2691
-  br i1 %.not.i.i.i.i586, label %.loopexit.i587, label %.lr.ph.i.i.i.i581, !llvm.loop !18
+  br i1 %.not.i.i.i.i586, label %.loopexit.i587, label %.lr.ph.i.i.i.i581, !llvm.loop !20
 
 fold_xx_to_i.exit.i597:                           ; preds = %.lr.ph.i.i.i.i581, %2686
   %2704 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
@@ -5566,7 +5566,7 @@ fold_xx_to_i.exit.i597:                           ; preds = %.lr.ph.i.i.i.i581, 
   br label %fold_add.exit
 
 .loopexit.i587:                                   ; preds = %2702, %2698, %2694
-  %.val.i.i.i.i9.i = load i8, ptr %.val.i.i.pre.i579, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i9.i = load i8, ptr %.val.i.i.pre.i579, align 8, !range !17, !noundef !18
   %2707 = trunc nuw i8 %.val.i.i.i.i9.i to i1
   br i1 %2707, label %arg_is_const_val.exit.i.i594, label %2712
 
@@ -5608,7 +5608,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2724)
   %indvars.iv.next.i.i592 = add nuw nsw i64 %indvars.iv.i.i591, 1
   %exitcond.not.i.i593 = icmp eq i64 %indvars.iv.next.i.i592, %wide.trip.count.i.i590
-  br i1 %exitcond.not.i.i593, label %fold_add.exit, label %2721, !llvm.loop !17
+  br i1 %exitcond.not.i.i593, label %fold_add.exit, label %2721, !llvm.loop !19
 
 2725:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit
   call fastcc void @fold_addsub2(ptr noundef nonnull %2, ptr noundef nonnull %.076705, i1 noundef zeroext false)
@@ -5657,7 +5657,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   %2743 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i602, i64 48
   %2744 = load ptr, ptr %2743, align 8
   %.not.i.i.i.i603 = icmp eq ptr %2744, %2729
-  br i1 %.not.i.i.i.i603, label %2745, label %.preheader.i.i.i.i601, !llvm.loop !13
+  br i1 %.not.i.i.i.i603, label %2745, label %.preheader.i.i.i.i601, !llvm.loop !14
 
 2745:                                             ; preds = %.preheader.i.i.i.i601
   %2746 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i602, i64 48
@@ -5680,7 +5680,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   store ptr %2753, ptr %5, align 8
   %2755 = call ptr @interval_tree_iter_first(ptr noundef nonnull %18, i64 noundef 0, i64 noundef -1) #9
   %.not.i.i.i604 = icmp eq ptr %2755, null
-  br i1 %.not.i.i.i604, label %finish_ebb.exit, label %.lr.ph.i.i.i599
+  br i1 %.not.i.i.i604, label %finish_ebb.exit, label %.lr.ph.i.i.i599, !llvm.loop !15
 
 finish_ebb.exit:                                  ; preds = %2752, %2727
   %.val.i.i606 = load ptr, ptr %18, align 8
@@ -5710,11 +5710,11 @@ finish_ebb.exit:                                  ; preds = %2752, %2727
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2767)
   %indvars.iv.next.i611 = add nuw nsw i64 %indvars.iv.i610, 1
   %exitcond.not.i612 = icmp eq i64 %indvars.iv.next.i611, %wide.trip.count.i609
-  br i1 %exitcond.not.i612, label %fold_add.exit, label %2764, !llvm.loop !17
+  br i1 %exitcond.not.i612, label %fold_add.exit, label %2764, !llvm.loop !19
 
 fold_add.exit:                                    ; preds = %2721, %2682, %2520, %2435, %2376, %2231, %2105, %2064, %1768, %1694, %1655, %1346, %1183, %991, %945, %921, %444, %411, %2764, %2757, %2714, %2712, %fold_xi_to_x.exit.i596, %fold_xx_to_i.exit.i597, %2676, %2658, %fold_xi_to_x.exit.i572, %fold_xx_to_i.exit.i, %fold_const2.exit.i575, %2603, %2599, %fold_affected_mask.exit.thread.i547, %sextract64.exit.i, %.thread96.i, %2509, %2502, %2492, %2488, %2485, %2483, %2471, %args_are_copies.exit.i537, %swap_commutative.exit24.i, %args_are_copies.exit.i516, %swap_commutative.exit.i484, %2347, %arg_is_const_val.exit.thread.i470, %2326, %2318, %2255, %2249, %2244, %2226, %2208, %2185, %2166, %2163, %fold_xi_to_x.exit.i463, %fold_ix_to_i.exit.i, %fold_const2.exit.i467, %finish_folding.exit.sink.split.i444, %.loopexit.i437, %2057, %1924, %fold_xi_to_not.exit.i404, %fold_const2_commutative.exit.i408, %1870, %1868, %fold_const1.exit.thread.i386, %1814, %fold_xi_to_not.exit.i375, %fold_const2_commutative.exit.i379, %1762, %1755, %finish_folding.exit.sink.split.i, %swap_commutative.exit.i._crit_edge.i327.thread, %.thread23.i308, %fold_xi_to_x.exit.i317, %fold_xi_to_i.exit.i, %fold_const2.exit.i318, %1607, %1604, %1526, %args_are_copies.exit.i303, %1485, %1478, %remove_mem_copy_in.exit.i, %1440, %1404, %find_mem_copy_for.exit.thread.i, %1387, %1339, %1288, %1286, %fold_affected_mask.exit.thread.i227, %fold_const1.exit.thread.i228, %1229, %1225, %fold_affected_mask.exit.thread.i216, %fold_const1.exit.thread.i217, %1177, %1173, %1123, %1121, %fold_affected_mask.exit.thread.i, %extract64.exit.i, %swap_commutative.exit.i._crit_edge.i183.thread, %fold_xi_to_not.exit.i, %fold_xi_to_x.exit.i189, %fold_const2_commutative.exit.i192, %args_are_copies.exit.thread.i, %962, %940, %933, %.thread.i, %fold_xi_to_x.exit.i153, %fold_const2.exit.i, %874, %871, %deposit64.exit68.i, %802, %deposit64.exit.i, %.split.i, %.split8.i, %fold_const1.exit.thread.i, %687, %682, %676, %646, %642, %600, %arg_is_const_val.exit.thread.i, %finish_ebb.exit.i, %558, %546, %537, %437, %fold_xi_to_x.exit.i117, %swap_commutative.exit.i._crit_edge.i.thread, %fold_xi_to_x.exit.i, %fold_const2_commutative.exit.i, %finish_ebb.exit, %2726, %2725, %2235, %2068, %fold_qemu_ld_1reg.exit424, %fold_qemu_ld_1reg.exit, %1950, %1949, %1948, %1486, %1395, %fold_tcg_ld.exit, %481, %480, %479, %fold_add2.exit, %fold_call.exit
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.critedge, label %19, !llvm.loop !20
+  br i1 %.not, label %.critedge, label %19, !llvm.loop !22
 
 .critedge:                                        ; preds = %fold_add.exit, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #9
@@ -5737,11 +5737,11 @@ define internal fastcc void @fold_and(ptr noundef nonnull %0, ptr noundef nonnul
   %8 = inttoptr i64 %6 to ptr
   %9 = getelementptr i8, ptr %8, i64 48
   %.val.i.i.i = load ptr, ptr %9, align 8
-  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !17, !noundef !18
   %10 = inttoptr i64 %7 to ptr
   %11 = getelementptr i8, ptr %10, i64 48
   %.val.i15.i.i = load ptr, ptr %11, align 8
-  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !17, !noundef !18
   %12 = icmp samesign ugt i8 %.val.val.i.i.i, %.val.val.i16.i.i
   br i1 %12, label %17, label %13
 
@@ -5756,7 +5756,7 @@ define internal fastcc void @fold_and(ptr noundef nonnull %0, ptr noundef nonnul
   store i64 %7, ptr %4, align 8
   store i64 %6, ptr %5, align 8
   %.val.i.i5.pre.i = load ptr, ptr %11, align 8
-  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !15
+  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !17
   br label %swap_commutative.exit.i
 
 swap_commutative.exit.i:                          ; preds = %17, %13
@@ -5771,7 +5771,7 @@ swap_commutative.exit.i:                          ; preds = %17, %13
 22:                                               ; preds = %swap_commutative.exit.i
   %23 = getelementptr i8, ptr %21, i64 48
   %.val.i12.i.i = load ptr, ptr %23, align 8
-  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !17, !noundef !18
   %24 = trunc nuw i8 %.val.val.i13.i.i to i1
   br i1 %24, label %fold_const2_commutative.exit, label %swap_commutative.exit.i._crit_edge
 
@@ -5793,7 +5793,7 @@ fold_const2_commutative.exit:                     ; preds = %22
 swap_commutative.exit.i._crit_edge:               ; preds = %swap_commutative.exit.i, %22
   %36 = getelementptr i8, ptr %21, i64 48
   %.val.i.i = load ptr, ptr %36, align 8
-  %.val.i.i.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %37 = trunc nuw i8 %.val.i.i.i.i to i1
   br i1 %37, label %arg_is_const_val.exit.i, label %45
 
@@ -5848,7 +5848,7 @@ fold_xi_to_x.exit:                                ; preds = %arg_is_const_val.ex
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %46
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 fold_xx_to_x.exit:                                ; preds = %.lr.ph.i.i.i, %45
   %57 = load i64, ptr %3, align 8
@@ -5946,7 +5946,7 @@ define internal fastcc void @fold_andc(ptr noundef nonnull %0, ptr noundef nonnu
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr i8, ptr %6, i64 48
   %.val.i.i = load ptr, ptr %7, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %8 = trunc nuw i8 %.val.val.i.i to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i64, ptr %9, align 8
@@ -5956,7 +5956,7 @@ define internal fastcc void @fold_andc(ptr noundef nonnull %0, ptr noundef nonnu
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %11, i64 48
   %.val.i12.i = load ptr, ptr %13, align 8
-  %.val.val.i13.i = load i8, ptr %.val.i12.i, align 8, !range !15, !noundef !16
+  %.val.val.i13.i = load i8, ptr %.val.i12.i, align 8, !range !17, !noundef !18
   %14 = trunc nuw i8 %.val.val.i13.i to i1
   br i1 %14, label %fold_const2.exit, label %._crit_edge
 
@@ -6004,7 +6004,7 @@ fold_const2.exit:                                 ; preds = %12
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %6
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %._crit_edge
   %36 = load i64, ptr %3, align 8
@@ -6013,7 +6013,7 @@ fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %._cr
   br label %fold_masks_zs.exit
 
 .loopexit:                                        ; preds = %34, %27, %30
-  %.val.i.i.i.i31 = load i8, ptr %.val.i.i30.pre, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i31 = load i8, ptr %.val.i.i30.pre, align 8, !range !17, !noundef !18
   %38 = trunc nuw i8 %.val.i.i.i.i31 to i1
   br i1 %38, label %arg_is_const_val.exit.i, label %42
 
@@ -6230,7 +6230,7 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %39 = load ptr, ptr %38, align 8
   %.not.i.i.i.i = icmp eq ptr %39, %24
-  br i1 %.not.i.i.i.i, label %40, label %.preheader.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %40, label %.preheader.i.i.i.i, !llvm.loop !14
 
 40:                                               ; preds = %.preheader.i.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
@@ -6253,7 +6253,7 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   store ptr %48, ptr %22, align 8
   %50 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #9
   %.not.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i, label %finish_ebb.exit, label %23
+  br i1 %.not.i.i.i, label %finish_ebb.exit, label %23, !llvm.loop !15
 
 finish_ebb.exit:                                  ; preds = %47, %12
   %.val.i.i = load ptr, ptr %20, align 8
@@ -6328,7 +6328,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i = icmp eq ptr %33, %18
-  br i1 %.not.i.i.i, label %34, label %.preheader.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %34, label %.preheader.i.i.i, !llvm.loop !14
 
 34:                                               ; preds = %.preheader.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -6351,7 +6351,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   store ptr %42, ptr %16, align 8
   %44 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #9
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %remove_mem_copy_all.exit, label %17
+  br i1 %.not.i.i, label %remove_mem_copy_all.exit, label %17, !llvm.loop !15
 
 remove_mem_copy_all.exit:                         ; preds = %41, %13
   %.val.i = load ptr, ptr %14, align 8
@@ -6442,7 +6442,7 @@ remove_mem_copy_all.exit:                         ; preds = %41, %13
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %81 = load ptr, ptr %80, align 8
   %.not.i.i10 = icmp eq ptr %81, %66
-  br i1 %.not.i.i10, label %82, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i10, label %82, label %.preheader.i.i, !llvm.loop !14
 
 82:                                               ; preds = %.preheader.i.i
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -6465,7 +6465,7 @@ remove_mem_copy_all.exit:                         ; preds = %41, %13
   store ptr %90, ptr %64, align 8
   %92 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %62, i64 noundef %4, i64 noundef %61) #9
   %.not.i = icmp eq ptr %92, null
-  br i1 %.not.i, label %remove_mem_copy_in.exit, label %65
+  br i1 %.not.i, label %remove_mem_copy_in.exit, label %65, !llvm.loop !15
 
 remove_mem_copy_in.exit:                          ; preds = %89, %60, %remove_mem_copy_all.exit
   ret void
@@ -6478,7 +6478,7 @@ define internal fastcc void @fold_not(ptr noundef nonnull %0, ptr noundef nonnul
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i.i = load ptr, ptr %6, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %7 = trunc nuw i8 %.val.val.i.i to i1
   br i1 %7, label %fold_const1.exit.thread, label %fold_const1.exit
 
@@ -6543,11 +6543,11 @@ define internal fastcc void @fold_or(ptr noundef nonnull %0, ptr noundef nonnull
   %8 = inttoptr i64 %6 to ptr
   %9 = getelementptr i8, ptr %8, i64 48
   %.val.i.i.i = load ptr, ptr %9, align 8
-  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !17, !noundef !18
   %10 = inttoptr i64 %7 to ptr
   %11 = getelementptr i8, ptr %10, i64 48
   %.val.i15.i.i = load ptr, ptr %11, align 8
-  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !17, !noundef !18
   %12 = icmp samesign ugt i8 %.val.val.i.i.i, %.val.val.i16.i.i
   br i1 %12, label %17, label %13
 
@@ -6562,7 +6562,7 @@ define internal fastcc void @fold_or(ptr noundef nonnull %0, ptr noundef nonnull
   store i64 %7, ptr %4, align 8
   store i64 %6, ptr %5, align 8
   %.val.i.i5.pre.i = load ptr, ptr %11, align 8
-  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !15
+  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !17
   br label %swap_commutative.exit.i
 
 swap_commutative.exit.i:                          ; preds = %17, %13
@@ -6577,7 +6577,7 @@ swap_commutative.exit.i:                          ; preds = %17, %13
 22:                                               ; preds = %swap_commutative.exit.i
   %23 = getelementptr i8, ptr %21, i64 48
   %.val.i12.i.i = load ptr, ptr %23, align 8
-  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !17, !noundef !18
   %24 = trunc nuw i8 %.val.val.i13.i.i to i1
   br i1 %24, label %fold_const2_commutative.exit, label %swap_commutative.exit.i._crit_edge
 
@@ -6599,7 +6599,7 @@ fold_const2_commutative.exit:                     ; preds = %22
 swap_commutative.exit.i._crit_edge:               ; preds = %swap_commutative.exit.i, %22
   %36 = getelementptr i8, ptr %21, i64 48
   %.val.i.i = load ptr, ptr %36, align 8
-  %.val.i.i.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %37 = trunc nuw i8 %.val.i.i.i.i to i1
   br i1 %37, label %arg_is_const_val.exit.i, label %41
 
@@ -6642,7 +6642,7 @@ fold_xi_to_x.exit:                                ; preds = %arg_is_const_val.ex
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %42
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 fold_xx_to_x.exit:                                ; preds = %.lr.ph.i.i.i, %41
   %53 = load i64, ptr %3, align 8
@@ -6717,7 +6717,7 @@ define internal fastcc void @fold_orc(ptr noundef nonnull %0, ptr noundef nonnul
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr i8, ptr %6, i64 48
   %.val.i.i = load ptr, ptr %7, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %8 = trunc nuw i8 %.val.val.i.i to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i64, ptr %9, align 8
@@ -6727,7 +6727,7 @@ define internal fastcc void @fold_orc(ptr noundef nonnull %0, ptr noundef nonnul
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %11, i64 48
   %.val.i12.i = load ptr, ptr %13, align 8
-  %.val.val.i13.i = load i8, ptr %.val.i12.i, align 8, !range !15, !noundef !16
+  %.val.val.i13.i = load i8, ptr %.val.i12.i, align 8, !range !17, !noundef !18
   %14 = trunc nuw i8 %.val.val.i13.i to i1
   br i1 %14, label %fold_const2.exit, label %._crit_edge
 
@@ -6775,7 +6775,7 @@ fold_const2.exit:                                 ; preds = %12
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %6
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %._crit_edge
   %36 = load i64, ptr %3, align 8
@@ -6784,7 +6784,7 @@ fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %._cr
   br label %82
 
 .loopexit:                                        ; preds = %34, %27, %30
-  %.val.i.i.i.i15 = load i8, ptr %.val.i.i14.pre, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i15 = load i8, ptr %.val.i.i14.pre, align 8, !range !17, !noundef !18
   %38 = trunc nuw i8 %.val.i.i.i.i15 to i1
   br i1 %38, label %arg_is_const_val.exit.i, label %42
 
@@ -6945,11 +6945,11 @@ define internal fastcc void @fold_xor(ptr noundef nonnull %0, ptr noundef nonnul
   %8 = inttoptr i64 %6 to ptr
   %9 = getelementptr i8, ptr %8, i64 48
   %.val.i.i.i = load ptr, ptr %9, align 8
-  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i.i = load i8, ptr %.val.i.i.i, align 8, !range !17, !noundef !18
   %10 = inttoptr i64 %7 to ptr
   %11 = getelementptr i8, ptr %10, i64 48
   %.val.i15.i.i = load ptr, ptr %11, align 8
-  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i.i = load i8, ptr %.val.i15.i.i, align 8, !range !17, !noundef !18
   %12 = icmp samesign ugt i8 %.val.val.i.i.i, %.val.val.i16.i.i
   br i1 %12, label %17, label %13
 
@@ -6964,7 +6964,7 @@ define internal fastcc void @fold_xor(ptr noundef nonnull %0, ptr noundef nonnul
   store i64 %7, ptr %4, align 8
   store i64 %6, ptr %5, align 8
   %.val.i.i5.pre.i = load ptr, ptr %11, align 8
-  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !15
+  %.val.val.i.i6.pre.i = load i8, ptr %.val.i.i5.pre.i, align 8, !range !17
   br label %swap_commutative.exit.i
 
 swap_commutative.exit.i:                          ; preds = %17, %13
@@ -6979,7 +6979,7 @@ swap_commutative.exit.i:                          ; preds = %17, %13
 22:                                               ; preds = %swap_commutative.exit.i
   %23 = getelementptr i8, ptr %21, i64 48
   %.val.i12.i.i = load ptr, ptr %23, align 8
-  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i13.i.i = load i8, ptr %.val.i12.i.i, align 8, !range !17, !noundef !18
   %24 = trunc nuw i8 %.val.val.i13.i.i to i1
   br i1 %24, label %fold_const2_commutative.exit, label %swap_commutative.exit.i._crit_edge
 
@@ -7028,7 +7028,7 @@ swap_commutative.exit.i._crit_edge:               ; preds = %swap_commutative.ex
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %36
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %swap_commutative.exit.i._crit_edge
   %47 = load i64, ptr %3, align 8
@@ -7037,7 +7037,7 @@ fold_xx_to_i.exit:                                ; preds = %.lr.ph.i.i.i, %swap
   br label %fold_masks_zs.exit
 
 .loopexit:                                        ; preds = %45, %38, %41
-  %.val.i.i.i.i18 = load i8, ptr %.val.i.i.pre, align 8, !range !15, !noundef !16
+  %.val.i.i.i.i18 = load i8, ptr %.val.i.i.pre, align 8, !range !17, !noundef !18
   %49 = trunc nuw i8 %.val.i.i.i.i18 to i1
   br i1 %49, label %arg_is_const_val.exit.i, label %67
 
@@ -7197,7 +7197,7 @@ define internal fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %1) un
   %22 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %24, label %21, !llvm.loop !10
+  br i1 %.not, label %24, label %21, !llvm.loop !11
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %15, align 8
@@ -7247,7 +7247,7 @@ define internal fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %1) un
   %.011.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %.011.i = load ptr, ptr %.011.in.i, align 8
   %.not.i = icmp eq ptr %.011.i, %7
-  br i1 %.not.i, label %find_better_copy.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %find_better_copy.exit, label %.lr.ph.i, !llvm.loop !9
 
 find_better_copy.exit:                            ; preds = %.lr.ph.i, %32, %.preheader.i
   %.012.i = phi ptr [ %7, %32 ], [ %7, %.preheader.i ], [ %45, %.lr.ph.i ]
@@ -7269,7 +7269,7 @@ find_better_copy.exit:                            ; preds = %.lr.ph.i, %32, %.pr
   %51 = getelementptr inbounds nuw i8, ptr %.021.i, i64 48
   %.0.i = load ptr, ptr %51, align 8
   %.not.i41 = icmp eq ptr %.0.i, null
-  br i1 %.not.i41, label %._crit_edge.i, label %.lr.ph.i40, !llvm.loop !11
+  br i1 %.not.i41, label %._crit_edge.i, label %.lr.ph.i40, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i40
   %.pre.i = load ptr, ptr %47, align 8
@@ -7766,7 +7766,7 @@ define internal fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 16
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, %5
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !20
 
 ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
   %19 = load ptr, ptr %0, align 8
@@ -7830,7 +7830,7 @@ switch.lookup:                                    ; preds = %.loopexit
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %5, ptr %47, align 8
   store ptr %5, ptr %42, align 8
-  %48 = load i8, ptr %.val44, align 8, !range !15, !noundef !16
+  %48 = load i8, ptr %.val44, align 8, !range !17, !noundef !18
   store i8 %48, ptr %.val45, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.val44, i64 40
   %50 = load i64, ptr %49, align 8
@@ -7871,7 +7871,7 @@ switch.lookup:                                    ; preds = %.loopexit
   %70 = getelementptr inbounds nuw i8, ptr %.021.i, i64 48
   %.0.i47 = load ptr, ptr %70, align 8
   %.not.i48 = icmp eq ptr %.0.i47, null
-  br i1 %.not.i48, label %._crit_edge.i, label %.lr.ph.i46, !llvm.loop !11
+  br i1 %.not.i48, label %._crit_edge.i, label %.lr.ph.i46, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i46
   %.pre.i = load ptr, ptr %66, align 8
@@ -7934,7 +7934,7 @@ define internal fastcc i64 @arg_new_constant(ptr noundef nonnull captures(none) 
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ugt ptr %30, %32
-  br i1 %33, label %34, label %36, !prof !6
+  br i1 %33, label %34, label %36, !prof !7
 
 34:                                               ; preds = %27
   %35 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %28, i32 noundef 64) #9
@@ -8009,7 +8009,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %7, i64 48
   %.val.i = load ptr, ptr %8, align 8
-  %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i, align 8, !range !17, !noundef !18
   %9 = trunc nuw i8 %.val.val.i to i1
   br i1 %9, label %10, label %16
 
@@ -8019,7 +8019,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr i8, ptr %13, i64 48
   %.val.i93 = load ptr, ptr %14, align 8
-  %.val.val.i94 = load i8, ptr %.val.i93, align 8, !range !15, !noundef !16
+  %.val.val.i94 = load i8, ptr %.val.i93, align 8, !range !17, !noundef !18
   %15 = trunc nuw i8 %.val.val.i94 to i1
   br label %16
 
@@ -8030,7 +8030,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr i8, ptr %20, i64 48
   %.val.i95 = load ptr, ptr %21, align 8
-  %.val.val.i96 = load i8, ptr %.val.i95, align 8, !range !15, !noundef !16
+  %.val.val.i96 = load i8, ptr %.val.i95, align 8, !range !17, !noundef !18
   %22 = trunc nuw i8 %.val.val.i96 to i1
   br i1 %22, label %23, label %.thread120
 
@@ -8040,7 +8040,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr i8, ptr %26, i64 48
   %.val.i97 = load ptr, ptr %27, align 8
-  %.val.val.i98 = load i8, ptr %.val.i97, align 8, !range !15, !noundef !16
+  %.val.val.i98 = load i8, ptr %.val.i97, align 8, !range !17, !noundef !18
   %28 = trunc nuw i8 %.val.val.i98 to i1
   %or.cond = select i1 %17, i1 %28, i1 false
   br i1 %or.cond, label %29, label %69
@@ -8167,7 +8167,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   tail call fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %96)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %finish_folding.exit, label %93, !llvm.loop !17
+  br i1 %exitcond.not.i, label %finish_folding.exit, label %93, !llvm.loop !19
 
 finish_folding.exit:                              ; preds = %93, %.thread120, %61
   ret void
@@ -8185,11 +8185,11 @@ define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond1(ptr nound
   %8 = inttoptr i64 %6 to ptr
   %9 = getelementptr i8, ptr %8, i64 48
   %.val.i.i = load ptr, ptr %9, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %10 = inttoptr i64 %7 to ptr
   %11 = getelementptr i8, ptr %10, i64 48
   %.val.i15.i = load ptr, ptr %11, align 8
-  %.val.val.i16.i = load i8, ptr %.val.i15.i, align 8, !range !15, !noundef !16
+  %.val.val.i16.i = load i8, ptr %.val.i15.i, align 8, !range !17, !noundef !18
   %12 = icmp samesign ugt i8 %.val.val.i.i, %.val.val.i16.i
   br i1 %12, label %18, label %13
 
@@ -8268,10 +8268,10 @@ swap_commutative.exit:                            ; preds = %13
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i, i64 16
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %37
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !20
 
 .loopexit:                                        ; preds = %49, %42, %45
-  %.val.val.i = load i8, ptr %.val.i33.pre, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i33.pre, align 8, !range !17, !noundef !18
   %51 = trunc nuw i8 %.val.val.i to i1
   br i1 %51, label %52, label %72
 
@@ -8321,7 +8321,7 @@ define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond(i32 nounde
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i = load ptr, ptr %6, align 8
-  %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i, align 8, !range !17, !noundef !18
   %7 = trunc nuw i8 %.val.val.i to i1
   %8 = inttoptr i64 %2 to ptr
   br i1 %7, label %9, label %._crit_edge
@@ -8329,7 +8329,7 @@ define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond(i32 nounde
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %8, i64 48
   %.val.i17 = load ptr, ptr %10, align 8
-  %.val.val.i18 = load i8, ptr %.val.i17, align 8, !range !15, !noundef !16
+  %.val.val.i18 = load i8, ptr %.val.i17, align 8, !range !17, !noundef !18
   %11 = trunc nuw i8 %.val.val.i18 to i1
   br i1 %11, label %12, label %._crit_edge
 
@@ -8524,7 +8524,7 @@ do_constant_folding_cond_64.exit:                 ; preds = %49, %51, %53, %55, 
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i, i64 16
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %5
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !20
 
 args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %._crit_edge
   %switch.tableidx = add i32 %3, -2
@@ -8540,7 +8540,7 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %._crit
   unreachable
 
 .loopexit:                                        ; preds = %85, %78, %81
-  %.val.i.i.i24 = load i8, ptr %.val.i23.pre, align 8, !range !15, !noundef !16
+  %.val.i.i.i24 = load i8, ptr %.val.i23.pre, align 8, !range !17, !noundef !18
   %89 = trunc nuw i8 %.val.i.i.i24 to i1
   br i1 %89, label %arg_is_const_val.exit, label %do_constant_folding_cond_eq.exit
 
@@ -8579,25 +8579,25 @@ define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond2(ptr nound
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i.i = load ptr, ptr %6, align 8
-  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !15, !noundef !16
+  %.val.val.i.i = load i8, ptr %.val.i.i, align 8, !range !17, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr i8, ptr %9, i64 48
   %.val.i20.i = load ptr, ptr %10, align 8
-  %.val.val.i21.i = load i8, ptr %.val.i20.i, align 8, !range !15, !noundef !16
+  %.val.val.i21.i = load i8, ptr %.val.i20.i, align 8, !range !17, !noundef !18
   %narrow.i = add nuw nsw i8 %.val.val.i21.i, %.val.val.i.i
   %11 = load i64, ptr %3, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr i8, ptr %12, i64 48
   %.val.i22.i = load ptr, ptr %13, align 8
-  %.val.val.i23.i = load i8, ptr %.val.i22.i, align 8, !range !15, !noundef !16
+  %.val.val.i23.i = load i8, ptr %.val.i22.i, align 8, !range !17, !noundef !18
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr i8, ptr %16, i64 48
   %.val.i24.i = load ptr, ptr %17, align 8
-  %.val.val.i25.i = load i8, ptr %.val.i24.i, align 8, !range !15, !noundef !16
+  %.val.val.i25.i = load i8, ptr %.val.i24.i, align 8, !range !17, !noundef !18
   %narrow26.i = add nuw nsw i8 %.val.val.i25.i, %.val.val.i23.i
   %18 = icmp samesign ugt i8 %narrow.i, %narrow26.i
   br i1 %18, label %22, label %swap_commutative2.exit
@@ -8622,7 +8622,7 @@ swap_commutative2.exit:                           ; preds = %2
   %29 = zext i32 %28 to i64
   store i64 %29, ptr %23, align 8
   %.val.i.pre = load ptr, ptr %6, align 8
-  %.val.val.i.pre = load i8, ptr %.val.i.pre, align 8, !range !15
+  %.val.val.i.pre = load i8, ptr %.val.i.pre, align 8, !range !17
   br label %30
 
 30:                                               ; preds = %swap_commutative2.exit, %22
@@ -8642,7 +8642,7 @@ swap_commutative2.exit:                           ; preds = %2
   %38 = inttoptr i64 %31 to ptr
   %39 = getelementptr i8, ptr %38, i64 48
   %.val.i62 = load ptr, ptr %39, align 8
-  %.val.val.i63 = load i8, ptr %.val.i62, align 8, !range !15, !noundef !16
+  %.val.val.i63 = load i8, ptr %.val.i62, align 8, !range !17, !noundef !18
   %40 = trunc nuw i8 %.val.val.i63 to i1
   br i1 %40, label %41, label %108
 
@@ -8657,7 +8657,7 @@ swap_commutative2.exit:                           ; preds = %2
   %49 = inttoptr i64 %34 to ptr
   %50 = getelementptr i8, ptr %49, i64 48
   %.val.i66 = load ptr, ptr %50, align 8
-  %.val.val.i67 = load i8, ptr %.val.i66, align 8, !range !15, !noundef !16
+  %.val.val.i67 = load i8, ptr %.val.i66, align 8, !range !17, !noundef !18
   %51 = trunc nuw i8 %.val.val.i67 to i1
   br i1 %51, label %52, label %92
 
@@ -8665,7 +8665,7 @@ swap_commutative2.exit:                           ; preds = %2
   %53 = inttoptr i64 %33 to ptr
   %54 = getelementptr i8, ptr %53, i64 48
   %.val.i68 = load ptr, ptr %54, align 8
-  %.val.val.i69 = load i8, ptr %.val.i68, align 8, !range !15, !noundef !16
+  %.val.val.i69 = load i8, ptr %.val.i68, align 8, !range !17, !noundef !18
   %55 = trunc nuw i8 %.val.val.i69 to i1
   br i1 %55, label %56, label %92
 
@@ -8819,7 +8819,7 @@ do_constant_folding_cond_64.exit:                 ; preds = %64, %66, %68, %70, 
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.0.val.i.i, i64 16
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %109
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !20
 
 args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %108
   %121 = inttoptr i64 %33 to ptr
@@ -8854,7 +8854,7 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %108
   %.0.in.i.i79 = getelementptr inbounds nuw i8, ptr %.0.val.i.i78, i64 16
   %.0.i.i80 = load ptr, ptr %.0.in.i.i79, align 8
   %.not.i.i81 = icmp eq ptr %.0.i.i80, %121
-  br i1 %.not.i.i81, label %.thread, label %.lr.ph.i.i76, !llvm.loop !18
+  br i1 %.not.i.i81, label %.thread, label %.lr.ph.i.i76, !llvm.loop !20
 
 args_are_copies.exit83:                           ; preds = %.lr.ph.i.i76, %args_are_copies.exit
   switch i32 %.060, label %136 [
@@ -8932,7 +8932,7 @@ define internal fastcc void @record_mem_copy(ptr noundef nonnull %0, i32 noundef
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ugt ptr %19, %21
-  br i1 %22, label %23, label %25, !prof !6
+  br i1 %22, label %23, label %25, !prof !7
 
 23:                                               ; preds = %15
   %24 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %17, i32 noundef 72) #9
@@ -8985,7 +8985,7 @@ tcg_malloc.exit:                                  ; preds = %25, %23, %14
   %.011.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %.011.i = load ptr, ptr %.011.in.i, align 8
   %.not.i = icmp eq ptr %.011.i, %2
-  br i1 %.not.i, label %find_better_copy.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %find_better_copy.exit, label %.lr.ph.i, !llvm.loop !9
 
 find_better_copy.exit:                            ; preds = %.lr.ph.i, %tcg_malloc.exit, %.preheader.i
   %.012.i = phi ptr [ %2, %tcg_malloc.exit ], [ %2, %.preheader.i ], [ %42, %.lr.ph.i ]
@@ -9014,7 +9014,7 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %7, i64 48
   %.val.i = load ptr, ptr %8, align 8
-  %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i, align 8, !range !17, !noundef !18
   %9 = trunc nuw i8 %.val.val.i to i1
   br i1 %9, label %10, label %.thread
 
@@ -9166,7 +9166,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr i8, ptr %13, i64 48
   %.val.i = load ptr, ptr %14, align 8
-  %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i, align 8, !range !17, !noundef !18
   %15 = trunc nuw i8 %.val.val.i to i1
   br i1 %15, label %16, label %is_power_of_2.exit.thread
 
@@ -9319,7 +9319,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i = load ptr, ptr %6, align 8
-  %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
+  %.val.val.i = load i8, ptr %.val.i, align 8, !range !17, !noundef !18
   %7 = trunc nuw i8 %.val.val.i to i1
   br i1 %7, label %8, label %.critedge
 
@@ -9449,20 +9449,22 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}

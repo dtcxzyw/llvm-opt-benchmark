@@ -56,7 +56,7 @@ define i32 @ieee80211_chan_to_mhz(i32 noundef %0, i1 noundef zeroext %1) local_u
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %5 = getelementptr [5 x %struct.freq_cvt_s], ptr @freq_cvt, i64 0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %7 = load i8, ptr %6, align 4, !range !8, !noundef !9
+  %7 = load i8, ptr %6, align 4, !range !9, !noundef !10
   %8 = icmp eq i8 %7, %3
   br i1 %8, label %9, label %23
 
@@ -85,7 +85,7 @@ define i32 @ieee80211_chan_to_mhz(i32 noundef %0, i1 noundef zeroext %1) local_u
 23:                                               ; preds = %4, %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !11
 
 .loopexit:                                        ; preds = %23, %19
   %.014 = phi i32 [ %22, %19 ], [ 0, %23 ]
@@ -102,7 +102,7 @@ define i32 @ieee80211_chan_band_to_mhz(i32 noundef %0, i1 noundef zeroext %1, i1
   %indvars.iv = phi i64 [ %5, %3 ], [ %indvars.iv.next, %25 ]
   %7 = getelementptr [5 x %struct.freq_cvt_s], ptr @freq_cvt, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %9 = load i8, ptr %8, align 4, !range !8, !noundef !9
+  %9 = load i8, ptr %8, align 4, !range !9, !noundef !10
   %10 = icmp eq i8 %9, %4
   br i1 %10, label %11, label %25
 
@@ -131,7 +131,7 @@ define i32 @ieee80211_chan_band_to_mhz(i32 noundef %0, i1 noundef zeroext %1, i1
 25:                                               ; preds = %6, %11, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !12
 
 .loopexit:                                        ; preds = %25, %21
   %.0 = phi i32 [ %24, %21 ], [ 0, %25 ]
@@ -202,9 +202,10 @@ attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

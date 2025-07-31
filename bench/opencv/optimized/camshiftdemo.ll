@@ -1365,8 +1365,8 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit:         ; preds = %472, %466, %459
 
 524:                                              ; preds = %498, %505, %511
   %.0.i307 = phi ptr [ %500, %498 ], [ %510, %505 ], [ %523, %511 ]
-  %525 = load float, ptr %.0.i307, align 4, !tbaa !56
-  %526 = load i32, ptr %267, align 8, !tbaa !58
+  %525 = load float, ptr %.0.i307, align 4, !tbaa !57
+  %526 = load i32, ptr %267, align 8, !tbaa !59
   %527 = sitofp i32 %526 to float
   %528 = fmul float %525, %527
   %529 = fdiv float %528, 2.550000e+02
@@ -1439,7 +1439,7 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
   store double %568, ptr %569, align 8, !tbaa !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %570, label %565, !llvm.loop !59
+  br i1 %exitcond.not.i, label %570, label %565, !llvm.loop !60
 
 570:                                              ; preds = %565
   store double 0.000000e+00, ptr %270, align 8, !tbaa !46
@@ -1464,7 +1464,7 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
   %576 = load i32, ptr %10, align 4, !tbaa !4
   %577 = sext i32 %576 to i64
   %578 = icmp slt i64 %indvars.iv.next417, %577
-  br i1 %578, label %.lr.ph413, label %._crit_edge414, !llvm.loop !60
+  br i1 %578, label %.lr.ph413, label %._crit_edge414, !llvm.loop !61
 
 579:                                              ; preds = %570
   %580 = landingpad { ptr, i32 }
@@ -1551,21 +1551,21 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
 
 590:                                              ; preds = %589
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58) #19
-  %591 = load i32, ptr %287, align 8, !tbaa !61
-  %592 = load i32, ptr %288, align 4, !tbaa !63
+  %591 = load i32, ptr %287, align 8, !tbaa !62
+  %592 = load i32, ptr %288, align 4, !tbaa !64
   %593 = mul nsw i32 %592, %591
   %594 = icmp slt i32 %593, 2
   br i1 %594, label %595, label %637
 
 595:                                              ; preds = %590
   %596 = load i32, ptr %289, align 4, !tbaa !50
-  %597 = load i32, ptr %290, align 8, !tbaa !58
+  %597 = load i32, ptr %290, align 8, !tbaa !59
   %598 = call i32 @llvm.smin.i32(i32 %596, i32 %597)
   %599 = add nsw i32 %598, 5
   %600 = sdiv i32 %599, 6
-  %601 = load i32, ptr %9, align 8, !tbaa !64
+  %601 = load i32, ptr %9, align 8, !tbaa !65
   %602 = sub nsw i32 %601, %600
-  %603 = load i32, ptr %291, align 4, !tbaa !65
+  %603 = load i32, ptr %291, align 4, !tbaa !66
   %604 = sub nsw i32 %603, %600
   %605 = add nsw i32 %600, %601
   %606 = add nsw i32 %600, %603
@@ -1648,7 +1648,7 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
   br label %648
 
 637:                                              ; preds = %632, %590
-  %638 = load i8, ptr @backprojMode, align 1, !tbaa !66, !range !68, !noundef !69
+  %638 = load i8, ptr @backprojMode, align 1, !tbaa !67, !range !69, !noundef !70
   %639 = trunc nuw i8 %638 to i1
   br i1 %639, label %640, label %644
 
@@ -1720,7 +1720,7 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
 
 653:                                              ; preds = %650, %386, %645
   %.1108 = phi i1 [ false, %645 ], [ false, %386 ], [ %652, %650 ]
-  %654 = load i8, ptr @selectObject, align 1, !tbaa !66, !range !68, !noundef !69
+  %654 = load i8, ptr @selectObject, align 1, !tbaa !67, !range !69, !noundef !70
   %655 = trunc nuw i8 %654 to i1
   %656 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4
   %657 = icmp sgt i32 %656, 0
@@ -1907,14 +1907,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit333: ; preds = %_Z
   ]
 
 699:                                              ; preds = %697
-  %700 = load i8, ptr @backprojMode, align 1, !tbaa !66, !range !68, !noundef !69
+  %700 = load i8, ptr @backprojMode, align 1, !tbaa !67, !range !69, !noundef !70
   %701 = xor i8 %700, 1
-  store i8 %701, ptr @backprojMode, align 1, !tbaa !66
+  store i8 %701, ptr @backprojMode, align 1, !tbaa !67
   br label %.backedge
 
 .backedge:                                        ; preds = %699, %704, %733, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340, %697
   %.0107.be = phi i1 [ %.1108, %697 ], [ %.1108, %699 ], [ %.1108, %704 ], [ %.1108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350 ], [ %.1108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340 ], [ %734, %733 ]
-  br label %324
+  br label %324, !llvm.loop !71
 
 702:                                              ; preds = %697
   store i32 0, ptr @trackObject, align 4, !tbaa !4
@@ -1934,10 +1934,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit333: ; preds = %_Z
   br label %735
 
 707:                                              ; preds = %697
-  %708 = load i8, ptr @showHist, align 1, !tbaa !66, !range !68, !noundef !69
+  %708 = load i8, ptr @showHist, align 1, !tbaa !67, !range !69, !noundef !70
   %709 = trunc nuw i8 %708 to i1
   %710 = xor i8 %708, 1
-  store i8 %710, ptr @showHist, align 1, !tbaa !66
+  store i8 %710, ptr @showHist, align 1, !tbaa !67
   br i1 %709, label %._crit_edge.i.i334, label %._crit_edge.i.i344
 
 ._crit_edge.i.i334:                               ; preds = %707
@@ -2132,7 +2132,7 @@ define internal fastcc void @_ZL4helpPPKc(ptr noundef readonly captures(none) %0
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !70
+  %10 = load i32, ptr %9, align 8, !tbaa !72
   %11 = or i32 %10, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %8, i32 noundef %11)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -2162,21 +2162,21 @@ declare void @_ZN2cv16setMouseCallbackERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) #8 {
-  %6 = load i8, ptr @selectObject, align 1, !tbaa !66, !range !68, !noundef !69
+  %6 = load i8, ptr @selectObject, align 1, !tbaa !67, !range !69, !noundef !70
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr @origin, align 8, !tbaa !79
+  %9 = load i32, ptr @origin, align 8, !tbaa !81
   %10 = tail call i32 @llvm.smin.i32(i32 %1, i32 %9)
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 4), align 4, !tbaa !81
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 4), align 4, !tbaa !83
   %12 = tail call i32 @llvm.smin.i32(i32 %2, i32 %11)
   %13 = sub nsw i32 %1, %9
   %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
   %15 = sub nsw i32 %2, %11
   %16 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 12), align 4, !tbaa !50
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 8), align 8, !tbaa !58
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 8), align 8, !tbaa !59
   %19 = icmp eq i32 %1, %9
   %20 = icmp eq i32 %2, %11
   %21 = select i1 %19, i1 true, i1 %20
@@ -2215,12 +2215,12 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %38 = add i32 %.neg.i, %.sroa.speculated41
   %.sroa.speculated35 = select i1 %27, i32 %17, i32 %14
   %.sroa.speculated53.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated35, i32 %38)
-  store i32 %.sroa.speculated53.i, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4, !tbaa !61
+  store i32 %.sroa.speculated53.i, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4, !tbaa !62
   %39 = sub nsw i32 %.neg49.pre-phi.i, %37
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %39)
-  store i32 %.sroa.speculated.i, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4, !tbaa !63
-  store i32 %29, ptr @selection, align 4, !tbaa !64
-  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 4), align 4, !tbaa !65
+  store i32 %.sroa.speculated.i, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4, !tbaa !64
+  store i32 %29, ptr @selection, align 4, !tbaa !65
+  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 4), align 4, !tbaa !66
   %40 = icmp slt i32 %.sroa.speculated53.i, 1
   %41 = icmp slt i32 %.sroa.speculated.i, 1
   %42 = select i1 %40, i1 true, i1 %41
@@ -2246,12 +2246,12 @@ _ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit:         ; preds = %_ZN2cvaNIiEERNS_5Re
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 4), align 4, !tbaa !4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4, !tbaa !4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4, !tbaa !4
-  store i8 1, ptr @selectObject, align 1, !tbaa !66
+  store i8 1, ptr @selectObject, align 1, !tbaa !67
   br label %50
 
 44:                                               ; preds = %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit
-  store i8 0, ptr @selectObject, align 1, !tbaa !66
-  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4, !tbaa !61
+  store i8 0, ptr @selectObject, align 1, !tbaa !67
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4, !tbaa !62
   %46 = icmp sgt i32 %45, 0
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4
   %48 = icmp sgt i32 %47, 0
@@ -2367,8 +2367,8 @@ define internal void @_GLOBAL__sub_I_camshiftdemo.cpp() #16 section ".text.start
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) @image) #19
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3MatD1Ev, ptr nonnull @image, ptr nonnull @__dso_handle) #19
-  store i32 0, ptr @origin, align 8, !tbaa !79
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 4), align 4, !tbaa !81
+  store i32 0, ptr @origin, align 8, !tbaa !81
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 4), align 4, !tbaa !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @selection, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_Z8hot_keysB5cxx11, i64 16), ptr @_Z8hot_keysB5cxx11, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
@@ -2477,31 +2477,33 @@ attributes #21 = { builtin nounwind }
 !51 = !{!24, !28, i64 64}
 !52 = !{!24, !12, i64 16}
 !53 = !{!24, !30, i64 72}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"float", !6, i64 0}
-!58 = !{!24, !5, i64 8}
-!59 = distinct !{!59, !55}
-!60 = distinct !{!60, !55}
-!61 = !{!62, !5, i64 8}
-!62 = !{!"_ZTSN2cv5Rect_IiEE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!63 = !{!62, !5, i64 12}
-!64 = !{!62, !5, i64 0}
-!65 = !{!62, !5, i64 4}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"bool", !6, i64 0}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = !{!71, !73, i64 32}
-!71 = !{!"_ZTSSt8ios_base", !16, i64 8, !16, i64 16, !72, i64 24, !73, i64 28, !73, i64 32, !74, i64 40, !75, i64 48, !6, i64 64, !5, i64 192, !76, i64 200, !77, i64 208}
-!72 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!73 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!74 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
-!75 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !16, i64 8}
-!76 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
-!77 = !{!"_ZTSSt6locale", !78, i64 0}
-!78 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
-!79 = !{!80, !5, i64 0}
-!80 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
-!81 = !{!80, !5, i64 4}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"float", !6, i64 0}
+!59 = !{!24, !5, i64 8}
+!60 = distinct !{!60, !55, !56}
+!61 = distinct !{!61, !55, !56}
+!62 = !{!63, !5, i64 8}
+!63 = !{!"_ZTSN2cv5Rect_IiEE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!64 = !{!63, !5, i64 12}
+!65 = !{!63, !5, i64 0}
+!66 = !{!63, !5, i64 4}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"bool", !6, i64 0}
+!69 = !{i8 0, i8 2}
+!70 = !{}
+!71 = distinct !{!71, !56}
+!72 = !{!73, !75, i64 32}
+!73 = !{!"_ZTSSt8ios_base", !16, i64 8, !16, i64 16, !74, i64 24, !75, i64 28, !75, i64 32, !76, i64 40, !77, i64 48, !6, i64 64, !5, i64 192, !78, i64 200, !79, i64 208}
+!74 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!75 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!76 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
+!77 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !16, i64 8}
+!78 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
+!79 = !{!"_ZTSSt6locale", !80, i64 0}
+!80 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
+!81 = !{!82, !5, i64 0}
+!82 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
+!83 = !{!82, !5, i64 4}

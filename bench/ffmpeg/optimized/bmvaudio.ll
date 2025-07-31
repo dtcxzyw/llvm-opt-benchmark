@@ -110,7 +110,7 @@ define internal range(i32 1, 0) i32 @bmv_aud_decode_frame(ptr noundef %0, ptr no
 52:                                               ; preds = %34
   %53 = add nuw nsw i32 %.03145, 1
   %exitcond49.not = icmp eq i32 %53, %11
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %52, %20
   store i32 1, ptr %2, align 4, !tbaa !4
@@ -185,6 +185,7 @@ attributes #4 = { nounwind }
 !38 = !{!17, !17, i64 0}
 !39 = !{!40, !40, i64 0}
 !40 = !{!"short", !6, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43}

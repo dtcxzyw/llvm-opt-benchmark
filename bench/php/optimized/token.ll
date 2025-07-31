@@ -278,12 +278,12 @@ lxb_css_syntax_token_consume.exit:                ; preds = %.lr.ph.split, %18, 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_dup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !35
   %6 = add i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !35
+  %8 = load i64, ptr %7, align 8, !tbaa !36
   %9 = icmp ugt i64 %6, %8
-  %.pre18 = load ptr, ptr %1, align 8, !tbaa !37
+  %.pre18 = load ptr, ptr %1, align 8, !tbaa !38
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %3
@@ -292,12 +292,12 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_dup(ptr noundef r
 
 12:                                               ; preds = %10
   %13 = tail call ptr @lexbor_mraw_alloc(ptr noundef %2, i64 noundef %6) #8
-  store ptr %13, ptr %1, align 8, !tbaa !37
+  store ptr %13, ptr %1, align 8, !tbaa !38
   %14 = icmp eq ptr %13, null
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %12
-  store i64 0, ptr %7, align 8, !tbaa !35
+  store i64 0, ptr %7, align 8, !tbaa !36
   br label %19
 
 16:                                               ; preds = %10
@@ -306,7 +306,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_dup(ptr noundef r
   br i1 %18, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
-  %.pre = load ptr, ptr %1, align 8, !tbaa !37
+  %.pre = load ptr, ptr %1, align 8, !tbaa !38
   br label %19
 
 19:                                               ; preds = %._crit_edge, %15, %3
@@ -314,8 +314,8 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_dup(ptr noundef r
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %22, i64 %6, i1 false)
-  %23 = load i64, ptr %4, align 8, !tbaa !34
-  store i64 %23, ptr %7, align 8, !tbaa !35
+  %23 = load i64, ptr %4, align 8, !tbaa !35
+  store i64 %23, ptr %7, align 8, !tbaa !36
   br label %24
 
 24:                                               ; preds = %16, %12, %19
@@ -351,7 +351,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_make(ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !34
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = add i64 %14, 1
   %16 = tail call ptr @lexbor_mraw_alloc(ptr noundef %12, i64 noundef %15) #8
   %17 = icmp eq ptr %16, null
@@ -359,13 +359,13 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_make(ptr noundef 
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 2, ptr %19, align 4, !tbaa !38
+  store i32 2, ptr %19, align 4, !tbaa !39
   br label %26
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = load i64, ptr %13, align 8, !tbaa !34
+  %23 = load i64, ptr %13, align 8, !tbaa !35
   %24 = add i64 %23, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %22, i64 %24, i1 false)
   store ptr %16, ptr %21, align 8, !tbaa !28
@@ -388,7 +388,7 @@ define hidden ptr @lxb_css_syntax_token_cached_create(ptr noundef captures(none)
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 2, ptr %7, align 4, !tbaa !38
+  store i32 2, ptr %7, align 4, !tbaa !39
   br label %15
 
 8:                                                ; preds = %1
@@ -399,7 +399,7 @@ define hidden ptr @lxb_css_syntax_token_cached_create(ptr noundef captures(none)
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 %10, ptr %12, align 4, !tbaa !38
+  store i32 %10, ptr %12, align 4, !tbaa !39
   br label %15
 
 13:                                               ; preds = %8
@@ -443,7 +443,7 @@ define hidden i32 @lxb_css_syntax_token_type_id_by_name(ptr noundef %0, i64 noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
   br label %10
@@ -493,28 +493,28 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i8, ptr %8, align 8, !tbaa !41
-  store i8 %9, ptr %4, align 16, !tbaa !41
+  %9 = load i8, ptr %8, align 8, !tbaa !42
+  store i8 %9, ptr %4, align 16, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %10, align 1, !tbaa !41
+  store i8 0, ptr %10, align 1, !tbaa !42
   %11 = call i32 %1(ptr noundef nonnull %4, i64 noundef 1, ptr noundef %2) #8
   br label %.loopexit
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load double, ptr %13, align 8, !tbaa !41
+  %14 = load double, ptr %13, align 8, !tbaa !42
   %15 = call i64 @lexbor_conv_float_to_data(double noundef %14, ptr noundef nonnull %4, i64 noundef 127) #8
   %16 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %15
-  store i8 0, ptr %16, align 1, !tbaa !41
+  store i8 0, ptr %16, align 1, !tbaa !42
   %17 = call i32 %1(ptr noundef nonnull %4, i64 noundef %15, ptr noundef %2) #8
   br label %.loopexit
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load double, ptr %19, align 8, !tbaa !41
+  %20 = load double, ptr %19, align 8, !tbaa !42
   %21 = call i64 @lexbor_conv_float_to_data(double noundef %20, ptr noundef nonnull %4, i64 noundef 127) #8
   %22 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %21
-  store i8 0, ptr %22, align 1, !tbaa !41
+  store i8 0, ptr %22, align 1, !tbaa !42
   %23 = call i32 %1(ptr noundef nonnull %4, i64 noundef %21, ptr noundef %2) #8
   %.not208 = icmp eq i32 %23, 0
   br i1 %.not208, label %24, label %.loopexit
@@ -576,7 +576,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %54 = load i64, ptr %53, align 8, !tbaa !34
+  %54 = load i64, ptr %53, align 8, !tbaa !35
   %55 = tail call i32 %1(ptr noundef %52, i64 noundef %54, ptr noundef %2) #8
   br label %.loopexit
 
@@ -589,7 +589,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !34
+  %62 = load i64, ptr %61, align 8, !tbaa !35
   %63 = tail call i32 %1(ptr noundef %60, i64 noundef %62, ptr noundef %2) #8
   br label %.loopexit
 
@@ -597,7 +597,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !28
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load i64, ptr %67, align 8, !tbaa !34
+  %68 = load i64, ptr %67, align 8, !tbaa !35
   %69 = tail call i32 %1(ptr noundef %66, i64 noundef %68, ptr noundef %2) #8
   br label %.loopexit
 
@@ -605,7 +605,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = load i64, ptr %73, align 8, !tbaa !34
+  %74 = load i64, ptr %73, align 8, !tbaa !35
   %75 = tail call i32 %1(ptr noundef %72, i64 noundef %74, ptr noundef %2) #8
   %.not205 = icmp eq i32 %75, 0
   br i1 %.not205, label %76, label %.loopexit
@@ -621,9 +621,9 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !41
+  %82 = load ptr, ptr %81, align 8, !tbaa !42
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = load i64, ptr %83, align 8, !tbaa !41
+  %84 = load i64, ptr %83, align 8, !tbaa !42
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
   %.not219 = icmp eq i64 %84, 0
   br i1 %.not219, label %.thread, label %.lr.ph
@@ -631,7 +631,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %80, %105
   %.0217 = phi ptr [ %.2, %105 ], [ %82, %80 ]
   %.0171216 = phi ptr [ %106, %105 ], [ %82, %80 ]
-  %86 = load i8, ptr %.0171216, align 1, !tbaa !41
+  %86 = load i8, ptr %.0171216, align 1, !tbaa !42
   switch i8 %86, label %105 [
     i8 92, label %87
     i8 34, label %97
@@ -676,7 +676,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %.2 = phi ptr [ %.0171216, %93 ], [ %.0217, %.lr.ph ], [ %.0171216, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.0171216, i64 1
   %107 = icmp ult ptr %106, %85
-  br i1 %107, label %.lr.ph, label %._crit_edge
+  br i1 %107, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %105
   %.not203 = icmp eq ptr %.2, %106
@@ -703,7 +703,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = load ptr, ptr %117, align 8, !tbaa !28
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %120 = load i64, ptr %119, align 8, !tbaa !34
+  %120 = load i64, ptr %119, align 8, !tbaa !35
   %121 = tail call i32 %1(ptr noundef %118, i64 noundef %120, ptr noundef %2) #8
   %.not196 = icmp eq i32 %121, 0
   br i1 %.not196, label %122, label %.loopexit
@@ -721,7 +721,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !28
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %130 = load i64, ptr %129, align 8, !tbaa !34
+  %130 = load i64, ptr %129, align 8, !tbaa !35
   %131 = tail call i32 %1(ptr noundef %128, i64 noundef %130, ptr noundef %2) #8
   %.not194 = icmp eq i32 %131, 0
   br i1 %.not194, label %132, label %.loopexit
@@ -732,19 +732,19 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
 
 134:                                              ; preds = %3
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %136 = load double, ptr %135, align 8, !tbaa !41
+  %136 = load double, ptr %135, align 8, !tbaa !42
   %137 = call i64 @lexbor_conv_float_to_data(double noundef %136, ptr noundef nonnull %4, i64 noundef 127) #8
   %138 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %137
-  store i8 0, ptr %138, align 1, !tbaa !41
+  store i8 0, ptr %138, align 1, !tbaa !42
   %139 = call i32 %1(ptr noundef nonnull %4, i64 noundef %137, ptr noundef %2) #8
   %.not = icmp eq i32 %139, 0
   br i1 %.not, label %140, label %.loopexit
 
 140:                                              ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %142 = load ptr, ptr %141, align 8, !tbaa !42
+  %142 = load ptr, ptr %141, align 8, !tbaa !44
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %144 = load i64, ptr %143, align 8, !tbaa !46
+  %144 = load i64, ptr %143, align 8, !tbaa !48
   %145 = call i32 %1(ptr noundef %142, i64 noundef %144, ptr noundef %2) #8
   br label %.loopexit
 
@@ -767,13 +767,13 @@ declare i64 @lexbor_conv_float_to_data(double noundef, ptr noundef, i64 noundef)
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
-  %5 = load ptr, ptr %1, align 8, !tbaa !37
+  %5 = load ptr, ptr %1, align 8, !tbaa !38
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = tail call ptr @lexbor_str_init(ptr noundef nonnull %1, ptr noundef %2, i64 noundef 1) #8
-  %9 = load ptr, ptr %1, align 8, !tbaa !37
+  %9 = load ptr, ptr %1, align 8, !tbaa !38
   %10 = icmp eq ptr %9, null
   br i1 %10, label %181, label %11
 
@@ -813,10 +813,10 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i8, ptr %15, align 8, !tbaa !41
-  store i8 %16, ptr %4, align 16, !tbaa !41
+  %16 = load i8, ptr %15, align 8, !tbaa !42
+  store i8 %16, ptr %4, align 16, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %17, align 1, !tbaa !41
+  store i8 0, ptr %17, align 1, !tbaa !42
   %18 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef 1) #8
   %19 = icmp eq ptr %18, null
   %..i44 = select i1 %19, i32 2, i32 0
@@ -824,10 +824,10 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !tbaa !41
+  %22 = load double, ptr %21, align 8, !tbaa !42
   %23 = call i64 @lexbor_conv_float_to_data(double noundef %22, ptr noundef nonnull %4, i64 noundef 127) #8
   %24 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %23
-  store i8 0, ptr %24, align 1, !tbaa !41
+  store i8 0, ptr %24, align 1, !tbaa !42
   %25 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %23) #8
   %26 = icmp eq ptr %25, null
   %..i43 = select i1 %26, i32 2, i32 0
@@ -835,10 +835,10 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load double, ptr %28, align 8, !tbaa !41
+  %29 = load double, ptr %28, align 8, !tbaa !42
   %30 = call i64 @lexbor_conv_float_to_data(double noundef %29, ptr noundef nonnull %4, i64 noundef 127) #8
   %31 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !41
+  store i8 0, ptr %31, align 1, !tbaa !42
   %32 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %30) #8
   %.not134 = icmp eq ptr %32, null
   br i1 %.not134, label %lxb_css_syntax_token_serialize.exit, label %33
@@ -924,7 +924,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !28
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load i64, ptr %74, align 8, !tbaa !34
+  %75 = load i64, ptr %74, align 8, !tbaa !35
   %76 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %73, i64 noundef %75) #8
   %77 = icmp eq ptr %76, null
   %..i28 = select i1 %77, i32 2, i32 0
@@ -939,7 +939,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !28
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = load i64, ptr %83, align 8, !tbaa !34
+  %84 = load i64, ptr %83, align 8, !tbaa !35
   %85 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %82, i64 noundef %84) #8
   %86 = icmp eq ptr %85, null
   %..i26 = select i1 %86, i32 2, i32 0
@@ -949,7 +949,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !28
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %91 = load i64, ptr %90, align 8, !tbaa !34
+  %91 = load i64, ptr %90, align 8, !tbaa !35
   %92 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %89, i64 noundef %91) #8
   %93 = icmp eq ptr %92, null
   %..i25 = select i1 %93, i32 2, i32 0
@@ -959,7 +959,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %98 = load i64, ptr %97, align 8, !tbaa !34
+  %98 = load i64, ptr %97, align 8, !tbaa !35
   %99 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %96, i64 noundef %98) #8
   %.not131 = icmp eq ptr %99, null
   br i1 %.not131, label %lxb_css_syntax_token_serialize.exit, label %100
@@ -977,9 +977,9 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %107 = load ptr, ptr %106, align 8, !tbaa !41
+  %107 = load ptr, ptr %106, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %109 = load i64, ptr %108, align 8, !tbaa !41
+  %109 = load i64, ptr %108, align 8, !tbaa !42
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 %109
   %.not219.i = icmp eq i64 %109, 0
   br i1 %.not219.i, label %.thread.i, label %.lr.ph.i
@@ -987,7 +987,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 .lr.ph.i:                                         ; preds = %105, %130
   %.0217.i = phi ptr [ %.2.i, %130 ], [ %107, %105 ]
   %.0171216.i = phi ptr [ %131, %130 ], [ %107, %105 ]
-  %111 = load i8, ptr %.0171216.i, align 1, !tbaa !41
+  %111 = load i8, ptr %.0171216.i, align 1, !tbaa !42
   switch i8 %111, label %130 [
     i8 92, label %112
     i8 34, label %122
@@ -1032,7 +1032,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %.2.i = phi ptr [ %.0171216.i, %118 ], [ %.0217.i, %.lr.ph.i ], [ %.0171216.i, %128 ]
   %131 = getelementptr inbounds nuw i8, ptr %.0171216.i, i64 1
   %132 = icmp ult ptr %131, %110
-  br i1 %132, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %132, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %130
   %.not203.i = icmp eq ptr %.2.i, %131
@@ -1061,7 +1061,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %144 = load ptr, ptr %143, align 8, !tbaa !28
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %146 = load i64, ptr %145, align 8, !tbaa !34
+  %146 = load i64, ptr %145, align 8, !tbaa !35
   %147 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %144, i64 noundef %146) #8
   %.not124 = icmp eq ptr %147, null
   br i1 %.not124, label %lxb_css_syntax_token_serialize.exit, label %148
@@ -1081,7 +1081,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !28
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %157 = load i64, ptr %156, align 8, !tbaa !34
+  %157 = load i64, ptr %156, align 8, !tbaa !35
   %158 = tail call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %155, i64 noundef %157) #8
   %.not122 = icmp eq ptr %158, null
   br i1 %.not122, label %lxb_css_syntax_token_serialize.exit, label %159
@@ -1094,19 +1094,19 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 162:                                              ; preds = %11
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %164 = load double, ptr %163, align 8, !tbaa !41
+  %164 = load double, ptr %163, align 8, !tbaa !42
   %165 = call i64 @lexbor_conv_float_to_data(double noundef %164, ptr noundef nonnull %4, i64 noundef 127) #8
   %166 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %165
-  store i8 0, ptr %166, align 1, !tbaa !41
+  store i8 0, ptr %166, align 1, !tbaa !42
   %167 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %165) #8
   %.not = icmp eq ptr %167, null
   br i1 %.not, label %lxb_css_syntax_token_serialize.exit, label %168
 
 168:                                              ; preds = %162
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %170 = load ptr, ptr %169, align 8, !tbaa !42
+  %170 = load ptr, ptr %169, align 8, !tbaa !44
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %172 = load i64, ptr %171, align 8, !tbaa !46
+  %172 = load i64, ptr %171, align 8, !tbaa !48
   %173 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %170, i64 noundef %172) #8
   %174 = icmp eq ptr %173, null
   %..i8 = select i1 %174, i32 2, i32 0
@@ -1143,7 +1143,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %5 = alloca i64, align 8
   %6 = alloca %struct.lexbor_str_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store i64 0, ptr %5, align 8, !tbaa !47
+  store i64 0, ptr %5, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1180,28 +1180,28 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i8, ptr %10, align 8, !tbaa !41
-  store i8 %11, ptr %4, align 16, !tbaa !41
+  %11 = load i8, ptr %10, align 8, !tbaa !42
+  store i8 %11, ptr %4, align 16, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %12, align 1, !tbaa !41
+  store i8 0, ptr %12, align 1, !tbaa !42
   %13 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef 1, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load double, ptr %15, align 8, !tbaa !41
+  %16 = load double, ptr %15, align 8, !tbaa !42
   %17 = call i64 @lexbor_conv_float_to_data(double noundef %16, ptr noundef nonnull %4, i64 noundef 127) #8
   %18 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %17
-  store i8 0, ptr %18, align 1, !tbaa !41
+  store i8 0, ptr %18, align 1, !tbaa !42
   %19 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %17, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !tbaa !41
+  %22 = load double, ptr %21, align 8, !tbaa !42
   %23 = call i64 @lexbor_conv_float_to_data(double noundef %22, ptr noundef nonnull %4, i64 noundef 127) #8
   %24 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %23
-  store i8 0, ptr %24, align 1, !tbaa !41
+  store i8 0, ptr %24, align 1, !tbaa !42
   %25 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %23, ptr noundef nonnull %5) #8
   %.not208.i = icmp eq i32 %25, 0
   br i1 %.not208.i, label %26, label %lxb_css_syntax_token_serialize.exit.thread
@@ -1263,7 +1263,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = load i64, ptr %55, align 8, !tbaa !34
+  %56 = load i64, ptr %55, align 8, !tbaa !35
   %57 = call i32 @lexbor_serialize_length_cb(ptr noundef %54, i64 noundef %56, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
@@ -1276,7 +1276,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %64 = load i64, ptr %63, align 8, !tbaa !34
+  %64 = load i64, ptr %63, align 8, !tbaa !35
   %65 = call i32 @lexbor_serialize_length_cb(ptr noundef %62, i64 noundef %64, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
@@ -1284,7 +1284,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !28
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load i64, ptr %69, align 8, !tbaa !34
+  %70 = load i64, ptr %69, align 8, !tbaa !35
   %71 = call i32 @lexbor_serialize_length_cb(ptr noundef %68, i64 noundef %70, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
@@ -1292,7 +1292,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !28
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %76 = load i64, ptr %75, align 8, !tbaa !34
+  %76 = load i64, ptr %75, align 8, !tbaa !35
   %77 = call i32 @lexbor_serialize_length_cb(ptr noundef %74, i64 noundef %76, ptr noundef nonnull %5) #8
   %.not205.i = icmp eq i32 %77, 0
   br i1 %.not205.i, label %78, label %lxb_css_syntax_token_serialize.exit.thread
@@ -1308,9 +1308,9 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !41
+  %84 = load ptr, ptr %83, align 8, !tbaa !42
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load i64, ptr %85, align 8, !tbaa !41
+  %86 = load i64, ptr %85, align 8, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   %.not219.i = icmp eq i64 %86, 0
   br i1 %.not219.i, label %.thread.i, label %.lr.ph.i
@@ -1318,7 +1318,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
 .lr.ph.i:                                         ; preds = %82, %107
   %.0217.i = phi ptr [ %.2.i, %107 ], [ %84, %82 ]
   %.0171216.i = phi ptr [ %108, %107 ], [ %84, %82 ]
-  %88 = load i8, ptr %.0171216.i, align 1, !tbaa !41
+  %88 = load i8, ptr %.0171216.i, align 1, !tbaa !42
   switch i8 %88, label %107 [
     i8 92, label %89
     i8 34, label %99
@@ -1363,7 +1363,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %.2.i = phi ptr [ %.0171216.i, %95 ], [ %.0217.i, %.lr.ph.i ], [ %.0171216.i, %105 ]
   %108 = getelementptr inbounds nuw i8, ptr %.0171216.i, i64 1
   %109 = icmp ult ptr %108, %87
-  br i1 %109, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %109, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %107
   %.not203.i = icmp eq ptr %.2.i, %108
@@ -1390,7 +1390,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !28
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load i64, ptr %121, align 8, !tbaa !34
+  %122 = load i64, ptr %121, align 8, !tbaa !35
   %123 = call i32 @lexbor_serialize_length_cb(ptr noundef %120, i64 noundef %122, ptr noundef nonnull %5) #8
   %.not196.i = icmp eq i32 %123, 0
   br i1 %.not196.i, label %124, label %lxb_css_syntax_token_serialize.exit.thread
@@ -1408,7 +1408,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !28
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %132 = load i64, ptr %131, align 8, !tbaa !34
+  %132 = load i64, ptr %131, align 8, !tbaa !35
   %133 = call i32 @lexbor_serialize_length_cb(ptr noundef %130, i64 noundef %132, ptr noundef nonnull %5) #8
   %.not194.i = icmp eq i32 %133, 0
   br i1 %.not194.i, label %134, label %lxb_css_syntax_token_serialize.exit.thread
@@ -1419,19 +1419,19 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
 
 136:                                              ; preds = %2
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %138 = load double, ptr %137, align 8, !tbaa !41
+  %138 = load double, ptr %137, align 8, !tbaa !42
   %139 = call i64 @lexbor_conv_float_to_data(double noundef %138, ptr noundef nonnull %4, i64 noundef 127) #8
   %140 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %139
-  store i8 0, ptr %140, align 1, !tbaa !41
+  store i8 0, ptr %140, align 1, !tbaa !42
   %141 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %139, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %141, 0
   br i1 %.not.i, label %142, label %lxb_css_syntax_token_serialize.exit.thread
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %144 = load ptr, ptr %143, align 8, !tbaa !42
+  %144 = load ptr, ptr %143, align 8, !tbaa !44
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %146 = load i64, ptr %145, align 8, !tbaa !46
+  %146 = load i64, ptr %145, align 8, !tbaa !48
   %147 = call i32 @lexbor_serialize_length_cb(ptr noundef %144, i64 noundef %146, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
 
@@ -1454,16 +1454,16 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   br i1 %.not, label %152, label %313
 
 152:                                              ; preds = %lxb_css_syntax_token_serialize.exit
-  %153 = load i64, ptr %5, align 8, !tbaa !47
+  %153 = load i64, ptr %5, align 8, !tbaa !49
   %154 = add i64 %153, 1
   %155 = call ptr @lexbor_malloc(i64 noundef %154) #8
-  store ptr %155, ptr %6, align 8, !tbaa !37
+  store ptr %155, ptr %6, align 8, !tbaa !38
   %156 = icmp eq ptr %155, null
   br i1 %156, label %313, label %157
 
 157:                                              ; preds = %152
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %158, align 8, !tbaa !35
+  store i64 0, ptr %158, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
   %159 = load i32, ptr %7, align 8, !tbaa !26
   switch i32 %159, label %lxb_css_syntax_token_serialize.exit37.thread [
@@ -1498,28 +1498,28 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %162 = load i8, ptr %161, align 8, !tbaa !41
-  store i8 %162, ptr %3, align 16, !tbaa !41
+  %162 = load i8, ptr %161, align 8, !tbaa !42
+  store i8 %162, ptr %3, align 16, !tbaa !42
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %163, align 1, !tbaa !41
+  store i8 0, ptr %163, align 1, !tbaa !42
   %164 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef 1, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
 165:                                              ; preds = %157
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %167 = load double, ptr %166, align 8, !tbaa !41
+  %167 = load double, ptr %166, align 8, !tbaa !42
   %168 = call i64 @lexbor_conv_float_to_data(double noundef %167, ptr noundef nonnull %3, i64 noundef 127) #8
   %169 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %168
-  store i8 0, ptr %169, align 1, !tbaa !41
+  store i8 0, ptr %169, align 1, !tbaa !42
   %170 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %168, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
 171:                                              ; preds = %157
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %173 = load double, ptr %172, align 8, !tbaa !41
+  %173 = load double, ptr %172, align 8, !tbaa !42
   %174 = call i64 @lexbor_conv_float_to_data(double noundef %173, ptr noundef nonnull %3, i64 noundef 127) #8
   %175 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %174
-  store i8 0, ptr %175, align 1, !tbaa !41
+  store i8 0, ptr %175, align 1, !tbaa !42
   %176 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %174, ptr noundef nonnull %6) #8
   %.not208.i36 = icmp eq i32 %176, 0
   br i1 %.not208.i36, label %177, label %lxb_css_syntax_token_serialize.exit37.thread
@@ -1581,7 +1581,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %205 = load ptr, ptr %204, align 8, !tbaa !28
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %207 = load i64, ptr %206, align 8, !tbaa !34
+  %207 = load i64, ptr %206, align 8, !tbaa !35
   %208 = call i32 @lexbor_serialize_copy_cb(ptr noundef %205, i64 noundef %207, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
@@ -1594,7 +1594,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !28
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %215 = load i64, ptr %214, align 8, !tbaa !34
+  %215 = load i64, ptr %214, align 8, !tbaa !35
   %216 = call i32 @lexbor_serialize_copy_cb(ptr noundef %213, i64 noundef %215, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
@@ -1602,7 +1602,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %219 = load ptr, ptr %218, align 8, !tbaa !28
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %221 = load i64, ptr %220, align 8, !tbaa !34
+  %221 = load i64, ptr %220, align 8, !tbaa !35
   %222 = call i32 @lexbor_serialize_copy_cb(ptr noundef %219, i64 noundef %221, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
@@ -1610,7 +1610,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %225 = load ptr, ptr %224, align 8, !tbaa !28
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %227 = load i64, ptr %226, align 8, !tbaa !34
+  %227 = load i64, ptr %226, align 8, !tbaa !35
   %228 = call i32 @lexbor_serialize_copy_cb(ptr noundef %225, i64 noundef %227, ptr noundef nonnull %6) #8
   %.not205.i33 = icmp eq i32 %228, 0
   br i1 %.not205.i33, label %229, label %lxb_css_syntax_token_serialize.exit37.thread
@@ -1626,9 +1626,9 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 
 233:                                              ; preds = %231
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %235 = load ptr, ptr %234, align 8, !tbaa !41
+  %235 = load ptr, ptr %234, align 8, !tbaa !42
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %237 = load i64, ptr %236, align 8, !tbaa !41
+  %237 = load i64, ptr %236, align 8, !tbaa !42
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 %237
   %.not219.i19 = icmp eq i64 %237, 0
   br i1 %.not219.i19, label %.thread.i30, label %.lr.ph.i20
@@ -1636,7 +1636,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 .lr.ph.i20:                                       ; preds = %233, %258
   %.0217.i21 = phi ptr [ %.2.i26, %258 ], [ %235, %233 ]
   %.0171216.i22 = phi ptr [ %259, %258 ], [ %235, %233 ]
-  %239 = load i8, ptr %.0171216.i22, align 1, !tbaa !41
+  %239 = load i8, ptr %.0171216.i22, align 1, !tbaa !42
   switch i8 %239, label %258 [
     i8 92, label %240
     i8 34, label %250
@@ -1681,7 +1681,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %.2.i26 = phi ptr [ %.0171216.i22, %246 ], [ %.0217.i21, %.lr.ph.i20 ], [ %.0171216.i22, %256 ]
   %259 = getelementptr inbounds nuw i8, ptr %.0171216.i22, i64 1
   %260 = icmp ult ptr %259, %238
-  br i1 %260, label %.lr.ph.i20, label %._crit_edge.i27
+  br i1 %260, label %.lr.ph.i20, label %._crit_edge.i27, !llvm.loop !43
 
 ._crit_edge.i27:                                  ; preds = %258
   %.not203.i28 = icmp eq ptr %.2.i26, %259
@@ -1708,7 +1708,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %271 = load ptr, ptr %270, align 8, !tbaa !28
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %273 = load i64, ptr %272, align 8, !tbaa !34
+  %273 = load i64, ptr %272, align 8, !tbaa !35
   %274 = call i32 @lexbor_serialize_copy_cb(ptr noundef %271, i64 noundef %273, ptr noundef nonnull %6) #8
   %.not196.i17 = icmp eq i32 %274, 0
   br i1 %.not196.i17, label %275, label %lxb_css_syntax_token_serialize.exit37.thread
@@ -1726,7 +1726,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %281 = load ptr, ptr %280, align 8, !tbaa !28
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %283 = load i64, ptr %282, align 8, !tbaa !34
+  %283 = load i64, ptr %282, align 8, !tbaa !35
   %284 = call i32 @lexbor_serialize_copy_cb(ptr noundef %281, i64 noundef %283, ptr noundef nonnull %6) #8
   %.not194.i15 = icmp eq i32 %284, 0
   br i1 %.not194.i15, label %285, label %lxb_css_syntax_token_serialize.exit37.thread
@@ -1737,19 +1737,19 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 
 287:                                              ; preds = %157
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %289 = load double, ptr %288, align 8, !tbaa !41
+  %289 = load double, ptr %288, align 8, !tbaa !42
   %290 = call i64 @lexbor_conv_float_to_data(double noundef %289, ptr noundef nonnull %3, i64 noundef 127) #8
   %291 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %290
-  store i8 0, ptr %291, align 1, !tbaa !41
+  store i8 0, ptr %291, align 1, !tbaa !42
   %292 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %290, ptr noundef nonnull %6) #8
   %.not.i13 = icmp eq i32 %292, 0
   br i1 %.not.i13, label %293, label %lxb_css_syntax_token_serialize.exit37.thread
 
 293:                                              ; preds = %287
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %295 = load ptr, ptr %294, align 8, !tbaa !42
+  %295 = load ptr, ptr %294, align 8, !tbaa !44
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %297 = load i64, ptr %296, align 8, !tbaa !46
+  %297 = load i64, ptr %296, align 8, !tbaa !48
   %298 = call i32 @lexbor_serialize_copy_cb(ptr noundef %295, i64 noundef %297, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
 
@@ -1763,14 +1763,14 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 
 lxb_css_syntax_token_serialize.exit37.thread:     ; preds = %256, %251, %240, %171, %201, %209, %223, %231, %248, %261, %267, %269, %277, %279, %287, %157
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
-  %.pre = load ptr, ptr %6, align 8, !tbaa !37
+  %.pre = load ptr, ptr %6, align 8, !tbaa !38
   br label %303
 
 lxb_css_syntax_token_serialize.exit37:            ; preds = %160, %165, %177, %179, %181, %183, %185, %187, %189, %191, %193, %195, %197, %199, %203, %211, %217, %229, %.thread.i30, %275, %285, %293, %299, %301
   %.0169.i12 = phi i32 [ %164, %160 ], [ %170, %165 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %208, %203 ], [ %216, %211 ], [ %222, %217 ], [ %230, %229 ], [ %276, %275 ], [ %286, %285 ], [ %298, %293 ], [ %300, %299 ], [ %302, %301 ], [ %266, %.thread.i30 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   %.not9 = icmp eq i32 %.0169.i12, 0
-  %.pre44 = load ptr, ptr %6, align 8, !tbaa !37
+  %.pre44 = load ptr, ptr %6, align 8, !tbaa !38
   br i1 %.not9, label %306, label %303
 
 303:                                              ; preds = %lxb_css_syntax_token_serialize.exit37.thread, %lxb_css_syntax_token_serialize.exit37
@@ -1779,19 +1779,19 @@ lxb_css_syntax_token_serialize.exit37:            ; preds = %160, %165, %177, %1
   br label %313
 
 306:                                              ; preds = %lxb_css_syntax_token_serialize.exit37
-  %307 = load i64, ptr %158, align 8, !tbaa !35
+  %307 = load i64, ptr %158, align 8, !tbaa !36
   %308 = getelementptr inbounds nuw i8, ptr %.pre44, i64 %307
-  store i8 0, ptr %308, align 1, !tbaa !41
+  store i8 0, ptr %308, align 1, !tbaa !42
   %.not10 = icmp eq ptr %1, null
   br i1 %.not10, label %311, label %309
 
 309:                                              ; preds = %306
-  %310 = load i64, ptr %158, align 8, !tbaa !35
-  store i64 %310, ptr %1, align 8, !tbaa !47
+  %310 = load i64, ptr %158, align 8, !tbaa !36
+  store i64 %310, ptr %1, align 8, !tbaa !49
   br label %311
 
 311:                                              ; preds = %309, %306
-  %312 = load ptr, ptr %6, align 8, !tbaa !37
+  %312 = load ptr, ptr %6, align 8, !tbaa !38
   br label %315
 
 313:                                              ; preds = %lxb_css_syntax_token_serialize.exit.thread, %152, %lxb_css_syntax_token_serialize.exit, %303
@@ -1799,7 +1799,7 @@ lxb_css_syntax_token_serialize.exit37:            ; preds = %160, %165, %177, %1
   br i1 %.not11, label %315, label %314
 
 314:                                              ; preds = %313
-  store i64 0, ptr %1, align 8, !tbaa !47
+  store i64 0, ptr %1, align 8, !tbaa !49
   br label %315
 
 315:                                              ; preds = %313, %314, %311
@@ -1825,7 +1825,7 @@ define hidden ptr @lxb_css_syntax_token_error(ptr noundef readonly captures(none
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call ptr (ptr, i32, ptr, ...) @lxb_css_log_format(ptr noundef %8, i32 noundef 3, ptr noundef nonnull @lxb_css_syntax_token_error.unexpected, ptr noundef %2, ptr noundef nonnull %4) #8
   %10 = tail call ptr @lexbor_free(ptr noundef nonnull %4) #8
   br label %11
@@ -1932,26 +1932,28 @@ attributes #8 = { nounwind }
 !29 = !{!"lxb_css_syntax_token_string", !30, i64 0, !9, i64 24, !10, i64 32}
 !30 = !{!"lxb_css_syntax_token_base", !9, i64 0, !10, i64 8, !10, i64 16}
 !31 = !{!5, !6, i64 8}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.partial.disable"}
-!34 = !{!29, !10, i64 32}
-!35 = !{!36, !10, i64 8}
-!36 = !{!"", !9, i64 0, !10, i64 8}
-!37 = !{!36, !9, i64 0}
-!38 = !{!5, !12, i64 276}
-!39 = !{!40, !6, i64 8}
-!40 = !{!"", !9, i64 0, !6, i64 8, !10, i64 16, !10, i64 24}
-!41 = !{!7, !7, i64 0}
-!42 = !{!43, !9, i64 64}
-!43 = !{!"lxb_css_syntax_token_dimension", !44, i64 0, !29, i64 40}
-!44 = !{!"lxb_css_syntax_token_number", !30, i64 0, !45, i64 24, !13, i64 32, !13, i64 33}
-!45 = !{!"double", !7, i64 0}
-!46 = !{!43, !10, i64 72}
-!47 = !{!10, !10, i64 0}
-!48 = !{!49, !6, i64 184}
-!49 = !{!"lxb_css_parser", !6, i64 0, !6, i64 8, !50, i64 16, !51, i64 24, !51, i64 32, !52, i64 40, !52, i64 48, !53, i64 56, !53, i64 64, !53, i64 72, !54, i64 80, !54, i64 88, !54, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !9, i64 144, !10, i64 152, !36, i64 160, !10, i64 176, !6, i64 184, !12, i64 192, !13, i64 196, !13, i64 197, !13, i64 198, !13, i64 199, !12, i64 200}
-!50 = !{!"p1 _ZTS24lxb_css_syntax_tokenizer", !6, i64 0}
-!51 = !{!"p1 _ZTS17lxb_css_selectors", !6, i64 0}
-!52 = !{!"p1 _ZTS14lxb_css_memory", !6, i64 0}
-!53 = !{!"p1 _ZTS19lxb_css_syntax_rule", !6, i64 0}
-!54 = !{!"p1 _ZTS20lxb_css_parser_state", !6, i64 0}
+!32 = distinct !{!32, !33, !34}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!"llvm.loop.unswitch.partial.disable"}
+!35 = !{!29, !10, i64 32}
+!36 = !{!37, !10, i64 8}
+!37 = !{!"", !9, i64 0, !10, i64 8}
+!38 = !{!37, !9, i64 0}
+!39 = !{!5, !12, i64 276}
+!40 = !{!41, !6, i64 8}
+!41 = !{!"", !9, i64 0, !6, i64 8, !10, i64 16, !10, i64 24}
+!42 = !{!7, !7, i64 0}
+!43 = distinct !{!43, !33}
+!44 = !{!45, !9, i64 64}
+!45 = !{!"lxb_css_syntax_token_dimension", !46, i64 0, !29, i64 40}
+!46 = !{!"lxb_css_syntax_token_number", !30, i64 0, !47, i64 24, !13, i64 32, !13, i64 33}
+!47 = !{!"double", !7, i64 0}
+!48 = !{!45, !10, i64 72}
+!49 = !{!10, !10, i64 0}
+!50 = !{!51, !6, i64 184}
+!51 = !{!"lxb_css_parser", !6, i64 0, !6, i64 8, !52, i64 16, !53, i64 24, !53, i64 32, !54, i64 40, !54, i64 48, !55, i64 56, !55, i64 64, !55, i64 72, !56, i64 80, !56, i64 88, !56, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !9, i64 144, !10, i64 152, !37, i64 160, !10, i64 176, !6, i64 184, !12, i64 192, !13, i64 196, !13, i64 197, !13, i64 198, !13, i64 199, !12, i64 200}
+!52 = !{!"p1 _ZTS24lxb_css_syntax_tokenizer", !6, i64 0}
+!53 = !{!"p1 _ZTS17lxb_css_selectors", !6, i64 0}
+!54 = !{!"p1 _ZTS14lxb_css_memory", !6, i64 0}
+!55 = !{!"p1 _ZTS19lxb_css_syntax_rule", !6, i64 0}
+!56 = !{!"p1 _ZTS20lxb_css_parser_state", !6, i64 0}

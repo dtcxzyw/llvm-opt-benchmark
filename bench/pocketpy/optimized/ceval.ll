@@ -481,7 +481,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %2
   store ptr %28, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.02746, i64 8
   %.not35 = icmp eq ptr %31, %27
-  br i1 %.not35, label %.loopexit44, label %.lr.ph
+  br i1 %.not35, label %.loopexit44, label %.lr.ph, !llvm.loop !4
 
 32:                                               ; preds = %18
   store i32 %21, ptr %4, align 4
@@ -506,9 +506,9 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
 
 _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %2, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load i32, ptr %36, align 8, !noalias !4
+  %37 = load i32, ptr %36, align 8, !noalias !6
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 8, !noalias !4
+  store i32 %38, ptr %36, align 8, !noalias !6
   %39 = invoke noundef ptr @_ZN4pkpy2VM7py_iterEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %11)
           to label %40 unwind label %.loopexit.split-lp
 
@@ -580,7 +580,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit39:        ; preds = %.noexc37
   store ptr %53, ptr %63, align 8
   %65 = add nuw nsw i32 %.047, 1
   %exitcond.not = icmp eq i32 %65, %50
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %62, %40
   %66 = invoke noundef ptr @_ZN4pkpy2VM8_py_nextEPKNS_10PyTypeInfoEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %49, ptr noundef %39)
@@ -2835,7 +2835,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
 721:                                              ; preds = %722
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %722, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %722, !llvm.loop !11
 
 722:                                              ; preds = %721, %719
   %indvars.iv.i.i = phi i64 [ 0, %719 ], [ %indvars.iv.next.i.i, %721 ]
@@ -2882,11 +2882,11 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %750 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %734, i64 %749
   %751 = load i16, ptr %750, align 2
   %752 = icmp eq i16 %751, 0
-  br i1 %752, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %752, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !12
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %753 = icmp eq i16 %751, %.sroa.2932074.0
-  br i1 %753, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %753, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = %.lr.ph.i.i.i, %739, %729
   %.lcssa12.sink.i.i = phi i64 [ %735, %729 ], [ %742, %739 ], [ %749, %.lr.ph.i.i.i ]
@@ -2947,7 +2947,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.
 774:                                              ; preds = %775
   %indvars.iv.next.i.i4142 = add nuw nsw i64 %indvars.iv.i.i4141, 1
   %exitcond.not.i.i4143 = icmp eq i64 %indvars.iv.next.i.i4142, 8
-  br i1 %exitcond.not.i.i4143, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, label %775, !llvm.loop !9
+  br i1 %exitcond.not.i.i4143, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, label %775, !llvm.loop !11
 
 775:                                              ; preds = %774, %772
   %indvars.iv.i.i4141 = phi i64 [ 0, %772 ], [ %indvars.iv.next.i.i4142, %774 ]
@@ -2994,11 +2994,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.
   %803 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %787, i64 %802
   %804 = load i16, ptr %803, align 2
   %805 = icmp eq i16 %804, 0
-  br i1 %805, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, label %.lr.ph.i.i.i4138, !llvm.loop !10
+  br i1 %805, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, label %.lr.ph.i.i.i4138, !llvm.loop !12
 
 .lr.ph.i.i.i4138:                                 ; preds = %.lr.ph.i.i4135
   %806 = icmp eq i16 %804, %.sroa.2932074.0
-  br i1 %806, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139, label %.lr.ph.i.i4135, !llvm.loop !10
+  br i1 %806, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139, label %.lr.ph.i.i4135, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139: ; preds = %.lr.ph.i.i.i4138, %792, %782
   %.lcssa12.sink.i.i4140 = phi i64 [ %788, %782 ], [ %795, %792 ], [ %802, %.lr.ph.i.i.i4138 ]
@@ -3127,7 +3127,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 845:                                              ; preds = %846
   %indvars.iv.next.i.i4152 = add nuw nsw i64 %indvars.iv.i.i4151, 1
   %exitcond.not.i.i4153 = icmp eq i64 %indvars.iv.next.i.i4152, 8
-  br i1 %exitcond.not.i.i4153, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154.thread, label %846, !llvm.loop !9
+  br i1 %exitcond.not.i.i4153, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154.thread, label %846, !llvm.loop !11
 
 846:                                              ; preds = %845, %843
   %indvars.iv.i.i4151 = phi i64 [ 0, %843 ], [ %indvars.iv.next.i.i4152, %845 ]
@@ -3174,11 +3174,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %874 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %858, i64 %873
   %875 = load i16, ptr %874, align 2
   %876 = icmp eq i16 %875, 0
-  br i1 %876, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154.thread, label %.lr.ph.i.i.i4148, !llvm.loop !10
+  br i1 %876, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154.thread, label %.lr.ph.i.i.i4148, !llvm.loop !12
 
 .lr.ph.i.i.i4148:                                 ; preds = %.lr.ph.i.i4145
   %877 = icmp eq i16 %875, %.sroa.2932074.0
-  br i1 %877, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149, label %.lr.ph.i.i4145, !llvm.loop !10
+  br i1 %877, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149, label %.lr.ph.i.i4145, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149: ; preds = %.lr.ph.i.i.i4148, %863, %853
   %.lcssa12.sink.i.i4150 = phi i64 [ %859, %853 ], [ %866, %863 ], [ %873, %.lr.ph.i.i.i4148 ]
@@ -3239,7 +3239,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 898:                                              ; preds = %899
   %indvars.iv.next.i.i4162 = add nuw nsw i64 %indvars.iv.i.i4161, 1
   %exitcond.not.i.i4163 = icmp eq i64 %indvars.iv.next.i.i4162, 8
-  br i1 %exitcond.not.i.i4163, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, label %899, !llvm.loop !9
+  br i1 %exitcond.not.i.i4163, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, label %899, !llvm.loop !11
 
 899:                                              ; preds = %898, %896
   %indvars.iv.i.i4161 = phi i64 [ 0, %896 ], [ %indvars.iv.next.i.i4162, %898 ]
@@ -3286,11 +3286,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %927 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %911, i64 %926
   %928 = load i16, ptr %927, align 2
   %929 = icmp eq i16 %928, 0
-  br i1 %929, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, label %.lr.ph.i.i.i4158, !llvm.loop !10
+  br i1 %929, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, label %.lr.ph.i.i.i4158, !llvm.loop !12
 
 .lr.ph.i.i.i4158:                                 ; preds = %.lr.ph.i.i4155
   %930 = icmp eq i16 %928, %.sroa.2932074.0
-  br i1 %930, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159, label %.lr.ph.i.i4155, !llvm.loop !10
+  br i1 %930, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159, label %.lr.ph.i.i4155, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159: ; preds = %.lr.ph.i.i.i4158, %916, %906
   %.lcssa12.sink.i.i4160 = phi i64 [ %912, %906 ], [ %919, %916 ], [ %926, %.lr.ph.i.i.i4158 ]
@@ -3380,7 +3380,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 957:                                              ; preds = %958
   %indvars.iv.next.i.i4172 = add nuw nsw i64 %indvars.iv.i.i4171, 1
   %exitcond.not.i.i4173 = icmp eq i64 %indvars.iv.next.i.i4172, 8
-  br i1 %exitcond.not.i.i4173, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174.thread, label %958, !llvm.loop !9
+  br i1 %exitcond.not.i.i4173, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174.thread, label %958, !llvm.loop !11
 
 958:                                              ; preds = %957, %955
   %indvars.iv.i.i4171 = phi i64 [ 0, %955 ], [ %indvars.iv.next.i.i4172, %957 ]
@@ -3427,11 +3427,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %986 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %970, i64 %985
   %987 = load i16, ptr %986, align 2
   %988 = icmp eq i16 %987, 0
-  br i1 %988, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174.thread, label %.lr.ph.i.i.i4168, !llvm.loop !10
+  br i1 %988, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174.thread, label %.lr.ph.i.i.i4168, !llvm.loop !12
 
 .lr.ph.i.i.i4168:                                 ; preds = %.lr.ph.i.i4165
   %989 = icmp eq i16 %987, %.sroa.2932074.0
-  br i1 %989, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169, label %.lr.ph.i.i4165, !llvm.loop !10
+  br i1 %989, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169, label %.lr.ph.i.i4165, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169: ; preds = %.lr.ph.i.i.i4168, %975, %965
   %.lcssa12.sink.i.i4170 = phi i64 [ %971, %965 ], [ %978, %975 ], [ %985, %.lr.ph.i.i.i4168 ]
@@ -3492,7 +3492,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 1010:                                             ; preds = %1011
   %indvars.iv.next.i.i4182 = add nuw nsw i64 %indvars.iv.i.i4181, 1
   %exitcond.not.i.i4183 = icmp eq i64 %indvars.iv.next.i.i4182, 8
-  br i1 %exitcond.not.i.i4183, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, label %1011, !llvm.loop !9
+  br i1 %exitcond.not.i.i4183, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, label %1011, !llvm.loop !11
 
 1011:                                             ; preds = %1010, %1008
   %indvars.iv.i.i4181 = phi i64 [ 0, %1008 ], [ %indvars.iv.next.i.i4182, %1010 ]
@@ -3539,11 +3539,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1039 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %1023, i64 %1038
   %1040 = load i16, ptr %1039, align 2
   %1041 = icmp eq i16 %1040, 0
-  br i1 %1041, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, label %.lr.ph.i.i.i4178, !llvm.loop !10
+  br i1 %1041, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, label %.lr.ph.i.i.i4178, !llvm.loop !12
 
 .lr.ph.i.i.i4178:                                 ; preds = %.lr.ph.i.i4175
   %1042 = icmp eq i16 %1040, %.sroa.2932074.0
-  br i1 %1042, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179, label %.lr.ph.i.i4175, !llvm.loop !10
+  br i1 %1042, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179, label %.lr.ph.i.i4175, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179: ; preds = %.lr.ph.i.i.i4178, %1028, %1018
   %.lcssa12.sink.i.i4180 = phi i64 [ %1024, %1018 ], [ %1031, %1028 ], [ %1038, %.lr.ph.i.i.i4178 ]
@@ -3811,7 +3811,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 1119:                                             ; preds = %1120
   %indvars.iv.next.i.i4192 = add nuw nsw i64 %indvars.iv.i.i4191, 1
   %exitcond.not.i.i4193 = icmp eq i64 %indvars.iv.next.i.i4192, 8
-  br i1 %exitcond.not.i.i4193, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194.thread, label %1120, !llvm.loop !9
+  br i1 %exitcond.not.i.i4193, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194.thread, label %1120, !llvm.loop !11
 
 1120:                                             ; preds = %1119, %1117
   %indvars.iv.i.i4191 = phi i64 [ 0, %1117 ], [ %indvars.iv.next.i.i4192, %1119 ]
@@ -3858,11 +3858,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1148 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %1132, i64 %1147
   %1149 = load i16, ptr %1148, align 2
   %1150 = icmp eq i16 %1149, 0
-  br i1 %1150, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194.thread, label %.lr.ph.i.i.i4188, !llvm.loop !10
+  br i1 %1150, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194.thread, label %.lr.ph.i.i.i4188, !llvm.loop !12
 
 .lr.ph.i.i.i4188:                                 ; preds = %.lr.ph.i.i4185
   %1151 = icmp eq i16 %1149, %.sroa.2932074.0
-  br i1 %1151, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189, label %.lr.ph.i.i4185, !llvm.loop !10
+  br i1 %1151, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189, label %.lr.ph.i.i4185, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189: ; preds = %.lr.ph.i.i.i4188, %1137, %1127
   %.lcssa12.sink.i.i4190 = phi i64 [ %1133, %1127 ], [ %1140, %1137 ], [ %1147, %.lr.ph.i.i.i4188 ]
@@ -3923,7 +3923,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 1172:                                             ; preds = %1173
   %indvars.iv.next.i.i4202 = add nuw nsw i64 %indvars.iv.i.i4201, 1
   %exitcond.not.i.i4203 = icmp eq i64 %indvars.iv.next.i.i4202, 8
-  br i1 %exitcond.not.i.i4203, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, label %1173, !llvm.loop !9
+  br i1 %exitcond.not.i.i4203, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, label %1173, !llvm.loop !11
 
 1173:                                             ; preds = %1172, %1170
   %indvars.iv.i.i4201 = phi i64 [ 0, %1170 ], [ %indvars.iv.next.i.i4202, %1172 ]
@@ -3970,11 +3970,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1201 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %1185, i64 %1200
   %1202 = load i16, ptr %1201, align 2
   %1203 = icmp eq i16 %1202, 0
-  br i1 %1203, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, label %.lr.ph.i.i.i4198, !llvm.loop !10
+  br i1 %1203, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, label %.lr.ph.i.i.i4198, !llvm.loop !12
 
 .lr.ph.i.i.i4198:                                 ; preds = %.lr.ph.i.i4195
   %1204 = icmp eq i16 %1202, %.sroa.2932074.0
-  br i1 %1204, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199, label %.lr.ph.i.i4195, !llvm.loop !10
+  br i1 %1204, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199, label %.lr.ph.i.i4195, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199: ; preds = %.lr.ph.i.i.i4198, %1190, %1180
   %.lcssa12.sink.i.i4200 = phi i64 [ %1186, %1180 ], [ %1193, %1190 ], [ %1200, %.lr.ph.i.i.i4198 ]
@@ -5026,7 +5026,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4224: ; 
 1630:                                             ; preds = %1631
   %indvars.iv.next.i.i4232 = add nuw nsw i64 %indvars.iv.i.i4231, 1
   %exitcond.not.i.i4233 = icmp eq i64 %indvars.iv.next.i.i4232, 8
-  br i1 %exitcond.not.i.i4233, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, label %1631, !llvm.loop !9
+  br i1 %exitcond.not.i.i4233, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, label %1631, !llvm.loop !11
 
 1631:                                             ; preds = %1630, %1628
   %indvars.iv.i.i4231 = phi i64 [ 0, %1628 ], [ %indvars.iv.next.i.i4232, %1630 ]
@@ -5073,11 +5073,11 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4224: ; 
   %1659 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %1643, i64 %1658
   %1660 = load i16, ptr %1659, align 2
   %1661 = icmp eq i16 %1660, 0
-  br i1 %1661, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, label %.lr.ph.i.i.i4228, !llvm.loop !10
+  br i1 %1661, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, label %.lr.ph.i.i.i4228, !llvm.loop !12
 
 .lr.ph.i.i.i4228:                                 ; preds = %.lr.ph.i.i4225
   %1662 = icmp eq i16 %1660, %.sroa.0452.0.copyload
-  br i1 %1662, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229, label %.lr.ph.i.i4225, !llvm.loop !10
+  br i1 %1662, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229, label %.lr.ph.i.i4225, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229: ; preds = %.lr.ph.i.i.i4228, %1648, %1638
   %.lcssa12.sink.i.i4230 = phi i64 [ %1644, %1638 ], [ %1651, %1648 ], [ %1658, %.lr.ph.i.i.i4228 ]
@@ -5159,7 +5159,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit: ; preds = %1666
 1693:                                             ; preds = %1694
   %indvars.iv.next.i.i4243 = add nuw nsw i64 %indvars.iv.i.i4242, 1
   %exitcond.not.i.i4244 = icmp eq i64 %indvars.iv.next.i.i4243, 8
-  br i1 %exitcond.not.i.i4244, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, label %1694, !llvm.loop !9
+  br i1 %exitcond.not.i.i4244, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, label %1694, !llvm.loop !11
 
 1694:                                             ; preds = %1693, %1691
   %indvars.iv.i.i4242 = phi i64 [ 0, %1691 ], [ %indvars.iv.next.i.i4243, %1693 ]
@@ -5206,11 +5206,11 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit: ; preds = %1666
   %1722 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %1706, i64 %1721
   %1723 = load i16, ptr %1722, align 2
   %1724 = icmp eq i16 %1723, 0
-  br i1 %1724, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, label %.lr.ph.i.i.i4239, !llvm.loop !10
+  br i1 %1724, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, label %.lr.ph.i.i.i4239, !llvm.loop !12
 
 .lr.ph.i.i.i4239:                                 ; preds = %.lr.ph.i.i4236
   %1725 = icmp eq i16 %1723, %.sroa.0447.0.copyload
-  br i1 %1725, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240, label %.lr.ph.i.i4236, !llvm.loop !10
+  br i1 %1725, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240, label %.lr.ph.i.i4236, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240: ; preds = %.lr.ph.i.i.i4239, %1711, %1701
   %.lcssa12.sink.i.i4241 = phi i64 [ %1707, %1701 ], [ %1714, %1711 ], [ %1721, %.lr.ph.i.i.i4239 ]
@@ -5827,7 +5827,7 @@ _ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1924
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #23
   %1953 = getelementptr inbounds nuw i8, ptr %.035995224, i64 8
   %.not3996 = icmp eq ptr %1953, %1945
-  br i1 %.not3996, label %._crit_edge5227.loopexit, label %.lr.ph5226
+  br i1 %.not3996, label %._crit_edge5227.loopexit, label %.lr.ph5226, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph5226
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5932,9 +5932,9 @@ _ZN4pkpy7SStreamD2Ev.exit:                        ; preds = %_ZN4pkpy6py_varINS_
   br label %.body
 
 1977:                                             ; preds = %.backedge
-  %1978 = load i32, ptr %136, align 8, !noalias !11
+  %1978 = load i32, ptr %136, align 8, !noalias !14
   %1979 = add nsw i32 %1978, 1
-  store i32 %1979, ptr %136, align 8, !noalias !11
+  store i32 %1979, ptr %136, align 8, !noalias !14
   store i32 0, ptr %65, align 8
   store i32 8, ptr %167, align 4
   %1980 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23
@@ -6034,9 +6034,9 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4292: ; preds = %2007, %2009
   br label %.body
 
 2012:                                             ; preds = %.backedge
-  %2013 = load i32, ptr %136, align 8, !noalias !14
+  %2013 = load i32, ptr %136, align 8, !noalias !17
   %2014 = add nsw i32 %2013, 1
-  store i32 %2014, ptr %136, align 8, !noalias !14
+  store i32 %2014, ptr %136, align 8, !noalias !17
   store i32 0, ptr %67, align 8
   store i32 8, ptr %165, align 4
   %2015 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23
@@ -6121,9 +6121,9 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4300: ; preds = %2038, %2041
   br label %.body
 
 2044:                                             ; preds = %.backedge
-  %2045 = load i32, ptr %136, align 8, !noalias !17
+  %2045 = load i32, ptr %136, align 8, !noalias !20
   %2046 = add nsw i32 %2045, 1
-  store i32 %2046, ptr %136, align 8, !noalias !17
+  store i32 %2046, ptr %136, align 8, !noalias !20
   invoke void @_ZN4pkpy4DictC1EPNS_2VME(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull %0)
           to label %2047 unwind label %2068
 
@@ -6204,9 +6204,9 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304: ; preds = %2052
   br label %.body
 
 2075:                                             ; preds = %.backedge
-  %2076 = load i32, ptr %136, align 8, !noalias !20
+  %2076 = load i32, ptr %136, align 8, !noalias !23
   %2077 = add nsw i32 %2076, 1
-  store i32 %2077, ptr %136, align 8, !noalias !20
+  store i32 %2077, ptr %136, align 8, !noalias !23
   store i32 0, ptr %69, align 8
   store i32 8, ptr %162, align 4
   %2078 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23
@@ -9495,7 +9495,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3313
 3465:                                             ; preds = %.preheader
   %indvars.iv.next.i.i4442 = add nuw nsw i64 %indvars.iv.i.i4441, 1
   %exitcond.not.i.i4443 = icmp eq i64 %indvars.iv.next.i.i4442, 8
-  br i1 %exitcond.not.i.i4443, label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not.i.i4443, label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %3462, %3465
   %indvars.iv.i.i4441 = phi i64 [ %indvars.iv.next.i.i4442, %3465 ], [ 0, %3462 ]
@@ -9539,11 +9539,11 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3313
   %3490 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem.147", ptr %3474, i64 %3489
   %3491 = load i16, ptr %3490, align 2
   %3492 = icmp eq i16 %3491, 0
-  br i1 %3492, label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i4439, !llvm.loop !24
+  br i1 %3492, label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i4439, !llvm.loop !27
 
 .lr.ph.i.i.i4439:                                 ; preds = %.lr.ph.i.i4436
   %3493 = icmp eq i16 %3491, %.sroa.2932074.0
-  br i1 %3493, label %_ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i4436, !llvm.loop !24
+  br i1 %3493, label %_ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i4436, !llvm.loop !27
 
 _ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = %.lr.ph.i.i.i4439, %3479, %3471
   %.lcssa12.sink.i.i4440 = phi i64 [ %3475, %3471 ], [ %3482, %3479 ], [ %3489, %.lr.ph.i.i.i4439 ]
@@ -9699,7 +9699,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i: ;
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i4455 = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i4455, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10shared_ptrIN4pkpy10CodeObjectEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i4452, !llvm.loop !25
+  br i1 %.not.i.i.i4455, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10shared_ptrIN4pkpy10CodeObjectEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i4452, !llvm.loop !28
 
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10shared_ptrIN4pkpy10CodeObjectEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i
   %3543 = icmp eq ptr %.19.i.i.i, %158
@@ -10356,7 +10356,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495: ; preds = %3797
 
 .backedge4989.backedge:                           ; preds = %3821, %3909, %3930
   %.3.be = phi ptr [ %3823, %3821 ], [ %3911, %3909 ], [ %3932, %3930 ]
-  br label %.backedge4989
+  br label %.backedge4989, !llvm.loop !29
 
 3824:                                             ; preds = %3819
   %3825 = load ptr, ptr %131, align 8
@@ -10430,7 +10430,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495: ; preds = %3797
   store ptr %3850, ptr %3851, align 8
   %3853 = getelementptr inbounds nuw i8, ptr %.036025214, i64 8
   %.not3904 = icmp eq ptr %3853, %3849
-  br i1 %.not3904, label %._crit_edge5217, label %.lr.ph5216
+  br i1 %.not3904, label %._crit_edge5217, label %.lr.ph5216, !llvm.loop !30
 
 ._crit_edge5217:                                  ; preds = %.lr.ph5216, %3841
   %3854 = getelementptr inbounds nuw i8, ptr %3840, i64 48
@@ -10496,7 +10496,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   %3889 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %3888, i64 %3859, i32 1
   %.0.i4496 = load i32, ptr %3889, align 4
   %.not.i4497 = icmp eq i32 %.0.i4496, -1
-  br i1 %.not.i4497, label %.loopexit4965, label %3857, !llvm.loop !26
+  br i1 %.not.i4497, label %.loopexit4965, label %3857, !llvm.loop !31
 
 .loopexit4965:                                    ; preds = %.noexc4499, %._crit_edge5217
   %3890 = load i32, ptr %3846, align 8
@@ -10530,7 +10530,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   store ptr %3903, ptr %3904, align 8
   %3906 = getelementptr inbounds nuw i8, ptr %.036035219, i64 8
   %.not3903 = icmp eq ptr %3906, %3902
-  br i1 %.not3903, label %._crit_edge5222.loopexit, label %.lr.ph5221
+  br i1 %.not3903, label %._crit_edge5222.loopexit, label %.lr.ph5221, !llvm.loop !32
 
 ._crit_edge5222.loopexit:                         ; preds = %.lr.ph5221
   %.pre5438 = load i32, ptr %3899, align 8
@@ -11519,7 +11519,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4527: ; preds = %4291
 4331:                                             ; preds = %4332
   %indvars.iv.next.i.i4535 = add nuw nsw i64 %indvars.iv.i.i4534, 1
   %exitcond.not.i.i4536 = icmp eq i64 %indvars.iv.next.i.i4535, 8
-  br i1 %exitcond.not.i.i4536, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread, label %4332, !llvm.loop !9
+  br i1 %exitcond.not.i.i4536, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread, label %4332, !llvm.loop !11
 
 4332:                                             ; preds = %4331, %4329
   %indvars.iv.i.i4534 = phi i64 [ 0, %4329 ], [ %indvars.iv.next.i.i4535, %4331 ]
@@ -11557,11 +11557,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4527: ; preds = %4291
   %4351 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %4343, i64 %4350
   %4352 = load i16, ptr %4351, align 2
   %4353 = icmp eq i16 %4352, 0
-  br i1 %4353, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread, label %.lr.ph.i.i4533, !llvm.loop !10
+  br i1 %4353, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread, label %.lr.ph.i.i4533, !llvm.loop !12
 
 .lr.ph.i.i4533:                                   ; preds = %.lr.ph.i4531
   %4354 = icmp eq i16 %4352, %.sroa.0104.0.copyload
-  br i1 %4354, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i4531, !llvm.loop !10
+  br i1 %4354, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i4531, !llvm.loop !12
 
 .lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i4533, %.lr.ph.i.preheader.i
   %.lcssa.i = phi i64 [ %4344, %.lr.ph.i.preheader.i ], [ %4350, %.lr.ph.i.i4533 ]
@@ -11649,7 +11649,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4540: ; preds = %.lr.ph5208
 4399:                                             ; preds = %4400
   %indvars.iv.next.i.i4553 = add nuw nsw i64 %indvars.iv.i.i4552, 1
   %exitcond.not.i.i4554 = icmp eq i64 %indvars.iv.next.i.i4553, 8
-  br i1 %exitcond.not.i.i4554, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread, label %4400, !llvm.loop !9
+  br i1 %exitcond.not.i.i4554, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread, label %4400, !llvm.loop !11
 
 4400:                                             ; preds = %4399, %4397
   %indvars.iv.i.i4552 = phi i64 [ 0, %4397 ], [ %indvars.iv.next.i.i4553, %4399 ]
@@ -11696,11 +11696,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4540: ; preds = %.lr.ph5208
   %4428 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %4412, i64 %4427
   %4429 = load i16, ptr %4428, align 2
   %4430 = icmp eq i16 %4429, 0
-  br i1 %4430, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread, label %.lr.ph.i.i.i4549, !llvm.loop !10
+  br i1 %4430, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread, label %.lr.ph.i.i.i4549, !llvm.loop !12
 
 .lr.ph.i.i.i4549:                                 ; preds = %.lr.ph.i.i4546
   %4431 = icmp eq i16 %4429, %4392
-  br i1 %4431, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4550, label %.lr.ph.i.i4546, !llvm.loop !10
+  br i1 %4431, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4550, label %.lr.ph.i.i4546, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4550: ; preds = %.lr.ph.i.i.i4549, %4417, %4407
   %.lcssa12.sink.i.i4551 = phi i64 [ %4413, %4407 ], [ %4420, %4417 ], [ %4427, %.lr.ph.i.i.i4549 ]
@@ -11720,7 +11720,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 
 .noexc4557:                                       ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread
   %4436 = getelementptr inbounds nuw i8, ptr %4435, i64 16
-  %4437 = load ptr, ptr %4436, align 8, !noalias !27
+  %4437 = load ptr, ptr %4436, align 8, !noalias !33
   %4438 = getelementptr inbounds nuw i8, ptr %4435, i64 8
   %.not10.i.i.i.i.i.i = icmp eq ptr %4437, null
   br i1 %.not10.i.i.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -11729,14 +11729,14 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %4437, %.noexc4557 ]
   %.0811.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %4438, %.noexc4557 ]
   %4439 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %4440 = load i16, ptr %4439, align 2, !noalias !27
+  %4440 = load i16, ptr %4439, align 2, !noalias !33
   %4441 = icmp ult i16 %4440, %4392
   %.19.i.i.i.i.i.i = select i1 %4441, ptr %.0811.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i
   %.1.in.v.i.i.i.i.i.i = select i1 %4441, i64 24, i64 16
   %.1.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i, align 8, !noalias !27
+  %.1.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i, align 8, !noalias !33
   %.not.i.i.i.i.i.i4556 = icmp eq ptr %.1.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i4556, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i.i4556, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !36
 
 _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %4442 = icmp eq ptr %.19.i.i.i.i.i.i, %4438
@@ -11744,7 +11744,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 
 4443:                                             ; preds = %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i
   %4444 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
-  %4445 = load i16, ptr %4444, align 2, !noalias !27
+  %4445 = load i16, ptr %4444, align 2, !noalias !33
   %4446 = icmp ult i16 %4392, %4445
   br i1 %4446, label %.critedge.i.i.i, label %_ZNK4pkpy7StrName2svEv.exit.i
 
@@ -11814,7 +11814,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
   %.sroa.05.0.i.i.i = phi ptr [ %.sroa.0.010.i, %.noexc4558 ], [ %.19.i.i.i.i.i.i, %4443 ]
   %4468 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i, i64 40
-  %4469 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %4468) #23, !noalias !27
+  %4469 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %4468) #23, !noalias !33
   %4470 = extractvalue { i64, ptr } %4469, 0
   %4471 = extractvalue { i64, ptr } %4469, 1
   invoke void @_ZN4pkpy3StrC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 %4470, ptr %4471)
@@ -11837,24 +11837,24 @@ _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  store i32 0, ptr %11, align 8, !noalias !31
-  store i32 64, ptr %141, align 4, !noalias !31
-  %4475 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !31
-  store ptr %4475, ptr %142, align 8, !noalias !31
-  store i32 -1, ptr %143, align 8, !noalias !31
+  store i32 0, ptr %11, align 8, !noalias !37
+  store i32 64, ptr %141, align 4, !noalias !37
+  %4475 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !37
+  store ptr %4475, ptr %142, align 8, !noalias !37
+  store i32 -1, ptr %143, align 8, !noalias !37
   %4476 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull @.str.28)
-          to label %4477 unwind label %4483, !noalias !31
+          to label %4477 unwind label %4483, !noalias !37
 
 4477:                                             ; preds = %4474
   %4478 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(20) %4476, ptr noundef nonnull align 8 dereferenceable(32) %100)
-          to label %4479 unwind label %4483, !noalias !31
+          to label %4479 unwind label %4483, !noalias !37
 
 4479:                                             ; preds = %4477
   invoke void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %99, ptr noundef nonnull align 8 dereferenceable(20) %11)
           to label %4480 unwind label %4483
 
 4480:                                             ; preds = %4479
-  %4481 = load ptr, ptr %142, align 8, !noalias !31
+  %4481 = load ptr, ptr %142, align 8, !noalias !37
   %.not.i.i.i4564 = icmp eq ptr %4481, null
   br i1 %.not.i.i.i4564, label %4487, label %4482
 
@@ -11868,7 +11868,7 @@ _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
           catch ptr @_ZTIN4pkpy19ToBeRaisedExceptionE
-  %4485 = load ptr, ptr %142, align 8, !noalias !31
+  %4485 = load ptr, ptr %142, align 8, !noalias !37
   %.not.i.i3.i = icmp eq ptr %4485, null
   br i1 %.not.i.i3.i, label %.body4565, label %4486
 
@@ -11914,14 +11914,14 @@ _ZN4pkpy2VM11ImportErrorERKNS_3StrE.exit:         ; preds = %.noexc4567
 4495:                                             ; preds = %_ZN4pkpy2VM11ImportErrorERKNS_3StrE.exit, %4491
   %4496 = getelementptr inbounds nuw i8, ptr %.036055206, i64 8
   %.not3880 = icmp eq ptr %4496, %4374
-  br i1 %.not3880, label %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, label %.lr.ph5208
+  br i1 %.not3880, label %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, label %.lr.ph5208, !llvm.loop !40
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i4531, %4331, %4339, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  store i32 0, ptr %101, align 8, !alias.scope !34
-  store i32 4, ptr %144, align 4, !alias.scope !34
-  %4497 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !34
-  store ptr %4497, ptr %145, align 8, !alias.scope !34
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  store i32 0, ptr %101, align 8, !alias.scope !41
+  store i32 4, ptr %144, align 4, !alias.scope !41
+  %4497 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !41
+  store ptr %4497, ptr %145, align 8, !alias.scope !41
   invoke void @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5applyIZNKS3_5itemsEvEUlNS_7StrNameES2_E_EEvT_(ptr noundef nonnull align 8 dereferenceable(88) %4326, ptr nonnull align 8 %101)
           to label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit unwind label %4498
 
@@ -11931,7 +11931,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread: ; pred
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
           catch ptr @_ZTIN4pkpy19ToBeRaisedExceptionE
-  %4500 = load ptr, ptr %145, align 8, !alias.scope !34
+  %4500 = load ptr, ptr %145, align 8, !alias.scope !41
   %.not.i.i4569 = icmp eq ptr %4500, null
   br i1 %.not.i.i4569, label %.body, label %4501
 
@@ -12006,7 +12006,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit: ; preds = %_ZNK4pkpy12Name
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i4577 = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i4577, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %4517, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i4577, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %4517, !llvm.loop !36
 
 _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i: ; preds = %4517
   %4521 = icmp eq ptr %.19.i.i.i.i.i, %4515
@@ -12109,7 +12109,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 4563:                                             ; preds = %4557, %4548, %4553
   %4564 = getelementptr inbounds nuw i8, ptr %.036065210, i64 16
   %.not3879 = icmp eq ptr %4564, %4505
-  br i1 %.not3879, label %._crit_edge5212.loopexit, label %.lr.ph5211
+  br i1 %.not3879, label %._crit_edge5212.loopexit, label %.lr.ph5211, !llvm.loop !44
 
 _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds = %4495, %4368, %4507, %._crit_edge5212
   %4565 = load i32, ptr %206, align 4
@@ -12170,9 +12170,9 @@ _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds =
           to label %.backedge.backedge unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 4579:                                             ; preds = %.backedge
-  %4580 = load i32, ptr %136, align 8, !noalias !37
+  %4580 = load i32, ptr %136, align 8, !noalias !45
   %4581 = add nsw i32 %4580, 1
-  store i32 %4581, ptr %136, align 8, !noalias !37
+  store i32 %4581, ptr %136, align 8, !noalias !45
   %4582 = load ptr, ptr %131, align 8
   %4583 = getelementptr inbounds i8, ptr %4582, i64 -8
   store ptr %4583, ptr %131, align 8
@@ -12252,7 +12252,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit4583:      ; preds = %.noexc4581
   store ptr %4596, ptr %4606, align 8
   %4608 = add nuw nsw i32 %.036075204, 1
   %exitcond.not = icmp eq i32 %4608, %4595
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %4605, %4586
   store i32 0, ptr %103, align 8
@@ -13002,14 +13002,14 @@ _ZNKSt6vectorIN4pkpy7StrNameESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %48
 .lr.ph.i.i.i.i.i4611:                             ; preds = %.noexc4615, %.lr.ph.i.i.i.i.i4611
   %.012.i.i.i.i.i4612 = phi ptr [ %4853, %.lr.ph.i.i.i.i.i4611 ], [ %4849, %.noexc4615 ]
   %.0911.i.i.i.i.i = phi ptr [ %4852, %.lr.ph.i.i.i.i.i4611 ], [ %4837, %.noexc4615 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %4851 = load i16, ptr %.0911.i.i.i.i.i, align 2, !alias.scope !44, !noalias !41
-  store i16 %4851, ptr %.012.i.i.i.i.i4612, align 2, !alias.scope !41, !noalias !44
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  %4851 = load i16, ptr %.0911.i.i.i.i.i, align 2, !alias.scope !52, !noalias !49
+  store i16 %4851, ptr %.012.i.i.i.i.i4612, align 2, !alias.scope !49, !noalias !52
   %4852 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 2
   %4853 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i4612, i64 2
   %.not.i.i.i.i.i4613 = icmp eq ptr %4852, %4830
-  br i1 %.not.i.i.i.i.i4613, label %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i4611, !llvm.loop !46
+  br i1 %.not.i.i.i.i.i4613, label %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i4611, !llvm.loop !54
 
 _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i4611, %.noexc4615
   %.0.lcssa.i.i.i.i.i = phi ptr [ %4849, %.noexc4615 ], [ %4853, %.lr.ph.i.i.i.i.i4611 ]
@@ -13565,7 +13565,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4636: ; preds = %5005
 .backedge4997:                                    ; preds = %5063, %5264, %5040
   %.03554.be = phi ptr [ %.2, %5040 ], [ %5265, %5264 ], [ %.2, %5063 ]
   call void @__cxa_end_catch()
-  br label %200, !llvm.loop !47
+  br label %200, !llvm.loop !55
 
 5042:                                             ; preds = %.body
   %5043 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy18UnhandledExceptionE) #23
@@ -13775,7 +13775,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4646: ; preds = %5104
 5131:                                             ; preds = %5132
   %indvars.iv.next.i.i4656 = add nuw nsw i64 %indvars.iv.i.i4655, 1
   %exitcond.not.i.i4657 = icmp eq i64 %indvars.iv.next.i.i4656, 8
-  br i1 %exitcond.not.i.i4657, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %5132, !llvm.loop !48
+  br i1 %exitcond.not.i.i4657, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %5132, !llvm.loop !56
 
 5132:                                             ; preds = %5131, %5129
   %indvars.iv.i.i4655 = phi i64 [ 0, %5129 ], [ %indvars.iv.next.i.i4656, %5131 ]
@@ -13830,11 +13830,11 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4646: ; preds = %5104
   %5164 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %5144, i64 %5163
   %5165 = load i16, ptr %5164, align 2
   %5166 = icmp eq i16 %5165, 0
-  br i1 %5166, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i.i4654, !llvm.loop !49
+  br i1 %5166, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i.i4654, !llvm.loop !57
 
 .lr.ph.i.i.i4654:                                 ; preds = %.lr.ph.i.i4651
   %5167 = icmp eq i16 %5165, %.sroa.2932074.0
-  br i1 %5167, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i4651, !llvm.loop !49
+  br i1 %5167, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i4651, !llvm.loop !57
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i4654
   %5168 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %5144, i64 %5163, i32 1
@@ -13915,7 +13915,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4659: ; preds = %_ZN4pkpy12Name
 5197:                                             ; preds = %5198
   %indvars.iv.next.i.i4670 = add nuw nsw i64 %indvars.iv.i.i4669, 1
   %exitcond.not.i.i4671 = icmp eq i64 %indvars.iv.next.i.i4670, 8
-  br i1 %exitcond.not.i.i4671, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, label %5198, !llvm.loop !48
+  br i1 %exitcond.not.i.i4671, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, label %5198, !llvm.loop !56
 
 5198:                                             ; preds = %5197, %5195
   %indvars.iv.i.i4669 = phi i64 [ 0, %5195 ], [ %indvars.iv.next.i.i4670, %5197 ]
@@ -13970,11 +13970,11 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4659: ; preds = %_ZN4pkpy12Name
   %5230 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %5210, i64 %5229
   %5231 = load i16, ptr %5230, align 2
   %5232 = icmp eq i16 %5231, 0
-  br i1 %5232, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, label %.lr.ph.i.i.i4667, !llvm.loop !49
+  br i1 %5232, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, label %.lr.ph.i.i.i4667, !llvm.loop !57
 
 .lr.ph.i.i.i4667:                                 ; preds = %.lr.ph.i.i4664
   %5233 = icmp eq i16 %5231, %.sroa.2932074.0
-  br i1 %5233, label %.lr.ph.i._crit_edge.i.i4668, label %.lr.ph.i.i4664, !llvm.loop !49
+  br i1 %5233, label %.lr.ph.i._crit_edge.i.i4668, label %.lr.ph.i.i4664, !llvm.loop !57
 
 .lr.ph.i._crit_edge.i.i4668:                      ; preds = %.lr.ph.i.i.i4667
   %5234 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %5210, i64 %5229, i32 1
@@ -14030,7 +14030,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12Name
 .backedge.backedge:                               ; preds = %5248, %5254, %5182, %5188, %5116, %5122, %5087, %5093, %5027, %5035, %4995, %5004, %4988, %4994, %_ZN4pkpy2VM14AssertionErrorEv.exit, %4986, %4961, %4967, %4921, %4931, %4894, %4902, %4874, %4882, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit, %4862, %4789, %4798, %4779, %4788, %4772, %4778, %4726, %4732, %4677, %4683, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593, %4652, %4572, %4578, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, %4570, %4310, %4318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519, %4290, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516, %4236, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514, %4205, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512, %4174, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit, %4143, %4105, %4113, %4091, %4099, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %4067, %4045, %4051, %4018, %4026, %4006, %4012, %3984, %3990, %3959, %3971, %3912, %3920, %3824, %3832, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495, %3807, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493, %3790, %3508, %3514, %3455, %3461, %3446, %3452, %3439, %3445, %3416, %3422, %3398, %3404, %3378, %3386, %3361, %3369, %3347, %3352, %3328, %3334, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit, %3327, %3268, %3283, %3261, %3267, %3212, %3218, %3169, %3177, %3139, %3145, %3096, %3104, %3067, %3073, %3024, %3032, %2995, %3001, %2952, %2960, %2920, %2926, %2877, %2885, %2842, %2851, %2828, %2838, %2805, %2814, %2790, %2801, %2767, %2776, %2749, %2758, %2731, %2740, %2717, %2727, %2694, %2703, %2679, %2690, %2659, %2665, %2616, %2624, %2578, %2584, %2535, %2543, %2497, %2503, %2433, %2441, %2401, %2407, %2337, %2345, %2305, %2311, %2241, %2249, %2209, %2215, %2160, %2166, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314, %2111, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304, %2067, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298, %2037, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290, %2002, %_ZN4pkpy7SStreamD2Ev.exit, %1971, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1942, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276, %1919, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265, %1884, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1852, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit, %1833, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1811, %_ZN4pkpy5BytesD2Ev.exit, %1788, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit, %1749, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit, %1684, %1615, %1621, %1582, %1588, %1571, %1577, %1556, %1562, %1523, %1531, %1506, %1512, %1461, %1467, %1422, %1430, %1409, %1415, %1395, %1401, %1359, %1371, %1350, %1358, %1313, %1321, %1268, %1276, %1228, %1239, %1216, %1222, %1207, %1215, %1154, %1162, %1102, %1110, %1066, %1074, %1054, %1060, %1045, %1053, %992, %1000, %942, %948, %933, %941, %880, %888, %828, %836, %818, %824, %809, %817, %756, %764, %704, %712, %691, %700, %674, %682, %655, %663, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110, %654, %362, %371, %351, %361, %341, %350, %331, %340, %321, %330, %308, %320, %299, %307, %265, %282, %253, %264, %242, %252, %233, %241, %226, %232
   %.sroa.0623.0.be = phi i8 [ %.sroa.0623.0.copyload624, %232 ], [ %.sroa.0623.0.copyload624, %226 ], [ %.sroa.0623.0.copyload625, %241 ], [ %.sroa.0623.0.copyload625, %233 ], [ %.sroa.0623.0.copyload626, %252 ], [ %.sroa.0623.0.copyload626, %242 ], [ %.sroa.0623.0.copyload627, %264 ], [ %.sroa.0623.0.copyload627, %253 ], [ %.sroa.0623.0.copyload628, %282 ], [ %.sroa.0623.0.copyload628, %265 ], [ %.sroa.0623.0.copyload629, %307 ], [ %.sroa.0623.0.copyload629, %299 ], [ %.sroa.0623.0.copyload630, %320 ], [ %.sroa.0623.0.copyload630, %308 ], [ %.sroa.0623.0.copyload631, %330 ], [ %.sroa.0623.0.copyload631, %321 ], [ %.sroa.0623.0.copyload632, %340 ], [ %.sroa.0623.0.copyload632, %331 ], [ %.sroa.0623.0.copyload633, %350 ], [ %.sroa.0623.0.copyload633, %341 ], [ %.sroa.0623.0.copyload634, %361 ], [ %.sroa.0623.0.copyload634, %351 ], [ %.sroa.0623.0.copyload635, %371 ], [ %.sroa.0623.0.copyload635, %362 ], [ %.sroa.0623.0.copyload636, %654 ], [ %.sroa.0623.0.copyload636, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.0623.0.copyload637, %663 ], [ %.sroa.0623.0.copyload637, %655 ], [ %.sroa.0623.0.copyload638, %682 ], [ %.sroa.0623.0.copyload638, %674 ], [ %.sroa.0623.0.copyload639, %700 ], [ %.sroa.0623.0.copyload639, %691 ], [ %.sroa.0623.0.copyload640, %712 ], [ %.sroa.0623.0.copyload640, %704 ], [ %.sroa.0623.0.copyload641, %764 ], [ %.sroa.0623.0.copyload641, %756 ], [ %.sroa.0623.0.copyload642, %817 ], [ %.sroa.0623.0.copyload642, %809 ], [ %.sroa.0623.0.copyload643, %824 ], [ %.sroa.0623.0.copyload643, %818 ], [ %.sroa.0623.0.copyload644, %836 ], [ %.sroa.0623.0.copyload644, %828 ], [ %.sroa.0623.0.copyload645, %888 ], [ %.sroa.0623.0.copyload645, %880 ], [ %.sroa.0623.0.copyload646, %941 ], [ %.sroa.0623.0.copyload646, %933 ], [ %.sroa.0623.0.copyload647, %948 ], [ %.sroa.0623.0.copyload647, %942 ], [ %.sroa.0623.0.copyload648, %1000 ], [ %.sroa.0623.0.copyload648, %992 ], [ %.sroa.0623.0.copyload649, %1053 ], [ %.sroa.0623.0.copyload649, %1045 ], [ %.sroa.0623.0.copyload650, %1060 ], [ %.sroa.0623.0.copyload650, %1054 ], [ %.sroa.0623.0.copyload651, %1074 ], [ %.sroa.0623.0.copyload651, %1066 ], [ %.sroa.0623.0.copyload652, %1110 ], [ %.sroa.0623.0.copyload652, %1102 ], [ %.sroa.0623.0.copyload653, %1162 ], [ %.sroa.0623.0.copyload653, %1154 ], [ %.sroa.0623.0.copyload654, %1215 ], [ %.sroa.0623.0.copyload654, %1207 ], [ %.sroa.0623.0.copyload655, %1222 ], [ %.sroa.0623.0.copyload655, %1216 ], [ %.sroa.0623.0.copyload656, %1239 ], [ %.sroa.0623.0.copyload656, %1228 ], [ %.sroa.0623.0.copyload657, %1276 ], [ %.sroa.0623.0.copyload657, %1268 ], [ %.sroa.0623.0.copyload658, %1321 ], [ %.sroa.0623.0.copyload658, %1313 ], [ %.sroa.0623.0.copyload659, %1358 ], [ %.sroa.0623.0.copyload659, %1350 ], [ %.sroa.0623.0.copyload660, %1371 ], [ %.sroa.0623.0.copyload660, %1359 ], [ %.sroa.0623.0.copyload661, %1401 ], [ %.sroa.0623.0.copyload661, %1395 ], [ %.sroa.0623.0.copyload662, %1415 ], [ %.sroa.0623.0.copyload662, %1409 ], [ %.sroa.0623.0.copyload663, %1430 ], [ %.sroa.0623.0.copyload663, %1422 ], [ %.sroa.0623.0.copyload664, %1467 ], [ %.sroa.0623.0.copyload664, %1461 ], [ %.sroa.0623.0.copyload665, %1512 ], [ %.sroa.0623.0.copyload665, %1506 ], [ %.sroa.0623.0.copyload666, %1531 ], [ %.sroa.0623.0.copyload666, %1523 ], [ %.sroa.0623.0.copyload667, %1562 ], [ %.sroa.0623.0.copyload667, %1556 ], [ %.sroa.0623.0.copyload668, %1577 ], [ %.sroa.0623.0.copyload668, %1571 ], [ %.sroa.0623.0.copyload669, %1588 ], [ %.sroa.0623.0.copyload669, %1582 ], [ %.sroa.0623.0.copyload670, %1621 ], [ %.sroa.0623.0.copyload670, %1615 ], [ %.sroa.0623.0.copyload671, %1684 ], [ %.sroa.0623.0.copyload671, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload672, %1749 ], [ %.sroa.0623.0.copyload672, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload673, %1788 ], [ %.sroa.0623.0.copyload673, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.0623.0.copyload674, %1811 ], [ %.sroa.0623.0.copyload674, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload675, %1833 ], [ %.sroa.0623.0.copyload675, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.0623.0.copyload676, %1852 ], [ %.sroa.0623.0.copyload676, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload677, %1884 ], [ %.sroa.0623.0.copyload677, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.0623.0.copyload678, %1919 ], [ %.sroa.0623.0.copyload678, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.0623.0.copyload679, %1942 ], [ %.sroa.0623.0.copyload679, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload680, %1971 ], [ %.sroa.0623.0.copyload680, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.0623.0.copyload681, %2002 ], [ %.sroa.0623.0.copyload681, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.0623.0.copyload682, %2037 ], [ %.sroa.0623.0.copyload682, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.0623.0.copyload683, %2067 ], [ %.sroa.0623.0.copyload683, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.0623.0.copyload684, %2111 ], [ %.sroa.0623.0.copyload684, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.0623.0.copyload685, %2166 ], [ %.sroa.0623.0.copyload685, %2160 ], [ %.sroa.0623.0.copyload686, %2215 ], [ %.sroa.0623.0.copyload686, %2209 ], [ %.sroa.0623.0.copyload687, %2249 ], [ %.sroa.0623.0.copyload687, %2241 ], [ %.sroa.0623.0.copyload688, %2311 ], [ %.sroa.0623.0.copyload688, %2305 ], [ %.sroa.0623.0.copyload689, %2345 ], [ %.sroa.0623.0.copyload689, %2337 ], [ %.sroa.0623.0.copyload690, %2407 ], [ %.sroa.0623.0.copyload690, %2401 ], [ %.sroa.0623.0.copyload691, %2441 ], [ %.sroa.0623.0.copyload691, %2433 ], [ %.sroa.0623.0.copyload692, %2503 ], [ %.sroa.0623.0.copyload692, %2497 ], [ %.sroa.0623.0.copyload693, %2543 ], [ %.sroa.0623.0.copyload693, %2535 ], [ %.sroa.0623.0.copyload694, %2584 ], [ %.sroa.0623.0.copyload694, %2578 ], [ %.sroa.0623.0.copyload695, %2624 ], [ %.sroa.0623.0.copyload695, %2616 ], [ %.sroa.0623.0.copyload696, %2665 ], [ %.sroa.0623.0.copyload696, %2659 ], [ %.sroa.0623.0.copyload697, %2690 ], [ %.sroa.0623.0.copyload697, %2679 ], [ %.sroa.0623.0.copyload698, %2703 ], [ %.sroa.0623.0.copyload698, %2694 ], [ %.sroa.0623.0.copyload699, %2727 ], [ %.sroa.0623.0.copyload699, %2717 ], [ %.sroa.0623.0.copyload700, %2740 ], [ %.sroa.0623.0.copyload700, %2731 ], [ %.sroa.0623.0.copyload701, %2758 ], [ %.sroa.0623.0.copyload701, %2749 ], [ %.sroa.0623.0.copyload702, %2776 ], [ %.sroa.0623.0.copyload702, %2767 ], [ %.sroa.0623.0.copyload703, %2801 ], [ %.sroa.0623.0.copyload703, %2790 ], [ %.sroa.0623.0.copyload704, %2814 ], [ %.sroa.0623.0.copyload704, %2805 ], [ %.sroa.0623.0.copyload705, %2838 ], [ %.sroa.0623.0.copyload705, %2828 ], [ %.sroa.0623.0.copyload706, %2851 ], [ %.sroa.0623.0.copyload706, %2842 ], [ %.sroa.0623.0.copyload707, %2885 ], [ %.sroa.0623.0.copyload707, %2877 ], [ %.sroa.0623.0.copyload708, %2926 ], [ %.sroa.0623.0.copyload708, %2920 ], [ %.sroa.0623.0.copyload709, %2960 ], [ %.sroa.0623.0.copyload709, %2952 ], [ %.sroa.0623.0.copyload710, %3001 ], [ %.sroa.0623.0.copyload710, %2995 ], [ %.sroa.0623.0.copyload711, %3032 ], [ %.sroa.0623.0.copyload711, %3024 ], [ %.sroa.0623.0.copyload712, %3073 ], [ %.sroa.0623.0.copyload712, %3067 ], [ %.sroa.0623.0.copyload713, %3104 ], [ %.sroa.0623.0.copyload713, %3096 ], [ %.sroa.0623.0.copyload714, %3145 ], [ %.sroa.0623.0.copyload714, %3139 ], [ %.sroa.0623.0.copyload715, %3177 ], [ %.sroa.0623.0.copyload715, %3169 ], [ %.sroa.0623.0.copyload716, %3218 ], [ %.sroa.0623.0.copyload716, %3212 ], [ %.sroa.0623.0.copyload717, %3267 ], [ %.sroa.0623.0.copyload717, %3261 ], [ %.sroa.0623.0.copyload718, %3283 ], [ %.sroa.0623.0.copyload718, %3268 ], [ %.sroa.0623.0.copyload719, %3327 ], [ %.sroa.0623.0.copyload719, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.0623.0.copyload720, %3334 ], [ %.sroa.0623.0.copyload720, %3328 ], [ %.sroa.0623.0.copyload721, %3352 ], [ %.sroa.0623.0.copyload721, %3347 ], [ %.sroa.0623.0.copyload722, %3369 ], [ %.sroa.0623.0.copyload722, %3361 ], [ %.sroa.0623.0.copyload723, %3386 ], [ %.sroa.0623.0.copyload723, %3378 ], [ %.sroa.0623.0.copyload724, %3404 ], [ %.sroa.0623.0.copyload724, %3398 ], [ %.sroa.0623.0.copyload725, %3422 ], [ %.sroa.0623.0.copyload725, %3416 ], [ %.sroa.0623.0.copyload726, %3445 ], [ %.sroa.0623.0.copyload726, %3439 ], [ %.sroa.0623.0.copyload727, %3452 ], [ %.sroa.0623.0.copyload727, %3446 ], [ %.sroa.0623.0.copyload728, %3461 ], [ %.sroa.0623.0.copyload728, %3455 ], [ %.sroa.0623.0.copyload729, %3514 ], [ %.sroa.0623.0.copyload729, %3508 ], [ %.sroa.0623.0.copyload730, %3790 ], [ %.sroa.0623.0.copyload730, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.0623.0.copyload731, %3807 ], [ %.sroa.0623.0.copyload731, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.0623.0.copyload732, %3832 ], [ %.sroa.0623.0.copyload732, %3824 ], [ %.sroa.0623.0.copyload733, %3920 ], [ %.sroa.0623.0.copyload733, %3912 ], [ %.sroa.0623.0.copyload734, %3971 ], [ %.sroa.0623.0.copyload734, %3959 ], [ %.sroa.0623.0.copyload735, %3990 ], [ %.sroa.0623.0.copyload735, %3984 ], [ %.sroa.0623.0.copyload736, %4012 ], [ %.sroa.0623.0.copyload736, %4006 ], [ %.sroa.0623.0.copyload737, %4026 ], [ %.sroa.0623.0.copyload737, %4018 ], [ %.sroa.0623.0.copyload738, %4051 ], [ %.sroa.0623.0.copyload738, %4045 ], [ %.sroa.0623.0.copyload739, %4067 ], [ %.sroa.0623.0.copyload739, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload740, %4099 ], [ %.sroa.0623.0.copyload740, %4091 ], [ %.sroa.0623.0.copyload741, %4113 ], [ %.sroa.0623.0.copyload741, %4105 ], [ %.sroa.0623.0.copyload742, %4143 ], [ %.sroa.0623.0.copyload742, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.0623.0.copyload743, %4174 ], [ %.sroa.0623.0.copyload743, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.0623.0.copyload744, %4205 ], [ %.sroa.0623.0.copyload744, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.0623.0.copyload745, %4236 ], [ %.sroa.0623.0.copyload745, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.0623.0.copyload746, %4290 ], [ %.sroa.0623.0.copyload746, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.0623.0.copyload747, %4318 ], [ %.sroa.0623.0.copyload747, %4310 ], [ %.sroa.0623.0.copyload748, %4570 ], [ %.sroa.0623.0.copyload748, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.0623.0.copyload749, %4578 ], [ %.sroa.0623.0.copyload749, %4572 ], [ %.sroa.0623.0.copyload750, %4652 ], [ %.sroa.0623.0.copyload750, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.0623.0.copyload751, %4683 ], [ %.sroa.0623.0.copyload751, %4677 ], [ %.sroa.0623.0.copyload752, %4732 ], [ %.sroa.0623.0.copyload752, %4726 ], [ %.sroa.0623.0.copyload753, %4778 ], [ %.sroa.0623.0.copyload753, %4772 ], [ %.sroa.0623.0.copyload754, %4788 ], [ %.sroa.0623.0.copyload754, %4779 ], [ %.sroa.0623.0.copyload755, %4798 ], [ %.sroa.0623.0.copyload755, %4789 ], [ %.sroa.0623.0.copyload756, %4862 ], [ %.sroa.0623.0.copyload756, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.0623.0.copyload757, %4882 ], [ %.sroa.0623.0.copyload757, %4874 ], [ %.sroa.0623.0.copyload758, %4902 ], [ %.sroa.0623.0.copyload758, %4894 ], [ %.sroa.0623.0.copyload759, %4931 ], [ %.sroa.0623.0.copyload759, %4921 ], [ %.sroa.0623.0.copyload760, %4967 ], [ %.sroa.0623.0.copyload760, %4961 ], [ %.sroa.0623.0.copyload761, %4986 ], [ %.sroa.0623.0.copyload761, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.0623.0.copyload762, %4994 ], [ %.sroa.0623.0.copyload762, %4988 ], [ %.sroa.0623.0.copyload763, %5004 ], [ %.sroa.0623.0.copyload763, %4995 ], [ %.sroa.0623.0.copyload764, %5035 ], [ %.sroa.0623.0.copyload764, %5027 ], [ %.sroa.0623.0.copyload765, %5093 ], [ %.sroa.0623.0.copyload765, %5087 ], [ %.sroa.0623.0.copyload766, %5122 ], [ %.sroa.0623.0.copyload766, %5116 ], [ %.sroa.0623.0.copyload767, %5188 ], [ %.sroa.0623.0.copyload767, %5182 ], [ %.sroa.0623.0.copyload768, %5254 ], [ %.sroa.0623.0.copyload768, %5248 ]
   %.sroa.2932074.0.be = phi i16 [ %.sroa.2932074.0.copyload2076, %232 ], [ %.sroa.2932074.0.copyload2076, %226 ], [ %.sroa.2932074.0.copyload2078, %241 ], [ %.sroa.2932074.0.copyload2078, %233 ], [ %.sroa.2932074.0.copyload2080, %252 ], [ %.sroa.2932074.0.copyload2080, %242 ], [ %.sroa.2932074.0.copyload2082, %264 ], [ %.sroa.2932074.0.copyload2082, %253 ], [ %.sroa.2932074.0.copyload2084, %282 ], [ %.sroa.2932074.0.copyload2084, %265 ], [ %.sroa.2932074.0.copyload2086, %307 ], [ %.sroa.2932074.0.copyload2086, %299 ], [ %.sroa.2932074.0.copyload2088, %320 ], [ %.sroa.2932074.0.copyload2088, %308 ], [ %.sroa.2932074.0.copyload2090, %330 ], [ %.sroa.2932074.0.copyload2090, %321 ], [ %.sroa.2932074.0.copyload2092, %340 ], [ %.sroa.2932074.0.copyload2092, %331 ], [ %.sroa.2932074.0.copyload2094, %350 ], [ %.sroa.2932074.0.copyload2094, %341 ], [ %.sroa.2932074.0.copyload2096, %361 ], [ %.sroa.2932074.0.copyload2096, %351 ], [ %.sroa.2932074.0.copyload2098, %371 ], [ %.sroa.2932074.0.copyload2098, %362 ], [ %.sroa.2932074.0.copyload2100, %654 ], [ %.sroa.2932074.0.copyload2100, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.2932074.0.copyload2102, %663 ], [ %.sroa.2932074.0.copyload2102, %655 ], [ %.sroa.2932074.0.copyload2104, %682 ], [ %.sroa.2932074.0.copyload2104, %674 ], [ %.sroa.2932074.0.copyload2106, %700 ], [ %.sroa.2932074.0.copyload2106, %691 ], [ %.sroa.2932074.0.copyload2108, %712 ], [ %.sroa.2932074.0.copyload2108, %704 ], [ %.sroa.2932074.0.copyload2110, %764 ], [ %.sroa.2932074.0.copyload2110, %756 ], [ %.sroa.2932074.0.copyload2112, %817 ], [ %.sroa.2932074.0.copyload2112, %809 ], [ %.sroa.2932074.0.copyload2114, %824 ], [ %.sroa.2932074.0.copyload2114, %818 ], [ %.sroa.2932074.0.copyload2116, %836 ], [ %.sroa.2932074.0.copyload2116, %828 ], [ %.sroa.2932074.0.copyload2118, %888 ], [ %.sroa.2932074.0.copyload2118, %880 ], [ %.sroa.2932074.0.copyload2120, %941 ], [ %.sroa.2932074.0.copyload2120, %933 ], [ %.sroa.2932074.0.copyload2122, %948 ], [ %.sroa.2932074.0.copyload2122, %942 ], [ %.sroa.2932074.0.copyload2124, %1000 ], [ %.sroa.2932074.0.copyload2124, %992 ], [ %.sroa.2932074.0.copyload2126, %1053 ], [ %.sroa.2932074.0.copyload2126, %1045 ], [ %.sroa.2932074.0.copyload2128, %1060 ], [ %.sroa.2932074.0.copyload2128, %1054 ], [ %.sroa.2932074.0.copyload2130, %1074 ], [ %.sroa.2932074.0.copyload2130, %1066 ], [ %.sroa.2932074.0.copyload2132, %1110 ], [ %.sroa.2932074.0.copyload2132, %1102 ], [ %.sroa.2932074.0.copyload2134, %1162 ], [ %.sroa.2932074.0.copyload2134, %1154 ], [ %.sroa.2932074.0.copyload2136, %1215 ], [ %.sroa.2932074.0.copyload2136, %1207 ], [ %.sroa.2932074.0.copyload2138, %1222 ], [ %.sroa.2932074.0.copyload2138, %1216 ], [ %.sroa.2932074.0.copyload2140, %1239 ], [ %.sroa.2932074.0.copyload2140, %1228 ], [ %.sroa.2932074.0.copyload2142, %1276 ], [ %.sroa.2932074.0.copyload2142, %1268 ], [ %.sroa.2932074.0.copyload2144, %1321 ], [ %.sroa.2932074.0.copyload2144, %1313 ], [ %.sroa.2932074.0.copyload2146, %1358 ], [ %.sroa.2932074.0.copyload2146, %1350 ], [ %.sroa.2932074.0.copyload2148, %1371 ], [ %.sroa.2932074.0.copyload2148, %1359 ], [ %.sroa.2932074.0.copyload2150, %1401 ], [ %.sroa.2932074.0.copyload2150, %1395 ], [ %.sroa.2932074.0.copyload2152, %1415 ], [ %.sroa.2932074.0.copyload2152, %1409 ], [ %.sroa.2932074.0.copyload2154, %1430 ], [ %.sroa.2932074.0.copyload2154, %1422 ], [ %.sroa.2932074.0.copyload2156, %1467 ], [ %.sroa.2932074.0.copyload2156, %1461 ], [ %.sroa.2932074.0.copyload2158, %1512 ], [ %.sroa.2932074.0.copyload2158, %1506 ], [ %.sroa.2932074.0.copyload2160, %1531 ], [ %.sroa.2932074.0.copyload2160, %1523 ], [ %.sroa.2932074.0.copyload2162, %1562 ], [ %.sroa.2932074.0.copyload2162, %1556 ], [ %.sroa.2932074.0.copyload2164, %1577 ], [ %.sroa.2932074.0.copyload2164, %1571 ], [ %.sroa.2932074.0.copyload2166, %1588 ], [ %.sroa.2932074.0.copyload2166, %1582 ], [ %.sroa.2932074.0.copyload2168, %1621 ], [ %.sroa.2932074.0.copyload2168, %1615 ], [ %.sroa.2932074.0.copyload2170, %1684 ], [ %.sroa.2932074.0.copyload2170, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2172, %1749 ], [ %.sroa.2932074.0.copyload2172, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2174, %1788 ], [ %.sroa.2932074.0.copyload2174, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.2932074.0.copyload2176, %1811 ], [ %.sroa.2932074.0.copyload2176, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2178, %1833 ], [ %.sroa.2932074.0.copyload2178, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.2932074.0.copyload2180, %1852 ], [ %.sroa.2932074.0.copyload2180, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2182, %1884 ], [ %.sroa.2932074.0.copyload2182, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.2932074.0.copyload2184, %1919 ], [ %.sroa.2932074.0.copyload2184, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.2932074.0.copyload2186, %1942 ], [ %.sroa.2932074.0.copyload2186, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2188, %1971 ], [ %.sroa.2932074.0.copyload2188, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.2932074.0.copyload2190, %2002 ], [ %.sroa.2932074.0.copyload2190, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.2932074.0.copyload2192, %2037 ], [ %.sroa.2932074.0.copyload2192, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.2932074.0.copyload2194, %2067 ], [ %.sroa.2932074.0.copyload2194, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.2932074.0.copyload2196, %2111 ], [ %.sroa.2932074.0.copyload2196, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.2932074.0.copyload2198, %2166 ], [ %.sroa.2932074.0.copyload2198, %2160 ], [ %.sroa.2932074.0.copyload2200, %2215 ], [ %.sroa.2932074.0.copyload2200, %2209 ], [ %.sroa.2932074.0.copyload2202, %2249 ], [ %.sroa.2932074.0.copyload2202, %2241 ], [ %.sroa.2932074.0.copyload2204, %2311 ], [ %.sroa.2932074.0.copyload2204, %2305 ], [ %.sroa.2932074.0.copyload2206, %2345 ], [ %.sroa.2932074.0.copyload2206, %2337 ], [ %.sroa.2932074.0.copyload2208, %2407 ], [ %.sroa.2932074.0.copyload2208, %2401 ], [ %.sroa.2932074.0.copyload2210, %2441 ], [ %.sroa.2932074.0.copyload2210, %2433 ], [ %.sroa.2932074.0.copyload2212, %2503 ], [ %.sroa.2932074.0.copyload2212, %2497 ], [ %.sroa.2932074.0.copyload2214, %2543 ], [ %.sroa.2932074.0.copyload2214, %2535 ], [ %.sroa.2932074.0.copyload2216, %2584 ], [ %.sroa.2932074.0.copyload2216, %2578 ], [ %.sroa.2932074.0.copyload2218, %2624 ], [ %.sroa.2932074.0.copyload2218, %2616 ], [ %.sroa.2932074.0.copyload2220, %2665 ], [ %.sroa.2932074.0.copyload2220, %2659 ], [ %.sroa.2932074.0.copyload2222, %2690 ], [ %.sroa.2932074.0.copyload2222, %2679 ], [ %.sroa.2932074.0.copyload2224, %2703 ], [ %.sroa.2932074.0.copyload2224, %2694 ], [ %.sroa.2932074.0.copyload2226, %2727 ], [ %.sroa.2932074.0.copyload2226, %2717 ], [ %.sroa.2932074.0.copyload2228, %2740 ], [ %.sroa.2932074.0.copyload2228, %2731 ], [ %.sroa.2932074.0.copyload2230, %2758 ], [ %.sroa.2932074.0.copyload2230, %2749 ], [ %.sroa.2932074.0.copyload2232, %2776 ], [ %.sroa.2932074.0.copyload2232, %2767 ], [ %.sroa.2932074.0.copyload2234, %2801 ], [ %.sroa.2932074.0.copyload2234, %2790 ], [ %.sroa.2932074.0.copyload2236, %2814 ], [ %.sroa.2932074.0.copyload2236, %2805 ], [ %.sroa.2932074.0.copyload2238, %2838 ], [ %.sroa.2932074.0.copyload2238, %2828 ], [ %.sroa.2932074.0.copyload2240, %2851 ], [ %.sroa.2932074.0.copyload2240, %2842 ], [ %.sroa.2932074.0.copyload2242, %2885 ], [ %.sroa.2932074.0.copyload2242, %2877 ], [ %.sroa.2932074.0.copyload2244, %2926 ], [ %.sroa.2932074.0.copyload2244, %2920 ], [ %.sroa.2932074.0.copyload2246, %2960 ], [ %.sroa.2932074.0.copyload2246, %2952 ], [ %.sroa.2932074.0.copyload2248, %3001 ], [ %.sroa.2932074.0.copyload2248, %2995 ], [ %.sroa.2932074.0.copyload2250, %3032 ], [ %.sroa.2932074.0.copyload2250, %3024 ], [ %.sroa.2932074.0.copyload2252, %3073 ], [ %.sroa.2932074.0.copyload2252, %3067 ], [ %.sroa.2932074.0.copyload2254, %3104 ], [ %.sroa.2932074.0.copyload2254, %3096 ], [ %.sroa.2932074.0.copyload2256, %3145 ], [ %.sroa.2932074.0.copyload2256, %3139 ], [ %.sroa.2932074.0.copyload2258, %3177 ], [ %.sroa.2932074.0.copyload2258, %3169 ], [ %.sroa.2932074.0.copyload2260, %3218 ], [ %.sroa.2932074.0.copyload2260, %3212 ], [ %.sroa.2932074.0.copyload2262, %3267 ], [ %.sroa.2932074.0.copyload2262, %3261 ], [ %.sroa.2932074.0.copyload2264, %3283 ], [ %.sroa.2932074.0.copyload2264, %3268 ], [ %.sroa.2932074.0.copyload2266, %3327 ], [ %.sroa.2932074.0.copyload2266, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.2932074.0.copyload2268, %3334 ], [ %.sroa.2932074.0.copyload2268, %3328 ], [ %.sroa.2932074.0.copyload2270, %3352 ], [ %.sroa.2932074.0.copyload2270, %3347 ], [ %.sroa.2932074.0.copyload2272, %3369 ], [ %.sroa.2932074.0.copyload2272, %3361 ], [ %.sroa.2932074.0.copyload2274, %3386 ], [ %.sroa.2932074.0.copyload2274, %3378 ], [ %.sroa.2932074.0.copyload2276, %3404 ], [ %.sroa.2932074.0.copyload2276, %3398 ], [ %.sroa.2932074.0.copyload2278, %3422 ], [ %.sroa.2932074.0.copyload2278, %3416 ], [ %.sroa.2932074.0.copyload2280, %3445 ], [ %.sroa.2932074.0.copyload2280, %3439 ], [ %.sroa.2932074.0.copyload2282, %3452 ], [ %.sroa.2932074.0.copyload2282, %3446 ], [ %.sroa.2932074.0.copyload2284, %3461 ], [ %.sroa.2932074.0.copyload2284, %3455 ], [ %.sroa.2932074.0.copyload2286, %3514 ], [ %.sroa.2932074.0.copyload2286, %3508 ], [ %.sroa.2932074.0.copyload2288, %3790 ], [ %.sroa.2932074.0.copyload2288, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.2932074.0.copyload2290, %3807 ], [ %.sroa.2932074.0.copyload2290, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.2932074.0.copyload2292, %3832 ], [ %.sroa.2932074.0.copyload2292, %3824 ], [ %.sroa.2932074.0.copyload2294, %3920 ], [ %.sroa.2932074.0.copyload2294, %3912 ], [ %.sroa.2932074.0.copyload2296, %3971 ], [ %.sroa.2932074.0.copyload2296, %3959 ], [ %.sroa.2932074.0.copyload2298, %3990 ], [ %.sroa.2932074.0.copyload2298, %3984 ], [ %.sroa.2932074.0.copyload2300, %4012 ], [ %.sroa.2932074.0.copyload2300, %4006 ], [ %.sroa.2932074.0.copyload2302, %4026 ], [ %.sroa.2932074.0.copyload2302, %4018 ], [ %.sroa.2932074.0.copyload2304, %4051 ], [ %.sroa.2932074.0.copyload2304, %4045 ], [ %.sroa.2932074.0.copyload2306, %4067 ], [ %.sroa.2932074.0.copyload2306, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2308, %4099 ], [ %.sroa.2932074.0.copyload2308, %4091 ], [ %.sroa.2932074.0.copyload2310, %4113 ], [ %.sroa.2932074.0.copyload2310, %4105 ], [ %.sroa.2932074.0.copyload2312, %4143 ], [ %.sroa.2932074.0.copyload2312, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.2932074.0.copyload2314, %4174 ], [ %.sroa.2932074.0.copyload2314, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.2932074.0.copyload2316, %4205 ], [ %.sroa.2932074.0.copyload2316, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.2932074.0.copyload2318, %4236 ], [ %.sroa.2932074.0.copyload2318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.2932074.0.copyload2320, %4290 ], [ %.sroa.2932074.0.copyload2320, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.2932074.0.copyload2322, %4318 ], [ %.sroa.2932074.0.copyload2322, %4310 ], [ %.sroa.2932074.0.copyload2324, %4570 ], [ %.sroa.2932074.0.copyload2324, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.2932074.0.copyload2326, %4578 ], [ %.sroa.2932074.0.copyload2326, %4572 ], [ %.sroa.2932074.0.copyload2328, %4652 ], [ %.sroa.2932074.0.copyload2328, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.2932074.0.copyload2330, %4683 ], [ %.sroa.2932074.0.copyload2330, %4677 ], [ %.sroa.2932074.0.copyload2332, %4732 ], [ %.sroa.2932074.0.copyload2332, %4726 ], [ %.sroa.2932074.0.copyload2334, %4778 ], [ %.sroa.2932074.0.copyload2334, %4772 ], [ %.sroa.2932074.0.copyload2336, %4788 ], [ %.sroa.2932074.0.copyload2336, %4779 ], [ %.sroa.2932074.0.copyload2338, %4798 ], [ %.sroa.2932074.0.copyload2338, %4789 ], [ %.sroa.2932074.0.copyload2340, %4862 ], [ %.sroa.2932074.0.copyload2340, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.2932074.0.copyload2342, %4882 ], [ %.sroa.2932074.0.copyload2342, %4874 ], [ %.sroa.2932074.0.copyload2344, %4902 ], [ %.sroa.2932074.0.copyload2344, %4894 ], [ %.sroa.2932074.0.copyload2346, %4931 ], [ %.sroa.2932074.0.copyload2346, %4921 ], [ %.sroa.2932074.0.copyload2348, %4967 ], [ %.sroa.2932074.0.copyload2348, %4961 ], [ %.sroa.2932074.0.copyload2350, %4986 ], [ %.sroa.2932074.0.copyload2350, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.2932074.0.copyload2352, %4994 ], [ %.sroa.2932074.0.copyload2352, %4988 ], [ %.sroa.2932074.0.copyload2354, %5004 ], [ %.sroa.2932074.0.copyload2354, %4995 ], [ %.sroa.2932074.0.copyload2356, %5035 ], [ %.sroa.2932074.0.copyload2356, %5027 ], [ %.sroa.2932074.0.copyload2358, %5093 ], [ %.sroa.2932074.0.copyload2358, %5087 ], [ %.sroa.2932074.0.copyload2360, %5122 ], [ %.sroa.2932074.0.copyload2360, %5116 ], [ %.sroa.2932074.0.copyload2362, %5188 ], [ %.sroa.2932074.0.copyload2362, %5182 ], [ %.sroa.2932074.0.copyload2364, %5254 ], [ %.sroa.2932074.0.copyload2364, %5248 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !58
 
 5254:                                             ; preds = %5248
   %.sroa.293.0..sroa_idx1492 = getelementptr inbounds nuw i8, ptr %5252, i64 1
@@ -14446,7 +14446,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 9:                                                ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %17, label %10, !llvm.loop !50
+  br i1 %exitcond.not.i, label %17, label %10, !llvm.loop !59
 
 10:                                               ; preds = %9, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %9 ]
@@ -14491,7 +14491,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  br i1 %33, label %34, label %.preheader.i, !llvm.loop !51
+  br i1 %33, label %34, label %.preheader.i, !llvm.loop !60
 
 34:                                               ; preds = %.preheader.i
   %35 = getelementptr inbounds nuw [8 x %"struct.pkpy::StrName"], ptr %8, i64 0, i64 %indvars.iv24.i
@@ -14554,7 +14554,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   %64 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %54, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !52
+  br i1 %66, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !61
 
 .critedge.i.i.i:                                  ; preds = %61, %50
   %.0.lcssa.i.i.i = phi i16 [ %.018.i.i.i, %50 ], [ %.0.i.i.i, %61 ]
@@ -14585,7 +14585,7 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   %79 = icmp eq i16 %77, %48
   %or.cond.i.i.i = or i1 %78, %79
   %80 = add i16 %.3.i.i.i, 1
-  br i1 %or.cond.i.i.i, label %.loopexit.i.i.i, label %74, !llvm.loop !53
+  br i1 %or.cond.i.i.i, label %.loopexit.i.i.i, label %74, !llvm.loop !62
 
 .loopexit.i.i.i:                                  ; preds = %74, %.critedge..loopexit_crit_edge.i.i.i
   %.pre-phi24.i.i.i = phi i64 [ %.pre23.i.i.i, %.critedge..loopexit_crit_edge.i.i.i ], [ %75, %74 ]
@@ -14609,7 +14609,7 @@ _ZZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_ENKUlS4_S2_E_clES4_S2
 85:                                               ; preds = %_ZZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_ENKUlS4_S2_E_clES4_S2_.exit.i, %46
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 8
-  br i1 %exitcond.not.i12, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_.exit, label %46, !llvm.loop !54
+  br i1 %exitcond.not.i12, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_.exit, label %46, !llvm.loop !63
 
 _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_.exit: ; preds = %85
   %86 = load i16, ptr %42, align 2
@@ -14634,7 +14634,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
   %97 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %87, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = icmp eq i16 %98, 0
-  br i1 %99, label %.critedge.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %99, label %.critedge.i, label %.lr.ph.i, !llvm.loop !61
 
 .critedge.i:                                      ; preds = %94, %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_.exit
   %.0.lcssa.i = phi i16 [ %.018.i, %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_.exit ], [ %.0.i, %94 ]
@@ -14665,7 +14665,7 @@ _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7S
   %112 = icmp eq i16 %110, %1
   %or.cond.i = or i1 %111, %112
   %113 = add i16 %.3.i, 1
-  br i1 %or.cond.i, label %.loopexit.i, label %107, !llvm.loop !53
+  br i1 %or.cond.i, label %.loopexit.i, label %107, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %107, %.critedge..loopexit_crit_edge.i
   %.pre-phi24.i = phi i64 [ %.pre23.i, %.critedge..loopexit_crit_edge.i ], [ %108, %107 ]
@@ -14711,7 +14711,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   %132 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %122, i64 %131
   %133 = load i16, ptr %132, align 2
   %134 = icmp eq i16 %133, 0
-  br i1 %134, label %.critedge.i17, label %.lr.ph.i14, !llvm.loop !52
+  br i1 %134, label %.critedge.i17, label %.lr.ph.i14, !llvm.loop !61
 
 .critedge.i17:                                    ; preds = %129, %118
   %.0.lcssa.i18 = phi i16 [ %.018.i13, %118 ], [ %.0.i16, %129 ]
@@ -14744,7 +14744,7 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   %149 = icmp eq i16 %147, %1
   %or.cond.i27 = or i1 %148, %149
   %150 = add i16 %.3.i26, 1
-  br i1 %or.cond.i27, label %.loopexit.i21, label %144, !llvm.loop !53
+  br i1 %or.cond.i27, label %.loopexit.i21, label %144, !llvm.loop !62
 
 .loopexit.i21:                                    ; preds = %144, %.critedge..loopexit_crit_edge.i19
   %.pre-phi24.i22 = phi i64 [ %.pre23.i20, %.critedge..loopexit_crit_edge.i19 ], [ %145, %144 ]
@@ -14784,27 +14784,27 @@ define linkonce_odr void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr nounde
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store i32 0, ptr %3, align 8, !noalias !55
+  store i32 0, ptr %3, align 8, !noalias !64
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 64, ptr %10, align 4, !noalias !55
-  %11 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !55
+  store i32 64, ptr %10, align 4, !noalias !64
+  %11 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !64
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %11, ptr %12, align 8, !noalias !55
+  store ptr %11, ptr %12, align 8, !noalias !64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 -1, ptr %13, align 8, !noalias !55
+  store i32 -1, ptr %13, align 8, !noalias !64
   %14 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull @.str.32)
-          to label %15 unwind label %21, !noalias !55
+          to label %15 unwind label %21, !noalias !64
 
 15:                                               ; preds = %9
   %16 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %17 unwind label %21, !noalias !55
+          to label %17 unwind label %21, !noalias !64
 
 17:                                               ; preds = %15
   invoke void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %5, ptr noundef nonnull align 8 dereferenceable(20) %3)
           to label %18 unwind label %21
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %12, align 8, !noalias !55
+  %19 = load ptr, ptr %12, align 8, !noalias !64
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %25, label %20
 
@@ -14815,7 +14815,7 @@ define linkonce_odr void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr nounde
 21:                                               ; preds = %17, %15, %9
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %12, align 8, !noalias !55
+  %23 = load ptr, ptr %12, align 8, !noalias !64
   %.not.i.i3.i = icmp eq ptr %23, null
   br i1 %.not.i.i3.i, label %.body, label %24
 
@@ -14875,27 +14875,27 @@ define linkonce_odr void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store i32 0, ptr %3, align 8, !noalias !58
+  store i32 0, ptr %3, align 8, !noalias !67
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 64, ptr %10, align 4, !noalias !58
-  %11 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !58
+  store i32 64, ptr %10, align 4, !noalias !67
+  %11 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !67
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %11, ptr %12, align 8, !noalias !58
+  store ptr %11, ptr %12, align 8, !noalias !67
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 -1, ptr %13, align 8, !noalias !58
+  store i32 -1, ptr %13, align 8, !noalias !67
   %14 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull @.str.35)
-          to label %15 unwind label %21, !noalias !58
+          to label %15 unwind label %21, !noalias !67
 
 15:                                               ; preds = %9
   %16 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %17 unwind label %21, !noalias !58
+          to label %17 unwind label %21, !noalias !67
 
 17:                                               ; preds = %15
   invoke void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %5, ptr noundef nonnull align 8 dereferenceable(20) %3)
           to label %18 unwind label %21
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %12, align 8, !noalias !58
+  %19 = load ptr, ptr %12, align 8, !noalias !67
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %25, label %20
 
@@ -14906,7 +14906,7 @@ define linkonce_odr void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull
 21:                                               ; preds = %17, %15, %9
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %12, align 8, !noalias !58
+  %23 = load ptr, ptr %12, align 8, !noalias !67
   %.not.i.i3.i = icmp eq ptr %23, null
   br i1 %.not.i.i3.i, label %.body, label %24
 
@@ -15049,7 +15049,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   %18 = udiv i32 %.02230.i, 10000
   %19 = add i32 %.02329.i, 4
   %20 = icmp ult i32 %.02230.i, 100000
-  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !61
+  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !70
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
@@ -15110,7 +15110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !62
+  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
@@ -15184,7 +15184,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %9, !llvm.loop !63
+  br i1 %exitcond.not.i, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %9, !llvm.loop !72
 
 9:                                                ; preds = %8, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %8 ]
@@ -15220,7 +15220,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %27 = icmp eq i16 %31, %1
-  br i1 %27, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %27, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !73
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01932.i12 = phi i16 [ %.019.i, %.lr.ph.i ], [ %.01931.i, %.lr.ph.i.preheader ]
@@ -15230,7 +15230,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
   %30 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %22, i64 %29
   %31 = load i16, ptr %30, align 2
   %.not38.i = icmp eq i16 %31, 0
-  br i1 %.not38.i, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not38.i, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph.i, !llvm.loop !73
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa10 = phi ptr [ %24, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
@@ -15281,7 +15281,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
   %58 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %56, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = icmp eq i16 %59, 0
-  br i1 %60, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph35.i, !llvm.loop !65
+  br i1 %60, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph35.i, !llvm.loop !74
 
 _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit: ; preds = %.lr.ph, %50, %.lr.ph35.i, %8, %.lr.ph.i._crit_edge, %18, %13
   %61 = phi i1 [ true, %13 ], [ true, %.lr.ph.i._crit_edge ], [ false, %18 ], [ false, %8 ], [ true, %.lr.ph35.i ], [ true, %50 ], [ false, %.lr.ph ]
@@ -15408,7 +15408,7 @@ define linkonce_odr void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind noalias 
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %11, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %11, !llvm.loop !36
 
 _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i: ; preds = %11
   %15 = icmp eq ptr %.19.i.i.i.i.i, %9
@@ -15577,7 +15577,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i: ;
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit, label %8, !llvm.loop !25
+  br i1 %.not.i.i.i, label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit, label %8, !llvm.loop !28
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit: ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i
   %15 = icmp eq ptr %.19.i.i.i, %7
@@ -15792,7 +15792,7 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
 11:                                               ; preds = %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %12, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %12, !llvm.loop !11
 
 12:                                               ; preds = %11, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %11 ]
@@ -15839,11 +15839,11 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   %40 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %24, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %41, 0
-  br i1 %42, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %42, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !12
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %43 = icmp eq i16 %41, %1
-  br i1 %43, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %43, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = %.lr.ph.i.i.i, %29, %19
   %.lcssa12.sink.i.i = phi i64 [ %25, %19 ], [ %32, %29 ], [ %39, %.lr.ph.i.i.i ]
@@ -16113,7 +16113,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !66
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -16185,7 +16185,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !66
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !75
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -16250,7 +16250,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !66
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !75
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -16486,7 +16486,7 @@ _ZSt10_ConstructIN4pkpy13ExceptionLineEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %.014, i64 64
   %.not = icmp eq ptr %23, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 25:                                               ; preds = %.body
   invoke void @__cxa_rethrow() #24
@@ -16601,7 +16601,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %35, %22, %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
   %.not.i = icmp eq ptr %40, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !77
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i, %2
   ret void
@@ -16776,7 +16776,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %37, %24, %.lr.ph.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %42, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !68
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !77
 
 _ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -17126,7 +17126,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
   %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
-  br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !69
+  br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %26, %33
   %39 = phi i16 [ %37, %33 ], [ %31, %26 ]
@@ -17224,7 +17224,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 63:                                               ; preds = %.lr.ph44, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %63, %1
   tail call void @free(ptr noundef %9) #23
@@ -17602,7 +17602,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEE12_obj_gc_markEv(ptr noundef n
 21:                                               ; preds = %.lr.ph, %11, %20, %15
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %22, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %21, %1
   ret void
@@ -17763,7 +17763,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEE12_o
 21:                                               ; preds = %.lr.ph, %11, %20, %15
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %22, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %21, %1
   ret void
@@ -18364,7 +18364,7 @@ _ZNKSt4lessIKSt10type_indexEclERS1_S3_.exit.i.i.i: ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %9, !llvm.loop !71
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %9, !llvm.loop !82
 
 _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %21
   %23 = icmp eq ptr %.19.i.i.i, %7
@@ -18952,7 +18952,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   %.in = getelementptr inbounds nuw i8, ptr %.03438, i64 %.in.v
   %.034 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.034, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !72
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit
   br i1 %11, label %._crit_edge.thread, label %17
@@ -19214,7 +19214,7 @@ _ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEvENKUlNS_7StrNameES2_E_clES4_S2_.
 35:                                               ; preds = %_ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEvENKUlNS_7StrNameES2_E_clES4_S2_.exit.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit, label %10, !llvm.loop !73
+  br i1 %exitcond.not.i, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit, label %10, !llvm.loop !84
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -19287,7 +19287,7 @@ _ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEvENKUlNS_7StrNameES2_E_clES4_S2_.
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i3, 1
   %71 = zext i16 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next.i6, %71
-  br i1 %72, label %42, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit, !llvm.loop !74
+  br i1 %72, label %42, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit, !llvm.loop !85
 
 _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit: ; preds = %69, %35, %36
   ret void
@@ -19530,7 +19530,7 @@ _ZNKSt4lessIKSt10type_indexEclERS1_S3_.exit.i.i.i: ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %9, !llvm.loop !71
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %9, !llvm.loop !82
 
 _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %21
   %23 = icmp eq ptr %.19.i.i.i, %7
@@ -19694,16 +19694,16 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
-!6 = distinct !{!6, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
-!13 = distinct !{!13, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
+!8 = distinct !{!8, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
+!9 = distinct !{!9, !10, !5}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !5}
+!12 = distinct !{!12, !10, !5}
+!13 = distinct !{!13, !5}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
 !16 = distinct !{!16, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
@@ -19713,55 +19713,66 @@ attributes #28 = { nounwind willreturn memory(read) }
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
 !22 = distinct !{!22, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK4pkpy7StrName6escapeEv: argument 0"}
-!29 = distinct !{!29, !"_ZNK4pkpy7StrName6escapeEv"}
-!30 = distinct !{!30, !8}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4pkpy2_SIJRA20_KcNS_3StrEEEES4_DpOT_: argument 0"}
-!33 = distinct !{!33, !"_ZN4pkpy2_SIJRA20_KcNS_3StrEEEES4_DpOT_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv: argument 0"}
-!36 = distinct !{!36, !"_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
+!25 = distinct !{!25, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
+!26 = distinct !{!26, !10, !5}
+!27 = distinct !{!27, !10, !5}
+!28 = distinct !{!28, !10, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !10, !5}
+!32 = distinct !{!32, !5}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK4pkpy7StrName6escapeEv: argument 0"}
+!35 = distinct !{!35, !"_ZNK4pkpy7StrName6escapeEv"}
+!36 = distinct !{!36, !10, !5}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
-!39 = distinct !{!39, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
-!40 = distinct !{!40, !8}
+!38 = distinct !{!38, !39, !"_ZN4pkpy2_SIJRA20_KcNS_3StrEEEES4_DpOT_: argument 0"}
+!39 = distinct !{!39, !"_ZN4pkpy2_SIJRA20_KcNS_3StrEEEES4_DpOT_"}
+!40 = distinct !{!40, !5}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!43 = distinct !{!43, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
-!53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4pkpy2_SIJRA16_KcNS_3StrEEEES4_DpOT_: argument 0"}
-!57 = distinct !{!57, !"_ZN4pkpy2_SIJRA16_KcNS_3StrEEEES4_DpOT_"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN4pkpy2_SIJRA6_KcNS_3StrEEEES4_DpOT_: argument 0"}
-!60 = distinct !{!60, !"_ZN4pkpy2_SIJRA6_KcNS_3StrEEEES4_DpOT_"}
-!61 = distinct !{!61, !8}
-!62 = distinct !{!62, !8}
-!63 = distinct !{!63, !8}
-!64 = distinct !{!64, !8}
-!65 = distinct !{!65, !8}
-!66 = distinct !{!66, !8}
-!67 = distinct !{!67, !8}
-!68 = distinct !{!68, !8}
-!69 = distinct !{!69, !8}
-!70 = distinct !{!70, !8}
-!71 = distinct !{!71, !8}
-!72 = distinct !{!72, !8}
-!73 = distinct !{!73, !8}
-!74 = distinct !{!74, !8}
+!42 = distinct !{!42, !43, !"_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv"}
+!44 = distinct !{!44, !5}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv: argument 0"}
+!47 = distinct !{!47, !"_ZN4pkpy11ManagedHeap13gc_scope_lockEv"}
+!48 = distinct !{!48, !10, !5}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_"}
+!52 = !{!53}
+!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aIN4pkpy7StrNameES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!54 = distinct !{!54, !10, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !10, !5}
+!57 = distinct !{!57, !10, !5}
+!58 = distinct !{!58, !5}
+!59 = distinct !{!59, !10, !5}
+!60 = distinct !{!60, !10, !5}
+!61 = distinct !{!61, !10, !5}
+!62 = distinct !{!62, !10, !5}
+!63 = distinct !{!63, !10, !5}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN4pkpy2_SIJRA16_KcNS_3StrEEEES4_DpOT_: argument 0"}
+!66 = distinct !{!66, !"_ZN4pkpy2_SIJRA16_KcNS_3StrEEEES4_DpOT_"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN4pkpy2_SIJRA6_KcNS_3StrEEEES4_DpOT_: argument 0"}
+!69 = distinct !{!69, !"_ZN4pkpy2_SIJRA6_KcNS_3StrEEEES4_DpOT_"}
+!70 = distinct !{!70, !10, !5}
+!71 = distinct !{!71, !10, !5}
+!72 = distinct !{!72, !10, !5}
+!73 = distinct !{!73, !10, !5}
+!74 = distinct !{!74, !10, !5}
+!75 = distinct !{!75, !10, !5}
+!76 = distinct !{!76, !10, !5}
+!77 = distinct !{!77, !10, !5}
+!78 = distinct !{!78, !10, !5}
+!79 = distinct !{!79, !10, !5}
+!80 = distinct !{!80, !5}
+!81 = distinct !{!81, !5}
+!82 = distinct !{!82, !10, !5}
+!83 = distinct !{!83, !10, !5}
+!84 = distinct !{!84, !10, !5}
+!85 = distinct !{!85, !10, !5}

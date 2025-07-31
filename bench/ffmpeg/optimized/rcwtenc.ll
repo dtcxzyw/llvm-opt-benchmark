@@ -166,7 +166,7 @@ rcwt_flush_cluster.exit31:                        ; preds = %37, %41
   %69 = load i32, ptr %5, align 8, !tbaa !31
   %70 = add nsw i32 %69, -3
   %.not30 = icmp sgt i32 %68, %70
-  br i1 %.not30, label %.loopexit, label %34
+  br i1 %.not30, label %.loopexit, label %34, !llvm.loop !41
 
 .loopexit:                                        ; preds = %67, %.preheader, %2, %33
   ret i32 0
@@ -268,3 +268,5 @@ attributes #3 = { nounwind }
 !38 = !{!8, !8, i64 0}
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.estimated_trip_count"}

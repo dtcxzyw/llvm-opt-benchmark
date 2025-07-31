@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly cap
   %9 = and i32 %8, 192
   %10 = icmp eq i32 %9, 128
   %11 = getelementptr inbounds i8, ptr %.048, i64 -1
-  br i1 %10, label %.preheader, label %12
+  br i1 %10, label %.preheader, label %12, !llvm.loop !9
 
 12:                                               ; preds = %.preheader
   %13 = icmp ugt i8 %7, -65
@@ -379,3 +379,5 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}

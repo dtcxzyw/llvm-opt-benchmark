@@ -470,7 +470,7 @@ digest_to_bn.exit.split:                          ; preds = %digest_to_bn.exit
   %66 = load ptr, ptr %20, align 8, !tbaa !26
   %67 = tail call ptr @BN_copy(ptr noundef %66, ptr noundef nonnull %3) #5
   %68 = icmp eq ptr %67, null
-  br i1 %or.cond5, label %digest_to_bn.exit.split.split.us, label %digest_to_bn.exit.split.split
+  br i1 %or.cond5, label %digest_to_bn.exit.split.split.us, label %digest_to_bn.exit.split.split, !llvm.loop !33
 
 digest_to_bn.exit.split.split.us:                 ; preds = %digest_to_bn.exit.split
   br i1 %68, label %.split.us98, label %69
@@ -755,7 +755,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not91.us.us, label %.split119.us.us, label %.split.us.us.backedge
 
 .split.us.us.backedge:                            ; preds = %46, %43
-  br label %.split.us.us, !llvm.loop !32
+  br label %.split.us.us, !llvm.loop !34
 
 .split119.us.us:                                  ; preds = %46
   %48 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
@@ -778,7 +778,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not91, label %.split119, label %.split.backedge
 
 .split.backedge:                                  ; preds = %51, %65
-  br label %.split, !llvm.loop !34
+  br label %.split, !llvm.loop !36
 
 .split119:                                        ; preds = %51
   %53 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
@@ -989,8 +989,10 @@ attributes #5 = { nounwind }
 !27 = !{!"ecdsa_sig_st", !13, i64 0, !13, i64 8}
 !28 = !{!27, !13, i64 8}
 !29 = !{!13, !13, i64 0}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !33, !31}
-!33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
+!30 = distinct !{!30, !31, !32}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !31}
+!34 = distinct !{!34, !35, !31, !32}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = distinct !{!36, !35, !31}

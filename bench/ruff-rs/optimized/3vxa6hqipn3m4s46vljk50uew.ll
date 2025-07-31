@@ -81,7 +81,7 @@ define ptr @_ZN16ruff_source_file10line_index9LineIndex16from_source_text17hccc4
   ]
 
 .backedge.backedge:                               ; preds = %21, %40, %46
-  br label %.backedge
+  br label %.backedge, !llvm.loop !3
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -743,7 +743,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   %67 = trunc i32 %66 to i1
   %.not35 = icmp ult i64 %64, %19
   %or.cond = select i1 %67, i1 %.not35, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.loopexit
+  br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .split25:                                         ; preds = %31
   %68 = trunc nuw i64 %19 to i32
@@ -1030,3 +1030,6 @@ attributes #13 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

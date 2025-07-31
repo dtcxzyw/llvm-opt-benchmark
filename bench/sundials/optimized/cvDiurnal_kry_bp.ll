@@ -151,17 +151,17 @@ check_retval.exit56:                              ; preds = %14
   store double %52, ptr %53, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %54, label %38
+  br i1 %exitcond.not.i, label %54, label %38, !llvm.loop !20
 
 54:                                               ; preds = %38
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 10
-  br i1 %exitcond35.not.i, label %SetInitialProfiles.exit, label %27
+  br i1 %exitcond35.not.i, label %SetInitialProfiles.exit, label %27, !llvm.loop !22
 
 SetInitialProfiles.exit:                          ; preds = %54
   %55 = load ptr, ptr %1, align 8, !tbaa !9
   %56 = call ptr @CVodeCreate(i32 noundef 2, ptr noundef %55) #10
-  store ptr %56, ptr %3, align 8, !tbaa !20
+  store ptr %56, ptr %3, align 8, !tbaa !23
   %57 = icmp eq ptr %56, null
   br i1 %57, label %check_retval.exit58, label %60
 
@@ -281,7 +281,7 @@ check_retval.exit73:                              ; preds = %98
   br label %check_retval.exit76
 
 check_retval.exit76:                              ; preds = %110, %114
-  %117 = load ptr, ptr %3, align 8, !tbaa !20
+  %117 = load ptr, ptr %3, align 8, !tbaa !23
   %118 = load double, ptr %2, align 8, !tbaa !19
   call fastcc void @PrintOutput(ptr noundef %117, ptr noundef nonnull %10, double noundef %118)
   %.not52 = icmp eq i32 %112, 0
@@ -291,13 +291,13 @@ check_retval.exit76:                              ; preds = %110, %114
   %120 = add nuw nsw i32 %.039109, 1
   %121 = fadd double %.037110, 7.200000e+03
   %exitcond.not = icmp eq i32 %120, 13
-  br i1 %exitcond.not, label %122, label %110
+  br i1 %exitcond.not, label %122, label %110, !llvm.loop !24
 
 122:                                              ; preds = %check_retval.exit76, %119
   call fastcc void @PrintFinalStats(ptr noundef %117)
   %123 = add nuw nsw i32 %.038111, 1
   %exitcond114.not = icmp eq i32 %123, 3
-  br i1 %exitcond114.not, label %124, label %88
+  br i1 %exitcond114.not, label %124, label %88, !llvm.loop !25
 
 124:                                              ; preds = %122
   call void @N_VDestroy(ptr noundef nonnull %10) #10
@@ -369,12 +369,12 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   store double %30, ptr %31, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %32, label %16
+  br i1 %exitcond.not, label %32, label %16, !llvm.loop !20
 
 32:                                               ; preds = %16
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 10
-  br i1 %exitcond35.not, label %33, label %5
+  br i1 %exitcond35.not, label %33, label %5, !llvm.loop !22
 
 33:                                               ; preds = %32
   ret void
@@ -393,22 +393,22 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !11
   %9 = fmul double %0, %8
-  %10 = tail call double @sin(double noundef %9) #10, !tbaa !21
+  %10 = tail call double @sin(double noundef %9) #10, !tbaa !26
   %11 = fcmp ogt double %10, 0.000000e+00
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
   %13 = fdiv double -2.262000e+01, %10
-  %14 = tail call double @exp(double noundef %13) #10, !tbaa !21
+  %14 = tail call double @exp(double noundef %13) #10, !tbaa !26
   %15 = fdiv double 0xC01E676C8B439581, %10
-  %16 = tail call double @exp(double noundef %15) #10, !tbaa !21
+  %16 = tail call double @exp(double noundef %15) #10, !tbaa !26
   %17 = fmul double %14, 3.700000e+16
   br label %18
 
 18:                                               ; preds = %4, %12
   %storemerge = phi double [ %16, %12 ], [ 0.000000e+00, %4 ]
   %.0 = phi double [ %17, %12 ], [ 0.000000e+00, %4 ]
-  store double %storemerge, ptr %3, align 8, !tbaa !23
+  store double %storemerge, ptr %3, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load double, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -427,10 +427,10 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %20, double 3.000000e+01)
   %32 = fadd double %20, %31
   %33 = fmul double %31, 2.000000e-01
-  %34 = tail call double @exp(double noundef %33) #10, !tbaa !21
+  %34 = tail call double @exp(double noundef %33) #10, !tbaa !26
   %35 = fmul double %22, %34
   %36 = fmul double %32, 2.000000e-01
-  %37 = tail call double @exp(double noundef %36) #10, !tbaa !21
+  %37 = tail call double @exp(double noundef %36) #10, !tbaa !26
   %38 = fmul double %22, %37
   %39 = icmp eq i64 %indvars.iv127, 0
   %40 = select i1 %39, i64 1, i64 4294967295
@@ -537,12 +537,12 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   store double %125, ptr %126, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %127, label %52
+  br i1 %exitcond.not, label %127, label %52, !llvm.loop !29
 
 127:                                              ; preds = %52
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 10
-  br i1 %exitcond130.not, label %128, label %27
+  br i1 %exitcond130.not, label %128, label %27, !llvm.loop !30
 
 128:                                              ; preds = %127
   ret i32 0
@@ -611,8 +611,8 @@ check_retval.exit19:                              ; preds = %check_retval.exit, 
   br label %check_retval.exit21
 
 check_retval.exit21:                              ; preds = %check_retval.exit19, %20
-  %23 = load i64, ptr %4, align 8, !tbaa !24
-  %24 = load i32, ptr %5, align 4, !tbaa !21
+  %23 = load i64, ptr %4, align 8, !tbaa !31
+  %24 = load i32, ptr %5, align 4, !tbaa !26
   %25 = load double, ptr %6, align 8, !tbaa !19
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, double noundef %2, i64 noundef %23, i32 noundef %24, double noundef %25)
   %27 = load double, ptr %7, align 8, !tbaa !19
@@ -823,37 +823,37 @@ check_retval.exit40:                              ; preds = %check_retval.exit38
 
 check_retval.exit42:                              ; preds = %check_retval.exit40, %92
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %95 = load i64, ptr %2, align 8, !tbaa !24
-  %96 = load i64, ptr %3, align 8, !tbaa !24
+  %95 = load i64, ptr %2, align 8, !tbaa !31
+  %96 = load i64, ptr %3, align 8, !tbaa !31
   %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %95, i64 noundef %96)
-  %98 = load i64, ptr %4, align 8, !tbaa !24
-  %99 = load i64, ptr %5, align 8, !tbaa !24
+  %98 = load i64, ptr %4, align 8, !tbaa !31
+  %99 = load i64, ptr %5, align 8, !tbaa !31
   %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %98, i64 noundef %99)
-  %101 = load i64, ptr %6, align 8, !tbaa !24
-  %102 = load i64, ptr %7, align 8, !tbaa !24
+  %101 = load i64, ptr %6, align 8, !tbaa !31
+  %102 = load i64, ptr %7, align 8, !tbaa !31
   %103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %101, i64 noundef %102)
-  %104 = load i64, ptr %8, align 8, !tbaa !24
+  %104 = load i64, ptr %8, align 8, !tbaa !31
   %105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %104)
-  %106 = load i64, ptr %9, align 8, !tbaa !24
-  %107 = load i64, ptr %18, align 8, !tbaa !24
+  %106 = load i64, ptr %9, align 8, !tbaa !31
+  %107 = load i64, ptr %18, align 8, !tbaa !31
   %108 = add nsw i64 %107, %106
-  %109 = load i64, ptr %19, align 8, !tbaa !24
+  %109 = load i64, ptr %19, align 8, !tbaa !31
   %110 = add nsw i64 %108, %109
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %106, i64 noundef %110)
-  %112 = load i64, ptr %18, align 8, !tbaa !24
-  %113 = load i64, ptr %19, align 8, !tbaa !24
+  %112 = load i64, ptr %18, align 8, !tbaa !31
+  %113 = load i64, ptr %19, align 8, !tbaa !31
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %112, i64 noundef %113)
-  %115 = load i64, ptr %11, align 8, !tbaa !24
-  %116 = load i64, ptr %14, align 8, !tbaa !24
+  %115 = load i64, ptr %11, align 8, !tbaa !31
+  %116 = load i64, ptr %14, align 8, !tbaa !31
   %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %115, i64 noundef %116)
-  %118 = load i64, ptr %10, align 8, !tbaa !24
-  %119 = load i64, ptr %13, align 8, !tbaa !24
+  %118 = load i64, ptr %10, align 8, !tbaa !31
+  %119 = load i64, ptr %13, align 8, !tbaa !31
   %120 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i64 noundef %118, i64 noundef %119)
-  %121 = load i64, ptr %15, align 8, !tbaa !24
-  %122 = load i64, ptr %16, align 8, !tbaa !24
+  %121 = load i64, ptr %15, align 8, !tbaa !31
+  %122 = load i64, ptr %16, align 8, !tbaa !31
   %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i64 noundef %121, i64 noundef %122)
-  %124 = load i64, ptr %12, align 8, !tbaa !24
-  %125 = load i64, ptr %17, align 8, !tbaa !24
+  %124 = load i64, ptr %12, align 8, !tbaa !31
+  %125 = load i64, ptr %17, align 8, !tbaa !31
   %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i64 noundef %124, i64 noundef %125)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
@@ -977,9 +977,16 @@ attributes #12 = { nounwind allocsize(0) }
 !17 = !{!12, !13, i64 40}
 !18 = !{!12, !13, i64 48}
 !19 = !{!13, !13, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = !{!12, !13, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !7, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
+!23 = !{!6, !6, i64 0}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !7, i64 0}
+!28 = !{!12, !13, i64 0}
+!29 = distinct !{!29, !21}
+!30 = distinct !{!30, !21}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !7, i64 0}

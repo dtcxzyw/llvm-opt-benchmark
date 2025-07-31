@@ -184,7 +184,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
 71:                                               ; preds = %.lr.ph.i
   %72 = getelementptr inbounds i8, ptr %.1190261.i, i64 -8
   %.not227.i = icmp ugt ptr %.1.lcssa.i, %72
-  br i1 %.not227.i, label %.critedge228.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not227.i, label %.critedge228.i, label %.lr.ph.i, !llvm.loop !18
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
   %73 = load i64, ptr %.1190261.i, align 4
@@ -199,7 +199,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %.2191.i = phi ptr [ %76, %.critedge2.i ], [ %.0189263.i, %.critedge.i ], [ %72, %71 ]
   %.2.i = phi ptr [ %75, %.critedge2.i ], [ %.1.lcssa.i, %.critedge.i ], [ %.1.lcssa.i, %71 ]
   %.not224.i = icmp ugt ptr %.2.i, %.2191.i
-  br i1 %.not224.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !18
+  br i1 %.not224.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge228.i
   %.pre.i = load i64, ptr %27, align 4
@@ -234,7 +234,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %87 = getelementptr i8, ptr %.0187.i, i64 12
   %.val237.i = load i32, ptr %87, align 4, !tbaa !12
   %.not252.i = icmp sgt i32 %.0187.val.i, %.val237.i
-  br i1 %.not252.i, label %.critedge4.i, label %.preheader253.i, !llvm.loop !19
+  br i1 %.not252.i, label %.critedge4.i, label %.preheader253.i, !llvm.loop !20
 
 .critedge4.i:                                     ; preds = %84, %.preheader253.i
   %88 = icmp eq ptr %.0187.i, %.0194269.i
@@ -268,7 +268,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %.2196.i = phi ptr [ %.0194269.i, %94 ], [ %.0189.lcssa.i, %98 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %103 = icmp ult ptr %.2199.i, %.2196.i
-  br i1 %103, label %.lr.ph271.i, label %.thread.loopexit.i
+  br i1 %103, label %.lr.ph271.i, label %.thread.loopexit.i, !llvm.loop !21
 
 104:                                              ; preds = %.lr.ph271.i
   %105 = trunc nsw i64 %indvars.iv.i to i32
@@ -294,7 +294,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
 .thread.i:                                        ; preds = %.thread.loopexit.i, %109, %104, %17
   %.1201258.i = phi i32 [ %105, %104 ], [ %105, %109 ], [ %18, %17 ], [ %.1201258.ph.i, %.thread.loopexit.i ]
   %.not.i = icmp eq i32 %.1201258.i, 0
-  br i1 %.not.i, label %112, label %17, !llvm.loop !20
+  br i1 %.not.i, label %112, label %17, !llvm.loop !22
 
 112:                                              ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #5
@@ -395,7 +395,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %168 = getelementptr inbounds [514 x i32], ptr %119, i64 0, i64 %167
   store i32 %164, ptr %168, align 4, !tbaa !12
   %169 = add nsw i32 %.2209.i.ph, 1
-  br label %.outer, !llvm.loop !21
+  br label %.outer, !llvm.loop !23
 
 170:                                              ; preds = %144, %.critedge6.i
   %.pre-phi.i = phi i64 [ %.pre310.i, %.critedge6.i ], [ %146, %144 ]
@@ -428,7 +428,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   store i32 %180, ptr %187, align 4, !tbaa !12
   %indvars.iv.next297.i = add nsw i64 %indvars.iv296.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next297.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge280.i, label %.lr.ph279.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge280.i, label %.lr.ph279.i, !llvm.loop !24
 
 ._crit_edge280.i:                                 ; preds = %.lr.ph279.i, %170
   %188 = getelementptr inbounds [514 x i32], ptr %115, i64 0, i64 %.pre-phi.i
@@ -443,12 +443,12 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds [514 x i32], ptr %119, i64 0, i64 %197
   store i32 %194, ptr %198, align 4, !tbaa !12
-  br label %122, !llvm.loop !21
+  br label %122, !llvm.loop !23
 
 199:                                              ; preds = %123
   %200 = add nuw nsw i32 %.0212283.i, 1
   %exitcond300.not.i = icmp eq i32 %200, 17
-  br i1 %exitcond300.not.i, label %201, label %113, !llvm.loop !23
+  br i1 %exitcond300.not.i, label %201, label %113, !llvm.loop !25
 
 201:                                              ; preds = %199
   %202 = load i32, ptr %.0203285.i, align 4, !tbaa !10
@@ -472,7 +472,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %214 = load i32, ptr %205, align 4, !tbaa !12
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next302.i, %215
-  br i1 %216, label %.lr.ph288.i, label %._crit_edge289.i, !llvm.loop !24
+  br i1 %216, label %.lr.ph288.i, label %._crit_edge289.i, !llvm.loop !26
 
 ._crit_edge289.i:                                 ; preds = %.lr.ph288.i, %201
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %1, i8 0, i64 17, i1 false)
@@ -484,12 +484,12 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %219 = load i32, ptr %218, align 4, !tbaa !12
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %1, i64 %220
-  %222 = load i8, ptr %221, align 1, !tbaa !25
+  %222 = load i8, ptr %221, align 1, !tbaa !27
   %223 = add i8 %222, 1
-  store i8 %223, ptr %221, align 1, !tbaa !25
+  store i8 %223, ptr %221, align 1, !tbaa !27
   %indvars.iv.next306.i = add nuw nsw i64 %indvars.iv305.i, 1
   %exitcond309.not.i = icmp eq i64 %indvars.iv.next306.i, 256
-  br i1 %exitcond309.not.i, label %mjpegenc_huffman_compute_bits.exit, label %217, !llvm.loop !26
+  br i1 %exitcond309.not.i, label %mjpegenc_huffman_compute_bits.exit, label %217, !llvm.loop !28
 
 mjpegenc_huffman_compute_bits.exit:               ; preds = %217
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %7) #5
@@ -524,7 +524,7 @@ mjpegenc_huffman_compute_bits.exit:               ; preds = %217
   %.1 = phi i32 [ %233, %228 ], [ %.02129, %225 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %10, label %225, !llvm.loop !27
+  br i1 %exitcond.not, label %10, label %225, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %mjpegenc_huffman_compute_bits.exit
   call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %9) #5
@@ -537,10 +537,10 @@ mjpegenc_huffman_compute_bits.exit:               ; preds = %217
   %237 = load i32, ptr %236, align 8, !tbaa !4
   %238 = trunc i32 %237 to i8
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv39
-  store i8 %238, ptr %239, align 1, !tbaa !25
+  store i8 %238, ptr %239, align 1, !tbaa !27
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -576,17 +576,19 @@ attributes #5 = { nounwind }
 !12 = !{!6, !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"any pointer", !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
+!26 = distinct !{!26, !16, !17}
+!27 = !{!7, !7, i64 0}
+!28 = distinct !{!28, !16, !17}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16, !17}

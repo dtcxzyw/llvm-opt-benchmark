@@ -102,7 +102,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %12, %13
 48:                                               ; preds = %.preheader40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %63, label %.preheader40
+  br i1 %exitcond, label %63, label %.preheader40, !llvm.loop !16
 
 49:                                               ; preds = %.preheader40
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -133,7 +133,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %12, %13
 rtree_leaf_elm_lookup.exit:                       ; preds = %49, %27, %37, %63
   %.0.i21 = phi ptr [ %32, %27 ], [ %44, %37 ], [ %64, %63 ], [ %62, %49 ]
   %65 = getelementptr i8, ptr %2, i64 16
-  %.val32 = load i64, ptr %65, align 8, !tbaa !16
+  %.val32 = load i64, ptr %65, align 8, !tbaa !18
   %66 = and i64 %.val32, -4096
   %67 = icmp eq i64 %66, 4096
   br i1 %67, label %atomic_store_p.exit27.thread, label %73
@@ -202,7 +202,7 @@ atomic_store_p.exit27.thread:                     ; preds = %rtree_leaf_elm_look
 108:                                              ; preds = %.preheader
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55 = icmp eq i64 %indvars.iv.next53, 8
-  br i1 %exitcond55, label %123, label %.preheader
+  br i1 %exitcond55, label %123, label %.preheader, !llvm.loop !16
 
 109:                                              ; preds = %.preheader
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -281,7 +281,7 @@ tsdn_witness_tsdp_get.exit:
 
 15:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %16 = getelementptr i8, ptr %2, i64 16
-  %.val34 = load i64, ptr %16, align 8, !tbaa !16
+  %.val34 = load i64, ptr %16, align 8, !tbaa !18
   %17 = ptrtoint ptr %.val to i64
   %18 = and i64 %17, 4095
   %19 = sub nsw i64 0, %18
@@ -294,7 +294,7 @@ tsdn_witness_tsdp_get.exit:
 24:                                               ; preds = %.thread, %15
   %25 = phi ptr [ %14, %.thread ], [ %22, %15 ]
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #6
-  br i1 %8, label %26, label %27, !prof !17
+  br i1 %8, label %26, label %27, !prof !19
 
 26:                                               ; preds = %24
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %7) #6
@@ -353,7 +353,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %26, %27
 57:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %72, label %.preheader
+  br i1 %exitcond, label %72, label %.preheader, !llvm.loop !16
 
 58:                                               ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -387,7 +387,7 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %58, %36, %46, %72
   br i1 %74, label %extent_can_acquire_neighbor.exit.thread, label %75
 
 75:                                               ; preds = %rtree_leaf_elm_lookup.exit
-  %76 = load atomic i64, ptr %.0.i31 acquire, align 8, !noalias !18
+  %76 = load atomic i64, ptr %.0.i31 acquire, align 8, !noalias !20
   %77 = trunc i64 %76 to i32
   %78 = lshr i32 %77, 2
   %79 = and i32 %78, 7
@@ -447,7 +447,7 @@ extent_neighbor_head_state_mergeable.exit:        ; preds = %88, %86
   br i1 %.not17.i, label %102, label %extent_can_acquire_neighbor.exit.thread
 
 102:                                              ; preds = %98
-  %103 = load i8, ptr @duckdb_je_opt_retain, align 1, !tbaa !21, !range !23, !noundef !24
+  %103 = load i8, ptr @duckdb_je_opt_retain, align 1, !tbaa !23, !range !25, !noundef !26
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %108, label %105
 
@@ -490,7 +490,7 @@ define noundef zeroext i1 @duckdb_je_emap_register_boundary(ptr noundef %0, ptr 
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %10, label %11, !prof !17
+  br i1 %9, label %10, label %11, !prof !19
 
 10:                                               ; preds = %5
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -508,8 +508,8 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   br i1 %13, label %emap_rtree_write_acquired.exit, label %14
 
 14:                                               ; preds = %tsdn_rtree_ctx.exit
-  %15 = load ptr, ptr %7, align 8, !tbaa !25
-  %16 = load ptr, ptr %8, align 8, !tbaa !25
+  %15 = load ptr, ptr %7, align 8, !tbaa !27
+  %16 = load ptr, ptr %8, align 8, !tbaa !27
   %17 = icmp eq ptr %2, null
   br i1 %17, label %.critedge.i, label %18
 
@@ -603,7 +603,7 @@ define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, p
 42:                                               ; preds = %.preheader30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %57, label %.preheader30
+  br i1 %exitcond, label %57, label %.preheader30, !llvm.loop !16
 
 43:                                               ; preds = %.preheader30
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -633,7 +633,7 @@ define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, p
 
 rtree_leaf_elm_lookup.exit23:                     ; preds = %43, %21, %31, %57
   %.0.i22 = phi ptr [ %26, %21 ], [ %38, %31 ], [ %58, %57 ], [ %56, %43 ]
-  store ptr %.0.i22, ptr %6, align 8, !tbaa !25
+  store ptr %.0.i22, ptr %6, align 8, !tbaa !27
   %.not = xor i1 %4, true
   %59 = icmp ne ptr %.0.i22, null
   %or.cond.not = select i1 %4, i1 true, i1 %59
@@ -642,7 +642,7 @@ rtree_leaf_elm_lookup.exit23:                     ; preds = %43, %21, %31, %57
 60:                                               ; preds = %rtree_leaf_elm_lookup.exit23
   %.val24 = load ptr, ptr %9, align 8, !tbaa !10
   %61 = getelementptr i8, ptr %3, i64 16
-  %.val25 = load i64, ptr %61, align 8, !tbaa !16
+  %.val25 = load i64, ptr %61, align 8, !tbaa !18
   %62 = ptrtoint ptr %.val24 to i64
   %63 = and i64 %62, 4095
   %64 = sub nsw i64 0, %63
@@ -697,7 +697,7 @@ rtree_leaf_elm_lookup.exit23:                     ; preds = %43, %21, %31, %57
 97:                                               ; preds = %.preheader
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45 = icmp eq i64 %indvars.iv.next43, 8
-  br i1 %exitcond45, label %112, label %.preheader
+  br i1 %exitcond45, label %112, label %.preheader, !llvm.loop !16
 
 98:                                               ; preds = %.preheader
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -727,7 +727,7 @@ rtree_leaf_elm_lookup.exit23:                     ; preds = %43, %21, %31, %57
 
 rtree_leaf_elm_lookup.exit:                       ; preds = %98, %76, %86, %112
   %.0.i = phi ptr [ %81, %76 ], [ %93, %86 ], [ %113, %112 ], [ %111, %98 ]
-  store ptr %.0.i, ptr %7, align 8, !tbaa !25
+  store ptr %.0.i, ptr %7, align 8, !tbaa !27
   %114 = icmp eq ptr %.0.i, null
   %or.cond19 = select i1 %.not, i1 %114, i1 false
   br label %115
@@ -742,7 +742,7 @@ define void @duckdb_je_emap_register_interior(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %8, !prof !17
+  br i1 %6, label %7, label %8, !prof !19
 
 7:                                                ; preds = %4
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %5) #6
@@ -763,7 +763,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %7, %8
   %15 = ptrtoint ptr %14 to i64
   %16 = add i64 %15, 4096
   %17 = getelementptr i8, ptr %2, i64 16
-  %.val9 = load i64, ptr %17, align 8, !tbaa !16
+  %.val9 = load i64, ptr %17, align 8, !tbaa !18
   %18 = and i64 %.val9, -4096
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -4096
@@ -837,7 +837,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %7, %8
 61:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %76, label %.preheader
+  br i1 %exitcond, label %76, label %.preheader, !llvm.loop !16
 
 62:                                               ; preds = %.preheader
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -871,7 +871,7 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %31, %42, %51, %76, 
   %78 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %79 = add i64 %.0.i738, 4096
   %.not.i = icmp ugt i64 %79, %22
-  br i1 %.not.i, label %rtree_write_range_impl.exit, label %31
+  br i1 %.not.i, label %rtree_write_range_impl.exit, label %31, !llvm.loop !28
 
 rtree_write_range_impl.exit:                      ; preds = %rtree_leaf_elm_lookup.exit.i, %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
@@ -900,8 +900,8 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %11 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i11, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %12 = load ptr, ptr %5, align 8, !tbaa !25
-  %13 = load ptr, ptr %6, align 8, !tbaa !25
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  %13 = load ptr, ptr %6, align 8, !tbaa !27
   store atomic i64 65302194596872192, ptr %12 release, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %emap_rtree_write_acquired.exit, label %14
@@ -922,7 +922,7 @@ define void @duckdb_je_emap_deregister_interior(ptr noundef %0, ptr noundef %1, 
   %4 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %6, label %7, !prof !17
+  br i1 %5, label %6, label %7, !prof !19
 
 6:                                                ; preds = %3
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -935,7 +935,7 @@ define void @duckdb_je_emap_deregister_interior(ptr noundef %0, ptr noundef %1, 
 tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %.0.i = phi ptr [ %4, %6 ], [ %8, %7 ]
   %9 = getelementptr i8, ptr %2, i64 16
-  %.val7 = load i64, ptr %9, align 8, !tbaa !16
+  %.val7 = load i64, ptr %9, align 8, !tbaa !18
   %10 = and i64 %.val7, -4096
   %11 = icmp ugt i64 %10, 8192
   br i1 %11, label %12, label %rtree_clear_range.exit
@@ -1015,7 +1015,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 56:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %71, label %.preheader.i
+  br i1 %exitcond.i, label %71, label %.preheader.i, !llvm.loop !16
 
 57:                                               ; preds = %.preheader.i
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1049,7 +1049,7 @@ rtree_leaf_elm_lookup.exit.i.i:                   ; preds = %71, %57, %46, %37, 
   %73 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %74 = add i64 %.0.i26.i, 4096
   %.not.i.i = icmp ugt i64 %74, %23
-  br i1 %.not.i.i, label %rtree_clear_range.exit, label %26
+  br i1 %.not.i.i, label %rtree_clear_range.exit, label %26, !llvm.loop !28
 
 rtree_clear_range.exit:                           ; preds = %rtree_leaf_elm_lookup.exit.i.i, %12, %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
@@ -1061,7 +1061,7 @@ define void @duckdb_je_emap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %9, !prof !17
+  br i1 %7, label %8, label %9, !prof !19
 
 8:                                                ; preds = %5
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -1133,7 +1133,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
 47:                                               ; preds = %.preheader87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %62, label %.preheader87
+  br i1 %exitcond, label %62, label %.preheader87, !llvm.loop !16
 
 48:                                               ; preds = %.preheader87
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1188,7 +1188,7 @@ rtree_write.exit:                                 ; preds = %rtree_leaf_elm_look
 
 79:                                               ; preds = %rtree_write.exit
   %80 = getelementptr i8, ptr %2, i64 16
-  %.val = load i64, ptr %80, align 8, !tbaa !16
+  %.val = load i64, ptr %80, align 8, !tbaa !18
   %81 = and i64 %.val, -4096
   %82 = icmp ugt i64 %81, 4096
   br i1 %82, label %83, label %rtree_write.exit21
@@ -1248,7 +1248,7 @@ rtree_write.exit:                                 ; preds = %rtree_leaf_elm_look
 118:                                              ; preds = %.preheader
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102 = icmp eq i64 %indvars.iv.next100, 8
-  br i1 %exitcond102, label %133, label %.preheader
+  br i1 %exitcond102, label %133, label %.preheader, !llvm.loop !16
 
 119:                                              ; preds = %.preheader
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -1308,7 +1308,7 @@ define zeroext i1 @duckdb_je_emap_split_prepare(ptr noundef %0, ptr noundef %1, 
   %9 = alloca %struct.edata_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #6
   %10 = icmp eq ptr %0, null
-  br i1 %10, label %11, label %12, !prof !17
+  br i1 %10, label %11, label %12, !prof !19
 
 11:                                               ; preds = %7
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %8) #6
@@ -1328,29 +1328,29 @@ tsdn_rtree_ctx.exit:                              ; preds = %11, %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.val, ptr %16, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %4, ptr %17, align 8, !tbaa !16
+  store i64 %4, ptr %17, align 8, !tbaa !18
   store i64 0, ptr %9, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull %18)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  %23 = load ptr, ptr %2, align 8, !tbaa !26
+  %23 = load ptr, ptr %2, align 8, !tbaa !29
   %24 = icmp eq ptr %23, null
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %tsdn_rtree_ctx.exit
-  %26 = load ptr, ptr %18, align 8, !tbaa !28
+  %26 = load ptr, ptr %18, align 8, !tbaa !31
   %27 = icmp eq ptr %26, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %20, align 8, !tbaa !29
+  %29 = load ptr, ptr %20, align 8, !tbaa !32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %21, align 8, !tbaa !30
+  %32 = load ptr, ptr %21, align 8, !tbaa !33
   %33 = icmp eq ptr %32, null
   br label %34
 
@@ -1366,9 +1366,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @duckdb_je_emap_split_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #5 {
-  %8 = load ptr, ptr %2, align 8, !tbaa !26
+  %8 = load ptr, ptr %2, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = icmp eq ptr %3, null
   br i1 %11, label %.critedge.i, label %12
 
@@ -1397,9 +1397,9 @@ define void @duckdb_je_emap_split_commit(ptr noundef readnone captures(none) %0,
 
 emap_rtree_write_acquired.exit:                   ; preds = %.critedge.i, %22
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = icmp eq ptr %5, null
   br i1 %27, label %.critedge.i12, label %28
 
@@ -1435,7 +1435,7 @@ define void @duckdb_je_emap_merge_prepare(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %9, !prof !17
+  br i1 %7, label %8, label %9, !prof !19
 
 8:                                                ; preds = %5
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -1459,7 +1459,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @duckdb_je_emap_merge_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -1469,20 +1469,20 @@ define void @duckdb_je_emap_merge_commit(ptr noundef readnone captures(none) %0,
 
 9:                                                ; preds = %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   %.not16 = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not16, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = load ptr, ptr %12, align 8, !tbaa !32
   store atomic i64 65302194596872192, ptr %14 release, align 8
   br label %15
 
 15:                                               ; preds = %9, %13
   %.0.in = phi ptr [ %10, %13 ], [ %12, %9 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !25
-  %16 = load ptr, ptr %2, align 8, !tbaa !26
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !27
+  %16 = load ptr, ptr %2, align 8, !tbaa !29
   %17 = icmp eq ptr %3, null
   br i1 %17, label %.critedge.i, label %18
 
@@ -1518,7 +1518,7 @@ define void @duckdb_je_emap_do_assert_mapped(ptr noundef %0, ptr noundef %1, ptr
   %4 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %6, label %7, !prof !17
+  br i1 %5, label %6, label %7, !prof !19
 
 6:                                                ; preds = %3
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -1541,13 +1541,13 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %16 = and i64 %15, 15
   %17 = and i64 %14, -1073741824
   %18 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i, i64 0, i64 %16
-  %19 = load i64, ptr %18, align 8, !tbaa !11, !noalias !31
+  %19 = load i64, ptr %18, align 8, !tbaa !11, !noalias !34
   %20 = icmp eq i64 %19, %17
   br i1 %20, label %21, label %27, !prof !14
 
 21:                                               ; preds = %tsdn_rtree_ctx.exit
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !15, !noalias !31
+  %23 = load ptr, ptr %22, align 8, !tbaa !15, !noalias !34
   %24 = lshr i64 %14, 12
   %25 = and i64 %24, 262143
   %26 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %23, i64 %25
@@ -1555,19 +1555,19 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 
 27:                                               ; preds = %tsdn_rtree_ctx.exit
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 256
-  %29 = load i64, ptr %28, align 8, !tbaa !11, !noalias !31
+  %29 = load i64, ptr %28, align 8, !tbaa !11, !noalias !34
   %30 = icmp eq i64 %29, %17
   br i1 %30, label %31, label %.preheader.i, !prof !14
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 264
-  %33 = load ptr, ptr %32, align 8, !tbaa !15, !noalias !31
-  store i64 %19, ptr %28, align 8, !tbaa !11, !noalias !31
+  %33 = load ptr, ptr %32, align 8, !tbaa !15, !noalias !34
+  store i64 %19, ptr %28, align 8, !tbaa !11, !noalias !34
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !15, !noalias !31
-  store ptr %35, ptr %32, align 8, !tbaa !15, !noalias !31
-  store i64 %17, ptr %18, align 8, !tbaa !11, !noalias !31
-  store ptr %33, ptr %34, align 8, !tbaa !15, !noalias !31
+  %35 = load ptr, ptr %34, align 8, !tbaa !15, !noalias !34
+  store ptr %35, ptr %32, align 8, !tbaa !15, !noalias !34
+  store i64 %17, ptr %18, align 8, !tbaa !11, !noalias !34
+  store ptr %33, ptr %34, align 8, !tbaa !15, !noalias !34
   %36 = lshr i64 %14, 12
   %37 = and i64 %36, 262143
   %38 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %33, i64 %37
@@ -1576,44 +1576,44 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 .preheader.i:                                     ; preds = %27, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 1, %27 ]
   %39 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %28, i64 0, i64 %indvars.iv.i
-  %40 = load i64, ptr %39, align 8, !tbaa !11, !noalias !31
+  %40 = load i64, ptr %39, align 8, !tbaa !11, !noalias !34
   %41 = icmp eq i64 %40, %17
   br i1 %41, label %43, label %42, !prof !14
 
 42:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %57, label %.preheader.i
+  br i1 %exitcond.i, label %57, label %.preheader.i, !llvm.loop !16
 
 43:                                               ; preds = %.preheader.i
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !15, !noalias !31
+  %45 = load ptr, ptr %44, align 8, !tbaa !15, !noalias !34
   %46 = add nuw i64 %indvars.iv.i, 4294967295
   %47 = and i64 %46, 4294967295
   %48 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %28, i64 0, i64 %47
-  %49 = load i64, ptr %48, align 8, !tbaa !11, !noalias !31
-  store i64 %49, ptr %39, align 8, !tbaa !11, !noalias !31
+  %49 = load i64, ptr %48, align 8, !tbaa !11, !noalias !34
+  store i64 %49, ptr %39, align 8, !tbaa !11, !noalias !34
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !15, !noalias !31
-  store ptr %51, ptr %44, align 8, !tbaa !15, !noalias !31
-  store i64 %19, ptr %48, align 8, !tbaa !11, !noalias !31
+  %51 = load ptr, ptr %50, align 8, !tbaa !15, !noalias !34
+  store ptr %51, ptr %44, align 8, !tbaa !15, !noalias !34
+  store i64 %19, ptr %48, align 8, !tbaa !11, !noalias !34
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !15, !noalias !31
-  store ptr %53, ptr %50, align 8, !tbaa !15, !noalias !31
-  store i64 %17, ptr %18, align 8, !tbaa !11, !noalias !31
-  store ptr %45, ptr %52, align 8, !tbaa !15, !noalias !31
+  %53 = load ptr, ptr %52, align 8, !tbaa !15, !noalias !34
+  store ptr %53, ptr %50, align 8, !tbaa !15, !noalias !34
+  store i64 %17, ptr %18, align 8, !tbaa !11, !noalias !34
+  store ptr %45, ptr %52, align 8, !tbaa !15, !noalias !34
   %54 = lshr i64 %14, 12
   %55 = and i64 %54, 262143
   %56 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %45, i64 %55
   br label %rtree_read.exit
 
 57:                                               ; preds = %42
-  %58 = call ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %14, i1 noundef zeroext true, i1 noundef zeroext false) #6, !noalias !31
+  %58 = call ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %14, i1 noundef zeroext true, i1 noundef zeroext false) #6, !noalias !34
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %21, %31, %43, %57
   %.0.i.i = phi ptr [ %26, %21 ], [ %38, %31 ], [ %58, %57 ], [ %56, %43 ]
-  %59 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !34
+  %59 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !37
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
   ret void
 }
@@ -1630,7 +1630,7 @@ define void @duckdb_je_emap_do_assert_not_mapped(ptr noundef %0, ptr noundef %1,
   %10 = getelementptr inbounds i8, ptr %.val, i64 %9
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %12, label %13, !prof !17
+  br i1 %11, label %12, label %13, !prof !19
 
 12:                                               ; preds = %3
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %5) #6
@@ -1689,7 +1689,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %13, %12
 43:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %58, label %.preheader.i
+  br i1 %exitcond.i, label %58, label %.preheader.i, !llvm.loop !16
 
 44:                                               ; preds = %.preheader.i
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1723,14 +1723,14 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %58, %44, %32, %22
   br i1 %60, label %emap_full_alloc_ctx_try_lookup.exit, label %61
 
 61:                                               ; preds = %rtree_leaf_elm_lookup.exit.i
-  %62 = load atomic i64, ptr %.0.i.i11 acquire, align 8, !noalias !37
+  %62 = load atomic i64, ptr %.0.i.i11 acquire, align 8, !noalias !40
   br label %emap_full_alloc_ctx_try_lookup.exit
 
 emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_lookup.exit.i, %61
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
   %.val9 = load ptr, ptr %6, align 8, !tbaa !10
   %63 = getelementptr i8, ptr %2, i64 16
-  %.val10 = load i64, ptr %63, align 8, !tbaa !16
+  %.val10 = load i64, ptr %63, align 8, !tbaa !18
   %64 = ptrtoint ptr %.val9 to i64
   %65 = and i64 %64, 4095
   %66 = sub nsw i64 0, %65
@@ -1739,7 +1739,7 @@ emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_look
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -4096
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
-  br i1 %11, label %71, label %72, !prof !17
+  br i1 %11, label %71, label %72, !prof !19
 
 71:                                               ; preds = %emap_full_alloc_ctx_try_lookup.exit
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -1798,7 +1798,7 @@ tsdn_rtree_ctx.exit.i6:                           ; preds = %72, %71
 102:                                              ; preds = %.preheader.i12
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.i15 = icmp eq i64 %indvars.iv.next.i14, 8
-  br i1 %exitcond.i15, label %117, label %.preheader.i12
+  br i1 %exitcond.i15, label %117, label %.preheader.i12, !llvm.loop !16
 
 103:                                              ; preds = %.preheader.i12
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -1832,7 +1832,7 @@ rtree_leaf_elm_lookup.exit.i16:                   ; preds = %117, %103, %91, %81
   br i1 %119, label %emap_full_alloc_ctx_try_lookup.exit8, label %120
 
 120:                                              ; preds = %rtree_leaf_elm_lookup.exit.i16
-  %121 = load atomic i64, ptr %.0.i.i17 acquire, align 8, !noalias !40
+  %121 = load atomic i64, ptr %.0.i.i17 acquire, align 8, !noalias !43
   br label %emap_full_alloc_ctx_try_lookup.exit8
 
 emap_full_alloc_ctx_try_lookup.exit8:             ; preds = %rtree_leaf_elm_lookup.exit.i16, %120
@@ -1870,30 +1870,33 @@ attributes #6 = { nounwind }
 !13 = !{!"p1 _ZTS16rtree_leaf_elm_s", !8, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = !{!12, !13, i64 8}
-!16 = !{!6, !6, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"rtree_leaf_elm_read: argument 0"}
-!20 = distinct !{!20, !"rtree_leaf_elm_read"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"_Bool", !6, i64 0}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = !{!13, !13, i64 0}
-!26 = !{!27, !13, i64 0}
-!27 = !{!"emap_prepare_s", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!28 = !{!27, !13, i64 8}
-!29 = !{!27, !13, i64 16}
-!30 = !{!27, !13, i64 24}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"rtree_read: argument 0"}
-!33 = distinct !{!33, !"rtree_read"}
-!34 = !{!35, !32}
-!35 = distinct !{!35, !36, !"rtree_leaf_elm_read: argument 0"}
-!36 = distinct !{!36, !"rtree_leaf_elm_read"}
-!37 = !{!38}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!6, !6, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"rtree_leaf_elm_read: argument 0"}
+!22 = distinct !{!22, !"rtree_leaf_elm_read"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"_Bool", !6, i64 0}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{!13, !13, i64 0}
+!28 = distinct !{!28, !17}
+!29 = !{!30, !13, i64 0}
+!30 = !{!"emap_prepare_s", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!31 = !{!30, !13, i64 8}
+!32 = !{!30, !13, i64 16}
+!33 = !{!30, !13, i64 24}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"rtree_read: argument 0"}
+!36 = distinct !{!36, !"rtree_read"}
+!37 = !{!38, !35}
 !38 = distinct !{!38, !39, !"rtree_leaf_elm_read: argument 0"}
 !39 = distinct !{!39, !"rtree_leaf_elm_read"}
 !40 = !{!41}
 !41 = distinct !{!41, !42, !"rtree_leaf_elm_read: argument 0"}
 !42 = distinct !{!42, !"rtree_leaf_elm_read"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"rtree_leaf_elm_read: argument 0"}
+!45 = distinct !{!45, !"rtree_leaf_elm_read"}

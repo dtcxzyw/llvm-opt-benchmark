@@ -107,7 +107,7 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
 
 39:                                               ; preds = %36
   invoke void @"_ZN81_$LT$logos_codegen..error..SpannedError$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd908b9c367c3ee45E"(ptr nonnull align 8 %33, ptr nonnull align 8 %4)
-          to label %32 unwind label %34
+          to label %32 unwind label %34, !llvm.loop !3
 
 40:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -387,3 +387,5 @@ attributes #9 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

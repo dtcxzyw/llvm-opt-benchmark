@@ -2600,7 +2600,7 @@ addresses_equal.exit.thread:                      ; preds = %21, %20
 addresses_equal.exit:                             ; preds = %12, %16, %21
   %26 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.068)
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %._crit_edge, label %12, !llvm.loop !8
+  br i1 %27, label %._crit_edge, label %12, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit, %addresses_equal.exit.thread, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ true, %addresses_equal.exit.thread ], [ false, %addresses_equal.exit ]
@@ -2683,12 +2683,12 @@ copy_address_wmem.exit:                           ; preds = %12, %23
   %41 = tail call ptr @wmem_map_insert(ptr noundef %40, ptr noundef %16, ptr noundef %6)
   %42 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01723)
   %.not19 = icmp eq ptr %42, null
-  br i1 %.not19, label %._crit_edge, label %12, !llvm.loop !9
+  br i1 %.not19, label %._crit_edge, label %12, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %39, %7
   %43 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.025)
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %._crit_edge28, label %7, !llvm.loop !10
+  br i1 %.not, label %._crit_edge28, label %7, !llvm.loop !11
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %3
   ret void
@@ -7474,7 +7474,7 @@ define hidden void @proto_register_gtp() local_unnamed_addr #1 {
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, 255
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !11
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !12
 
 4:                                                ; preds = %1
   %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.927, ptr noundef nonnull @.str.928, ptr noundef nonnull @.str.929)
@@ -7648,7 +7648,7 @@ define hidden void @proto_reg_handoff_gtp() #1 {
   %41 = load i32, ptr @proto_reg_handoff_gtp.gtpv1u_port, align 4
   %42 = load ptr, ptr @gtp_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.1038, i32 noundef %41, ptr noundef %42)
-  %43 = load i8, ptr @proto_reg_handoff_gtp.gtp_over_tcp, align 1, !range !12, !noundef !13
+  %43 = load i8, ptr @proto_reg_handoff_gtp.gtp_over_tcp, align 1, !range !13, !noundef !14
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %52
 
@@ -7665,7 +7665,7 @@ define hidden void @proto_reg_handoff_gtp() #1 {
   br label %52
 
 52:                                               ; preds = %36, %45, %1
-  %53 = load i8, ptr @g_gtp_over_tcp, align 1, !range !12, !noundef !13
+  %53 = load i8, ptr @g_gtp_over_tcp, align 1, !range !13, !noundef !14
   store i8 %53, ptr @proto_reg_handoff_gtp.gtp_over_tcp, align 1
   %54 = load i32, ptr @g_gtpv0_port, align 4
   store i32 %54, ptr @proto_reg_handoff_gtp.gtpv0_port, align 4
@@ -7681,7 +7681,7 @@ define hidden void @proto_reg_handoff_gtp() #1 {
   %60 = load i32, ptr @g_gtpv1u_port, align 4
   %61 = load ptr, ptr @gtp_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1038, i32 noundef %60, ptr noundef %61)
-  %62 = load i8, ptr @g_gtp_over_tcp, align 1, !range !12, !noundef !13
+  %62 = load i8, ptr @g_gtp_over_tcp, align 1, !range !13, !noundef !14
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %71
 
@@ -7886,12 +7886,12 @@ define internal void @pdcp_lte_users_direction_set_cb(ptr noundef writeonly capt
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !14
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !15
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -7926,12 +7926,12 @@ define internal void @pdcp_lte_users_direction_tostr_cb(ptr noundef readonly cap
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !16
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !15
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !16
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -7976,12 +7976,12 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !16
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !17
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8016,12 +8016,12 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonl
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !18
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !17
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !18
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8066,12 +8066,12 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !18
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !19
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8106,12 +8106,12 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly capture
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !20
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !19
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !20
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8156,12 +8156,12 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !20
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !21
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8196,12 +8196,12 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !22
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !21
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !22
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8246,12 +8246,12 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeon
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !22
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !23
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8286,12 +8286,12 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef reado
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !24
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !23
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !24
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8336,12 +8336,12 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !24
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !25
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8376,12 +8376,12 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !26
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !25
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !26
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8783,12 +8783,12 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captu
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !26
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !27
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8823,12 +8823,12 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !28
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !27
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !28
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8873,12 +8873,12 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef write
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !28
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !29
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8913,12 +8913,12 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef rea
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !30
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !29
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !30
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -8963,12 +8963,12 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !30
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !31
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9003,12 +9003,12 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !32
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !31
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !32
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -9053,12 +9053,12 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !32
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !33
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9093,12 +9093,12 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !34
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !33
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !34
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -9143,12 +9143,12 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeon
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !34
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !35
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9183,12 +9183,12 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef reado
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !36
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !35
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !36
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -9233,12 +9233,12 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonl
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !36
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !37
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9273,12 +9273,12 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readon
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !38
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !37
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !38
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -9323,12 +9323,12 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly ca
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !38
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !39
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9363,12 +9363,12 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !40
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !39
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !40
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -9776,7 +9776,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   %52 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %51, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %53 = load i32, ptr @hf_nrup_nr_u_seq_num, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef 3, i32 noundef 0)
-  %55 = load i8, ptr %7, align 1, !range !12, !noundef !13
+  %55 = load i8, ptr %7, align 1, !range !13, !noundef !14
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %60
 
@@ -9787,7 +9787,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 60:                                               ; preds = %57, %32
   %.0180 = phi i32 [ 8, %57 ], [ 5, %32 ]
-  %61 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %61 = load i8, ptr %6, align 1, !range !13, !noundef !14
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %.loopexit
 
@@ -9812,11 +9812,11 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   store i32 %72, ptr %8, align 4
   %.2 = add i32 %.2.in193, 5
   %.not181 = icmp eq i32 %72, 0
-  br i1 %.not181, label %.loopexit, label %.lr.ph196, !llvm.loop !40
+  br i1 %.not181, label %.loopexit, label %.lr.ph196, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph196, %63, %60
   %.1 = phi i32 [ %.0180, %60 ], [ %.2191, %63 ], [ %.2, %.lr.ph196 ]
-  %73 = load i8, ptr %9, align 1, !range !12, !noundef !13
+  %73 = load i8, ptr %9, align 1, !range !13, !noundef !14
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %79
 
@@ -9862,7 +9862,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   %100 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %28, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
   %101 = load i32, ptr @hf_nrup_desrd_buff_sz_data_radio_bearer, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %101, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0)
-  %103 = load i8, ptr %16, align 1, !range !12, !noundef !13
+  %103 = load i8, ptr %16, align 1, !range !13, !noundef !14
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %108
 
@@ -9873,7 +9873,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 108:                                              ; preds = %105, %80
   %.5 = phi i32 [ 10, %105 ], [ 6, %80 ]
-  %109 = load i8, ptr %12, align 1, !range !12, !noundef !13
+  %109 = load i8, ptr %12, align 1, !range !13, !noundef !14
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %.loopexit183
 
@@ -9897,11 +9897,11 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   %122 = add i32 %121, -1
   store i32 %122, ptr %17, align 4
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %.loopexit183, label %.lr.ph189, !llvm.loop !41
+  br i1 %.not, label %.loopexit183, label %.lr.ph189, !llvm.loop !42
 
 .loopexit183:                                     ; preds = %.lr.ph189, %111, %108
   %.6 = phi i32 [ %.5, %108 ], [ %114, %111 ], [ %120, %.lr.ph189 ]
-  %123 = load i8, ptr %11, align 1, !range !12, !noundef !13
+  %123 = load i8, ptr %11, align 1, !range !13, !noundef !14
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %125, label %129
 
@@ -9913,7 +9913,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 129:                                              ; preds = %125, %.loopexit183
   %.8 = phi i32 [ %128, %125 ], [ %.6, %.loopexit183 ]
-  %130 = load i8, ptr %10, align 1, !range !12, !noundef !13
+  %130 = load i8, ptr %10, align 1, !range !13, !noundef !14
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %136
 
@@ -9925,7 +9925,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 136:                                              ; preds = %132, %129
   %.9 = phi i32 [ %135, %132 ], [ %.8, %129 ]
-  %137 = load i8, ptr %15, align 1, !range !12, !noundef !13
+  %137 = load i8, ptr %15, align 1, !range !13, !noundef !14
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %143
 
@@ -9937,7 +9937,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 143:                                              ; preds = %139, %136
   %.10 = phi i32 [ %142, %139 ], [ %.9, %136 ]
-  %144 = load i8, ptr %14, align 1, !range !12, !noundef !13
+  %144 = load i8, ptr %14, align 1, !range !13, !noundef !14
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %146, label %150
 
@@ -9949,7 +9949,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 150:                                              ; preds = %146, %143
   %.11 = phi i32 [ %149, %146 ], [ %.10, %143 ]
-  %151 = load i8, ptr %13, align 1, !range !12, !noundef !13
+  %151 = load i8, ptr %13, align 1, !range !13, !noundef !14
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %156
 
@@ -9987,7 +9987,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   %167 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %166, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %168 = load i32, ptr @hf_nrup_pdcp_duplication_activation_suggestion, align 4
   %169 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %28, i32 noundef %168, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %22)
-  %170 = load i8, ptr %19, align 1, !range !12, !noundef !13
+  %170 = load i8, ptr %19, align 1, !range !13, !noundef !14
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %172, label %190
 
@@ -10024,11 +10024,11 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   %187 = add nuw i32 %.0185, 1
   %188 = load i32, ptr %23, align 4
   %189 = icmp ult i32 %187, %188
-  br i1 %189, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %189, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 190:                                              ; preds = %._crit_edge, %157
   %.12 = phi i32 [ %.13.lcssa, %._crit_edge ], [ 2, %157 ]
-  %191 = load i8, ptr %20, align 1, !range !12, !noundef !13
+  %191 = load i8, ptr %20, align 1, !range !13, !noundef !14
   %192 = trunc nuw i8 %191 to i1
   br i1 %192, label %193, label %197
 
@@ -10040,7 +10040,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
 
 197:                                              ; preds = %193, %190
   %.14 = phi i32 [ %196, %193 ], [ %.12, %190 ]
-  %198 = load i8, ptr %21, align 1, !range !12, !noundef !13
+  %198 = load i8, ptr %21, align 1, !range !13, !noundef !14
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %204
 
@@ -10149,7 +10149,7 @@ declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @gtpstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #1 {
-  %6 = load i8, ptr %3, align 8, !range !12, !noundef !13
+  %6 = load i8, ptr %3, align 8, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %41, label %8
 
@@ -10289,7 +10289,7 @@ define internal range(i32 1, 0) i32 @dissect_gtp_3gpp_mbms_service_area(ptr noun
   %12 = add nuw nsw i32 %.01415, 2
   %13 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %13, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.014.lcssa = phi i32 [ 1, %4 ], [ %12, %.lr.ph ]
@@ -10367,7 +10367,7 @@ define internal noundef zeroext i1 @dissect_eth_heur(ptr noundef %0, ptr noundef
   %19 = add i32 %.125, 2
   %20 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %19, i32 noundef 0)
   %21 = add i32 %.125, 4
-  br label %14, !llvm.loop !44
+  br label %14, !llvm.loop !45
 
 22:                                               ; preds = %14, %14, %14, %14, %14
   %23 = load ptr, ptr @eth_handle, align 8
@@ -10482,7 +10482,7 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   tail call void @col_set_str(ptr noundef %37, i32 noundef 35, ptr noundef nonnull @.str.928)
   %38 = load ptr, ptr %36, align 8
   tail call void @col_clear(ptr noundef %38, i32 noundef 25)
-  %39 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %39 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %50
 
@@ -10650,7 +10650,7 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %127 = add nuw nsw i32 %.019.i, 1
   %exitcond.not.i = icmp eq i32 %127, 8
-  br i1 %exitcond.not.i, label %id_to_str.exit, label %115, !llvm.loop !45
+  br i1 %exitcond.not.i, label %id_to_str.exit, label %115, !llvm.loop !46
 
 id_to_str.exit:                                   ; preds = %115
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @id_to_str.str, i64 16), align 16
@@ -11033,7 +11033,7 @@ id_to_str.exit:                                   ; preds = %115
   %334 = add i32 %.2373457, %329
   %335 = load i32, ptr %9, align 4
   %.not392 = icmp eq i32 %335, 0
-  br i1 %.not392, label %.thread, label %.lr.ph, !llvm.loop !46
+  br i1 %.not392, label %.thread, label %.lr.ph, !llvm.loop !47
 
 336:                                              ; preds = %.lr.ph
   %337 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_gtp_ext_length_mal, ptr noundef nonnull @.str.1741)
@@ -11070,7 +11070,7 @@ id_to_str.exit:                                   ; preds = %115
 .lr.ph464.split.us:                               ; preds = %.lr.ph464, %356
   %.4375463.us = phi i32 [ %360, %356 ], [ %.1372, %.lr.ph464 ]
   %345 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4375463.us)
-  %346 = load i8, ptr @g_gtp_etsi_order, align 1, !range !12, !noundef !13
+  %346 = load i8, ptr @g_gtp_etsi_order, align 1, !range !13, !noundef !14
   %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %check_field_presence_and_decoder.exit.thread.us, label %.preheader.us
 
@@ -11091,7 +11091,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %.not413.us = icmp eq i32 %354, 0
   %355 = icmp eq i32 %354, %349
   %or.cond.us = select i1 %.not413.us, i1 true, i1 %355
-  br i1 %or.cond.us, label %356, label %350, !llvm.loop !47
+  br i1 %or.cond.us, label %356, label %350, !llvm.loop !48
 
 356:                                              ; preds = %350
   %357 = getelementptr inbounds nuw i8, ptr %353, i64 8
@@ -11100,13 +11100,13 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %360 = add i32 %359, %.4375463.us
   %361 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %360)
   %362 = icmp sgt i32 %361, 0
-  br i1 %362, label %.lr.ph464.split.us, label %._crit_edge, !llvm.loop !48
+  br i1 %362, label %.lr.ph464.split.us, label %._crit_edge, !llvm.loop !49
 
 .lr.ph464.split:                                  ; preds = %.lr.ph464, %409
   %.4375463 = phi i32 [ %411, %409 ], [ %.1372, %.lr.ph464 ]
   %.0422462 = phi i32 [ %.1423495, %409 ], [ 0, %.lr.ph464 ]
   %363 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4375463)
-  %364 = load i8, ptr @g_gtp_etsi_order, align 1, !range !12, !noundef !13
+  %364 = load i8, ptr @g_gtp_etsi_order, align 1, !range !13, !noundef !14
   %365 = trunc nuw i8 %364 to i1
   br i1 %365, label %.lr.ph.i.preheader, label %.preheader
 
@@ -11122,11 +11122,11 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %370 = getelementptr %struct._gtp_mess_items, ptr %gprs_mess_items.umts_mess_items.i, i64 %369
   %371 = load i8, ptr %370, align 8
   %.not.i = icmp eq i8 %371, 0
-  br i1 %.not.i, label %check_field_presence_and_decoder.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !50
+  br i1 %.not.i, label %check_field_presence_and_decoder.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !51
 
 .lr.ph.i:                                         ; preds = %.lr.ph460
   %372 = icmp eq i8 %371, %366
-  br i1 %372, label %.preheader.i, label %.lr.ph460, !llvm.loop !50
+  br i1 %372, label %.preheader.i, label %.lr.ph460, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %gprs_mess_items.umts_mess_items.i, %.lr.ph.i.preheader ], [ %370, %.lr.ph.i ]
@@ -11156,7 +11156,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %387 = getelementptr [46 x %struct.ext_header], ptr %373, i64 0, i64 %386
   %388 = load i8, ptr %387, align 8
   %.not30.i = icmp eq i8 %388, 0
-  br i1 %.not30.i, label %check_field_presence_and_decoder.exit.thread433, label %.lr.ph44.i, !llvm.loop !51
+  br i1 %.not30.i, label %check_field_presence_and_decoder.exit.thread433, label %.lr.ph44.i, !llvm.loop !52
 
 check_field_presence_and_decoder.exit:            ; preds = %380
   %389 = zext i8 %377 to i32
@@ -11194,7 +11194,7 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   %.not413 = icmp eq i32 %404, 0
   %405 = icmp eq i32 %404, %399
   %or.cond = select i1 %.not413, i1 true, i1 %405
-  br i1 %or.cond, label %406, label %400, !llvm.loop !47
+  br i1 %or.cond, label %406, label %400, !llvm.loop !48
 
 406:                                              ; preds = %400
   %407 = getelementptr inbounds nuw i8, ptr %403, i64 8
@@ -11208,7 +11208,7 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   %411 = add i32 %410, %.4375463
   %412 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %411)
   %413 = icmp sgt i32 %412, 0
-  br i1 %413, label %.lr.ph464.split, label %._crit_edge, !llvm.loop !52
+  br i1 %413, label %.lr.ph464.split, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %409, %356, %341
   %.4375.lcssa = phi i32 [ %.1372, %341 ], [ %360, %356 ], [ %411, %409 ]
@@ -11745,7 +11745,7 @@ define internal fastcc noundef ptr @gtp_match_response(ptr noundef %0, ptr nound
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %23
-  %29 = load i8, ptr %8, align 8, !range !12, !noundef !13
+  %29 = load i8, ptr %8, align 8, !range !13, !noundef !14
   store i8 %29, ptr %27, align 8
   br label %62
 
@@ -11833,7 +11833,7 @@ define internal fastcc noundef ptr @gtp_match_response(ptr noundef %0, ptr nound
 
 62:                                               ; preds = %28, %52, %55
   %.0.ph = phi ptr [ %51, %55 ], [ %51, %52 ], [ %27, %28 ]
-  %63 = load i8, ptr %.0.ph, align 8, !range !12, !noundef !13
+  %63 = load i8, ptr %.0.ph, align 8, !range !13, !noundef !14
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %77
 
@@ -11902,7 +11902,7 @@ proto_item_set_generated.exit85:                  ; preds = %77, %82, %85
   br label %proto_item_set_generated.exit88
 
 proto_item_set_generated.exit88:                  ; preds = %proto_item_set_generated.exit85, %92, %95
-  %99 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %99 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %138
 
@@ -12031,7 +12031,7 @@ define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, p
 29:                                               ; preds = %23, %21
   %30 = getelementptr %struct.uat_pdcp_lte_keys_record_t, ptr %7, i64 %indvars.iv.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load i8, ptr %31, align 8, !range !12, !noundef !13
+  %32 = load i8, ptr %31, align 8, !range !13, !noundef !14
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %look_up_pdcp_lte_keys_record.exit, label %34
 
@@ -12044,7 +12044,7 @@ define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, p
 addresses_equal.exit.i:                           ; preds = %34, %23, %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %look_up_pdcp_lte_keys_record.exit.thread, label %12, !llvm.loop !53
+  br i1 %exitcond.not.i, label %look_up_pdcp_lte_keys_record.exit.thread, label %12, !llvm.loop !54
 
 look_up_pdcp_lte_keys_record.exit:                ; preds = %29, %34
   %.not = icmp eq ptr %30, null
@@ -12175,7 +12175,7 @@ define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, pt
 30:                                               ; preds = %24, %22
   %31 = getelementptr %struct.uat_pdcp_nr_keys_record_t, ptr %8, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %33 = load i8, ptr %32, align 8, !range !12, !noundef !13
+  %33 = load i8, ptr %32, align 8, !range !13, !noundef !14
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %look_up_pdcp_nr_keys_record.exit, label %35
 
@@ -12188,7 +12188,7 @@ define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, pt
 addresses_equal.exit.i:                           ; preds = %35, %24, %17, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %look_up_pdcp_nr_keys_record.exit.thread, label %13, !llvm.loop !54
+  br i1 %exitcond.not.i, label %look_up_pdcp_nr_keys_record.exit.thread, label %13, !llvm.loop !55
 
 look_up_pdcp_nr_keys_record.exit:                 ; preds = %30, %35
   %.not = icmp eq ptr %31, null
@@ -12690,7 +12690,7 @@ proto_item_set_hidden.exit126:                    ; preds = %121, %118, %116, %9
   br label %131
 
 131:                                              ; preds = %129, %proto_item_set_hidden.exit126, %proto_item_set_hidden.exit123, %proto_item_set_hidden.exit120, %proto_item_set_hidden.exit
-  %132 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %132 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %133 = trunc nuw i8 %132 to i1
   %.b = load i1, ptr @gtp_version, align 1
   %or.cond = select i1 %133, i1 %.b, i1 false
@@ -12739,7 +12739,7 @@ proto_item_set_hidden.exit126:                    ; preds = %121, %118, %116, %9
 addresses_equal.exit.i.us:                        ; preds = %150, %.lr.ph.i.split.us
   %154 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i.us)
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !55
+  br i1 %155, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !56
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %addresses_equal.exit.i
   %.068.i = phi ptr [ %167, %addresses_equal.exit.i ], [ %143, %.lr.ph.i ]
@@ -12764,7 +12764,7 @@ addresses_equal.exit.i.us:                        ; preds = %150, %.lr.ph.i.spli
 addresses_equal.exit.i:                           ; preds = %163, %159, %.lr.ph.i.split
   %167 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i)
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !8
+  br i1 %168, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !9
 
 ip_exists.exit:                                   ; preds = %163, %150
   %.us-phi = phi ptr [ %.068.i.us, %150 ], [ %.068.i, %163 ]
@@ -12816,7 +12816,7 @@ declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 define internal noundef i32 @decode_gtp_cause(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %6)
-  %8 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %8 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13001,7 +13001,7 @@ define internal range(i32 3, 6) i32 @decode_gtp_16(ptr noundef %0, i32 noundef %
 
 12:                                               ; preds = %5
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
-  %14 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %14 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %36
 
@@ -13070,7 +13070,7 @@ define internal range(i32 3, 6) i32 @decode_gtp_17(ptr noundef %0, i32 noundef %
 11:                                               ; preds = %5
   %12 = load i32, ptr @hf_gtp_teid_cp, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
-  %14 = load i8, ptr @g_gtp_session, align 1, !range !12, !noundef !13
+  %14 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %37
 
@@ -13624,7 +13624,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 8, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %decode_triplet.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %decode_triplet.exit, label %.lr.ph.i, !llvm.loop !57
 
 decode_triplet.exit:                              ; preds = %.lr.ph.i, %51
   %narrow = mul nuw i8 %19, 28
@@ -14297,7 +14297,7 @@ define internal range(i32 2, 258) i32 @decode_gtp_hdr_list(ptr noundef %0, i32 n
   %22 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @next_extension_header_fieldvals, ptr noundef nonnull @.str.1814)
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.1813, i32 noundef %21, ptr noundef %22, i32 noundef %20)
   %exitcond.not = icmp eq i32 %21, %8
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %16, %5
   ret i32 %9
@@ -14903,7 +14903,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_sa(ptr noundef %0, i32 
   %25 = add nuw nsw i32 %.01415.i, 2
   %26 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %26, %21
-  br i1 %exitcond.not.i, label %dissect_gtp_3gpp_mbms_service_area.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %dissect_gtp_3gpp_mbms_service_area.exit, label %.lr.ph.i, !llvm.loop !44
 
 dissect_gtp_3gpp_mbms_service_area.exit:          ; preds = %.lr.ph.i, %5
   ret i32 %9
@@ -16607,7 +16607,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rel_pack(ptr noundef %0, i32
   %20 = add nuw nsw i32 %14, 2
   %21 = and i32 %20, 65535
   %22 = icmp samesign ult i32 %21, %8
-  br i1 %22, label %13, label %._crit_edge, !llvm.loop !58
+  br i1 %22, label %13, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %13, %5
   ret i32 %9
@@ -16638,7 +16638,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_can_pack(ptr noundef %0, i32
   %20 = add nuw nsw i32 %14, 2
   %21 = and i32 %20, 65535
   %22 = icmp samesign ult i32 %21, %8
-  br i1 %22, label %13, label %._crit_edge, !llvm.loop !59
+  br i1 %22, label %13, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %13, %5
   ret i32 %9
@@ -16813,7 +16813,7 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
 81:                                               ; preds = %79, %77
   %82 = add i32 %73, %66
   %exitcond132.not = icmp eq i32 %69, %wide.trip.count131
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i32 [ %87, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -16834,7 +16834,7 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
   %96 = tail call i32 @dissector_try_uint(ptr noundef %95, i32 noundef %26, ptr noundef %94, ptr noundef %2, ptr noundef %88)
   %97 = add i32 %91, %84
   %exitcond.not = icmp eq i32 %87, %wide.trip.count131
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !62
 
 98:                                               ; preds = %16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.1828)
@@ -16902,7 +16902,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i3
 25:                                               ; preds = %23, %.lr.ph.split.us
   %26 = and i32 %20, 65535
   %27 = icmp samesign ult i32 %26, %10
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !62
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %28 = phi i32 [ %39, %38 ], [ 0, %.lr.ph ]
@@ -16924,7 +16924,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i3
 38:                                               ; preds = %36, %.lr.ph.split
   %39 = and i32 %32, 65535
   %40 = icmp samesign ult i32 %39, %10
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %38, %25, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
@@ -17176,7 +17176,7 @@ define internal fastcc range(i32 0, 65536) i32 @decode_quintuplet(ptr noundef %0
   %52 = add i32 %1, %51
   call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %52)
   %exitcond.not = icmp eq i32 %7, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %53 = zext i16 %49 to i32
@@ -17372,62 +17372,63 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7, !49}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7, !49}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7, !49}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8, !50}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8, !50}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8, !50}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}

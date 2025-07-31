@@ -159,7 +159,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call fastcc i32 @vma_node_allow(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true), !range !10
+  %3 = tail call fastcc i32 @vma_node_allow(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true), !range !11
   ret i32 %3
 }
 
@@ -196,7 +196,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vma_node_allow(ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %.preheader, !prof !6, !llvm.loop !11
+  br i1 %23, label %24, label %.preheader, !prof !6, !llvm.loop !12
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 %20
@@ -252,7 +252,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow_once(ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %.preheader.i, !prof !6, !llvm.loop !11
+  br i1 %17, label %18, label %.preheader.i, !prof !6, !llvm.loop !12
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %14
@@ -319,7 +319,7 @@ define dso_local void @drm_vma_node_revoke(ptr noundef %0, ptr noundef readnone 
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit, label %.preheader, !prof !6, !llvm.loop !12
+  br i1 %21, label %.loopexit, label %.preheader, !prof !6, !llvm.loop !13
 
 .loopexit:                                        ; preds = %16, %15, %10, %2
   tail call void @_raw_write_unlock(ptr noundef %0) #5
@@ -350,7 +350,7 @@ define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %5, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %5 ]
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not6.not.not = icmp ne ptr %18, null
-  br i1 %.not6.not.not, label %9, label %.loopexit, !prof !14, !llvm.loop !13
+  br i1 %.not6.not.not, label %9, label %.loopexit, !prof !16, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %9, %5, %2
   %19 = phi i1 [ false, %2 ], [ true, %5 ], [ %.not6.not.not, %9 ], [ %.not6.not.not, %.preheader ]
@@ -400,11 +400,14 @@ attributes #6 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 127}
 !6 = !{!"branch_weights", i32 127, i32 255873}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{i32 -12, i32 1}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!"branch_weights", i32 255873, i32 127}
+!10 = !{!"llvm.loop.estimated_trip_count", i32 2016}
+!11 = !{i32 -12, i32 1}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"branch_weights", i32 255873, i32 127}
+!17 = distinct !{!17, !8, !9}

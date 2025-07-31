@@ -105,7 +105,7 @@ nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %3
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   store ptr %.015.i, ptr %51, align 8, !tbaa !15
   %.not12.i = icmp eq i64 %.011.i, 0
-  br i1 %.not12.i, label %._crit_edge.i, label %50, !llvm.loop !19
+  br i1 %.not12.i, label %._crit_edge.i, label %50, !llvm.loop !20
 
 ._crit_edge19.i:                                  ; preds = %._crit_edge.i
   store i64 0, ptr %46, align 8, !tbaa !11
@@ -238,7 +238,7 @@ nodelist_push_back.exit:                          ; preds = %7, %39
   store i64 %52, ptr %5, align 8, !tbaa !3
   %53 = add i64 %.06, -1
   %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -287,11 +287,11 @@ nodelist_remove.exit.thread:                      ; preds = %4
   store ptr %21, ptr %.01831.i, align 8, !tbaa !15
   %.017.i = add nuw i64 %.01732.i, 1
   %exitcond37.not.i = icmp eq i64 %.017.i, %7
-  br i1 %exitcond37.not.i, label %nodelist_remove.exit, label %.lr.ph33.i, !llvm.loop !21
+  br i1 %exitcond37.not.i, label %nodelist_remove.exit, label %.lr.ph33.i, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %13
   %exitcond.not.i = icmp eq i64 %.01730.i, %7
-  br i1 %exitcond.not.i, label %nodelist_remove.exit.thread28, label %13, !llvm.loop !22
+  br i1 %exitcond.not.i, label %nodelist_remove.exit.thread28, label %13, !llvm.loop !23
 
 nodelist_remove.exit.thread28:                    ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -338,7 +338,7 @@ nodelist_remove.exit:                             ; preds = %.lr.ph33.i, %.prehe
 .critedge:                                        ; preds = %28
   %38 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %38, %.val31
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.critedge, %nodelist_remove.exit.thread, %nodelist_remove.exit, %36, %35
   ret void
@@ -376,7 +376,7 @@ define void @reverseAppend(ptr noundef captures(none) %0, ptr noundef captures(n
   store ptr %14, ptr %17, align 8, !tbaa !15
   %19 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %19, %4
-  br i1 %exitcond.not.i, label %.lr.ph.i5, label %10, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.lr.ph.i5, label %10, !llvm.loop !25
 
 nodelist_reverse.exit:                            ; preds = %2
   %.not.i4 = icmp eq i64 %.val15.i, 0
@@ -475,7 +475,7 @@ nodelist_append.exit.i:                           ; preds = %58, %._crit_edge.i.
   %72 = add nuw i64 %.06.i, 1
   %.val.i = load i64, ptr %3, align 8, !tbaa !3
   %73 = icmp ult i64 %72, %.val.i
-  br i1 %73, label %24, label %concatNodelist.exit, !llvm.loop !25
+  br i1 %73, label %24, label %concatNodelist.exit, !llvm.loop !26
 
 concatNodelist.exit:                              ; preds = %nodelist_append.exit.i, %nodelist_reverse.exit
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -555,12 +555,13 @@ attributes #15 = { cold noreturn nounwind }
 !14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}

@@ -1670,20 +1670,20 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %.0130170 = phi i64 [ %20, %19 ], [ 0, %16 ]
   %21 = tail call ptr @BN_new() #4
   %22 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.0130170
-  store ptr %21, ptr %22, align 8, !tbaa !25
+  store ptr %21, ptr %22, align 8, !tbaa !26
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.thread, label %19
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %2, align 8, !tbaa !27
+  %25 = load ptr, ptr %2, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = tail call i32 @BN_is_zero(ptr noundef nonnull %26) #4
   %.not = icmp eq i32 %27, 0
-  %28 = load ptr, ptr %calloc, align 8, !tbaa !25
+  %28 = load ptr, ptr %calloc, align 8, !tbaa !26
   br i1 %.not, label %29, label %33
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %2, align 8, !tbaa !27
+  %30 = load ptr, ptr %2, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = tail call ptr @BN_copy(ptr noundef %28, ptr noundef nonnull %31) #4
   %.not143 = icmp eq ptr %32, null
@@ -1702,7 +1702,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 .lr.ph:                                           ; preds = %37, %59
   %.1171 = phi i64 [ %60, %59 ], [ 1, %37 ]
   %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1171
-  %39 = load ptr, ptr %38, align 8, !tbaa !27
+  %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = tail call i32 @BN_is_zero(ptr noundef nonnull %40) #4
   %.not160 = icmp eq i32 %41, 0
@@ -1713,10 +1713,10 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1171
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %47 = load ptr, ptr %46, align 8, !tbaa !26
   %48 = getelementptr i8, ptr %46, i64 -8
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
-  %50 = load ptr, ptr %38, align 8, !tbaa !27
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
+  %50 = load ptr, ptr %38, align 8, !tbaa !28
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = tail call i32 %45(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %49, ptr noundef nonnull %51, ptr noundef nonnull %.0132) #4
   %.not161 = icmp eq i32 %52, 0
@@ -1724,9 +1724,9 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 53:                                               ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1171
-  %55 = load ptr, ptr %54, align 8, !tbaa !25
+  %55 = load ptr, ptr %54, align 8, !tbaa !26
   %56 = getelementptr i8, ptr %54, i64 -8
-  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %57 = load ptr, ptr %56, align 8, !tbaa !26
   %58 = tail call ptr @BN_copy(ptr noundef %55, ptr noundef %57) #4
   %.not162 = icmp eq ptr %58, null
   br i1 %.not162, label %.thread, label %59
@@ -1734,12 +1734,12 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 59:                                               ; preds = %42, %53
   %60 = add nuw i64 %.1171, 1
   %exitcond184.not = icmp eq i64 %60, %1
-  br i1 %exitcond184.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond184.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %59, %37
   %61 = add i64 %1, -1
   %62 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !25
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = tail call ptr @BN_mod_inverse(ptr noundef %12, ptr noundef %63, ptr noundef nonnull %64, ptr noundef nonnull %.0132) #4
   %.not144 = icmp eq ptr %65, null
@@ -1777,7 +1777,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 .lr.ph175:                                        ; preds = %78, %100
   %.2173 = phi i64 [ %101, %100 ], [ %61, %78 ]
   %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2173
-  %80 = load ptr, ptr %79, align 8, !tbaa !27
+  %80 = load ptr, ptr %79, align 8, !tbaa !28
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = tail call i32 @BN_is_zero(ptr noundef nonnull %81) #4
   %.not156 = icmp eq i32 %82, 0
@@ -1788,7 +1788,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8, !tbaa !21
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %.2173
-  %87 = load ptr, ptr %gep, align 8, !tbaa !25
+  %87 = load ptr, ptr %gep, align 8, !tbaa !26
   %88 = tail call i32 %86(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %87, ptr noundef %12, ptr noundef nonnull %.0132) #4
   %.not157 = icmp eq i32 %88, 0
   br i1 %.not157, label %.thread, label %89
@@ -1797,14 +1797,14 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %90 = load ptr, ptr %0, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %92 = load ptr, ptr %91, align 8, !tbaa !21
-  %93 = load ptr, ptr %79, align 8, !tbaa !27
+  %93 = load ptr, ptr %79, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = tail call i32 %92(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %12, ptr noundef nonnull %94, ptr noundef nonnull %.0132) #4
   %.not158 = icmp eq i32 %95, 0
   br i1 %.not158, label %.thread, label %96
 
 96:                                               ; preds = %89
-  %97 = load ptr, ptr %79, align 8, !tbaa !27
+  %97 = load ptr, ptr %79, align 8, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = tail call ptr @BN_copy(ptr noundef nonnull %98, ptr noundef %13) #4
   %.not159 = icmp eq ptr %99, null
@@ -1813,17 +1813,17 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 100:                                              ; preds = %96, %.lr.ph175
   %101 = add i64 %.2173, -1
   %.not148 = icmp eq i64 %101, 0
-  br i1 %.not148, label %._crit_edge176, label %.lr.ph175, !llvm.loop !29
+  br i1 %.not148, label %._crit_edge176, label %.lr.ph175, !llvm.loop !30
 
 ._crit_edge176:                                   ; preds = %100, %78
-  %102 = load ptr, ptr %2, align 8, !tbaa !27
+  %102 = load ptr, ptr %2, align 8, !tbaa !28
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %104 = tail call i32 @BN_is_zero(ptr noundef nonnull %103) #4
   %.not149 = icmp eq i32 %104, 0
   br i1 %.not149, label %105, label %109
 
 105:                                              ; preds = %._crit_edge176
-  %106 = load ptr, ptr %2, align 8, !tbaa !27
+  %106 = load ptr, ptr %2, align 8, !tbaa !28
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = tail call ptr @BN_copy(ptr noundef nonnull %107, ptr noundef %12) #4
   %.not150 = icmp eq ptr %108, null
@@ -1836,7 +1836,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 111:                                              ; preds = %109, %141
   %.3177 = phi i64 [ 0, %109 ], [ %142, %141 ]
   %112 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3177
-  %113 = load ptr, ptr %112, align 8, !tbaa !27
+  %113 = load ptr, ptr %112, align 8, !tbaa !28
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %115 = tail call i32 @BN_is_zero(ptr noundef nonnull %114) #4
   %.not151 = icmp eq i32 %115, 0
@@ -1884,7 +1884,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 141:                                              ; preds = %138, %111
   %142 = add nuw i64 %.3177, 1
   %exitcond186.not = icmp eq i64 %142, %1
-  br i1 %exitcond186.not, label %.thread, label %111, !llvm.loop !30
+  br i1 %exitcond186.not, label %.thread, label %111, !llvm.loop !31
 
 .thread:                                          ; preds = %.preheader194, %53, %42, %83, %89, %96, %138, %116, %121, %127, %132, %141, %105, %71, %73, %33, %29, %16, %11, %66
   %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %105 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %141 ], [ %calloc, %132 ], [ %calloc, %127 ], [ %calloc, %121 ], [ %calloc, %116 ], [ %calloc, %138 ], [ %calloc, %96 ], [ %calloc, %89 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader194 ]
@@ -1897,7 +1897,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 .preheader:                                       ; preds = %.thread, %146
   %.4178 = phi i64 [ %147, %146 ], [ 0, %.thread ]
   %143 = getelementptr inbounds nuw ptr, ptr %.0131, i64 %.4178
-  %144 = load ptr, ptr %143, align 8, !tbaa !25
+  %144 = load ptr, ptr %143, align 8, !tbaa !26
   %145 = icmp eq ptr %144, null
   br i1 %145, label %148, label %146
 
@@ -1905,7 +1905,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   tail call void @BN_clear_free(ptr noundef nonnull %144) #4
   %147 = add nuw i64 %.4178, 1
   %exitcond188.not = icmp eq i64 %147, %1
-  br i1 %exitcond188.not, label %148, label %.preheader, !llvm.loop !31
+  br i1 %exitcond188.not, label %148, label %.preheader, !llvm.loop !32
 
 148:                                              ; preds = %.preheader, %146
   tail call void @free(ptr noundef %.0131) #4
@@ -1977,12 +1977,13 @@ attributes #4 = { nounwind }
 !20 = !{!19, !9, i64 80}
 !21 = !{!19, !9, i64 56}
 !22 = !{!19, !9, i64 64}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!27 = !{!12, !12, i64 0}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!28 = !{!12, !12, i64 0}
+!29 = distinct !{!29, !24, !25}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}

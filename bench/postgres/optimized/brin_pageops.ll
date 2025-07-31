@@ -775,7 +775,7 @@ RelationGetSmgr.exit:                             ; preds = %br_page_get_freespa
 
 128:                                              ; preds = %126, %127
   %129 = tail call i32 @RecordAndGetPageWithFreeSpace(ptr noundef %0, i32 noundef %.2, i64 noundef %103, i64 noundef %2) #5
-  br label %25
+  br label %25, !llvm.loop !8
 
 130:                                              ; preds = %69, %66, %113, %RelationGetSmgr.exit
   %.175.ph = phi i32 [ %.073, %RelationGetSmgr.exit ], [ %.073, %113 ], [ 0, %66 ], [ 0, %69 ]
@@ -1027,7 +1027,7 @@ thread-pre-split:                                 ; preds = %br_page_get_freespa
   %52 = call fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef 0, i64 noundef %6, ptr noundef %8)
   store i32 %52, ptr %3, align 4
   %.not67 = icmp eq i32 %52, 0
-  br i1 %.not67, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %.not67, label %.preheader, label %.loopexit, !llvm.loop !10
 
 53:                                               ; preds = %thread-pre-split
   store i8 0, ptr %8, align 1
@@ -1292,7 +1292,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
 26:                                               ; preds = %.critedge
   %27 = add i16 %.01519, 1
   %.not = icmp ugt i16 %27, %24
-  br i1 %.not, label %.loopexit, label %.critedge, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %26
   %.01519 = phi i16 [ 1, %.critedge.lr.ph ], [ %27, %26 ]
@@ -1410,7 +1410,7 @@ select.unfold:                                    ; preds = %36, %30
   %.3.ph = phi i16 [ %.03141, %30 ], [ %spec.select, %36 ]
   %50 = add i16 %.3.ph, 1
   %.not = icmp ugt i16 %50, %24
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %select.unfold, %36, %BufferGetPage.exit
   call void @UnlockReleaseBuffer(i32 noundef %3) #5
@@ -1578,6 +1578,8 @@ attributes #6 = { cold nounwind }
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !9}
+!13 = distinct !{!13, !11, !9}

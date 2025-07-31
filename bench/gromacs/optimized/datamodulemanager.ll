@@ -468,7 +468,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !58
+  %12 = load ptr, ptr %11, align 8, !tbaa !59
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -585,13 +585,13 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKN
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !59, !range !60, !noundef !61
+  %7 = load i8, ptr %6, align 1, !tbaa !60, !range !61, !noundef !62
   %8 = trunc nuw i8 %7 to i1
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %9, i1 noundef zeroext %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !62
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -618,7 +618,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %1)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %17 = load i8, ptr %16, align 1, !tbaa !4, !range !60, !noundef !61
+  %17 = load i8, ptr %16, align 1, !tbaa !4, !range !61, !noundef !62
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %26
 
@@ -655,7 +655,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %.02540 = phi i32 [ 0, %.lr.ph42 ], [ %75, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
   call void @_ZNK3gmx20AbstractAnalysisData12getDataFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.02540)
-  %39 = load i32, ptr %4, align 8, !tbaa !63
+  %39 = load i32, ptr %4, align 8, !tbaa !64
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %42, label %41
 
@@ -740,7 +740,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %4)
   %.sroa.0.0.copyload.i.i.i38 = load ptr, ptr %33, align 8
-  %61 = load ptr, ptr %34, align 8, !tbaa !66
+  %61 = load ptr, ptr %34, align 8, !tbaa !67
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i38 to i64
   %64 = sub i64 %62, %63
@@ -754,7 +754,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %4)
-  %71 = load i32, ptr %4, align 8, !tbaa !63
+  %71 = load i32, ptr %4, align 8, !tbaa !64
   %72 = load ptr, ptr %2, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = load ptr, ptr %73, align 8
@@ -766,7 +766,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %78 = load ptr, ptr %77, align 8
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %80 = icmp slt i32 %75, %79
-  br i1 %80, label %38, label %._crit_edge43, !llvm.loop !69
+  br i1 %80, label %38, label %._crit_edge43, !llvm.loop !70
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i38, %57 ]
@@ -781,14 +781,14 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %33, align 8
-  %85 = load ptr, ptr %34, align 8, !tbaa !66
+  %85 = load ptr, ptr %34, align 8, !tbaa !67
   %86 = ptrtoint ptr %85 to i64
   %87 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
   %88 = sub i64 %86, %87
   %sext = shl i64 %88, 28
   %89 = ashr i64 %sext, 32
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !70
+  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 91:                                               ; preds = %._crit_edge43
   %92 = load ptr, ptr %2, align 8, !tbaa !21
@@ -817,7 +817,7 @@ define void @_ZN3gmx25AnalysisDataModuleManagerC2Ev(ptr noundef nonnull writeonl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr %2, ptr %0, align 8, !tbaa !71
+  store ptr %2, ptr %0, align 8, !tbaa !72
   ret void
 
 4:                                                ; preds = %1
@@ -829,7 +829,7 @@ define void @_ZN3gmx25AnalysisDataModuleManagerC2Ev(ptr noundef nonnull writeonl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx25AnalysisDataModuleManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !71
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx25AnalysisDataModuleManager4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
 
@@ -838,7 +838,7 @@ define void @_ZN3gmx25AnalysisDataModuleManagerD2Ev(ptr noundef nonnull align 8 
   br label %_ZNSt10unique_ptrIN3gmx25AnalysisDataModuleManager4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx25AnalysisDataModuleManager4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %3
-  store ptr null, ptr %0, align 8, !tbaa !71
+  store ptr null, ptr %0, align 8, !tbaa !72
   ret void
 }
 
@@ -848,9 +848,9 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3gmx25AnalysisDataModuleManage
   br i1 %3, label %39, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !73
+  %5 = load ptr, ptr %1, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %6, align 8, !tbaa !75
   %.not4.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -908,10 +908,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 _ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i: ; preds = %30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %15, %.lr.ph.i.i.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %31, %7
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %1, align 8, !tbaa !73
+  %.pr.i.i = load ptr, ptr %1, align 8, !tbaa !74
   br label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, %4
@@ -921,7 +921,7 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT
 
 33:                                               ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exit.i.i
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !76
+  %35 = load ptr, ptr %34, align 8, !tbaa !77
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %32 to i64
   %38 = sub i64 %36, %37
@@ -939,7 +939,7 @@ _ZN3gmx25AnalysisDataModuleManager4ImplD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gm
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
-  %5 = load ptr, ptr %0, align 8, !tbaa !71
+  %5 = load ptr, ptr %0, align 8, !tbaa !72
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !19
   %8 = icmp eq i32 %7, 0
@@ -953,33 +953,33 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = zext i32 %1 to i64
   %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !59, !range !60, !noundef !61
+  %14 = load i8, ptr %13, align 1, !tbaa !60, !range !61, !noundef !62
   %.not = icmp eq i8 %14, %4
   br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8, !tbaa !77
+  %16 = load ptr, ptr %5, align 8, !tbaa !78
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
   %.not1213 = icmp eq ptr %16, %18
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %.sroa.08.014 = phi ptr [ %20, %.lr.ph ], [ %16, %15 ]
-  %19 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !78
+  %19 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !79
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %1, i1 noundef zeroext %2)
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 24
-  %21 = load ptr, ptr %0, align 8, !tbaa !71
+  %21 = load ptr, ptr %0, align 8, !tbaa !72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !77
+  %23 = load ptr, ptr %22, align 8, !tbaa !78
   %.not12 = icmp eq ptr %20, %23
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.lcssa = phi ptr [ %5, %15 ], [ %21, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %25 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 0, i64 %12
-  store i8 %4, ptr %25, align 1, !tbaa !59
+  store i8 %4, ptr %25, align 1, !tbaa !60
   br label %26
 
 26:                                               ; preds = %._crit_edge, %10
@@ -988,24 +988,24 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager9addModuleEPNS_20AbstractAnalysisDataERKSt10shared_ptrINS_19IAnalysisDataModuleEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !71
-  %5 = load ptr, ptr %2, align 8, !tbaa !78
+  %4 = load ptr, ptr %0, align 8, !tbaa !72
+  %5 = load ptr, ptr %2, align 8, !tbaa !79
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %7
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i
-  %9 = load i8, ptr %8, align 1, !tbaa !59, !range !60, !noundef !61
+  %9 = load i8, ptr %8, align 1, !tbaa !60, !range !61, !noundef !62
   %10 = trunc nuw i8 %9 to i1
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %11, i1 noundef zeroext %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %7, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %7, !llvm.loop !63
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %7
-  %12 = load ptr, ptr %0, align 8, !tbaa !71
+  %12 = load ptr, ptr %0, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !19
   %.not = icmp eq i32 %14, 2
@@ -1016,16 +1016,16 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
   unreachable
 
 16:                                               ; preds = %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit
-  %17 = load ptr, ptr %2, align 8, !tbaa !78
+  %17 = load ptr, ptr %2, align 8, !tbaa !79
   tail call void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20AbstractAnalysisDataEPNS_19IAnalysisDataModuleE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %1, ptr noundef %17)
-  %18 = load ptr, ptr %2, align 8, !tbaa !78
+  %18 = load ptr, ptr %2, align 8, !tbaa !79
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %23 = and i32 %22, 8
   %.not6 = icmp eq i32 %23, 0
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br i1 %.not6, label %24, label %26
 
 24:                                               ; preds = %16
@@ -1035,14 +1035,14 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 26:                                               ; preds = %24, %16
   %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !74
+  %28 = load ptr, ptr %27, align 8, !tbaa !75
   %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !76
+  %30 = load ptr, ptr %29, align 8, !tbaa !77
   %.not.i = icmp eq ptr %28, %30
   br i1 %.not.i, label %47, label %31
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %2, align 8, !tbaa !78
+  %32 = load ptr, ptr %2, align 8, !tbaa !79
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i.i.i = icmp eq ptr %34, null
@@ -1062,18 +1062,18 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 41:                                               ; preds = %35
   %42 = atomicrmw volatile add ptr %36, i32 1 acq_rel, align 4
-  %.pre.i = load ptr, ptr %27, align 8, !tbaa !74
+  %.pre.i = load ptr, ptr %27, align 8, !tbaa !75
   br label %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i: ; preds = %41, %38, %31
   %43 = phi ptr [ %28, %31 ], [ %28, %38 ], [ %.pre.i, %41 ]
-  store ptr %32, ptr %28, align 8, !tbaa !78
+  store ptr %32, ptr %28, align 8, !tbaa !79
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %34, ptr %44, align 8, !tbaa !37
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i8 0, ptr %45, align 8, !tbaa !82
+  store i8 0, ptr %45, align 8, !tbaa !83
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr %46, ptr %27, align 8, !tbaa !74
+  store ptr %46, ptr %27, align 8, !tbaa !75
   br label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit
 
 47:                                               ; preds = %26
@@ -1087,8 +1087,8 @@ _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !74
-  %6 = load ptr, ptr %0, align 8, !tbaa !73
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %6 = load ptr, ptr %0, align 8, !tbaa !74
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -1119,7 +1119,7 @@ _ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_che
 _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit, %19
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
-  %24 = load ptr, ptr %2, align 8, !tbaa !78
+  %24 = load ptr, ptr %2, align 8, !tbaa !79
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %.not.i.i.i.i.i = icmp eq ptr %26, null
@@ -1142,35 +1142,35 @@ _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11
   br label %35
 
 35:                                               ; preds = %33, %30, %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
-  store ptr %24, ptr %23, align 8, !tbaa !78
+  store ptr %24, ptr %23, align 8, !tbaa !79
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %26, ptr %36, align 8, !tbaa !37
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i8 0, ptr %37, align 8, !tbaa !82
+  store i8 0, ptr %37, align 8, !tbaa !83
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %22, %35 ]
   %.0911.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i ], [ %6, %35 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !78, !alias.scope !88, !noalias !85
-  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !78, !alias.scope !85, !noalias !88
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !79, !alias.scope !89, !noalias !86
+  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !79, !alias.scope !86, !noalias !89
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !37, !alias.scope !88, !noalias !85
-  store ptr null, ptr %40, align 8, !tbaa !37, !alias.scope !88, !noalias !85
-  store ptr %41, ptr %39, align 8, !tbaa !37, !alias.scope !85, !noalias !88
-  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !78, !alias.scope !88, !noalias !85
+  %41 = load ptr, ptr %40, align 8, !tbaa !37, !alias.scope !89, !noalias !86
+  store ptr null, ptr %40, align 8, !tbaa !37, !alias.scope !89, !noalias !86
+  store ptr %41, ptr %39, align 8, !tbaa !37, !alias.scope !86, !noalias !89
+  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !79, !alias.scope !89, !noalias !86
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %44 = load i8, ptr %43, align 8, !tbaa !82, !range !60, !alias.scope !88, !noalias !85, !noundef !61
-  store i8 %44, ptr %42, align 8, !tbaa !82, !alias.scope !85, !noalias !88
+  %44 = load i8, ptr %43, align 8, !tbaa !83, !range !61, !alias.scope !89, !noalias !86, !noundef !62
+  store i8 %44, ptr %42, align 8, !tbaa !83, !alias.scope !86, !noalias !89
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %45, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %35
   %.0.lcssa.i.i.i = phi ptr [ %22, %35 ], [ %46, %.lr.ph.i.i.i ]
@@ -1181,24 +1181,24 @@ _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relo
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
   %.012.i.i.i28 = phi ptr [ %56, %.lr.ph.i.i.i27 ], [ %47, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i29 = phi ptr [ %55, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %48 = load ptr, ptr %.0911.i.i.i29, align 8, !tbaa !78, !alias.scope !94, !noalias !91
-  store ptr %48, ptr %.012.i.i.i28, align 8, !tbaa !78, !alias.scope !91, !noalias !94
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  %48 = load ptr, ptr %.0911.i.i.i29, align 8, !tbaa !79, !alias.scope !95, !noalias !92
+  store ptr %48, ptr %.012.i.i.i28, align 8, !tbaa !79, !alias.scope !92, !noalias !95
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !37, !alias.scope !94, !noalias !91
-  store ptr null, ptr %50, align 8, !tbaa !37, !alias.scope !94, !noalias !91
-  store ptr %51, ptr %49, align 8, !tbaa !37, !alias.scope !91, !noalias !94
-  store ptr null, ptr %.0911.i.i.i29, align 8, !tbaa !78, !alias.scope !94, !noalias !91
+  %51 = load ptr, ptr %50, align 8, !tbaa !37, !alias.scope !95, !noalias !92
+  store ptr null, ptr %50, align 8, !tbaa !37, !alias.scope !95, !noalias !92
+  store ptr %51, ptr %49, align 8, !tbaa !37, !alias.scope !92, !noalias !95
+  store ptr null, ptr %.0911.i.i.i29, align 8, !tbaa !79, !alias.scope !95, !noalias !92
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
-  %54 = load i8, ptr %53, align 8, !tbaa !82, !range !60, !alias.scope !94, !noalias !91, !noundef !61
-  store i8 %54, ptr %52, align 8, !tbaa !82, !alias.scope !91, !noalias !94
+  %54 = load i8, ptr %53, align 8, !tbaa !83, !range !61, !alias.scope !95, !noalias !92, !noundef !62
+  store i8 %54, ptr %52, align 8, !tbaa !83, !alias.scope !92, !noalias !95
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
   %.not.i.i.i30 = icmp eq ptr %55, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !90
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !91
 
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %47, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %56, %.lr.ph.i.i.i27 ]
@@ -1207,17 +1207,17 @@ _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relo
   br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
-  %59 = load ptr, ptr %57, align 8, !tbaa !76
+  %59 = load ptr, ptr %57, align 8, !tbaa !77
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %60, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %61) #23
   br label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %58
-  store ptr %22, ptr %0, align 8, !tbaa !73
-  store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !74
+  store ptr %22, ptr %0, align 8, !tbaa !74
+  store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !75
   %62 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %22, i64 %16
-  store ptr %62, ptr %57, align 8, !tbaa !76
+  store ptr %62, ptr %57, align 8, !tbaa !77
   ret void
 }
 
@@ -1226,23 +1226,23 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager11applyModuleEPNS_20AbstractAnalysisDataEPNS_19IAnalysisDataModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !71
+  %4 = load ptr, ptr %0, align 8, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %6
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
   %7 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %8 = load i8, ptr %7, align 1, !tbaa !59, !range !60, !noundef !61
+  %8 = load i8, ptr %7, align 1, !tbaa !60, !range !61, !noundef !62
   %9 = trunc nuw i8 %8 to i1
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %10, i1 noundef zeroext %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %6, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %6, !llvm.loop !63
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %6
-  %11 = load ptr, ptr %0, align 8, !tbaa !71
+  %11 = load ptr, ptr %0, align 8, !tbaa !72
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = icmp eq i32 %13, 3
@@ -1259,16 +1259,16 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #16 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !71
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %4 = load i8, ptr %3, align 4, !tbaa !17, !range !60, !noundef !61
+  %4 = load i8, ptr %3, align 4, !tbaa !17, !range !61, !noundef !62
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i32 %5, 0
@@ -1287,15 +1287,15 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
   %11 = add nuw nsw i32 %.014, 1
   %12 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %13 = icmp slt i32 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !96
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %10, %.preheader
-  %14 = load ptr, ptr %0, align 8, !tbaa !71
+  %14 = load ptr, ptr %0, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %15, align 8, !tbaa !19
-  %16 = load ptr, ptr %14, align 8, !tbaa !77
+  %16 = load ptr, ptr %14, align 8, !tbaa !78
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
   %19 = icmp ne ptr %16, %18
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %21 = zext i1 %19 to i8
@@ -1318,33 +1318,33 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
 .lr.ph18:                                         ; preds = %._crit_edge, %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit
   %26 = phi ptr [ %39, %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit ], [ %14, %._crit_edge ]
   %.sroa.08.016 = phi ptr [ %38, %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit ], [ %16, %._crit_edge ]
-  %27 = load ptr, ptr %.sroa.08.016, align 8, !tbaa !78
+  %27 = load ptr, ptr %.sroa.08.016, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph18
   %indvars.iv.i = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next.i, %29 ]
   %30 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %indvars.iv.i
-  %31 = load i8, ptr %30, align 1, !tbaa !59, !range !60, !noundef !61
+  %31 = load i8, ptr %30, align 1, !tbaa !60, !range !61, !noundef !62
   %32 = trunc nuw i8 %31 to i1
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %33, i1 noundef zeroext %32)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %29, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %29, !llvm.loop !63
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %29
-  %34 = load ptr, ptr %.sroa.08.016, align 8, !tbaa !78
+  %34 = load ptr, ptr %.sroa.08.016, align 8, !tbaa !79
   %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %1)
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 24
-  %39 = load ptr, ptr %0, align 8, !tbaa !71
+  %39 = load ptr, ptr %0, align 8, !tbaa !72
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !77
+  %41 = load ptr, ptr %40, align 8, !tbaa !78
   %.not = icmp eq ptr %38, %41
-  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !97
+  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !98
 
 ._crit_edge19:                                    ; preds = %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, %._crit_edge
   ret void
@@ -1356,7 +1356,7 @@ declare noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef n
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !71
+  %4 = load ptr, ptr %0, align 8, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = icmp eq i32 %6, 0
@@ -1375,19 +1375,19 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
   %12 = add nuw nsw i32 %.015, 1
   %13 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %14 = icmp slt i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !98
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %11, %.preheader
-  %15 = load ptr, ptr %0, align 8, !tbaa !71
+  %15 = load ptr, ptr %0, align 8, !tbaa !72
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 1, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i8 0, ptr %17, align 4, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 29
   store i8 0, ptr %18, align 1, !tbaa !18
-  %19 = load ptr, ptr %15, align 8, !tbaa !77
+  %19 = load ptr, ptr %15, align 8, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !77
+  %21 = load ptr, ptr %20, align 8, !tbaa !78
   %.not16 = icmp eq ptr %19, %21
   br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
@@ -1404,31 +1404,31 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
 .lr.ph19:                                         ; preds = %._crit_edge, %45
   %25 = phi ptr [ %40, %45 ], [ %15, %._crit_edge ]
   %.sroa.07.017 = phi ptr [ %46, %45 ], [ %19, %._crit_edge ]
-  %26 = load ptr, ptr %.sroa.07.017, align 8, !tbaa !78
+  %26 = load ptr, ptr %.sroa.07.017, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph19
   %indvars.iv.i = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next.i, %28 ]
   %29 = getelementptr inbounds nuw [3 x i8], ptr %27, i64 0, i64 %indvars.iv.i
-  %30 = load i8, ptr %29, align 1, !tbaa !59, !range !60, !noundef !61
+  %30 = load i8, ptr %29, align 1, !tbaa !60, !range !61, !noundef !62
   %31 = trunc nuw i8 %30 to i1
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %32, i1 noundef zeroext %31)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %28, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit, label %28, !llvm.loop !63
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %28
-  %33 = load ptr, ptr %.sroa.07.017, align 8, !tbaa !78
+  %33 = load ptr, ptr %.sroa.07.017, align 8, !tbaa !79
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.017, i64 16
   %39 = zext i1 %37 to i8
-  store i8 %39, ptr %38, align 8, !tbaa !82
-  %40 = load ptr, ptr %0, align 8, !tbaa !71
+  store i8 %39, ptr %38, align 8, !tbaa !83
+  %40 = load ptr, ptr %0, align 8, !tbaa !72
   br i1 %37, label %41, label %43
 
 41:                                               ; preds = %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit
@@ -1444,9 +1444,9 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 45:                                               ; preds = %41, %43
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.07.017, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !77
+  %48 = load ptr, ptr %47, align 8, !tbaa !78
   %.not = icmp eq ptr %46, %48
-  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !99
+  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !100
 
 ._crit_edge20:                                    ; preds = %45, %._crit_edge
   ret void
@@ -1454,18 +1454,18 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 2, ptr %4, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %6 = load i8, ptr %5, align 4, !tbaa !17, !range !60, !noundef !61
+  %6 = load i8, ptr %5, align 4, !tbaa !17, !range !61, !noundef !62
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !77
+  %9 = load ptr, ptr %3, align 8, !tbaa !78
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !77
+  %11 = load ptr, ptr %10, align 8, !tbaa !78
   %.not8 = icmp eq ptr %9, %11
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
@@ -1473,26 +1473,26 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
   %12 = phi ptr [ %22, %21 ], [ %3, %8 ]
   %.sroa.04.09 = phi ptr [ %23, %21 ], [ %9, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %14 = load i8, ptr %13, align 8, !tbaa !82, !range !60, !noundef !61
+  %14 = load i8, ptr %13, align 8, !tbaa !83, !range !61, !noundef !62
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !78
+  %17 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !79
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %21
 
 21:                                               ; preds = %.lr.ph, %16
   %22 = phi ptr [ %12, %.lr.ph ], [ %.pre, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !77
+  %25 = load ptr, ptr %24, align 8, !tbaa !78
   %.not = icmp eq ptr %23, %25
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !101
 
 .loopexit:                                        ; preds = %21, %8, %2
   ret void
@@ -1500,16 +1500,16 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 29
-  %5 = load i8, ptr %4, align 1, !tbaa !18, !range !60, !noundef !61
+  %5 = load i8, ptr %4, align 1, !tbaa !18, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !77
+  %8 = load ptr, ptr %3, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not8 = icmp eq ptr %8, %10
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
@@ -1517,26 +1517,26 @@ define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_
   %11 = phi ptr [ %21, %20 ], [ %3, %7 ]
   %.sroa.04.09 = phi ptr [ %22, %20 ], [ %8, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %13 = load i8, ptr %12, align 8, !tbaa !82, !range !60, !noundef !61
+  %13 = load i8, ptr %12, align 8, !tbaa !83, !range !61, !noundef !62
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !78
+  %16 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !79
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %20
 
 20:                                               ; preds = %.lr.ph, %15
   %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !77
+  %24 = load ptr, ptr %23, align 8, !tbaa !78
   %.not = icmp eq ptr %22, %24
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !102
 
 .loopexit:                                        ; preds = %20, %7, %2
   ret void
@@ -1547,15 +1547,15 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !71
+  %6 = load ptr, ptr %0, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i8, ptr %7, align 4, !tbaa !17, !range !60, !noundef !61
+  %8 = load i8, ptr %7, align 4, !tbaa !17, !range !61, !noundef !62
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  %12 = load i8, ptr %11, align 1, !tbaa !4, !range !60, !noundef !61
+  %12 = load i8, ptr %11, align 1, !tbaa !4, !range !61, !noundef !62
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %27, label %14
 
@@ -1564,7 +1564,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
   br i1 %15, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %27
 
 16:                                               ; preds = %14
@@ -1628,9 +1628,9 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 
 27:                                               ; preds = %._crit_edge, %10
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %6, %10 ]
-  %29 = load ptr, ptr %28, align 8, !tbaa !77
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !77
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
   %.not25 = icmp eq ptr %29, %31
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
@@ -1638,26 +1638,26 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
   %32 = phi ptr [ %42, %41 ], [ %28, %27 ]
   %.sroa.013.026 = phi ptr [ %43, %41 ], [ %29, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 16
-  %34 = load i8, ptr %33, align 8, !tbaa !82, !range !60, !noundef !61
+  %34 = load i8, ptr %33, align 8, !tbaa !83, !range !61, !noundef !62
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %.sroa.013.026, align 8, !tbaa !78
+  %37 = load ptr, ptr %.sroa.013.026, align 8, !tbaa !79
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre27 = load ptr, ptr %0, align 8, !tbaa !72
   br label %41
 
 41:                                               ; preds = %.lr.ph, %36
   %42 = phi ptr [ %32, %.lr.ph ], [ %.pre27, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !77
+  %45 = load ptr, ptr %44, align 8, !tbaa !78
   %.not = icmp eq ptr %43, %45
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !102
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !103
 
 .loopexit:                                        ; preds = %41, %27, %2
   ret void
@@ -1677,15 +1677,15 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !71
+  %6 = load ptr, ptr %0, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 29
-  %8 = load i8, ptr %7, align 1, !tbaa !18, !range !60, !noundef !61
+  %8 = load i8, ptr %7, align 1, !tbaa !18, !range !61, !noundef !62
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  %12 = load i8, ptr %11, align 1, !tbaa !4, !range !60, !noundef !61
+  %12 = load i8, ptr %11, align 1, !tbaa !4, !range !61, !noundef !62
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %27, label %14
 
@@ -1694,7 +1694,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
   br i1 %15, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %27
 
 16:                                               ; preds = %14
@@ -1758,9 +1758,9 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 
 27:                                               ; preds = %._crit_edge, %10
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %6, %10 ]
-  %29 = load ptr, ptr %28, align 8, !tbaa !77
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !77
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
   %.not25 = icmp eq ptr %29, %31
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
@@ -1768,26 +1768,26 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
   %32 = phi ptr [ %42, %41 ], [ %28, %27 ]
   %.sroa.013.026 = phi ptr [ %43, %41 ], [ %29, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 16
-  %34 = load i8, ptr %33, align 8, !tbaa !82, !range !60, !noundef !61
+  %34 = load i8, ptr %33, align 8, !tbaa !83, !range !61, !noundef !62
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %.sroa.013.026, align 8, !tbaa !78
+  %37 = load ptr, ptr %.sroa.013.026, align 8, !tbaa !79
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre27 = load ptr, ptr %0, align 8, !tbaa !72
   br label %41
 
 41:                                               ; preds = %.lr.ph, %36
   %42 = phi ptr [ %32, %.lr.ph ], [ %.pre27, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !77
+  %45 = load ptr, ptr %44, align 8, !tbaa !78
   %.not = icmp eq ptr %43, %45
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !103
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !104
 
 .loopexit:                                        ; preds = %41, %27, %2
   ret void
@@ -1802,7 +1802,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %4, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -1810,19 +1810,19 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %9 = load i8, ptr %8, align 4, !tbaa !17, !range !60, !noundef !61
+  %9 = load i8, ptr %8, align 4, !tbaa !17, !range !61, !noundef !62
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre21 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !77
+  %.pre21 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !78
   br label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8, !tbaa !77
+  %12 = load ptr, ptr %3, align 8, !tbaa !78
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !77
+  %14 = load ptr, ptr %13, align 8, !tbaa !78
   %.not16 = icmp eq ptr %12, %14
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
@@ -1830,48 +1830,48 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
   %15 = phi ptr [ %25, %24 ], [ %3, %11 ]
   %.sroa.011.017 = phi ptr [ %26, %24 ], [ %12, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.011.017, i64 16
-  %17 = load i8, ptr %16, align 8, !tbaa !82, !range !60, !noundef !61
+  %17 = load i8, ptr %16, align 8, !tbaa !83, !range !61, !noundef !62
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = load ptr, ptr %.sroa.011.017, align 8, !tbaa !78
+  %20 = load ptr, ptr %.sroa.011.017, align 8, !tbaa !79
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %24
 
 24:                                               ; preds = %.lr.ph, %19
   %25 = phi ptr [ %15, %.lr.ph ], [ %.pre, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.017, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %27, align 8, !tbaa !78
   %.not = icmp eq ptr %26, %28
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !104
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !105
 
 .loopexit:                                        ; preds = %24, %..loopexit_crit_edge, %11
   %29 = phi ptr [ %12, %11 ], [ %.pre21, %..loopexit_crit_edge ], [ %26, %24 ]
   %30 = phi ptr [ %3, %11 ], [ %3, %..loopexit_crit_edge ], [ %25, %24 ]
-  %31 = load ptr, ptr %30, align 8, !tbaa !77
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
   %.not1518 = icmp eq ptr %31, %29
   br i1 %.not1518, label %._crit_edge, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.loopexit, %.lr.ph20
   %.sroa.05.019 = phi ptr [ %37, %.lr.ph20 ], [ %31, %.loopexit ]
-  %32 = load ptr, ptr %.sroa.05.019, align 8, !tbaa !78
-  %33 = load i32, ptr %1, align 4, !tbaa !63
+  %32 = load ptr, ptr %.sroa.05.019, align 8, !tbaa !79
+  %33 = load i32, ptr %1, align 4, !tbaa !64
   %34 = load ptr, ptr %32, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %33)
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.019, i64 24
-  %38 = load ptr, ptr %0, align 8, !tbaa !71
+  %38 = load ptr, ptr %0, align 8, !tbaa !72
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !77
+  %40 = load ptr, ptr %39, align 8, !tbaa !78
   %.not15 = icmp eq ptr %37, %40
-  br i1 %.not15, label %._crit_edge, label %.lr.ph20, !llvm.loop !105
+  br i1 %.not15, label %._crit_edge, label %.lr.ph20, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %.loopexit
   ret void
@@ -1879,16 +1879,16 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 29
-  %5 = load i8, ptr %4, align 1, !tbaa !18, !range !60, !noundef !61
+  %5 = load i8, ptr %4, align 1, !tbaa !18, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !77
+  %8 = load ptr, ptr %3, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not8 = icmp eq ptr %8, %10
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
@@ -1896,26 +1896,26 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
   %11 = phi ptr [ %21, %20 ], [ %3, %7 ]
   %.sroa.04.09 = phi ptr [ %22, %20 ], [ %8, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %13 = load i8, ptr %12, align 8, !tbaa !82, !range !60, !noundef !61
+  %13 = load i8, ptr %12, align 8, !tbaa !83, !range !61, !noundef !62
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !78
+  %16 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !79
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !71
+  %.pre = load ptr, ptr %0, align 8, !tbaa !72
   br label %20
 
 20:                                               ; preds = %.lr.ph, %15
   %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !77
+  %24 = load ptr, ptr %23, align 8, !tbaa !78
   %.not = icmp eq ptr %22, %24
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !106
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !107
 
 .loopexit:                                        ; preds = %20, %7, %2
   ret void
@@ -1923,7 +1923,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !71
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !19
   %5 = icmp eq i32 %4, 1
@@ -1935,25 +1935,25 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef
 
 7:                                                ; preds = %1
   store i32 3, ptr %3, align 8, !tbaa !19
-  %8 = load ptr, ptr %2, align 8, !tbaa !77
+  %8 = load ptr, ptr %2, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not7 = icmp eq ptr %8, %10
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.sroa.03.08 = phi ptr [ %15, %.lr.ph ], [ %8, %7 ]
-  %11 = load ptr, ptr %.sroa.03.08, align 8, !tbaa !78
+  %11 = load ptr, ptr %.sroa.03.08, align 8, !tbaa !79
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.03.08, i64 24
-  %16 = load ptr, ptr %0, align 8, !tbaa !71
+  %16 = load ptr, ptr %0, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
   %.not = icmp eq ptr %15, %18
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -2054,55 +2054,56 @@ attributes #23 = { builtin nounwind }
 !53 = !{!51, !52, i64 8}
 !54 = !{!55, !11, i64 0}
 !55 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!51, !52, i64 16}
-!59 = !{!14, !14, i64 0}
-!60 = !{i8 0, i8 2}
-!61 = !{}
-!62 = distinct !{!62, !57}
-!63 = !{!64, !16, i64 0}
-!64 = !{!"_ZTSN3gmx23AnalysisDataFrameHeaderE", !16, i64 0, !65, i64 4, !65, i64 8}
-!65 = !{!"float", !12, i64 0}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_24AnalysisDataPointSetInfoEEE", !68, i64 0}
-!68 = !{!"p1 _ZTSN3gmx24AnalysisDataPointSetInfoE", !11, i64 0}
-!69 = distinct !{!69, !57}
-!70 = distinct !{!70, !57}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTSN3gmx25AnalysisDataModuleManager4ImplE", !11, i64 0}
-!73 = !{!9, !10, i64 0}
-!74 = !{!9, !10, i64 8}
-!75 = distinct !{!75, !57}
-!76 = !{!9, !10, i64 16}
-!77 = !{!10, !10, i64 0}
-!78 = !{!79, !80, i64 0}
-!79 = !{!"_ZTSSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EE", !80, i64 0, !35, i64 8}
-!80 = !{!"p1 _ZTSN3gmx19IAnalysisDataModuleE", !11, i64 0}
-!81 = distinct !{!81, !57}
-!82 = !{!83, !14, i64 16}
-!83 = !{!"_ZTSN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoE", !84, i64 0, !14, i64 16}
-!84 = !{!"_ZTSSt10shared_ptrIN3gmx19IAnalysisDataModuleEE", !79, i64 0}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!87 = distinct !{!87, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
-!88 = !{!89}
-!89 = distinct !{!89, !87, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!90 = distinct !{!90, !57}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!93 = distinct !{!93, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
-!94 = !{!95}
-!95 = distinct !{!95, !93, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!96 = distinct !{!96, !57}
-!97 = distinct !{!97, !57}
-!98 = distinct !{!98, !57}
-!99 = distinct !{!99, !57}
-!100 = distinct !{!100, !57}
-!101 = distinct !{!101, !57}
-!102 = distinct !{!102, !57}
-!103 = distinct !{!103, !57}
-!104 = distinct !{!104, !57}
-!105 = distinct !{!105, !57}
-!106 = distinct !{!106, !57}
-!107 = distinct !{!107, !57}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!51, !52, i64 16}
+!60 = !{!14, !14, i64 0}
+!61 = !{i8 0, i8 2}
+!62 = !{}
+!63 = distinct !{!63, !57, !58}
+!64 = !{!65, !16, i64 0}
+!65 = !{!"_ZTSN3gmx23AnalysisDataFrameHeaderE", !16, i64 0, !66, i64 4, !66, i64 8}
+!66 = !{!"float", !12, i64 0}
+!67 = !{!68, !69, i64 0}
+!68 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_24AnalysisDataPointSetInfoEEE", !69, i64 0}
+!69 = !{!"p1 _ZTSN3gmx24AnalysisDataPointSetInfoE", !11, i64 0}
+!70 = distinct !{!70, !57, !58}
+!71 = distinct !{!71, !57, !58}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSN3gmx25AnalysisDataModuleManager4ImplE", !11, i64 0}
+!74 = !{!9, !10, i64 0}
+!75 = !{!9, !10, i64 8}
+!76 = distinct !{!76, !57, !58}
+!77 = !{!9, !10, i64 16}
+!78 = !{!10, !10, i64 0}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"_ZTSSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EE", !81, i64 0, !35, i64 8}
+!81 = !{!"p1 _ZTSN3gmx19IAnalysisDataModuleE", !11, i64 0}
+!82 = distinct !{!82, !57, !58}
+!83 = !{!84, !14, i64 16}
+!84 = !{!"_ZTSN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoE", !85, i64 0, !14, i64 16}
+!85 = !{!"_ZTSSt10shared_ptrIN3gmx19IAnalysisDataModuleEE", !80, i64 0}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!88 = distinct !{!88, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
+!89 = !{!90}
+!90 = distinct !{!90, !88, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!91 = distinct !{!91, !57, !58}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!94 = distinct !{!94, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_"}
+!95 = !{!96}
+!96 = distinct !{!96, !94, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!97 = distinct !{!97, !57, !58}
+!98 = distinct !{!98, !57, !58}
+!99 = distinct !{!99, !57, !58}
+!100 = distinct !{!100, !57, !58}
+!101 = distinct !{!101, !57, !58}
+!102 = distinct !{!102, !57, !58}
+!103 = distinct !{!103, !57, !58}
+!104 = distinct !{!104, !57, !58}
+!105 = distinct !{!105, !57, !58}
+!106 = distinct !{!106, !57, !58}
+!107 = distinct !{!107, !57, !58}
+!108 = distinct !{!108, !57, !58}

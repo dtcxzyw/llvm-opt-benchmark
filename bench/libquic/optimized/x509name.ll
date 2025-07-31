@@ -65,8 +65,8 @@ X509_NAME_get_entry.exit:                         ; preds = %X509_NAME_get_index
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !21
-  %26 = load i32, ptr %25, align 8, !tbaa !22
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %26 = load i32, ptr %25, align 8, !tbaa !23
   %27 = icmp eq ptr %2, null
   br i1 %27, label %X509_NAME_get_index_by_OBJ.exit.thread, label %28
 
@@ -74,11 +74,11 @@ X509_NAME_get_entry.exit:                         ; preds = %X509_NAME_get_index
   %29 = add nsw i32 %3, -1
   %30 = tail call i32 @llvm.smin.i32(i32 %26, i32 %29)
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = sext i32 %30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %32, i64 %33, i1 false)
   %34 = getelementptr inbounds i8, ptr %2, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !26
+  store i8 0, ptr %34, align 1, !tbaa !27
   br label %X509_NAME_get_index_by_OBJ.exit.thread
 
 X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %11, %4, %X509_NAME_get_entry.exit, %X509_NAME_get_index_by_OBJ.exit, %28
@@ -129,7 +129,7 @@ define hidden ptr @X509_NAME_ENTRY_get_data(ptr noundef readonly captures(addres
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -247,7 +247,7 @@ define hidden ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) 
   %12 = tail call i64 @sk_num(ptr noundef %10) #7
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %14, align 8, !tbaa !27
+  store i32 1, ptr %14, align 8, !tbaa !28
   %15 = icmp eq i32 %1, %13
   br i1 %15, label %.loopexit, label %16
 
@@ -260,20 +260,20 @@ define hidden ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) 
   %19 = zext nneg i32 %18 to i64
   %20 = tail call ptr @sk_value(ptr noundef %10, i64 noundef %19) #7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !28
+  %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = add nsw i32 %22, 1
   br label %27
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !28
+  %26 = load i32, ptr %25, align 8, !tbaa !29
   br label %27
 
 27:                                               ; preds = %24, %17
   %.029 = phi i32 [ %23, %17 ], [ %26, %24 ]
   %28 = tail call ptr @sk_value(ptr noundef %10, i64 noundef %8) #7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !28
+  %30 = load i32, ptr %29, align 8, !tbaa !29
   %31 = icmp slt i32 %.029, %30
   %32 = icmp slt i32 %1, %13
   %or.cond36 = and i1 %31, %32
@@ -283,13 +283,13 @@ define hidden ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %8, %27 ]
   %33 = tail call ptr @sk_value(ptr noundef %10, i64 noundef %indvars.iv) #7
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !28
+  %35 = load i32, ptr %34, align 8, !tbaa !29
   %36 = add nsw i32 %35, -1
-  store i32 %36, ptr %34, align 8, !tbaa !28
+  store i32 %36, ptr %34, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = trunc nuw i64 %indvars.iv.next to i32
   %38 = icmp slt i32 %37, %13
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !29
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %9, %2, %5
   %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ %11, %9 ], [ %11, %27 ], [ %11, %.lr.ph ]
@@ -345,7 +345,7 @@ define hidden ptr @X509_NAME_ENTRY_create_by_OBJ(ptr noundef captures(address_is
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load ptr, ptr %0, align 8, !tbaa !31
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
@@ -380,19 +380,19 @@ X509_NAME_ENTRY_set_object.exit:                  ; preds = %13
   br i1 %6, label %28, label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !30
+  %21 = load ptr, ptr %0, align 8, !tbaa !31
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
-  store ptr %.0, ptr %0, align 8, !tbaa !30
+  store ptr %.0, ptr %0, align 8, !tbaa !31
   br label %28
 
 24:                                               ; preds = %X509_NAME_ENTRY_set_object.exit.thread, %17, %X509_NAME_ENTRY_set_object.exit
   br i1 %6, label %27, label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr %0, align 8, !tbaa !30
+  %26 = load ptr, ptr %0, align 8, !tbaa !31
   %.not23 = icmp eq ptr %.0, %26
   br i1 %.not23, label %28, label %27
 
@@ -418,7 +418,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   %11 = tail call i32 @llvm.smin.i32(i32 %2, i32 %9)
   %.040 = select i1 %10, i32 %9, i32 %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %12, align 8, !tbaa !27
+  store i32 1, ptr %12, align 8, !tbaa !28
   %13 = icmp eq i32 %3, -1
   br i1 %13, label %14, label %22
 
@@ -431,7 +431,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   %18 = sext i32 %17 to i64
   %19 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %18) #7
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !28
+  %21 = load i32, ptr %20, align 8, !tbaa !29
   br label %38
 
 22:                                               ; preds = %6
@@ -447,7 +447,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   %26 = sext i32 %25 to i64
   %27 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %26) #7
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !28
+  %29 = load i32, ptr %28, align 8, !tbaa !29
   %30 = add nsw i32 %29, 1
   br label %36
 
@@ -455,7 +455,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   %32 = sext i32 %.040 to i64
   %33 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %32) #7
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !28
+  %35 = load i32, ptr %34, align 8, !tbaa !29
   br label %36
 
 36:                                               ; preds = %23, %24, %31
@@ -472,7 +472,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i32 %.039, ptr %41, align 8, !tbaa !28
+  store i32 %.039, ptr %41, align 8, !tbaa !29
   %42 = sext i32 %.040 to i64
   %43 = tail call i64 @sk_insert(ptr noundef %7, ptr noundef nonnull %39, i64 noundef %42) #7
   %.not48 = icmp eq i64 %43, 0
@@ -498,14 +498,14 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   %50 = sext i32 %.038.in52 to i64
   %51 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %50) #7
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !28
+  %53 = load i32, ptr %52, align 8, !tbaa !29
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 8, !tbaa !28
+  store i32 %54, ptr %52, align 8, !tbaa !29
   %indvars.iv.next = add i64 %indvars.iv, 1
   %55 = trunc i64 %indvars.iv to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %47
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 56:                                               ; preds = %40
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 264) #7
@@ -550,7 +550,7 @@ define hidden noundef ptr @X509_NAME_ENTRY_create_by_NID(ptr noundef captures(ad
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %X509_NAME_ENTRY_set_object.exit.i
 
@@ -577,19 +577,19 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br i1 %10, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !30
+  %23 = load ptr, ptr %0, align 8, !tbaa !31
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 25:                                               ; preds = %22
-  store ptr %.0.i, ptr %0, align 8, !tbaa !30
+  store ptr %.0.i, ptr %0, align 8, !tbaa !31
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 26:                                               ; preds = %19, %X509_NAME_ENTRY_set_object.exit.i
   br i1 %10, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !30
+  %28 = load ptr, ptr %0, align 8, !tbaa !31
   %.not23.i = icmp eq ptr %.0.i, %28
   br i1 %.not23.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %29
 
@@ -634,7 +634,7 @@ define hidden noundef ptr @X509_NAME_ENTRY_create_by_txt(ptr noundef captures(ad
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %X509_NAME_ENTRY_set_object.exit.i
 
@@ -661,19 +661,19 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br i1 %10, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !30
+  %23 = load ptr, ptr %0, align 8, !tbaa !31
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 25:                                               ; preds = %22
-  store ptr %.0.i, ptr %0, align 8, !tbaa !30
+  store ptr %.0.i, ptr %0, align 8, !tbaa !31
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 26:                                               ; preds = %19, %X509_NAME_ENTRY_set_object.exit.i
   br i1 %10, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !30
+  %28 = load ptr, ptr %0, align 8, !tbaa !31
   %.not23.i = icmp eq ptr %.0.i, %28
   br i1 %.not23.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %29
 
@@ -769,7 +769,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_ENTRY_set_data(ptr noundef %0, i32 
 23:                                               ; preds = %20, %18
   %.024 = phi i32 [ %22, %20 ], [ %3, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = tail call i32 @ASN1_STRING_set(ptr noundef %25, ptr noundef %2, i32 noundef %.024) #7
   %.not28 = icmp eq i32 %26, 0
   br i1 %.not28, label %35, label %27
@@ -782,15 +782,15 @@ define hidden range(i32 0, 2) i32 @X509_NAME_ENTRY_set_data(ptr noundef %0, i32 
 
 28:                                               ; preds = %27
   %29 = tail call i32 @ASN1_PRINTABLE_type(ptr noundef %2, i32 noundef %.024) #7
-  %30 = load ptr, ptr %24, align 8, !tbaa !21
+  %30 = load ptr, ptr %24, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 %29, ptr %31, align 4, !tbaa !33
+  store i32 %29, ptr %31, align 4, !tbaa !34
   br label %35
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %24, align 8, !tbaa !21
+  %33 = load ptr, ptr %24, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 %1, ptr %34, align 4, !tbaa !33
+  store i32 %1, ptr %34, align 4, !tbaa !34
   br label %35
 
 35:                                               ; preds = %32, %28, %27, %23, %4, %6, %12
@@ -868,18 +868,19 @@ attributes #8 = { nounwind willreturn memory(read) }
 !16 = !{!"X509_name_entry_st", !17, i64 0, !18, i64 8, !12, i64 16, !12, i64 20}
 !17 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
 !18 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!16, !18, i64 8}
-!22 = !{!23, !12, i64 0}
-!23 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !14, i64 8, !24, i64 16}
-!24 = !{!"long", !10, i64 0}
-!25 = !{!23, !14, i64 8}
-!26 = !{!10, !10, i64 0}
-!27 = !{!7, !12, i64 8}
-!28 = !{!16, !12, i64 16}
-!29 = distinct !{!29, !20}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS18X509_name_entry_st", !9, i64 0}
-!32 = distinct !{!32, !20}
-!33 = !{!23, !12, i64 4}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!16, !18, i64 8}
+!23 = !{!24, !12, i64 0}
+!24 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !14, i64 8, !25, i64 16}
+!25 = !{!"long", !10, i64 0}
+!26 = !{!24, !14, i64 8}
+!27 = !{!10, !10, i64 0}
+!28 = !{!7, !12, i64 8}
+!29 = !{!16, !12, i64 16}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS18X509_name_entry_st", !9, i64 0}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!24, !12, i64 4}

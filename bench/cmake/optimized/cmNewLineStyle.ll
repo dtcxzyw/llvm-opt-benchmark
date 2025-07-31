@@ -120,7 +120,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !21
+  store ptr %4, ptr %0, align 8, !tbaa !22
   switch i32 %3, label %._crit_edge.i.i12 [
     i32 0, label %._crit_edge.i.i
     i32 1, label %._crit_edge.i.i4
@@ -130,15 +130,15 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
 ._crit_edge.i.i:                                  ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !14
-  store i8 0, ptr %4, align 8, !tbaa !22
+  store i8 0, ptr %4, align 8, !tbaa !23
   br label %11
 
 ._crit_edge.i.i4:                                 ; preds = %2
-  store i8 10, ptr %4, align 8, !tbaa !22
+  store i8 10, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %7, align 1, !tbaa !22
+  store i8 0, ptr %7, align 1, !tbaa !23
   br label %11
 
 ._crit_edge.i.i8:                                 ; preds = %2
@@ -146,13 +146,13 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 0, ptr %9, align 2, !tbaa !22
+  store i8 0, ptr %9, align 2, !tbaa !23
   br label %11
 
 ._crit_edge.i.i12:                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %10, align 8, !tbaa !14
-  store i8 0, ptr %4, align 8, !tbaa !22
+  store i8 0, ptr %4, align 8, !tbaa !23
   br label %11
 
 11:                                               ; preds = %._crit_edge.i.i12, %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
@@ -207,7 +207,8 @@ attributes #6 = { nounwind }
 !16 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
 !17 = !{!"p1 omnipotent char", !12, i64 0}
 !18 = !{!"long", !7, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!16, !17, i64 0}
-!22 = !{!7, !7, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!16, !17, i64 0}
+!23 = !{!7, !7, i64 0}

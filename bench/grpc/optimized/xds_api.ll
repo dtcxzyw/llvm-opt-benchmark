@@ -434,7 +434,7 @@ google_protobuf_Struct_fields_set.exit:           ; preds = %google_protobuf_Val
   %37 = tail call zeroext i1 @upb_strtable_insert(ptr noundef nonnull %35, ptr noundef %27, i64 noundef %29, i64 %34, ptr noundef nonnull %2)
   %38 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.018) #15
   %.not = icmp eq ptr %38, %6
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -452,7 +452,7 @@ declare ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr nound
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef captures(none) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.upb_MiniTableField, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i8, ptr %5, align 8, !tbaa !36
+  %6 = load i8, ptr %5, align 8, !tbaa !38
   switch i8 %6, label %10 [
     i8 -1, label %7
     i8 0, label %11
@@ -467,7 +467,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueE
   %8 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %9, align 8, !tbaa !38
+  store ptr @.str.1, ptr %9, align 8, !tbaa !40
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
@@ -503,7 +503,7 @@ _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19: ; preds = %3
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
 _ZNK9grpc_core12experimental4Json7booleanEv.exit: ; preds = %3
-  %23 = load i8, ptr %1, align 8, !tbaa !41, !range !43, !noundef !44
+  %23 = load i8, ptr %1, align 8, !tbaa !43, !range !45, !noundef !46
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -563,17 +563,17 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %46, %44
 
 google_protobuf_Value_mutable_struct_value.exit:  ; preds = %google_protobuf_Value_struct_value.exit.i, %upb_Arena_Malloc.exit.i.i, %48
   %.0.i = phi ptr [ %.0.i.i.i21, %48 ], [ %31, %google_protobuf_Value_struct_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i ]
-  %51 = load i8, ptr %5, align 8, !tbaa !36
+  %51 = load i8, ptr %5, align 8, !tbaa !38
   switch i8 %51, label %52 [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i22
-  ], !prof !45
+  ], !prof !47
 
 52:                                               ; preds = %google_protobuf_Value_mutable_struct_value.exit
   %53 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr @.str.3, ptr %54, align 8, !tbaa !38
+  store ptr @.str.3, ptr %54, align 8, !tbaa !40
   tail call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
@@ -581,7 +581,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i22:   ; preds = %google_protobuf_Val
   %55 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %55, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr @.str.2, ptr %56, align 8, !tbaa !38
+  store ptr @.str.2, ptr %56, align 8, !tbaa !40
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
@@ -642,17 +642,17 @@ upb_Arena_Malloc.exit.i.i23:                      ; preds = %76, %74
 
 google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Value_list_value.exit.i, %upb_Arena_Malloc.exit.i.i23, %78
   %.0.i26 = phi ptr [ %.0.i.i.i24, %78 ], [ %61, %google_protobuf_Value_list_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i23 ]
-  %81 = load i8, ptr %5, align 8, !tbaa !36
+  %81 = load i8, ptr %5, align 8, !tbaa !38
   switch i8 %81, label %82 [
     i8 5, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i28
-  ], !prof !45
+  ], !prof !47
 
 82:                                               ; preds = %google_protobuf_Value_mutable_list_value.exit
   %83 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %83, align 8, !tbaa !3
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr @.str.3, ptr %84, align 8, !tbaa !38
+  store ptr @.str.3, ptr %84, align 8, !tbaa !40
   tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
@@ -660,14 +660,14 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i28:   ; preds = %google_protobuf_Val
   %85 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %85, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr @.str.2, ptr %86, align 8, !tbaa !38
+  store ptr @.str.2, ptr %86, align 8, !tbaa !40
   tail call void @__cxa_throw(ptr nonnull %85, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
 _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %google_protobuf_Value_mutable_list_value.exit
-  %87 = load ptr, ptr %1, align 8, !tbaa !46
+  %87 = load ptr, ptr %1, align 8, !tbaa !48
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !46
+  %89 = load ptr, ptr %88, align 8, !tbaa !48
   %.not45 = icmp eq ptr %87, %89
   br i1 %.not45, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %.lr.ph
 
@@ -743,7 +743,7 @@ google_protobuf_ListValue_add_values.exit:        ; preds = %91, %upb_Array_Rese
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef %.0.i32, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.033.046, ptr noundef %2)
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.033.046, i64 56
   %.not = icmp eq ptr %124, %89
-  br i1 %.not, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %91
+  br i1 %.not, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %91, !llvm.loop !50
 
 _ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit: ; preds = %google_protobuf_ListValue_add_values.exit, %_ZNK9grpc_core12experimental4Json5arrayEv.exit, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit, %_ZNK9grpc_core12experimental4Json7booleanEv.exit, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit, %11
   ret void
@@ -772,7 +772,7 @@ define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   ret ptr %3
 }
 
@@ -782,21 +782,21 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 comdat {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %5 = load i8, ptr %4, align 1, !tbaa !48
+  %5 = load i8, ptr %4, align 1, !tbaa !51
   %6 = icmp ugt i8 %5, -65
   tail call void @llvm.assume(i1 %6)
   %7 = and i8 %5, 3
   %8 = icmp eq i8 %7, 1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %10 = load i16, ptr %9, align 2, !tbaa !50
+  %10 = load i16, ptr %9, align 2, !tbaa !53
   %11 = icmp eq i16 %10, 0
   tail call void @llvm.assume(i1 %11)
   %12 = and i8 %5, 8
   %.not.i.i = icmp eq i8 %12, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i16, ptr %13, align 4, !tbaa !51
+  %14 = load i16, ptr %13, align 4, !tbaa !54
   %15 = zext i16 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i64, ptr %16, align 1
@@ -806,7 +806,7 @@ define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %0, ptr
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %21 = load i8, ptr %20, align 2, !tbaa !52
+  %21 = load i8, ptr %20, align 2, !tbaa !55
   %22 = zext i8 %21 to i64
   %23 = and i8 %5, 16
   %.not.i.i14 = icmp eq i8 %23, 0
@@ -872,13 +872,13 @@ upb_Arena_Malloc.exit.i:                          ; preds = %44, %42
   br label %_upb_Array_New_dont_copy_me__upb_internal_use_only.exit
 
 _upb_Array_New_dont_copy_me__upb_internal_use_only.exit: ; preds = %upb_Arena_Malloc.exit.i, %46
-  %54 = load i8, ptr %4, align 1, !tbaa !48
+  %54 = load i8, ptr %4, align 1, !tbaa !51
   %55 = icmp ugt i8 %54, -65
   tail call void @llvm.assume(i1 %55)
   %56 = and i8 %54, 3
   %57 = icmp eq i8 %56, 1
   tail call void @llvm.assume(i1 %57)
-  %58 = load i16, ptr %9, align 2, !tbaa !50
+  %58 = load i16, ptr %9, align 2, !tbaa !53
   %59 = icmp eq i16 %58, 0
   tail call void @llvm.assume(i1 %59)
   %60 = and i8 %54, 8
@@ -892,7 +892,7 @@ _upb_Array_New_dont_copy_me__upb_internal_use_only.exit: ; preds = %upb_Arena_Ma
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = load i8, ptr %4, align 1, !tbaa !48
+  %65 = load i8, ptr %4, align 1, !tbaa !51
   %66 = lshr i8 %65, 6
   switch i8 %66, label %default.unreachable [
     i8 0, label %67
@@ -926,7 +926,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i: ; preds = %_upb_Array_New_dont_copy_me__upb_internal_use_only.exit
-  %74 = load i16, ptr %13, align 4, !tbaa !51
+  %74 = load i16, ptr %13, align 4, !tbaa !54
   %75 = zext i16 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 %75
   %77 = ptrtoint ptr %.0.i.i15 to i64
@@ -1011,20 +1011,23 @@ attributes #17 = { builtin nounwind }
 !33 = !{!32, !12, i64 16}
 !34 = !{!32, !12, i64 0}
 !35 = !{!15, !18, i64 16}
-!36 = !{!37, !11, i64 48}
-!37 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEE", !11, i64 0, !11, i64 48}
-!38 = !{!39, !9, i64 8}
-!39 = !{!"_ZTSSt18bad_variant_access", !40, i64 0, !9, i64 8}
-!40 = !{!"_ZTSSt9exception"}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"bool", !11, i64 0}
-!43 = !{i8 0, i8 2}
-!44 = !{}
-!45 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTSN9grpc_core12experimental4JsonE", !10, i64 0}
-!48 = !{!49, !11, i64 11}
-!49 = !{!"_ZTS18upb_MiniTableField", !30, i64 0, !23, i64 4, !23, i64 6, !23, i64 8, !11, i64 10, !11, i64 11}
-!50 = !{!49, !23, i64 6}
-!51 = !{!49, !23, i64 4}
-!52 = !{!49, !11, i64 10}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !11, i64 48}
+!39 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEE", !11, i64 0, !11, i64 48}
+!40 = !{!41, !9, i64 8}
+!41 = !{!"_ZTSSt18bad_variant_access", !42, i64 0, !9, i64 8}
+!42 = !{!"_ZTSSt9exception"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"bool", !11, i64 0}
+!45 = !{i8 0, i8 2}
+!46 = !{}
+!47 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN9grpc_core12experimental4JsonE", !10, i64 0}
+!50 = distinct !{!50, !37}
+!51 = !{!52, !11, i64 11}
+!52 = !{!"_ZTS18upb_MiniTableField", !30, i64 0, !23, i64 4, !23, i64 6, !23, i64 8, !11, i64 10, !11, i64 11}
+!53 = !{!52, !23, i64 6}
+!54 = !{!52, !23, i64 4}
+!55 = !{!52, !11, i64 10}

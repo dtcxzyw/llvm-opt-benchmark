@@ -48396,7 +48396,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit80.backedge:                         ; preds = %74, %76, %86, %85, %83
   %.069.be = phi ptr [ %78, %76 ], [ %80, %83 ], [ %80, %85 ], [ %80, %86 ], [ inttoptr (i64 1 to ptr), %74 ]
   %.068.be = phi ptr [ %.1.i105126, %76 ], [ %79, %83 ], [ %79, %85 ], [ %79, %86 ], [ %.1.i105126, %74 ]
-  br label %lean_dec.exit80
+  br label %lean_dec.exit80, !llvm.loop !17
 
 76:                                               ; preds = %74
   %77 = add i64 %51, -2
@@ -49103,7 +49103,7 @@ lean_inc.exit817:                                 ; preds = %134, %133, %131, %l
 lean_inc.exit816:                                 ; preds = %146, %145, %143, %lean_inc.exit817
   %147 = and i64 %46, %55
   %brmerge.not.not = icmp eq i64 %147, 0
-  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %148, !prof !17
+  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %148, !prof !19
 
 148:                                              ; preds = %lean_inc.exit816
   %149 = icmp eq ptr %44, %54
@@ -97828,7 +97828,7 @@ lean_alloc_ctor.exit:                             ; preds = %84
 
 lean_dec.exit45.backedge:                         ; preds = %91, %95, %97, %98, %41, %47, %49, %50, %lean_alloc_ctor.exit, %40
   %.037.be = phi ptr [ %.0, %40 ], [ %85, %lean_alloc_ctor.exit ], [ %.037, %50 ], [ %.037, %49 ], [ %.037, %47 ], [ %.037, %41 ], [ %.037, %98 ], [ %.037, %97 ], [ %.037, %95 ], [ %.037, %91 ]
-  br label %lean_dec.exit45
+  br label %lean_dec.exit45, !llvm.loop !20
 
 92:                                               ; preds = %91
   %93 = load i32, ptr %27, align 4, !tbaa !4
@@ -130626,7 +130626,7 @@ lean_dec.exit492:                                 ; preds = %lean_dec.exit492.ba
   %49 = and i64 %48, 1
   %50 = icmp ne i64 %49, 0
   %or.cond = select i1 %47, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %lean_nat_lt.exit, !prof !18
+  br i1 %or.cond, label %51, label %lean_nat_lt.exit, !prof !21
 
 51:                                               ; preds = %lean_dec.exit492
   %52 = icmp ult ptr %.0329, %44
@@ -209498,7 +209498,7 @@ lean_dec.exit139:                                 ; preds = %lean_dec.exit139.ba
   %46 = and i64 %45, 1
   %47 = icmp ne i64 %46, 0
   %or.cond = select i1 %44, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %lean_nat_lt.exit, !prof !18
+  br i1 %or.cond, label %48, label %lean_nat_lt.exit, !prof !21
 
 48:                                               ; preds = %lean_dec.exit139
   %49 = icmp ult ptr %.0103, %41
@@ -244421,7 +244421,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit9174.backedge:                       ; preds = %10912, %10914, %10924, %10923, %10921
   %.06830.be = phi ptr [ %10916, %10914 ], [ %10918, %10921 ], [ %10918, %10923 ], [ %10918, %10924 ], [ inttoptr (i64 1 to ptr), %10912 ]
   %.06829.be = phi ptr [ %.1.i1548517729, %10914 ], [ %10917, %10921 ], [ %10917, %10923 ], [ %10917, %10924 ], [ %.1.i1548517729, %10912 ]
-  br label %lean_dec.exit9174
+  br label %lean_dec.exit9174, !llvm.loop !22
 
 10914:                                            ; preds = %10912
   %10915 = add i64 %10889, -2
@@ -281804,10 +281804,10 @@ lean_alloc_small_object.exit:                     ; preds = %3
   store ptr %0, ptr %11, align 8, !tbaa !9
   %12 = trunc nuw nsw i32 %1 to i16
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 %12, ptr %13, align 8, !tbaa !19
+  store i16 %12, ptr %13, align 8, !tbaa !23
   %14 = trunc nuw nsw i32 %2 to i16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 %14, ptr %15, align 2, !tbaa !19
+  store i16 %14, ptr %15, align 2, !tbaa !23
   ret ptr %6
 }
 
@@ -296673,9 +296673,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_unfoldReducible___lambda__3, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !19
+  store i16 6, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296699,9 +296699,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_unfoldReducible___lambda__4___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !19
+  store i16 6, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296725,9 +296725,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_eraseIrrelevantMData___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 4, ptr %6, align 8, !tbaa !19
+  store i16 4, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296751,9 +296751,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_eraseIrrelevantMData___lambda__2___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 4, ptr %6, align 8, !tbaa !19
+  store i16 4, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296777,9 +296777,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_foldProjs___lambda__3___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !19
+  store i16 6, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296803,9 +296803,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_foldProjs___lambda__2___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !19
+  store i16 6, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296829,9 +296829,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_normalizeLevels___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 4, ptr %6, align 8, !tbaa !19
+  store i16 4, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -296863,9 +296863,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_addCongrTable___lambda__3___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -297010,9 +297010,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Std_Range_forIn_x27_loop___at___private_Lean_Meta_Tactic_Grind_Internalize_0__Lean_Meta_Grind_propagateEtaStruct___spec__3___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 12, ptr %6, align 8, !tbaa !19
+  store i16 12, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -297086,7 +297086,11 @@ attributes #5 = { noreturn nounwind }
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !16 = !{!7, !7, i64 0}
-!17 = !{!"branch_weights", i32 4001, i32 4000000}
-!18 = !{!"branch_weights", i32 4000000, i32 4001}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"branch_weights", i32 4001, i32 4000000}
+!20 = distinct !{!20, !18}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = distinct !{!22, !18}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !7, i64 0}

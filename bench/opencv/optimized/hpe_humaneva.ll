@@ -721,11 +721,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 247:                                              ; preds = %165, %247
   %indvars.iv = phi i64 [ 0, %165 ], [ %indvars.iv.next, %247 ]
   %248 = getelementptr inbounds nuw [3 x double], ptr %201, i64 0, i64 %indvars.iv
-  %249 = load double, ptr %248, align 8, !tbaa !63
+  %249 = load double, ptr %248, align 8, !tbaa !64
   %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %249)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %202, label %247, !llvm.loop !65
+  br i1 %exitcond.not, label %202, label %247, !llvm.loop !66
 
 251:                                              ; preds = %245, %243
   %.pn42 = phi { ptr, i32 } [ %246, %245 ], [ %244, %243 ]
@@ -1038,8 +1038,9 @@ attributes #16 = { noreturn }
 !58 = !{!57, !45, i64 12}
 !59 = !{!45, !45, i64 0}
 !60 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"double", !8, i64 0}
-!65 = distinct !{!65, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"double", !8, i64 0}
+!66 = distinct !{!66, !62, !63}

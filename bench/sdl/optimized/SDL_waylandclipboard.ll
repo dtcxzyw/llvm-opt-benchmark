@@ -369,7 +369,7 @@ define hidden noundef zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef re
   %18 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %18, 5
   %or.cond = select i1 %17, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %13, !llvm.loop !5
+  br i1 %or.cond, label %.loopexit, label %13, !llvm.loop !6
 
 .loopexit:                                        ; preds = %13, %9, %6, %1
   %.012 = phi i1 [ false, %6 ], [ false, %1 ], [ true, %9 ], [ %17, %13 ]
@@ -387,6 +387,7 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

@@ -720,7 +720,7 @@ declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_776number4impl18ScientificModifier13getParametersERNS1_8Modifier10ParametersE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %1) unnamed_addr #10 align 2 {
-  store ptr null, ptr %1, align 8, !tbaa !44
+  store ptr null, ptr %1, align 8, !tbaa !45
   ret void
 }
 
@@ -758,7 +758,7 @@ define void @_ZN6icu_776number4impl17ScientificHandlerC2EPKNS0_8NotationEPKNS_20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %3, ptr %10, align 8, !tbaa !49
+  store ptr %3, ptr %10, align 8, !tbaa !50
   ret void
 }
 
@@ -766,7 +766,7 @@ define void @_ZN6icu_776number4impl17ScientificHandlerC2EPKNS0_8NotationEPKNS_20
 define void @_ZNK6icu_776number4impl17ScientificHandler15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.icu_77::number::impl::RoundingImpl", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -792,7 +792,7 @@ define void @_ZNK6icu_776number4impl17ScientificHandler15processQuantityERNS1_15
 23:                                               ; preds = %18, %13
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store ptr %24, ptr %25, align 8, !tbaa !50
+  store ptr %24, ptr %25, align 8, !tbaa !51
   br label %53
 
 26:                                               ; preds = %18
@@ -802,7 +802,7 @@ define void @_ZNK6icu_776number4impl17ScientificHandler15processQuantityERNS1_15
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %31 = load i8, ptr %30, align 1, !tbaa !76, !range !77, !noundef !78
+  %31 = load i8, ptr %30, align 1, !tbaa !77, !range !78, !noundef !79
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %40
 
@@ -812,7 +812,7 @@ define void @_ZNK6icu_776number4impl17ScientificHandler15processQuantityERNS1_15
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = load i8, ptr %29, align 8, !tbaa !79
+  %37 = load i8, ptr %29, align 8, !tbaa !80
   %38 = sext i8 %37 to i32
   %39 = load i32, ptr %3, align 4, !tbaa !13
   tail call void @_ZN6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %34, ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %38, i32 noundef %39)
@@ -838,7 +838,7 @@ define void @_ZNK6icu_776number4impl17ScientificHandler15processQuantityERNS1_15
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %0, ptr %50, align 8, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store ptr %48, ptr %51, align 8, !tbaa !50
+  store ptr %48, ptr %51, align 8, !tbaa !51
   tail call void @_ZN6icu_776number4impl15DecimalQuantity14adjustExponentEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
   call void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::number::impl::RoundingImpl") align 8 %5)
@@ -868,10 +868,10 @@ declare void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_776number4impl17ScientificHandler13getMultiplierEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i8, ptr %3, align 8, !tbaa !79
+  %4 = load i8, ptr %3, align 8, !tbaa !80
   %5 = sext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %7 = load i8, ptr %6, align 1, !tbaa !76, !range !77, !noundef !78
+  %7 = load i8, ptr %6, align 1, !tbaa !77, !range !78, !noundef !79
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %16, label %9
 
@@ -899,10 +899,10 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_776number4impl17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZThn8_NK6icu_776number4impl17ScientificHandler13getMultiplierEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i8, ptr %3, align 8, !tbaa !79
+  %4 = load i8, ptr %3, align 8, !tbaa !80
   %5 = sext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %7 = load i8, ptr %6, align 1, !tbaa !76, !range !77, !noundef !78
+  %7 = load i8, ptr %6, align 1, !tbaa !77, !range !78, !noundef !79
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %_ZNK6icu_776number4impl17ScientificHandler13getMultiplierEi.exit, label %9
 
@@ -1049,41 +1049,42 @@ attributes #24 = { noreturn nounwind }
 !39 = !{!"_ZTSN6icu_776LocaleE", !36, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
 !40 = !{!"p1 _ZTSN6icu_7710CharStringE", !6, i64 0}
 !41 = !{!"p1 char16_t", !6, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"_ZTSN6icu_776number4impl8Modifier10ParametersE", !46, i64 0, !47, i64 8, !48, i64 12}
-!46 = !{!"p1 _ZTSN6icu_776number4impl13ModifierStoreE", !6, i64 0}
-!47 = !{!"_ZTSN6icu_776number4impl6SignumE", !7, i64 0}
-!48 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}
-!49 = !{!23, !31, i64 32}
-!50 = !{!51, !63, i64 208}
-!51 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !24, i64 0, !52, i64 8, !56, i64 104, !61, i64 144, !62, i64 156, !29, i64 168, !7, i64 172, !5, i64 184, !63, i64 192, !63, i64 200, !63, i64 208, !64, i64 216, !71, i64 416, !73, i64 440, !9, i64 480, !9, i64 484, !27, i64 488}
-!52 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !53, i64 4, !27, i64 16, !55, i64 20, !37, i64 24, !30, i64 88}
-!53 = !{!"_ZTSN6icu_776number4impl7GrouperE", !28, i64 0, !28, i64 2, !28, i64 4, !54, i64 8}
-!54 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
-!55 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
-!56 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !57, i64 0, !60, i64 32, !27, i64 36}
-!57 = !{!"_ZTSN6icu_776number9PrecisionE", !58, i64 0, !7, i64 8, !59, i64 24}
-!58 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
-!59 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
-!60 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
-!61 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
-!62 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !27, i64 8}
-!63 = !{!"p1 _ZTSN6icu_776number4impl8ModifierE", !6, i64 0}
-!64 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !18, i64 0, !65, i64 24, !65, i64 40, !66, i64 56, !69, i64 96}
-!65 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !19, i64 0, !27, i64 8}
-!66 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !24, i64 0, !67, i64 8, !31, i64 32}
-!67 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !68, i64 8, !14, i64 16}
-!68 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
-!69 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !19, i64 0, !37, i64 8, !70, i64 72, !27, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !45, i64 88}
-!70 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
-!71 = !{!"_ZTSN6icu_7711MeasureUnitE", !36, i64 0, !72, i64 8, !28, i64 16, !7, i64 18}
-!72 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
-!73 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !74, i64 0, !14, i64 32}
-!74 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !75, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!75 = !{!"p1 long", !6, i64 0}
-!76 = !{!23, !27, i64 17}
-!77 = !{i8 0, i8 2}
-!78 = !{}
-!79 = !{!23, !7, i64 16}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !47, i64 0}
+!46 = !{!"_ZTSN6icu_776number4impl8Modifier10ParametersE", !47, i64 0, !48, i64 8, !49, i64 12}
+!47 = !{!"p1 _ZTSN6icu_776number4impl13ModifierStoreE", !6, i64 0}
+!48 = !{!"_ZTSN6icu_776number4impl6SignumE", !7, i64 0}
+!49 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}
+!50 = !{!23, !31, i64 32}
+!51 = !{!52, !64, i64 208}
+!52 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !24, i64 0, !53, i64 8, !57, i64 104, !62, i64 144, !63, i64 156, !29, i64 168, !7, i64 172, !5, i64 184, !64, i64 192, !64, i64 200, !64, i64 208, !65, i64 216, !72, i64 416, !74, i64 440, !9, i64 480, !9, i64 484, !27, i64 488}
+!53 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !54, i64 4, !27, i64 16, !56, i64 20, !37, i64 24, !30, i64 88}
+!54 = !{!"_ZTSN6icu_776number4impl7GrouperE", !28, i64 0, !28, i64 2, !28, i64 4, !55, i64 8}
+!55 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
+!56 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
+!57 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !58, i64 0, !61, i64 32, !27, i64 36}
+!58 = !{!"_ZTSN6icu_776number9PrecisionE", !59, i64 0, !7, i64 8, !60, i64 24}
+!59 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
+!60 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
+!61 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
+!62 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
+!63 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !27, i64 8}
+!64 = !{!"p1 _ZTSN6icu_776number4impl8ModifierE", !6, i64 0}
+!65 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !18, i64 0, !66, i64 24, !66, i64 40, !67, i64 56, !70, i64 96}
+!66 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !19, i64 0, !27, i64 8}
+!67 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !24, i64 0, !68, i64 8, !31, i64 32}
+!68 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !69, i64 8, !14, i64 16}
+!69 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
+!70 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !19, i64 0, !37, i64 8, !71, i64 72, !27, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !46, i64 88}
+!71 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
+!72 = !{!"_ZTSN6icu_7711MeasureUnitE", !36, i64 0, !73, i64 8, !28, i64 16, !7, i64 18}
+!73 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
+!74 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !75, i64 0, !14, i64 32}
+!75 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !76, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!76 = !{!"p1 long", !6, i64 0}
+!77 = !{!23, !27, i64 17}
+!78 = !{i8 0, i8 2}
+!79 = !{}
+!80 = !{!23, !7, i64 16}

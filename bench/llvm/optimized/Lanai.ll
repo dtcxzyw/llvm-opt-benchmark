@@ -591,13 +591,13 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i
   store i32 %84, ptr %30, align 8, !tbaa !67, !noalias !42
   %97 = call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr %96, i64 %87, i1 noundef zeroext false) #13, !noalias !42
   %98 = sub i32 %.sroa.020.027, %84
-  store i8 0, ptr %26, align 8, !alias.scope !70
-  %99 = load i16, ptr %27, align 1, !alias.scope !70
+  store i8 0, ptr %26, align 8, !alias.scope !71
+  %99 = load i16, ptr %27, align 1, !alias.scope !71
   %100 = and i16 %99, -1024
-  store ptr %97, ptr %5, align 8, !tbaa !75, !alias.scope !70
+  store ptr %97, ptr %5, align 8, !tbaa !76, !alias.scope !71
   %101 = or disjoint i16 %100, 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !76
-  store i16 %101, ptr %27, align 1, !alias.scope !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !77
+  store i16 %101, ptr %27, align 1, !alias.scope !77
   %102 = load ptr, ptr %3, align 8, !tbaa !64, !noalias !42
   %103 = icmp eq ptr %102, %29
   br i1 %103, label %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i, label %104
@@ -611,21 +611,21 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i: ; preds = %104, %_ZN4llvm11Sma
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 105:                                              ; preds = %76
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %106 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !80
-  %107 = load ptr, ptr %35, align 16, !tbaa !45, !noalias !80
-  %108 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %106, ptr noundef %107) #13, !noalias !80
+  call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  %106 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !81
+  %107 = load ptr, ptr %35, align 16, !tbaa !45, !noalias !81
+  %108 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %106, ptr noundef %107) #13, !noalias !81
   %109 = extractvalue { i64, i64 } %108, 1
   %.sroa.3.8.extract.trunc.i.i53.i = trunc i64 %109 to i32
   %110 = icmp ugt i32 %.sroa.3.8.extract.trunc.i.i53.i, 39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !81
-  store i8 2, ptr %26, align 8, !tbaa !58, !alias.scope !81
-  %111 = load i16, ptr %27, align 1, !alias.scope !81
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !82
+  store i8 2, ptr %26, align 8, !tbaa !58, !alias.scope !82
+  %111 = load i16, ptr %27, align 1, !alias.scope !82
   %112 = and i16 %111, -1024
-  store i32 4, ptr %28, align 8, !tbaa !32, !alias.scope !81
+  store i32 4, ptr %28, align 8, !tbaa !32, !alias.scope !82
   %113 = select i1 %110, i16 24, i16 8
   %114 = or disjoint i16 %113, %112
-  store i16 %114, ptr %27, align 1, !alias.scope !81
+  store i16 %114, ptr %27, align 1, !alias.scope !82
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 115:                                              ; preds = %.thread.i, %52
@@ -739,21 +739,21 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread79.i: ; preds = %_ZNK5c
   br i1 %171, label %.critedge51.i, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i
 
 .critedge51.i:                                    ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread79.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %172 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !87
-  %173 = load ptr, ptr %144, align 16, !tbaa !45, !noalias !87
-  %174 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %172, ptr noundef %173) #13, !noalias !87
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %172 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !88
+  %173 = load ptr, ptr %144, align 16, !tbaa !45, !noalias !88
+  %174 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %172, ptr noundef %173) #13, !noalias !88
   %175 = extractvalue { i64, i64 } %174, 1
   %.sroa.3.8.extract.trunc.i.i61.i = trunc i64 %175 to i32
   %176 = icmp ugt i32 %.sroa.3.8.extract.trunc.i.i61.i, 39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !88
-  store i8 2, ptr %26, align 8, !tbaa !58, !alias.scope !88
-  %177 = load i16, ptr %27, align 1, !alias.scope !88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !89
+  store i8 2, ptr %26, align 8, !tbaa !58, !alias.scope !89
+  %177 = load i16, ptr %27, align 1, !alias.scope !89
   %178 = and i16 %177, -1024
-  store i32 4, ptr %28, align 8, !tbaa !32, !alias.scope !88
+  store i32 4, ptr %28, align 8, !tbaa !32, !alias.scope !89
   %179 = select i1 %176, i16 24, i16 8
   %180 = or disjoint i16 %179, %178
-  store i16 %180, ptr %27, align 1, !alias.scope !88
+  store i16 %180, ptr %27, align 1, !alias.scope !89
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread79.i, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.i, %159
@@ -764,25 +764,25 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
   br i1 %.0.i.i, label %183, label %187
 
 183:                                              ; preds = %182
-  store i8 0, ptr %26, align 8, !alias.scope !91
-  %184 = load i16, ptr %27, align 1, !alias.scope !91
+  store i8 0, ptr %26, align 8, !alias.scope !92
+  %184 = load i16, ptr %27, align 1, !alias.scope !92
   %185 = and i16 %184, -1024
   %186 = or disjoint i16 %185, 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !42
-  store i16 %186, ptr %27, align 1, !alias.scope !96
+  store i16 %186, ptr %27, align 1, !alias.scope !97
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 187:                                              ; preds = %182
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %188 = load ptr, ptr %144, align 16, !tbaa !45, !noalias !100
-  %189 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %188) #13, !noalias !100
-  store i8 1, ptr %26, align 8, !tbaa !58, !alias.scope !100
-  %190 = load i16, ptr %27, align 1, !alias.scope !100
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  %188 = load ptr, ptr %144, align 16, !tbaa !45, !noalias !101
+  %189 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %188) #13, !noalias !101
+  store i8 1, ptr %26, align 8, !tbaa !58, !alias.scope !101
+  %190 = load i16, ptr %27, align 1, !alias.scope !101
   %191 = and i16 %190, -1024
   %..i.i = select i1 %189, i16 256, i16 512
   %192 = or disjoint i16 %191, %..i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !42
-  store i16 %192, ptr %27, align 1, !alias.scope !100
+  store i16 %192, ptr %27, align 1, !alias.scope !101
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 193:                                              ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i
@@ -794,12 +794,12 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
 
 196:                                              ; preds = %193
   %197 = or disjoint i16 %195, 192
-  store i16 %197, ptr %27, align 1, !alias.scope !101
+  store i16 %197, ptr %27, align 1, !alias.scope !102
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 198:                                              ; preds = %193
   %199 = or disjoint i16 %195, 128
-  store i16 %199, ptr %27, align 1, !alias.scope !104
+  store i16 %199, ptr %27, align 1, !alias.scope !105
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 _ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit: ; preds = %48, %50, %51, %60, %73, %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i, %105, %.critedge51.i, %183, %187, %196, %198
@@ -809,7 +809,7 @@ _ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CC
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   %201 = getelementptr inbounds nuw i8, ptr %.028, i64 40
   %.not = icmp eq ptr %201, %25
-  br i1 %.not, label %._crit_edge, label %33
+  br i1 %.not, label %._crit_edge, label %33, !llvm.loop !108
 }
 
 declare void @_ZNK5clang7CodeGen14DefaultABIInfo9EmitVAArgERNS0_15CodeGenFunctionENS0_7AddressENS_8QualTypeENS0_12AggValueSlotE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::RValue") align 8, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::Address") align 8, i64, ptr noundef byval(%"class.clang::CodeGen::AggValueSlot") align 8) unnamed_addr #3
@@ -974,42 +974,44 @@ attributes #14 = { builtin nounwind }
 !65 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !16, i64 8, !16, i64 12}
 !66 = !{!65, !16, i64 12}
 !67 = !{!65, !16, i64 8}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!71, !73, !43}
-!71 = distinct !{!71, !72, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
-!72 = distinct !{!72, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
-!73 = distinct !{!73, !74, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
-!74 = distinct !{!74, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
-!75 = !{!59, !28, i64 0}
-!76 = !{!73, !43}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE: argument 0"}
-!79 = distinct !{!79, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE"}
-!80 = !{!78, !43}
-!81 = !{!82, !78, !43}
-!82 = distinct !{!82, !83, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
-!83 = distinct !{!83, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE: argument 0"}
-!86 = distinct !{!86, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE"}
-!87 = !{!85, !43}
-!88 = !{!89, !85, !43}
-!89 = distinct !{!89, !90, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
-!90 = distinct !{!90, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
-!91 = !{!92, !94, !43}
-!92 = distinct !{!92, !93, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
-!93 = distinct !{!93, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
-!94 = distinct !{!94, !95, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
-!95 = distinct !{!95, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
-!96 = !{!94, !43}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
-!99 = distinct !{!99, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
-!100 = !{!98, !43}
-!101 = !{!102, !43}
-!102 = distinct !{!102, !103, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
-!103 = distinct !{!103, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
-!104 = !{!105, !43}
-!105 = distinct !{!105, !106, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
-!106 = distinct !{!106, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!72, !74, !43}
+!72 = distinct !{!72, !73, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
+!73 = distinct !{!73, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
+!74 = distinct !{!74, !75, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
+!75 = distinct !{!75, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
+!76 = !{!59, !28, i64 0}
+!77 = !{!74, !43}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE: argument 0"}
+!80 = distinct !{!80, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE"}
+!81 = !{!79, !43}
+!82 = !{!83, !79, !43}
+!83 = distinct !{!83, !84, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
+!84 = distinct !{!84, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE: argument 0"}
+!87 = distinct !{!87, !"_ZNK12_GLOBAL__N_112LanaiABIInfo17getIndirectResultEN5clang8QualTypeEbRNS0_7CCStateE"}
+!88 = !{!86, !43}
+!89 = !{!90, !86, !43}
+!90 = distinct !{!90, !91, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
+!91 = distinct !{!91, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
+!92 = !{!93, !95, !43}
+!93 = distinct !{!93, !94, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
+!94 = distinct !{!94, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
+!95 = distinct !{!95, !96, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
+!96 = distinct !{!96, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
+!97 = !{!95, !43}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
+!100 = distinct !{!100, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
+!101 = !{!99, !43}
+!102 = !{!103, !43}
+!103 = distinct !{!103, !104, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
+!104 = distinct !{!104, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
+!105 = !{!106, !43}
+!106 = distinct !{!106, !107, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
+!107 = distinct !{!107, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
+!108 = distinct !{!108, !70}

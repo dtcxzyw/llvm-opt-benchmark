@@ -304,7 +304,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i8 %236, ptr %232, align 1
   %238 = add i32 %233, -1
   %239 = icmp eq i32 %238, 0
-  br i1 %239, label %240, label %.preheader32, !llvm.loop !8
+  br i1 %239, label %240, label %.preheader32, !llvm.loop !9
 
 240:                                              ; preds = %.preheader32
   %241 = sub nsw i32 %127, %230
@@ -321,7 +321,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i8 %247, ptr %243, align 1
   %249 = add i32 %244, -1
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %.preheader31, !llvm.loop !9
+  br i1 %250, label %251, label %.preheader31, !llvm.loop !10
 
 251:                                              ; preds = %.preheader31
   %252 = sub i32 %241, %24
@@ -347,7 +347,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i8 %265, ptr %261, align 1
   %267 = add i32 %262, -1
   %268 = icmp eq i32 %267, 0
-  br i1 %268, label %269, label %.preheader33, !llvm.loop !10
+  br i1 %268, label %269, label %.preheader33, !llvm.loop !11
 
 269:                                              ; preds = %.preheader33
   %270 = sub nsw i32 %127, %203
@@ -381,7 +381,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i8 %289, ptr %287, align 1
   %291 = add i32 %280, -3
   %292 = icmp ugt i32 %291, 2
-  br i1 %292, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %292, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %274
   %293 = phi ptr [ %275, %274 ], [ %290, %.preheader ]
@@ -444,7 +444,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i16 %331, ptr %327, align 2
   %333 = add i64 %328, -1
   %334 = icmp eq i64 %333, 0
-  br i1 %334, label %.loopexit34, label %326, !llvm.loop !12
+  br i1 %334, label %.loopexit34, label %326, !llvm.loop !13
 
 335:                                              ; preds = %318
   %336 = getelementptr i8, ptr %319, i64 -2
@@ -465,7 +465,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   store i16 %342, ptr %346, align 2
   %349 = add i64 %347, -1
   %350 = icmp eq i64 %349, 0
-  br i1 %350, label %.loopexit34, label %345, !llvm.loop !13
+  br i1 %350, label %.loopexit34, label %345, !llvm.loop !14
 
 .loopexit34:                                      ; preds = %345, %326
   %351 = phi ptr [ %332, %326 ], [ %348, %345 ]
@@ -509,7 +509,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   %381 = zext i8 %376 to i32
   %382 = and i32 %381, 16
   %383 = icmp eq i32 %382, 0
-  br i1 %383, label %.preheader36, label %.loopexit38
+  br i1 %383, label %.preheader36, label %.loopexit38, !llvm.loop !15
 
 384:                                              ; preds = %.preheader39
   %385 = and i32 %94, 64
@@ -534,7 +534,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   %402 = lshr i64 %92, %401
   %403 = sub i32 %91, %400
   %404 = icmp eq i8 %399, 0
-  br i1 %404, label %.loopexit40, label %.preheader39
+  br i1 %404, label %.loopexit40, label %.preheader39, !llvm.loop !16
 
 405:                                              ; preds = %384
   %406 = and i32 %94, 32
@@ -549,7 +549,7 @@ define dso_local void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %
   %413 = icmp ult ptr %409, %9
   %414 = icmp ult ptr %410, %18
   %415 = select i1 %413, i1 %414, i1 false
-  br i1 %415, label %48, label %.loopexit42, !llvm.loop !14
+  br i1 %415, label %48, label %.loopexit42, !llvm.loop !17
 
 .loopexit37:                                      ; preds = %202, %.preheader36, %405
   %416 = phi ptr [ @.str.2, %405 ], [ @.str.1, %.preheader36 ], [ @.str, %202 ]
@@ -610,13 +610,16 @@ attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !6, !7, !8}

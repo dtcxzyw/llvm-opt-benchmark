@@ -1405,7 +1405,7 @@ default.unreachable:                              ; preds = %80
 
 90:                                               ; preds = %87, %84, %81
   %.175.in = phi ptr [ %72, %81 ], [ %75, %84 ], [ %74, %87 ]
-  %.175 = load ptr, ptr %.175.in, align 8, !tbaa !74
+  %.175 = load ptr, ptr %.175.in, align 8, !tbaa !75
   %91 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %.175, ptr noundef null, i32 noundef %2) #7
   %.not94 = icmp eq i32 %91, 0
   br i1 %.not94, label %.thread98, label %76
@@ -1415,7 +1415,7 @@ default.unreachable:                              ; preds = %80
   %94 = load ptr, ptr %12, align 8, !tbaa !65
   %95 = tail call i32 @OPENSSL_sk_num(ptr noundef %94) #7
   %96 = icmp slt i32 %93, %95
-  br i1 %96, label %.lr.ph, label %.loopexit, !llvm.loop !75
+  br i1 %96, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %92, %.preheader, %43
   %97 = load ptr, ptr %17, align 8, !tbaa !21
@@ -1498,7 +1498,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, 
   br i1 %27, label %101, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %2, align 8, !tbaa !76
+  %29 = load ptr, ptr %2, align 8, !tbaa !77
   %.not63 = icmp eq ptr %29, null
   br i1 %.not63, label %34, label %30
 
@@ -1530,7 +1530,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, 
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !77
+  %47 = load ptr, ptr %46, align 8, !tbaa !78
   %.not65 = icmp eq ptr %47, null
   br i1 %.not65, label %65, label %48
 
@@ -1546,7 +1546,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, 
   br i1 %54, label %101, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %46, align 8, !tbaa !77
+  %56 = load ptr, ptr %46, align 8, !tbaa !78
   %57 = tail call ptr @ossl_x509_algor_mgf1_decode(ptr noundef %56) #7
   %.not66 = icmp eq ptr %57, null
   br i1 %.not66, label %62, label %58
@@ -1609,7 +1609,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, 
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !78
+  %92 = load ptr, ptr %91, align 8, !tbaa !79
   %.not70 = icmp eq ptr %92, null
   br i1 %.not70, label %96, label %93
 
@@ -1839,7 +1839,7 @@ define internal fastcc i32 @rsa_int_import_from(ptr noundef %0, ptr noundef %1, 
   %5 = alloca i32, align 4
   %6 = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %1) #7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !79
+  %8 = load ptr, ptr %7, align 8, !tbaa !80
   %9 = tail call ptr @ossl_rsa_new_with_ctx(ptr noundef %8) #7
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
@@ -1857,7 +1857,7 @@ define internal fastcc i32 @rsa_int_import_from(ptr noundef %0, ptr noundef %1, 
 12:                                               ; preds = %3
   tail call void @RSA_clear_flags(ptr noundef nonnull %9, i32 noundef 61440) #7
   tail call void @RSA_set_flags(ptr noundef nonnull %9, i32 noundef %2) #7
-  %13 = load ptr, ptr %7, align 8, !tbaa !79
+  %13 = load ptr, ptr %7, align 8, !tbaa !80
   %14 = call i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %0, ptr noundef %13) #7
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.thread, label %15
@@ -2032,11 +2032,12 @@ attributes #7 = { nounwind }
 !69 = !{!41, !43, i64 80}
 !70 = !{!41, !43, i64 88}
 !71 = !{!41, !43, i64 96}
-!72 = distinct !{!72, !73}
+!72 = distinct !{!72, !73, !74}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!43, !43, i64 0}
-!75 = distinct !{!75, !73}
-!76 = !{!4, !5, i64 0}
-!77 = !{!4, !5, i64 8}
-!78 = !{!4, !9, i64 24}
-!79 = !{!53, !28, i64 8}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = !{!43, !43, i64 0}
+!76 = distinct !{!76, !73, !74}
+!77 = !{!4, !5, i64 0}
+!78 = !{!4, !5, i64 8}
+!79 = !{!4, !9, i64 24}
+!80 = !{!53, !28, i64 8}

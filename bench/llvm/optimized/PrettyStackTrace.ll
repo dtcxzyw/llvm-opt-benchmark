@@ -60,22 +60,22 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm15setBugReportMsgEPKc(ptr noundef %0) local_unnamed_addr #2 {
-  store ptr %0, ptr @_ZL12BugReportMsg, align 8, !tbaa !13
+  store ptr %0, ptr @_ZL12BugReportMsg, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4llvm15getBugReportMsgEv() local_unnamed_addr #3 {
-  %1 = load ptr, ptr @_ZL12BugReportMsg, align 8, !tbaa !13
+  %1 = load ptr, ptr @_ZL12BugReportMsg, align 8, !tbaa !14
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq i32 %4, %2
   %or.cond.i = or i1 %5, %6
@@ -84,14 +84,14 @@ define dso_local void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull a
 7:                                                ; preds = %1
   %8 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %8)
-  store i32 %2, ptr %3, align 4, !tbaa !17
+  store i32 %2, ptr %3, align 4, !tbaa !18
   br label %_ZL23printForSigInfoIfNeededv.exit
 
 _ZL23printForSigInfoIfNeededv.exit:               ; preds = %1, %7
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %11, align 8, !tbaa !19
+  store ptr %10, ptr %11, align 8, !tbaa !20
   store ptr %0, ptr %9, align 8, !tbaa !3
   ret void
 }
@@ -111,16 +111,16 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm22PrettyStackTraceString5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %2
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -137,17 +137,17 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %2
 
 17:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %4, i64 %5, i1 false)
-  %18 = load ptr, ptr %8, align 8, !tbaa !28
+  %18 = load ptr, ptr %8, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %5
-  store ptr %19, ptr %8, align 8, !tbaa !28
+  store ptr %19, ptr %8, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %2, %14, %16, %17
   %.0.i.i = phi ptr [ %15, %14 ], [ %1, %17 ], [ %1, %16 ], [ %1, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %25, label %27
 
@@ -157,9 +157,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %2, %14, %16, %17
 
 27:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 10, ptr %23, align 1
-  %28 = load ptr, ptr %22, align 8, !tbaa !28
+  %28 = load ptr, ptr %22, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store ptr %29, ptr %22, align 8, !tbaa !28
+  store ptr %29, ptr %22, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
 _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %25, %27
@@ -169,10 +169,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %25, %27
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #4 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %4 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %5 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %6 = load i32, ptr %5, align 4, !tbaa !17
+  %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = icmp eq i32 %6, 0
   %8 = icmp eq i32 %6, %4
   %or.cond.i.i = or i1 %7, %8
@@ -181,23 +181,23 @@ define dso_local void @_ZN4llvm22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnu
 9:                                                ; preds = %2
   %10 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %10)
-  store i32 %4, ptr %5, align 4, !tbaa !17
+  store i32 %4, ptr %5, align 4, !tbaa !18
   br label %_ZN4llvm21PrettyStackTraceEntryC2Ev.exit
 
 _ZN4llvm21PrettyStackTraceEntryC2Ev.exit:         ; preds = %2, %9
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !19
+  store ptr %12, ptr %13, align 8, !tbaa !20
   store ptr %0, ptr %11, align 8, !tbaa !3
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %14, align 8, !tbaa !29
+  store ptr %15, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %16, align 8, !tbaa !32
+  store i64 0, ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 32, ptr %17, align 8, !tbaa !33
+  store i64 32, ptr %17, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   call void @llvm.va_start.p0(ptr nonnull %3)
   %18 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #21
@@ -208,7 +208,7 @@ _ZN4llvm21PrettyStackTraceEntryC2Ev.exit:         ; preds = %2, %9
 20:                                               ; preds = %_ZN4llvm21PrettyStackTraceEntryC2Ev.exit
   %21 = add nuw nsw i32 %18, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = load i64, ptr %16, align 8, !tbaa !32
+  %23 = load i64, ptr %16, align 8, !tbaa !33
   %24 = icmp eq i64 %23, %22
   br i1 %24, label %_ZN4llvm15SmallVectorImplIcE6resizeEm.exit, label %25
 
@@ -217,13 +217,13 @@ _ZN4llvm21PrettyStackTraceEntryC2Ev.exit:         ; preds = %2, %9
   br i1 %26, label %.sink.split.i.i, label %27
 
 27:                                               ; preds = %25
-  %28 = load i64, ptr %17, align 8, !tbaa !33
+  %28 = load i64, ptr %17, align 8, !tbaa !34
   %29 = icmp ult i64 %28, %22
   br i1 %29, label %30, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 30:                                               ; preds = %27
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %15, i64 noundef %22, i64 noundef 1) #21
-  %.pre.i.i = load i64, ptr %16, align 8, !tbaa !32
+  %.pre.i.i = load i64, ptr %16, align 8, !tbaa !33
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %30, %27
@@ -232,19 +232,19 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %30, %27
   br i1 %.not11.i.i, label %.sink.split.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %32 = load ptr, ptr %14, align 8, !tbaa !29
+  %32 = load ptr, ptr %14, align 8, !tbaa !30
   %33 = getelementptr i8, ptr %32, i64 %31
   %34 = sub i64 %22, %31
-  call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %34, i1 false), !tbaa !34
+  call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %34, i1 false), !tbaa !35
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i, %25
-  store i64 %22, ptr %16, align 8, !tbaa !32
+  store i64 %22, ptr %16, align 8, !tbaa !33
   br label %_ZN4llvm15SmallVectorImplIcE6resizeEm.exit
 
 _ZN4llvm15SmallVectorImplIcE6resizeEm.exit:       ; preds = %20, %.sink.split.i.i
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %35 = load ptr, ptr %14, align 8, !tbaa !29
+  %35 = load ptr, ptr %14, align 8, !tbaa !30
   %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %22, ptr noundef %1, ptr noundef nonnull %3) #21
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %37
@@ -266,14 +266,14 @@ declare void @llvm.va_end.p0(ptr) #8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm22PrettyStackTraceFormat5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !32
+  %6 = load i64, ptr %5, align 8, !tbaa !33
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %4, i64 noundef %6) #21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %13, label %15
 
@@ -283,9 +283,9 @@ define dso_local void @_ZNK4llvm22PrettyStackTraceFormat5printERNS_11raw_ostream
 
 15:                                               ; preds = %2
   store i8 10, ptr %11, align 1
-  %16 = load ptr, ptr %10, align 8, !tbaa !28
+  %16 = load ptr, ptr %10, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store ptr %17, ptr %10, align 8, !tbaa !28
+  store ptr %17, ptr %10, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
@@ -295,9 +295,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm23PrettyStackTraceProgram5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -310,14 +310,14 @@ define dso_local void @_ZNK4llvm23PrettyStackTraceProgram5printERNS_11raw_ostrea
 
 13:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %6, ptr noundef nonnull align 1 dereferenceable(19) @.str.1, i64 19, i1 false)
-  %14 = load ptr, ptr %5, align 8, !tbaa !28
+  %14 = load ptr, ptr %5, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 19
-  store ptr %15, ptr %5, align 8, !tbaa !28
+  store ptr %15, ptr %5, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !35
+  %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -326,8 +326,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   br label %26
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit23, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %20 = load ptr, ptr %5, align 8, !tbaa !28
-  %21 = load ptr, ptr %3, align 8, !tbaa !23
+  %20 = load ptr, ptr %5, align 8, !tbaa !29
+  %21 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i = icmp ult ptr %20, %21
   br i1 %.not.i, label %24, label %22
 
@@ -337,8 +337,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store ptr %25, ptr %5, align 8, !tbaa !28
-  store i8 10, ptr %20, align 1, !tbaa !34
+  store ptr %25, ptr %5, align 8, !tbaa !29
+  store i8 10, ptr %20, align 1, !tbaa !35
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
@@ -346,17 +346,17 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
 
 26:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEc.exit23 ]
-  %27 = load ptr, ptr %19, align 8, !tbaa !38
+  %27 = load ptr, ptr %19, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8, !tbaa !13
+  %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 32) #23
   %.not = icmp eq ptr %30, null
   %.not13 = icmp eq i64 %indvars.iv, 0
   br i1 %.not13, label %_ZN4llvm11raw_ostreamlsEc.exit16, label %31
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %5, align 8, !tbaa !28
-  %33 = load ptr, ptr %3, align 8, !tbaa !23
+  %32 = load ptr, ptr %5, align 8, !tbaa !29
+  %33 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i14 = icmp ult ptr %32, %33
   br i1 %.not.i14, label %36, label %34
 
@@ -366,16 +366,16 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %37, ptr %5, align 8, !tbaa !28
-  store i8 32, ptr %32, align 1, !tbaa !34
+  store ptr %37, ptr %5, align 8, !tbaa !29
+  store i8 32, ptr %32, align 1, !tbaa !35
   br label %_ZN4llvm11raw_ostreamlsEc.exit16
 
 _ZN4llvm11raw_ostreamlsEc.exit16:                 ; preds = %36, %34, %26
   br i1 %.not, label %.critedge, label %38
 
 38:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit16
-  %39 = load ptr, ptr %5, align 8, !tbaa !28
-  %40 = load ptr, ptr %3, align 8, !tbaa !23
+  %39 = load ptr, ptr %5, align 8, !tbaa !29
+  %40 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i17 = icmp ult ptr %39, %40
   br i1 %.not.i17, label %43, label %41
 
@@ -385,14 +385,14 @@ _ZN4llvm11raw_ostreamlsEc.exit16:                 ; preds = %36, %34, %26
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store ptr %44, ptr %5, align 8, !tbaa !28
-  store i8 34, ptr %39, align 1, !tbaa !34
+  store ptr %44, ptr %5, align 8, !tbaa !29
+  store i8 34, ptr %39, align 1, !tbaa !35
   br label %_ZN4llvm11raw_ostreamlsEc.exit19
 
 _ZN4llvm11raw_ostreamlsEc.exit19:                 ; preds = %41, %43
-  %45 = load ptr, ptr %19, align 8, !tbaa !38
+  %45 = load ptr, ptr %19, align 8, !tbaa !39
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !13
+  %47 = load ptr, ptr %46, align 8, !tbaa !14
   %.not.i20 = icmp eq ptr %47, null
   br i1 %.not.i20, label %_ZN4llvm9StringRefC2EPKc.exit, label %48
 
@@ -403,8 +403,8 @@ _ZN4llvm11raw_ostreamlsEc.exit19:                 ; preds = %41, %43
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit19, %48
   %50 = phi i64 [ %49, %48 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit19 ]
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %47, i64 %50, i1 noundef zeroext false) #21
-  %52 = load ptr, ptr %5, align 8, !tbaa !28
-  %53 = load ptr, ptr %3, align 8, !tbaa !23
+  %52 = load ptr, ptr %5, align 8, !tbaa !29
+  %53 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i21 = icmp ult ptr %52, %53
   br i1 %.not.i21, label %56, label %54
 
@@ -414,14 +414,14 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm11raw_ostre
 
 56:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store ptr %57, ptr %5, align 8, !tbaa !28
-  store i8 34, ptr %52, align 1, !tbaa !34
+  store ptr %57, ptr %5, align 8, !tbaa !29
+  store i8 34, ptr %52, align 1, !tbaa !35
   br label %_ZN4llvm11raw_ostreamlsEc.exit23
 
 .critedge:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit16
-  %58 = load ptr, ptr %19, align 8, !tbaa !38
+  %58 = load ptr, ptr %19, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !13
+  %60 = load ptr, ptr %59, align 8, !tbaa !14
   %.not.i24 = icmp eq ptr %60, null
   br i1 %.not.i24, label %_ZN4llvm9StringRefC2EPKc.exit25, label %61
 
@@ -436,10 +436,10 @@ _ZN4llvm9StringRefC2EPKc.exit25:                  ; preds = %.critedge, %61
 
 _ZN4llvm11raw_ostreamlsEc.exit23:                 ; preds = %56, %54, %_ZN4llvm9StringRefC2EPKc.exit25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load i32, ptr %16, align 8, !tbaa !35
+  %65 = load i32, ptr %16, align 8, !tbaa !36
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %26, label %._crit_edge, !llvm.loop !39
+  br i1 %67, label %26, label %._crit_edge, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -451,7 +451,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13
 define dso_local void @_ZN4llvm22EnablePrettyStackTraceEv() local_unnamed_addr #4 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm22EnablePrettyStackTraceEvE17HandlerRegistered acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !40
+  br i1 %2, label %3, label %6, !prof !41
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm22EnablePrettyStackTraceEvE17HandlerRegistered) #21
@@ -480,7 +480,7 @@ define dso_local void @_ZN4llvm44EnablePrettyStackTraceOnSigInfoForThisThreadEb(
 2:                                                ; preds = %1
   %3 = load atomic i8, ptr @_ZGVZN4llvm44EnablePrettyStackTraceOnSigInfoForThisThreadEbE17HandlerRegistered acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %8, !prof !40
+  br i1 %4, label %5, label %8, !prof !41
 
 5:                                                ; preds = %2
   %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm44EnablePrettyStackTraceOnSigInfoForThisThreadEbE17HandlerRegistered) #21
@@ -499,7 +499,7 @@ define dso_local void @_ZN4llvm44EnablePrettyStackTraceOnSigInfoForThisThreadEb(
 10:                                               ; preds = %1, %8
   %.sink = phi i32 [ %9, %8 ], [ 0, %1 ]
   %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  store i32 %.sink, ptr %11, align 4, !tbaa !17
+  store i32 %.sink, ptr %11, align 4, !tbaa !18
   ret void
 }
 
@@ -521,7 +521,7 @@ define dso_local void @_ZN4llvm23RestorePrettyStackStateEPKv(ptr noundef %0) loc
 define dso_local void @LLVMEnablePrettyStackTrace() local_unnamed_addr #4 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm22EnablePrettyStackTraceEvE17HandlerRegistered acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN4llvm22EnablePrettyStackTraceEv.exit, !prof !40
+  br i1 %2, label %3, label %_ZN4llvm22EnablePrettyStackTraceEv.exit, !prof !41
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm22EnablePrettyStackTraceEvE17HandlerRegistered) #21
@@ -539,14 +539,14 @@ _ZN4llvm22EnablePrettyStackTraceEv.exit:          ; preds = %0, %3, %5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceStringD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   store ptr %3, ptr %4, align 8, !tbaa !3
   %5 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq i32 %7, %5
   %or.cond.i.i = or i1 %8, %9
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceStringD0Ev(ptr nounde
 10:                                               ; preds = %1
   %11 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %11)
-  store i32 %5, ptr %6, align 4, !tbaa !17
+  store i32 %5, ptr %6, align 4, !tbaa !18
   br label %_ZN4llvm21PrettyStackTraceEntryD2Ev.exit
 
 _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %1, %10
@@ -565,14 +565,14 @@ _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   store ptr %3, ptr %4, align 8, !tbaa !3
   %5 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq i32 %7, %5
   %or.cond.i = or i1 %8, %9
@@ -581,7 +581,7 @@ define dso_local void @_ZN4llvm21PrettyStackTraceEntryD2Ev(ptr noundef nonnull a
 10:                                               ; preds = %1
   %11 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %11)
-  store i32 %5, ptr %6, align 4, !tbaa !17
+  store i32 %5, ptr %6, align 4, !tbaa !18
   br label %_ZL23printForSigInfoIfNeededv.exit
 
 _ZL23printForSigInfoIfNeededv.exit:               ; preds = %1, %10
@@ -590,14 +590,14 @@ _ZL23printForSigInfoIfNeededv.exit:               ; preds = %1, %10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23PrettyStackTraceProgramD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   store ptr %3, ptr %4, align 8, !tbaa !3
   %5 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq i32 %7, %5
   %or.cond.i.i = or i1 %8, %9
@@ -606,7 +606,7 @@ define linkonce_odr hidden void @_ZN4llvm23PrettyStackTraceProgramD0Ev(ptr nound
 10:                                               ; preds = %1
   %11 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %11)
-  store i32 %5, ptr %6, align 4, !tbaa !17
+  store i32 %5, ptr %6, align 4, !tbaa !18
   br label %_ZN4llvm21PrettyStackTraceEntryD2Ev.exit
 
 _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %1, %10
@@ -618,9 +618,9 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, label %6
@@ -630,14 +630,14 @@ define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD2Ev(ptr nounde
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit
 
 _ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %1, %6
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   store ptr %8, ptr %9, align 8, !tbaa !3
   %10 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = icmp eq i32 %12, 0
   %14 = icmp eq i32 %12, %10
   %or.cond.i.i = or i1 %13, %14
@@ -646,7 +646,7 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %1, %6
 15:                                               ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit
   %16 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %16)
-  store i32 %10, ptr %11, align 4, !tbaa !17
+  store i32 %10, ptr %11, align 4, !tbaa !18
   br label %_ZN4llvm21PrettyStackTraceEntryD2Ev.exit
 
 _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, %15
@@ -655,9 +655,9 @@ _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %_ZN4llvm11SmallVect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i, label %6
@@ -667,14 +667,14 @@ define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD0Ev(ptr nounde
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i:         ; preds = %6, %1
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL20PrettyStackTraceHead)
   store ptr %8, ptr %9, align 8, !tbaa !3
   %10 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
-  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = icmp eq i32 %12, 0
   %14 = icmp eq i32 %12, %10
   %or.cond.i.i.i = or i1 %13, %14
@@ -683,7 +683,7 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i:         ; preds = %6, %1
 15:                                               ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i
   %16 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
   tail call fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %16)
-  store i32 %10, ptr %11, align 4, !tbaa !17
+  store i32 %10, ptr %11, align 4, !tbaa !18
   br label %_ZN4llvm22PrettyStackTraceFormatD2Ev.exit
 
 _ZN4llvm22PrettyStackTraceFormatD2Ev.exit:        ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i, %15
@@ -701,9 +701,9 @@ define internal fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr no
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -712,9 +712,9 @@ define internal fastcc void @_ZL18PrintCurStackTraceRN4llvm11raw_ostreamE(ptr no
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.thread:          ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @.str.3, i64 12, i1 false)
-  %14 = load ptr, ptr %8, align 8, !tbaa !28
+  %14 = load ptr, ptr %8, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store ptr %15, ptr %8, align 8, !tbaa !28
+  store ptr %15, ptr %8, align 8, !tbaa !29
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %.lr.ph.i.i.preheader
 
@@ -733,7 +733,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %5
   %.012.i.i = phi ptr [ %.0911.i.i, %.lr.ph.i.i ], [ null, %.lr.ph.i.i.preheader ]
   %.0911.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %17, %.lr.ph.i.i.preheader ]
   %18 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !3, !noalias !41
+  %19 = load ptr, ptr %18, align 8, !tbaa !3, !noalias !42
   store ptr %.012.i.i, ptr %18, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -742,7 +742,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %5
   %.012.i10.i = phi ptr [ %.0911.i11.i, %.lr.ph.i9.i ], [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %.0911.i11.i = phi ptr [ %21, %.lr.ph.i9.i ], [ %.0911.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %.0911.i11.i, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !3, !noalias !44
+  %21 = load ptr, ptr %20, align 8, !tbaa !3, !noalias !45
   store ptr %.012.i10.i, ptr %20, align 8, !tbaa !3
   %.not.i12.i = icmp eq ptr %21, null
   br i1 %.not.i12.i, label %_ZL10PrintStackRN4llvm11raw_ostreamE.exit, label %.lr.ph.i9.i, !llvm.loop !11
@@ -754,9 +754,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %5
   %23 = zext i32 %.0717.i to i64
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %23) #21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !29
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -769,31 +769,31 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %5
 
 35:                                               ; preds = %.lr.ph.i
   store i16 2350, ptr %28, align 1
-  %36 = load ptr, ptr %27, align 8, !tbaa !28
+  %36 = load ptr, ptr %27, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  store ptr %37, ptr %27, align 8, !tbaa !28
+  store ptr %37, ptr %27, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %35, %33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #21
   call void @_ZN4llvm3sys8WatchdogC1Ej(ptr noundef nonnull align 1 dereferenceable(1) %2, i32 noundef 5) #21
-  %38 = load ptr, ptr %.018.i, align 8, !tbaa !15
+  %38 = load ptr, ptr %.018.i, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %.018.i, ptr noundef nonnull align 8 dereferenceable(48) %0) #21
   call void @_ZN4llvm3sys8WatchdogD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #21
   %41 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !19
+  %42 = load ptr, ptr %41, align 8, !tbaa !20
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %.lr.ph.i9.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %.lr.ph.i9.i, label %.lr.ph.i, !llvm.loop !48
 
 _ZL10PrintStackRN4llvm11raw_ostreamE.exit:        ; preds = %.lr.ph.i9.i, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %43 = phi ptr [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %17, %.lr.ph.i9.i ]
   store ptr %43, ptr %3, align 8, !tbaa !3
-  %44 = load ptr, ptr %8, align 8, !tbaa !28
+  %44 = load ptr, ptr %8, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !48
+  %46 = load ptr, ptr %45, align 8, !tbaa !49
   %.not.i3 = icmp eq ptr %44, %46
   br i1 %.not.i3, label %_ZN4llvm11raw_ostream5flushEv.exit, label %47
 
@@ -831,16 +831,16 @@ declare void @_ZN4llvm3sys16AddSignalHandlerEPFvPvES1_(ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL12CrashHandlerPv(ptr readnone captures(none) %0) #4 {
   %2 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #21
-  %3 = load ptr, ptr @_ZL12BugReportMsg, align 8, !tbaa !13
+  %3 = load ptr, ptr @_ZL12BugReportMsg, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %1
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -857,9 +857,9 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %1
 
 16:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %3, i64 %4, i1 false)
-  %17 = load ptr, ptr %7, align 8, !tbaa !28
+  %17 = load ptr, ptr %7, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %4
-  store ptr %18, ptr %7, align 8, !tbaa !28
+  store ptr %18, ptr %7, align 8, !tbaa !29
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1, %13, %15, %16
@@ -926,41 +926,42 @@ attributes #24 = { builtin nounwind }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
 !10 = distinct !{!10, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"vtable pointer", !7, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!20, !4, i64 8}
-!20 = !{!"_ZTSN4llvm21PrettyStackTraceEntryE", !4, i64 8}
-!21 = !{!22, !14, i64 16}
-!22 = !{!"_ZTSN4llvm22PrettyStackTraceStringE", !20, i64 0, !14, i64 16}
-!23 = !{!24, !14, i64 24}
-!24 = !{!"_ZTSN4llvm11raw_ostreamE", !25, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !26, i64 40, !27, i64 44}
-!25 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
-!26 = !{!"bool", !6, i64 0}
-!27 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
-!28 = !{!24, !14, i64 32}
-!29 = !{!30, !5, i64 0}
-!30 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !5, i64 0, !31, i64 8, !31, i64 16}
-!31 = !{!"long", !6, i64 0}
-!32 = !{!30, !31, i64 8}
-!33 = !{!30, !31, i64 16}
-!34 = !{!6, !6, i64 0}
-!35 = !{!36, !18, i64 16}
-!36 = !{!"_ZTSN4llvm23PrettyStackTraceProgramE", !20, i64 0, !18, i64 16, !37, i64 24}
-!37 = !{!"p2 omnipotent char", !5, i64 0}
-!38 = !{!36, !37, i64 24}
-!39 = distinct !{!39, !12}
-!40 = !{!"branch_weights", i32 1, i32 1048575}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
-!43 = distinct !{!43, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
-!46 = distinct !{!46, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
-!47 = distinct !{!47, !12}
-!48 = !{!24, !14, i64 16}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!21, !4, i64 8}
+!21 = !{!"_ZTSN4llvm21PrettyStackTraceEntryE", !4, i64 8}
+!22 = !{!23, !15, i64 16}
+!23 = !{!"_ZTSN4llvm22PrettyStackTraceStringE", !21, i64 0, !15, i64 16}
+!24 = !{!25, !15, i64 24}
+!25 = !{!"_ZTSN4llvm11raw_ostreamE", !26, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !27, i64 40, !28, i64 44}
+!26 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!27 = !{!"bool", !6, i64 0}
+!28 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!29 = !{!25, !15, i64 32}
+!30 = !{!31, !5, i64 0}
+!31 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !5, i64 0, !32, i64 8, !32, i64 16}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!31, !32, i64 8}
+!34 = !{!31, !32, i64 16}
+!35 = !{!6, !6, i64 0}
+!36 = !{!37, !19, i64 16}
+!37 = !{!"_ZTSN4llvm23PrettyStackTraceProgramE", !21, i64 0, !19, i64 16, !38, i64 24}
+!38 = !{!"p2 omnipotent char", !5, i64 0}
+!39 = !{!37, !38, i64 24}
+!40 = distinct !{!40, !12, !13}
+!41 = !{!"branch_weights", i32 1, i32 1048575}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
+!44 = distinct !{!44, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
+!47 = distinct !{!47, !"_ZSt10make_tupleIJRPN4llvm21PrettyStackTraceEntryES3_S3_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
+!48 = distinct !{!48, !12, !13}
+!49 = !{!25, !15, i64 16}

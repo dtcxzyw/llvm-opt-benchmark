@@ -108,12 +108,12 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   %52 = load i8, ptr %51, align 1, !tbaa !16
   %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %._crit_edge, label %17
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %50, %.._crit_edge_crit_edge
   %53 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %45, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %54, align 8, !tbaa !25
+  store i32 0, ptr %54, align 8, !tbaa !27
   %55 = icmp sgt i32 %53, 0
   br i1 %55, label %.lr.ph64, label %._crit_edge65
 
@@ -127,23 +127,23 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %58 ]
   %59 = phi i32 [ 0, %.lr.ph64 ], [ %64, %58 ]
   %60 = getelementptr inbounds nuw %struct.ChildContext, ptr %57, i64 %indvars.iv
-  %61 = load ptr, ptr %60, align 8, !tbaa !26
+  %61 = load ptr, ptr %60, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %63 = load i32, ptr %62, align 8, !tbaa !25
+  %63 = load i32, ptr %62, align 8, !tbaa !27
   %64 = or i32 %59, %63
-  store i32 %64, ptr %54, align 8, !tbaa !25
+  store i32 %64, ptr %54, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph68, label %58, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph68, label %58, !llvm.loop !31
 
 ._crit_edge65:                                    ; preds = %._crit_edge
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %65, align 4, !tbaa !31
+  store i32 0, ptr %65, align 4, !tbaa !33
   br label %.loopexit
 
 .lr.ph68:                                         ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %66, align 4, !tbaa !31
+  store i32 0, ptr %66, align 4, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !22
   %wide.trip.count73 = zext nneg i32 %53 to i64
@@ -153,9 +153,9 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %70 = phi i32 [ 0, %.lr.ph68 ], [ %78, %77 ]
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next71, %77 ]
   %71 = getelementptr inbounds nuw %struct.ChildContext, ptr %68, i64 %indvars.iv70
-  %72 = load ptr, ptr %71, align 8, !tbaa !26
+  %72 = load ptr, ptr %71, align 8, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  %74 = load i32, ptr %73, align 4, !tbaa !31
+  %74 = load i32, ptr %73, align 4, !tbaa !33
   %.not51 = icmp eq i32 %74, 0
   br i1 %.not51, label %77, label %75
 
@@ -166,14 +166,14 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   br i1 %or.cond, label %.sink.split, label %77
 
 .sink.split:                                      ; preds = %75
-  store i32 %74, ptr %66, align 4, !tbaa !31
+  store i32 %74, ptr %66, align 4, !tbaa !33
   br label %77
 
 77:                                               ; preds = %75, %.sink.split, %69
   %78 = phi i32 [ %70, %69 ], [ %74, %.sink.split ], [ %70, %75 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit, label %69, !llvm.loop !32
+  br i1 %exitcond74.not, label %.loopexit, label %69, !llvm.loop !34
 
 79:                                               ; preds = %17, %41
   %.044.ph = phi i32 [ %.1, %41 ], [ -12, %17 ]
@@ -198,7 +198,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %88 = load i32, ptr %80, align 8, !tbaa !17
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next.i, %89
-  br i1 %90, label %84, label %tee_close.exit, !llvm.loop !33
+  br i1 %90, label %84, label %tee_close.exit, !llvm.loop !35
 
 tee_close.exit:                                   ; preds = %84, %79
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -228,7 +228,7 @@ define internal i32 @tee_write(ptr noundef readonly captures(none) %0, ptr nound
   %.01113 = phi i32 [ %2, %.lr.ph ], [ %spec.select, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw %struct.ChildContext, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = tail call i32 @ffurl_write2(ptr noundef %12, ptr noundef %1, i32 noundef %2) #4
   %14 = icmp slt i32 %13, 0
   %spec.select = select i1 %14, i32 %13, i32 %.01113
@@ -236,7 +236,7 @@ define internal i32 @tee_write(ptr noundef readonly captures(none) %0, ptr nound
   %15 = load i32, ptr %5, align 8, !tbaa !17
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %9, label %._crit_edge, !llvm.loop !34
+  br i1 %17, label %9, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %9, %3
   %.011.lcssa = phi i32 [ %2, %3 ], [ %spec.select, %9 ]
@@ -267,7 +267,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_close(ptr noundef readonly ca
   %12 = load i32, ptr %3, align 8, !tbaa !17
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !33
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %7, %1
   %.010.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %7 ]
@@ -338,13 +338,15 @@ attributes #5 = { nounwind willreturn memory(read) }
 !22 = !{!18, !19, i64 8}
 !23 = !{!10, !5, i64 72}
 !24 = !{!10, !5, i64 80}
-!25 = !{!10, !13, i64 40}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"ChildContext", !28, i64 0}
-!28 = !{!"p1 _ZTS10URLContext", !6, i64 0}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!10, !13, i64 36}
-!32 = distinct !{!32, !30}
-!33 = distinct !{!33, !30}
-!34 = distinct !{!34, !30}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!10, !13, i64 40}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"ChildContext", !30, i64 0}
+!30 = !{!"p1 _ZTS10URLContext", !6, i64 0}
+!31 = distinct !{!31, !32, !26}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!10, !13, i64 36}
+!34 = distinct !{!34, !32, !26}
+!35 = distinct !{!35, !32, !26}
+!36 = distinct !{!36, !32, !26}

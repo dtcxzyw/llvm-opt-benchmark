@@ -235,7 +235,7 @@ define internal i32 @atrac1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %80 = load i8, ptr %79, align 1, !tbaa !46
   %81 = zext i8 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 %81, ptr %82, align 4, !tbaa !50
+  store i32 %81, ptr %82, align 4, !tbaa !51
   %83 = lshr i32 %77, 3
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %37, i64 %84
@@ -284,7 +284,7 @@ define internal i32 @atrac1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %121, ptr %122, align 1, !tbaa !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph74.i, label %109, !llvm.loop !52
+  br i1 %exitcond.not.i, label %.lr.ph74.i, label %109, !llvm.loop !53
 
 .preheader68.i:                                   ; preds = %.lr.ph74.i
   %123 = mul nuw nsw i32 %81, 10
@@ -329,13 +329,13 @@ define internal i32 @atrac1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %144, ptr %145, align 1, !tbaa !46
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count.i
-  br i1 %exitcond99.not.i, label %.preheader68.i, label %.lr.ph74.i, !llvm.loop !53
+  br i1 %exitcond99.not.i, label %.preheader68.i, label %.lr.ph74.i, !llvm.loop !54
 
 .loopexit66.i:                                    ; preds = %.loopexit.i, %.preheader.i
   %.sroa.7.3 = phi i32 [ %.sroa.7.2, %.preheader.i ], [ %.sroa.7.5, %.loopexit.i ]
   %.156.lcssa.i = phi i32 [ %.05586.i, %.preheader.i ], [ %168, %.loopexit.i ]
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 3
-  br i1 %exitcond120.not.i, label %200, label %.preheader.i, !llvm.loop !54
+  br i1 %exitcond120.not.i, label %200, label %.preheader.i, !llvm.loop !55
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.loopexit66.i
   %.sroa.7.2 = phi i32 [ %.sroa.7.3, %.loopexit66.i ], [ %143, %.preheader.i.preheader ]
@@ -388,7 +388,7 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   %172 = getelementptr inbounds nuw [52 x i16], ptr @bfu_start_short, i64 0, i64 %indvars.iv112.i
   %173 = getelementptr inbounds nuw [52 x i16], ptr @bfu_start_long, i64 0, i64 %indvars.iv112.i
   %.in.in.i = select i1 %.not.i44, ptr %173, ptr %172
-  %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !55
+  %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !56
   %.not65.i = icmp eq i32 %161, 0
   br i1 %.not65.i, label %195, label %.lr.ph79.i
 
@@ -425,7 +425,7 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   store float %194, ptr %gep.i, align 4, !tbaa !28
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count110.i
-  br i1 %exitcond111.not.i, label %.loopexit.i, label %180, !llvm.loop !57
+  br i1 %exitcond111.not.i, label %.loopexit.i, label %180, !llvm.loop !58
 
 195:                                              ; preds = %170
   %196 = zext i16 %.in.i to i64
@@ -439,7 +439,7 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   %.sroa.7.5 = phi i32 [ %.sroa.7.4, %195 ], [ %191, %180 ]
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count115.i
-  br i1 %exitcond116.not.i, label %.loopexit66.i, label %152, !llvm.loop !58
+  br i1 %exitcond116.not.i, label %.loopexit66.i, label %152, !llvm.loop !59
 
 200:                                              ; preds = %.loopexit66.i
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %8) #7
@@ -453,7 +453,7 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   %.06278.i = phi i32 [ 0, %200 ], [ %.264.lcssa96.i, %._crit_edge.thread.i ]
   %.06576.i = phi i32 [ 0, %200 ], [ %288, %._crit_edge.thread.i ]
   %204 = getelementptr inbounds nuw [3 x i16], ptr @samples_per_band, i64 0, i64 %indvars.iv.i45
-  %205 = load i16, ptr %204, align 2, !tbaa !55
+  %205 = load i16, ptr %204, align 2, !tbaa !56
   %206 = zext i16 %205 to i32
   %207 = getelementptr inbounds nuw [3 x i32], ptr %35, i64 0, i64 %indvars.iv.i45
   %208 = load i32, ptr %207, align 4, !tbaa !47
@@ -516,8 +516,8 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   %.06771.us.i = phi i32 [ %259, %at1_imdct.exit.loopexit.us.i ], [ 0, %.lr.ph.i ]
   %237 = zext i32 %.26472.us.i to i64
   %238 = getelementptr inbounds nuw [512 x float], ptr %26, i64 0, i64 %237
-  %239 = load ptr, ptr %229, align 8, !tbaa !59
-  %240 = load ptr, ptr %230, align 8, !tbaa !61
+  %239 = load ptr, ptr %229, align 8, !tbaa !60
+  %240 = load ptr, ptr %230, align 8, !tbaa !62
   %241 = getelementptr float, ptr %238, i64 %234
   br label %.lr.ph.i.us.i
 
@@ -532,7 +532,7 @@ at1_unpack_dequant.exit.thread:                   ; preds = %152
   store float %244, ptr %245, align 4, !tbaa !28
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %at1_imdct.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !62
+  br i1 %exitcond.not.i.us.i, label %at1_imdct.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !63
 
 at1_imdct.exit.loopexit.us.i:                     ; preds = %.lr.ph.i.us.i
   %247 = add i32 %.06771.us.i, %.06576.i
@@ -554,7 +554,7 @@ at1_imdct.exit.loopexit.us.i:                     ; preds = %.lr.ph.i.us.i
   %260 = add i32 %.26472.us.i, %.06891.i
   %261 = add nuw nsw i32 %.06074.us.i, 1
   %exitcond82.not.i = icmp eq i32 %261, %smax81.i
-  br i1 %exitcond82.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i.us.i, !llvm.loop !63
+  br i1 %exitcond82.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i.us.i, !llvm.loop !64
 
 at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdct.exit.i
   %262 = phi ptr [ %276, %at1_imdct.exit.i ], [ %.pre85.i, %.lr.ph.i ]
@@ -567,8 +567,8 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   %265 = add i32 %.06771.i, %.06576.i
   %266 = zext i32 %265 to i64
   %267 = getelementptr inbounds nuw float, ptr %262, i64 %266
-  %268 = load ptr, ptr %229, align 8, !tbaa !59
-  %269 = load ptr, ptr %230, align 8, !tbaa !61
+  %268 = load ptr, ptr %229, align 8, !tbaa !60
+  %269 = load ptr, ptr %230, align 8, !tbaa !62
   call void %269(ptr noundef %268, ptr noundef %267, ptr noundef nonnull %264, i64 noundef 4) #7
   %270 = load ptr, ptr %29, align 8, !tbaa !34
   %271 = load ptr, ptr %235, align 8, !tbaa !36
@@ -585,7 +585,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   %280 = add i32 %.26472.i, %.06891.i
   %281 = add nuw nsw i32 %.06074.i, 1
   %exitcond.not.i47 = icmp eq i32 %281, %smax81.i
-  br i1 %exitcond.not.i47, label %._crit_edge.i, label %at1_imdct.exit.i, !llvm.loop !65
+  br i1 %exitcond.not.i47, label %._crit_edge.i, label %at1_imdct.exit.i, !llvm.loop !66
 
 ._crit_edge.i:                                    ; preds = %at1_imdct.exit.i, %at1_imdct.exit.loopexit.us.i
   %282 = phi ptr [ %256, %at1_imdct.exit.loopexit.us.i ], [ %276, %at1_imdct.exit.i ]
@@ -605,16 +605,16 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   %288 = phi i32 [ %220, %283 ], [ %220, %._crit_edge.i ], [ %219, %218 ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next.i48, 3
-  br i1 %exitcond84.not.i, label %289, label %203, !llvm.loop !66
+  br i1 %exitcond84.not.i, label %289, label %203, !llvm.loop !67
 
 289:                                              ; preds = %._crit_edge.thread.i
   %290 = load ptr, ptr %202, align 8, !tbaa !36
   %291 = load ptr, ptr %201, align 16, !tbaa !36
   store ptr %291, ptr %202, align 8, !tbaa !36
   store ptr %290, ptr %201, align 16, !tbaa !36
-  %292 = load ptr, ptr %31, align 8, !tbaa !67
+  %292 = load ptr, ptr %31, align 8, !tbaa !68
   %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv
-  %294 = load ptr, ptr %293, align 8, !tbaa !68
+  %294 = load ptr, ptr %293, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 2232, ptr nonnull %6) #7
   %295 = load ptr, ptr %30, align 16, !tbaa !36
@@ -633,7 +633,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %289, %.preheader
   store i32 1, ptr %2, align 4, !tbaa !47
@@ -763,25 +763,26 @@ attributes #7 = { nounwind }
 !45 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !46 = !{!8, !8, i64 0}
 !47 = !{!10, !10, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !10, i64 12}
-!51 = !{!"AT1SUCtx", !8, i64 0, !10, i64 12, !8, i64 16, !8, i64 32, !8, i64 2080, !8, i64 4128, !8, i64 4320, !8, i64 4512}
-!52 = distinct !{!52, !49}
-!53 = distinct !{!53, !49}
-!54 = distinct !{!54, !49}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"short", !8, i64 0}
-!57 = distinct !{!57, !49}
-!58 = distinct !{!58, !49}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS11AVTXContext", !7, i64 0}
-!61 = !{!7, !7, i64 0}
-!62 = distinct !{!62, !49}
-!63 = distinct !{!63, !49, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !49}
-!66 = distinct !{!66, !49}
-!67 = !{!42, !43, i64 96}
-!68 = !{!14, !14, i64 0}
-!69 = distinct !{!69, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!52, !10, i64 12}
+!52 = !{!"AT1SUCtx", !8, i64 0, !10, i64 12, !8, i64 16, !8, i64 32, !8, i64 2080, !8, i64 4128, !8, i64 4320, !8, i64 4512}
+!53 = distinct !{!53, !49, !50}
+!54 = distinct !{!54, !49, !50}
+!55 = distinct !{!55, !49, !50}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"short", !8, i64 0}
+!58 = distinct !{!58, !49, !50}
+!59 = distinct !{!59, !49, !50}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS11AVTXContext", !7, i64 0}
+!62 = !{!7, !7, i64 0}
+!63 = distinct !{!63, !49, !50}
+!64 = distinct !{!64, !49, !50, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !49, !50}
+!67 = distinct !{!67, !49, !50}
+!68 = !{!42, !43, i64 96}
+!69 = !{!14, !14, i64 0}
+!70 = distinct !{!70, !49, !50}

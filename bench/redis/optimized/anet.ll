@@ -220,7 +220,7 @@ define dso_local i32 @anetCloexec(i32 noundef %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #12
   %16 = load i32, ptr %15, align 4, !tbaa !5
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %11, label %.critedge2, !llvm.loop !11
+  br i1 %17, label %11, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %5, %14, %11, %.critedge14
   %.0 = phi i32 [ %3, %.critedge14 ], [ -1, %14 ], [ %12, %11 ], [ -1, %5 ]
@@ -344,11 +344,11 @@ define dso_local range(i32 -1, 1) i32 @anetSendTimeout(ptr noundef captures(addr
   %4 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %5 = sdiv i64 %2, 1000
-  store i64 %5, ptr %4, align 8, !tbaa !12
+  store i64 %5, ptr %4, align 8, !tbaa !13
   %6 = srem i64 %2, 1000
   %7 = mul nsw i64 %6, 1000
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !15
+  store i64 %7, ptr %8, align 8, !tbaa !16
   %9 = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %4, i32 noundef 16) #11
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %15
@@ -371,11 +371,11 @@ define dso_local range(i32 -1, 1) i32 @anetRecvTimeout(ptr noundef captures(addr
   %4 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %5 = sdiv i64 %2, 1000
-  store i64 %5, ptr %4, align 8, !tbaa !12
+  store i64 %5, ptr %4, align 8, !tbaa !13
   %6 = srem i64 %2, 1000
   %7 = mul nsw i64 %6, 1000
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !15
+  store i64 %7, ptr %8, align 8, !tbaa !16
   %9 = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %4, i32 noundef 16) #11
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %15
@@ -405,12 +405,12 @@ define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %5
-  store i32 4, ptr %6, align 8, !tbaa !16
+  store i32 4, ptr %6, align 8, !tbaa !17
   br label %10
 
 10:                                               ; preds = %9, %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !22
+  store i32 0, ptr %11, align 4, !tbaa !23
   %12 = and i32 %4, 6
   switch i32 %12, label %14 [
     i32 2, label %.sink.split
@@ -422,12 +422,12 @@ define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_
 
 .sink.split:                                      ; preds = %10, %13
   %.sink = phi i32 [ 10, %13 ], [ %12, %10 ]
-  store i32 %.sink, ptr %11, align 4, !tbaa !22
+  store i32 %.sink, ptr %11, align 4, !tbaa !23
   br label %14
 
 14:                                               ; preds = %.sink.split, %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %15, align 8, !tbaa !23
+  store i32 1, ptr %15, align 8, !tbaa !24
   %16 = call i32 @getaddrinfo(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %17 = icmp ne i32 %16, 0
   %18 = load i32, ptr %11, align 4
@@ -438,7 +438,7 @@ define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_
 20:                                               ; preds = %14
   %21 = icmp eq i32 %18, 2
   %22 = select i1 %21, i32 10, i32 2
-  store i32 %22, ptr %11, align 4, !tbaa !22
+  store i32 %22, ptr %11, align 4, !tbaa !23
   %23 = call i32 @getaddrinfo(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   br label %24
 
@@ -453,18 +453,18 @@ define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_
   br label %38
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8, !tbaa !24
+  %28 = load ptr, ptr %7, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !22
+  %30 = load i32, ptr %29, align 4, !tbaa !23
   %31 = icmp eq i32 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = trunc i64 %3 to i32
   %. = select i1 %31, i64 4, i64 8
   %.30 = select i1 %31, i32 2, i32 10
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.
   %36 = call ptr @inet_ntop(i32 noundef %.30, ptr noundef nonnull %35, ptr noundef %2, i32 noundef %34) #11
-  %37 = load ptr, ptr %7, align 8, !tbaa !24
+  %37 = load ptr, ptr %7, align 8, !tbaa !25
   call void @freeaddrinfo(ptr noundef %37) #11
   br label %38
 
@@ -509,13 +509,13 @@ define internal fastcc i32 @anetTcpGenericConnect(ptr noundef captures(address_i
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 6, ptr noundef nonnull @.str.14, i32 noundef %2) #11
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  store i32 1, ptr %12, align 8, !tbaa !23
+  store i32 1, ptr %12, align 8, !tbaa !24
   %13 = call i32 @getaddrinfo(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.preheader84, label %15
 
 .preheader84:                                     ; preds = %5
-  %.04995 = load ptr, ptr %9, align 8, !tbaa !24
+  %.04995 = load ptr, ptr %9, align 8, !tbaa !25
   %.not5596 = icmp eq ptr %.04995, null
   br i1 %.not5596, label %.thread76, label %.lr.ph98
 
@@ -533,11 +533,11 @@ define internal fastcc i32 @anetTcpGenericConnect(ptr noundef captures(address_i
 17:                                               ; preds = %.lr.ph98, %69
   %.04997 = phi ptr [ %.04995, %.lr.ph98 ], [ %.049, %69 ]
   %18 = getelementptr inbounds nuw i8, ptr %.04997, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !22
+  %19 = load i32, ptr %18, align 4, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %.04997, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !23
+  %21 = load i32, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %.04997, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !26
+  %23 = load i32, ptr %22, align 4, !tbaa !27
   %24 = call i32 @socket(i32 noundef %19, i32 noundef %21, i32 noundef %23) #11
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %69, label %26
@@ -594,7 +594,7 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   br i1 %.not59, label %.preheader, label %.thread79
 
 .preheader:                                       ; preds = %44
-  %.04891 = load ptr, ptr %10, align 8, !tbaa !24
+  %.04891 = load ptr, ptr %10, align 8, !tbaa !25
   %.not6092 = icmp eq ptr %.04891, null
   br i1 %.not6092, label %.preheader._crit_edge, label %.lr.ph
 
@@ -605,30 +605,30 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
 
 47:                                               ; preds = %.lr.ph
   %48 = getelementptr inbounds nuw i8, ptr %.04893, i64 40
-  %.048 = load ptr, ptr %48, align 8, !tbaa !24
+  %.048 = load ptr, ptr %48, align 8, !tbaa !25
   %.not60 = icmp eq ptr %.048, null
-  br i1 %.not60, label %.preheader._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not60, label %.preheader._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader, %47
   %.04893 = phi ptr [ %.048, %47 ], [ %.04891, %.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %.04893, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !25
+  %50 = load ptr, ptr %49, align 8, !tbaa !26
   %51 = getelementptr inbounds nuw i8, ptr %.04893, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !28
+  %52 = load i32, ptr %51, align 8, !tbaa !29
   %53 = call i32 @bind(i32 noundef %24, ptr %50, i32 noundef %52) #11
   %.not61 = icmp eq i32 %53, -1
   br i1 %.not61, label %47, label %54
 
 54:                                               ; preds = %.lr.ph
-  %55 = load ptr, ptr %10, align 8, !tbaa !24
+  %55 = load ptr, ptr %10, align 8, !tbaa !25
   call void @freeaddrinfo(ptr noundef %55) #11
   br label %56
 
 56:                                               ; preds = %54, %anetNonBlock.exit.thread
   %57 = getelementptr inbounds nuw i8, ptr %.04997, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !25
+  %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = getelementptr inbounds nuw i8, ptr %.04997, i64 16
-  %60 = load i32, ptr %59, align 8, !tbaa !28
+  %60 = load i32, ptr %59, align 8, !tbaa !29
   %61 = call i32 @connect(i32 noundef %24, ptr %58, i32 noundef %60) #11
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %.loopexit
@@ -646,9 +646,9 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
 
 69:                                               ; preds = %17, %67
   %70 = getelementptr inbounds nuw i8, ptr %.04997, i64 40
-  %.049 = load ptr, ptr %70, align 8, !tbaa !24
+  %.049 = load ptr, ptr %70, align 8, !tbaa !25
   %.not55 = icmp eq ptr %.049, null
-  br i1 %.not55, label %.thread76, label %17, !llvm.loop !29
+  br i1 %.not55, label %.thread76, label %17, !llvm.loop !30
 
 .thread76:                                        ; preds = %69, %.preheader84
   %71 = tail call ptr @__errno_location() #12
@@ -658,7 +658,7 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   br label %.loopexit
 
 .preheader._crit_edge.loopexit:                   ; preds = %47
-  %.pre = load ptr, ptr %10, align 8, !tbaa !24
+  %.pre = load ptr, ptr %10, align 8, !tbaa !25
   br label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader._crit_edge.loopexit
@@ -676,7 +676,7 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
 
 .loopexit:                                        ; preds = %63, %56, %.thread76, %.thread72
   %.3 = phi i32 [ -1, %.thread72 ], [ -1, %.thread76 ], [ %24, %56 ], [ %24, %63 ]
-  %79 = load ptr, ptr %9, align 8, !tbaa !24
+  %79 = load ptr, ptr %9, align 8, !tbaa !25
   call void @freeaddrinfo(ptr noundef %79) #11
   %80 = icmp ne i32 %.3, -1
   %81 = icmp eq ptr %3, null
@@ -713,7 +713,7 @@ define dso_local i32 @anetUnixGenericConnect(ptr noundef captures(address_is_nul
   br i1 %6, label %30, label %7
 
 7:                                                ; preds = %3
-  store i16 1, ptr %4, align 2, !tbaa !30
+  store i16 1, ptr %4, align 2, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %9 = call i64 @redis_strlcpy(ptr noundef nonnull %8, ptr noundef %1, i64 noundef 108) #11
   %10 = and i32 %2, 1
@@ -833,10 +833,10 @@ define internal fastcc i32 @_anetTcpServer(ptr noundef captures(address_is_null)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %3, ptr %13, align 4, !tbaa !22
+  store i32 %3, ptr %13, align 4, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 1, ptr %14, align 8, !tbaa !23
-  store i32 1, ptr %9, align 8, !tbaa !16
+  store i32 1, ptr %14, align 8, !tbaa !24
+  store i32 1, ptr %9, align 8, !tbaa !17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %sub_0
 
@@ -881,7 +881,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not43, label %.preheader, label %31
 
 .preheader:                                       ; preds = %28
-  %.058 = load ptr, ptr %10, align 8, !tbaa !24
+  %.058 = load ptr, ptr %10, align 8, !tbaa !25
   %.not4459 = icmp eq ptr %.058, null
   br i1 %.not4459, label %._crit_edge, label %.lr.ph
 
@@ -893,11 +893,11 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph:                                           ; preds = %.preheader, %69
   %.060 = phi ptr [ %.0, %69 ], [ %.058, %.preheader ]
   %33 = getelementptr inbounds nuw i8, ptr %.060, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !22
+  %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %.060, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !23
+  %36 = load i32, ptr %35, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %.060, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !26
+  %38 = load i32, ptr %37, align 4, !tbaa !27
   %39 = call i32 @socket(i32 noundef %34, i32 noundef %36, i32 noundef %38) #11
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %69, label %41
@@ -942,9 +942,9 @@ anetSetReuseAddr.exit.thread:                     ; preds = %48
 54:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   %55 = getelementptr inbounds nuw i8, ptr %.060, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %56 = load ptr, ptr %55, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %.060, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !28
+  %58 = load i32, ptr %57, align 8, !tbaa !29
   %59 = call i32 @bind(i32 noundef range(i32 0, -1) %39, ptr %56, i32 noundef %58) #11
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %64, label %61
@@ -965,9 +965,9 @@ anetSetReuseAddr.exit.thread:                     ; preds = %48
 
 69:                                               ; preds = %.lr.ph
   %70 = getelementptr inbounds nuw i8, ptr %.060, i64 40
-  %.0 = load ptr, ptr %70, align 8, !tbaa !24
+  %.0 = load ptr, ptr %70, align 8, !tbaa !25
   %.not44 = icmp eq ptr %.0, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   %71 = tail call ptr @__errno_location() #12
@@ -981,7 +981,7 @@ anetSetReuseAddr.exit.thread:                     ; preds = %48
 
 anetListen.exit:                                  ; preds = %._crit_edge, %64, %61, %73
   %.2 = phi i32 [ -1, %73 ], [ -1, %._crit_edge ], [ -1, %64 ], [ %39, %61 ]
-  %75 = load ptr, ptr %10, align 8, !tbaa !24
+  %75 = load ptr, ptr %10, align 8, !tbaa !25
   call void @freeaddrinfo(ptr noundef %75) #11
   br label %76
 
@@ -1019,7 +1019,7 @@ define dso_local i32 @anetUnixServer(ptr noundef captures(address_is_null) %0, p
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %13, i8 0, i64 108, i1 false)
-  store i16 1, ptr %5, align 2, !tbaa !30
+  store i16 1, ptr %5, align 2, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %15 = call i64 @redis_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %1, i64 noundef 108) #11
   %16 = call i32 @bind(i32 noundef range(i32 0, -1) %10, ptr nonnull %5, i32 noundef 110) #11
@@ -1027,7 +1027,7 @@ define dso_local i32 @anetUnixServer(ptr noundef captures(address_is_null) %0, p
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %12
-  %19 = load i16, ptr %5, align 2, !tbaa !34
+  %19 = load i16, ptr %5, align 2, !tbaa !35
   %20 = icmp eq i16 %19, 1
   %21 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %21, %20
@@ -1078,7 +1078,7 @@ define dso_local i32 @anetTcpAccept(ptr noundef captures(address_is_null) %0, i3
   %12 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %12, align 4, !tbaa !5
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %8, label %anetGenericAccept.exit.thread, !llvm.loop !36
+  br i1 %14, label %8, label %anetGenericAccept.exit.thread, !llvm.loop !37
 
 anetGenericAccept.exit.thread:                    ; preds = %11
   %15 = call ptr @strerror(i32 noundef %13) #11
@@ -1086,7 +1086,7 @@ anetGenericAccept.exit.thread:                    ; preds = %11
   br label %38
 
 anetGenericAccept.exit:                           ; preds = %8
-  %16 = load i16, ptr %6, align 8, !tbaa !37
+  %16 = load i16, ptr %6, align 8, !tbaa !38
   %17 = icmp eq i16 %16, 2
   %.not22 = icmp eq ptr %2, null
   br i1 %17, label %18, label %28
@@ -1106,7 +1106,7 @@ anetGenericAccept.exit:                           ; preds = %8
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !39
+  %26 = load i16, ptr %25, align 2, !tbaa !40
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %26)
   %27 = zext i16 %rev.i to i32
   store i32 %27, ptr %4, align 4, !tbaa !5
@@ -1127,7 +1127,7 @@ anetGenericAccept.exit:                           ; preds = %8
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %36 = load i16, ptr %35, align 2, !tbaa !42
+  %36 = load i16, ptr %35, align 2, !tbaa !43
   %rev.i24 = call noundef i16 @llvm.bswap.i16(i16 %36)
   %37 = zext i16 %rev.i24 to i32
   store i32 %37, ptr %4, align 4, !tbaa !5
@@ -1157,7 +1157,7 @@ define dso_local i32 @anetUnixAccept(ptr noundef captures(address_is_null) %0, i
   %9 = tail call ptr @__errno_location() #12
   %10 = load i32, ptr %9, align 4, !tbaa !5
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge.i, !llvm.loop !36
+  br i1 %11, label %5, label %.critedge.i, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %8
   %12 = call ptr @strerror(i32 noundef %10) #11
@@ -1191,7 +1191,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   br i1 %13, label %42, label %14
 
 14:                                               ; preds = %11, %8
-  %15 = load i16, ptr %6, align 8, !tbaa !37
+  %15 = load i16, ptr %6, align 8, !tbaa !38
   switch i16 %15, label %42 [
     i16 2, label %16
     i16 10, label %26
@@ -1215,7 +1215,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %25 = load i16, ptr %24, align 2, !tbaa !39
+  %25 = load i16, ptr %24, align 2, !tbaa !40
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %25)
   br label %.thread.sink.split
 
@@ -1236,7 +1236,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %35 = load i16, ptr %34, align 2, !tbaa !42
+  %35 = load i16, ptr %34, align 2, !tbaa !43
   %rev.i61 = call noundef i16 @llvm.bswap.i16(i16 %35)
   br label %.thread.sink.split
 
@@ -1265,9 +1265,9 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.thread69
-  store i8 63, ptr %1, align 1, !tbaa !45
+  store i8 63, ptr %1, align 1, !tbaa !46
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 0, ptr %45, align 1, !tbaa !45
+  store i8 0, ptr %45, align 1, !tbaa !46
   br label %49
 
 46:                                               ; preds = %.thread69
@@ -1275,7 +1275,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %46
-  store i8 0, ptr %1, align 1, !tbaa !45
+  store i8 0, ptr %1, align 1, !tbaa !46
   br label %49
 
 49:                                               ; preds = %44, %48, %46, %42
@@ -1499,40 +1499,41 @@ attributes #13 = { nounwind willreturn memory(read) }
 !6 = !{!"int", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"timeval", !14, i64 0, !14, i64 8}
-!14 = !{!"long", !7, i64 0}
-!15 = !{!13, !14, i64 8}
-!16 = !{!17, !6, i64 0}
-!17 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !18, i64 24, !20, i64 32, !21, i64 40}
-!18 = !{!"p1 _ZTS8sockaddr", !19, i64 0}
-!19 = !{!"any pointer", !7, i64 0}
-!20 = !{!"p1 omnipotent char", !19, i64 0}
-!21 = !{!"p1 _ZTS8addrinfo", !19, i64 0}
-!22 = !{!17, !6, i64 4}
-!23 = !{!17, !6, i64 8}
-!24 = !{!21, !21, i64 0}
-!25 = !{!17, !18, i64 24}
-!26 = !{!17, !6, i64 12}
-!27 = distinct !{!27, !10}
-!28 = !{!17, !6, i64 16}
-!29 = distinct !{!29, !10}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"sockaddr_un", !32, i64 0, !7, i64 2}
-!32 = !{!"short", !7, i64 0}
-!33 = distinct !{!33, !10}
-!34 = !{!35, !32, i64 0}
-!35 = !{!"sockaddr", !32, i64 0, !7, i64 2}
-!36 = distinct !{!36, !10}
-!37 = !{!38, !32, i64 0}
-!38 = !{!"sockaddr_storage", !32, i64 0, !7, i64 2, !14, i64 120}
-!39 = !{!40, !32, i64 2}
-!40 = !{!"sockaddr_in", !32, i64 0, !32, i64 2, !41, i64 4, !7, i64 8}
-!41 = !{!"in_addr", !6, i64 0}
-!42 = !{!43, !32, i64 2}
-!43 = !{!"sockaddr_in6", !32, i64 0, !32, i64 2, !6, i64 4, !44, i64 8, !6, i64 24}
-!44 = !{!"in6_addr", !7, i64 0}
-!45 = !{!7, !7, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"timeval", !15, i64 0, !15, i64 8}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!14, !15, i64 8}
+!17 = !{!18, !6, i64 0}
+!18 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !19, i64 24, !21, i64 32, !22, i64 40}
+!19 = !{!"p1 _ZTS8sockaddr", !20, i64 0}
+!20 = !{!"any pointer", !7, i64 0}
+!21 = !{!"p1 omnipotent char", !20, i64 0}
+!22 = !{!"p1 _ZTS8addrinfo", !20, i64 0}
+!23 = !{!18, !6, i64 4}
+!24 = !{!18, !6, i64 8}
+!25 = !{!22, !22, i64 0}
+!26 = !{!18, !19, i64 24}
+!27 = !{!18, !6, i64 12}
+!28 = distinct !{!28, !10, !11}
+!29 = !{!18, !6, i64 16}
+!30 = distinct !{!30, !10, !11}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"sockaddr_un", !33, i64 0, !7, i64 2}
+!33 = !{!"short", !7, i64 0}
+!34 = distinct !{!34, !10, !11}
+!35 = !{!36, !33, i64 0}
+!36 = !{!"sockaddr", !33, i64 0, !7, i64 2}
+!37 = distinct !{!37, !10, !11}
+!38 = !{!39, !33, i64 0}
+!39 = !{!"sockaddr_storage", !33, i64 0, !7, i64 2, !15, i64 120}
+!40 = !{!41, !33, i64 2}
+!41 = !{!"sockaddr_in", !33, i64 0, !33, i64 2, !42, i64 4, !7, i64 8}
+!42 = !{!"in_addr", !6, i64 0}
+!43 = !{!44, !33, i64 2}
+!44 = !{!"sockaddr_in6", !33, i64 0, !33, i64 2, !6, i64 4, !45, i64 8, !6, i64 24}
+!45 = !{!"in6_addr", !7, i64 0}
+!46 = !{!7, !7, i64 0}

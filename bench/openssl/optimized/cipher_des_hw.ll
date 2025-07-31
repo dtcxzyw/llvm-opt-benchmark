@@ -83,10 +83,10 @@ define internal noundef i32 @cipher_hw_des_ecb_cipher(ptr noundef %0, ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @cipher_hw_des_copyctx(ptr noundef initializes((0, 328)) %0, ptr noundef readonly captures(none) %1) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false), !tbaa.struct !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false), !tbaa.struct !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %3, ptr %4, align 8, !tbaa !23
+  store ptr %3, ptr %4, align 8, !tbaa !24
   ret void
 }
 
@@ -138,7 +138,7 @@ define internal noundef i32 @cipher_hw_des_cbc_cipher(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.02729, i64 1073741824
   %20 = getelementptr inbounds nuw i8, ptr %.02531, i64 1073741824
   %21 = icmp ugt i64 %18, 1073741823
-  br i1 %21, label %13, label %._crit_edge, !llvm.loop !24
+  br i1 %21, label %13, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.027.lcssa = phi ptr [ %2, %.preheader ], [ %19, %13 ]
@@ -168,8 +168,8 @@ define internal noundef i32 @cipher_hw_des_ofb64_cipher(ptr noundef %0, ptr noun
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !25
-  store i32 %7, ptr %5, align 4, !tbaa !18
+  %7 = load i32, ptr %6, align 8, !tbaa !26
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = icmp ugt i64 %3, 1073741823
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -187,7 +187,7 @@ define internal noundef i32 @cipher_hw_des_ofb64_cipher(ptr noundef %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %.01718, i64 1073741824
   %14 = getelementptr inbounds nuw i8, ptr %.020, i64 1073741824
   %15 = icmp ugt i64 %12, 1073741823
-  br i1 %15, label %11, label %._crit_edge, !llvm.loop !26
+  br i1 %15, label %11, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %11, %4
   %.017.lcssa = phi ptr [ %2, %4 ], [ %13, %11 ]
@@ -202,8 +202,8 @@ define internal noundef i32 @cipher_hw_des_ofb64_cipher(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %16, %._crit_edge
-  %19 = load i32, ptr %5, align 4, !tbaa !18
-  store i32 %19, ptr %6, align 8, !tbaa !25
+  %19 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %19, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 1
 }
@@ -216,8 +216,8 @@ define internal noundef i32 @cipher_hw_des_cfb64_cipher(ptr noundef %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %8 = load i32, ptr %7, align 8, !tbaa !25
-  store i32 %8, ptr %5, align 4, !tbaa !18
+  %8 = load i32, ptr %7, align 8, !tbaa !26
+  store i32 %8, ptr %5, align 4, !tbaa !19
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -242,15 +242,15 @@ define internal noundef i32 @cipher_hw_des_cfb64_cipher(ptr noundef %0, ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %.032, i64 %.131
   %spec.select28 = call i64 @llvm.umin.i64(i64 %16, i64 %.131)
   %.not33 = icmp eq i64 %16, 0
-  br i1 %.not33, label %._crit_edge.loopexit, label %11, !llvm.loop !27
+  br i1 %.not33, label %._crit_edge.loopexit, label %11, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %.pre = load i32, ptr %5, align 4, !tbaa !18
+  %.pre = load i32, ptr %5, align 4, !tbaa !19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %19 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %8, %4 ]
-  store i32 %19, ptr %7, align 8, !tbaa !25
+  store i32 %19, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 1
 }
@@ -319,7 +319,7 @@ define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %0, ptr nound
   store i8 %35, ptr %25, align 1, !tbaa !3
   %36 = add nuw i64 %.03137, 1
   %exitcond.not = icmp eq i64 %36, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %37 = sub i64 %.03239, %.140
@@ -327,7 +327,7 @@ define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %0, ptr nound
   %39 = getelementptr inbounds nuw i8, ptr %.041, i64 %.140
   %spec.select36 = call i64 @llvm.umin.i64(i64 %37, i64 %.140)
   %.not45 = icmp eq i64 %37, 0
-  br i1 %.not45, label %._crit_edge42, label %.preheader, !llvm.loop !29
+  br i1 %.not45, label %._crit_edge42, label %.preheader, !llvm.loop !30
 
 ._crit_edge42:                                    ; preds = %._crit_edge, %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
@@ -361,7 +361,7 @@ define internal noundef i32 @cipher_hw_des_cfb8_cipher(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.01718, i64 1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.020, i64 1073741824
   %17 = icmp ugt i64 %14, 1073741823
-  br i1 %17, label %9, label %._crit_edge, !llvm.loop !30
+  br i1 %17, label %9, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %9, %4
   %.017.lcssa = phi ptr [ %2, %4 ], [ %15, %9 ]
@@ -412,20 +412,21 @@ attributes #7 = { nounwind }
 !11 = !{!"p1 omnipotent char", !8, i64 0}
 !12 = !{!"p1 _ZTS17prov_cipher_hw_st", !8, i64 0}
 !13 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{i64 0, i64 16, !3, i64 16, i64 16, !3, i64 32, i64 16, !3, i64 48, i64 8, !17, i64 56, i64 8, !3, i64 64, i64 4, !18, i64 72, i64 8, !19, i64 80, i64 8, !19, i64 88, i64 8, !19, i64 96, i64 8, !19, i64 104, i64 4, !18, i64 108, i64 1, !3, i64 112, i64 4, !18, i64 120, i64 8, !20, i64 128, i64 4, !18, i64 136, i64 8, !19, i64 144, i64 4, !18, i64 152, i64 8, !19, i64 160, i64 4, !18, i64 168, i64 8, !21, i64 176, i64 8, !17, i64 184, i64 8, !22, i64 192, i64 128, !3, i64 320, i64 8, !3}
-!17 = !{!8, !8, i64 0}
-!18 = !{!9, !9, i64 0}
-!19 = !{!10, !10, i64 0}
-!20 = !{!11, !11, i64 0}
-!21 = !{!12, !12, i64 0}
-!22 = !{!13, !13, i64 0}
-!23 = !{!7, !8, i64 176}
-!24 = distinct !{!24, !15}
-!25 = !{!7, !9, i64 160}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 0, i64 16, !3, i64 16, i64 16, !3, i64 32, i64 16, !3, i64 48, i64 8, !18, i64 56, i64 8, !3, i64 64, i64 4, !19, i64 72, i64 8, !20, i64 80, i64 8, !20, i64 88, i64 8, !20, i64 96, i64 8, !20, i64 104, i64 4, !19, i64 108, i64 1, !3, i64 112, i64 4, !19, i64 120, i64 8, !21, i64 128, i64 4, !19, i64 136, i64 8, !20, i64 144, i64 4, !19, i64 152, i64 8, !20, i64 160, i64 4, !19, i64 168, i64 8, !22, i64 176, i64 8, !18, i64 184, i64 8, !23, i64 192, i64 128, !3, i64 320, i64 8, !3}
+!18 = !{!8, !8, i64 0}
+!19 = !{!9, !9, i64 0}
+!20 = !{!10, !10, i64 0}
+!21 = !{!11, !11, i64 0}
+!22 = !{!12, !12, i64 0}
+!23 = !{!13, !13, i64 0}
+!24 = !{!7, !8, i64 176}
+!25 = distinct !{!25, !15, !16}
+!26 = !{!7, !9, i64 160}
+!27 = distinct !{!27, !15, !16}
+!28 = distinct !{!28, !15, !16}
+!29 = distinct !{!29, !15, !16}
+!30 = distinct !{!30, !15, !16}
+!31 = distinct !{!31, !15, !16}

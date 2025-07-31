@@ -194,20 +194,20 @@ define internal i64 @ripper_s_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @parser_data_type) #5
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !12
+  %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not.i, label %8, label %RTYPEDDATA_GET_DATA.exit
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = load ptr, ptr %7, align 8, !tbaa !18
   br label %RTYPEDDATA_GET_DATA.exit
 
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   %11 = tail call ptr @rb_ruby_ripper_parser_allocate() #5
-  store ptr %11, ptr %10, align 8, !tbaa !18
+  store ptr %11, ptr %10, align 8, !tbaa !19
   tail call void @rb_ruby_parser_set_value(ptr noundef %11, i64 noundef %2) #5
   ret i64 %2
 }
@@ -224,12 +224,12 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @parser_data_type) #5
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @parser_data_type) #5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %11, align 8, !tbaa !22
+  store ptr %5, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %12, align 8, !tbaa !22
+  store ptr %6, ptr %12, align 8, !tbaa !23
   %13 = icmp slt i32 %0, 1
   br i1 %13, label %32, label %.preheader
 
@@ -244,7 +244,7 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   %.185.i27 = phi i32 [ 1, %.preheader ], [ %.286.i, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = icmp slt i32 %.185.i27, %0
   %.not103.i = icmp eq ptr %18, null
   br i1 %19, label %20, label %27
@@ -272,7 +272,7 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
 
 29:                                               ; preds = %28, %27, %25
   %.286.i = phi i32 [ %26, %25 ], [ %.185.i27, %28 ], [ %.185.i27, %27 ]
-  br i1 %16, label %15, label %30, !llvm.loop !24
+  br i1 %16, label %15, label %30, !llvm.loop !25
 
 30:                                               ; preds = %29
   %31 = icmp eq i32 %.286.i, %0
@@ -292,16 +292,16 @@ rb_scan_args_set.exit:                            ; preds = %30
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_scan_args_set.exit
   %38 = inttoptr i64 %33 to ptr
-  %39 = load i64, ptr %38, align 8, !tbaa !25
+  %39 = load i64, ptr %38, align 8, !tbaa !26
   %40 = and i64 %39, 31
   %41 = icmp eq i64 %40, 11
   br i1 %41, label %42, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 42:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %43, align 8, !tbaa !26
+  store i32 1, ptr %43, align 8, !tbaa !27
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %33, ptr %44, align 8, !tbaa !27
+  store i64 %33, ptr %44, align 8, !tbaa !28
   br label %58
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_scan_args_set.exit, %rbimpl_RB_TYPE_P_fastpath.exit
@@ -312,22 +312,22 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_scan_args_set.ex
 
 47:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 2, ptr %48, align 8, !tbaa !26
+  store i32 2, ptr %48, align 8, !tbaa !27
   %49 = load i64, ptr %4, align 8, !tbaa !6
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %49, ptr %50, align 8, !tbaa !27
+  store i64 %49, ptr %50, align 8, !tbaa !28
   %51 = inttoptr i64 %49 to ptr
   br label %58
 
 52:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %53 = call i64 @rb_string_value(ptr noundef nonnull %4) #5
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %54, align 8, !tbaa !26
+  store i32 0, ptr %54, align 8, !tbaa !27
   %55 = load i64, ptr %4, align 8, !tbaa !6
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %55, ptr %56, align 8, !tbaa !27
+  store i64 %55, ptr %56, align 8, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 0, ptr %57, align 8, !tbaa !27
+  store i64 0, ptr %57, align 8, !tbaa !28
   br label %58
 
 58:                                               ; preds = %47, %52, %42
@@ -355,7 +355,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_scan_args_set.ex
   call void @rb_ruby_ripper_parser_initialize(ptr noundef %9) #5
   %69 = load i64, ptr %5, align 8, !tbaa !6
   %70 = inttoptr i64 %69 to ptr
-  %71 = load i64, ptr %70, align 8, !tbaa !25, !noalias !28
+  %71 = load i64, ptr %70, align 8, !tbaa !26, !noalias !29
   %72 = and i64 %71, 8192
   %.not.i.i = icmp eq i64 %72, 0
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -405,7 +405,7 @@ define internal i64 @ripper_parse(i64 noundef %0) #0 {
   %3 = alloca ptr, align 8
   store i64 %0, ptr %2, align 8, !tbaa !6
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %ripper_parser_params.exit
@@ -440,9 +440,9 @@ ripper_parser_params.exit:                        ; preds = %1
   tail call void @rb_ruby_parser_set_parsing_thread(ptr noundef %5, i64 noundef %19) #5
   %20 = tail call i64 @rb_ensure(ptr noundef nonnull @ripper_parse0, i64 noundef %0, ptr noundef nonnull @ripper_ensure, i64 noundef %0) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr %2, ptr %3, align 8, !tbaa !22
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #5, !srcloc !31
-  %21 = load ptr, ptr %3, align 8, !tbaa !22
+  store ptr %2, ptr %3, align 8, !tbaa !23
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #5, !srcloc !32
+  %21 = load ptr, ptr %3, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   %22 = load volatile i64, ptr %21, align 8, !tbaa !6
   ret i64 %20
@@ -451,7 +451,7 @@ ripper_parser_params.exit:                        ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_column(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %3) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %ripper_parser_params.exit
@@ -489,7 +489,7 @@ rb_long2num_inline.exit:                          ; preds = %15, %12, %ripper_pa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_filename(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %3) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %ripper_parser_params.exit
@@ -507,7 +507,7 @@ ripper_parser_params.exit:                        ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @ripper_lineno(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %3) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %ripper_parser_params.exit
@@ -537,7 +537,7 @@ ripper_parser_params.exit:                        ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @ripper_state(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %3) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %ripper_parser_params.exit
@@ -567,7 +567,7 @@ ripper_parser_params.exit:                        ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_token(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_ripper_initialized_p(ptr noundef %3) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %ripper_parser_params.exit
@@ -598,7 +598,7 @@ ripper_parser_params.exit:                        ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ripper_parser_end_seen_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_parser_end_seen_p(ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, i64 0, i64 20
@@ -608,7 +608,7 @@ define internal range(i64 0, 21) i64 @ripper_parser_end_seen_p(i64 noundef %0) #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_parser_encoding(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call ptr @rb_ruby_parser_encoding(ptr noundef %3) #5
   %5 = tail call i64 @rb_enc_from_encoding(ptr noundef %4) #5
   ret i64 %5
@@ -617,7 +617,7 @@ define internal i64 @ripper_parser_encoding(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ripper_parser_get_yydebug(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_parser_get_yydebug(ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, i64 0, i64 20
@@ -627,7 +627,7 @@ define internal range(i64 0, 21) i64 @ripper_parser_get_yydebug(i64 noundef %0) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ripper_parser_set_yydebug(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = and i64 %1, -5
   %6 = icmp ne i64 %5, 0
   %7 = zext i1 %6 to i32
@@ -638,7 +638,7 @@ define internal noundef i64 @ripper_parser_set_yydebug(i64 noundef %0, i64 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_parser_get_debug_output(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i64 @rb_ruby_parser_debug_output(ptr noundef %3) #5
   ret i64 %4
 }
@@ -646,7 +646,7 @@ define internal i64 @ripper_parser_get_debug_output(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ripper_parser_set_debug_output(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   tail call void @rb_ruby_parser_set_debug_output(ptr noundef %4, i64 noundef %1) #5
   ret i64 %1
 }
@@ -654,7 +654,7 @@ define internal noundef i64 @ripper_parser_set_debug_output(i64 noundef %0, i64 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ripper_error_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call i32 @rb_ruby_parser_error_p(ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, i64 0, i64 20
@@ -721,20 +721,20 @@ declare void @rb_ruby_parser_set_value(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ripper_parser_mark2(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
   tail call void @ripper_parser_mark(ptr noundef nonnull %2) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !26
+  %5 = load i32, ptr %4, align 8, !tbaa !27
   %switch = icmp ult i32 %5, 3
   br i1 %switch, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !27
+  %7 = load i64, ptr %6, align 8, !tbaa !28
   tail call void @rb_gc_mark(i64 noundef %7) #5
   br label %8
 
@@ -744,7 +744,7 @@ define internal void @ripper_parser_mark2(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ripper_parser_free2(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -759,7 +759,7 @@ define internal void @ripper_parser_free2(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_parser_memsize2(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -819,7 +819,7 @@ define internal ptr @ripper_lex_get_generic(ptr noundef %0, ptr noundef %1, i32 
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %8
   %13 = inttoptr i64 %6 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !25
+  %14 = load i64, ptr %13, align 8, !tbaa !26
   %15 = and i64 %14, 31
   %16 = icmp eq i64 %15, 5
   br i1 %16, label %19, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -894,7 +894,7 @@ declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_parse0(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   tail call void @rb_ruby_ripper_parse0(ptr noundef %3) #5
   %4 = tail call i64 @rb_ruby_parser_result(ptr noundef %3) #5
   ret i64 %4
@@ -903,7 +903,7 @@ define internal i64 @ripper_parse0(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ripper_ensure(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #5
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   tail call void @rb_ruby_parser_set_parsing_thread(ptr noundef %3, i64 noundef 4) #5
   ret i64 4
 }
@@ -976,25 +976,26 @@ attributes #6 = { noreturn nounwind }
 !7 = !{!"long", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !7, i64 24}
-!13 = !{!"RTypedData", !14, i64 0, !15, i64 16, !7, i64 24, !16, i64 32}
-!14 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!15 = !{!"p1 _ZTS19rb_data_type_struct", !16, i64 0}
-!16 = !{!"any pointer", !8, i64 0}
-!17 = !{!13, !16, i64 32}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"ripper", !20, i64 0, !21, i64 8, !8, i64 16}
-!20 = !{!"p1 _ZTS13parser_params", !16, i64 0}
-!21 = !{!"int", !8, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 long", !16, i64 0}
-!24 = distinct !{!24, !11}
-!25 = !{!14, !7, i64 0}
-!26 = !{!19, !21, i64 8}
-!27 = !{!8, !8, i64 0}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"rbimpl_rstring_getmem: argument 0"}
-!30 = distinct !{!30, !"rbimpl_rstring_getmem"}
-!31 = !{i64 2155133817}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !7, i64 24}
+!14 = !{!"RTypedData", !15, i64 0, !16, i64 16, !7, i64 24, !17, i64 32}
+!15 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!16 = !{!"p1 _ZTS19rb_data_type_struct", !17, i64 0}
+!17 = !{!"any pointer", !8, i64 0}
+!18 = !{!14, !17, i64 32}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"ripper", !21, i64 0, !22, i64 8, !8, i64 16}
+!21 = !{!"p1 _ZTS13parser_params", !17, i64 0}
+!22 = !{!"int", !8, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 long", !17, i64 0}
+!25 = distinct !{!25, !11, !12}
+!26 = !{!15, !7, i64 0}
+!27 = !{!20, !22, i64 8}
+!28 = !{!8, !8, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
+!31 = distinct !{!31, !"rbimpl_rstring_getmem"}
+!32 = !{i64 2155133817}

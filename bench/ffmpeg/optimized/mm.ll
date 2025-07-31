@@ -241,11 +241,11 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   %53 = call i64 @avio_skip(ptr noundef %5, i64 noundef %52) #5
   %54 = call i32 @avio_feof(ptr noundef %5) #5
   %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %9, label %.loopexit
+  br i1 %.not, label %9, label %.loopexit, !llvm.loop !51
 
 .loopexit.sink.split:                             ; preds = %32, %30, %27, %45
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %6, ptr %55, align 8, !tbaa !51
+  store i64 %6, ptr %55, align 8, !tbaa !53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %9, %.loopexit.sink.split, %2, %40, %36, %20, %15
@@ -345,4 +345,6 @@ attributes #5 = { nounwind }
 !48 = !{!32, !23, i64 64}
 !49 = !{!32, !10, i64 40}
 !50 = !{!14, !10, i64 44}
-!51 = !{!32, !23, i64 72}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!32, !23, i64 72}

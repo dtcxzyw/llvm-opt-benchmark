@@ -62,7 +62,7 @@ post.exit:                                        ; preds = %3, %6
   %9 = load i32, ptr @nthreads, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %post.exit, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %post.exit ]
@@ -265,7 +265,7 @@ define internal void @init_once() #0 {
   %33 = load i32, ptr @nthreads, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.i, label %.preheader.i
+  br i1 %35, label %.lr.ph.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %32
   %36 = icmp eq i32 %33, 0
@@ -289,7 +289,7 @@ define internal void @init_once() #0 {
   %41 = add nuw i32 %.115.i, 1
   %42 = load i32, ptr @nthreads, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph16.i, label %init_threads.exit
+  br i1 %43, label %.lr.ph16.i, label %init_threads.exit, !llvm.loop !7
 
 init_threads.exit:                                ; preds = %.lr.ph16.i, %29, %.preheader.i
   call void @uv_sem_destroy(ptr noundef nonnull %2) #9
@@ -355,7 +355,7 @@ uv__queue_move.exit:                              ; preds = %6, %8
   %27 = add nuw nsw i32 %.017, 1
   %28 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %28
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not19 = icmp eq i32 %.017, 0
@@ -618,7 +618,7 @@ define internal void @worker(ptr noundef %0) #0 {
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.critedge, %48, %64, %32, %34
-  br label %.backedge
+  br label %.backedge, !llvm.loop !9
 
 .critedge2:                                       ; preds = %4
   %18 = icmp eq ptr %3, @exit_message
@@ -768,3 +768,9 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

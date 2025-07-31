@@ -68,12 +68,12 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   br i1 %.not35, label %29, label %.loopexit
 
 29:                                               ; preds = %.critedge
-  store i32 -1, ptr %8, align 4, !tbaa !11
-  store i32 -1, ptr %7, align 4, !tbaa !14
-  store i16 0, ptr %9, align 4, !tbaa !15
-  store i16 32, ptr %10, align 2, !tbaa !16
+  store i32 -1, ptr %8, align 4, !tbaa !12
+  store i32 -1, ptr %7, align 4, !tbaa !15
+  store i16 0, ptr %9, align 4, !tbaa !16
+  store i16 32, ptr %10, align 2, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %11, i8 0, i64 5, i1 false)
-  store i8 1, ptr %16, align 1, !tbaa !17
+  store i8 1, ptr %16, align 1, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %31 = load i16, ptr %30, align 2, !tbaa !7
   %.off.i = add i16 %31, -48
@@ -101,18 +101,18 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   %43 = load i16, ptr %39, align 2, !tbaa !7
   %.off121.i = add i16 %43, -48
   %switch122.i = icmp ult i16 %.off121.i, 10
-  br i1 %switch122.i, label %.critedge.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %switch122.i, label %.critedge.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %32
   %44 = phi i16 [ %36, %32 ], [ %43, %.critedge.i ]
   %storemerge.lcssa.i = phi i32 [ %35, %32 ], [ %42, %.critedge.i ]
   %.2.lcssa.i = phi ptr [ %33, %32 ], [ %39, %.critedge.i ]
-  store i32 %storemerge.lcssa.i, ptr %8, align 4, !tbaa !11
+  store i32 %storemerge.lcssa.i, ptr %8, align 4, !tbaa !12
   %.not.i = icmp eq i16 %44, 36
   br i1 %.not.i, label %46, label %45
 
 45:                                               ; preds = %._crit_edge.i
-  store i32 -1, ptr %8, align 4, !tbaa !11
+  store i32 -1, ptr %8, align 4, !tbaa !12
   br label %.preheader
 
 46:                                               ; preds = %._crit_edge.i
@@ -149,7 +149,7 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   ]
 
 51:                                               ; preds = %.critedge2.i
-  store i8 1, ptr %11, align 4, !tbaa !19
+  store i8 1, ptr %11, align 4, !tbaa !20
   br label %.backedge
 
 52:                                               ; preds = %.critedge2.i
@@ -157,33 +157,33 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   %54 = load i16, ptr %50, align 2, !tbaa !7
   %55 = call noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %54)
   %56 = trunc i32 %55 to i16
-  store i16 %56, ptr %10, align 2, !tbaa !16
+  store i16 %56, ptr %10, align 2, !tbaa !17
   %57 = shl i32 %55, 4
   %58 = getelementptr inbounds nuw i8, ptr %.3.i, i64 6
   %59 = load i16, ptr %53, align 2, !tbaa !7
   %60 = call noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %59)
   %61 = add i32 %60, %57
   %62 = trunc i32 %61 to i16
-  store i16 %62, ptr %10, align 2, !tbaa !16
+  store i16 %62, ptr %10, align 2, !tbaa !17
   %63 = shl i32 %61, 4
   %64 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   %65 = load i16, ptr %58, align 2, !tbaa !7
   %66 = call noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %65)
   %67 = add i32 %66, %63
   %68 = trunc i32 %67 to i16
-  store i16 %68, ptr %10, align 2, !tbaa !16
+  store i16 %68, ptr %10, align 2, !tbaa !17
   %69 = shl i32 %67, 4
   %70 = load i16, ptr %64, align 2, !tbaa !7
   %71 = call noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %70)
   %72 = add i32 %71, %69
   %73 = trunc i32 %72 to i16
-  store i16 %73, ptr %10, align 2, !tbaa !16
+  store i16 %73, ptr %10, align 2, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %.3.i, i64 12
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %51, %.critedge2.i
   %.3.i.be = phi ptr [ %50, %.critedge2.i ], [ %50, %51 ], [ %74, %52 ]
-  br label %48, !llvm.loop !20
+  br label %48, !llvm.loop !21
 
 75:                                               ; preds = %48, %48, %48, %48, %48, %48, %48, %48, %48, %48
   %76 = zext nneg i16 %49 to i32
@@ -206,13 +206,13 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   %84 = load i16, ptr %.6.i, align 2, !tbaa !7
   %.off123.i = add i16 %84, -48
   %switch124.i = icmp ult i16 %.off123.i, 10
-  br i1 %switch124.i, label %.critedge4.i, label %.loopexit.i, !llvm.loop !21
+  br i1 %switch124.i, label %.critedge4.i, label %.loopexit.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %.critedge4.i, %75
   %storemerge118.lcssa.i = phi i32 [ %77, %75 ], [ %83, %.critedge4.i ]
   %.6.lcssa.i = phi ptr [ %.6134.i, %75 ], [ %.6.i, %.critedge4.i ]
   %.lcssa.i = phi i16 [ %78, %75 ], [ %84, %.critedge4.i ]
-  store i32 %storemerge118.lcssa.i, ptr %7, align 4, !tbaa !14
+  store i32 %storemerge118.lcssa.i, ptr %7, align 4, !tbaa !15
   br label %.loopexit125.i
 
 .loopexit125.i:                                   ; preds = %48, %.loopexit.i
@@ -233,7 +233,7 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   ]
 
 88:                                               ; preds = %86
-  store i8 1, ptr %13, align 2, !tbaa !22
+  store i8 1, ptr %13, align 2, !tbaa !23
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 89:                                               ; preds = %86
@@ -242,23 +242,23 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %89
-  store i8 1, ptr %15, align 4, !tbaa !23
+  store i8 1, ptr %15, align 4, !tbaa !24
   %93 = getelementptr inbounds nuw i8, ptr %.5.i, i64 4
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 94:                                               ; preds = %89
-  store i8 1, ptr %14, align 1, !tbaa !24
+  store i8 1, ptr %14, align 1, !tbaa !25
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 95:                                               ; preds = %86
-  store i8 1, ptr %12, align 1, !tbaa !25
+  store i8 1, ptr %12, align 1, !tbaa !26
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86, %88, %92, %94, %95
   %.7.i = phi ptr [ %87, %86 ], [ %87, %88 ], [ %93, %92 ], [ %87, %94 ], [ %87, %95 ], [ %.5.i, %.loopexit125.i ]
   %96 = getelementptr inbounds nuw i8, ptr %.7.i, i64 2
   %97 = load i16, ptr %.7.i, align 2, !tbaa !7
-  store i16 %97, ptr %9, align 4, !tbaa !15
+  store i16 %97, ptr %9, align 4, !tbaa !16
   %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %.1 to i64
   %100 = sub i64 %98, %99
@@ -275,7 +275,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
 107:                                              ; preds = %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
   %108 = zext nneg i16 %105 to i64
   %109 = getelementptr inbounds nuw [108 x %struct.u_scanf_info], ptr @_ZL15g_u_scanf_infos, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 16, !tbaa !26
+  %110 = load i32, ptr %109, align 16, !tbaa !27
   %.not36 = icmp eq i32 %110, 2
   br i1 %.not36, label %113, label %111
 
@@ -285,7 +285,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   br i1 %.not37, label %113, label %.loopexit
 
 113:                                              ; preds = %111, %107
-  %114 = load i8, ptr %11, align 4, !tbaa !30
+  %114 = load i8, ptr %11, align 4, !tbaa !31
   %.not38 = icmp eq i8 %114, 0
   br i1 %.not38, label %115, label %131
 
@@ -303,7 +303,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   ]
 
 116:                                              ; preds = %115
-  store i32 %.028.ph, ptr %7, align 4, !tbaa !31
+  store i32 %.028.ph, ptr %7, align 4, !tbaa !32
   br label %117
 
 117:                                              ; preds = %116, %115, %115, %115, %115, %115, %115, %115, %115
@@ -327,19 +327,19 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
 
 128:                                              ; preds = %125, %120
   %129 = phi ptr [ %123, %120 ], [ %126, %125 ]
-  %130 = load ptr, ptr %129, align 8, !tbaa !32
+  %130 = load ptr, ptr %129, align 8, !tbaa !33
   br label %131
 
 131:                                              ; preds = %115, %113, %128
   %.sink = phi ptr [ %130, %128 ], [ null, %113 ], [ null, %115 ]
-  store ptr %.sink, ptr %6, align 8, !tbaa !33
+  store ptr %.sink, ptr %6, align 8, !tbaa !34
   %132 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !34
+  %133 = load ptr, ptr %132, align 8, !tbaa !35
   %.not39 = icmp eq ptr %133, null
   br i1 %.not39, label %.backedge68, label %134
 
 .backedge68:                                      ; preds = %131, %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
-  br label %19, !llvm.loop !35
+  br label %19, !llvm.loop !36
 
 134:                                              ; preds = %131
   store i32 1, ptr %4, align 4, !tbaa !3
@@ -355,7 +355,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   %142 = sext i32 %141 to i64
   %143 = getelementptr i16, ptr %104, i64 %142
   %144 = getelementptr i8, ptr %143, i64 -2
-  br label %.outer, !llvm.loop !35
+  br label %.outer, !llvm.loop !36
 
 .loopexit:                                        ; preds = %134, %111, %.critedge
   %.126 = phi i32 [ %.025.ph, %.critedge ], [ %.025.ph, %111 ], [ -1, %134 ]
@@ -395,17 +395,17 @@ define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scan
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef captures(none) initializes((13, 14)) %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
-  %7 = load i32, ptr %1, align 4, !tbaa !14
+  %7 = load i32, ptr %1, align 4, !tbaa !15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  store i32 1, ptr %1, align 4, !tbaa !14
+  store i32 1, ptr %1, align 4, !tbaa !15
   br label %10
 
 10:                                               ; preds = %9, %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 0, ptr %11, align 1, !tbaa !17
+  store i8 0, ptr %11, align 1, !tbaa !18
   %12 = tail call noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison, ptr poison, ptr noundef %5)
   ret i32 %12
 }
@@ -420,11 +420,11 @@ define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_sp
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 0, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !36
+  store i32 0, ptr %9, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %13 = load i16, ptr %12, align 2, !tbaa !16
+  %13 = load i16, ptr %12, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %14
 
@@ -449,7 +449,7 @@ define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_sp
 
 .critedge2.i:                                     ; preds = %19, %16
   %22 = add nuw nsw i32 %.0.i, 1
-  br label %14, !llvm.loop !38
+  br label %14, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %19, %14
   %23 = load i16, ptr %7, align 2, !tbaa !7
@@ -462,14 +462,14 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !39
-  %29 = load ptr, ptr %26, align 8, !tbaa !47
+  %28 = load ptr, ptr %27, align 8, !tbaa !40
+  %29 = load ptr, ptr %26, align 8, !tbaa !48
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = lshr exact i64 %32, 1
   %34 = trunc i64 %33 to i32
-  %35 = load i32, ptr %1, align 4, !tbaa !14
+  %35 = load i32, ptr %1, align 4, !tbaa !15
   %.not = icmp eq i32 %35, -1
   %. = call i32 @llvm.smin.i32(i32 %35, i32 %34)
   %.040 = select i1 %.not, i32 %34, i32 %.
@@ -481,9 +481,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
 39:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
   %40 = call i32 @unum_getSymbol_77(ptr noundef nonnull %37, i32 noundef 11, ptr noundef nonnull %10, i32 noundef 16, ptr noundef nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %42 = load i16, ptr %41, align 4, !tbaa !15
+  %42 = load i16, ptr %41, align 4, !tbaa !16
   %43 = icmp eq i16 %42, 101
-  %44 = load ptr, ptr %36, align 8, !tbaa !48
+  %44 = load ptr, ptr %36, align 8, !tbaa !49
   br i1 %43, label %45, label %47
 
 45:                                               ; preds = %39
@@ -497,50 +497,50 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
 49:                                               ; preds = %47, %45
   %.0 = phi i32 [ %46, %45 ], [ %48, %47 ]
   call void @unum_setSymbol_77(ptr noundef nonnull %37, i32 noundef 11, ptr noundef nonnull %11, i32 noundef %.0, ptr noundef nonnull %9)
-  %.val = load i32, ptr %9, align 4, !tbaa !36
+  %.val = load i32, ptr %9, align 4, !tbaa !37
   %50 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 %.val)
   %51 = add nsw i32 %50, %.0.i
-  %52 = load ptr, ptr %26, align 8, !tbaa !47
+  %52 = load ptr, ptr %26, align 8, !tbaa !48
   %53 = call double @unum_parseDouble_77(ptr noundef nonnull %37, ptr noundef %52, i32 noundef %.040, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i8, ptr %54, align 4, !tbaa !19
+  %55 = load i8, ptr %54, align 4, !tbaa !20
   %.not44 = icmp eq i8 %55, 0
   br i1 %.not44, label %56, label %69
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %58 = load i8, ptr %57, align 1, !tbaa !24
+  %58 = load i8, ptr %57, align 1, !tbaa !25
   %.not45 = icmp eq i8 %58, 0
   br i1 %.not45, label %61, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %2, align 8, !tbaa !33
-  store double %53, ptr %60, align 8, !tbaa !49
+  %60 = load ptr, ptr %2, align 8, !tbaa !34
+  store double %53, ptr %60, align 8, !tbaa !50
   br label %69
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %63 = load i8, ptr %62, align 1, !tbaa !25
+  %63 = load i8, ptr %62, align 1, !tbaa !26
   %.not46 = icmp eq i8 %63, 0
-  %64 = load ptr, ptr %2, align 8, !tbaa !33
+  %64 = load ptr, ptr %2, align 8, !tbaa !34
   br i1 %.not46, label %67, label %65
 
 65:                                               ; preds = %61
   %66 = fpext double %53 to x86_fp80
-  store x86_fp80 %66, ptr %64, align 16, !tbaa !51
+  store x86_fp80 %66, ptr %64, align 16, !tbaa !52
   br label %69
 
 67:                                               ; preds = %61
   %68 = fptrunc double %53 to float
-  store float %68, ptr %64, align 4, !tbaa !53
+  store float %68, ptr %64, align 4, !tbaa !54
   br label %69
 
 69:                                               ; preds = %59, %67, %65, %49
   %70 = load i32, ptr %8, align 4, !tbaa !3
-  %71 = load ptr, ptr %26, align 8, !tbaa !47
+  %71 = load ptr, ptr %26, align 8, !tbaa !48
   %72 = sext i32 %70 to i64
   %73 = getelementptr inbounds i16, ptr %71, i64 %72
-  store ptr %73, ptr %26, align 8, !tbaa !47
+  store ptr %73, ptr %26, align 8, !tbaa !48
   %74 = zext i1 %.not44 to i32
   store i32 %74, ptr %5, align 4, !tbaa !3
   %75 = add nsw i32 %51, %70
@@ -567,11 +567,11 @@ define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   store i32 0, ptr %9, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  store i32 0, ptr %10, align 4, !tbaa !36
+  store i32 0, ptr %10, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  store i32 0, ptr %11, align 4, !tbaa !36
+  store i32 0, ptr %11, align 4, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %13 = load i16, ptr %12, align 2, !tbaa !16
+  %13 = load i16, ptr %12, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %14
 
@@ -596,7 +596,7 @@ define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_i
 
 .critedge2.i:                                     ; preds = %19, %16
   %22 = add nuw nsw i32 %.0.i, 1
-  br label %14, !llvm.loop !38
+  br label %14, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %19, %14
   %23 = load i16, ptr %7, align 2, !tbaa !7
@@ -609,9 +609,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !39
-  %29 = load ptr, ptr %26, align 8, !tbaa !47
-  %30 = load i32, ptr %1, align 4, !tbaa !14
+  %28 = load ptr, ptr %27, align 8, !tbaa !40
+  %29 = load ptr, ptr %26, align 8, !tbaa !48
+  %30 = load i32, ptr %1, align 4, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = call ptr @u_locbund_getNumberFormat_77(ptr noundef nonnull %31, i32 noundef 4)
   %33 = call ptr @u_locbund_getNumberFormat_77(ptr noundef nonnull %31, i32 noundef 1)
@@ -631,50 +631,50 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
   %.044 = select i1 %.not, i32 %41, i32 %.
   %42 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 0)
   %43 = add nsw i32 %42, %.0.i
-  %44 = load ptr, ptr %26, align 8, !tbaa !47
+  %44 = load ptr, ptr %26, align 8, !tbaa !48
   %45 = call double @unum_parseDouble_77(ptr noundef nonnull %32, ptr noundef %44, i32 noundef %.044, ptr noundef nonnull %8, ptr noundef nonnull %10)
-  %46 = load ptr, ptr %26, align 8, !tbaa !47
+  %46 = load ptr, ptr %26, align 8, !tbaa !48
   %47 = call double @unum_parseDouble_77(ptr noundef nonnull %33, ptr noundef %46, i32 noundef %.044, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %48 = load i32, ptr %8, align 4, !tbaa !3
   %49 = load i32, ptr %9, align 4, !tbaa !3
   %50 = icmp sgt i32 %48, %49
   %.56 = select i1 %50, double %45, double %47
   %.57 = call i32 @llvm.smax.i32(i32 %48, i32 %49)
-  %51 = load ptr, ptr %26, align 8, !tbaa !47
+  %51 = load ptr, ptr %26, align 8, !tbaa !48
   %52 = sext i32 %.57 to i64
   %53 = getelementptr inbounds i16, ptr %51, i64 %52
-  store ptr %53, ptr %26, align 8, !tbaa !47
+  store ptr %53, ptr %26, align 8, !tbaa !48
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i8, ptr %54, align 4, !tbaa !19
+  %55 = load i8, ptr %54, align 4, !tbaa !20
   %.not52 = icmp eq i8 %55, 0
   br i1 %.not52, label %56, label %69
 
 56:                                               ; preds = %36
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %58 = load i8, ptr %57, align 1, !tbaa !24
+  %58 = load i8, ptr %57, align 1, !tbaa !25
   %.not53 = icmp eq i8 %58, 0
   br i1 %.not53, label %61, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %2, align 8, !tbaa !33
-  store double %.56, ptr %60, align 8, !tbaa !49
+  %60 = load ptr, ptr %2, align 8, !tbaa !34
+  store double %.56, ptr %60, align 8, !tbaa !50
   br label %69
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %63 = load i8, ptr %62, align 1, !tbaa !25
+  %63 = load i8, ptr %62, align 1, !tbaa !26
   %.not54 = icmp eq i8 %63, 0
-  %64 = load ptr, ptr %2, align 8, !tbaa !33
+  %64 = load ptr, ptr %2, align 8, !tbaa !34
   br i1 %.not54, label %67, label %65
 
 65:                                               ; preds = %61
   %66 = fpext double %.56 to x86_fp80
-  store x86_fp80 %66, ptr %64, align 16, !tbaa !51
+  store x86_fp80 %66, ptr %64, align 16, !tbaa !52
   br label %69
 
 67:                                               ; preds = %61
   %68 = fptrunc double %.56 to float
-  store float %68, ptr %64, align 4, !tbaa !53
+  store float %68, ptr %64, align 4, !tbaa !54
   br label %69
 
 69:                                               ; preds = %59, %67, %65, %36
@@ -700,9 +700,9 @@ define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 0, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !36
+  store i32 0, ptr %9, align 4, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %.critedge2.i
 
@@ -725,7 +725,7 @@ define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_
   br i1 %.not.i, label %.critedge.i, label %.critedge2.i.backedge
 
 .critedge2.i.backedge:                            ; preds = %16, %13
-  br label %.critedge2.i, !llvm.loop !38
+  br label %.critedge2.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %16, %.critedge2.i
   %19 = load i16, ptr %7, align 2, !tbaa !7
@@ -738,9 +738,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.cri
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %25 = load ptr, ptr %22, align 8, !tbaa !47
-  %26 = load i32, ptr %1, align 4, !tbaa !14
+  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %25 = load ptr, ptr %22, align 8, !tbaa !48
+  %26 = load i32, ptr %1, align 4, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = call ptr @u_locbund_getNumberFormat_77(ptr noundef nonnull %27, i32 noundef 3)
   %29 = icmp eq ptr %28, null
@@ -756,24 +756,24 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.cri
   %. = call i32 @llvm.smin.i32(i32 %26, i32 %35)
   %.023 = select i1 %.not, i32 %35, i32 %.
   %36 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 0)
-  %37 = load ptr, ptr %22, align 8, !tbaa !47
+  %37 = load ptr, ptr %22, align 8, !tbaa !48
   %38 = call double @unum_parseDouble_77(ptr noundef nonnull %28, ptr noundef %37, i32 noundef %.023, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load i8, ptr %39, align 4, !tbaa !19
+  %40 = load i8, ptr %39, align 4, !tbaa !20
   %.not27 = icmp eq i8 %40, 0
   br i1 %.not27, label %41, label %43
 
 41:                                               ; preds = %30
-  %42 = load ptr, ptr %2, align 8, !tbaa !33
-  store double %38, ptr %42, align 8, !tbaa !49
+  %42 = load ptr, ptr %2, align 8, !tbaa !34
+  store double %38, ptr %42, align 8, !tbaa !50
   br label %43
 
 43:                                               ; preds = %41, %30
   %44 = load i32, ptr %8, align 4, !tbaa !3
-  %45 = load ptr, ptr %22, align 8, !tbaa !47
+  %45 = load ptr, ptr %22, align 8, !tbaa !48
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds i16, ptr %45, i64 %46
-  store ptr %47, ptr %22, align 8, !tbaa !47
+  store ptr %47, ptr %22, align 8, !tbaa !48
   %48 = zext i1 %.not27 to i32
   store i32 %48, ptr %5, align 4, !tbaa !3
   br label %49
@@ -789,16 +789,16 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.cri
 define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
-  %9 = load ptr, ptr %2, align 8, !tbaa !33
+  %9 = load ptr, ptr %2, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %11 = load i8, ptr %10, align 1, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %14 = load i16, ptr %13, align 2, !tbaa !16
+  %14 = load i16, ptr %13, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %15
 
@@ -823,7 +823,7 @@ define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_
 
 .critedge2.i:                                     ; preds = %20, %17
   %23 = add nuw nsw i32 %.0.i, 1
-  br label %15, !llvm.loop !38
+  br label %15, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %20, %15
   %24 = load i16, ptr %7, align 2, !tbaa !7
@@ -837,7 +837,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
 
 27:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %6
   %.029 = phi i32 [ %.0.i, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ], [ 0, %6 ]
-  %28 = load i32, ptr %1, align 4, !tbaa !14
+  %28 = load i32, ptr %1, align 4, !tbaa !15
   %29 = icmp eq i32 %28, -1
   %30 = icmp sgt i32 %28, 0
   %or.cond4346 = or i1 %29, %30
@@ -856,13 +856,13 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
   br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %33
-  %37 = load i8, ptr %10, align 1, !tbaa !17
+  %37 = load i8, ptr %10, align 1, !tbaa !18
   %.not36 = icmp eq i8 %37, 0
   br i1 %.not36, label %.critedge2, label %38
 
 38:                                               ; preds = %36
   %39 = load i16, ptr %8, align 2, !tbaa !7
-  %40 = load i16, ptr %31, align 2, !tbaa !16
+  %40 = load i16, ptr %31, align 2, !tbaa !17
   %.not37 = icmp eq i16 %39, %40
   br i1 %.not37, label %.critedge, label %41
 
@@ -873,7 +873,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
   br i1 %.not38, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %36, %41
-  %44 = load i8, ptr %32, align 4, !tbaa !19
+  %44 = load i8, ptr %32, align 4, !tbaa !20
   %.not42 = icmp eq i8 %44, 0
   br i1 %.not42, label %45, label %48
 
@@ -886,23 +886,23 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
 48:                                               ; preds = %45, %.critedge2
   %.132 = phi ptr [ %.03147, %.critedge2 ], [ %47, %45 ]
   %49 = add nuw nsw i32 %.03048, 1
-  %50 = load i32, ptr %1, align 4, !tbaa !14
+  %50 = load i32, ptr %1, align 4, !tbaa !15
   %51 = icmp eq i32 %50, -1
   %52 = icmp slt i32 %49, %50
   %or.cond43 = select i1 %51, i1 true, i1 %52
-  br i1 %or.cond43, label %33, label %.critedge, !llvm.loop !55
+  br i1 %or.cond43, label %33, label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %41, %38, %33, %48, %27
   %.031.lcssa = phi ptr [ %9, %27 ], [ %.132, %48 ], [ %.03147, %33 ], [ %.03147, %38 ], [ %.03147, %41 ]
   %.030.lcssa = phi i32 [ 0, %27 ], [ %49, %48 ], [ %.03048, %33 ], [ %.03048, %38 ], [ %.03048, %41 ]
   %.1 = phi i8 [ 0, %27 ], [ 1, %48 ], [ %34, %33 ], [ 1, %38 ], [ 1, %41 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i8, ptr %53, align 4, !tbaa !19
+  %54 = load i8, ptr %53, align 4, !tbaa !20
   %.not39 = icmp eq i8 %54, 0
   br i1 %.not39, label %55, label %69
 
 55:                                               ; preds = %.critedge
-  %56 = load i32, ptr %1, align 4, !tbaa !14
+  %56 = load i32, ptr %1, align 4, !tbaa !15
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %61, label %58
 
@@ -923,7 +923,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
   br label %66
 
 66:                                               ; preds = %62, %61, %58
-  %67 = load i8, ptr %10, align 1, !tbaa !17
+  %67 = load i8, ptr %10, align 1, !tbaa !18
   %.not40 = icmp eq i8 %67, 0
   br i1 %.not40, label %69, label %68
 
@@ -932,7 +932,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
   br label %69
 
 69:                                               ; preds = %66, %68, %.critedge
-  %70 = load i8, ptr %53, align 4, !tbaa !19
+  %70 = load i8, ptr %53, align 4, !tbaa !20
   %.not41 = icmp eq i8 %70, 0
   %71 = zext i1 %.not41 to i32
   store i32 %71, ptr %5, align 4, !tbaa !3
@@ -949,9 +949,9 @@ define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 0, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !36
+  store i32 0, ptr %9, align 4, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %12
 
@@ -976,7 +976,7 @@ define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec
 
 .critedge2.i:                                     ; preds = %17, %14
   %20 = add nuw nsw i32 %.0.i, 1
-  br label %12, !llvm.loop !38
+  br label %12, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %17, %12
   %21 = load i16, ptr %7, align 2, !tbaa !7
@@ -989,9 +989,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %27 = load ptr, ptr %24, align 8, !tbaa !47
-  %28 = load i32, ptr %1, align 4, !tbaa !14
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %24, align 8, !tbaa !48
+  %28 = load i32, ptr %1, align 4, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = call ptr @u_locbund_getNumberFormat_77(ptr noundef nonnull %29, i32 noundef 5)
   %31 = icmp eq ptr %30, null
@@ -1006,24 +1006,24 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %37 = trunc i64 %36 to i32
   %. = call i32 @llvm.smin.i32(i32 %28, i32 %37)
   %.022 = select i1 %.not, i32 %37, i32 %.
-  %38 = load ptr, ptr %24, align 8, !tbaa !47
+  %38 = load ptr, ptr %24, align 8, !tbaa !48
   %39 = call double @unum_parseDouble_77(ptr noundef nonnull %30, ptr noundef %38, i32 noundef %.022, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i8, ptr %40, align 4, !tbaa !19
+  %41 = load i8, ptr %40, align 4, !tbaa !20
   %.not26 = icmp eq i8 %41, 0
   br i1 %.not26, label %42, label %44
 
 42:                                               ; preds = %32
-  %43 = load ptr, ptr %2, align 8, !tbaa !33
-  store double %39, ptr %43, align 8, !tbaa !49
+  %43 = load ptr, ptr %2, align 8, !tbaa !34
+  store double %39, ptr %43, align 8, !tbaa !50
   br label %44
 
 44:                                               ; preds = %42, %32
   %45 = load i32, ptr %8, align 4, !tbaa !3
-  %46 = load ptr, ptr %24, align 8, !tbaa !47
+  %46 = load ptr, ptr %24, align 8, !tbaa !48
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds i16, ptr %46, i64 %47
-  store ptr %48, ptr %24, align 8, !tbaa !47
+  store ptr %48, ptr %24, align 8, !tbaa !48
   %49 = zext i1 %.not26 to i32
   store i32 %49, ptr %5, align 4, !tbaa !3
   %50 = add nsw i32 %45, %.0.i
@@ -1041,9 +1041,9 @@ define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_info
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !33
+  %9 = load ptr, ptr %2, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %12
 
@@ -1068,7 +1068,7 @@ define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_info
 
 .critedge2.i:                                     ; preds = %17, %14
   %20 = add nuw nsw i32 %.0.i, 1
-  br label %12, !llvm.loop !38
+  br label %12, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %17, %12
   %21 = load i16, ptr %7, align 2, !tbaa !7
@@ -1081,15 +1081,15 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %27 = load ptr, ptr %24, align 8, !tbaa !47
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %24, align 8, !tbaa !48
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = lshr exact i64 %30, 1
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %8, align 4, !tbaa !3
-  %33 = load i32, ptr %1, align 4, !tbaa !14
+  %33 = load i32, ptr %1, align 4, !tbaa !15
   %.not = icmp eq i32 %33, -1
   br i1 %.not, label %35, label %34
 
@@ -1114,7 +1114,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 
 42:                                               ; preds = %39, %39
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store ptr %43, ptr %24, align 8, !tbaa !47
+  store ptr %43, ptr %24, align 8, !tbaa !48
   %44 = add nsw i32 %36, -2
   store i32 %44, ptr %8, align 4, !tbaa !3
   br label %45
@@ -1123,34 +1123,34 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %46 = phi ptr [ %27, %39 ], [ %43, %42 ], [ %27, %35 ]
   %47 = call noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef nonnull %46, ptr noundef nonnull %8, i8 noundef signext 16)
   %48 = load i32, ptr %8, align 4, !tbaa !3
-  %49 = load ptr, ptr %24, align 8, !tbaa !47
+  %49 = load ptr, ptr %24, align 8, !tbaa !48
   %50 = sext i32 %48 to i64
   %51 = getelementptr inbounds i16, ptr %49, i64 %50
-  store ptr %51, ptr %24, align 8, !tbaa !47
+  store ptr %51, ptr %24, align 8, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load i8, ptr %52, align 4, !tbaa !19
+  %53 = load i8, ptr %52, align 4, !tbaa !20
   %.not28 = icmp eq i8 %53, 0
   br i1 %.not28, label %54, label %65
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %56 = load i8, ptr %55, align 2, !tbaa !22
+  %56 = load i8, ptr %55, align 2, !tbaa !23
   %.not29 = icmp eq i8 %56, 0
   br i1 %.not29, label %59, label %57
 
 57:                                               ; preds = %54
   %58 = trunc i64 %47 to i16
-  store i16 %58, ptr %9, align 2, !tbaa !56
+  store i16 %58, ptr %9, align 2, !tbaa !57
   br label %65
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %61 = load i8, ptr %60, align 4, !tbaa !23
+  %61 = load i8, ptr %60, align 4, !tbaa !24
   %.not30 = icmp eq i8 %61, 0
   br i1 %.not30, label %63, label %62
 
 62:                                               ; preds = %59
-  store i64 %47, ptr %9, align 8, !tbaa !58
+  store i64 %47, ptr %9, align 8, !tbaa !59
   br label %65
 
 63:                                               ; preds = %59
@@ -1171,15 +1171,15 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  store i32 0, ptr %7, align 4, !tbaa !36
+  store i32 0, ptr %7, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !33
+  %9 = load ptr, ptr %2, align 8, !tbaa !34
   %10 = tail call ptr @uset_open_77(i32 noundef 0, i32 noundef -1)
   %11 = getelementptr inbounds i8, ptr %3, i64 -2
-  %12 = load i32, ptr %1, align 4, !tbaa !14
+  %12 = load i32, ptr %1, align 4, !tbaa !15
   %13 = call i32 @uset_applyPattern_77(ptr noundef %10, ptr noundef nonnull %11, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %7)
   store i32 %13, ptr %4, align 4, !tbaa !3
-  %14 = load i32, ptr %7, align 4, !tbaa !36
+  %14 = load i32, ptr %7, align 4, !tbaa !37
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.thread, label %16
 
@@ -1219,7 +1219,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   br i1 %.not53, label %.critedge.thread89, label %25
 
 25:                                               ; preds = %22
-  %26 = load i8, ptr %19, align 4, !tbaa !19
+  %26 = load i8, ptr %19, align 4, !tbaa !20
   %.not54 = icmp eq i8 %26, 0
   %.pre = load i32, ptr %8, align 4, !tbaa !3
   br i1 %.not54, label %27, label %42
@@ -1263,7 +1263,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %.neg = select i1 %44, i32 -2, i32 -1
   %45 = add nsw i32 %.neg, %.24779
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %20, label %.critedge.thread65.thread98, !llvm.loop !60
+  br i1 %46, label %20, label %.critedge.thread65.thread98, !llvm.loop !61
 
 .critedge.thread65.thread98:                      ; preds = %42
   call void @uset_close_77(ptr noundef %10)
@@ -1285,7 +1285,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %.14376104 = phi ptr [ %.3, %.critedge.thread65.thread98 ], [ %.14381, %.critedge.thread65 ]
   %.24778103 = phi i32 [ %45, %.critedge.thread65.thread98 ], [ %.24779, %.critedge.thread65 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load i8, ptr %50, align 4, !tbaa !19
+  %51 = load i8, ptr %50, align 4, !tbaa !20
   %.not58 = icmp eq i8 %51, 0
   br i1 %.not58, label %52, label %53
 
@@ -1296,7 +1296,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 53:                                               ; preds = %49, %52
   %54 = zext i1 %.not58 to i32
   store i32 %54, ptr %5, align 4, !tbaa !3
-  %55 = load i32, ptr %1, align 4, !tbaa !14
+  %55 = load i32, ptr %1, align 4, !tbaa !15
   %56 = icmp sgt i32 %55, -1
   %spec.select61 = select i1 %56, i32 %55, i32 2147483647
   %57 = sub nsw i32 %spec.select61, %.24778103
@@ -1311,17 +1311,17 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef captures(none) initializes((13, 14)) %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
-  %7 = load i32, ptr %1, align 4, !tbaa !14
+  %7 = load i32, ptr %1, align 4, !tbaa !15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  store i32 1, ptr %1, align 4, !tbaa !14
+  store i32 1, ptr %1, align 4, !tbaa !15
   br label %10
 
 10:                                               ; preds = %9, %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 0, ptr %11, align 1, !tbaa !17
+  store i8 0, ptr %11, align 1, !tbaa !18
   %12 = tail call noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison, ptr poison, ptr noundef %5)
   ret i32 %12
 }
@@ -1331,13 +1331,13 @@ define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = load ptr, ptr %2, align 8, !tbaa !33
+  %10 = load ptr, ptr %2, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 0, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !36
+  store i32 0, ptr %9, align 4, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %12 = load i16, ptr %11, align 2, !tbaa !16
+  %12 = load i16, ptr %11, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %13
 
@@ -1362,7 +1362,7 @@ define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_
 
 .critedge2.i:                                     ; preds = %18, %15
   %21 = add nuw nsw i32 %.0.i, 1
-  br label %13, !llvm.loop !38
+  br label %13, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %18, %13
   %22 = load i16, ptr %7, align 2, !tbaa !7
@@ -1375,14 +1375,14 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !39
-  %28 = load ptr, ptr %25, align 8, !tbaa !47
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %28 = load ptr, ptr %25, align 8, !tbaa !48
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = lshr exact i64 %31, 1
   %33 = trunc i64 %32 to i32
-  %34 = load i32, ptr %1, align 4, !tbaa !14
+  %34 = load i32, ptr %1, align 4, !tbaa !15
   %.not = icmp eq i32 %34, -1
   %. = call i32 @llvm.smin.i32(i32 %34, i32 %33)
   %.040 = select i1 %.not, i32 %33, i32 %.
@@ -1393,13 +1393,13 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
 
 38:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
   %39 = call ptr @unum_clone_77(ptr noundef nonnull %36, ptr noundef nonnull %9)
-  %40 = load i32, ptr %9, align 4, !tbaa !36
+  %40 = load i32, ptr %9, align 4, !tbaa !37
   %41 = icmp slt i32 %40, 1
   br i1 %41, label %42, label %73
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %44 = load i16, ptr %43, align 4, !tbaa !15
+  %44 = load i16, ptr %43, align 4, !tbaa !16
   switch i16 %44, label %46 [
     i16 100, label %45
     i16 105, label %45
@@ -1412,35 +1412,35 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
 46:                                               ; preds = %42, %45
   %.039 = phi i32 [ 1, %45 ], [ 0, %42 ]
   call void @unum_setAttribute_77(ptr noundef %39, i32 noundef 0, i32 noundef %.039)
-  %.val = load i32, ptr %9, align 4, !tbaa !36
+  %.val = load i32, ptr %9, align 4, !tbaa !37
   %47 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %0, ptr noundef %39, i32 %.val)
   %48 = add nsw i32 %47, %.0.i
-  %49 = load ptr, ptr %25, align 8, !tbaa !47
+  %49 = load ptr, ptr %25, align 8, !tbaa !48
   %50 = call i64 @unum_parseInt64_77(ptr noundef %39, ptr noundef %49, i32 noundef %.040, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i8, ptr %51, align 4, !tbaa !19
+  %52 = load i8, ptr %51, align 4, !tbaa !20
   %.not46 = icmp eq i8 %52, 0
   br i1 %.not46, label %53, label %64
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %55 = load i8, ptr %54, align 2, !tbaa !22
+  %55 = load i8, ptr %54, align 2, !tbaa !23
   %.not47 = icmp eq i8 %55, 0
   br i1 %.not47, label %58, label %56
 
 56:                                               ; preds = %53
   %57 = trunc i64 %50 to i16
-  store i16 %57, ptr %10, align 2, !tbaa !56
+  store i16 %57, ptr %10, align 2, !tbaa !57
   br label %64
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %60 = load i8, ptr %59, align 4, !tbaa !23
+  %60 = load i8, ptr %59, align 4, !tbaa !24
   %.not48 = icmp eq i8 %60, 0
   br i1 %.not48, label %62, label %61
 
 61:                                               ; preds = %58
-  store i64 %50, ptr %10, align 8, !tbaa !58
+  store i64 %50, ptr %10, align 8, !tbaa !59
   br label %64
 
 62:                                               ; preds = %58
@@ -1450,12 +1450,12 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
 
 64:                                               ; preds = %56, %62, %61, %46
   %65 = load i32, ptr %8, align 4, !tbaa !3
-  %66 = load ptr, ptr %25, align 8, !tbaa !47
+  %66 = load ptr, ptr %25, align 8, !tbaa !48
   %67 = sext i32 %65 to i64
   %68 = getelementptr inbounds i16, ptr %66, i64 %67
-  store ptr %68, ptr %25, align 8, !tbaa !47
+  store ptr %68, ptr %25, align 8, !tbaa !48
   call void @unum_close_77(ptr noundef %39)
-  %69 = load i8, ptr %51, align 4, !tbaa !19
+  %69 = load i8, ptr %51, align 4, !tbaa !20
   %.not49 = icmp eq i8 %69, 0
   %70 = zext i1 %.not49 to i32
   store i32 %70, ptr %5, align 4, !tbaa !3
@@ -1478,9 +1478,9 @@ define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 0, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !36
+  store i32 0, ptr %9, align 4, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %12
 
@@ -1505,7 +1505,7 @@ define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_i
 
 .critedge2.i:                                     ; preds = %17, %14
   %20 = add nuw nsw i32 %.0.i, 1
-  br label %12, !llvm.loop !38
+  br label %12, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %17, %12
   %21 = load i16, ptr %7, align 2, !tbaa !7
@@ -1518,9 +1518,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %27 = load ptr, ptr %24, align 8, !tbaa !47
-  %28 = load i32, ptr %1, align 4, !tbaa !14
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %24, align 8, !tbaa !48
+  %28 = load i32, ptr %1, align 4, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = call ptr @u_locbund_getNumberFormat_77(ptr noundef nonnull %29, i32 noundef 1)
   %31 = icmp eq ptr %30, null
@@ -1537,47 +1537,47 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %.031 = select i1 %.not, i32 %37, i32 %.
   %38 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 0)
   %39 = add nsw i32 %38, %.0.i
-  %40 = load ptr, ptr %24, align 8, !tbaa !47
+  %40 = load ptr, ptr %24, align 8, !tbaa !48
   %41 = call double @unum_parseDouble_77(ptr noundef nonnull %30, ptr noundef %40, i32 noundef %.031, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i8, ptr %42, align 4, !tbaa !19
+  %43 = load i8, ptr %42, align 4, !tbaa !20
   %.not35 = icmp eq i8 %43, 0
   br i1 %.not35, label %44, label %57
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %46 = load i8, ptr %45, align 1, !tbaa !24
+  %46 = load i8, ptr %45, align 1, !tbaa !25
   %.not36 = icmp eq i8 %46, 0
   br i1 %.not36, label %49, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %2, align 8, !tbaa !33
-  store double %41, ptr %48, align 8, !tbaa !49
+  %48 = load ptr, ptr %2, align 8, !tbaa !34
+  store double %41, ptr %48, align 8, !tbaa !50
   br label %57
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %51 = load i8, ptr %50, align 1, !tbaa !25
+  %51 = load i8, ptr %50, align 1, !tbaa !26
   %.not37 = icmp eq i8 %51, 0
-  %52 = load ptr, ptr %2, align 8, !tbaa !33
+  %52 = load ptr, ptr %2, align 8, !tbaa !34
   br i1 %.not37, label %55, label %53
 
 53:                                               ; preds = %49
   %54 = fpext double %41 to x86_fp80
-  store x86_fp80 %54, ptr %52, align 16, !tbaa !51
+  store x86_fp80 %54, ptr %52, align 16, !tbaa !52
   br label %57
 
 55:                                               ; preds = %49
   %56 = fptrunc double %41 to float
-  store float %56, ptr %52, align 4, !tbaa !53
+  store float %56, ptr %52, align 4, !tbaa !54
   br label %57
 
 57:                                               ; preds = %47, %55, %53, %32
   %58 = load i32, ptr %8, align 4, !tbaa !3
-  %59 = load ptr, ptr %24, align 8, !tbaa !47
+  %59 = load ptr, ptr %24, align 8, !tbaa !48
   %60 = sext i32 %58 to i64
   %61 = getelementptr inbounds i16, ptr %59, i64 %60
-  store ptr %61, ptr %24, align 8, !tbaa !47
+  store ptr %61, ptr %24, align 8, !tbaa !48
   %62 = zext i1 %.not35 to i32
   store i32 %62, ptr %5, align 4, !tbaa !3
   %63 = add nsw i32 %39, %58
@@ -1593,38 +1593,38 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i8, ptr %7, align 4, !tbaa !19
+  %8 = load i8, ptr %7, align 4, !tbaa !20
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %25
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %11 = load i8, ptr %10, align 2, !tbaa !22
+  %11 = load i8, ptr %10, align 2, !tbaa !23
   %.not10 = icmp eq i8 %11, 0
   br i1 %.not10, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %1, align 4, !tbaa !14
+  %13 = load i32, ptr %1, align 4, !tbaa !15
   %14 = trunc i32 %13 to i16
-  %15 = load ptr, ptr %2, align 8, !tbaa !33
-  store i16 %14, ptr %15, align 2, !tbaa !56
+  %15 = load ptr, ptr %2, align 8, !tbaa !34
+  store i16 %14, ptr %15, align 2, !tbaa !57
   br label %25
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i8, ptr %17, align 4, !tbaa !23
+  %18 = load i8, ptr %17, align 4, !tbaa !24
   %.not11 = icmp eq i8 %18, 0
-  %19 = load i32, ptr %1, align 4, !tbaa !14
+  %19 = load i32, ptr %1, align 4, !tbaa !15
   br i1 %.not11, label %23, label %20
 
 20:                                               ; preds = %16
   %21 = sext i32 %19 to i64
-  %22 = load ptr, ptr %2, align 8, !tbaa !33
-  store i64 %21, ptr %22, align 8, !tbaa !58
+  %22 = load ptr, ptr %2, align 8, !tbaa !34
+  store i64 %21, ptr %22, align 8, !tbaa !59
   br label %25
 
 23:                                               ; preds = %16
-  %24 = load ptr, ptr %2, align 8, !tbaa !33
+  %24 = load ptr, ptr %2, align 8, !tbaa !34
   store i32 %19, ptr %24, align 4, !tbaa !3
   br label %25
 
@@ -1638,9 +1638,9 @@ define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_in
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !33
+  %9 = load ptr, ptr %2, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %12
 
@@ -1665,7 +1665,7 @@ define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_in
 
 .critedge2.i:                                     ; preds = %17, %14
   %20 = add nuw nsw i32 %.0.i, 1
-  br label %12, !llvm.loop !38
+  br label %12, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %17, %12
   %21 = load i16, ptr %7, align 2, !tbaa !7
@@ -1678,15 +1678,15 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %27 = load ptr, ptr %24, align 8, !tbaa !47
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %24, align 8, !tbaa !48
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = lshr exact i64 %30, 1
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %8, align 4, !tbaa !3
-  %33 = load i32, ptr %1, align 4, !tbaa !14
+  %33 = load i32, ptr %1, align 4, !tbaa !15
   %.not = icmp eq i32 %33, -1
   br i1 %.not, label %35, label %34
 
@@ -1698,34 +1698,34 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 35:                                               ; preds = %34, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
   %36 = call noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef %27, ptr noundef nonnull %8, i8 noundef signext 8)
   %37 = load i32, ptr %8, align 4, !tbaa !3
-  %38 = load ptr, ptr %24, align 8, !tbaa !47
+  %38 = load ptr, ptr %24, align 8, !tbaa !48
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds i16, ptr %38, i64 %39
-  store ptr %40, ptr %24, align 8, !tbaa !47
+  store ptr %40, ptr %24, align 8, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i8, ptr %41, align 4, !tbaa !19
+  %42 = load i8, ptr %41, align 4, !tbaa !20
   %.not23 = icmp eq i8 %42, 0
   br i1 %.not23, label %43, label %54
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %45 = load i8, ptr %44, align 2, !tbaa !22
+  %45 = load i8, ptr %44, align 2, !tbaa !23
   %.not24 = icmp eq i8 %45, 0
   br i1 %.not24, label %48, label %46
 
 46:                                               ; preds = %43
   %47 = trunc i64 %36 to i16
-  store i16 %47, ptr %9, align 2, !tbaa !56
+  store i16 %47, ptr %9, align 2, !tbaa !57
   br label %54
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %50 = load i8, ptr %49, align 4, !tbaa !23
+  %50 = load i8, ptr %49, align 4, !tbaa !24
   %.not25 = icmp eq i8 %50, 0
   br i1 %.not25, label %52, label %51
 
 51:                                               ; preds = %48
-  store i64 %36, ptr %9, align 8, !tbaa !58
+  store i64 %36, ptr %9, align 8, !tbaa !59
   br label %54
 
 52:                                               ; preds = %48
@@ -1746,9 +1746,9 @@ define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !33
+  %9 = load ptr, ptr %2, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %12
 
@@ -1773,7 +1773,7 @@ define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_
 
 .critedge2.i:                                     ; preds = %17, %14
   %20 = add nuw nsw i32 %.0.i, 1
-  br label %12, !llvm.loop !38
+  br label %12, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %17, %12
   %21 = load i16, ptr %7, align 2, !tbaa !7
@@ -1786,15 +1786,15 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %27 = load ptr, ptr %24, align 8, !tbaa !47
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %24, align 8, !tbaa !48
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = lshr exact i64 %30, 1
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %8, align 4, !tbaa !3
-  %33 = load i32, ptr %1, align 4, !tbaa !14
+  %33 = load i32, ptr %1, align 4, !tbaa !15
   %.not = icmp eq i32 %33, -1
   br i1 %.not, label %35, label %34
 
@@ -1815,20 +1815,20 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 39:                                               ; preds = %38, %35
   %40 = call noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef %27, ptr noundef nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i8, ptr %41, align 4, !tbaa !19
+  %42 = load i8, ptr %41, align 4, !tbaa !20
   %.not17 = icmp eq i8 %42, 0
   br i1 %.not17, label %43, label %44
 
 43:                                               ; preds = %39
-  store ptr %40, ptr %9, align 8, !tbaa !32
+  store ptr %40, ptr %9, align 8, !tbaa !33
   br label %44
 
 44:                                               ; preds = %43, %39
   %45 = load i32, ptr %8, align 4, !tbaa !3
-  %46 = load ptr, ptr %24, align 8, !tbaa !47
+  %46 = load ptr, ptr %24, align 8, !tbaa !48
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds i16, ptr %46, i64 %47
-  store ptr %48, ptr %24, align 8, !tbaa !47
+  store ptr %48, ptr %24, align 8, !tbaa !48
   %49 = zext i1 %.not17 to i32
   store i32 %49, ptr %5, align 4, !tbaa !3
   %50 = add nsw i32 %45, %.0.i
@@ -1844,20 +1844,20 @@ define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_i
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  %12 = load ptr, ptr %2, align 8, !tbaa !33
+  %12 = load ptr, ptr %2, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  store ptr %12, ptr %9, align 8, !tbaa !61
+  store ptr %12, ptr %9, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  store i32 0, ptr %10, align 4, !tbaa !36
+  store i32 0, ptr %10, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %14 = load i8, ptr %13, align 1, !tbaa !17
+  %14 = load i8, ptr %13, align 1, !tbaa !18
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %17 = load i16, ptr %16, align 2, !tbaa !16
+  %17 = load i16, ptr %16, align 2, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   br label %18
 
@@ -1882,7 +1882,7 @@ define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_i
 
 .critedge2.i:                                     ; preds = %23, %20
   %26 = add nuw nsw i32 %.0.i, 1
-  br label %18, !llvm.loop !38
+  br label %18, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %23, %18
   %27 = load i16, ptr %7, align 2, !tbaa !7
@@ -1897,12 +1897,12 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
 30:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %6
   %.036 = phi i32 [ %.0.i, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ], [ 0, %6 ]
   %31 = call ptr @u_getDefaultConverter_77(ptr noundef nonnull %10)
-  %32 = load i32, ptr %10, align 4, !tbaa !36
+  %32 = load i32, ptr %10, align 4, !tbaa !37
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %.preheader, label %98
 
 .preheader:                                       ; preds = %30
-  %34 = load i32, ptr %1, align 4, !tbaa !14
+  %34 = load i32, ptr %1, align 4, !tbaa !15
   %35 = icmp eq i32 %34, -1
   %36 = icmp sgt i32 %34, 0
   %or.cond5359 = or i1 %35, %36
@@ -1920,13 +1920,13 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   br i1 %41, label %42, label %.critedge.loopexit.split.loop.exit77
 
 42:                                               ; preds = %39
-  %43 = load i8, ptr %13, align 1, !tbaa !17
+  %43 = load i8, ptr %13, align 1, !tbaa !18
   %.not45 = icmp eq i8 %43, 0
   br i1 %.not45, label %.critedge2, label %44
 
 44:                                               ; preds = %42
   %45 = load i16, ptr %11, align 2, !tbaa !7
-  %46 = load i16, ptr %37, align 2, !tbaa !16
+  %46 = load i16, ptr %37, align 2, !tbaa !17
   %.not46 = icmp eq i16 %45, %46
   br i1 %.not46, label %.critedge.loopexit.split.loop.exit80, label %47
 
@@ -1937,15 +1937,15 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   br i1 %.not47, label %.critedge2, label %.critedge.loopexit.split.loop.exit83
 
 .critedge2:                                       ; preds = %42, %47
-  %50 = load i8, ptr %38, align 4, !tbaa !19
+  %50 = load i8, ptr %38, align 4, !tbaa !20
   %.not51 = icmp eq i8 %50, 0
   br i1 %.not51, label %51, label %70
 
 51:                                               ; preds = %.critedge2
-  store ptr %11, ptr %8, align 8, !tbaa !62
-  %52 = load i32, ptr %1, align 4, !tbaa !14
+  store ptr %11, ptr %8, align 8, !tbaa !63
+  %52 = load i32, ptr %1, align 4, !tbaa !15
   %53 = icmp sgt i32 %52, 0
-  %54 = load ptr, ptr %9, align 8, !tbaa !61
+  %54 = load ptr, ptr %9, align 8, !tbaa !62
   br i1 %53, label %55, label %60
 
 55:                                               ; preds = %51
@@ -1959,7 +1959,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %61 = call signext i8 @ucnv_getMaxCharSize_77(ptr noundef %31)
   %62 = sext i8 %61 to i64
   %63 = getelementptr inbounds i8, ptr %54, i64 %62
-  %.pre = load ptr, ptr %8, align 8, !tbaa !62
+  %.pre = load ptr, ptr %8, align 8, !tbaa !63
   br label %64
 
 64:                                               ; preds = %60, %55
@@ -1967,7 +1967,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %.038 = phi ptr [ %59, %55 ], [ %63, %60 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 2
   call void @ucnv_fromUnicode_77(ptr noundef %31, ptr noundef nonnull %9, ptr noundef %.038, ptr noundef nonnull %8, ptr noundef nonnull %66, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %10)
-  %67 = load i32, ptr %10, align 4, !tbaa !36
+  %67 = load i32, ptr %10, align 4, !tbaa !37
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %70, label %69
 
@@ -1978,11 +1978,11 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
 70:                                               ; preds = %64, %.critedge2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %71 = load i32, ptr %1, align 4, !tbaa !14
+  %71 = load i32, ptr %1, align 4, !tbaa !15
   %72 = icmp eq i32 %71, -1
   %73 = icmp sgt i32 %71, %indvars
   %or.cond53 = select i1 %72, i1 true, i1 %73
-  br i1 %or.cond53, label %39, label %.critedge, !llvm.loop !63
+  br i1 %or.cond53, label %39, label %.critedge, !llvm.loop !64
 
 .critedge.loopexit.split.loop.exit77:             ; preds = %39
   %74 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2000,12 +2000,12 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %.037.lcssa = phi i32 [ 0, %.preheader ], [ %74, %.critedge.loopexit.split.loop.exit77 ], [ %75, %.critedge.loopexit.split.loop.exit80 ], [ %76, %.critedge.loopexit.split.loop.exit83 ], [ %indvars, %70 ]
   %.1 = phi i8 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit77 ], [ 1, %.critedge.loopexit.split.loop.exit80 ], [ 1, %.critedge.loopexit.split.loop.exit83 ], [ 1, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %78 = load i8, ptr %77, align 4, !tbaa !19
+  %78 = load i8, ptr %77, align 4, !tbaa !20
   %.not48 = icmp eq i8 %78, 0
   br i1 %.not48, label %79, label %94
 
 79:                                               ; preds = %.critedge
-  %80 = load i32, ptr %1, align 4, !tbaa !14
+  %80 = load i32, ptr %1, align 4, !tbaa !15
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %85, label %82
 
@@ -2026,18 +2026,18 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   br label %90
 
 90:                                               ; preds = %86, %85, %82
-  %91 = load i8, ptr %13, align 1, !tbaa !17
+  %91 = load i8, ptr %13, align 1, !tbaa !18
   %.not49 = icmp eq i8 %91, 0
   br i1 %.not49, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = load ptr, ptr %9, align 8, !tbaa !61
-  store i8 0, ptr %93, align 1, !tbaa !33
+  %93 = load ptr, ptr %9, align 8, !tbaa !62
+  store i8 0, ptr %93, align 1, !tbaa !34
   br label %94
 
 94:                                               ; preds = %90, %92, %.critedge
   call void @u_releaseDefaultConverter_77(ptr noundef %31)
-  %95 = load i8, ptr %77, align 4, !tbaa !19
+  %95 = load i8, ptr %77, align 4, !tbaa !20
   %.not50 = icmp eq i8 %95, 0
   %96 = zext i1 %.not50 to i32
   store i32 %96, ptr %5, align 4, !tbaa !3
@@ -2079,13 +2079,13 @@ define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFI
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 0, ptr %5, align 4, !tbaa !36
+  store i32 0, ptr %5, align 4, !tbaa !37
   %6 = icmp sgt i32 %.0.val, 0
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %2
   %8 = call i32 @unum_getSymbol_77(ptr noundef %1, i32 noundef 7, ptr noundef nonnull %4, i32 noundef 8, ptr noundef nonnull %5)
-  %9 = load i32, ptr %5, align 4, !tbaa !36
+  %9 = load i32, ptr %5, align 4, !tbaa !37
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %28, label %.preheader
 
@@ -2114,7 +2114,7 @@ define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFI
   %21 = icmp eq i8 %20, 1
   %22 = icmp samesign ult i64 %indvars.iv.next, %14
   %or.cond = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !64
+  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !65
 
 .critedge.loopexit:                               ; preds = %19
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2215,59 +2215,60 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"char16_t", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !4, i64 16}
-!12 = !{!"_ZTS12u_scanf_spec", !13, i64 0, !4, i64 16}
-!13 = !{!"_ZTS17u_scanf_spec_info", !4, i64 0, !8, i64 4, !8, i64 6, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13}
-!14 = !{!13, !4, i64 0}
-!15 = !{!13, !8, i64 4}
-!16 = !{!13, !8, i64 6}
-!17 = !{!13, !5, i64 13}
-!18 = distinct !{!18, !10}
-!19 = !{!13, !5, i64 8}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = !{!13, !5, i64 10}
-!23 = !{!13, !5, i64 12}
-!24 = !{!13, !5, i64 11}
-!25 = !{!13, !5, i64 9}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTS12u_scanf_info", !28, i64 0, !29, i64 8}
-!28 = !{!"_ZTS14ufmt_type_info", !5, i64 0}
-!29 = !{!"any pointer", !5, i64 0}
-!30 = !{!12, !5, i64 8}
-!31 = !{!12, !4, i64 0}
-!32 = !{!29, !29, i64 0}
-!33 = !{!5, !5, i64 0}
-!34 = !{!27, !29, i64 8}
-!35 = distinct !{!35, !10}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!38 = distinct !{!38, !10}
-!39 = !{!40, !44, i64 32}
-!40 = !{!"_ZTS5UFILE", !29, i64 0, !41, i64 8, !42, i64 16, !43, i64 24, !5, i64 104, !5, i64 2152, !4, i64 2156}
-!41 = !{!"p1 _ZTS8_IO_FILE", !29, i64 0}
-!42 = !{!"p1 _ZTS10UConverter", !29, i64 0}
-!43 = !{!"_ZTS18u_localized_string", !44, i64 0, !44, i64 8, !44, i64 16, !45, i64 24}
-!44 = !{!"p1 char16_t", !29, i64 0}
-!45 = !{!"_ZTS13ULocaleBundle", !46, i64 0, !5, i64 8, !5, i64 48}
-!46 = !{!"p1 omnipotent char", !29, i64 0}
-!47 = !{!40, !44, i64 24}
-!48 = !{!40, !46, i64 48}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"double", !5, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"long double", !5, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"float", !5, i64 0}
-!55 = distinct !{!55, !10}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"short", !5, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"long", !5, i64 0}
-!60 = distinct !{!60, !10}
-!61 = !{!46, !46, i64 0}
-!62 = !{!44, !44, i64 0}
-!63 = distinct !{!63, !10}
-!64 = distinct !{!64, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !4, i64 16}
+!13 = !{!"_ZTS12u_scanf_spec", !14, i64 0, !4, i64 16}
+!14 = !{!"_ZTS17u_scanf_spec_info", !4, i64 0, !8, i64 4, !8, i64 6, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13}
+!15 = !{!14, !4, i64 0}
+!16 = !{!14, !8, i64 4}
+!17 = !{!14, !8, i64 6}
+!18 = !{!14, !5, i64 13}
+!19 = distinct !{!19, !10, !11}
+!20 = !{!14, !5, i64 8}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = !{!14, !5, i64 10}
+!24 = !{!14, !5, i64 12}
+!25 = !{!14, !5, i64 11}
+!26 = !{!14, !5, i64 9}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"_ZTS12u_scanf_info", !29, i64 0, !30, i64 8}
+!29 = !{!"_ZTS14ufmt_type_info", !5, i64 0}
+!30 = !{!"any pointer", !5, i64 0}
+!31 = !{!13, !5, i64 8}
+!32 = !{!13, !4, i64 0}
+!33 = !{!30, !30, i64 0}
+!34 = !{!5, !5, i64 0}
+!35 = !{!28, !30, i64 8}
+!36 = distinct !{!36, !10, !11}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!39 = distinct !{!39, !10, !11}
+!40 = !{!41, !45, i64 32}
+!41 = !{!"_ZTS5UFILE", !30, i64 0, !42, i64 8, !43, i64 16, !44, i64 24, !5, i64 104, !5, i64 2152, !4, i64 2156}
+!42 = !{!"p1 _ZTS8_IO_FILE", !30, i64 0}
+!43 = !{!"p1 _ZTS10UConverter", !30, i64 0}
+!44 = !{!"_ZTS18u_localized_string", !45, i64 0, !45, i64 8, !45, i64 16, !46, i64 24}
+!45 = !{!"p1 char16_t", !30, i64 0}
+!46 = !{!"_ZTS13ULocaleBundle", !47, i64 0, !5, i64 8, !5, i64 48}
+!47 = !{!"p1 omnipotent char", !30, i64 0}
+!48 = !{!41, !45, i64 24}
+!49 = !{!41, !47, i64 48}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"long double", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"float", !5, i64 0}
+!56 = distinct !{!56, !10, !11}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"short", !5, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"long", !5, i64 0}
+!61 = distinct !{!61, !10, !11}
+!62 = !{!47, !47, i64 0}
+!63 = !{!45, !45, i64 0}
+!64 = distinct !{!64, !10, !11}
+!65 = distinct !{!65, !10, !11}

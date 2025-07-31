@@ -140,7 +140,7 @@ dsm_cleanup_for_mmap.exit:                        ; preds = %25, %6
   br i1 %41, label %.backedge.backedge, label %42
 
 .backedge.backedge:                               ; preds = %.backedge, %42
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 42:                                               ; preds = %.backedge
   %43 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %40, i64 noundef %38, ptr noundef nonnull @dsm_control_impl_private, ptr noundef nonnull %3, ptr noundef nonnull @dsm_control_mapped_size, i32 noundef 21) #12
@@ -283,7 +283,7 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
   %42 = phi ptr [ %26, %32 ], [ %26, %.lr.ph ], [ %.pre, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %43 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
@@ -402,7 +402,7 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 40:                                               ; preds = %31, %26, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %40, %24
   %41 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
@@ -449,7 +449,7 @@ define dso_local void @dsm_shmem_init() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef %4, ptr noundef nonnull %1) #12
   store ptr %7, ptr @dsm_main_space_begin, align 8
-  %8 = load i8, ptr %1, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr %1, align 1, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %12, label %.preheader.preheader
 
@@ -577,7 +577,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   br i1 %48, label %.backedge.backedge, label %49
 
 .backedge.backedge:                               ; preds = %.backedge, %49
-  br label %.backedge
+  br label %.backedge, !llvm.loop !12
 
 49:                                               ; preds = %.backedge
   %50 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %47, i64 noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef 21) #12
@@ -659,7 +659,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 95:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %60, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %60, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %95
   %96 = zext i32 %58 to i64
@@ -833,7 +833,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not35 = icmp eq ptr %12, @dsm_segment_list
-  br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !14
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %3
   %13 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -942,7 +942,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 65:                                               ; preds = %43, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !15
 
 .loopexit:                                        ; preds = %65, %dsm_create_descriptor.exit, %46, %52
   %66 = load ptr, ptr @MainLWLockArray, align 8
@@ -995,7 +995,7 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %8(ptr noundef nonnull %0, i64 noundef %10) #12
   %.val = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %.val, null
-  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %12 = load volatile i32, ptr @InterruptHoldoffCount, align 4
@@ -1131,7 +1131,7 @@ define dso_local void @dsm_backend_shutdown() local_unnamed_addr #0 {
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %5, @dsm_segment_list
   %spec.select.i = or i1 %6, %7
-  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1156,7 +1156,7 @@ define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %7, @dsm_segment_list
   %spec.select.i = or i1 %8, %9
-  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.not = icmp eq ptr %2, null
@@ -1218,7 +1218,7 @@ define dso_local void @dsm_pin_segment(ptr noundef readonly captures(none) %0) l
   %.idx = mul nuw nsw i64 %9, 40
   %10 = getelementptr i8, ptr %6, i64 48
   %11 = getelementptr i8, ptr %10, i64 %.idx
-  %12 = load i8, ptr %11, align 8, !range !8, !noundef !9
+  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
@@ -1311,7 +1311,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %20, %1
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1325,7 +1325,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %.idx = mul nuw nsw i64 %24, 40
   %25 = getelementptr i8, ptr %8, i64 48
   %26 = getelementptr i8, ptr %25, i64 %.idx
-  %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
+  %27 = load i8, ptr %26, align 8, !range !10, !noundef !11
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %32, label %29
 
@@ -1439,7 +1439,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, @dsm_segment_list
-  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !20
 
 select.unfold._crit_edge:                         ; preds = %.lr.ph, %select.unfold, %1
   %.0 = phi ptr [ null, %1 ], [ null, %select.unfold ], [ %.sroa.0.011, %.lr.ph ]
@@ -1514,7 +1514,7 @@ define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr n
 
 16:                                               ; preds = %10, %.lr.ph
   %.not10 = icmp eq ptr %6, null
-  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %16, %3, %14
   ret void
@@ -1543,7 +1543,7 @@ define dso_local void @reset_on_dsm_detach() local_unnamed_addr #0 {
   tail call void @pfree(ptr noundef nonnull %5) #12
   %.val = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %.val, null
-  br i1 %6, label %select.unfold, label %.lr.ph, !llvm.loop !19
+  br i1 %6, label %select.unfold, label %.lr.ph, !llvm.loop !22
 
 select.unfold:                                    ; preds = %.lr.ph, %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 28
@@ -1551,7 +1551,7 @@ select.unfold:                                    ; preds = %.lr.ph, %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, @dsm_segment_list
-  br i1 %.not10, label %select.unfold._crit_edge, label %.preheader, !llvm.loop !20
+  br i1 %.not10, label %select.unfold._crit_edge, label %.preheader, !llvm.loop !23
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   ret void
@@ -1628,20 +1628,23 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}

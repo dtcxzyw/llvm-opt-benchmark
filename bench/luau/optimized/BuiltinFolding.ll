@@ -1784,11 +1784,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 .critedge:                                        ; preds = %230, %224
   %.0.lcssa = phi double [ %226, %224 ], [ %234, %230 ]
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !72
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !73
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %236, align 4, !tbaa !15, !alias.scope !72
+  store i32 0, ptr %236, align 4, !tbaa !15, !alias.scope !73
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0.lcssa, ptr %237, align 8, !tbaa !11, !alias.scope !72
+  store double %.0.lcssa, ptr %237, align 8, !tbaa !11, !alias.scope !73
   br label %845
 
 238:                                              ; preds = %4
@@ -1815,7 +1815,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not398, label %248, label %247
 
 247:                                              ; preds = %.lr.ph479
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !75
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !76
   br label %845
 
 248:                                              ; preds = %.lr.ph479
@@ -1825,15 +1825,15 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %252 = select i1 %251, double %250, double %.0350478
   %253 = add nuw i64 %.0351477, 1
   %exitcond494.not = icmp eq i64 %253, %3
-  br i1 %exitcond494.not, label %.critedge404, label %.lr.ph479, !llvm.loop !78
+  br i1 %exitcond494.not, label %.critedge404, label %.lr.ph479, !llvm.loop !79
 
 .critedge404:                                     ; preds = %248, %242
   %.0350.lcssa = phi double [ %244, %242 ], [ %252, %248 ]
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !79
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !80
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %254, align 4, !tbaa !15, !alias.scope !79
+  store i32 0, ptr %254, align 4, !tbaa !15, !alias.scope !80
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0350.lcssa, ptr %255, align 8, !tbaa !11, !alias.scope !79
+  store double %.0350.lcssa, ptr %255, align 8, !tbaa !11, !alias.scope !80
   br label %845
 
 256:                                              ; preds = %4
@@ -1857,11 +1857,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %268 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %269 = load double, ptr %268, align 8, !tbaa !11
   %270 = tail call double @pow(double noundef %267, double noundef %269) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !82
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !83
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %271, align 4, !tbaa !15, !alias.scope !82
+  store i32 0, ptr %271, align 4, !tbaa !15, !alias.scope !83
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %270, ptr %272, align 8, !tbaa !11, !alias.scope !82
+  store double %270, ptr %272, align 8, !tbaa !11, !alias.scope !83
   br label %845
 
 273:                                              ; preds = %4
@@ -1877,11 +1877,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %279 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %280 = load double, ptr %279, align 8, !tbaa !11
   %281 = fmul double %280, 0x3F91DF46A2529D39
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !85
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !86
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %282, align 4, !tbaa !15, !alias.scope !85
+  store i32 0, ptr %282, align 4, !tbaa !15, !alias.scope !86
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %281, ptr %283, align 8, !tbaa !11, !alias.scope !85
+  store double %281, ptr %283, align 8, !tbaa !11, !alias.scope !86
   br label %845
 
 284:                                              ; preds = %4
@@ -1897,11 +1897,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %291 = load double, ptr %290, align 8, !tbaa !11
   %292 = tail call double @sinh(double noundef %291) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !88
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !89
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %293, align 4, !tbaa !15, !alias.scope !88
+  store i32 0, ptr %293, align 4, !tbaa !15, !alias.scope !89
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %292, ptr %294, align 8, !tbaa !11, !alias.scope !88
+  store double %292, ptr %294, align 8, !tbaa !11, !alias.scope !89
   br label %845
 
 295:                                              ; preds = %4
@@ -1917,11 +1917,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %301 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %302 = load double, ptr %301, align 8, !tbaa !11
   %303 = tail call double @sin(double noundef %302) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !91
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !92
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %304, align 4, !tbaa !15, !alias.scope !91
+  store i32 0, ptr %304, align 4, !tbaa !15, !alias.scope !92
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %303, ptr %305, align 8, !tbaa !11, !alias.scope !91
+  store double %303, ptr %305, align 8, !tbaa !11, !alias.scope !92
   br label %845
 
 306:                                              ; preds = %4
@@ -1937,11 +1937,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %313 = load double, ptr %312, align 8, !tbaa !11
   %314 = tail call double @sqrt(double noundef %313) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !94
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !95
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %315, align 4, !tbaa !15, !alias.scope !94
+  store i32 0, ptr %315, align 4, !tbaa !15, !alias.scope !95
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %314, ptr %316, align 8, !tbaa !11, !alias.scope !94
+  store double %314, ptr %316, align 8, !tbaa !11, !alias.scope !95
   br label %845
 
 317:                                              ; preds = %4
@@ -1957,11 +1957,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %323 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %324 = load double, ptr %323, align 8, !tbaa !11
   %325 = tail call double @tanh(double noundef %324) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !97
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !98
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %326, align 4, !tbaa !15, !alias.scope !97
+  store i32 0, ptr %326, align 4, !tbaa !15, !alias.scope !98
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %325, ptr %327, align 8, !tbaa !11, !alias.scope !97
+  store double %325, ptr %327, align 8, !tbaa !11, !alias.scope !98
   br label %845
 
 328:                                              ; preds = %4
@@ -1977,11 +1977,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %335 = load double, ptr %334, align 8, !tbaa !11
   %336 = tail call double @tan(double noundef %335) #10, !tbaa !4
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !100
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !101
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %337, align 4, !tbaa !15, !alias.scope !100
+  store i32 0, ptr %337, align 4, !tbaa !15, !alias.scope !101
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %336, ptr %338, align 8, !tbaa !11, !alias.scope !100
+  store double %336, ptr %338, align 8, !tbaa !11, !alias.scope !101
   br label %845
 
 339:                                              ; preds = %4
@@ -2013,11 +2013,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %357 = trunc i64 %356 to i32
   %358 = ashr i32 %357, %351
   %359 = uitofp i32 %358 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !103
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !104
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %360, align 4, !tbaa !15, !alias.scope !103
+  store i32 0, ptr %360, align 4, !tbaa !15, !alias.scope !104
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %359, ptr %361, align 8, !tbaa !11, !alias.scope !103
+  store double %359, ptr %361, align 8, !tbaa !11, !alias.scope !104
   br label %845
 
 362:                                              ; preds = %4
@@ -2046,7 +2046,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not395, label %374, label %373
 
 373:                                              ; preds = %.lr.ph474
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !106
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !107
   br label %845
 
 374:                                              ; preds = %.lr.ph474
@@ -2057,16 +2057,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %379 = and i32 %.0352473, %378
   %380 = add nuw i64 %.0353472, 1
   %exitcond493.not = icmp eq i64 %380, %3
-  br i1 %exitcond493.not, label %.critedge406, label %.lr.ph474, !llvm.loop !109
+  br i1 %exitcond493.not, label %.critedge406, label %.lr.ph474, !llvm.loop !110
 
 .critedge406:                                     ; preds = %374, %366
   %.0352.lcssa = phi i32 [ %370, %366 ], [ %379, %374 ]
   %381 = uitofp i32 %.0352.lcssa to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !110
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !111
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %382, align 4, !tbaa !15, !alias.scope !110
+  store i32 0, ptr %382, align 4, !tbaa !15, !alias.scope !111
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %381, ptr %383, align 8, !tbaa !11, !alias.scope !110
+  store double %381, ptr %383, align 8, !tbaa !11, !alias.scope !111
   br label %845
 
 384:                                              ; preds = %4
@@ -2085,11 +2085,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %393 = trunc i64 %392 to i32
   %394 = xor i32 %393, -1
   %395 = uitofp i32 %394 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !113
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !114
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %396, align 4, !tbaa !15, !alias.scope !113
+  store i32 0, ptr %396, align 4, !tbaa !15, !alias.scope !114
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %395, ptr %397, align 8, !tbaa !11, !alias.scope !113
+  store double %395, ptr %397, align 8, !tbaa !11, !alias.scope !114
   br label %845
 
 398:                                              ; preds = %4
@@ -2118,7 +2118,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not392, label %410, label %409
 
 409:                                              ; preds = %.lr.ph469
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !116
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !117
   br label %845
 
 410:                                              ; preds = %.lr.ph469
@@ -2129,16 +2129,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %415 = or i32 %.0354468, %414
   %416 = add nuw i64 %.0355467, 1
   %exitcond492.not = icmp eq i64 %416, %3
-  br i1 %exitcond492.not, label %.critedge408, label %.lr.ph469, !llvm.loop !119
+  br i1 %exitcond492.not, label %.critedge408, label %.lr.ph469, !llvm.loop !120
 
 .critedge408:                                     ; preds = %410, %402
   %.0354.lcssa = phi i32 [ %406, %402 ], [ %415, %410 ]
   %417 = uitofp i32 %.0354.lcssa to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !120
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !121
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %418, align 4, !tbaa !15, !alias.scope !120
+  store i32 0, ptr %418, align 4, !tbaa !15, !alias.scope !121
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %417, ptr %419, align 8, !tbaa !11, !alias.scope !120
+  store double %417, ptr %419, align 8, !tbaa !11, !alias.scope !121
   br label %845
 
 420:                                              ; preds = %4
@@ -2167,7 +2167,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not389, label %432, label %431
 
 431:                                              ; preds = %.lr.ph464
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !124
   br label %845
 
 432:                                              ; preds = %.lr.ph464
@@ -2178,16 +2178,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %437 = xor i32 %.0356463, %436
   %438 = add nuw i64 %.0357462, 1
   %exitcond491.not = icmp eq i64 %438, %3
-  br i1 %exitcond491.not, label %.critedge410, label %.lr.ph464, !llvm.loop !126
+  br i1 %exitcond491.not, label %.critedge410, label %.lr.ph464, !llvm.loop !127
 
 .critedge410:                                     ; preds = %432, %424
   %.0356.lcssa = phi i32 [ %428, %424 ], [ %437, %432 ]
   %439 = uitofp i32 %.0356.lcssa to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !127
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !128
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %440, align 4, !tbaa !15, !alias.scope !127
+  store i32 0, ptr %440, align 4, !tbaa !15, !alias.scope !128
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %439, ptr %441, align 8, !tbaa !11, !alias.scope !127
+  store double %439, ptr %441, align 8, !tbaa !11, !alias.scope !128
   br label %845
 
 442:                                              ; preds = %4
@@ -2216,7 +2216,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not386, label %454, label %453
 
 453:                                              ; preds = %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !130
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !131
   br label %845
 
 454:                                              ; preds = %.lr.ph
@@ -2227,18 +2227,18 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %459 = and i32 %.0358460, %458
   %460 = add nuw i64 %.0359459, 1
   %exitcond.not = icmp eq i64 %460, %3
-  br i1 %exitcond.not, label %.critedge412, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %.critedge412, label %.lr.ph, !llvm.loop !134
 
 .critedge412:                                     ; preds = %454, %446
   %.0358.lcssa = phi i32 [ %450, %446 ], [ %459, %454 ]
   %461 = icmp ne i32 %.0358.lcssa, 0
   %462 = zext i1 %461 to i8
-  store i32 2, ptr %0, align 8, !tbaa !8, !alias.scope !134
+  store i32 2, ptr %0, align 8, !tbaa !8, !alias.scope !135
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %463, align 4, !tbaa !15, !alias.scope !134
+  store i32 0, ptr %463, align 4, !tbaa !15, !alias.scope !135
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %464, align 8, !tbaa !11, !alias.scope !134
-  store i8 %462, ptr %464, align 8, !tbaa !11, !alias.scope !134
+  store ptr null, ptr %464, align 8, !tbaa !11, !alias.scope !135
+  store i8 %462, ptr %464, align 8, !tbaa !11, !alias.scope !135
   br label %845
 
 465:                                              ; preds = %4
@@ -2296,11 +2296,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %495 = lshr i32 %491, %485
   %496 = and i32 %495, %494
   %497 = uitofp i32 %496 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !137
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !138
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %498, align 4, !tbaa !15, !alias.scope !137
+  store i32 0, ptr %498, align 4, !tbaa !15, !alias.scope !138
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %497, ptr %499, align 8, !tbaa !11, !alias.scope !137
+  store double %497, ptr %499, align 8, !tbaa !11, !alias.scope !138
   br label %845
 
 500:                                              ; preds = %4
@@ -2328,11 +2328,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %516 = fptosi double %515 to i32
   %517 = tail call i32 @llvm.fshl.i32(i32 %513, i32 %513, i32 %516)
   %518 = uitofp i32 %517 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !140
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !141
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %519, align 4, !tbaa !15, !alias.scope !140
+  store i32 0, ptr %519, align 4, !tbaa !15, !alias.scope !141
   %520 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %518, ptr %520, align 8, !tbaa !11, !alias.scope !140
+  store double %518, ptr %520, align 8, !tbaa !11, !alias.scope !141
   br label %845
 
 521:                                              ; preds = %4
@@ -2364,11 +2364,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %539 = trunc i64 %538 to i32
   %540 = shl i32 %539, %533
   %541 = uitofp i32 %540 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !143
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !144
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %542, align 4, !tbaa !15, !alias.scope !143
+  store i32 0, ptr %542, align 4, !tbaa !15, !alias.scope !144
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %541, ptr %543, align 8, !tbaa !11, !alias.scope !143
+  store double %541, ptr %543, align 8, !tbaa !11, !alias.scope !144
   br label %845
 
 544:                                              ; preds = %4
@@ -2440,11 +2440,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %583 = shl i32 %582, %568
   %584 = or i32 %583, %581
   %585 = uitofp i32 %584 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !146
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !147
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %586, align 4, !tbaa !15, !alias.scope !146
+  store i32 0, ptr %586, align 4, !tbaa !15, !alias.scope !147
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %585, ptr %587, align 8, !tbaa !11, !alias.scope !146
+  store double %585, ptr %587, align 8, !tbaa !11, !alias.scope !147
   br label %845
 
 588:                                              ; preds = %4
@@ -2472,11 +2472,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %604 = fptosi double %603 to i32
   %605 = tail call i32 @llvm.fshr.i32(i32 %601, i32 %601, i32 %604)
   %606 = uitofp i32 %605 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !149
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !150
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %607, align 4, !tbaa !15, !alias.scope !149
+  store i32 0, ptr %607, align 4, !tbaa !15, !alias.scope !150
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %606, ptr %608, align 8, !tbaa !11, !alias.scope !149
+  store double %606, ptr %608, align 8, !tbaa !11, !alias.scope !150
   br label %845
 
 609:                                              ; preds = %4
@@ -2508,11 +2508,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %627 = trunc i64 %626 to i32
   %628 = lshr i32 %627, %621
   %629 = uitofp i32 %628 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !152
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !153
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %630, align 4, !tbaa !15, !alias.scope !152
+  store i32 0, ptr %630, align 4, !tbaa !15, !alias.scope !153
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %629, ptr %631, align 8, !tbaa !11, !alias.scope !152
+  store double %629, ptr %631, align 8, !tbaa !11, !alias.scope !153
   br label %845
 
 632:                                              ; preds = %4
@@ -2550,11 +2550,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %646 = load ptr, ptr %645, align 8, !tbaa !11
   %647 = load i8, ptr %646, align 1, !tbaa !11
   %648 = uitofp i8 %647 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !155
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !156
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %649, align 4, !tbaa !15, !alias.scope !155
+  store i32 0, ptr %649, align 4, !tbaa !15, !alias.scope !156
   %650 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %648, ptr %650, align 8, !tbaa !11, !alias.scope !155
+  store double %648, ptr %650, align 8, !tbaa !11, !alias.scope !156
   br label %845
 
 651:                                              ; preds = %637
@@ -2589,11 +2589,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %671 = getelementptr i8, ptr %670, i64 -1
   %672 = load i8, ptr %671, align 1, !tbaa !11
   %673 = uitofp i8 %672 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !158
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !159
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %674, align 4, !tbaa !15, !alias.scope !158
+  store i32 0, ptr %674, align 4, !tbaa !15, !alias.scope !159
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %673, ptr %675, align 8, !tbaa !11, !alias.scope !158
+  store double %673, ptr %675, align 8, !tbaa !11, !alias.scope !159
   br label %845
 
 676:                                              ; preds = %4
@@ -2609,11 +2609,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %682 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %683 = load i32, ptr %682, align 4, !tbaa !15
   %684 = uitofp i32 %683 to double
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !161
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !162
   %685 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %685, align 4, !tbaa !15, !alias.scope !161
+  store i32 0, ptr %685, align 4, !tbaa !15, !alias.scope !162
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %684, ptr %686, align 8, !tbaa !11, !alias.scope !161
+  store double %684, ptr %686, align 8, !tbaa !11, !alias.scope !162
   br label %845
 
 687:                                              ; preds = %4
@@ -2665,11 +2665,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %715 = select i1 %714, double %707, double %713
   %716 = fcmp ogt double %715, %709
   %717 = select i1 %716, double %709, double %715
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !164
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !165
   %718 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %718, align 4, !tbaa !15, !alias.scope !164
+  store i32 0, ptr %718, align 4, !tbaa !15, !alias.scope !165
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %717, ptr %719, align 8, !tbaa !11, !alias.scope !164
+  store double %717, ptr %719, align 8, !tbaa !11, !alias.scope !165
   br label %845
 
 720:                                              ; preds = %4
@@ -2688,11 +2688,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %729 = fcmp olt double %727, 0.000000e+00
   %730 = select i1 %729, double -1.000000e+00, double 0.000000e+00
   %731 = select i1 %728, double 1.000000e+00, double %730
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !167
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !168
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %732, align 4, !tbaa !15, !alias.scope !167
+  store i32 0, ptr %732, align 4, !tbaa !15, !alias.scope !168
   %733 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %731, ptr %733, align 8, !tbaa !11, !alias.scope !167
+  store double %731, ptr %733, align 8, !tbaa !11, !alias.scope !168
   br label %845
 
 734:                                              ; preds = %4
@@ -2708,11 +2708,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %740 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %741 = load double, ptr %740, align 8, !tbaa !11
   %742 = tail call double @llvm.round.f64(double %741)
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !170
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !171
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %743, align 4, !tbaa !15, !alias.scope !170
+  store i32 0, ptr %743, align 4, !tbaa !15, !alias.scope !171
   %744 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %742, ptr %744, align 8, !tbaa !11, !alias.scope !170
+  store double %742, ptr %744, align 8, !tbaa !11, !alias.scope !171
   br label %845
 
 745:                                              ; preds = %4
@@ -2738,7 +2738,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   ]
 
 755:                                              ; preds = %754
-  %756 = load i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !173, !range !179, !noundef !180
+  %756 = load i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !174, !range !180, !noundef !181
   %757 = trunc nuw i8 %756 to i1
   br i1 %757, label %758, label %.thread
 
@@ -2747,19 +2747,19 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %760 = load double, ptr %759, align 8, !tbaa !11
   %761 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %762 = load double, ptr %761, align 8, !tbaa !11
-  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !181
+  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !182
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %763, align 4, !tbaa !15, !alias.scope !181
+  store i32 0, ptr %763, align 4, !tbaa !15, !alias.scope !182
   %764 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %765 = fptrunc double %760 to float
-  store float %765, ptr %764, align 8, !tbaa !11, !alias.scope !181
+  store float %765, ptr %764, align 8, !tbaa !11, !alias.scope !182
   %766 = fptrunc double %762 to float
   %767 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %766, ptr %767, align 4, !tbaa !11, !alias.scope !181
+  store float %766, ptr %767, align 4, !tbaa !11, !alias.scope !182
   %768 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 0.000000e+00, ptr %768, align 8, !tbaa !11, !alias.scope !181
+  store float 0.000000e+00, ptr %768, align 8, !tbaa !11, !alias.scope !182
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %769, align 4, !tbaa !11, !alias.scope !181
+  store float 0.000000e+00, ptr %769, align 4, !tbaa !11, !alias.scope !182
   br label %845
 
 770:                                              ; preds = %754
@@ -2775,20 +2775,20 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %778 = load double, ptr %777, align 8, !tbaa !11
   %779 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %780 = load double, ptr %779, align 8, !tbaa !11
-  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !184
+  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !185
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %781, align 4, !tbaa !15, !alias.scope !184
+  store i32 0, ptr %781, align 4, !tbaa !15, !alias.scope !185
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %783 = fptrunc double %776 to float
-  store float %783, ptr %782, align 8, !tbaa !11, !alias.scope !184
+  store float %783, ptr %782, align 8, !tbaa !11, !alias.scope !185
   %784 = fptrunc double %778 to float
   %785 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %784, ptr %785, align 4, !tbaa !11, !alias.scope !184
+  store float %784, ptr %785, align 4, !tbaa !11, !alias.scope !185
   %786 = fptrunc double %780 to float
   %787 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %786, ptr %787, align 8, !tbaa !11, !alias.scope !184
+  store float %786, ptr %787, align 8, !tbaa !11, !alias.scope !185
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %788, align 4, !tbaa !11, !alias.scope !184
+  store float 0.000000e+00, ptr %788, align 4, !tbaa !11, !alias.scope !185
   br label %845
 
 789:                                              ; preds = %754
@@ -2812,25 +2812,25 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %803 = load double, ptr %802, align 8, !tbaa !11
   %804 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %805 = load double, ptr %804, align 8, !tbaa !11
-  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !187
+  store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !188
   %806 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %806, align 4, !tbaa !15, !alias.scope !187
+  store i32 0, ptr %806, align 4, !tbaa !15, !alias.scope !188
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %808 = fptrunc double %799 to float
-  store float %808, ptr %807, align 8, !tbaa !11, !alias.scope !187
+  store float %808, ptr %807, align 8, !tbaa !11, !alias.scope !188
   %809 = fptrunc double %801 to float
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %809, ptr %810, align 4, !tbaa !11, !alias.scope !187
+  store float %809, ptr %810, align 4, !tbaa !11, !alias.scope !188
   %811 = fptrunc double %803 to float
   %812 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %811, ptr %812, align 8, !tbaa !11, !alias.scope !187
+  store float %811, ptr %812, align 8, !tbaa !11, !alias.scope !188
   %813 = fptrunc double %805 to float
   %814 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %813, ptr %814, align 4, !tbaa !11, !alias.scope !187
+  store float %813, ptr %814, align 4, !tbaa !11, !alias.scope !188
   br label %845
 
 815:                                              ; preds = %4
-  %816 = load i8, ptr @_ZN5FFlag19LuauCompileMathLerpE, align 8, !tbaa !173, !range !179, !noundef !180
+  %816 = load i8, ptr @_ZN5FFlag19LuauCompileMathLerpE, align 8, !tbaa !174, !range !180, !noundef !181
   %817 = trunc nuw i8 %816 to i1
   %818 = icmp eq i64 %3, 3
   %or.cond10 = and i1 %818, %817
@@ -2870,15 +2870,15 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 841:                                              ; preds = %830, %836
   %842 = phi double [ %840, %836 ], [ %832, %830 ]
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !190
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !191
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %843, align 4, !tbaa !15, !alias.scope !190
+  store i32 0, ptr %843, align 4, !tbaa !15, !alias.scope !191
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %842, ptr %844, align 8, !tbaa !11, !alias.scope !190
+  store double %842, ptr %844, align 8, !tbaa !11, !alias.scope !191
   br label %845
 
 .thread:                                          ; preds = %705, %658, %663, %618, %.thread437, %530, %.thread431, %348, %770, %755, %638, %179, %754, %637, %178, %815, %819, %822, %826, %745, %747, %750, %793, %789, %734, %736, %720, %722, %692, %694, %697, %701, %687, %689, %676, %678, %641, %654, %651, %632, %634, %609, %611, %614, %588, %590, %593, %544, %546, %549, %553, %559, %521, %523, %526, %500, %502, %505, %465, %467, %470, %476, %442, %443, %420, %421, %398, %399, %384, %386, %362, %363, %339, %341, %344, %328, %330, %317, %319, %306, %308, %295, %297, %284, %286, %273, %275, %256, %258, %261, %238, %239, %220, %221, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !193
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !194
   br label %845
 
 845:                                              ; preds = %711, %666, %623, %573, %535, %490, %453, %431, %409, %373, %353, %247, %229, %.critedge412, %.critedge410, %.critedge408, %.critedge406, %.critedge404, %.critedge, %.thread, %841, %797, %774, %758, %739, %725, %691, %681, %644, %636, %597, %509, %389, %333, %322, %311, %300, %289, %278, %265, %213, %209, %199, %182, %172, %158, %141, %126, %115, %104, %93, %82, %71, %60, %47, %32, %21, %10
@@ -2959,47 +2959,47 @@ define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_o
   ]
 
 2:                                                ; preds = %1
-  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !196
+  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !197
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %3, align 4, !tbaa !15, !alias.scope !196
-  store ptr @.str.59, ptr %4, align 8, !tbaa !11, !alias.scope !196
+  store i32 3, ptr %3, align 4, !tbaa !15, !alias.scope !197
+  store ptr @.str.59, ptr %4, align 8, !tbaa !11, !alias.scope !197
   br label %18
 
 5:                                                ; preds = %1
-  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !199
+  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !200
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 7, ptr %6, align 4, !tbaa !15, !alias.scope !199
-  store ptr @.str.60, ptr %7, align 8, !tbaa !11, !alias.scope !199
+  store i32 7, ptr %6, align 4, !tbaa !15, !alias.scope !200
+  store ptr @.str.60, ptr %7, align 8, !tbaa !11, !alias.scope !200
   br label %18
 
 8:                                                ; preds = %1
-  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !202
+  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !203
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 6, ptr %9, align 4, !tbaa !15, !alias.scope !202
-  store ptr @.str.61, ptr %10, align 8, !tbaa !11, !alias.scope !202
+  store i32 6, ptr %9, align 4, !tbaa !15, !alias.scope !203
+  store ptr @.str.61, ptr %10, align 8, !tbaa !11, !alias.scope !203
   br label %18
 
 11:                                               ; preds = %1
-  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !205
+  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !206
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 6, ptr %12, align 4, !tbaa !15, !alias.scope !205
-  store ptr @.str.62, ptr %13, align 8, !tbaa !11, !alias.scope !205
+  store i32 6, ptr %12, align 4, !tbaa !15, !alias.scope !206
+  store ptr @.str.62, ptr %13, align 8, !tbaa !11, !alias.scope !206
   br label %18
 
 14:                                               ; preds = %1
-  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !208
+  store i32 5, ptr %0, align 8, !tbaa !8, !alias.scope !209
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 6, ptr %15, align 4, !tbaa !15, !alias.scope !208
-  store ptr @.str.63, ptr %16, align 8, !tbaa !11, !alias.scope !208
+  store i32 6, ptr %15, align 4, !tbaa !15, !alias.scope !209
+  store ptr @.str.63, ptr %16, align 8, !tbaa !11, !alias.scope !209
   br label %18
 
 17:                                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !212
   br label %18
 
 18:                                               ; preds = %17, %14, %11, %8, %5, %2
@@ -3035,11 +3035,11 @@ _ZNK4Luau7AstNameeqEPKc.exit.tail:                ; preds = %sub_1
   br i1 %8, label %9, label %_ZNK4Luau7AstNameeqEPKc.exit2
 
 9:                                                ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.tail
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !214
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !215
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !15, !alias.scope !214
+  store i32 0, ptr %10, align 4, !tbaa !15, !alias.scope !215
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 0x400921FB54442D18, ptr %11, align 8, !tbaa !11, !alias.scope !214
+  store double 0x400921FB54442D18, ptr %11, align 8, !tbaa !11, !alias.scope !215
   br label %17
 
 _ZNK4Luau7AstNameeqEPKc.exit2:                    ; preds = %sub_1, %sub_0, %_ZNK4Luau7AstNameeqEPKc.exit.tail
@@ -3048,15 +3048,15 @@ _ZNK4Luau7AstNameeqEPKc.exit2:                    ; preds = %sub_1, %sub_0, %_ZN
   br i1 %13, label %14, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread
 
 14:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit2
-  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !217
+  store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !218
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %15, align 4, !tbaa !15, !alias.scope !217
+  store i32 0, ptr %15, align 4, !tbaa !15, !alias.scope !218
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 0x7FF0000000000000, ptr %16, align 8, !tbaa !11, !alias.scope !217
+  store double 0x7FF0000000000000, ptr %16, align 8, !tbaa !11, !alias.scope !218
   br label %17
 
 _ZNK4Luau7AstNameeqEPKc.exit2.thread:             ; preds = %2, %_ZNK4Luau7AstNameeqEPKc.exit2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !220
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !221
   br label %17
 
 17:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit2.thread, %14, %9
@@ -3071,12 +3071,12 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_BuiltinFolding.cpp() #0 section ".text.startup" {
-  store i8 0, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !173
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 1), align 1, !tbaa !223
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 8), align 8, !tbaa !224
-  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !225
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 16), align 8, !tbaa !226
-  store ptr @_ZN5FFlag20LuauVector2ConstantsE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !225
+  store i8 0, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !174
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 1), align 1, !tbaa !224
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 8), align 8, !tbaa !225
+  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !226
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, i64 16), align 8, !tbaa !227
+  store ptr @_ZN5FFlag20LuauVector2ConstantsE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !226
   ret void
 }
 
@@ -3171,160 +3171,161 @@ attributes #11 = { nounwind willreturn memory(read) }
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
 !69 = distinct !{!69, !"_ZN4Luau7CompileL4cvarEv"}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!74 = distinct !{!74, !"_ZN4Luau7CompileL4cnumEd"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!77 = distinct !{!77, !"_ZN4Luau7CompileL4cvarEv"}
-!78 = distinct !{!78, !71}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!81 = distinct !{!81, !"_ZN4Luau7CompileL4cnumEd"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!84 = distinct !{!84, !"_ZN4Luau7CompileL4cnumEd"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!87 = distinct !{!87, !"_ZN4Luau7CompileL4cnumEd"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!90 = distinct !{!90, !"_ZN4Luau7CompileL4cnumEd"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!93 = distinct !{!93, !"_ZN4Luau7CompileL4cnumEd"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!96 = distinct !{!96, !"_ZN4Luau7CompileL4cnumEd"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!99 = distinct !{!99, !"_ZN4Luau7CompileL4cnumEd"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!102 = distinct !{!102, !"_ZN4Luau7CompileL4cnumEd"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!105 = distinct !{!105, !"_ZN4Luau7CompileL4cnumEd"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!108 = distinct !{!108, !"_ZN4Luau7CompileL4cvarEv"}
-!109 = distinct !{!109, !71}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!112 = distinct !{!112, !"_ZN4Luau7CompileL4cnumEd"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!115 = distinct !{!115, !"_ZN4Luau7CompileL4cnumEd"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!118 = distinct !{!118, !"_ZN4Luau7CompileL4cvarEv"}
-!119 = distinct !{!119, !71}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!122 = distinct !{!122, !"_ZN4Luau7CompileL4cnumEd"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!125 = distinct !{!125, !"_ZN4Luau7CompileL4cvarEv"}
-!126 = distinct !{!126, !71}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!129 = distinct !{!129, !"_ZN4Luau7CompileL4cnumEd"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!132 = distinct !{!132, !"_ZN4Luau7CompileL4cvarEv"}
-!133 = distinct !{!133, !71}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN4Luau7CompileL5cboolEb: argument 0"}
-!136 = distinct !{!136, !"_ZN4Luau7CompileL5cboolEb"}
-!137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!139 = distinct !{!139, !"_ZN4Luau7CompileL4cnumEd"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!142 = distinct !{!142, !"_ZN4Luau7CompileL4cnumEd"}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!145 = distinct !{!145, !"_ZN4Luau7CompileL4cnumEd"}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!148 = distinct !{!148, !"_ZN4Luau7CompileL4cnumEd"}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!151 = distinct !{!151, !"_ZN4Luau7CompileL4cnumEd"}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!154 = distinct !{!154, !"_ZN4Luau7CompileL4cnumEd"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!157 = distinct !{!157, !"_ZN4Luau7CompileL4cnumEd"}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!160 = distinct !{!160, !"_ZN4Luau7CompileL4cnumEd"}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!163 = distinct !{!163, !"_ZN4Luau7CompileL4cnumEd"}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!166 = distinct !{!166, !"_ZN4Luau7CompileL4cnumEd"}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!169 = distinct !{!169, !"_ZN4Luau7CompileL4cnumEd"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!172 = distinct !{!172, !"_ZN4Luau7CompileL4cnumEd"}
-!173 = !{!174, !175, i64 0}
-!174 = !{!"_ZTSN4Luau6FValueIbEE", !175, i64 0, !175, i64 1, !176, i64 8, !178, i64 16}
-!175 = !{!"bool", !6, i64 0}
-!176 = !{!"p1 omnipotent char", !177, i64 0}
-!177 = !{!"any pointer", !6, i64 0}
-!178 = !{!"p1 _ZTSN4Luau6FValueIbEE", !177, i64 0}
-!179 = !{i8 0, i8 2}
-!180 = !{}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
-!183 = distinct !{!183, !"_ZN4Luau7CompileL7cvectorEdddd"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
-!186 = distinct !{!186, !"_ZN4Luau7CompileL7cvectorEdddd"}
-!187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
-!189 = distinct !{!189, !"_ZN4Luau7CompileL7cvectorEdddd"}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!192 = distinct !{!192, !"_ZN4Luau7CompileL4cnumEd"}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!195 = distinct !{!195, !"_ZN4Luau7CompileL4cvarEv"}
-!196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
-!198 = distinct !{!198, !"_ZN4Luau7CompileL7cstringEPKc"}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
-!201 = distinct !{!201, !"_ZN4Luau7CompileL7cstringEPKc"}
-!202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
-!204 = distinct !{!204, !"_ZN4Luau7CompileL7cstringEPKc"}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
-!207 = distinct !{!207, !"_ZN4Luau7CompileL7cstringEPKc"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
-!210 = distinct !{!210, !"_ZN4Luau7CompileL7cstringEPKc"}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!213 = distinct !{!213, !"_ZN4Luau7CompileL4cvarEv"}
-!214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!216 = distinct !{!216, !"_ZN4Luau7CompileL4cnumEd"}
-!217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
-!219 = distinct !{!219, !"_ZN4Luau7CompileL4cnumEd"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
-!222 = distinct !{!222, !"_ZN4Luau7CompileL4cvarEv"}
-!223 = !{!174, !175, i64 1}
-!224 = !{!174, !176, i64 8}
-!225 = !{!178, !178, i64 0}
-!226 = !{!174, !178, i64 16}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!75 = distinct !{!75, !"_ZN4Luau7CompileL4cnumEd"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!78 = distinct !{!78, !"_ZN4Luau7CompileL4cvarEv"}
+!79 = distinct !{!79, !71, !72}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!82 = distinct !{!82, !"_ZN4Luau7CompileL4cnumEd"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!85 = distinct !{!85, !"_ZN4Luau7CompileL4cnumEd"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!88 = distinct !{!88, !"_ZN4Luau7CompileL4cnumEd"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!91 = distinct !{!91, !"_ZN4Luau7CompileL4cnumEd"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!94 = distinct !{!94, !"_ZN4Luau7CompileL4cnumEd"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!97 = distinct !{!97, !"_ZN4Luau7CompileL4cnumEd"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!100 = distinct !{!100, !"_ZN4Luau7CompileL4cnumEd"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!103 = distinct !{!103, !"_ZN4Luau7CompileL4cnumEd"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!106 = distinct !{!106, !"_ZN4Luau7CompileL4cnumEd"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!109 = distinct !{!109, !"_ZN4Luau7CompileL4cvarEv"}
+!110 = distinct !{!110, !71, !72}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!113 = distinct !{!113, !"_ZN4Luau7CompileL4cnumEd"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!116 = distinct !{!116, !"_ZN4Luau7CompileL4cnumEd"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!119 = distinct !{!119, !"_ZN4Luau7CompileL4cvarEv"}
+!120 = distinct !{!120, !71, !72}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!123 = distinct !{!123, !"_ZN4Luau7CompileL4cnumEd"}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!126 = distinct !{!126, !"_ZN4Luau7CompileL4cvarEv"}
+!127 = distinct !{!127, !71, !72}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!130 = distinct !{!130, !"_ZN4Luau7CompileL4cnumEd"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!133 = distinct !{!133, !"_ZN4Luau7CompileL4cvarEv"}
+!134 = distinct !{!134, !71, !72}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN4Luau7CompileL5cboolEb: argument 0"}
+!137 = distinct !{!137, !"_ZN4Luau7CompileL5cboolEb"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!140 = distinct !{!140, !"_ZN4Luau7CompileL4cnumEd"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!143 = distinct !{!143, !"_ZN4Luau7CompileL4cnumEd"}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!146 = distinct !{!146, !"_ZN4Luau7CompileL4cnumEd"}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!149 = distinct !{!149, !"_ZN4Luau7CompileL4cnumEd"}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!152 = distinct !{!152, !"_ZN4Luau7CompileL4cnumEd"}
+!153 = !{!154}
+!154 = distinct !{!154, !155, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!155 = distinct !{!155, !"_ZN4Luau7CompileL4cnumEd"}
+!156 = !{!157}
+!157 = distinct !{!157, !158, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!158 = distinct !{!158, !"_ZN4Luau7CompileL4cnumEd"}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!161 = distinct !{!161, !"_ZN4Luau7CompileL4cnumEd"}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!164 = distinct !{!164, !"_ZN4Luau7CompileL4cnumEd"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!167 = distinct !{!167, !"_ZN4Luau7CompileL4cnumEd"}
+!168 = !{!169}
+!169 = distinct !{!169, !170, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!170 = distinct !{!170, !"_ZN4Luau7CompileL4cnumEd"}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!173 = distinct !{!173, !"_ZN4Luau7CompileL4cnumEd"}
+!174 = !{!175, !176, i64 0}
+!175 = !{!"_ZTSN4Luau6FValueIbEE", !176, i64 0, !176, i64 1, !177, i64 8, !179, i64 16}
+!176 = !{!"bool", !6, i64 0}
+!177 = !{!"p1 omnipotent char", !178, i64 0}
+!178 = !{!"any pointer", !6, i64 0}
+!179 = !{!"p1 _ZTSN4Luau6FValueIbEE", !178, i64 0}
+!180 = !{i8 0, i8 2}
+!181 = !{}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
+!184 = distinct !{!184, !"_ZN4Luau7CompileL7cvectorEdddd"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
+!187 = distinct !{!187, !"_ZN4Luau7CompileL7cvectorEdddd"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN4Luau7CompileL7cvectorEdddd: argument 0"}
+!190 = distinct !{!190, !"_ZN4Luau7CompileL7cvectorEdddd"}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!193 = distinct !{!193, !"_ZN4Luau7CompileL4cnumEd"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!196 = distinct !{!196, !"_ZN4Luau7CompileL4cvarEv"}
+!197 = !{!198}
+!198 = distinct !{!198, !199, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
+!199 = distinct !{!199, !"_ZN4Luau7CompileL7cstringEPKc"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
+!202 = distinct !{!202, !"_ZN4Luau7CompileL7cstringEPKc"}
+!203 = !{!204}
+!204 = distinct !{!204, !205, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
+!205 = distinct !{!205, !"_ZN4Luau7CompileL7cstringEPKc"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
+!208 = distinct !{!208, !"_ZN4Luau7CompileL7cstringEPKc"}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZN4Luau7CompileL7cstringEPKc: argument 0"}
+!211 = distinct !{!211, !"_ZN4Luau7CompileL7cstringEPKc"}
+!212 = !{!213}
+!213 = distinct !{!213, !214, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!214 = distinct !{!214, !"_ZN4Luau7CompileL4cvarEv"}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!217 = distinct !{!217, !"_ZN4Luau7CompileL4cnumEd"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZN4Luau7CompileL4cnumEd: argument 0"}
+!220 = distinct !{!220, !"_ZN4Luau7CompileL4cnumEd"}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"_ZN4Luau7CompileL4cvarEv: argument 0"}
+!223 = distinct !{!223, !"_ZN4Luau7CompileL4cvarEv"}
+!224 = !{!175, !176, i64 1}
+!225 = !{!175, !177, i64 8}
+!226 = !{!179, !179, i64 0}
+!227 = !{!175, !179, i64 16}

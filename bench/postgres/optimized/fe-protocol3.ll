@@ -758,7 +758,7 @@ getParameterStatus.exit209:                       ; preds = %152
 266:                                              ; preds = %263, %254
   %indvars.iv.next.i216 = add nuw nsw i64 %indvars.iv.i215, 1
   %exitcond.not.i217 = icmp eq i64 %indvars.iv.next.i216, %wide.trip.count.i214
-  br i1 %exitcond.not.i217, label %._crit_edge.i213, label %252, !llvm.loop !7
+  br i1 %exitcond.not.i217, label %._crit_edge.i213, label %252, !llvm.loop !8
 
 ._crit_edge.i213:                                 ; preds = %266, %250
   store ptr null, ptr %2, align 8
@@ -899,7 +899,7 @@ getParamDescriptions.exit:                        ; preds = %.thread67.i, %._cri
   store i32 %318, ptr %12, align 8
   %319 = call i32 @pqGetc(ptr noundef nonnull %9, ptr noundef nonnull %0) #16
   %.not = icmp eq i32 %319, 0
-  br i1 %.not, label %31, label %.loopexit
+  br i1 %.not, label %31, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %317, %31, %62, %64, %66, %69, %82, %96, %156, %158, %288, %291, %294, %1, %getParameterStatus.exit209, %getParameterStatus.exit209.thread, %getReadyForQuery.exit, %getParameterStatus.exit, %getParameterStatus.exit.thread, %50, %55, %176, %43, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
@@ -1088,7 +1088,7 @@ define range(i32 -1, 1) i32 @pqGetErrorNotice3(ptr noundef %0, i1 noundef zeroex
   %.1 = phi i1 [ %.056, %27 ], [ true, %30 ], [ %.056, %23 ]
   %32 = call i32 @pqGetc(ptr noundef nonnull %4, ptr noundef %0) #16
   %.not49 = icmp eq i32 %32, 0
-  br i1 %.not49, label %18, label %._crit_edge
+  br i1 %.not49, label %18, label %._crit_edge, !llvm.loop !10
 
 33:                                               ; preds = %18
   %or.cond = and i1 %11, %.056
@@ -1468,7 +1468,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %93, %.loopexit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -1614,7 +1614,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %38, %14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -1887,7 +1887,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %105 = getelementptr inbounds i8, ptr %59, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not165.i = icmp eq i8 %106, 0
-  br i1 %.not165.i, label %.thread181.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not165.i, label %.thread181.i, label %.lr.ph.i, !llvm.loop !13
 
 .thread181.i:                                     ; preds = %102, %70
   %.0154208.i = phi i32 [ 0, %70 ], [ %.3157.i, %102 ]
@@ -1936,7 +1936,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %127 = sub i32 %126, %115
   %128 = icmp sgt i32 %127, 60
   %129 = add i32 %.5.i, -1
-  br i1 %128, label %.preheader194.i, label %.loopexit.i, !llvm.loop !11
+  br i1 %128, label %.preheader194.i, label %.loopexit.i, !llvm.loop !14
 
 .preheader193.i:                                  ; preds = %118, %.preheader193.i
   %.6.i = phi i32 [ %134, %.preheader193.i ], [ %.0197.i, %118 ]
@@ -1946,7 +1946,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %123, %132
   %134 = add i32 %.6.i, -1
-  br i1 %133, label %.preheader193.i, label %.preheader.i, !llvm.loop !12
+  br i1 %133, label %.preheader193.i, label %.preheader.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %.preheader193.i, %.preheader.i
   %.5153.i = phi i32 [ %140, %.preheader.i ], [ %.0148205.i, %.preheader193.i ]
@@ -1957,7 +1957,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %138 = sub i32 %132, %137
   %139 = icmp sgt i32 %138, 60
   %140 = add i32 %.5153.i, 1
-  br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !13
+  br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.preheader194.i, %.preheader.i, %111
   %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader194.i ]
@@ -2003,7 +2003,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %163 = sext i32 %162 to i64
   %164 = load i64, ptr %146, align 8
   %165 = icmp ugt i64 %164, %163
-  br i1 %165, label %.lr.ph221.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %165, label %.lr.ph221.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph221.i, %150
   %.4158.lcssa.i = phi i32 [ 0, %150 ], [ %158, %.lr.ph221.i ]
@@ -2034,7 +2034,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 32) #16
   %179 = add nuw nsw i32 %.1223.i, 1
   %exitcond.not.i = icmp eq i32 %179, %177
-  br i1 %exitcond.not.i, label %._crit_edge226.i, label %.lr.ph225.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge226.i, label %.lr.ph225.i, !llvm.loop !18
 
 ._crit_edge226.i:                                 ; preds = %.lr.ph225.i, %172
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 94) #16
@@ -2248,7 +2248,7 @@ define range(i32 -1, 1) i32 @pqGetNegotiateProtocolVersion3(ptr noundef %0) loca
   %20 = add nuw nsw i32 %.031, 1
   %21 = load i32, ptr %3, align 4
   %.not29 = icmp slt i32 %20, %21
-  br i1 %.not29, label %13, label %.critedge, !llvm.loop !16
+  br i1 %.not29, label %13, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %18, %9
   %22 = phi i32 [ %10, %9 ], [ %21, %18 ]
@@ -2344,7 +2344,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((10
 .backedge.us:                                     ; preds = %15, %11
   %18 = tail call fastcc i32 @getCopyDataMessage(ptr noundef %0)
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %19, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %20 = phi i32 [ %40, %.backedge ], [ %4, %.lr.ph ]
@@ -2388,7 +2388,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((10
   tail call void @pqParseDone(ptr noundef %0, i32 noundef %39) #16
   %40 = tail call fastcc i32 @getCopyDataMessage(ptr noundef %0)
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.loopexit, label %.lr.ph.split
+  br i1 %41, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph.split, %.backedge.us, %15, %13, %3, %29, %28
   %.0 = phi i32 [ -2, %28 ], [ %30, %29 ], [ %4, %3 ], [ %18, %.backedge.us ], [ -2, %15 ], [ -2, %13 ], [ %40, %.backedge ], [ 0, %.lr.ph.split ]
@@ -2536,7 +2536,7 @@ getParameterStatus.exit:                          ; preds = %47
   store i32 %59, ptr %6, align 8
   %60 = call i32 @pqGetc(ptr noundef nonnull %3, ptr noundef nonnull %0) #16
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %11, label %.loopexit
+  br i1 %.not, label %11, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %57, %11, %41, %43, %39, %1, %getParameterStatus.exit, %getParameterStatus.exit.thread, %27, %55, %51, %33, %16
   %.0 = phi i32 [ -2, %16 ], [ -2, %33 ], [ -1, %55 ], [ -1, %51 ], [ 0, %27 ], [ 0, %getParameterStatus.exit ], [ 0, %getParameterStatus.exit.thread ], [ 0, %1 ], [ 0, %57 ], [ 0, %11 ], [ 0, %41 ], [ 0, %43 ], [ %14, %39 ]
@@ -2597,7 +2597,7 @@ define range(i32 -1, 2) i32 @pqGetline3(ptr noundef %0, ptr noundef %1, i32 noun
 20:                                               ; preds = %18
   %21 = tail call i32 @pqReadData(ptr noundef %0) #16
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %15, !llvm.loop !19
+  br i1 %22, label %23, label %15, !llvm.loop !24
 
 23:                                               ; preds = %20, %18
   store i8 0, ptr %1, align 1
@@ -2909,7 +2909,7 @@ define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 42:                                               ; preds = %36, %39, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %42, %.preheader130
   %43 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef %0) #16
@@ -3129,7 +3129,7 @@ switch.early.test:                                ; preds = %68
 .backedge.backedge:                               ; preds = %128, %58, %61, %78, %87, %93, %95, %97, %99, %101, %103, %120
   %.0104.be = phi i1 [ true, %58 ], [ true, %61 ], [ true, %78 ], [ true, %87 ], [ true, %93 ], [ false, %128 ], [ true, %95 ], [ true, %97 ], [ true, %99 ], [ true, %101 ], [ true, %103 ], [ true, %120 ]
   %.0103.be = phi i32 [ %.0103, %58 ], [ %.0103, %61 ], [ %.0103, %78 ], [ %.0103, %87 ], [ %.0103, %93 ], [ %.1, %128 ], [ %.0103, %95 ], [ %.0103, %97 ], [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %103 ], [ %.0103, %120 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !26
 
 .loopexit:                                        ; preds = %53, %55, %83, %71, %66
   call void @pqSaveErrorResult(ptr noundef %0) #16
@@ -3464,7 +3464,7 @@ define internal fastcc i32 @build_startup_packet(ptr noundef readonly captures(n
   %156 = getelementptr inbounds nuw i8, ptr %.0102143.us, i64 16
   %157 = load ptr, ptr %156, align 8
   %.not133.us = icmp eq ptr %157, null
-  br i1 %.not133.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not133.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %180
   %158 = phi ptr [ %182, %180 ], [ %139, %.lr.ph ]
@@ -3504,7 +3504,7 @@ define internal fastcc i32 @build_startup_packet(ptr noundef readonly captures(n
   %181 = getelementptr inbounds nuw i8, ptr %.0102143, i64 16
   %182 = load ptr, ptr %181, align 8
   %.not133 = icmp eq ptr %182, null
-  br i1 %.not133, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not133, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %180, %155, %138
   %.6.lcssa = phi i32 [ %.5, %138 ], [ %.7.us, %155 ], [ %.7, %180 ]
@@ -3597,21 +3597,27 @@ attributes #19 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6, !18}
-!22 = distinct !{!22, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !7, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !6, !7, !21}
+!28 = distinct !{!28, !6, !7}

@@ -85,7 +85,7 @@ sub_2:                                            ; preds = %sub_1
 
 18:                                               ; preds = %17
   %.055.add = add nuw nsw i64 %.055.idx, 1
-  br label %15
+  br label %15, !llvm.loop !7
 
 .critedge:                                        ; preds = %15, %15, %17
   call void @PHP_MD5InitArgs(ptr noundef nonnull %4, ptr noundef null) #8
@@ -109,7 +109,7 @@ sub_2:                                            ; preds = %sub_1
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %23) #8
   %24 = add nsw i32 %.086, -16
   %25 = icmp samesign ugt i32 %.086, 16
-  br i1 %25, label %.lr.ph, label %._crit_edge.thread
+  br i1 %25, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !9
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 16) #8
@@ -131,7 +131,7 @@ sub_2:                                            ; preds = %sub_1
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %., i64 noundef 1) #8
   %27 = lshr i32 %.05688, 1
   %.not59 = icmp ult i32 %.05688, 2
-  br i1 %.not59, label %._crit_edge91, label %.lr.ph90
+  br i1 %.not59, label %._crit_edge91, label %.lr.ph90, !llvm.loop !10
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) @php_md5_crypt_r.passwd, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
@@ -193,12 +193,12 @@ sub_2:                                            ; preds = %sub_1
   call void @PHP_MD5Final(ptr noundef nonnull %3, ptr noundef nonnull %5) #8
   %45 = add nuw nsw i32 %.192, 1
   %exitcond94.not = icmp eq i32 %45, 1000
-  br i1 %exitcond94.not, label %46, label %31
+  br i1 %exitcond94.not, label %46, label %31, !llvm.loop !11
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr @php_md5_crypt_r.passwd, i64 %20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store ptr %48, ptr @php_md5_crypt_r.p, align 8, !tbaa !7
+  store ptr %48, ptr @php_md5_crypt_r.p, align 8, !tbaa !12
   %49 = load i8, ptr %3, align 16, !tbaa !4
   %50 = zext i8 %49 to i32
   %51 = shl nuw nsw i32 %50, 16
@@ -226,7 +226,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %66, ptr %.046.i, align 1, !tbaa !4
   %68 = lshr i32 %.037.i, 6
   %69 = icmp samesign ugt i32 %.08.i, 1
-  br i1 %69, label %61, label %to64.exit
+  br i1 %69, label %61, label %to64.exit, !llvm.loop !15
 
 to64.exit:                                        ; preds = %61
   %70 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -258,7 +258,7 @@ to64.exit:                                        ; preds = %61
   store i8 %89, ptr %.046.i66, align 1, !tbaa !4
   %91 = lshr i32 %.037.i65, 6
   %92 = icmp samesign ugt i32 %.08.i64, 1
-  br i1 %92, label %84, label %to64.exit67
+  br i1 %92, label %84, label %to64.exit67, !llvm.loop !15
 
 to64.exit67:                                      ; preds = %84
   %93 = getelementptr inbounds nuw i8, ptr %47, i64 12
@@ -290,7 +290,7 @@ to64.exit67:                                      ; preds = %84
   store i8 %112, ptr %.046.i70, align 1, !tbaa !4
   %114 = lshr i32 %.037.i69, 6
   %115 = icmp samesign ugt i32 %.08.i68, 1
-  br i1 %115, label %107, label %to64.exit71
+  br i1 %115, label %107, label %to64.exit71, !llvm.loop !15
 
 to64.exit71:                                      ; preds = %107
   %116 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -322,7 +322,7 @@ to64.exit71:                                      ; preds = %107
   store i8 %135, ptr %.046.i74, align 1, !tbaa !4
   %137 = lshr i32 %.037.i73, 6
   %138 = icmp samesign ugt i32 %.08.i72, 1
-  br i1 %138, label %130, label %to64.exit75
+  br i1 %138, label %130, label %to64.exit75, !llvm.loop !15
 
 to64.exit75:                                      ; preds = %130
   %139 = getelementptr inbounds nuw i8, ptr %47, i64 20
@@ -354,7 +354,7 @@ to64.exit75:                                      ; preds = %130
   store i8 %158, ptr %.046.i78, align 1, !tbaa !4
   %160 = lshr i32 %.037.i77, 6
   %161 = icmp samesign ugt i32 %.08.i76, 1
-  br i1 %161, label %153, label %to64.exit79
+  br i1 %161, label %153, label %to64.exit79, !llvm.loop !15
 
 to64.exit79:                                      ; preds = %153
   %162 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -376,11 +376,11 @@ to64.exit79:                                      ; preds = %153
   store i8 %171, ptr %.046.i82, align 1, !tbaa !4
   %173 = lshr i32 %.037.i81, 6
   %174 = icmp samesign ugt i32 %.08.i80, 1
-  br i1 %174, label %166, label %to64.exit83
+  br i1 %174, label %166, label %to64.exit83, !llvm.loop !15
 
 to64.exit83:                                      ; preds = %166
   %175 = getelementptr inbounds nuw i8, ptr %47, i64 26
-  store ptr %175, ptr @php_md5_crypt_r.p, align 8, !tbaa !7
+  store ptr %175, ptr @php_md5_crypt_r.p, align 8, !tbaa !12
   store i8 0, ptr %175, align 1, !tbaa !4
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 16) #8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #8
@@ -435,6 +435,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !5, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !8}

@@ -304,7 +304,7 @@ define dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef %0, ptr noun
 21:                                               ; preds = %20, %15
   %22 = add nsw i64 %12, -1
   %23 = icmp sgt i64 %12, 0
-  br i1 %23, label %11, label %.loopexit, !llvm.loop !8
+  br i1 %23, label %11, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %11, %4, %2
   ret void
@@ -357,8 +357,8 @@ define dso_local ptr @acpi_ds_pop_walk_state(ptr noundef captures(none) %0) loca
 define dso_local noundef ptr @acpi_ds_create_walk_state(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #7, !srcloc !10
+  store i64 0, ptr %5, align 8, !annotation !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #7, !srcloc !11
   %6 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   %7 = and i64 %6, 512
@@ -487,7 +487,7 @@ define dso_local i32 @acpi_ds_init_aml_walk(ptr noundef initializes((22, 23), (5
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %46, label %55, !llvm.loop !11
+  br i1 %54, label %46, label %55, !llvm.loop !12
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -570,7 +570,7 @@ define dso_local void @acpi_ds_delete_walk_state(ptr noundef %0) local_unnamed_a
   tail call void @acpi_ut_delete_generic_state(ptr noundef nonnull %21) #7
   %23 = load ptr, ptr %15, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit7, label %.preheader6, !llvm.loop !12
+  br i1 %24, label %.loopexit7, label %.preheader6, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %.preheader4, %.loopexit7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -585,7 +585,7 @@ define dso_local void @acpi_ds_delete_walk_state(ptr noundef %0) local_unnamed_a
   tail call void @acpi_ut_delete_generic_state(ptr noundef nonnull %28) #7
   %30 = load ptr, ptr %18, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit5, label %.preheader4, !llvm.loop !13
+  br i1 %31, label %.loopexit5, label %.preheader4, !llvm.loop !14
 
 .preheader:                                       ; preds = %.loopexit5, %.preheader
   %32 = phi ptr [ %34, %.preheader ], [ %26, %.loopexit5 ]
@@ -594,7 +594,7 @@ define dso_local void @acpi_ds_delete_walk_state(ptr noundef %0) local_unnamed_a
   tail call void @acpi_ut_delete_generic_state(ptr noundef nonnull %32) #7
   %34 = load ptr, ptr %25, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit5
   tail call void @kfree(ptr noundef nonnull %0) #7
@@ -642,13 +642,14 @@ attributes #8 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"auto-init"}
-!10 = !{i64 1816898, i64 1816919}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"auto-init"}
+!11 = !{i64 1816898, i64 1816919}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}

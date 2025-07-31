@@ -947,7 +947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
   %.130.i = phi i32 [ %294, %293 ], [ %.029111.i, %303 ], [ %.029111.i, %284 ]
   %314 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.068.0109.i) #19
   %.not.i = icmp eq ptr %314, %277
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %313
   store i32 %.130.i, ptr %48, align 4
@@ -1031,7 +1031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
   %342 = mul nsw i32 %341, %.07.i.i.i.i
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i, i64 4
   %.not.i.i.i.i4 = icmp eq ptr %343, %339
-  br i1 %.not.i.i.i.i4, label %_ZN4absl7debian212c_accumulateISt6vectorIiSaIiEEiSt10multipliesIiEEENSt5decayIT0_E4typeERKT_OS8_OT1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
+  br i1 %.not.i.i.i.i4, label %_ZN4absl7debian212c_accumulateISt6vectorIiSaIiEEiSt10multipliesIiEEENSt5decayIT0_E4typeERKT_OS8_OT1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZN4absl7debian212c_accumulateISt6vectorIiSaIiEEiSt10multipliesIiEEENSt5decayIT0_E4typeERKT_OS8_OT1_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.noexc43.i
   %344 = phi i32 [ 0, %.noexc43.i ], [ %342, %.lr.ph.i.i.i.i ]
@@ -1153,7 +1153,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 382:                                              ; preds = %.lr.ph114.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %368
-  br i1 %exitcond.not.i, label %._crit_edge115.thread.i, label %.lr.ph114.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge115.thread.i, label %.lr.ph114.i, !llvm.loop !9
 
 .lr.ph114.i:                                      ; preds = %.preheader.i, %382
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %382 ], [ 0, %.preheader.i ]
@@ -1207,7 +1207,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %._crit_edge115.thread.i, %._crit_edge115.i
   %404 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.064.0117.i) #19
   %.not75.i = icmp eq ptr %404, %277
-  br i1 %.not75.i, label %._crit_edge120.i, label %332
+  br i1 %.not75.i, label %._crit_edge120.i, label %332, !llvm.loop !10
 
 405:                                              ; preds = %380, %.loopexit.split-lp82.i, %.loopexit81.i
   %.pn35.i = phi { ptr, i32 } [ %381, %380 ], [ %lpad.loopexit83.i, %.loopexit81.i ], [ %lpad.loopexit.split-lp84.i, %.loopexit.split-lp82.i ]
@@ -1570,7 +1570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i14: 
 523:                                              ; preds = %518
   %524 = add nuw nsw i32 %.017.i, 1
   %exitcond.not.i18 = icmp eq i32 %524, 8
-  br i1 %exitcond.not.i18, label %525, label %.preheader.i15, !llvm.loop !8
+  br i1 %exitcond.not.i18, label %525, label %.preheader.i15, !llvm.loop !11
 
 525:                                              ; preds = %523
   %526 = load ptr, ptr %20, align 8
@@ -2770,7 +2770,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN10open_spiel5StateESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %2
   ret void
@@ -3156,7 +3156,10 @@ attributes #21 = { builtin allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !8, !6}
+!12 = distinct !{!12, !8, !6}

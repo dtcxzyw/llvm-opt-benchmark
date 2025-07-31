@@ -1096,7 +1096,7 @@ usbll_is_split_complete_token.exit.i:             ; preds = %usbll_is_non_split_
   store ptr %211, ptr %213, align 8
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
   %exitcond9.not.i.i = icmp eq i64 %indvars.iv.next7.i.i, 128
-  br i1 %exitcond9.not.i.i, label %.loopexit.i.i, label %209, !llvm.loop !8
+  br i1 %exitcond9.not.i.i, label %.loopexit.i.i, label %209, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %209, %193
   %214 = phi ptr [ %196, %193 ], [ %212, %209 ]
@@ -1982,7 +1982,7 @@ usbll_is_stalled_data_from_host.exit.i:           ; preds = %630, %usbll_is_data
 
 654:                                              ; preds = %651
   %655 = getelementptr inbounds nuw i8, ptr %637, i64 11
-  %656 = load i8, ptr %655, align 1, !range !9, !noundef !10
+  %656 = load i8, ptr %655, align 1, !range !10, !noundef !11
   %657 = trunc nuw i8 %656 to i1
   br i1 %657, label %.sink.split10.i, label %659
 
@@ -2511,7 +2511,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
   %853 = load i32, ptr %846, align 4
   %854 = icmp ne i32 %852, %853
   %855 = getelementptr inbounds nuw i8, ptr %850, i64 13
-  %856 = load i8, ptr %855, align 1, !range !9
+  %856 = load i8, ptr %855, align 1, !range !10
   %857 = trunc nuw i8 %856 to i1
   %brmerge.i = select i1 %854, i1 true, i1 %857
   %not..i = xor i1 %854, true
@@ -2528,7 +2528,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
 
 861:                                              ; preds = %858
   %862 = getelementptr inbounds nuw i8, ptr %850, i64 12
-  %863 = load i8, ptr %862, align 4, !range !9, !noundef !10
+  %863 = load i8, ptr %862, align 4, !range !10, !noundef !11
   %864 = trunc nuw i8 %863 to i1
   br i1 %864, label %865, label %.thread.i124
 
@@ -2553,7 +2553,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
 873:                                              ; preds = %872
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #16
   %874 = getelementptr inbounds nuw i8, ptr %850, i64 12
-  %875 = load i8, ptr %874, align 4, !range !9, !noundef !10
+  %875 = load i8, ptr %874, align 4, !range !10, !noundef !11
   store i8 %875, ptr %5, align 4
   %876 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %877 = load i32, ptr %876, align 4
@@ -3221,7 +3221,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   store ptr %27, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %30, label %25, !llvm.loop !11
+  br i1 %exitcond.not.i, label %30, label %25, !llvm.loop !12
 
 30:                                               ; preds = %25
   %31 = tail call ptr @wmem_file_scope()
@@ -3242,7 +3242,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   store ptr %36, ptr %38, align 8
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 128
-  br i1 %exitcond16.not.i, label %.preheader.i, label %34, !llvm.loop !12
+  br i1 %exitcond16.not.i, label %.preheader.i, label %34, !llvm.loop !13
 
 39:                                               ; preds = %usbll_reset_device_endpoints.exit.i, %.preheader.i
   %indvars.iv17.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next18.i, %usbll_reset_device_endpoints.exit.i ]
@@ -3268,12 +3268,12 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %50, i8 0, i64 28, i1 false)
-  br i1 %exitcond.not.i.i, label %usbll_reset_device_endpoints.exit.i, label %46, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %usbll_reset_device_endpoints.exit.i, label %46, !llvm.loop !14
 
 usbll_reset_device_endpoints.exit.i:              ; preds = %46
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 128
-  br i1 %exitcond20.not.i, label %usbll_init_endpoint_tables.exit, label %39, !llvm.loop !14
+  br i1 %exitcond20.not.i, label %usbll_init_endpoint_tables.exit, label %39, !llvm.loop !15
 
 usbll_init_endpoint_tables.exit:                  ; preds = %usbll_reset_device_endpoints.exit.i
   %.not30 = icmp eq ptr %33, null
@@ -3404,7 +3404,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef range(i32 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %17, i8 0, i64 28, i1 false)
-  br i1 %exitcond.not, label %18, label %13, !llvm.loop !13
+  br i1 %exitcond.not, label %18, label %13, !llvm.loop !14
 
 18:                                               ; preds = %13
   ret void
@@ -3902,12 +3902,13 @@ attributes #16 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

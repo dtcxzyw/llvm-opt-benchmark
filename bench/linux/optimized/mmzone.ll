@@ -135,7 +135,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly captures(ret: a
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %19 = load i32, ptr %18, align 16
   %20 = sext i32 %19 to i64
-  %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %20) #7, !srcloc !10
+  %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %20) #7, !srcloc !11
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i8 %21, 0
@@ -143,7 +143,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly captures(ret: a
 
 24:                                               ; preds = %17, %.preheader1
   %25 = getelementptr i8, ptr %10, i64 16
-  br label %.preheader1, !llvm.loop !11
+  br label %.preheader1, !llvm.loop !12
 
 .loopexit:                                        ; preds = %17, %14, %.preheader
   %26 = phi ptr [ %5, %.preheader ], [ %10, %14 ], [ %10, %17 ]
@@ -163,7 +163,7 @@ define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_u
   store volatile ptr %4, ptr %5, align 8
   %6 = add nuw nsw i64 %3, 1
   %7 = icmp eq i64 %6, 5
-  br i1 %7, label %8, label %2, !llvm.loop !12
+  br i1 %7, label %8, label %2, !llvm.loop !13
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %0, i64 64
@@ -205,9 +205,10 @@ attributes #7 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 1002621}
 !6 = !{!"branch_weights", i32 1, i32 2000}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{i64 2148504928, i64 2148505002}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2148504928, i64 2148505002}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}

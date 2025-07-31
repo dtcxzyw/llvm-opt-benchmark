@@ -467,7 +467,7 @@ switch.lookup:                                    ; preds = %123
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.sink.split, %174, %177
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %177, %30, %.lr.ph, %29
   %.0 = phi ptr [ null, %29 ], [ %23, %.lr.ph ], [ %23, %._crit_edge ], [ %175, %177 ], [ %23, %30 ]
@@ -575,3 +575,5 @@ attributes #7 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

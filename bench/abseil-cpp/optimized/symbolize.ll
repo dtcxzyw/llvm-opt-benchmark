@@ -178,7 +178,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
   %26 = add nuw nsw i64 %.sroa.speculated.i.i, %.030.ph70.i.i
   %27 = add nuw nsw i64 %.sroa.speculated.i.i, %.028.ph72.i.i
   %28 = icmp samesign ult i64 %26, 64
-  br i1 %28, label %.lr.ph.split.us.preheader.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit
+  br i1 %28, label %.lr.ph.split.us.preheader.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit, !llvm.loop !16
 
 .thread39.i.i:                                    ; preds = %16
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %18)
@@ -186,16 +186,16 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit: ; preds = %.outer.i.i
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 58
-  %30 = load i16, ptr %29, align 2, !tbaa !16
+  %30 = load i16, ptr %29, align 2, !tbaa !18
   %.not = icmp eq i16 %30, 64
   br i1 %.not, label %31, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 31:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %33 = load i64, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 62
-  %35 = load i16, ptr %34, align 2, !tbaa !21
+  %35 = load i16, ptr %34, align 2, !tbaa !23
   %36 = zext i16 %35 to i64
   %37 = shl nuw nsw i64 %36, 6
   %38 = add nsw i64 %37, %33
@@ -255,7 +255,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %56 = add nuw nsw i64 %.sroa.speculated.i.i33, %.030.ph70.i.i23
   %57 = add nsw i64 %.sroa.speculated.i.i33, %.028.ph72.i.i21
   %58 = icmp samesign ult i64 %56, 64
-  br i1 %58, label %.lr.ph.split.us.preheader.i.i20, label %.preheader.split
+  br i1 %58, label %.lr.ph.split.us.preheader.i.i20, label %.preheader.split, !llvm.loop !16
 
 .thread39.i.i35:                                  ; preds = %46
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %48)
@@ -263,7 +263,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 .preheader.split:                                 ; preds = %.outer.i.i30
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %60 = load i16, ptr %59, align 4, !tbaa !22
+  %60 = load i16, ptr %59, align 4, !tbaa !24
   %.not143 = icmp eq i16 %60, 0
   br i1 %.not143, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %.lr.ph142
 
@@ -339,14 +339,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %86 = add nuw nsw i64 %.sroa.speculated.i.i53, %.030.ph70.i.i43
   %87 = add nsw i64 %.sroa.speculated.i.i53, %.028.ph72.i.i41
   %88 = icmp samesign ult i64 %86, 64
-  br i1 %88, label %.lr.ph.split.us.preheader.i.i40, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59
+  br i1 %88, label %.lr.ph.split.us.preheader.i.i40, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59, !llvm.loop !16
 
 .thread39.i.i55:                                  ; preds = %76
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %78)
   br label %.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59: ; preds = %.outer.i.i50
-  %89 = load i32, ptr %7, align 8, !tbaa !23
+  %89 = load i32, ptr %7, align 8, !tbaa !25
   %90 = zext i32 %89 to i64
   %91 = add nsw i64 %62, %90
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #24
@@ -403,7 +403,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %109 = add nuw nsw i64 %.sroa.speculated.i, %.030.ph70.i
   %110 = add nsw i64 %.sroa.speculated.i, %.028.ph72.i
   %111 = icmp samesign ult i64 %109, 64
-  br i1 %111, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
+  br i1 %111, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread: ; preds = %99
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %101)
@@ -421,7 +421,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 %114, ptr %3, align 8
   store ptr %8, ptr %63, align 8
-  %115 = load ptr, ptr %64, align 8, !tbaa !25
+  %115 = load ptr, ptr %64, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i, label %116, label %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit
 
@@ -430,7 +430,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   unreachable
 
 _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit: ; preds = %113
-  %117 = load ptr, ptr %65, align 8, !tbaa !27
+  %117 = load ptr, ptr %65, align 8, !tbaa !29
   %118 = call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %118, label %120, label %.thread118
@@ -450,7 +450,7 @@ _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %66, !llvm.loop !29
+  br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %66, !llvm.loop !31
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread: ; preds = %42, %120, %.preheader.split, %.thread, %.thread118, %.thread39.i.i35
   %.1 = phi i1 [ false, %.thread39.i.i35 ], [ false, %.thread ], [ %119, %.thread118 ], [ true, %.preheader.split ], [ true, %120 ], [ false, %42 ]
@@ -549,7 +549,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
   %29 = add nuw nsw i64 %.sroa.speculated.i.i, %.030.ph70.i.i
   %30 = add nuw nsw i64 %.sroa.speculated.i.i, %.028.ph72.i.i
   %31 = icmp samesign ult i64 %29, 64
-  br i1 %31, label %.lr.ph.split.us.preheader.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit
+  br i1 %31, label %.lr.ph.split.us.preheader.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit, !llvm.loop !16
 
 .thread39.i.i:                                    ; preds = %19
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %21)
@@ -557,16 +557,16 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit: ; preds = %.outer.i.i
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 58
-  %33 = load i16, ptr %32, align 2, !tbaa !16
+  %33 = load i16, ptr %32, align 2, !tbaa !18
   %.not = icmp eq i16 %33, 64
   br i1 %.not, label %34, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 34:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #24
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !20
+  %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 62
-  %38 = load i16, ptr %37, align 2, !tbaa !21
+  %38 = load i16, ptr %37, align 2, !tbaa !23
   %39 = zext i16 %38 to i64
   %40 = shl nuw nsw i64 %39, 6
   %41 = add nsw i64 %40, %36
@@ -626,7 +626,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %59 = add nuw nsw i64 %.sroa.speculated.i.i42, %.030.ph70.i.i32
   %60 = add nsw i64 %.sroa.speculated.i.i42, %.028.ph72.i.i30
   %61 = icmp samesign ult i64 %59, 64
-  br i1 %61, label %.lr.ph.split.us.preheader.i.i29, label %.preheader
+  br i1 %61, label %.lr.ph.split.us.preheader.i.i29, label %.preheader, !llvm.loop !16
 
 .thread39.i.i44:                                  ; preds = %49
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %51)
@@ -634,7 +634,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 .preheader:                                       ; preds = %.outer.i.i39
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  %63 = load i16, ptr %62, align 4, !tbaa !22
+  %63 = load i16, ptr %62, align 4, !tbaa !24
   %.not28148.not = icmp eq i16 %63, 0
   br i1 %.not28148.not, label %.thread, label %.lr.ph153
 
@@ -707,13 +707,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %86 = add nuw nsw i64 %.sroa.speculated.i.i62, %.030.ph70.i.i52
   %87 = add nsw i64 %.sroa.speculated.i.i62, %.028.ph72.i.i50
   %88 = icmp samesign ult i64 %86, 64
-  br i1 %88, label %.lr.ph.split.us.preheader.i.i49, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68
+  br i1 %88, label %.lr.ph.split.us.preheader.i.i49, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68: ; preds = %.outer.i.i59
   br i1 %.not77.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118, label %.lr.ph.split.us.preheader.i.preheader
 
 .lr.ph.split.us.preheader.i.preheader:            ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68
-  %89 = load i32, ptr %3, align 8, !tbaa !23
+  %89 = load i32, ptr %3, align 8, !tbaa !25
   %90 = zext i32 %89 to i64
   %91 = add nsw i64 %65, %90
   br label %.lr.ph.split.us.preheader.i
@@ -769,7 +769,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %109 = add i64 %.sroa.speculated.i, %.030.ph70.i
   %110 = add nsw i64 %.sroa.speculated.i, %.028.ph72.i
   %111 = icmp ult i64 %109, %2
-  br i1 %111, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
+  br i1 %111, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit: ; preds = %.outer.i, %95
   %.sroa.37.20 = phi i64 [ 0, %95 ], [ %.sroa.37.18.lcssa, %.outer.i ]
@@ -793,7 +793,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 115:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %66, !llvm.loop !30
+  br i1 %exitcond.not, label %.thread, label %66, !llvm.loop !32
 
 .thread.sink.split:                               ; preds = %76, %99
   %.lcssa.sink = phi i32 [ %101, %99 ], [ %78, %76 ]
@@ -884,7 +884,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %10 = getelementptr inbounds nuw [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %indvars.iv, i32 2
-  %11 = load i32, ptr %10, align 8, !tbaa !31
+  %11 = load i32, ptr %10, align 8, !tbaa !33
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.preheader, label %18
 
@@ -903,9 +903,9 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %16 = getelementptr inbounds nuw [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %indvars.iv.next24
   %17 = getelementptr inbounds nuw [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %indvars.iv23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !35
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
-  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph17, !llvm.loop !35
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph17, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph17, %.preheader
   %.1.lcssa = phi i32 [ %13, %.preheader ], [ %14, %.lr.ph17 ]
@@ -915,7 +915,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %18, %.preheader12, %._crit_edge
   %19 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
@@ -959,9 +959,9 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %2
   store i32 %14, ptr @_ZZN4absl18debugging_internal22InstallSymbolDecoratorEPFvPKNS0_19SymbolDecoratorArgsEEPvE6ticket, align 4, !tbaa !10
   %15 = sext i32 %10 to i64
   %16 = getelementptr inbounds [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %15
-  store ptr %0, ptr %16, align 8, !tbaa !34
+  store ptr %0, ptr %16, align 8, !tbaa !36
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !34
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
   %17 = add nsw i32 %10, 1
@@ -1044,7 +1044,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %_ZN4absl18debugging
   %.0.i.i.i = inttoptr i64 %30 to ptr
   %31 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %29, ptr noundef %.0.i.i.i)
   %.not23 = icmp eq ptr %31, null
-  br i1 %.not23, label %32, label %33, !prof !37
+  br i1 %.not23, label %32, label %33, !prof !39
 
 32:                                               ; preds = %27
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1685, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -1057,13 +1057,13 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %_ZN4absl18debugging
   store i32 %35, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4, !tbaa !10
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds [8 x %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 0, i64 %36
-  store ptr %0, ptr %37, align 16, !tbaa !38
+  store ptr %0, ptr %37, align 16, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %1, ptr %38, align 8, !tbaa !40
+  store ptr %1, ptr %38, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %2, ptr %39, align 16, !tbaa !41
+  store i64 %2, ptr %39, align 16, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %31, ptr %40, align 8, !tbaa !42
+  store ptr %31, ptr %40, align 8, !tbaa !44
   br label %41
 
 41:                                               ; preds = %24, %33
@@ -1111,39 +1111,39 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %4
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = load ptr, ptr %0, align 8, !tbaa !34
+  %13 = load ptr, ptr %0, align 8, !tbaa !36
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %15 = getelementptr inbounds nuw [8 x %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 16, !tbaa !38
+  %16 = load ptr, ptr %15, align 16, !tbaa !40
   %.not = icmp ugt ptr %16, %13
   br i1 %.not, label %26, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %1, align 8, !tbaa !34
+  %18 = load ptr, ptr %1, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
   %.not18 = icmp ugt ptr %18, %20
   br i1 %.not18, label %26, label %21
 
 21:                                               ; preds = %17
-  store ptr %16, ptr %0, align 8, !tbaa !34
-  store ptr %20, ptr %1, align 8, !tbaa !34
+  store ptr %16, ptr %0, align 8, !tbaa !36
+  store ptr %20, ptr %1, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = load i64, ptr %22, align 16, !tbaa !41
-  store i64 %23, ptr %2, align 8, !tbaa !43
+  %23 = load i64, ptr %22, align 16, !tbaa !43
+  store i64 %23, ptr %2, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !42
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
   store ptr %25, ptr %3, align 8, !tbaa !4
   br label %.loopexit
 
 26:                                               ; preds = %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !46
 
 .loopexit:                                        ; preds = %26, %.preheader, %21
   %27 = phi i1 [ true, %21 ], [ false, %.preheader ], [ false, %26 ]
@@ -1214,9 +1214,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i: ; preds =
   %35 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %33, ptr noundef %.0.i.i.i.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22560) %35, i8 0, i64 24, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i8 1, ptr %36, align 8, !tbaa !45
+  store i8 1, ptr %36, align 8, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 25
-  store i8 0, ptr %37, align 1, !tbaa !50
+  store i8 0, ptr %37, align 1, !tbaa !52
   %.014.ptr17.i.i = getelementptr inbounds nuw i8, ptr %35, i64 12320
   br label %.preheader.i.i
 
@@ -1225,14 +1225,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i: ; preds =
   %.014.idx18.i.i = phi i64 [ 12320, %29 ], [ %.014.add.i.i, %40 ]
   %38 = getelementptr inbounds nuw i8, ptr %.014.ptr19.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.014.ptr19.i.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014.ptr19.i.i, i8 0, i64 32, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014.ptr19.i.i, i8 0, i64 32, i1 false), !tbaa !36
   br label %41
 
 40:                                               ; preds = %41
   %.014.add.i.i = add nuw nsw i64 %.014.idx18.i.i, 80
   %.014.ptr.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %.014.add.i.i
   %.not.i.i = icmp eq i64 %.014.add.i.i, 22560
-  br i1 %.not.i.i, label %_ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit, label %.preheader.i.i
+  br i1 %.not.i.i, label %_ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit, label %.preheader.i.i, !llvm.loop !53
 
 41:                                               ; preds = %41, %.preheader.i.i
   %.016.i.i = phi i64 [ 0, %.preheader.i.i ], [ %44, %41 ]
@@ -1242,7 +1242,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i: ; preds =
   store i32 0, ptr %43, align 4, !tbaa !10
   %44 = add nuw nsw i64 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %44, 4
-  br i1 %exitcond.not.i.i, label %40, label %41, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %40, label %41, !llvm.loop !54
 
 _ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit: ; preds = %40, %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i
   %.0.i = phi ptr [ %28, %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i ], [ %35, %40 ]
@@ -1266,7 +1266,7 @@ _ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit: ; preds = %40, %_ZN4ab
 58:                                               ; preds = %64, %46
   %.01418.i.i = phi i64 [ 0, %46 ], [ %65, %64 ]
   %59 = getelementptr inbounds nuw [4 x ptr], ptr %57, i64 0, i64 %.01418.i.i
-  %60 = load ptr, ptr %59, align 8, !tbaa !34
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
   %61 = icmp eq ptr %60, %0
   br i1 %61, label %.preheader.i.i25, label %64
 
@@ -1278,12 +1278,12 @@ _ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit: ; preds = %40, %_ZN4ab
   store i32 %63, ptr %.0.ptr.i.i.i, align 4, !tbaa !10
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 80
-  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.i, label %.preheader.i.i25
+  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.i, label %.preheader.i.i25, !llvm.loop !55
 
 64:                                               ; preds = %58
   %65 = add nuw nsw i64 %.01418.i.i, 1
   %exitcond.i.i = icmp eq i64 %65, 4
-  br i1 %exitcond.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.thread.i, label %58, !llvm.loop !52
+  br i1 %exitcond.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.thread.i, label %58, !llvm.loop !56
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.i: ; preds = %.preheader.i.i25
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 64
@@ -1304,19 +1304,19 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.ex
 
 73:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.thread.i
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %75 = load i32, ptr %74, align 8, !tbaa !53
+  %75 = load i32, ptr %74, align 8, !tbaa !57
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %211
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %72, align 8, !tbaa !56
+  %78 = load ptr, ptr %72, align 8, !tbaa !60
   %79 = tail call fastcc noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_122OpenReadOnlyWithHighFDEPKc(ptr noundef %78)
-  store i32 %79, ptr %74, align 8, !tbaa !53
+  store i32 %79, ptr %74, align 8, !tbaa !57
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr %72, align 8, !tbaa !56
+  %82 = load ptr, ptr %72, align 8, !tbaa !60
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(15) @.str.21) #26
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %89
@@ -1328,12 +1328,12 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.ex
 
 87:                                               ; preds = %85
   %88 = tail call fastcc noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_122OpenReadOnlyWithHighFDEPKc(ptr noundef nonnull %86)
-  store i32 %88, ptr %74, align 8, !tbaa !53
+  store i32 %88, ptr %74, align 8, !tbaa !57
   br label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i.i
 
 89:                                               ; preds = %81
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !57
+  %91 = load ptr, ptr %90, align 8, !tbaa !61
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %91, ptr noundef nonnull dereferenceable(4) @.str.28, i64 4)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %92, label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exitthread-pre-split.i.i.i
@@ -1344,7 +1344,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.ex
   br i1 %94, label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exitthread-pre-split.i.i.i, label %95
 
 95:                                               ; preds = %92
-  %96 = load ptr, ptr %90, align 8, !tbaa !57
+  %96 = load ptr, ptr %90, align 8, !tbaa !61
   br label %97
 
 97:                                               ; preds = %101, %95
@@ -1370,14 +1370,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.ex
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #24
   %103 = add nuw nsw i32 %.01424.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp eq i32 %103, 4
-  br i1 %exitcond.i.i.i.i, label %.critedge22.i.i.i.i, label %97, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i, label %.critedge22.i.i.i.i, label %97, !llvm.loop !62
 
 .critedge22.i.i.i.i:                              ; preds = %101
-  store i32 %93, ptr %74, align 8, !tbaa !53
+  store i32 %93, ptr %74, align 8, !tbaa !57
   br label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i.i
 
 _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exitthread-pre-split.i.i.i: ; preds = %.critedge.i.i.i.i, %92, %89, %85
-  %.pr.i.i.i = load i32, ptr %74, align 8, !tbaa !53
+  %.pr.i.i.i = load i32, ptr %74, align 8, !tbaa !57
   br label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i.i
 
 _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i.i: ; preds = %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exitthread-pre-split.i.i.i, %.critedge22.i.i.i.i, %87
@@ -1386,7 +1386,7 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br i1 %105, label %106, label %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i
 
 106:                                              ; preds = %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i.i
-  %107 = load ptr, ptr %72, align 8, !tbaa !56
+  %107 = load ptr, ptr %72, align 8, !tbaa !60
   %108 = tail call ptr @__errno_location() #25
   %109 = load i32, ptr %108, align 4, !tbaa !10
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1422, ptr noundef nonnull @.str.22, ptr noundef %107, i32 noundef %109)
@@ -1452,7 +1452,7 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   %128 = add nuw nsw i64 %.sroa.speculated.i.i90.i.i.i, %.030.ph70.i.i80.i.i.i
   %129 = add nuw nsw i64 %.sroa.speculated.i.i90.i.i.i, %.028.ph72.i.i78.i.i.i
   %130 = icmp samesign ult i64 %128, 64
-  br i1 %130, label %.lr.ph.split.us.preheader.i.i77.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
+  br i1 %130, label %.lr.ph.split.us.preheader.i.i77.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i, !llvm.loop !16
 
 .thread39.i.i92.i.i.i:                            ; preds = %118
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %120)
@@ -1472,11 +1472,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.0.i.i.i.i24 = select i1 %or.cond.i.not.i.i.i, i32 -1, i32 %134
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #24
   %135 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  store i32 %.0.i.i.i.i24, ptr %135, align 4, !tbaa !59
+  store i32 %.0.i.i.i.i24, ptr %135, align 4, !tbaa !63
   br i1 %or.cond.i.not.i.i.i, label %136, label %138
 
 136:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
-  %137 = load ptr, ptr %72, align 8, !tbaa !56
+  %137 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1432, ptr noundef nonnull @.str.23, ptr noundef %137, i32 noundef -1)
   br label %.thread158.i.i.i
 
@@ -1538,29 +1538,29 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %157 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, %.030.ph70.i.i.i.i.i
   %158 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, %.028.ph72.i.i.i.i.i
   %159 = icmp samesign ult i64 %157, 64
-  br i1 %159, label %.lr.ph.split.us.preheader.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
+  br i1 %159, label %.lr.ph.split.us.preheader.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i, !llvm.loop !16
 
 .thread39.i.i.i.i.i:                              ; preds = %147
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %149)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i: ; preds = %143, %.thread39.i.i.i.i.i
-  %160 = load ptr, ptr %72, align 8, !tbaa !56
+  %160 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1438, ptr noundef nonnull @.str.24, ptr noundef %160)
   br label %.thread158.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i: ; preds = %.outer.i.i.i.i.i
   %161 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  %162 = load i16, ptr %161, align 8, !tbaa !60
+  %162 = load i16, ptr %161, align 8, !tbaa !64
   %163 = zext i16 %162 to i32
   %.not184.i.i.i = icmp eq i16 %162, 0
   br i1 %.not184.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
   %164 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %165 = load i64, ptr %164, align 8, !tbaa !61
+  %165 = load i64, ptr %164, align 8, !tbaa !65
   %166 = getelementptr inbounds nuw i8, ptr %72, i64 94
-  %167 = load i16, ptr %166, align 2, !tbaa !62
+  %167 = load i16, ptr %166, align 2, !tbaa !66
   %168 = zext i16 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %170 = getelementptr inbounds nuw i8, ptr %72, i64 104
@@ -1629,7 +1629,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %189 = add i64 %.sroa.speculated.i.i70.i.i.i, %.030.ph70.i.i60.i.i.i
   %190 = add nsw i64 %.sroa.speculated.i.i70.i.i.i, %.028.ph72.i.i58.i.i.i
   %191 = icmp ult i64 %189, 56
-  br i1 %191, label %.lr.ph.split.us.preheader.i.i57.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
+  br i1 %191, label %.lr.ph.split.us.preheader.i.i57.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i: ; preds = %179
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %181)
@@ -1644,12 +1644,12 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 193:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
   %194 = add nsw i64 %.044183.i.i.i, %168
-  %195 = load i32, ptr %11, align 8, !tbaa !63
+  %195 = load i32, ptr %11, align 8, !tbaa !67
   %.not54.i.i.i = icmp eq i32 %195, 1
   br i1 %.not54.i.i.i, label %196, label %205
 
 196:                                              ; preds = %193
-  %197 = load i32, ptr %169, align 4, !tbaa !65
+  %197 = load i32, ptr %169, align 4, !tbaa !69
   %198 = and i32 %197, 5
   %.not55.i.i.i = icmp eq i32 %198, 5
   br i1 %.not55.i.i.i, label %199, label %205
@@ -1665,7 +1665,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %205
 
 .thread156.i.i.i:                                 ; preds = %199
-  %204 = load ptr, ptr %72, align 8, !tbaa !56
+  %204 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1475, ptr noundef nonnull @.str.26, ptr noundef %204, i64 noundef %.046182.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #24
   br label %210
@@ -1675,10 +1675,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #24
   %206 = add nuw nsw i32 %.050181.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %206, %163
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %171, !llvm.loop !66
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %171, !llvm.loop !70
 
 .loopexit.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i
-  %207 = load ptr, ptr %72, align 8, !tbaa !56
+  %207 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1449, ptr noundef nonnull @.str.25, ptr noundef %207, i32 noundef %.050181.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #24
   br label %.thread158.i.i.i
@@ -1688,7 +1688,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %208, label %._crit_edge.thread.i.i.i, label %210
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
-  %209 = load ptr, ptr %72, align 8, !tbaa !56
+  %209 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1481, ptr noundef nonnull @.str.27, ptr noundef %209)
   br label %.thread158.i.i.i
 
@@ -1702,16 +1702,16 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 211:                                              ; preds = %210, %73
   %212 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %213 = load ptr, ptr %212, align 8, !tbaa !57
+  %213 = load ptr, ptr %212, align 8, !tbaa !61
   %214 = ptrtoint ptr %213 to i64
   %215 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  %216 = load i32, ptr %215, align 4, !tbaa !59
+  %216 = load i32, ptr %215, align 4, !tbaa !63
   %217 = icmp eq i32 %216, 3
   br i1 %217, label %218, label %243
 
 218:                                              ; preds = %211
   %219 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %220 = load i64, ptr %219, align 8, !tbaa !67
+  %220 = load i64, ptr %219, align 8, !tbaa !71
   %.not57.i.i = icmp ugt i64 %220, %214
   br i1 %.not57.i.i, label %243, label %221
 
@@ -1723,16 +1723,16 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 224:                                              ; preds = %230
   %225 = add nuw nsw i64 %.051111.i.i, 1
   %exitcond.not.i.i23 = icmp eq i64 %225, 4
-  br i1 %exitcond.not.i.i23, label %238, label %226, !llvm.loop !68
+  br i1 %exitcond.not.i.i23, label %238, label %226, !llvm.loop !72
 
 226:                                              ; preds = %224, %221
   %.051111.i.i = phi i64 [ 0, %221 ], [ %225, %224 ]
   %227 = getelementptr inbounds nuw [4 x %struct.Elf64_Phdr], ptr %223, i64 0, i64 %.051111.i.i
-  %228 = load i32, ptr %227, align 8, !tbaa !63
+  %228 = load i32, ptr %227, align 8, !tbaa !67
   switch i32 %228, label %229 [
     i32 1, label %230
     i32 0, label %238
-  ], !prof !69
+  ], !prof !73
 
 229:                                              ; preds = %226
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1517, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
@@ -1740,40 +1740,40 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 230:                                              ; preds = %226
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  %232 = load i64, ptr %231, align 8, !tbaa !70
+  %232 = load i64, ptr %231, align 8, !tbaa !74
   %233 = add i64 %232, %214
   %234 = getelementptr inbounds nuw i8, ptr %227, i64 40
-  %235 = load i64, ptr %234, align 8, !tbaa !71
+  %235 = load i64, ptr %234, align 8, !tbaa !75
   %236 = add i64 %233, %235
   %237 = inttoptr i64 %236 to ptr
   %.not84.i.i = icmp ult ptr %0, %237
   br i1 %.not84.i.i, label %.thread.i.i, label %224
 
 238:                                              ; preds = %226, %224
-  %239 = load ptr, ptr %72, align 8, !tbaa !56
+  %239 = load ptr, ptr %72, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1530, ptr noundef nonnull @.str.10, ptr noundef %239, ptr noundef %0, i64 noundef %214)
   br label %243
 
 .thread.i.i:                                      ; preds = %230
   %240 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %241 = load i64, ptr %240, align 8, !tbaa !72
+  %241 = load i64, ptr %240, align 8, !tbaa !76
   %.neg.i.i = sub i64 %222, %232
   %242 = add i64 %.neg.i.i, %241
   br label %243
 
 243:                                              ; preds = %.thread.i.i, %238, %218, %211
   %.046.i.i = phi i64 [ 0, %218 ], [ 0, %211 ], [ %222, %238 ], [ %242, %.thread.i.i ]
-  %244 = load i32, ptr %74, align 8, !tbaa !53
+  %244 = load i32, ptr %74, align 8, !tbaa !57
   %245 = getelementptr inbounds nuw i8, ptr %.0.i, i64 11296
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #24
   %246 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3098
-  store i32 %244, ptr %6, align 8, !tbaa !73
+  store i32 %244, ptr %6, align 8, !tbaa !77
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %246, ptr %247, align 8, !tbaa !75
+  store ptr %246, ptr %247, align 8, !tbaa !79
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 8192, ptr %248, align 8, !tbaa !76
+  store i64 8192, ptr %248, align 8, !tbaa !80
   %249 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
@@ -1791,21 +1791,21 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.027.idx40.i.i.i = phi i64 [ 0, %243 ], [ %.027.add.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i ]
   %.027.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.027.idx40.i.i.i
   %257 = load i32, ptr %.027.ptr.i.i.i, align 4, !tbaa !10
-  %258 = load i16, ptr %252, align 4, !tbaa !77
-  %259 = load i64, ptr %253, align 8, !tbaa !78
+  %258 = load i16, ptr %252, align 4, !tbaa !81
+  %259 = load i64, ptr %253, align 8, !tbaa !82
   %260 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSectionHeaderByTypeEPNS0_12_GLOBAL__N_111CachingFileEtljP10Elf64_ShdrPcm(ptr noundef %6, i16 noundef zeroext %258, i64 noundef %259, i32 noundef %257, ptr noundef %4, ptr noundef nonnull %245)
   br i1 %260, label %261, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i
 
 261:                                              ; preds = %256
-  %262 = load i64, ptr %253, align 8, !tbaa !78
-  %263 = load i32, ptr %254, align 8, !tbaa !79
+  %262 = load i64, ptr %253, align 8, !tbaa !82
+  %263 = load i32, ptr %254, align 8, !tbaa !83
   %264 = zext i32 %263 to i64
   %265 = shl nuw nsw i64 %264, 6
   %266 = add i64 %265, %262
   %267 = load i32, ptr %6, align 8
   %268 = load ptr, ptr %247, align 8
   %269 = load i64, ptr %248, align 8
-  %.pre.i.i.i = load i64, ptr %249, align 8, !tbaa !80
+  %.pre.i.i.i = load i64, ptr %249, align 8, !tbaa !84
   %.pre43.i.i.i = load i64, ptr %255, align 8
   br label %.lr.ph.split.us.preheader.i.i.i62.i.i
 
@@ -1831,9 +1831,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %276, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i, label %277
 
 277:                                              ; preds = %275
-  store i64 %.028.ph72.i.i.i63.i.i, ptr %249, align 8, !tbaa !80
+  store i64 %.028.ph72.i.i.i63.i.i, ptr %249, align 8, !tbaa !84
   %278 = add nsw i64 %273, %.028.ph72.i.i.i63.i.i
-  store i64 %278, ptr %255, align 8, !tbaa !81
+  store i64 %278, ptr %255, align 8, !tbaa !85
   br label %.lr.ph.split.us.i.i.i69.i.i
 
 279:                                              ; preds = %.lr.ph.i.i68.i.i
@@ -1866,7 +1866,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %293 = add nuw nsw i64 %.sroa.speculated.i.i.i73.i.i, %.030.ph70.i.i.i65.i.i
   %294 = add nsw i64 %.sroa.speculated.i.i.i73.i.i, %.028.ph72.i.i.i63.i.i
   %295 = icmp samesign ult i64 %293, 64
-  br i1 %295, label %.lr.ph.split.us.preheader.i.i.i62.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i74.i.i
+  br i1 %295, label %.lr.ph.split.us.preheader.i.i.i62.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i74.i.i, !llvm.loop !16
 
 .thread39.i.i.i75.i.i:                            ; preds = %279
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %281)
@@ -1881,7 +1881,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i: ; preds = %275, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i74.i.i, %.thread39.i.i.i75.i.i, %256
   %.027.add.i.i.i = add nuw nsw i64 %.027.idx40.i.i.i, 4
   %.not.i61.i.i = icmp eq i64 %.027.add.i.i.i, 8
-  br i1 %.not.i61.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, label %256
+  br i1 %.not.i61.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, label %256, !llvm.loop !86
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
@@ -1905,7 +1905,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileE
 299:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #24
   call void @_ZN4absl18debugging_internal11VDSOSupportC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
-  %300 = load ptr, ptr %12, align 8, !tbaa !82
+  %300 = load ptr, ptr %12, align 8, !tbaa !87
   %.not85.i.i = icmp eq ptr %300, null
   br i1 %.not85.i.i, label %311, label %301
 
@@ -1915,11 +1915,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileE
   br i1 %302, label %303, label %310
 
 303:                                              ; preds = %301
-  %304 = load ptr, ptr %13, align 8, !tbaa !85
+  %304 = load ptr, ptr %13, align 8, !tbaa !90
   %305 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %304) #26
   %306 = add i64 %305, 1
   %307 = icmp ugt i64 %306, 3071
-  br i1 %307, label %308, label %309, !prof !37
+  br i1 %307, label %308, label %309, !prof !39
 
 308:                                              ; preds = %303
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1557, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
@@ -1960,20 +1960,20 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i.i: ; preds = %_ZN4absl18debugg
 
 .lr.ph.preheader.i.i:                             ; preds = %318
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #24
-  store ptr %0, ptr %14, align 8, !tbaa !87
+  store ptr %0, ptr %14, align 8, !tbaa !92
   %321 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %.2.i.i, ptr %321, align 8, !tbaa !89
+  store i64 %.2.i.i, ptr %321, align 8, !tbaa !94
   %322 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %.047.i.i, ptr %322, align 8, !tbaa !90
+  store i32 %.047.i.i, ptr %322, align 8, !tbaa !95
   %323 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %71, ptr %323, align 8, !tbaa !91
+  store ptr %71, ptr %323, align 8, !tbaa !96
   %324 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 3072, ptr %324, align 8, !tbaa !92
+  store i64 3072, ptr %324, align 8, !tbaa !97
   %325 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %326 = getelementptr inbounds nuw i8, ptr %.0.i, i64 11296
-  store ptr %326, ptr %325, align 8, !tbaa !93
+  store ptr %326, ptr %325, align 8, !tbaa !98
   %327 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i64 1024, ptr %327, align 8, !tbaa !94
+  store i64 1024, ptr %327, align 8, !tbaa !99
   %328 = getelementptr inbounds nuw i8, ptr %14, i64 56
   br label %.lr.ph.i.i
 
@@ -1985,15 +1985,15 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i.i: ; preds = %_ZN4absl18debugg
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %329 = getelementptr inbounds nuw [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %indvars.iv.i.i
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  %331 = load ptr, ptr %330, align 8, !tbaa !95
-  store ptr %331, ptr %328, align 8, !tbaa !96
-  %332 = load ptr, ptr %329, align 8, !tbaa !97
+  %331 = load ptr, ptr %330, align 8, !tbaa !100
+  store ptr %331, ptr %328, align 8, !tbaa !101
+  %332 = load ptr, ptr %329, align 8, !tbaa !102
   call void %332(ptr noundef nonnull %14)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %333 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4, !tbaa !10
   %334 = sext i32 %333 to i64
   %335 = icmp slt i64 %indvars.iv.next.i.i, %334
-  br i1 %335, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !98
+  br i1 %335, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !103
 
 336:                                              ; preds = %._crit_edge.i.i, %318
   %337 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
@@ -2041,7 +2041,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %340, %336, %_ZN4a
   %.04365.i.i.i = phi i64 [ 0, %346 ], [ %.144.i.i.i, %371 ]
   %.04564.i.i.i = phi i32 [ 0, %346 ], [ %.146.i.i.i, %371 ]
   %360 = getelementptr inbounds nuw [4 x ptr], ptr %357, i64 0, i64 %.04067.i.i.i
-  %361 = load ptr, ptr %360, align 8, !tbaa !34
+  %361 = load ptr, ptr %360, align 8, !tbaa !36
   %362 = icmp eq ptr %361, null
   br i1 %362, label %.preheader60.i.i.i.preheader, label %371
 
@@ -2057,17 +2057,17 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %340, %336, %_ZN4a
   store i32 %365, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i.i, 4
   %.not.i.i78.i.i = icmp eq i64 %.0.add.i.i.i.i, 80
-  br i1 %.not.i.i78.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i
+  br i1 %.not.i.i78.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i, !llvm.loop !55
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %.preheader60.i.i.i
-  store ptr %0, ptr %363, align 8, !tbaa !34
+  store ptr %0, ptr %363, align 8, !tbaa !36
   %366 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #26
   %367 = add i64 %366, 1
   %368 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %.0.i.i.i.i.i.i.i = inttoptr i64 %368 to ptr
   %369 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %367, ptr noundef %.0.i.i.i.i.i.i.i)
   %.not.i50.i.i.i = icmp eq ptr %369, null
-  br i1 %.not.i50.i.i.i, label %370, label %375, !prof !37
+  br i1 %.not.i50.i.i.i, label %370, label %375, !prof !39
 
 370:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 332, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -2082,7 +2082,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   %.142.i.i.i = select i1 %.not49.i.i.i, i1 true, i1 %.04166.i.i.i
   %374 = add nuw nsw i64 %.04067.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %374, 4
-  br i1 %exitcond.i.i.i, label %.preheader.i.i.i, label %359, !llvm.loop !99
+  br i1 %exitcond.i.i.i, label %.preheader.i.i.i, label %359, !llvm.loop !104
 
 375:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %369, ptr nonnull readonly align 2 %71, i64 %367, i1 false)
@@ -2099,10 +2099,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   store i32 %379, ptr %.0.ptr.i52.i.i.i, align 4, !tbaa !10
   %.0.add.i53.i.i.i = add nuw nsw i64 %.0.idx1.i51.i.i.i, 4
   %.not.i54.i.i.i = icmp eq i64 %.0.add.i53.i.i.i, 80
-  br i1 %.not.i54.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i, label %.preheader.i.i.i
+  br i1 %.not.i54.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i, label %.preheader.i.i.i, !llvm.loop !55
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i: ; preds = %.preheader.i.i.i
-  br i1 %.142.i.i.i, label %381, label %380, !prof !100
+  br i1 %.142.i.i.i, label %381, label %380, !prof !105
 
 380:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1370, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
@@ -2114,14 +2114,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   %384 = load ptr, ptr %383, align 8, !tbaa !4
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %384)
   %385 = getelementptr inbounds nuw [4 x ptr], ptr %357, i64 0, i64 %.144.i.i.i
-  store ptr %0, ptr %385, align 8, !tbaa !34
+  store ptr %0, ptr %385, align 8, !tbaa !36
   %386 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #26
   %387 = add i64 %386, 1
   %388 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %.0.i.i.i.i56.i.i.i = inttoptr i64 %388 to ptr
   %389 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %387, ptr noundef %.0.i.i.i.i56.i.i.i)
   %.not.i57.i.i.i = icmp eq ptr %389, null
-  br i1 %.not.i57.i.i.i, label %390, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i, !prof !37
+  br i1 %.not.i57.i.i.i, label %390, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i, !prof !39
 
 390:                                              ; preds = %381
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 332, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -2176,7 +2176,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
   br label %419
 
 407:                                              ; preds = %418
-  %.val8.i.i.i = load i64, ptr %.0.i, align 8, !tbaa !101
+  %.val8.i.i.i = load i64, ptr %.0.i, align 8, !tbaa !106
   %.not9.i.i.i = icmp eq i64 %.val8.i.i.i, 0
   br i1 %.not9.i.i.i, label %.loopexit20.i.i, label %.lr.ph.i.i.i29
 
@@ -2186,15 +2186,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
 
 409:                                              ; preds = %.noexc19.i.i, %.lr.ph.i.i.i29
   %.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i29 ], [ %417, %.noexc19.i.i ]
-  %.val7.i.i.i = load ptr, ptr %408, align 8, !tbaa !102
+  %.val7.i.i.i = load ptr, ptr %408, align 8, !tbaa !107
   %410 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i.i.i, i64 %.010.i.i.i
-  %411 = load ptr, ptr %410, align 8, !tbaa !56
+  %411 = load ptr, ptr %410, align 8, !tbaa !60
   invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %411)
           to label %.noexc.i.i unwind label %.loopexit.i.i
 
 .noexc.i.i:                                       ; preds = %409
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  %413 = load i32, ptr %412, align 8, !tbaa !53
+  %413 = load i32, ptr %412, align 8, !tbaa !57
   %414 = icmp sgt i32 %413, -1
   br i1 %414, label %415, label %.noexc19.i.i
 
@@ -2204,14 +2204,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
 
 .noexc19.i.i:                                     ; preds = %415, %.noexc.i.i
   %417 = add i64 %.010.i.i.i, 1
-  %.val.i.i.i30 = load i64, ptr %.0.i, align 8, !tbaa !101
+  %.val.i.i.i30 = load i64, ptr %.0.i, align 8, !tbaa !106
   %.not.i.i.i31 = icmp eq i64 %417, %.val.i.i.i30
-  br i1 %.not.i.i.i31, label %.loopexit20.i.i, label %409, !llvm.loop !103
+  br i1 %.not.i.i.i31, label %.loopexit20.i.i, label %409, !llvm.loop !108
 
 418:                                              ; preds = %421
   %.0.add.i.i = add nuw nsw i64 %.0.idx23.i.i, 80
   %.not.i.i28 = icmp eq i64 %.0.add.i.i, 22560
-  br i1 %.not.i.i28, label %407, label %.preheader.i.i27
+  br i1 %.not.i.i28, label %407, label %.preheader.i.i27, !llvm.loop !109
 
 419:                                              ; preds = %421, %.preheader.i.i27
   %.015.idx21.i.i = phi i64 [ 32, %.preheader.i.i27 ], [ %.015.add.i.i, %421 ]
@@ -2223,14 +2223,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
 421:                                              ; preds = %419
   %.015.add.i.i = add nuw nsw i64 %.015.idx21.i.i, 8
   %.not17.i.i = icmp eq i64 %.015.add.i.i, 64
-  br i1 %.not17.i.i, label %418, label %419
+  br i1 %.not17.i.i, label %418, label %419, !llvm.loop !110
 
 .loopexit20.i.i:                                  ; preds = %.noexc19.i.i, %407
-  store i64 0, ptr %.0.i, align 8, !tbaa !101
+  store i64 0, ptr %.0.i, align 8, !tbaa !106
   %422 = getelementptr inbounds nuw i8, ptr %.0.i, i64 25
-  store i8 0, ptr %422, align 1, !tbaa !50
+  store i8 0, ptr %422, align 1, !tbaa !52
   %423 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %.val.i.i = load ptr, ptr %423, align 8, !tbaa !102
+  %.val.i.i = load ptr, ptr %423, align 8, !tbaa !107
   invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %.val.i.i)
           to label %_ZN4absl18debugging_internal12_GLOBAL__N_110SymbolizerD2Ev.exit.i unwind label %424
 
@@ -2289,39 +2289,39 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %4
   br i1 %12, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %13 = load ptr, ptr %0, align 8, !tbaa !34
+  %13 = load ptr, ptr %0, align 8, !tbaa !36
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %14
 
 14:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %15 = getelementptr inbounds nuw [8 x %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 0, i64 %indvars.iv.i
-  %16 = load ptr, ptr %15, align 16, !tbaa !38
+  %16 = load ptr, ptr %15, align 16, !tbaa !40
   %.not.i = icmp ugt ptr %16, %13
   br i1 %.not.i, label %26, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %1, align 8, !tbaa !34
+  %18 = load ptr, ptr %1, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
   %.not18.i = icmp ugt ptr %18, %20
   br i1 %.not18.i, label %26, label %21
 
 21:                                               ; preds = %17
-  store ptr %16, ptr %0, align 8, !tbaa !34
-  store ptr %20, ptr %1, align 8, !tbaa !34
+  store ptr %16, ptr %0, align 8, !tbaa !36
+  store ptr %20, ptr %1, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = load i64, ptr %22, align 16, !tbaa !41
-  store i64 %23, ptr %2, align 8, !tbaa !43
+  %23 = load i64, ptr %22, align 16, !tbaa !43
+  store i64 %23, ptr %2, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !42
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
   store ptr %25, ptr %3, align 8, !tbaa !4
   br label %.loopexit.i
 
 26:                                               ; preds = %17, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %14, !llvm.loop !44
+  br i1 %exitcond.not.i, label %.loopexit.i, label %14, !llvm.loop !46
 
 .loopexit.i:                                      ; preds = %26, %21, %.preheader.i
   %27 = phi i1 [ true, %21 ], [ false, %.preheader.i ], [ false, %26 ]
@@ -2380,31 +2380,31 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 
 7:                                                ; preds = %2, %.loopexit
   %.not51 = phi i1 [ true, %2 ], [ false, %.loopexit ]
-  %8 = load i8, ptr %3, align 8, !tbaa !45, !range !104, !noundef !105
+  %8 = load i8, ptr %3, align 8, !tbaa !47, !range !111, !noundef !112
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %.loopexit45
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %4, align 1, !tbaa !50, !range !104, !noundef !105
+  %11 = load i8, ptr %4, align 1, !tbaa !52, !range !111, !noundef !112
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
-  store i8 1, ptr %4, align 1, !tbaa !50
+  store i8 1, ptr %4, align 1, !tbaa !52
   %14 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m(ptr noundef %0, ptr noundef %5)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %13
-  store i8 0, ptr %3, align 8, !tbaa !45
+  store i8 0, ptr %3, align 8, !tbaa !47
   br label %.loopexit45
 
 16:                                               ; preds = %13, %10
-  %.val = load i64, ptr %0, align 16, !tbaa !101
+  %.val = load i64, ptr %0, align 16, !tbaa !106
   %.not50 = icmp eq i64 %.val, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %.val40 = load ptr, ptr %6, align 16, !tbaa !102
+  %.val40 = load ptr, ptr %6, align 16, !tbaa !107
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
@@ -2413,13 +2413,13 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
   %18 = add i64 %.02648, %.02847
   %19 = lshr i64 %18, 1
   %20 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %19, i32 2
-  %21 = load ptr, ptr %20, align 8, !tbaa !106
+  %21 = load ptr, ptr %20, align 8, !tbaa !113
   %22 = icmp ult ptr %1, %21
   %23 = add nuw i64 %19, 1
   %.129 = select i1 %22, i64 %.02847, i64 %23
   %.127 = select i1 %22, i64 %19, i64 %.02648
   %24 = icmp ult i64 %.129, %.127
-  br i1 %24, label %17, label %._crit_edge, !llvm.loop !107
+  br i1 %24, label %17, label %._crit_edge, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %17, %16
   %.028.lcssa = phi i64 [ 0, %16 ], [ %.129, %17 ]
@@ -2427,10 +2427,10 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
   br i1 %.not, label %34, label %25
 
 25:                                               ; preds = %._crit_edge
-  %.val41 = load ptr, ptr %6, align 16, !tbaa !102
+  %.val41 = load ptr, ptr %6, align 16, !tbaa !107
   %26 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !106
+  %28 = load ptr, ptr %27, align 8, !tbaa !113
   %29 = icmp ugt ptr %28, %1
   br i1 %29, label %31, label %30
 
@@ -2440,7 +2440,7 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !57
+  %33 = load ptr, ptr %32, align 8, !tbaa !61
   %.not35 = icmp ult ptr %1, %33
   br i1 %.not35, label %34, label %.loopexit45
 
@@ -2449,12 +2449,12 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 
 .lr.ph.i:                                         ; preds = %34, %42
   %.010.i = phi i64 [ %43, %42 ], [ 0, %34 ]
-  %.val7.i = load ptr, ptr %6, align 16, !tbaa !102
+  %.val7.i = load ptr, ptr %6, align 16, !tbaa !107
   %35 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !56
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
   tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %36)
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !53
+  %38 = load i32, ptr %37, align 8, !tbaa !57
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %42
 
@@ -2464,14 +2464,14 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 
 42:                                               ; preds = %40, %.lr.ph.i
   %43 = add i64 %.010.i, 1
-  %.val.i = load i64, ptr %0, align 16, !tbaa !101
+  %.val.i = load i64, ptr %0, align 16, !tbaa !106
   %.not.i = icmp eq i64 %43, %.val.i
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !103
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !108
 
 .loopexit:                                        ; preds = %42, %34
-  store i64 0, ptr %0, align 16, !tbaa !101
-  store i8 0, ptr %4, align 1, !tbaa !50
-  br i1 %.not51, label %7, label %.loopexit45, !llvm.loop !108
+  store i64 0, ptr %0, align 16, !tbaa !106
+  store i8 0, ptr %4, align 1, !tbaa !52
+  br i1 %.not51, label %7, label %.loopexit45, !llvm.loop !115
 
 .loopexit45:                                      ; preds = %31, %7, %.loopexit, %15
   %spec.select = phi ptr [ null, %15 ], [ %26, %31 ], [ null, %7 ], [ null, %.loopexit ]
@@ -2526,7 +2526,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAd
   %10 = tail call ptr @__errno_location() #25
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %13, !llvm.loop !109
+  br i1 %12, label %6, label %13, !llvm.loop !116
 
 13:                                               ; preds = %9
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1111, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, i32 noundef %11)
@@ -2650,7 +2650,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   %57 = or i64 %50, %56
   %58 = getelementptr inbounds nuw i8, ptr %.02636.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %58, %38
-  br i1 %exitcond.not.i.i, label %switch.early.test._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i, label %switch.early.test._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 switch.early.test._crit_edge.i.loopexit.i:        ; preds = %49, %switch.early.test.i.i
   %.026.lcssa.i.ph.i = phi ptr [ %.02636.i.i, %switch.early.test.i.i ], [ %scevgep.i.i, %49 ]
@@ -2734,7 +2734,7 @@ switch.early.test.i.i69:                          ; preds = %.lr.ph.i.i64
   %83 = or i64 %76, %82
   %84 = getelementptr inbounds nuw i8, ptr %.02636.i.i66, i64 1
   %exitcond.not.i.i70 = icmp eq ptr %84, %38
-  br i1 %exitcond.not.i.i70, label %switch.early.test._crit_edge.i.loopexit.i71, label %.lr.ph.i.i64, !llvm.loop !110
+  br i1 %exitcond.not.i.i70, label %switch.early.test._crit_edge.i.loopexit.i71, label %.lr.ph.i.i64, !llvm.loop !117
 
 switch.early.test._crit_edge.i.loopexit.i71:      ; preds = %75, %switch.early.test.i.i69
   %.026.lcssa.i.ph.i72 = phi ptr [ %.02636.i.i66, %switch.early.test.i.i69 ], [ %scevgep.i.i63, %75 ]
@@ -2792,7 +2792,7 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74: ; preds = %switch.early.
   %storemerge.add = add nuw i64 %storemerge.idx91, 1
   %storemerge.ptr = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 %storemerge.add
   %exitcond.not = icmp eq i64 %storemerge.add, %95
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !118
 
 .critedge2:                                       ; preds = %.lr.ph, %97
   %storemerge.idx.lcssa.ph = phi i64 [ %storemerge.idx91, %.lr.ph ], [ %95, %97 ]
@@ -2870,7 +2870,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %124 = or i64 %117, %123
   %125 = getelementptr inbounds nuw i8, ptr %.02636.i, i64 1
   %exitcond.not.i = icmp eq ptr %125, %38
-  br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
+  br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !117
 
 switch.early.test._crit_edge.i:                   ; preds = %116, %switch.early.test.i, %108
   %.026.lcssa.i = phi ptr [ %109, %108 ], [ %scevgep.i, %116 ], [ %.02636.i, %switch.early.test.i ]
@@ -2912,7 +2912,7 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit: ; preds = %133, %131
   %.119 = phi i32 [ %132, %131 ], [ %.01898, %133 ]
   %storemerge43 = getelementptr inbounds nuw i8, ptr %storemerge4399, i64 1
   %exitcond118.not = icmp eq ptr %storemerge43, %38
-  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !112
+  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit, %133, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
   %storemerge43.lcssa = phi ptr [ %storemerge4397, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader ], [ %storemerge4399, %133 ], [ %scevgep117, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit ]
@@ -2941,27 +2941,27 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
 143:                                              ; preds = %154, %.lr.ph.i76
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i, %154 ]
   %144 = getelementptr inbounds nuw [8 x %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 0, i64 %indvars.iv.i
-  %145 = load ptr, ptr %144, align 16, !tbaa !38
+  %145 = load ptr, ptr %144, align 16, !tbaa !40
   %.not.i77 = icmp ugt ptr %145, %.025.lcssa.i.i
   br i1 %.not.i77, label %154, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !40
+  %148 = load ptr, ptr %147, align 8, !tbaa !42
   %.not18.i = icmp ugt ptr %.025.lcssa.i.i60, %148
   br i1 %.not18.i, label %154, label %149
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %151 = load i64, ptr %150, align 16, !tbaa !41
+  %151 = load i64, ptr %150, align 16, !tbaa !43
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %153 = load ptr, ptr %152, align 8, !tbaa !42
+  %153 = load ptr, ptr %152, align 8, !tbaa !44
   br label %.loopexit.i
 
 154:                                              ; preds = %146, %143
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %.loopexit.i, label %143, !llvm.loop !44
+  br i1 %exitcond.not.i78, label %.loopexit.i, label %143, !llvm.loop !46
 
 .loopexit.i:                                      ; preds = %154, %149, %.preheader.i
   %.2 = phi ptr [ %153, %149 ], [ %storemerge43.lcssa, %.preheader.i ], [ %storemerge43.lcssa, %154 ]
@@ -3012,7 +3012,7 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
   br i1 %167, label %.critedge.backedge, label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
 
 .critedge.backedge:                               ; preds = %168, %102, %161, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
-  br label %.critedge, !llvm.loop !113
+  br label %.critedge, !llvm.loop !120
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %168, %34, %.noexc, %.noexc57, %64, %90, %.critedge2.thread
   %.0 = phi i1 [ false, %64 ], [ false, %90 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %.noexc ], [ true, %34 ], [ true, %168 ]
@@ -3040,24 +3040,24 @@ _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer15RegisterObjFileEPKcPKvS6_mPv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 align 2 {
-  %.val = load i64, ptr %4, align 8, !tbaa !101
+  %.val = load i64, ptr %4, align 8, !tbaa !106
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %43, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr i8, ptr %4, i64 16
-  %.val51 = load ptr, ptr %7, align 8, !tbaa !102
+  %.val51 = load ptr, ptr %7, align 8, !tbaa !107
   %8 = getelementptr %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val51, i64 %.val
   %9 = getelementptr i8, ptr %8, i64 -328
   %10 = getelementptr i8, ptr %8, i64 -312
-  %11 = load ptr, ptr %10, align 8, !tbaa !106
+  %11 = load ptr, ptr %10, align 8, !tbaa !113
   %12 = icmp ugt ptr %11, %2
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %6
   %14 = ptrtoint ptr %2 to i64
   %15 = ptrtoint ptr %11 to i64
-  %16 = load ptr, ptr %9, align 8, !tbaa !56
+  %16 = load ptr, ptr %9, align 8, !tbaa !60
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1268, ptr noundef nonnull @.str.19, i64 noundef %14, ptr noundef %0, i64 noundef %15, ptr noundef %16)
   br label %.critedge
 
@@ -3067,9 +3067,9 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
 
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %8, i64 -320
-  %21 = load ptr, ptr %20, align 8, !tbaa !57
+  %21 = load ptr, ptr %20, align 8, !tbaa !61
   %.not49 = icmp eq ptr %21, %1
-  %.pre = load ptr, ptr %9, align 8, !tbaa !56
+  %.pre = load ptr, ptr %9, align 8, !tbaa !60
   br i1 %.not49, label %22, label %24
 
 22:                                               ; preds = %19
@@ -3088,10 +3088,10 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %8, i64 -320
-  %30 = load ptr, ptr %29, align 8, !tbaa !57
+  %30 = load ptr, ptr %29, align 8, !tbaa !61
   %31 = ptrtoint ptr %30 to i64
   %32 = getelementptr i8, ptr %8, i64 -304
-  %33 = load i64, ptr %32, align 8, !tbaa !67
+  %33 = load i64, ptr %32, align 8, !tbaa !71
   %34 = sub i64 %31, %33
   %35 = ptrtoint ptr %1 to i64
   %36 = sub i64 %35, %3
@@ -3099,24 +3099,24 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %28
-  %39 = load ptr, ptr %9, align 8, !tbaa !56
+  %39 = load ptr, ptr %9, align 8, !tbaa !60
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %0) #26
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %38
-  store ptr %2, ptr %10, align 8, !tbaa !106
+  store ptr %2, ptr %10, align 8, !tbaa !113
   br label %.critedge
 
 43:                                               ; preds = %38, %28, %26, %5
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !114
+  %45 = load i64, ptr %44, align 8, !tbaa !121
   %46 = icmp eq i64 %.val, %45
   br i1 %46, label %47, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %43
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !102
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !107
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit
 
 47:                                               ; preds = %43
@@ -3127,35 +3127,35 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
   %.0.i.i.i.i = inttoptr i64 %51 to ptr
   %52 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %50, ptr noundef %.0.i.i.i.i)
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !102
+  %54 = load ptr, ptr %53, align 8, !tbaa !107
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %59, label %55
 
 55:                                               ; preds = %47
-  %56 = load i64, ptr %44, align 8, !tbaa !114
+  %56 = load i64, ptr %44, align 8, !tbaa !121
   %57 = mul i64 %56, 328
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %54, i64 %57, i1 false)
-  %58 = load ptr, ptr %53, align 8, !tbaa !102
+  %58 = load ptr, ptr %53, align 8, !tbaa !107
   tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %58)
   br label %59
 
 59:                                               ; preds = %55, %47
-  store ptr %52, ptr %53, align 8, !tbaa !102
-  store i64 %49, ptr %44, align 8, !tbaa !114
-  %.pre5.i = load i64, ptr %4, align 8, !tbaa !101
+  store ptr %52, ptr %53, align 8, !tbaa !107
+  store i64 %49, ptr %44, align 8, !tbaa !121
+  %.pre5.i = load i64, ptr %4, align 8, !tbaa !106
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit: ; preds = %._crit_edge.i, %59
   %60 = phi i64 [ %.val, %._crit_edge.i ], [ %.pre5.i, %59 ]
   %61 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %52, %59 ]
   %62 = add i64 %60, 1
-  store i64 %62, ptr %4, align 8, !tbaa !101
+  store i64 %62, ptr %4, align 8, !tbaa !106
   %63 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %61, i64 %60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %63, i8 0, i64 32, i1 false)
-  store i32 -1, ptr %64, align 8, !tbaa !53
+  store i32 -1, ptr %64, align 8, !tbaa !57
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 36
-  store i32 -1, ptr %65, align 4, !tbaa !59
+  store i32 -1, ptr %65, align 4, !tbaa !63
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %66, i8 0, i64 288, i1 false)
   %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #26
@@ -3164,7 +3164,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit: ; preds = %._crit
   %.0.i.i.i.i52 = inttoptr i64 %69 to ptr
   %70 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %68, ptr noundef %.0.i.i.i.i52)
   %.not.i53 = icmp eq ptr %70, null
-  br i1 %.not.i53, label %71, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit, !prof !37
+  br i1 %.not.i53, label %71, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit, !prof !39
 
 71:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 332, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -3172,15 +3172,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit: ; preds = %._crit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %0, i64 %68, i1 false)
-  store ptr %70, ptr %63, align 8, !tbaa !56
+  store ptr %70, ptr %63, align 8, !tbaa !60
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %1, ptr %72, align 8, !tbaa !57
+  store ptr %1, ptr %72, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %2, ptr %73, align 8, !tbaa !106
+  store ptr %2, ptr %73, align 8, !tbaa !113
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store i64 %3, ptr %74, align 8, !tbaa !67
-  store i32 -1, ptr %65, align 4, !tbaa !59
-  store i32 -1, ptr %64, align 8, !tbaa !53
+  store i64 %3, ptr %74, align 8, !tbaa !71
+  store i32 -1, ptr %65, align 4, !tbaa !63
+  store i32 -1, ptr %64, align 8, !tbaa !57
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %42, %24, %22, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit
@@ -3197,7 +3197,7 @@ declare i32 @getpid() local_unnamed_addr #14
 define internal fastcc noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_122OpenReadOnlyWithHighFDEPKc(ptr noundef readonly captures(none) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN4absl18debugging_internal12_GLOBAL__N_122OpenReadOnlyWithHighFDEPKcE7high_fd acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !115
+  br i1 %3, label %4, label %9, !prof !122
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18debugging_internal12_GLOBAL__N_122OpenReadOnlyWithHighFDEPKcE7high_fd) #24
@@ -3361,7 +3361,7 @@ define internal fastcc noundef i64 @_ZN4absl18debugging_internalL14ReadPersisten
   %16 = tail call ptr @__errno_location() #25
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %.thread, !llvm.loop !116
+  br i1 %18, label %12, label %.thread, !llvm.loop !123
 
 .thread:                                          ; preds = %15
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 494, ptr noundef nonnull @.str.5, i32 noundef %17)
@@ -3428,7 +3428,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   %.028.ph72.i = phi i64 [ %45, %.outer.i ], [ %18, %13 ]
   %.029.ph71.i = phi ptr [ %43, %.outer.i ], [ %5, %13 ]
   %.030.ph70.i = phi i64 [ %44, %.outer.i ], [ 0, %13 ]
-  %19 = load i64, ptr %9, align 8, !tbaa !80
+  %19 = load i64, ptr %9, align 8, !tbaa !84
   %.not.us.i96 = icmp sge i64 %.028.ph72.i, %19
   %20 = load i64, ptr %10, align 8
   %21 = icmp slt i64 %.028.ph72.i, %20
@@ -3437,9 +3437,9 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader.i, %.lr.ph.split.us.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %22 = load i32, ptr %0, align 8, !tbaa !73
-  %23 = load ptr, ptr %11, align 8, !tbaa !75
-  %24 = load i64, ptr %12, align 8, !tbaa !76
+  %22 = load i32, ptr %0, align 8, !tbaa !77
+  %23 = load ptr, ptr %11, align 8, !tbaa !79
+  %24 = load i64, ptr %12, align 8, !tbaa !80
   %25 = tail call i64 @pread(i32 noundef %22, ptr noundef %23, i64 noundef %24, i64 noundef %.028.ph72.i)
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %31, label %27
@@ -3449,9 +3449,9 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   br i1 %28, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, label %29
 
 29:                                               ; preds = %27
-  store i64 %.028.ph72.i, ptr %9, align 8, !tbaa !80
+  store i64 %.028.ph72.i, ptr %9, align 8, !tbaa !84
   %30 = add nsw i64 %25, %.028.ph72.i
-  store i64 %30, ptr %10, align 8, !tbaa !81
+  store i64 %30, ptr %10, align 8, !tbaa !85
   br label %.lr.ph.split.us.i
 
 31:                                               ; preds = %.lr.ph
@@ -3461,7 +3461,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   br i1 %34, label %..lr.ph.split.us.i_crit_edge, label %.thread39.i, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge:                     ; preds = %31
-  %.pre = load i64, ptr %9, align 8, !tbaa !80
+  %.pre = load i64, ptr %9, align 8, !tbaa !84
   %.pre129 = load i64, ptr %10, align 8
   br label %.lr.ph.split.us.i, !llvm.loop !12
 
@@ -3476,7 +3476,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
 .outer.i:                                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
   %.lcssa69 = phi i64 [ %19, %.lr.ph.split.us.preheader.i ], [ %36, %.lr.ph.split.us.i ]
   %.lcssa = phi i64 [ %20, %.lr.ph.split.us.preheader.i ], [ %35, %.lr.ph.split.us.i ]
-  %38 = load ptr, ptr %11, align 8, !tbaa !75
+  %38 = load ptr, ptr %11, align 8, !tbaa !79
   %39 = sub nsw i64 %.028.ph72.i, %.lcssa69
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = sub i64 %16, %.030.ph70.i
@@ -3487,7 +3487,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   %44 = add i64 %.sroa.speculated.i, %.030.ph70.i
   %45 = add nsw i64 %.sroa.speculated.i, %.028.ph72.i
   %46 = icmp ult i64 %44, %16
-  br i1 %46, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
+  br i1 %46, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !16
 
 .thread39.i:                                      ; preds = %31
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %33)
@@ -3524,18 +3524,18 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 55:                                               ; preds = %.preheader
   %56 = add nuw nsw i64 %.099, 1
   %exitcond.not = icmp eq i64 %56, %52
-  br i1 %exitcond.not, label %61, label %.preheader, !llvm.loop !117
+  br i1 %exitcond.not, label %61, label %.preheader, !llvm.loop !124
 
 .preheader:                                       ; preds = %51, %55
   %.099 = phi i64 [ %56, %55 ], [ 0, %51 ]
   %57 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %5, i64 %.099
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !118
+  %59 = load i32, ptr %58, align 4, !tbaa !125
   %60 = icmp eq i32 %59, %3
   br i1 %60, label %.thread63, label %55
 
 .thread63:                                        ; preds = %.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %57, i64 64, i1 false), !tbaa.struct !119
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %57, i64 64, i1 false), !tbaa.struct !126
   br label %.thread
 
 61:                                               ; preds = %55
@@ -3554,9 +3554,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 ; Function Attrs: mustprogress noinline uwtable
 define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internalL10FindSymbolEPKvPNS0_12_GLOBAL__N_111CachingFileEPcmlPK10Elf64_ShdrS9_S9_S6_m(ptr noundef readnone captures(address) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, i64 %.24.val, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #15 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !120
+  %8 = load i64, ptr %7, align 8, !tbaa !127
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %10 = load i64, ptr %9, align 8, !tbaa !121
+  %10 = load i64, ptr %9, align 8, !tbaa !128
   %11 = udiv i64 %8, %10
   %.not65 = icmp ugt i64 %10, %8
   br i1 %.not65, label %._crit_edge57.thread, label %.lr.ph.lr.ph.i.lr.ph
@@ -3581,8 +3581,8 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   %18 = sub nuw i64 %11, %.06855
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %18, i64 42)
   %19 = mul nuw nsw i64 %.sroa.speculated, 24
-  %20 = load i64, ptr %12, align 8, !tbaa !122
-  %21 = load i64, ptr %9, align 8, !tbaa !121
+  %20 = load i64, ptr %12, align 8, !tbaa !129
+  %21 = load i64, ptr %9, align 8, !tbaa !128
   %22 = mul i64 %21, %.06855
   %23 = add i64 %22, %20
   br label %.lr.ph.split.us.preheader.i
@@ -3591,7 +3591,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   %.028.ph72.i = phi i64 [ %23, %.lr.ph.lr.ph.i ], [ %50, %.outer.i ]
   %.029.ph71.i = phi ptr [ %5, %.lr.ph.lr.ph.i ], [ %48, %.outer.i ]
   %.030.ph70.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %49, %.outer.i ]
-  %24 = load i64, ptr %13, align 8, !tbaa !80
+  %24 = load i64, ptr %13, align 8, !tbaa !84
   %.not.us.i42 = icmp sge i64 %.028.ph72.i, %24
   %25 = load i64, ptr %14, align 8
   %26 = icmp slt i64 %.028.ph72.i, %25
@@ -3600,9 +3600,9 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader.i, %.lr.ph.split.us.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %27 = load i32, ptr %1, align 8, !tbaa !73
-  %28 = load ptr, ptr %15, align 8, !tbaa !75
-  %29 = load i64, ptr %16, align 8, !tbaa !76
+  %27 = load i32, ptr %1, align 8, !tbaa !77
+  %28 = load ptr, ptr %15, align 8, !tbaa !79
+  %29 = load i64, ptr %16, align 8, !tbaa !80
   %30 = tail call i64 @pread(i32 noundef %27, ptr noundef %28, i64 noundef %29, i64 noundef %.028.ph72.i)
   %31 = icmp slt i64 %30, 0
   br i1 %31, label %36, label %32
@@ -3612,9 +3612,9 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   br i1 %33, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, label %34
 
 34:                                               ; preds = %32
-  store i64 %.028.ph72.i, ptr %13, align 8, !tbaa !80
+  store i64 %.028.ph72.i, ptr %13, align 8, !tbaa !84
   %35 = add nsw i64 %30, %.028.ph72.i
-  store i64 %35, ptr %14, align 8, !tbaa !81
+  store i64 %35, ptr %14, align 8, !tbaa !85
   br label %.lr.ph.split.us.i
 
 36:                                               ; preds = %.lr.ph
@@ -3624,7 +3624,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   br i1 %39, label %..lr.ph.split.us.i_crit_edge, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge:                     ; preds = %36
-  %.pre = load i64, ptr %13, align 8, !tbaa !80
+  %.pre = load i64, ptr %13, align 8, !tbaa !84
   %.pre81 = load i64, ptr %14, align 8
   br label %.lr.ph.split.us.i, !llvm.loop !12
 
@@ -3639,7 +3639,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
 .outer.i:                                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
   %.lcssa27 = phi i64 [ %24, %.lr.ph.split.us.preheader.i ], [ %41, %.lr.ph.split.us.i ]
   %.lcssa24 = phi i64 [ %25, %.lr.ph.split.us.preheader.i ], [ %40, %.lr.ph.split.us.i ]
-  %43 = load ptr, ptr %15, align 8, !tbaa !75
+  %43 = load ptr, ptr %15, align 8, !tbaa !79
   %44 = sub nsw i64 %.028.ph72.i, %.lcssa27
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   %46 = sub i64 %19, %.030.ph70.i
@@ -3650,7 +3650,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   %49 = add i64 %.sroa.speculated.i, %.030.ph70.i
   %50 = add nsw i64 %.sroa.speculated.i, %.028.ph72.i
   %51 = icmp ult i64 %49, %19
-  br i1 %51, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
+  br i1 %51, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7: ; preds = %36
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %38)
@@ -3693,7 +3693,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.166.lcssa = phi i8 [ %.06556, %.preheader ], [ %.267, %87 ]
   %59 = add i64 %55, %.06855
   %60 = icmp ult i64 %59, %11
-  br i1 %60, label %.lr.ph.lr.ph.i, label %._crit_edge57, !llvm.loop !123
+  br i1 %60, label %.lr.ph.lr.ph.i, label %._crit_edge57, !llvm.loop !130
 
 .lr.ph49:                                         ; preds = %.preheader, %87
   %.16648 = phi i8 [ %.267, %87 ], [ %.06556, %.preheader ]
@@ -3702,11 +3702,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.sroa.52.145 = phi i64 [ %.sroa.52.2, %87 ], [ %.sroa.52.053, %.preheader ]
   %61 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %5, i64 %.06947
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !124
+  %63 = load i64, ptr %62, align 8, !tbaa !131
   %64 = add nsw i64 %63, %3
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !126
+  %67 = load i64, ptr %66, align 8, !tbaa !133
   %68 = add nsw i64 %67, %64
   %69 = inttoptr i64 %68 to ptr
   %.not78 = icmp eq i64 %63, 0
@@ -3714,13 +3714,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 
 70:                                               ; preds = %.lr.ph49
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 6
-  %72 = load i16, ptr %71, align 2, !tbaa !127
+  %72 = load i16, ptr %71, align 2, !tbaa !134
   %.not79 = icmp eq i16 %72, 0
   br i1 %.not79, label %87, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %75 = load i8, ptr %74, align 4, !tbaa !128
+  %75 = load i8, ptr %74, align 4, !tbaa !135
   %76 = and i8 %75, 15
   %.not80 = icmp eq i8 %76, 6
   br i1 %.not80, label %87, label %77
@@ -3757,7 +3757,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.267 = phi i8 [ %.16648, %.lr.ph49 ], [ %.16648, %70 ], [ %.16648, %73 ], [ 1, %86 ], [ 1, %84 ], [ %.16648, %79 ]
   %88 = add nuw nsw i64 %.06947, 1
   %exitcond.not = icmp eq i64 %88, %55
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !136
 
 89:                                               ; preds = %._crit_edge57
   %90 = zext i32 %.sroa.0.1.lcssa to i64
@@ -3772,7 +3772,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.028.ph72.i87 = phi i64 [ %91, %89 ], [ %122, %.outer.i95 ]
   %.029.ph71.i88 = phi ptr [ %2, %89 ], [ %120, %.outer.i95 ]
   %.030.ph70.i89 = phi i64 [ 0, %89 ], [ %121, %.outer.i95 ]
-  %96 = load i64, ptr %92, align 8, !tbaa !80
+  %96 = load i64, ptr %92, align 8, !tbaa !84
   %.not.us.i9160 = icmp sge i64 %.028.ph72.i87, %96
   %97 = load i64, ptr %93, align 8
   %98 = icmp slt i64 %.028.ph72.i87, %97
@@ -3781,9 +3781,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 
 .lr.ph62:                                         ; preds = %.lr.ph.split.us.preheader.i86, %.lr.ph.split.us.i90
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
-  %99 = load i32, ptr %1, align 8, !tbaa !73
-  %100 = load ptr, ptr %94, align 8, !tbaa !75
-  %101 = load i64, ptr %95, align 8, !tbaa !76
+  %99 = load i32, ptr %1, align 8, !tbaa !77
+  %100 = load ptr, ptr %94, align 8, !tbaa !79
+  %101 = load i64, ptr %95, align 8, !tbaa !80
   %102 = tail call i64 @pread(i32 noundef %99, ptr noundef %100, i64 noundef %101, i64 noundef %.028.ph72.i87)
   %103 = icmp slt i64 %102, 0
   br i1 %103, label %108, label %104
@@ -3793,9 +3793,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %105, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97, label %106
 
 106:                                              ; preds = %104
-  store i64 %.028.ph72.i87, ptr %92, align 8, !tbaa !80
+  store i64 %.028.ph72.i87, ptr %92, align 8, !tbaa !84
   %107 = add nsw i64 %102, %.028.ph72.i87
-  store i64 %107, ptr %93, align 8, !tbaa !81
+  store i64 %107, ptr %93, align 8, !tbaa !85
   br label %.lr.ph.split.us.i90
 
 108:                                              ; preds = %.lr.ph62
@@ -3805,7 +3805,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %111, label %..lr.ph.split.us.i90_crit_edge, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread, !llvm.loop !12
 
 ..lr.ph.split.us.i90_crit_edge:                   ; preds = %108
-  %.pre82 = load i64, ptr %92, align 8, !tbaa !80
+  %.pre82 = load i64, ptr %92, align 8, !tbaa !84
   %.pre83 = load i64, ptr %93, align 8
   br label %.lr.ph.split.us.i90, !llvm.loop !12
 
@@ -3820,7 +3820,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 .outer.i95:                                       ; preds = %.lr.ph.split.us.i90, %.lr.ph.split.us.preheader.i86
   %.lcssa17 = phi i64 [ %96, %.lr.ph.split.us.preheader.i86 ], [ %113, %.lr.ph.split.us.i90 ]
   %.lcssa = phi i64 [ %97, %.lr.ph.split.us.preheader.i86 ], [ %112, %.lr.ph.split.us.i90 ]
-  %115 = load ptr, ptr %94, align 8, !tbaa !75
+  %115 = load ptr, ptr %94, align 8, !tbaa !79
   %116 = sub nsw i64 %.028.ph72.i87, %.lcssa17
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
   %118 = sub nsw i64 3072, %.030.ph70.i89
@@ -3831,7 +3831,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %121 = add nuw i64 %.sroa.speculated.i96, %.030.ph70.i89
   %122 = add nsw i64 %.sroa.speculated.i96, %.028.ph72.i87
   %123 = icmp ult i64 %121, 3072
-  br i1 %123, label %.lr.ph.split.us.preheader.i86, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97
+  br i1 %123, label %.lr.ph.split.us.preheader.i86, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97, !llvm.loop !16
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread: ; preds = %108
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %110)
@@ -3844,13 +3844,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 
 125:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97
   %.2.i9312 = phi i64 [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread ], [ %.2.i93, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97 ]
-  %.val84 = load i32, ptr %1, align 8, !tbaa !73
+  %.val84 = load i32, ptr %1, align 8, !tbaa !77
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 877, ptr noundef nonnull @.str.31, i32 noundef %.val84, i64 noundef %91, i64 noundef %.2.i9312)
   br label %._crit_edge57.thread
 
 126:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97
   %127 = icmp samesign ugt i64 %.2.i93, 3072
-  br i1 %127, label %128, label %129, !prof !37
+  br i1 %127, label %128, label %129, !prof !39
 
 128:                                              ; preds = %126
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 881, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
@@ -3938,117 +3938,124 @@ attributes #29 = { noreturn nounwind }
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!17, !18, i64 58}
-!17 = !{!"_ZTS10Elf64_Ehdr", !7, i64 0, !18, i64 16, !18, i64 18, !11, i64 20, !19, i64 24, !19, i64 32, !19, i64 40, !11, i64 48, !18, i64 52, !18, i64 54, !18, i64 56, !18, i64 58, !18, i64 60, !18, i64 62}
-!18 = !{!"short", !7, i64 0}
-!19 = !{!"long", !7, i64 0}
-!20 = !{!17, !19, i64 40}
-!21 = !{!17, !18, i64 62}
-!22 = !{!17, !18, i64 60}
-!23 = !{!24, !11, i64 0}
-!24 = !{!"_ZTS10Elf64_Shdr", !11, i64 0, !11, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !11, i64 40, !11, i64 44, !19, i64 48, !19, i64 56}
-!25 = !{!26, !6, i64 16}
-!26 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
-!27 = !{!28, !6, i64 24}
-!28 = !{!"_ZTSSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEE", !26, i64 0, !6, i64 24}
-!29 = distinct !{!29, !13}
-!30 = distinct !{!30, !13}
-!31 = !{!32, !11, i64 16}
-!32 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_124InstalledSymbolDecoratorE", !6, i64 0, !6, i64 8, !11, i64 16}
-!33 = !{i64 0, i64 8, !34, i64 8, i64 8, !34, i64 16, i64 4, !10}
-!34 = !{!6, !6, i64 0}
-!35 = distinct !{!35, !13}
-!36 = distinct !{!36, !13}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = !{!39, !6, i64 0}
-!39 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_115FileMappingHintE", !6, i64 0, !6, i64 8, !19, i64 16, !5, i64 24}
-!40 = !{!39, !6, i64 8}
-!41 = !{!39, !19, i64 16}
-!42 = !{!39, !5, i64 24}
-!43 = !{!19, !19, i64 0}
-!44 = distinct !{!44, !13}
-!45 = !{!46, !49, i64 24}
-!46 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_110SymbolizerE", !47, i64 0, !49, i64 24, !49, i64 25, !7, i64 26, !7, i64 3098, !7, i64 11296, !7, i64 12320}
-!47 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_17AddrMapE", !19, i64 0, !19, i64 8, !48, i64 16}
-!48 = !{!"p1 _ZTSN4absl18debugging_internal12_GLOBAL__N_17ObjFileE", !6, i64 0}
-!49 = !{!"bool", !7, i64 0}
-!50 = !{!46, !49, i64 25}
-!51 = distinct !{!51, !13}
-!52 = distinct !{!52, !13}
-!53 = !{!54, !11, i64 32}
-!54 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_17ObjFileE", !5, i64 0, !6, i64 8, !6, i64 16, !19, i64 24, !11, i64 32, !11, i64 36, !17, i64 40, !55, i64 104}
-!55 = !{!"_ZTSSt5arrayI10Elf64_PhdrLm4EE", !7, i64 0}
-!56 = !{!54, !5, i64 0}
-!57 = !{!54, !6, i64 8}
-!58 = distinct !{!58, !13}
-!59 = !{!54, !11, i64 36}
-!60 = !{!54, !18, i64 96}
-!61 = !{!54, !19, i64 72}
-!62 = !{!54, !18, i64 94}
-!63 = !{!64, !11, i64 0}
-!64 = !{!"_ZTS10Elf64_Phdr", !11, i64 0, !11, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
-!65 = !{!64, !11, i64 4}
-!66 = distinct !{!66, !13}
-!67 = !{!54, !19, i64 24}
-!68 = distinct !{!68, !13}
-!69 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!70 = !{!64, !19, i64 16}
-!71 = !{!64, !19, i64 40}
-!72 = !{!64, !19, i64 8}
-!73 = !{!74, !11, i64 0}
-!74 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_111CachingFileE", !11, i64 0, !5, i64 8, !19, i64 16, !19, i64 24, !19, i64 32}
-!75 = !{!74, !5, i64 8}
-!76 = !{!74, !19, i64 16}
-!77 = !{!54, !18, i64 100}
-!78 = !{!54, !19, i64 80}
-!79 = !{!24, !11, i64 40}
-!80 = !{!74, !19, i64 24}
-!81 = !{!74, !19, i64 32}
-!82 = !{!83, !6, i64 0}
-!83 = !{!"_ZTSN4absl18debugging_internal11ElfMemImageE", !6, i64 0, !6, i64 8, !84, i64 16, !6, i64 24, !5, i64 32, !11, i64 40, !19, i64 48, !19, i64 56, !19, i64 64}
-!84 = !{!"p1 short", !6, i64 0}
-!85 = !{!86, !5, i64 0}
-!86 = !{!"_ZTSN4absl18debugging_internal11ElfMemImage10SymbolInfoE", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 24}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !20, i64 58}
+!19 = !{!"_ZTS10Elf64_Ehdr", !7, i64 0, !20, i64 16, !20, i64 18, !11, i64 20, !21, i64 24, !21, i64 32, !21, i64 40, !11, i64 48, !20, i64 52, !20, i64 54, !20, i64 56, !20, i64 58, !20, i64 60, !20, i64 62}
+!20 = !{!"short", !7, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!19, !21, i64 40}
+!23 = !{!19, !20, i64 62}
+!24 = !{!19, !20, i64 60}
+!25 = !{!26, !11, i64 0}
+!26 = !{!"_ZTS10Elf64_Shdr", !11, i64 0, !11, i64 4, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !11, i64 40, !11, i64 44, !21, i64 48, !21, i64 56}
+!27 = !{!28, !6, i64 16}
+!28 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
+!29 = !{!30, !6, i64 24}
+!30 = !{!"_ZTSSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEE", !28, i64 0, !6, i64 24}
+!31 = distinct !{!31, !13, !17}
+!32 = distinct !{!32, !13, !17}
+!33 = !{!34, !11, i64 16}
+!34 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_124InstalledSymbolDecoratorE", !6, i64 0, !6, i64 8, !11, i64 16}
+!35 = !{i64 0, i64 8, !36, i64 8, i64 8, !36, i64 16, i64 4, !10}
+!36 = !{!6, !6, i64 0}
+!37 = distinct !{!37, !13, !17}
+!38 = distinct !{!38, !13, !17}
+!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!40 = !{!41, !6, i64 0}
+!41 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_115FileMappingHintE", !6, i64 0, !6, i64 8, !21, i64 16, !5, i64 24}
+!42 = !{!41, !6, i64 8}
+!43 = !{!41, !21, i64 16}
+!44 = !{!41, !5, i64 24}
+!45 = !{!21, !21, i64 0}
+!46 = distinct !{!46, !13, !17}
+!47 = !{!48, !51, i64 24}
+!48 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_110SymbolizerE", !49, i64 0, !51, i64 24, !51, i64 25, !7, i64 26, !7, i64 3098, !7, i64 11296, !7, i64 12320}
+!49 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_17AddrMapE", !21, i64 0, !21, i64 8, !50, i64 16}
+!50 = !{!"p1 _ZTSN4absl18debugging_internal12_GLOBAL__N_17ObjFileE", !6, i64 0}
+!51 = !{!"bool", !7, i64 0}
+!52 = !{!48, !51, i64 25}
+!53 = distinct !{!53, !17}
+!54 = distinct !{!54, !13, !17}
+!55 = distinct !{!55, !17}
+!56 = distinct !{!56, !13, !17}
+!57 = !{!58, !11, i64 32}
+!58 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_17ObjFileE", !5, i64 0, !6, i64 8, !6, i64 16, !21, i64 24, !11, i64 32, !11, i64 36, !19, i64 40, !59, i64 104}
+!59 = !{!"_ZTSSt5arrayI10Elf64_PhdrLm4EE", !7, i64 0}
+!60 = !{!58, !5, i64 0}
+!61 = !{!58, !6, i64 8}
+!62 = distinct !{!62, !13, !17}
+!63 = !{!58, !11, i64 36}
+!64 = !{!58, !20, i64 96}
+!65 = !{!58, !21, i64 72}
+!66 = !{!58, !20, i64 94}
+!67 = !{!68, !11, i64 0}
+!68 = !{!"_ZTS10Elf64_Phdr", !11, i64 0, !11, i64 4, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48}
+!69 = !{!68, !11, i64 4}
+!70 = distinct !{!70, !13, !17}
+!71 = !{!58, !21, i64 24}
+!72 = distinct !{!72, !13, !17}
+!73 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!74 = !{!68, !21, i64 16}
+!75 = !{!68, !21, i64 40}
+!76 = !{!68, !21, i64 8}
+!77 = !{!78, !11, i64 0}
+!78 = !{!"_ZTSN4absl18debugging_internal12_GLOBAL__N_111CachingFileE", !11, i64 0, !5, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
+!79 = !{!78, !5, i64 8}
+!80 = !{!78, !21, i64 16}
+!81 = !{!58, !20, i64 100}
+!82 = !{!58, !21, i64 80}
+!83 = !{!26, !11, i64 40}
+!84 = !{!78, !21, i64 24}
+!85 = !{!78, !21, i64 32}
+!86 = distinct !{!86, !17}
 !87 = !{!88, !6, i64 0}
-!88 = !{!"_ZTSN4absl18debugging_internal19SymbolDecoratorArgsE", !6, i64 0, !19, i64 8, !11, i64 16, !5, i64 24, !19, i64 32, !5, i64 40, !19, i64 48, !6, i64 56}
-!89 = !{!88, !19, i64 8}
-!90 = !{!88, !11, i64 16}
-!91 = !{!88, !5, i64 24}
-!92 = !{!88, !19, i64 32}
-!93 = !{!88, !5, i64 40}
-!94 = !{!88, !19, i64 48}
-!95 = !{!32, !6, i64 8}
-!96 = !{!88, !6, i64 56}
-!97 = !{!32, !6, i64 0}
-!98 = distinct !{!98, !13}
-!99 = distinct !{!99, !13}
-!100 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!101 = !{!47, !19, i64 0}
-!102 = !{!47, !48, i64 16}
-!103 = distinct !{!103, !13}
-!104 = !{i8 0, i8 2}
-!105 = !{}
-!106 = !{!54, !6, i64 16}
-!107 = distinct !{!107, !13}
-!108 = distinct !{!108, !13}
-!109 = distinct !{!109, !13}
-!110 = distinct !{!110, !13}
-!111 = distinct !{!111, !13}
-!112 = distinct !{!112, !13}
-!113 = distinct !{!113, !13}
-!114 = !{!47, !19, i64 8}
-!115 = !{!"branch_weights", i32 1, i32 1048575}
-!116 = distinct !{!116, !13}
-!117 = distinct !{!117, !13}
-!118 = !{!24, !11, i64 4}
-!119 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !43, i64 16, i64 8, !43, i64 24, i64 8, !43, i64 32, i64 8, !43, i64 40, i64 4, !10, i64 44, i64 4, !10, i64 48, i64 8, !43, i64 56, i64 8, !43}
-!120 = !{!24, !19, i64 32}
-!121 = !{!24, !19, i64 56}
-!122 = !{!24, !19, i64 24}
-!123 = distinct !{!123, !13}
-!124 = !{!125, !19, i64 8}
-!125 = !{!"_ZTS9Elf64_Sym", !11, i64 0, !7, i64 4, !7, i64 5, !18, i64 6, !19, i64 8, !19, i64 16}
-!126 = !{!125, !19, i64 16}
-!127 = !{!125, !18, i64 6}
-!128 = !{!125, !7, i64 4}
-!129 = distinct !{!129, !13}
+!88 = !{!"_ZTSN4absl18debugging_internal11ElfMemImageE", !6, i64 0, !6, i64 8, !89, i64 16, !6, i64 24, !5, i64 32, !11, i64 40, !21, i64 48, !21, i64 56, !21, i64 64}
+!89 = !{!"p1 short", !6, i64 0}
+!90 = !{!91, !5, i64 0}
+!91 = !{!"_ZTSN4absl18debugging_internal11ElfMemImage10SymbolInfoE", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 24}
+!92 = !{!93, !6, i64 0}
+!93 = !{!"_ZTSN4absl18debugging_internal19SymbolDecoratorArgsE", !6, i64 0, !21, i64 8, !11, i64 16, !5, i64 24, !21, i64 32, !5, i64 40, !21, i64 48, !6, i64 56}
+!94 = !{!93, !21, i64 8}
+!95 = !{!93, !11, i64 16}
+!96 = !{!93, !5, i64 24}
+!97 = !{!93, !21, i64 32}
+!98 = !{!93, !5, i64 40}
+!99 = !{!93, !21, i64 48}
+!100 = !{!34, !6, i64 8}
+!101 = !{!93, !6, i64 56}
+!102 = !{!34, !6, i64 0}
+!103 = distinct !{!103, !13, !17}
+!104 = distinct !{!104, !13, !17}
+!105 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!106 = !{!49, !21, i64 0}
+!107 = !{!49, !50, i64 16}
+!108 = distinct !{!108, !13, !17}
+!109 = distinct !{!109, !17}
+!110 = distinct !{!110, !17}
+!111 = !{i8 0, i8 2}
+!112 = !{}
+!113 = !{!58, !6, i64 16}
+!114 = distinct !{!114, !13, !17}
+!115 = distinct !{!115, !13, !17}
+!116 = distinct !{!116, !13, !17}
+!117 = distinct !{!117, !13, !17}
+!118 = distinct !{!118, !13, !17}
+!119 = distinct !{!119, !13, !17}
+!120 = distinct !{!120, !13}
+!121 = !{!49, !21, i64 8}
+!122 = !{!"branch_weights", i32 1, i32 1048575}
+!123 = distinct !{!123, !13, !17}
+!124 = distinct !{!124, !13, !17}
+!125 = !{!26, !11, i64 4}
+!126 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !45, i64 16, i64 8, !45, i64 24, i64 8, !45, i64 32, i64 8, !45, i64 40, i64 4, !10, i64 44, i64 4, !10, i64 48, i64 8, !45, i64 56, i64 8, !45}
+!127 = !{!26, !21, i64 32}
+!128 = !{!26, !21, i64 56}
+!129 = !{!26, !21, i64 24}
+!130 = distinct !{!130, !13, !17}
+!131 = !{!132, !21, i64 8}
+!132 = !{!"_ZTS9Elf64_Sym", !11, i64 0, !7, i64 4, !7, i64 5, !20, i64 6, !21, i64 8, !21, i64 16}
+!133 = !{!132, !21, i64 16}
+!134 = !{!132, !20, i64 6}
+!135 = !{!132, !7, i64 4}
+!136 = distinct !{!136, !13, !17}

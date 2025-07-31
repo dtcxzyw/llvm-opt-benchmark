@@ -162,19 +162,19 @@ define dso_local void @dump_disassembly(i32 noundef %0, ptr noundef readonly cap
 
 37:                                               ; preds = %._crit_edge, %2
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !22
+  %39 = load i32, ptr %38, align 8, !tbaa !23
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %dump_code.exit
 
 .lr.ph.i:                                         ; preds = %37, %bytecode_operation_length.exit.i
   %.08.i = phi i32 [ %58, %bytecode_operation_length.exit.i ], [ 0, %37 ]
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %0, ptr noundef nonnull @.str.1)
-  %42 = load ptr, ptr %1, align 8, !tbaa !23
+  %42 = load ptr, ptr %1, align 8, !tbaa !24
   %43 = sext i32 %.08.i to i64
   %44 = getelementptr inbounds i16, ptr %42, i64 %43
   tail call void @dump_operation(ptr noundef nonnull readonly %1, ptr noundef %44)
   %putchar.i = tail call i32 @putchar(i32 10)
-  %45 = load ptr, ptr %1, align 8, !tbaa !23
+  %45 = load ptr, ptr %1, align 8, !tbaa !24
   %46 = getelementptr inbounds i16, ptr %45, i64 %43
   %47 = load i16, ptr %46, align 2, !tbaa !4
   %or.cond.i.i.i = icmp ult i16 %47, 43
@@ -199,13 +199,13 @@ define dso_local void @dump_disassembly(i32 noundef %0, ptr noundef readonly cap
 bytecode_operation_length.exit.i:                 ; preds = %52, %.lr.ph.i
   %.0.i.i = phi i32 [ %57, %52 ], [ %51, %.lr.ph.i ]
   %58 = add nsw i32 %.0.i.i, %.08.i
-  %59 = load i32, ptr %38, align 8, !tbaa !22
+  %59 = load i32, ptr %38, align 8, !tbaa !23
   %60 = icmp slt i32 %58, %59
-  br i1 %60, label %.lr.ph.i, label %dump_code.exit, !llvm.loop !24
+  br i1 %60, label %.lr.ph.i, label %dump_code.exit, !llvm.loop !25
 
 dump_code.exit:                                   ; preds = %bytecode_operation_length.exit.i, %37
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %62 = load i32, ptr %61, align 8, !tbaa !25
+  %62 = load i32, ptr %61, align 8, !tbaa !26
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph41, label %._crit_edge42
 
@@ -219,9 +219,9 @@ dump_code.exit:                                   ; preds = %bytecode_operation_
 
 66:                                               ; preds = %.lr.ph41, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %66 ]
-  %67 = load ptr, ptr %64, align 8, !tbaa !26
+  %67 = load ptr, ptr %64, align 8, !tbaa !27
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
-  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %69 = load ptr, ptr %68, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -241,10 +241,10 @@ dump_code.exit:                                   ; preds = %bytecode_operation_
   tail call void @jv_free(i64 %81, ptr %82) #6
   tail call void @dump_disassembly(i32 noundef %65, ptr noundef %69)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = load i32, ptr %61, align 8, !tbaa !25
+  %86 = load i32, ptr %61, align 8, !tbaa !26
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %66, label %._crit_edge42, !llvm.loop !28
+  br i1 %88, label %66, label %._crit_edge42, !llvm.loop !29
 }
 
 ; Function Attrs: nofree nounwind
@@ -264,14 +264,14 @@ declare void @jv_free(i64, ptr) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dump_operation(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !23
+  %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %4, %5
   %7 = lshr exact i64 %6, 1
   %8 = trunc i64 %7 to i32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %8)
-  %10 = load ptr, ptr %0, align 8, !tbaa !23
+  %10 = load ptr, ptr %0, align 8, !tbaa !24
   %sext = shl i64 %6, 31
   %11 = ashr i64 %sext, 32
   %12 = getelementptr inbounds i16, ptr %10, i64 %11
@@ -281,7 +281,7 @@ define dso_local void @dump_operation(ptr noundef readonly captures(none) %0, pt
   %15 = getelementptr inbounds nuw [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %14
   %.0.i = select i1 %or.cond.i, ptr %15, ptr @invalid_opcode_description
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !8
@@ -289,13 +289,13 @@ define dso_local void @dump_operation(ptr noundef readonly captures(none) %0, pt
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %0, align 8, !tbaa !23
+  %23 = load ptr, ptr %0, align 8, !tbaa !24
   %24 = add i32 %8, 2
   %sext86 = add i64 %sext, 4294967296
   %25 = ashr i64 %sext86, 32
   %26 = getelementptr inbounds i16, ptr %23, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !4
-  %28 = load i32, ptr %.0.i, align 8, !tbaa !30
+  %28 = load i32, ptr %.0.i, align 8, !tbaa !31
   switch i32 %28, label %110 [
     i32 28, label %29
     i32 30, label %29
@@ -310,7 +310,7 @@ define dso_local void @dump_operation(ptr noundef readonly captures(none) %0, pt
 32:                                               ; preds = %29, %89
   %indvars.iv = phi i64 [ %31, %29 ], [ %indvars.iv.next, %89 ]
   %.082108 = phi i32 [ 0, %29 ], [ %90, %89 ]
-  %33 = load ptr, ptr %0, align 8, !tbaa !23
+  %33 = load ptr, ptr %0, align 8, !tbaa !24
   %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
@@ -334,18 +334,18 @@ define dso_local void @dump_operation(ptr noundef readonly captures(none) %0, pt
   %.05.i = phi i32 [ %45, %.lr.ph.i ], [ %42, %.lr.ph.i.preheader ]
   %.034.i = phi ptr [ %44, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
   %43 = getelementptr inbounds nuw i8, ptr %.034.i, i64 64
-  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
   %45 = add nsw i32 %.05.i, -1
   %46 = icmp samesign ugt i32 %.05.i, 1
-  br i1 %46, label %.lr.ph.i, label %getlevel.exit, !llvm.loop !32
+  br i1 %46, label %.lr.ph.i, label %getlevel.exit, !llvm.loop !33
 
 getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   %.03.lcssa.i = phi ptr [ %0, %40 ], [ %44, %.lr.ph.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !26
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
   %49 = zext i16 %41 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !27
+  %51 = load ptr, ptr %50, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 80
@@ -372,10 +372,10 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   %.05.i96 = phi i32 [ %67, %.lr.ph.i95 ], [ %64, %.lr.ph.i95.preheader ]
   %.034.i97 = phi ptr [ %66, %.lr.ph.i95 ], [ %0, %.lr.ph.i95.preheader ]
   %65 = getelementptr inbounds nuw i8, ptr %.034.i97, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !31
+  %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = add nsw i32 %.05.i96, -1
   %68 = icmp samesign ugt i32 %.05.i96, 1
-  br i1 %68, label %.lr.ph.i95, label %getlevel.exit99, !llvm.loop !32
+  br i1 %68, label %.lr.ph.i95, label %getlevel.exit99, !llvm.loop !33
 
 getlevel.exit99:                                  ; preds = %.lr.ph.i95, %63
   %.03.lcssa.i98 = phi ptr [ %0, %63 ], [ %66, %.lr.ph.i95 ]
@@ -414,7 +414,7 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i95, %63
 89:                                               ; preds = %86, %83
   %90 = add nuw nsw i32 %.082108, 1
   %exitcond.not = icmp eq i32 %.082108, %30
-  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !34
 
 91:                                               ; preds = %22
   %92 = sext i32 %24 to i64
@@ -422,7 +422,7 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i95, %63
   %94 = load i16, ptr %93, align 2, !tbaa !4
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %97 = load ptr, ptr %96, align 8, !tbaa !34
+  %97 = load ptr, ptr %96, align 8, !tbaa !35
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -440,7 +440,7 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i95, %63
 
 110:                                              ; preds = %22
   %111 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %112 = load i32, ptr %111, align 8, !tbaa !35
+  %112 = load i32, ptr %111, align 8, !tbaa !36
   %113 = and i32 %112, 8
   %.not = icmp eq i32 %113, 0
   br i1 %.not, label %118, label %114
@@ -489,10 +489,10 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i95, %63
   %.05.i102 = phi i32 [ %141, %.lr.ph.i101 ], [ %138, %134 ]
   %.034.i103 = phi ptr [ %140, %.lr.ph.i101 ], [ %0, %134 ]
   %139 = getelementptr inbounds nuw i8, ptr %.034.i103, i64 64
-  %140 = load ptr, ptr %139, align 8, !tbaa !31
+  %140 = load ptr, ptr %139, align 8, !tbaa !32
   %141 = add nsw i32 %.05.i102, -1
   %142 = icmp samesign ugt i32 %.05.i102, 1
-  br i1 %142, label %.lr.ph.i101, label %getlevel.exit105, !llvm.loop !32
+  br i1 %142, label %.lr.ph.i101, label %getlevel.exit105, !llvm.loop !33
 
 getlevel.exit105:                                 ; preds = %.lr.ph.i101, %134
   %.03.lcssa.i104 = phi ptr [ %0, %134 ], [ %140, %.lr.ph.i101 ]
@@ -539,7 +539,7 @@ define dso_local void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %36, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !23
+  %3 = load ptr, ptr %0, align 8, !tbaa !24
   tail call void @jv_mem_free(ptr noundef %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -547,7 +547,7 @@ define dso_local void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
   %7 = load ptr, ptr %6, align 8
   tail call void @jv_free(i64 %5, ptr %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %9 = load i32, ptr %8, align 8, !tbaa !26
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -557,26 +557,26 @@ define dso_local void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
 
 ._crit_edge:                                      ; preds = %14, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !32
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %21, label %29
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr %11, align 8, !tbaa !26
+  %15 = load ptr, ptr %11, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void @bytecode_free(ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %8, align 8, !tbaa !25
+  %18 = load i32, ptr %8, align 8, !tbaa !26
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %14, label %._crit_edge, !llvm.loop !36
+  br i1 %20, label %14, label %._crit_edge, !llvm.loop !37
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   tail call void @jv_mem_free(ptr noundef %24) #6
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8
@@ -588,7 +588,7 @@ define dso_local void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
 
 29:                                               ; preds = %21, %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
   tail call void @jv_mem_free(ptr noundef %31) #6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i64, ptr %32, align 8
@@ -640,23 +640,24 @@ attributes #6 = { nounwind }
 !17 = !{!"p1 _ZTS12symbol_table", !12, i64 0}
 !18 = !{!"p2 _ZTS8bytecode", !12, i64 0}
 !19 = !{!"p1 _ZTS8bytecode", !12, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!14, !10, i64 8}
-!23 = !{!14, !15, i64 0}
-!24 = distinct !{!24, !21}
-!25 = !{!14, !10, i64 56}
-!26 = !{!14, !18, i64 48}
-!27 = !{!19, !19, i64 0}
-!28 = distinct !{!28, !21}
-!29 = !{!9, !11, i64 8}
-!30 = !{!9, !10, i64 0}
-!31 = !{!14, !19, i64 64}
-!32 = distinct !{!32, !21}
-!33 = distinct !{!33, !21}
-!34 = !{!14, !17, i64 40}
-!35 = !{!9, !10, i64 16}
-!36 = distinct !{!36, !21}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"symbol_table", !39, i64 0, !10, i64 8, !16, i64 16}
-!39 = !{!"p1 _ZTS9cfunction", !12, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!14, !10, i64 8}
+!24 = !{!14, !15, i64 0}
+!25 = distinct !{!25, !21, !22}
+!26 = !{!14, !10, i64 56}
+!27 = !{!14, !18, i64 48}
+!28 = !{!19, !19, i64 0}
+!29 = distinct !{!29, !21, !22}
+!30 = !{!9, !11, i64 8}
+!31 = !{!9, !10, i64 0}
+!32 = !{!14, !19, i64 64}
+!33 = distinct !{!33, !21, !22}
+!34 = distinct !{!34, !21, !22}
+!35 = !{!14, !17, i64 40}
+!36 = !{!9, !10, i64 16}
+!37 = distinct !{!37, !21, !22}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"symbol_table", !40, i64 0, !10, i64 8, !16, i64 16}
+!40 = !{!"p1 _ZTS9cfunction", !12, i64 0}

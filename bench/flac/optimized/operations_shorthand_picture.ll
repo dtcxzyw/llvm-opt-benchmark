@@ -106,14 +106,14 @@ import_pic_from.exit:                             ; preds = %27
 .preheader83:                                     ; preds = %36, %.preheader83
   %39 = call i32 @FLAC__metadata_iterator_prev(ptr noundef %6) #6
   %.not60 = icmp eq i32 %39, 0
-  br i1 %.not60, label %.preheader, label %.preheader83, !llvm.loop !18
+  br i1 %.not60, label %.preheader, label %.preheader83, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader83, %48
   %.047 = phi i32 [ %.148, %48 ], [ 0, %.preheader83 ]
   %.045 = phi i32 [ %.146, %48 ], [ 0, %.preheader83 ]
   %.1 = phi i32 [ %.2, %48 ], [ 1, %.preheader83 ]
   %40 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %6) #6
-  %41 = load i32, ptr %40, align 8, !tbaa !19
+  %41 = load i32, ptr %40, align 8, !tbaa !20
   %42 = icmp eq i32 %41, 6
   br i1 %42, label %43, label %48
 
@@ -146,7 +146,7 @@ import_pic_from.exit:                             ; preds = %27
   %.2 = phi i32 [ %.1, %.preheader ], [ %.1, %46 ], [ %.1, %43 ], [ %.1, %47 ], [ 0, %.sink.split ]
   %49 = call i32 @FLAC__metadata_iterator_next(ptr noundef %6) #6
   %.not63 = icmp eq i32 %49, 0
-  br i1 %.not63, label %export_pic_to.exit, label %.preheader, !llvm.loop !21
+  br i1 %.not63, label %export_pic_to.exit, label %.preheader, !llvm.loop !22
 
 50:                                               ; preds = %9
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -156,13 +156,13 @@ import_pic_from.exit:                             ; preds = %27
   br i1 %.not, label %60, label %54
 
 54:                                               ; preds = %50
-  %55 = load i32, ptr %53, align 8, !tbaa !22
+  %55 = load i32, ptr %53, align 8, !tbaa !23
   %.not55 = icmp eq i32 %55, 0
   br i1 %.not55, label %60, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !25
+  %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = load i32, ptr %58, align 4, !tbaa !15
   br label %60
 
@@ -174,7 +174,7 @@ import_pic_from.exit:                             ; preds = %27
 63:                                               ; preds = %63, %60
   %.044 = phi i32 [ 0, %60 ], [ %68, %63 ]
   %64 = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef %6) #6
-  %65 = load i32, ptr %64, align 8, !tbaa !19
+  %65 = load i32, ptr %64, align 8, !tbaa !20
   %66 = icmp ne i32 %65, 6
   %67 = icmp ne i32 %.044, %61
   %or.cond.not82 = select i1 %62, i1 %67, i1 false
@@ -183,7 +183,7 @@ import_pic_from.exit:                             ; preds = %27
   %69 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %6) #6
   %70 = icmp ne i32 %69, 0
   %71 = select i1 %70, i1 %.not79, i1 false
-  br i1 %71, label %63, label %72, !llvm.loop !26
+  br i1 %71, label %63, label %72, !llvm.loop !27
 
 72:                                               ; preds = %63
   br i1 %.not79, label %73, label %80
@@ -357,14 +357,15 @@ attributes #7 = { nounwind willreturn memory(none) }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !12, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !6, i64 0}
-!20 = !{!"FLAC__StreamMetadata", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 16}
-!21 = distinct !{!21, !17}
-!22 = !{!23, !6, i64 0}
-!23 = !{!"", !6, i64 0, !24, i64 8}
-!24 = !{!"p1 int", !12, i64 0}
-!25 = !{!23, !24, i64 8}
-!26 = distinct !{!26, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!21, !6, i64 0}
+!21 = !{!"FLAC__StreamMetadata", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 16}
+!22 = distinct !{!22, !17, !18}
+!23 = !{!24, !6, i64 0}
+!24 = !{!"", !6, i64 0, !25, i64 8}
+!25 = !{!"p1 int", !12, i64 0}
+!26 = !{!24, !25, i64 8}
+!27 = distinct !{!27, !17, !18}

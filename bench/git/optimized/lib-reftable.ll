@@ -126,12 +126,12 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   %.05480 = phi i64 [ %20, %.lr.ph82 ], [ 0, %.preheader ]
   %.25779 = phi i64 [ %spec.select73, %.lr.ph82 ], [ %.055.lcssa, %.preheader ]
   %18 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %3, i64 %.05480, i32 2
-  %19 = load i64, ptr %18, align 8, !tbaa !23
+  %19 = load i64, ptr %18, align 8, !tbaa !24
   %spec.select73 = tail call i64 @llvm.umax.i64(i64 %19, i64 %.25779)
   %.3 = tail call i64 @llvm.umin.i64(i64 %19, i64 %.281)
   %20 = add nuw i64 %.05480, 1
   %exitcond96.not = icmp eq i64 %20, %4
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !25
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !26
 
 21:                                               ; preds = %._crit_edge
   %22 = trunc i64 %2 to i32
@@ -168,7 +168,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   %41 = call i32 @check_int_loc(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %40, i64 noundef %38, i64 noundef 0) #7
   %42 = call ptr @reftable_writer_stats(ptr noundef %17) #7
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !26
+  %44 = load i32, ptr %43, align 8, !tbaa !27
   %.not93 = icmp eq i32 %44, 0
   br i1 %.not93, label %._crit_edge88, label %.lr.ph87
 
@@ -190,7 +190,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
 
 50:                                               ; preds = %.lr.ph87, %60
   %.05285 = phi i64 [ 0, %.lr.ph87 ], [ %67, %60 ]
-  %51 = load i32, ptr %45, align 4, !tbaa !29
+  %51 = load i32, ptr %45, align 4, !tbaa !30
   %.not71 = icmp eq i32 %51, 0
   %52 = select i1 %.not71, i32 4096, i32 %51
   %53 = zext i32 %52 to i64
@@ -199,7 +199,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   br i1 %.not72, label %55, label %60
 
 55:                                               ; preds = %50
-  %56 = load i32, ptr %46, align 4, !tbaa !31
+  %56 = load i32, ptr %46, align 4, !tbaa !32
   %57 = icmp eq i32 %56, 247
   %58 = select i1 %57, i32 2, i32 1
   %59 = call i64 @header_size(i32 noundef %58) #7
@@ -207,7 +207,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
 
 60:                                               ; preds = %55, %50
   %.0 = phi i64 [ %54, %50 ], [ %59, %55 ]
-  %61 = load ptr, ptr %47, align 8, !tbaa !32
+  %61 = load ptr, ptr %47, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.0
   %63 = load i8, ptr %62, align 1, !tbaa !10
   store i8 %63, ptr @test__tmp, align 16, !tbaa !10
@@ -216,10 +216,10 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   %65 = zext i1 %64 to i32
   %66 = call i32 @check_char_loc(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %65, i8 noundef signext %63, i8 noundef signext 114) #7
   %67 = add nuw i64 %.05285, 1
-  %68 = load i32, ptr %43, align 8, !tbaa !26
+  %68 = load i32, ptr %43, align 8, !tbaa !27
   %69 = sext i32 %68 to i64
   %70 = icmp ult i64 %67, %69
-  br i1 %70, label %50, label %._crit_edge88.loopexit, !llvm.loop !34
+  br i1 %70, label %50, label %._crit_edge88.loopexit, !llvm.loop !35
 
 71:                                               ; preds = %._crit_edge88
   store i64 %.lcssa, ptr @test__tmp, align 16, !tbaa !10
@@ -232,7 +232,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %76 = load i32, ptr %75, align 8, !tbaa !35
+  %76 = load i32, ptr %75, align 8, !tbaa !36
   %77 = sext i32 %76 to i64
   store i64 %77, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
@@ -308,18 +308,19 @@ attributes #7 = { nounwind }
 !18 = !{!19, !16, i64 16}
 !19 = !{!"reftable_ref_record", !20, i64 0, !16, i64 8, !16, i64 16, !12, i64 24, !7, i64 32}
 !20 = !{!"p1 omnipotent char", !6, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !16, i64 16}
-!24 = !{!"reftable_log_record", !20, i64 0, !16, i64 8, !16, i64 16, !12, i64 24, !7, i64 32}
-!25 = distinct !{!25, !22}
-!26 = !{!27, !12, i64 16}
-!27 = !{!"reftable_stats", !12, i64 0, !28, i64 8, !28, i64 48, !28, i64 88, !28, i64 128, !12, i64 168}
-!28 = !{!"reftable_block_stats", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !16, i64 24, !16, i64 32}
-!29 = !{!30, !12, i64 4}
-!30 = !{!"reftable_write_options", !12, i64 0, !12, i64 4, !12, i64 8, !14, i64 10, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 20, !7, i64 21, !16, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!31 = !{!30, !12, i64 12}
-!32 = !{!33, !20, i64 16}
-!33 = !{!"reftable_buf", !16, i64 0, !16, i64 8, !20, i64 16}
-!34 = distinct !{!34, !22}
-!35 = !{!27, !12, i64 136}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !16, i64 16}
+!25 = !{!"reftable_log_record", !20, i64 0, !16, i64 8, !16, i64 16, !12, i64 24, !7, i64 32}
+!26 = distinct !{!26, !22, !23}
+!27 = !{!28, !12, i64 16}
+!28 = !{!"reftable_stats", !12, i64 0, !29, i64 8, !29, i64 48, !29, i64 88, !29, i64 128, !12, i64 168}
+!29 = !{!"reftable_block_stats", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !16, i64 24, !16, i64 32}
+!30 = !{!31, !12, i64 4}
+!31 = !{!"reftable_write_options", !12, i64 0, !12, i64 4, !12, i64 8, !14, i64 10, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 20, !7, i64 21, !16, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!32 = !{!31, !12, i64 12}
+!33 = !{!34, !20, i64 16}
+!34 = !{!"reftable_buf", !16, i64 0, !16, i64 8, !20, i64 16}
+!35 = distinct !{!35, !22, !23}
+!36 = !{!28, !12, i64 136}

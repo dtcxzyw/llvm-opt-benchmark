@@ -520,7 +520,7 @@ define dso_local i32 @ttm_tt_swapout(ptr noundef %0, ptr noundef %1, i32 noundef
   %79 = add nuw i32 %22, 1
   %80 = load i32, ptr %4, align 4
   %81 = icmp ult i32 %79, %80
-  br i1 %81, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %81, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %78, %14
   %82 = phi i32 [ 0, %14 ], [ %80, %78 ]
@@ -556,16 +556,16 @@ define dso_local i32 @ttm_tt_swapout(ptr noundef %0, ptr noundef %1, i32 noundef
 100:                                              ; preds = %96
   %101 = load i32, ptr %4, align 4
   %102 = zext i32 %101 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %102, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %102, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !22
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %104 = load i8, ptr %103, align 1, !range !22, !noundef !23
+  %104 = load i8, ptr %103, align 1, !range !23, !noundef !24
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %100
   %107 = load i32, ptr %4, align 4
   %108 = zext i32 %107 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %108, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %108, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !22
   br label %109
 
 109:                                              ; preds = %106, %100, %96
@@ -632,16 +632,16 @@ define dso_local void @ttm_tt_unpopulate(ptr noundef %0, ptr noundef %1) local_u
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %23, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %23, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %25 = load i8, ptr %24, align 1, !range !22, !noundef !23
+  %25 = load i8, ptr %24, align 1, !range !23, !noundef !24
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %20
   %28 = load i32, ptr %21, align 4
   %29 = zext i32 %28 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %29, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %29, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !22
   br label %30
 
 30:                                               ; preds = %27, %20, %16
@@ -675,16 +675,16 @@ define dso_local i32 @ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %16, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %16, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %18 = load i8, ptr %17, align 1, !range !22, !noundef !23
+  %18 = load i8, ptr %17, align 1, !range !23, !noundef !24
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.preheader, label %20
 
 20:                                               ; preds = %13
   %21 = load i32, ptr %14, align 4
   %22 = zext i32 %21 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %22, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %22, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !25
   br label %.preheader
 
 .preheader:                                       ; preds = %20, %13, %10
@@ -709,7 +709,7 @@ define dso_local i32 @ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr nounde
 
 34:                                               ; preds = %31
   %35 = icmp slt i32 %32, 0
-  br i1 %35, label %.loopexit, label %23, !llvm.loop !25
+  br i1 %35, label %.loopexit, label %23, !llvm.loop !26
 
 36:                                               ; preds = %31, %27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -761,16 +761,16 @@ define dso_local i32 @ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr nounde
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %66, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_pages_allocated, i64 %66, ptr nonnull elementtype(i64) @ttm_pages_allocated) #11, !srcloc !22
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %68 = load i8, ptr %67, align 1, !range !22, !noundef !23
+  %68 = load i8, ptr %67, align 1, !range !23, !noundef !24
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %63
   %71 = load i32, ptr %64, align 4
   %72 = zext i32 %71 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %72, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated, i64 %72, ptr nonnull elementtype(i64) @ttm_dma32_pages_allocated) #11, !srcloc !22
   br label %73
 
 73:                                               ; preds = %70, %63, %.loopexit, %58, %55, %50, %5, %3
@@ -959,12 +959,13 @@ attributes #12 = { nounwind allocsize(0) }
 !14 = !{i64 2156005475, i64 2156005504, i64 2156005550, i64 2156005608, i64 2156005662, i64 2156005716, i64 2156005771, i64 2156005802}
 !15 = !{i64 583061, i64 583105, i64 2148070080, i64 2148070101, i64 2148070127, i64 2148070160, i64 2148070194, i64 2148070218}
 !16 = !{i64 2148694414, i64 2148694453, i64 2148694474, i64 2148694511, i64 2148694534, i64 2148694543, i64 2148694617}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18, !19, !20}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = !{!"llvm.loop.unroll.disable"}
-!20 = distinct !{!20, !18, !19}
-!21 = !{i64 2148720864, i64 2148720903, i64 2148720924, i64 2148720961, i64 2148720984, i64 2148720854}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = !{i64 2148720501, i64 2148720540, i64 2148720561, i64 2148720598, i64 2148720621, i64 2148720491}
-!25 = distinct !{!25, !18, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !18, !19, !20}
+!22 = !{i64 2148720864, i64 2148720903, i64 2148720924, i64 2148720961, i64 2148720984, i64 2148720854}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{i64 2148720501, i64 2148720540, i64 2148720561, i64 2148720598, i64 2148720621, i64 2148720491}
+!26 = distinct !{!26, !18, !19, !20}

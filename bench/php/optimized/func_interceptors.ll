@@ -3320,7 +3320,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
 37:                                               ; preds = %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !158
 
 38:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
@@ -3441,7 +3441,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 22, ptr %85, align 4, !tbaa !21
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 0, ptr %86, align 8, !tbaa !158
+  store i64 0, ptr %86, align 8, !tbaa !160
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i64 4, ptr %87, align 8, !tbaa !51
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -3466,7 +3466,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 22, ptr %94, align 4, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i64 0, ptr %95, align 8, !tbaa !158
+  store i64 0, ptr %95, align 8, !tbaa !160
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 3, ptr %96, align 8, !tbaa !51
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -3484,7 +3484,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 22, ptr %102, align 4, !tbaa !21
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i64 0, ptr %103, align 8, !tbaa !158
+  store i64 0, ptr %103, align 8, !tbaa !160
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store i64 4, ptr %104, align 8, !tbaa !51
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -3503,7 +3503,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 22, ptr %110, align 4, !tbaa !21
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store i64 0, ptr %111, align 8, !tbaa !158
+  store i64 0, ptr %111, align 8, !tbaa !160
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 7, ptr %112, align 8, !tbaa !51
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
@@ -3646,12 +3646,12 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %196 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %196, align 8, !tbaa !21
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %198 = load i64, ptr %197, align 8, !tbaa !159
+  %198 = load i64, ptr %197, align 8, !tbaa !161
   store i64 %198, ptr %15, align 8, !tbaa !21
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 4, ptr %199, align 8, !tbaa !21
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %201 = load i64, ptr %200, align 8, !tbaa !160
+  %201 = load i64, ptr %200, align 8, !tbaa !162
   store i64 %201, ptr %16, align 8, !tbaa !21
   %202 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %202, align 8, !tbaa !21
@@ -3931,6 +3931,8 @@ attributes #13 = { nounwind willreturn memory(read) }
 !155 = !{!134, !6, i64 168}
 !156 = !{!82, !13, i64 28}
 !157 = !{!82, !13, i64 32}
-!158 = !{!52, !14, i64 8}
-!159 = !{!82, !14, i64 56}
-!160 = !{!82, !14, i64 64}
+!158 = distinct !{!158, !159}
+!159 = !{!"llvm.loop.estimated_trip_count"}
+!160 = !{!52, !14, i64 8}
+!161 = !{!82, !14, i64 56}
+!162 = !{!82, !14, i64 64}

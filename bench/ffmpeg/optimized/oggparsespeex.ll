@@ -224,7 +224,7 @@ ogg_page_packets.exit:                            ; preds = %ogg_page_packets.ex
   %31 = sub i64 %17, %30
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %32, ptr %33, align 4, !tbaa !61
+  store i32 %32, ptr %33, align 4, !tbaa !62
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %ogg_page_packets.exit, %15
@@ -267,7 +267,7 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
   %48 = sext i32 %47 to i64
   %49 = sub i64 %37, %48
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %49, ptr %50, align 8, !tbaa !62
+  store i64 %49, ptr %50, align 8, !tbaa !63
   store i64 %49, ptr %34, align 8, !tbaa !56
   br label %51
 
@@ -276,7 +276,7 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
 
 .thread49:                                        ; preds = %14, %51
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %53 = load i32, ptr %52, align 8, !tbaa !63
+  %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %55 = load i32, ptr %54, align 4, !tbaa !58
   %56 = icmp eq i32 %53, %55
@@ -284,7 +284,7 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
 
 57:                                               ; preds = %.thread49
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !61
+  %59 = load i32, ptr %58, align 4, !tbaa !62
   %.not35 = icmp eq i32 %59, 0
   br i1 %.not35, label %60, label %61
 
@@ -294,7 +294,7 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
 61:                                               ; preds = %57, %60
   %.sink = phi i32 [ %10, %60 ], [ %59, %57 ]
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %.sink, ptr %62, align 4, !tbaa !64
+  store i32 %.sink, ptr %62, align 4, !tbaa !65
   ret i32 0
 }
 
@@ -380,9 +380,10 @@ attributes #4 = { nounwind }
 !56 = !{!29, !19, i64 56}
 !57 = !{!29, !19, i64 40}
 !58 = !{!29, !13, i64 108}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!37, !13, i64 4}
-!62 = !{!29, !19, i64 64}
-!63 = !{!29, !13, i64 112}
-!64 = !{!29, !13, i64 28}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!37, !13, i64 4}
+!63 = !{!29, !19, i64 64}
+!64 = !{!29, !13, i64 112}
+!65 = !{!29, !13, i64 28}

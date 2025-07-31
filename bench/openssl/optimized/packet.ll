@@ -936,11 +936,11 @@ define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr noundef cap
   %.pn16.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %48, %.lr.ph.preheader.i ]
   %.011.i = getelementptr i8, ptr %.pn16.i, i64 -1
   %49 = trunc i64 %.01017.i to i8
-  store i8 %49, ptr %.011.i, align 1, !tbaa !33
+  store i8 %49, ptr %.011.i, align 1, !tbaa !34
   %50 = lshr i64 %.01017.i, 8
   %51 = add i64 %.018.i, -1
   %.not.i = icmp eq i64 %51, 0
-  br i1 %.not.i, label %put_value.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %put_value.exit, label %.lr.ph.i, !llvm.loop !35
 
 put_value.exit:                                   ; preds = %.lr.ph.i
   %.not14.i = icmp ugt i64 %.01017.i, 255
@@ -1005,7 +1005,7 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
   %75 = lshr i64 %.052120, 8
   %76 = add nuw nsw i64 %.0121, 1
   %.not66 = icmp ult i64 %.052120, 65536
-  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge.thread:                               ; preds = %74, %69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
@@ -1014,7 +1014,7 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
 ._crit_edge:                                      ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %77 = icmp samesign ult i64 %.0121, 8
-  br i1 %77, label %78, label %WPACKET_put_bytes__.exit.thread, !prof !36
+  br i1 %77, label %78, label %WPACKET_put_bytes__.exit.thread, !prof !37
 
 78:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.0.lcssa125 = phi i64 [ 1, %._crit_edge.thread ], [ %76, %._crit_edge ]
@@ -1041,11 +1041,11 @@ WPACKET_put_bytes__.exit.thread106:               ; preds = %80
   %.pn16.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %83, %.lr.ph.preheader.i.i ]
   %.011.i.i = getelementptr i8, ptr %.pn16.i.i, i64 -1
   %84 = trunc i64 %.01017.i.i to i8
-  store i8 %84, ptr %.011.i.i, align 1, !tbaa !33
+  store i8 %84, ptr %.011.i.i, align 1, !tbaa !34
   %85 = lshr i64 %.01017.i.i, 8
   %86 = add nsw i64 %.018.i.i, -1
   %.not.i.i = icmp eq i64 %86, 0
-  br i1 %.not.i.i, label %WPACKET_put_bytes__.exit, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %.not.i.i, label %WPACKET_put_bytes__.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 WPACKET_put_bytes__.exit.thread:                  ; preds = %78, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
@@ -1148,7 +1148,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
 .lr.ph.i.i83:                                     ; preds = %128
   %135 = trunc nuw nsw i64 %.0.lcssa125 to i8
   %136 = or disjoint i8 %135, -128
-  store i8 %136, ptr %.098, align 1, !tbaa !33
+  store i8 %136, ptr %.098, align 1, !tbaa !34
   br label %.critedge76
 
 .critedge76:                                      ; preds = %.lr.ph.i.i83, %128, %35, %put_quic_value.exit, %87, %37, %put_value.exit, %62, %66, %69
@@ -1259,11 +1259,11 @@ define dso_local range(i32 0, 2) i32 @WPACKET_put_bytes__(ptr noundef captures(n
   %.pn16.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %12, %.lr.ph.preheader.i ]
   %.011.i = getelementptr i8, ptr %.pn16.i, i64 -1
   %13 = trunc i64 %.01017.i to i8
-  store i8 %13, ptr %.011.i, align 1, !tbaa !33
+  store i8 %13, ptr %.011.i, align 1, !tbaa !34
   %14 = lshr i64 %.01017.i, 8
   %15 = add i64 %.018.i, -1
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %put_value.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %put_value.exit, label %.lr.ph.i, !llvm.loop !35
 
 put_value.exit:                                   ; preds = %.lr.ph.i, %11
   %.010.lcssa.i = phi i64 [ %1, %11 ], [ %14, %.lr.ph.i ]
@@ -1288,7 +1288,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_set_max_size(ptr noundef captures(
   %.012 = phi ptr [ %5, %.preheader ], [ %4, %2 ]
   %5 = load ptr, ptr %.012, align 8, !tbaa !25
   %.not16 = icmp eq ptr %5, null
-  br i1 %.not16, label %6, label %.preheader, !llvm.loop !37
+  br i1 %.not16, label %6, label %.preheader, !llvm.loop !38
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.012, i64 16
@@ -1493,7 +1493,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef read
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !16
-  store i64 %5, ptr %1, align 8, !tbaa !38
+  store i64 %5, ptr %1, align 8, !tbaa !39
   br label %6
 
 6:                                                ; preds = %2, %3
@@ -1516,7 +1516,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly ca
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !27
   %13 = sub i64 %10, %12
-  store i64 %13, ptr %1, align 8, !tbaa !38
+  store i64 %13, ptr %1, align 8, !tbaa !39
   br label %14
 
 14:                                               ; preds = %2, %8
@@ -1554,7 +1554,7 @@ define dso_local void @WPACKET_cleanup(ptr noundef captures(none) %0) local_unna
   %4 = load ptr, ptr %.07, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef nonnull %.07, ptr noundef nonnull @.str, i32 noundef 532) #12
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %2, align 8, !tbaa !4
@@ -1906,12 +1906,13 @@ attributes #12 = { nounwind }
 !28 = !{!26, !11, i64 16}
 !29 = !{!26, !11, i64 8}
 !30 = !{!26, !13, i64 32}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !32}
-!35 = distinct !{!35, !32}
-!36 = !{!"branch_weights", !"expected", i32 2144693315, i32 2790333}
-!37 = distinct !{!37, !32}
-!38 = !{!11, !11, i64 0}
-!39 = distinct !{!39, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!8, !8, i64 0}
+!35 = distinct !{!35, !32, !33}
+!36 = distinct !{!36, !32, !33}
+!37 = !{!"branch_weights", !"expected", i32 2144693315, i32 2790333}
+!38 = distinct !{!38, !32, !33}
+!39 = !{!11, !11, i64 0}
+!40 = distinct !{!40, !32, !33}

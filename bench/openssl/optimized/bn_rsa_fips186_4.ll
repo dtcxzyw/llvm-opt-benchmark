@@ -189,7 +189,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_rsa_fips186_4_find_aux_prob_prime
 16:                                               ; preds = %14
   %17 = tail call i32 @BN_add_word(ptr noundef nonnull %1, i64 noundef 2) #3
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.loopexit, label %9
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !3
 
 18:                                               ; preds = %9
   %19 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %10) #3
@@ -377,7 +377,7 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %83 = add nuw nsw i32 %.096, 1
   %84 = tail call i32 @BN_add(ptr noundef %0, ptr noundef %0, ptr noundef %15) #3
   %.not121 = icmp eq i32 %84, 0
-  br i1 %.not121, label %.loopexit, label %.preheader
+  br i1 %.not121, label %.loopexit, label %.preheader, !llvm.loop !5
 
 85:                                               ; preds = %76
   %86 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #3
@@ -451,3 +451,6 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

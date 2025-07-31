@@ -337,38 +337,38 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_CodeGen.cpp() #5 section ".text.startup" {
-  store i8 0, ptr @_ZN5FFlag17DebugCodegenNoOptE, align 8, !tbaa !50
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 1), align 1, !tbaa !53
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 8), align 8, !tbaa !54
-  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !55
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 16), align 8, !tbaa !56
-  store i8 0, ptr @_ZN5FFlag19DebugCodegenOptSizeE, align 8, !tbaa !50
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 1), align 1, !tbaa !53
-  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 8), align 8, !tbaa !54
-  store ptr @_ZN5FFlag17DebugCodegenNoOptE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 16), align 8, !tbaa !56
-  store i8 0, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, align 8, !tbaa !50
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 1), align 1, !tbaa !53
-  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 8), align 8, !tbaa !54
-  store ptr @_ZN5FFlag19DebugCodegenOptSizeE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 16), align 8, !tbaa !56
-  store i8 0, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, align 8, !tbaa !50
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 1), align 1, !tbaa !53
-  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 8), align 8, !tbaa !54
-  store ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 16), align 8, !tbaa !56
-  store ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !55
-  store i32 1048576, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, align 8, !tbaa !57
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 4), align 4, !tbaa !60
-  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 8), align 8, !tbaa !61
-  %2 = load ptr, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !62
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 16), align 8, !tbaa !63
-  store i32 32768, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, align 8, !tbaa !57
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 4), align 4, !tbaa !60
-  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 8), align 8, !tbaa !61
-  store ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 16), align 8, !tbaa !63
-  store i32 65536, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, align 8, !tbaa !57
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 4), align 4, !tbaa !60
-  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 8), align 8, !tbaa !61
-  store ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 16), align 8, !tbaa !63
-  store ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !62
+  store i8 0, ptr @_ZN5FFlag17DebugCodegenNoOptE, align 8, !tbaa !51
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 1), align 1, !tbaa !54
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 8), align 8, !tbaa !55
+  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !56
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 16), align 8, !tbaa !57
+  store i8 0, ptr @_ZN5FFlag19DebugCodegenOptSizeE, align 8, !tbaa !51
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 1), align 1, !tbaa !54
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 8), align 8, !tbaa !55
+  store ptr @_ZN5FFlag17DebugCodegenNoOptE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 16), align 8, !tbaa !57
+  store i8 0, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, align 8, !tbaa !51
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 1), align 1, !tbaa !54
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 8), align 8, !tbaa !55
+  store ptr @_ZN5FFlag19DebugCodegenOptSizeE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 16), align 8, !tbaa !57
+  store i8 0, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, align 8, !tbaa !51
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 1), align 1, !tbaa !54
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 8), align 8, !tbaa !55
+  store ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, i64 16), align 8, !tbaa !57
+  store ptr @_ZN5FFlag25CodegenWiderLoweringStatsE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !56
+  store i32 1048576, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, align 8, !tbaa !58
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 4), align 4, !tbaa !61
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 8), align 8, !tbaa !62
+  %2 = load ptr, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !63
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 16), align 8, !tbaa !64
+  store i32 32768, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, align 8, !tbaa !58
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 4), align 4, !tbaa !61
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 8), align 8, !tbaa !62
+  store ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 16), align 8, !tbaa !64
+  store i32 65536, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, align 8, !tbaa !58
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 4), align 4, !tbaa !61
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 8), align 8, !tbaa !62
+  store ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 16), align 8, !tbaa !64
+  store ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !63
   ret void
 }
 
@@ -431,19 +431,20 @@ attributes #7 = { nounwind memory(none) }
 !45 = !{!46, !6, i64 3}
 !46 = !{!"_ZTS7Closure", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !27, i64 8, !38, i64 16, !6, i64 24}
 !47 = !{!42, !28, i64 36}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !34, i64 0}
-!51 = !{!"_ZTSN4Luau6FValueIbEE", !34, i64 0, !34, i64 1, !10, i64 8, !52, i64 16}
-!52 = !{!"p1 _ZTSN4Luau6FValueIbEE", !11, i64 0}
-!53 = !{!51, !34, i64 1}
-!54 = !{!51, !10, i64 8}
-!55 = !{!52, !52, i64 0}
-!56 = !{!51, !52, i64 16}
-!57 = !{!58, !28, i64 0}
-!58 = !{!"_ZTSN4Luau6FValueIiEE", !28, i64 0, !34, i64 4, !10, i64 8, !59, i64 16}
-!59 = !{!"p1 _ZTSN4Luau6FValueIiEE", !11, i64 0}
-!60 = !{!58, !34, i64 4}
-!61 = !{!58, !10, i64 8}
-!62 = !{!59, !59, i64 0}
-!63 = !{!58, !59, i64 16}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!52, !34, i64 0}
+!52 = !{!"_ZTSN4Luau6FValueIbEE", !34, i64 0, !34, i64 1, !10, i64 8, !53, i64 16}
+!53 = !{!"p1 _ZTSN4Luau6FValueIbEE", !11, i64 0}
+!54 = !{!52, !34, i64 1}
+!55 = !{!52, !10, i64 8}
+!56 = !{!53, !53, i64 0}
+!57 = !{!52, !53, i64 16}
+!58 = !{!59, !28, i64 0}
+!59 = !{!"_ZTSN4Luau6FValueIiEE", !28, i64 0, !34, i64 4, !10, i64 8, !60, i64 16}
+!60 = !{!"p1 _ZTSN4Luau6FValueIiEE", !11, i64 0}
+!61 = !{!59, !34, i64 4}
+!62 = !{!59, !10, i64 8}
+!63 = !{!60, !60, i64 0}
+!64 = !{!59, !60, i64 16}

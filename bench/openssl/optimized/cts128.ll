@@ -86,7 +86,7 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %0, ptr
   store i8 %19, ptr %17, align 1, !tbaa !3
   %20 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %20, %9
-  br i1 %exitcond.not, label %21, label %14, !llvm.loop !8
+  br i1 %exitcond.not, label %21, label %14, !llvm.loop !9
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %10
@@ -213,7 +213,7 @@ define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr no
   store i8 %22, ptr %25, align 1, !tbaa !3
   %29 = add nuw nsw i64 %.04551, 1
   %exitcond.not = icmp eq i64 %29, 16
-  br i1 %exitcond.not, label %.lr.ph, label %20, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph, label %20, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.152 = phi i64 [ %36, %.lr.ph ], [ 16, %20 ]
@@ -226,7 +226,7 @@ define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr no
   store i8 %34, ptr %35, align 1, !tbaa !3
   %36 = add nuw nsw i64 %.152, 1
   %exitcond53.not = icmp eq i64 %36, %12
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %37 = add i64 %2, 16
@@ -296,7 +296,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   store i8 %24, ptr %25, align 1, !tbaa !3
   %33 = add nuw nsw i64 %.05764, 1
   %exitcond.not = icmp eq i64 %33, 16
-  br i1 %exitcond.not, label %.lr.ph, label %22, !llvm.loop !11
+  br i1 %exitcond.not, label %.lr.ph, label %22, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.165 = phi i64 [ %41, %.lr.ph ], [ 16, %22 ]
@@ -310,7 +310,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   store i8 %39, ptr %40, align 1, !tbaa !3
   %41 = add nuw nsw i64 %.165, 1
   %exitcond66.not = icmp eq i64 %41, %14
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = add i64 %2, 16
@@ -423,10 +423,11 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

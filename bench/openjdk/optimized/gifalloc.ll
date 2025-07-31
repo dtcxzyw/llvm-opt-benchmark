@@ -203,7 +203,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) %37, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %38, label %35, label %.preheader91, !llvm.loop !8
+  br i1 %38, label %35, label %.preheader91, !llvm.loop !9
 
 .lr.ph98:                                         ; preds = %.preheader91, %47
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %47 ], [ %.pre-phi, %.preheader91 ]
@@ -225,7 +225,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   %49 = getelementptr i8, ptr %48, i64 -3
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.lr.ph98, label %.critedge.loopexit, !llvm.loop !9
+  br i1 %51, label %.lr.ph98, label %.critedge.loopexit, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %.lr.ph98, %47, %43
   %.076.lcssa.ph.in = phi i64 [ %indvars.iv118, %43 ], [ %indvars.iv.next119, %47 ], [ %indvars.iv118, %.lr.ph98 ]
@@ -267,7 +267,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 63:                                               ; preds = %60
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !11
 
 64:                                               ; preds = %60
   %65 = trunc i64 %indvars.iv121 to i8
@@ -293,7 +293,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   %75 = icmp slt i64 %indvars.iv.next126, %74
   %76 = icmp slt i32 %.2, 257
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.preheader90, label %._crit_edge108, !llvm.loop !11
+  br i1 %77, label %.preheader90, label %._crit_edge108, !llvm.loop !12
 
 ._crit_edge108:                                   ; preds = %71, %.critedge
   %.177.lcssa = phi i32 [ %.076.lcssa, %.critedge ], [ %.2, %71 ]
@@ -391,7 +391,7 @@ define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, 
   store i8 %16, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %10, %2
   ret void
@@ -474,7 +474,7 @@ define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.ExtensionBlock, ptr %10, i64 %12
   %14 = icmp ult ptr %9, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %3, %.preheader ], [ %10, %.lr.ph ]
@@ -551,7 +551,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.ExtensionBlock, ptr %31, i64 %33
   %35 = icmp ult ptr %30, %34
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %24, %.preheader.i ], [ %31, %.lr.ph.i ]
@@ -811,7 +811,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %struct.ExtensionBlock, ptr %28, i64 %30
   %32 = icmp ult ptr %27, %31
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %21, %.preheader.i ], [ %28, %.lr.ph.i ]
@@ -827,7 +827,7 @@ GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %struct.SavedImage, ptr %34, i64 %36
   %38 = icmp ult ptr %33, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %GifFreeExtensions.exit, %.preheader
   %.lcssa21 = phi ptr [ %5, %.preheader ], [ %34, %GifFreeExtensions.exit ]
@@ -869,12 +869,13 @@ attributes #14 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

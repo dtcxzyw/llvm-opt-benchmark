@@ -136,7 +136,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %27, %.loopexit.i
   %67 = phi i32 [ %..i, %27 ], [ %spec.select56.i, %.loopexit.i ]
   %.043.i = phi i32 [ %35, %27 ], [ %66, %.loopexit.i ]
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store i32 %.043.i, ptr %68, align 4, !tbaa !19
+  store i32 %.043.i, ptr %68, align 4, !tbaa !20
   %69 = lshr i32 %67, 3
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
@@ -214,7 +214,7 @@ get_interleaved_ue_golomb.exit53:                 ; preds = %77, %.loopexit.i51
   %118 = phi i32 [ %..i41, %77 ], [ %spec.select56.i49, %.loopexit.i51 ]
   %.043.i42 = phi i32 [ %86, %77 ], [ %117, %.loopexit.i51 ]
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i32 %.043.i42, ptr %119, align 4, !tbaa !24
+  store i32 %.043.i42, ptr %119, align 4, !tbaa !25
   %120 = lshr i32 %118, 3
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 %121
@@ -292,7 +292,7 @@ get_interleaved_ue_golomb.exit67:                 ; preds = %128, %.loopexit.i65
   %169 = phi i32 [ %..i55, %128 ], [ %spec.select56.i63, %.loopexit.i65 ]
   %.043.i56 = phi i32 [ %137, %128 ], [ %168, %.loopexit.i65 ]
   %170 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %.043.i56, ptr %170, align 4, !tbaa !25
+  store i32 %.043.i56, ptr %170, align 4, !tbaa !26
   %171 = lshr i32 %169, 3
   %172 = zext nneg i32 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 %172
@@ -370,7 +370,7 @@ get_interleaved_ue_golomb.exit81:                 ; preds = %179, %.loopexit.i79
   %220 = phi i32 [ %..i69, %179 ], [ %spec.select56.i77, %.loopexit.i79 ]
   %.043.i70 = phi i32 [ %188, %179 ], [ %219, %.loopexit.i79 ]
   %221 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %.043.i70, ptr %221, align 4, !tbaa !26
+  store i32 %.043.i70, ptr %221, align 4, !tbaa !27
   %222 = lshr i32 %220, 3
   %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 %223
@@ -390,7 +390,7 @@ get_interleaved_ue_golomb.exit81:                 ; preds = %179, %.loopexit.i79
   %235 = zext i8 %234 to i32
   %236 = add i32 %220, %235
   %..i83 = tail call i32 @llvm.umin.i32(i32 %17, i32 %236)
-  store i32 %..i83, ptr %22, align 8, !tbaa !27
+  store i32 %..i83, ptr %22, align 8, !tbaa !28
   %237 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %232
   %238 = load i8, ptr %237, align 1, !tbaa !16
   %239 = zext i8 %238 to i32
@@ -442,7 +442,7 @@ get_interleaved_ue_golomb.exit81:                 ; preds = %179, %.loopexit.i79
 
 .loopexit.i93:                                    ; preds = %254, %245
   %.1.i94 = phi i32 [ %253, %245 ], [ %259, %254 ]
-  store i32 %spec.select56.i91, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i91, ptr %22, align 8, !tbaa !28
   %270 = add i32 %.1.i94, -1
   br label %get_interleaved_ue_golomb.exit95
 
@@ -471,54 +471,54 @@ get_interleaved_ue_golomb.exit95:                 ; preds = %230, %.loopexit.i93
 278:                                              ; preds = %276
   %279 = zext nneg i32 %.043.i84 to i64
   %280 = getelementptr inbounds nuw [21 x %struct.dirac_source_params], ptr @dirac_source_parameters_defaults, i64 0, i64 %279
-  %281 = load i32, ptr %280, align 8, !tbaa !28
-  store i32 %281, ptr %9, align 4, !tbaa !30
+  %281 = load i32, ptr %280, align 8, !tbaa !29
+  store i32 %281, ptr %9, align 4, !tbaa !31
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %283 = load i32, ptr %282, align 4, !tbaa !31
+  %283 = load i32, ptr %282, align 4, !tbaa !32
   %284 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %283, ptr %284, align 4, !tbaa !32
+  store i32 %283, ptr %284, align 4, !tbaa !33
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %286 = load i8, ptr %285, align 8, !tbaa !33
+  %286 = load i8, ptr %285, align 8, !tbaa !34
   %287 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 %286, ptr %287, align 4, !tbaa !34
+  store i8 %286, ptr %287, align 4, !tbaa !35
   %288 = getelementptr inbounds nuw i8, ptr %280, i64 9
-  %289 = load i8, ptr %288, align 1, !tbaa !35
+  %289 = load i8, ptr %288, align 1, !tbaa !36
   %290 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  store i8 %289, ptr %290, align 1, !tbaa !36
+  store i8 %289, ptr %290, align 1, !tbaa !37
   %291 = getelementptr inbounds nuw i8, ptr %280, i64 10
-  %292 = load i8, ptr %291, align 2, !tbaa !37
+  %292 = load i8, ptr %291, align 2, !tbaa !38
   %293 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 %292, ptr %293, align 2, !tbaa !38
+  store i8 %292, ptr %293, align 2, !tbaa !39
   %294 = getelementptr inbounds nuw i8, ptr %280, i64 11
-  %295 = load i8, ptr %294, align 1, !tbaa !39
+  %295 = load i8, ptr %294, align 1, !tbaa !40
   %296 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  store i8 %295, ptr %296, align 1, !tbaa !40
+  store i8 %295, ptr %296, align 1, !tbaa !41
   %297 = getelementptr inbounds nuw i8, ptr %280, i64 12
-  %298 = load i8, ptr %297, align 4, !tbaa !41
+  %298 = load i8, ptr %297, align 4, !tbaa !42
   %299 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 %298, ptr %299, align 4, !tbaa !42
+  store i8 %298, ptr %299, align 4, !tbaa !43
   %300 = getelementptr inbounds nuw i8, ptr %280, i64 14
-  %301 = load i16, ptr %300, align 2, !tbaa !43
+  %301 = load i16, ptr %300, align 2, !tbaa !44
   %302 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  store i16 %301, ptr %302, align 2, !tbaa !44
+  store i16 %301, ptr %302, align 2, !tbaa !45
   %303 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  %304 = load i16, ptr %303, align 8, !tbaa !45
+  %304 = load i16, ptr %303, align 8, !tbaa !46
   %305 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 %304, ptr %305, align 4, !tbaa !46
+  store i16 %304, ptr %305, align 4, !tbaa !47
   %306 = getelementptr inbounds nuw i8, ptr %280, i64 18
-  %307 = load i16, ptr %306, align 2, !tbaa !47
+  %307 = load i16, ptr %306, align 2, !tbaa !48
   %308 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 %307, ptr %308, align 2, !tbaa !48
+  store i16 %307, ptr %308, align 2, !tbaa !49
   %309 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i16 0, ptr %309, align 4, !tbaa !49
+  store i16 0, ptr %309, align 4, !tbaa !50
   %310 = getelementptr inbounds nuw i8, ptr %280, i64 22
-  %311 = load i8, ptr %310, align 2, !tbaa !50
+  %311 = load i8, ptr %310, align 2, !tbaa !51
   %312 = getelementptr inbounds nuw i8, ptr %9, i64 22
-  store i8 %311, ptr %312, align 2, !tbaa !51
+  store i8 %311, ptr %312, align 2, !tbaa !52
   %313 = getelementptr inbounds nuw i8, ptr %280, i64 23
-  %314 = load i8, ptr %313, align 1, !tbaa !52
+  %314 = load i8, ptr %313, align 1, !tbaa !53
   %315 = getelementptr inbounds nuw i8, ptr %9, i64 23
-  store i8 %314, ptr %315, align 1, !tbaa !53
+  store i8 %314, ptr %315, align 1, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %316 = lshr i32 %271, 3
@@ -612,7 +612,7 @@ get_interleaved_ue_golomb.exit95:                 ; preds = %230, %.loopexit.i93
 get_interleaved_ue_golomb.exit.i:                 ; preds = %.loopexit.i.i, %335
   %376 = phi i32 [ %..i.i, %335 ], [ %spec.select56.i.i, %.loopexit.i.i ]
   %.043.i.i = phi i32 [ %344, %335 ], [ %375, %.loopexit.i.i ]
-  store i32 %.043.i.i, ptr %9, align 4, !tbaa !30
+  store i32 %.043.i.i, ptr %9, align 4, !tbaa !31
   %377 = lshr i32 %376, 3
   %378 = zext nneg i32 %377 to i64
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 %378
@@ -632,7 +632,7 @@ get_interleaved_ue_golomb.exit.i:                 ; preds = %.loopexit.i.i, %335
   %390 = zext i8 %389 to i32
   %391 = add i32 %376, %390
   %..i161.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %391)
-  store i32 %..i161.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i161.i, ptr %22, align 8, !tbaa !28
   %392 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %387
   %393 = load i8, ptr %392, align 1, !tbaa !16
   %394 = zext i8 %393 to i32
@@ -684,14 +684,14 @@ get_interleaved_ue_golomb.exit.i:                 ; preds = %.loopexit.i.i, %335
 
 .loopexit.i171.i:                                 ; preds = %409, %400
   %.1.i172.i = phi i32 [ %408, %400 ], [ %414, %409 ]
-  store i32 %spec.select56.i169.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i169.i, ptr %22, align 8, !tbaa !28
   %425 = add i32 %.1.i172.i, -1
   br label %get_interleaved_ue_golomb.exit173.i
 
 get_interleaved_ue_golomb.exit173.i:              ; preds = %.loopexit.i171.i, %385
   %426 = phi i32 [ %..i161.i, %385 ], [ %spec.select56.i169.i, %.loopexit.i171.i ]
   %.043.i162.i = phi i32 [ %394, %385 ], [ %425, %.loopexit.i171.i ]
-  store i32 %.043.i162.i, ptr %284, align 4, !tbaa !32
+  store i32 %.043.i162.i, ptr %284, align 4, !tbaa !33
   br label %427
 
 427:                                              ; preds = %get_interleaved_ue_golomb.exit173.i, %278
@@ -730,7 +730,7 @@ get_interleaved_ue_golomb.exit173.i:              ; preds = %.loopexit.i171.i, %
   %453 = zext i8 %452 to i32
   %454 = add i32 %spec.select.i174.i, %453
   %..i176.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %454)
-  store i32 %..i176.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i176.i, ptr %22, align 8, !tbaa !28
   %455 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %450
   %456 = load i8, ptr %455, align 1, !tbaa !16
   br label %get_interleaved_ue_golomb.exit188.i
@@ -781,7 +781,7 @@ get_interleaved_ue_golomb.exit173.i:              ; preds = %.loopexit.i171.i, %
 
 .loopexit.i186.i:                                 ; preds = %471, %462
   %.1.i187.i = phi i32 [ %470, %462 ], [ %476, %471 ]
-  store i32 %spec.select56.i184.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i184.i, ptr %22, align 8, !tbaa !28
   %487 = trunc i32 %.1.i187.i to i8
   %488 = add i8 %487, -1
   br label %get_interleaved_ue_golomb.exit188.i
@@ -789,7 +789,7 @@ get_interleaved_ue_golomb.exit173.i:              ; preds = %.loopexit.i171.i, %
 get_interleaved_ue_golomb.exit188.i:              ; preds = %.loopexit.i186.i, %448
   %489 = phi i32 [ %..i176.i, %448 ], [ %spec.select56.i184.i, %.loopexit.i186.i ]
   %.043.i177.i = phi i8 [ %456, %448 ], [ %488, %.loopexit.i186.i ]
-  store i8 %.043.i177.i, ptr %287, align 4, !tbaa !34
+  store i8 %.043.i177.i, ptr %287, align 4, !tbaa !35
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %427, %get_interleaved_ue_golomb.exit188.i
@@ -899,7 +899,7 @@ get_interleaved_ue_golomb.exit188.i:              ; preds = %.loopexit.i186.i, %
 get_interleaved_ue_golomb.exit203.i:              ; preds = %.loopexit.i201.i, %516
   %557 = phi i32 [ %..i191.i, %516 ], [ %spec.select56.i199.i, %.loopexit.i201.i ]
   %.043.i192.i = phi i8 [ %524, %516 ], [ %556, %.loopexit.i201.i ]
-  store i8 %.043.i192.i, ptr %290, align 1, !tbaa !36
+  store i8 %.043.i192.i, ptr %290, align 1, !tbaa !37
   br label %._crit_edge604.i
 
 ._crit_edge604.i:                                 ; preds = %496, %get_interleaved_ue_golomb.exit203.i
@@ -943,7 +943,7 @@ get_interleaved_ue_golomb.exit203.i:              ; preds = %.loopexit.i201.i, %
   %586 = zext i8 %585 to i32
   %587 = add i32 %spec.select.i204.i, %586
   %..i206.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %587)
-  store i32 %..i206.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i206.i, ptr %22, align 8, !tbaa !28
   %588 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %583
   %589 = load i8, ptr %588, align 1, !tbaa !16
   %590 = zext i8 %589 to i32
@@ -995,7 +995,7 @@ get_interleaved_ue_golomb.exit203.i:              ; preds = %.loopexit.i201.i, %
 
 .loopexit.i216.i:                                 ; preds = %605, %596
   %.1.i217.i = phi i32 [ %604, %596 ], [ %610, %605 ]
-  store i32 %spec.select56.i214.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i214.i, ptr %22, align 8, !tbaa !28
   %621 = add i32 %.1.i217.i, -1
   br label %get_interleaved_ue_golomb.exit218.i
 
@@ -1003,7 +1003,7 @@ get_interleaved_ue_golomb.exit218.i:              ; preds = %.loopexit.i216.i, %
   %622 = phi i32 [ %..i206.i, %581 ], [ %spec.select56.i214.i, %.loopexit.i216.i ]
   %.043.i207.i = phi i32 [ %590, %581 ], [ %621, %.loopexit.i216.i ]
   %623 = trunc i32 %.043.i207.i to i8
-  store i8 %623, ptr %296, align 1, !tbaa !40
+  store i8 %623, ptr %296, align 1, !tbaa !41
   %624 = and i32 %.043.i207.i, 255
   %625 = icmp samesign ugt i32 %624, 10
   br i1 %625, label %parse_source_parameters.exit.thread, label %626
@@ -1180,18 +1180,18 @@ get_interleaved_ue_golomb.exit246.i:              ; preds = %561
 
 734:                                              ; preds = %729
   %735 = getelementptr inbounds nuw [0 x %struct.AVRational], ptr @ff_mpeg12_frame_rate_tab, i64 0, i64 %731
-  %.sroa.0.0.copyload.i = load i32, ptr %735, align 4, !tbaa !54
+  %.sroa.0.0.copyload.i = load i32, ptr %735, align 4, !tbaa !55
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %735, i64 4
-  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !54
+  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !55
   br label %get_interleaved_ue_golomb.exit246.thread.i
 
 736:                                              ; preds = %729
   %737 = add nuw nsw i64 %731, 4294967287
   %738 = and i64 %737, 4294967295
   %739 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr @dirac_frame_rate, i64 0, i64 %738
-  %.sroa.0.0.copyload16.i = load i32, ptr %739, align 8, !tbaa !54
+  %.sroa.0.0.copyload16.i = load i32, ptr %739, align 8, !tbaa !55
   %.sroa.7.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %739, i64 4
-  %.sroa.7.0.copyload19.i = load i32, ptr %.sroa.7.0..sroa_idx18.i, align 4, !tbaa !54
+  %.sroa.7.0.copyload19.i = load i32, ptr %.sroa.7.0..sroa_idx18.i, align 4, !tbaa !55
   br label %get_interleaved_ue_golomb.exit246.thread.i
 
 get_interleaved_ue_golomb.exit246.thread.i:       ; preds = %736, %734, %get_interleaved_ue_golomb.exit246.i, %.loopexit.i244.i, %687
@@ -1199,9 +1199,9 @@ get_interleaved_ue_golomb.exit246.thread.i:       ; preds = %736, %734, %get_int
   %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i, %734 ], [ %.sroa.0.0.copyload16.i, %736 ], [ 0, %get_interleaved_ue_golomb.exit246.i ], [ %.043.i221.i, %687 ], [ %.043.i221.i, %.loopexit.i244.i ]
   %.sroa.7.1.i = phi i32 [ %.sroa.7.0.copyload.i, %734 ], [ %.sroa.7.0.copyload19.i, %736 ], [ 0, %get_interleaved_ue_golomb.exit246.i ], [ %696, %687 ], [ %727, %.loopexit.i244.i ]
   %741 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %.sroa.0.1.i, ptr %741, align 4, !tbaa !54
+  store i32 %.sroa.0.1.i, ptr %741, align 4, !tbaa !55
   %.sroa.7.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %.sroa.7.1.i, ptr %.sroa.7.0..sroa_idx20.i, align 4, !tbaa !54
+  store i32 %.sroa.7.1.i, ptr %.sroa.7.0..sroa_idx20.i, align 4, !tbaa !55
   %742 = lshr i32 %740, 3
   %743 = zext nneg i32 %742 to i64
   %744 = getelementptr inbounds nuw i8, ptr %1, i64 %743
@@ -1294,7 +1294,7 @@ get_interleaved_ue_golomb.exit261.i:              ; preds = %.loopexit.i259.i, %
   %802 = phi i32 [ %..i249.i, %761 ], [ %spec.select56.i257.i, %.loopexit.i259.i ]
   %.043.i250.i = phi i32 [ %770, %761 ], [ %801, %.loopexit.i259.i ]
   %803 = trunc i32 %.043.i250.i to i8
-  store i8 %803, ptr %299, align 4, !tbaa !42
+  store i8 %803, ptr %299, align 4, !tbaa !43
   %804 = and i32 %.043.i250.i, 255
   %805 = icmp samesign ugt i32 %804, 6
   br i1 %805, label %parse_source_parameters.exit.thread, label %806
@@ -1381,7 +1381,7 @@ get_interleaved_ue_golomb.exit275.i:              ; preds = %.loopexit.i273.i, %
   %857 = phi i32 [ %..i263.i, %816 ], [ %spec.select56.i271.i, %.loopexit.i273.i ]
   %.043.i264.i = phi i32 [ %825, %816 ], [ %856, %.loopexit.i273.i ]
   %858 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %.043.i264.i, ptr %858, align 4, !tbaa !55
+  store i32 %.043.i264.i, ptr %858, align 4, !tbaa !56
   %859 = lshr i32 %857, 3
   %860 = zext nneg i32 %859 to i64
   %861 = getelementptr inbounds nuw i8, ptr %1, i64 %860
@@ -1401,7 +1401,7 @@ get_interleaved_ue_golomb.exit275.i:              ; preds = %.loopexit.i273.i, %
   %872 = zext i8 %871 to i32
   %873 = add i32 %857, %872
   %..i277.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %873)
-  store i32 %..i277.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i277.i, ptr %22, align 8, !tbaa !28
   %874 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %869
   %875 = load i8, ptr %874, align 1, !tbaa !16
   %876 = zext i8 %875 to i32
@@ -1453,7 +1453,7 @@ get_interleaved_ue_golomb.exit275.i:              ; preds = %.loopexit.i273.i, %
 
 .loopexit.i287.i:                                 ; preds = %891, %882
   %.1.i288.i = phi i32 [ %890, %882 ], [ %896, %891 ]
-  store i32 %spec.select56.i285.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i285.i, ptr %22, align 8, !tbaa !28
   %907 = add i32 %.1.i288.i, -1
   br label %.thread.i
 
@@ -1461,7 +1461,7 @@ get_interleaved_ue_golomb.exit275.i:              ; preds = %.loopexit.i273.i, %
   %908 = phi i32 [ %..i277.i, %867 ], [ %spec.select56.i285.i, %.loopexit.i287.i ]
   %.043.i278.i = phi i32 [ %876, %867 ], [ %907, %.loopexit.i287.i ]
   %909 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %.043.i278.i, ptr %909, align 4, !tbaa !56
+  store i32 %.043.i278.i, ptr %909, align 4, !tbaa !57
   br label %918
 
 910:                                              ; preds = %get_interleaved_ue_golomb.exit246.thread.i
@@ -1574,7 +1574,7 @@ get_interleaved_ue_golomb.exit304.i:              ; preds = %.loopexit.i302.i, %
   %980 = phi i32 [ %..i292.i, %939 ], [ %spec.select56.i300.i, %.loopexit.i302.i ]
   %.043.i293.i = phi i32 [ %948, %939 ], [ %979, %.loopexit.i302.i ]
   %981 = trunc i32 %.043.i293.i to i16
-  store i16 %981, ptr %302, align 2, !tbaa !44
+  store i16 %981, ptr %302, align 2, !tbaa !45
   %982 = lshr i32 %980, 3
   %983 = zext nneg i32 %982 to i64
   %984 = getelementptr inbounds nuw i8, ptr %1, i64 %983
@@ -1652,7 +1652,7 @@ get_interleaved_ue_golomb.exit318.i:              ; preds = %.loopexit.i316.i, %
   %1031 = phi i32 [ %..i306.i, %990 ], [ %spec.select56.i314.i, %.loopexit.i316.i ]
   %.043.i307.i = phi i32 [ %999, %990 ], [ %1030, %.loopexit.i316.i ]
   %1032 = trunc i32 %.043.i307.i to i16
-  store i16 %1032, ptr %305, align 4, !tbaa !46
+  store i16 %1032, ptr %305, align 4, !tbaa !47
   %1033 = lshr i32 %1031, 3
   %1034 = zext nneg i32 %1033 to i64
   %1035 = getelementptr inbounds nuw i8, ptr %1, i64 %1034
@@ -1672,7 +1672,7 @@ get_interleaved_ue_golomb.exit318.i:              ; preds = %.loopexit.i316.i, %
   %1046 = zext i8 %1045 to i32
   %1047 = add i32 %1031, %1046
   %..i320.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %1047)
-  store i32 %..i320.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i320.i, ptr %22, align 8, !tbaa !28
   %1048 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %1043
   %1049 = load i8, ptr %1048, align 1, !tbaa !16
   %1050 = zext i8 %1049 to i32
@@ -1724,7 +1724,7 @@ get_interleaved_ue_golomb.exit318.i:              ; preds = %.loopexit.i316.i, %
 
 .loopexit.i330.i:                                 ; preds = %1065, %1056
   %.1.i331.i = phi i32 [ %1064, %1056 ], [ %1070, %1065 ]
-  store i32 %spec.select56.i328.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i328.i, ptr %22, align 8, !tbaa !28
   %1081 = add i32 %.1.i331.i, -1
   br label %get_interleaved_ue_golomb.exit332.i
 
@@ -1732,7 +1732,7 @@ get_interleaved_ue_golomb.exit332.i:              ; preds = %.loopexit.i330.i, %
   %1082 = phi i32 [ %..i320.i, %1041 ], [ %spec.select56.i328.i, %.loopexit.i330.i ]
   %.043.i321.i = phi i32 [ %1050, %1041 ], [ %1081, %.loopexit.i330.i ]
   %1083 = trunc i32 %.043.i321.i to i16
-  store i16 %1083, ptr %308, align 2, !tbaa !48
+  store i16 %1083, ptr %308, align 2, !tbaa !49
   %1084 = lshr i32 %1082, 3
   %1085 = zext nneg i32 %1084 to i64
   %1086 = getelementptr inbounds nuw i8, ptr %1, i64 %1085
@@ -1810,7 +1810,7 @@ get_interleaved_ue_golomb.exit346.i:              ; preds = %.loopexit.i344.i, %
   %1133 = phi i32 [ %..i334.i, %1092 ], [ %spec.select56.i342.i, %.loopexit.i344.i ]
   %.043.i335.i = phi i32 [ %1101, %1092 ], [ %1132, %.loopexit.i344.i ]
   %1134 = trunc i32 %.043.i335.i to i16
-  store i16 %1134, ptr %309, align 4, !tbaa !49
+  store i16 %1134, ptr %309, align 4, !tbaa !50
   br label %1135
 
 1135:                                             ; preds = %get_interleaved_ue_golomb.exit346.i, %918
@@ -1824,7 +1824,7 @@ get_interleaved_ue_golomb.exit346.i:              ; preds = %.loopexit.i344.i, %
   %spec.select.i347.i = add i32 %1136, %1142
   %1143 = zext i8 %1140 to i32
   %1144 = and i32 %1136, 7
-  store i32 %spec.select.i347.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select.i347.i, ptr %22, align 8, !tbaa !28
   %1145 = lshr exact i32 128, %1144
   %1146 = and i32 %1145, %1143
   %.not139.i = icmp eq i32 %1146, 0
@@ -1850,7 +1850,7 @@ get_interleaved_ue_golomb.exit346.i:              ; preds = %.loopexit.i344.i, %
   %1161 = zext i8 %1160 to i32
   %1162 = add i32 %spec.select.i347.i, %1161
   %..i349.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %1162)
-  store i32 %..i349.i, ptr %22, align 8, !tbaa !27
+  store i32 %..i349.i, ptr %22, align 8, !tbaa !28
   %1163 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %1158
   %1164 = load i8, ptr %1163, align 1, !tbaa !16
   %1165 = zext i8 %1164 to i32
@@ -1902,14 +1902,14 @@ get_interleaved_ue_golomb.exit346.i:              ; preds = %.loopexit.i344.i, %
 
 .loopexit.i359.i:                                 ; preds = %1180, %1171
   %.1.i360.i = phi i32 [ %1179, %1171 ], [ %1185, %1180 ]
-  store i32 %spec.select56.i357.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select56.i357.i, ptr %22, align 8, !tbaa !28
   %1196 = add i32 %.1.i360.i, -1
   br label %get_interleaved_ue_golomb.exit361.i
 
 get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %1156
   %.043.i350.i = phi i32 [ %1165, %1156 ], [ %1196, %.loopexit.i359.i ]
   %1197 = trunc i32 %.043.i350.i to i8
-  store i8 %1197, ptr %312, align 2, !tbaa !51
+  store i8 %1197, ptr %312, align 2, !tbaa !52
   %1198 = and i32 %.043.i350.i, 255
   %1199 = icmp samesign ugt i32 %1198, 4
   br i1 %1199, label %parse_source_parameters.exit.thread, label %1200
@@ -1941,7 +1941,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %.not141.i = icmp eq i32 %1201, 0
   %1214 = select i1 %.not141.i, i32 2, i32 1
   %1215 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %1214, ptr %1215, align 4, !tbaa !57
+  store i32 %1214, ptr %1215, align 4, !tbaa !58
   br label %.thread464
 
 1216:                                             ; preds = %1135
@@ -1951,8 +1951,8 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 .thread464:                                       ; preds = %.thread457, %1216
   %.1.i97.ph = phi i32 [ %1211, %.thread457 ], [ 8, %1216 ]
   %1217 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %.1.i97.ph, ptr %1217, align 4, !tbaa !58
-  store i8 0, ptr %312, align 2, !tbaa !51
+  store i32 %.1.i97.ph, ptr %1217, align 4, !tbaa !59
+  store i8 0, ptr %312, align 2, !tbaa !52
   br label %parse_source_parameters.exit.thread
 
 1218:                                             ; preds = %1216, %1200
@@ -1962,23 +1962,23 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %1221 = add nuw nsw i64 %1220, 4294967295
   %1222 = and i64 %1221, 4294967295
   %1223 = getelementptr inbounds nuw [4 x %struct.anon], ptr @pixel_range_presets, i64 0, i64 %1222
-  %1224 = load i8, ptr %1223, align 8, !tbaa !59
+  %1224 = load i8, ptr %1223, align 8, !tbaa !60
   %1225 = zext i8 %1224 to i32
   %1226 = getelementptr inbounds nuw i8, ptr %1223, i64 4
-  %1227 = load i32, ptr %1226, align 4, !tbaa !61
+  %1227 = load i32, ptr %1226, align 4, !tbaa !62
   %1228 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %1227, ptr %1228, align 4, !tbaa !57
+  store i32 %1227, ptr %1228, align 4, !tbaa !58
   %1229 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %1225, ptr %1229, align 4, !tbaa !58
+  store i32 %1225, ptr %1229, align 4, !tbaa !59
   %1230 = icmp eq i8 %.fr, 1
   br i1 %1230, label %.thread465, label %1231
 
 .thread465:                                       ; preds = %1218
-  store i8 2, ptr %312, align 2, !tbaa !51
+  store i8 2, ptr %312, align 2, !tbaa !52
   br label %1233
 
 1231:                                             ; preds = %1218
-  store i8 %.fr, ptr %312, align 2, !tbaa !51
+  store i8 %.fr, ptr %312, align 2, !tbaa !52
   %1232 = icmp eq i8 %.fr, 0
   br i1 %1232, label %parse_source_parameters.exit.thread, label %1233
 
@@ -1990,16 +1990,16 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %1238 = add nuw nsw i64 %1235, 4294967294
   %1239 = and i64 %1238, 4294967295
   %1240 = getelementptr inbounds nuw [3 x i32], ptr %1237, i64 0, i64 %1239
-  %1241 = load i32, ptr %1240, align 4, !tbaa !54
+  %1241 = load i32, ptr %1240, align 4, !tbaa !55
   %1242 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %1241, ptr %1242, align 4, !tbaa !62
+  store i32 %1241, ptr %1242, align 4, !tbaa !63
   %1243 = call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %1241, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %.not143.i = icmp eq i32 %1243, 0
   br i1 %.not143.i, label %1244, label %parse_source_parameters.exit
 
 1244:                                             ; preds = %1233
-  %1245 = load i32, ptr %9, align 4, !tbaa !30
-  %1246 = load i32, ptr %5, align 4, !tbaa !54
+  %1245 = load i32, ptr %9, align 4, !tbaa !31
+  %1246 = load i32, ptr %5, align 4, !tbaa !55
   %notmask.i = shl nsw i32 -1, %1246
   %1247 = xor i32 %notmask.i, -1
   %1248 = and i32 %1245, %1247
@@ -2007,8 +2007,8 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   br i1 %.not144.i, label %1249, label %1254
 
 1249:                                             ; preds = %1244
-  %1250 = load i32, ptr %284, align 4, !tbaa !32
-  %1251 = load i32, ptr %6, align 4, !tbaa !54
+  %1250 = load i32, ptr %284, align 4, !tbaa !33
+  %1251 = load i32, ptr %6, align 4, !tbaa !55
   %notmask145.i = shl nsw i32 -1, %1251
   %1252 = xor i32 %notmask145.i, -1
   %1253 = and i32 %1250, %1252
@@ -2024,7 +2024,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   br label %parse_source_parameters.exit.thread
 
 1256:                                             ; preds = %1249
-  %1257 = load i32, ptr %22, align 8, !tbaa !27
+  %1257 = load i32, ptr %22, align 8, !tbaa !28
   %1258 = load ptr, ptr %8, align 8, !tbaa !9
   %1259 = lshr i32 %1257, 3
   %1260 = zext nneg i32 %1259 to i64
@@ -2036,7 +2036,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %spec.select.i362.i = add i32 %1257, %1265
   %1266 = zext i8 %1262 to i32
   %1267 = and i32 %1257, 7
-  store i32 %spec.select.i362.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select.i362.i, ptr %22, align 8, !tbaa !28
   %1268 = lshr exact i32 128, %1267
   %1269 = and i32 %1268, %1266
   %.not147.i = icmp eq i32 %1269, 0
@@ -2045,7 +2045,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 1270:                                             ; preds = %1256
   %1271 = call fastcc i32 @get_interleaved_ue_golomb(ptr noundef nonnull %8)
   %1272 = trunc i32 %1271 to i8
-  store i8 %1272, ptr %315, align 1, !tbaa !53
+  store i8 %1272, ptr %315, align 1, !tbaa !54
   %1273 = and i32 %1271, 255
   %1274 = icmp samesign ugt i32 %1273, 4
   br i1 %1274, label %parse_source_parameters.exit.thread, label %1275
@@ -2053,22 +2053,22 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 1275:                                             ; preds = %1270
   %1276 = zext nneg i32 %1273 to i64
   %1277 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @dirac_color_presets, i64 0, i64 %1276
-  %1278 = load i32, ptr %1277, align 4, !tbaa !63
+  %1278 = load i32, ptr %1277, align 4, !tbaa !64
   %1279 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %1278, ptr %1279, align 4, !tbaa !65
+  store i32 %1278, ptr %1279, align 4, !tbaa !66
   %1280 = getelementptr inbounds nuw i8, ptr %1277, i64 4
-  %1281 = load i32, ptr %1280, align 4, !tbaa !66
+  %1281 = load i32, ptr %1280, align 4, !tbaa !67
   %1282 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 %1281, ptr %1282, align 4, !tbaa !67
+  store i32 %1281, ptr %1282, align 4, !tbaa !68
   %1283 = getelementptr inbounds nuw i8, ptr %1277, i64 8
-  %1284 = load i32, ptr %1283, align 4, !tbaa !68
+  %1284 = load i32, ptr %1283, align 4, !tbaa !69
   %1285 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %1284, ptr %1285, align 4, !tbaa !69
+  store i32 %1284, ptr %1285, align 4, !tbaa !70
   %.not148.i = icmp eq i8 %1272, 0
   br i1 %.not148.i, label %1286, label %parse_source_parameters.exit.thread118
 
 1286:                                             ; preds = %1275
-  %1287 = load i32, ptr %22, align 8, !tbaa !27
+  %1287 = load i32, ptr %22, align 8, !tbaa !28
   %1288 = load ptr, ptr %8, align 8, !tbaa !9
   %1289 = lshr i32 %1287, 3
   %1290 = zext nneg i32 %1289 to i64
@@ -2080,7 +2080,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %spec.select.i363.i = add i32 %1287, %1295
   %1296 = zext i8 %1292 to i32
   %1297 = and i32 %1287, 7
-  store i32 %spec.select.i363.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select.i363.i, ptr %22, align 8, !tbaa !28
   %1298 = lshr exact i32 128, %1297
   %1299 = and i32 %1298, %1296
   %.not149.i = icmp eq i32 %1299, 0
@@ -2094,12 +2094,12 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 1303:                                             ; preds = %1300
   %1304 = zext nneg i32 %1301 to i64
   %1305 = getelementptr inbounds nuw [3 x i32], ptr @dirac_primaries, i64 0, i64 %1304
-  %1306 = load i32, ptr %1305, align 4, !tbaa !54
-  store i32 %1306, ptr %1279, align 4, !tbaa !65
+  %1306 = load i32, ptr %1305, align 4, !tbaa !55
+  store i32 %1306, ptr %1279, align 4, !tbaa !66
   br label %1307
 
 1307:                                             ; preds = %1303, %1300, %1286
-  %1308 = load i32, ptr %22, align 8, !tbaa !27
+  %1308 = load i32, ptr %22, align 8, !tbaa !28
   %1309 = load ptr, ptr %8, align 8, !tbaa !9
   %1310 = lshr i32 %1308, 3
   %1311 = zext nneg i32 %1310 to i64
@@ -2111,7 +2111,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %spec.select.i364.i = add i32 %1308, %1316
   %1317 = zext i8 %1313 to i32
   %1318 = and i32 %1308, 7
-  store i32 %spec.select.i364.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select.i364.i, ptr %22, align 8, !tbaa !28
   %1319 = lshr exact i32 128, %1318
   %1320 = and i32 %1319, %1317
   %.not150.i = icmp eq i32 %1320, 0
@@ -2129,11 +2129,11 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 
 .sink.split.i:                                    ; preds = %1323, %1321
   %.sink.i = phi i32 [ 5, %1323 ], [ 1, %1321 ]
-  store i32 %.sink.i, ptr %1282, align 4, !tbaa !67
+  store i32 %.sink.i, ptr %1282, align 4, !tbaa !68
   br label %1324
 
 1324:                                             ; preds = %.sink.split.i, %1321, %1307
-  %1325 = load i32, ptr %22, align 8, !tbaa !27
+  %1325 = load i32, ptr %22, align 8, !tbaa !28
   %1326 = load ptr, ptr %8, align 8, !tbaa !9
   %1327 = lshr i32 %1325, 3
   %1328 = zext nneg i32 %1327 to i64
@@ -2145,7 +2145,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %spec.select.i365.i = add i32 %1325, %1333
   %1334 = zext i8 %1330 to i32
   %1335 = and i32 %1325, 7
-  store i32 %spec.select.i365.i, ptr %22, align 8, !tbaa !27
+  store i32 %spec.select.i365.i, ptr %22, align 8, !tbaa !28
   %1336 = lshr exact i32 128, %1335
   %1337 = and i32 %1336, %1334
   %.not152.i = icmp eq i32 %1337, 0
@@ -2157,24 +2157,24 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   br i1 %.not153.i, label %1340, label %parse_source_parameters.exit.thread118
 
 1340:                                             ; preds = %1338
-  store i32 1, ptr %1285, align 4, !tbaa !69
+  store i32 1, ptr %1285, align 4, !tbaa !70
   br label %parse_source_parameters.exit.thread118
 
 1341:                                             ; preds = %1256
-  %1342 = load i8, ptr %315, align 1, !tbaa !53
+  %1342 = load i8, ptr %315, align 1, !tbaa !54
   %1343 = zext i8 %1342 to i64
   %1344 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @dirac_color_presets, i64 0, i64 %1343
-  %1345 = load i32, ptr %1344, align 4, !tbaa !63
+  %1345 = load i32, ptr %1344, align 4, !tbaa !64
   %1346 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %1345, ptr %1346, align 4, !tbaa !65
+  store i32 %1345, ptr %1346, align 4, !tbaa !66
   %1347 = getelementptr inbounds nuw i8, ptr %1344, i64 4
-  %1348 = load i32, ptr %1347, align 4, !tbaa !66
+  %1348 = load i32, ptr %1347, align 4, !tbaa !67
   %1349 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 %1348, ptr %1349, align 4, !tbaa !67
+  store i32 %1348, ptr %1349, align 4, !tbaa !68
   %1350 = getelementptr inbounds nuw i8, ptr %1344, i64 8
-  %1351 = load i32, ptr %1350, align 4, !tbaa !68
+  %1351 = load i32, ptr %1350, align 4, !tbaa !69
   %1352 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %1351, ptr %1352, align 4, !tbaa !69
+  store i32 %1351, ptr %1352, align 4, !tbaa !70
   br label %parse_source_parameters.exit.thread118
 
 parse_source_parameters.exit.thread:              ; preds = %.thread464, %495, %494, %._crit_edge604.i, %get_interleaved_ue_golomb.exit218.i, %get_interleaved_ue_golomb.exit261.i, %get_interleaved_ue_golomb.exit361.i, %1231, %1255, %1254, %1270
@@ -2194,7 +2194,7 @@ parse_source_parameters.exit:                     ; preds = %1233
   br i1 %1353, label %1407, label %1354
 
 1354:                                             ; preds = %parse_source_parameters.exit.thread118, %parse_source_parameters.exit
-  %1355 = load i32, ptr %22, align 8, !tbaa !27
+  %1355 = load i32, ptr %22, align 8, !tbaa !28
   %1356 = load i32, ptr %18, align 8, !tbaa !14
   %1357 = load ptr, ptr %8, align 8, !tbaa !9
   %1358 = lshr i32 %1355, 3
@@ -2305,7 +2305,7 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @get_interleaved_ue_golomb(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !27
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %0, align 8, !tbaa !9
@@ -2328,7 +2328,7 @@ define internal fastcc i32 @get_interleaved_ue_golomb(ptr noundef nonnull captur
   %20 = zext i8 %19 to i32
   %21 = add i32 %3, %20
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %21)
-  store i32 %., ptr %2, align 8, !tbaa !27
+  store i32 %., ptr %2, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw [256 x i8], ptr @ff_interleaved_ue_golomb_vlc_code, i64 0, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i32
@@ -2380,7 +2380,7 @@ define internal fastcc i32 @get_interleaved_ue_golomb(ptr noundef nonnull captur
 
 .loopexit:                                        ; preds = %39, %30
   %.1 = phi i32 [ %38, %30 ], [ %44, %39 ]
-  store i32 %spec.select56, ptr %2, align 8, !tbaa !27
+  store i32 %spec.select56, ptr %2, align 8, !tbaa !28
   %55 = add i32 %.1, -1
   br label %56
 
@@ -2433,56 +2433,57 @@ attributes #5 = { nounwind }
 !14 = !{!10, !12, i64 24}
 !15 = !{!10, !11, i64 8}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !12, i64 68}
-!20 = !{!"AVDiracSeqHeader", !12, i64 0, !12, i64 4, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !21, i64 14, !21, i64 16, !21, i64 18, !21, i64 20, !7, i64 22, !7, i64 23, !12, i64 24, !12, i64 28, !22, i64 32, !22, i64 40, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !23, i64 68, !12, i64 76}
-!21 = !{!"short", !7, i64 0}
-!22 = !{!"AVRational", !12, i64 0, !12, i64 4}
-!23 = !{!"DiracVersionInfo", !12, i64 0, !12, i64 4}
-!24 = !{!20, !12, i64 72}
-!25 = !{!20, !12, i64 24}
-!26 = !{!20, !12, i64 28}
-!27 = !{!10, !12, i64 16}
-!28 = !{!29, !12, i64 0}
-!29 = !{!"dirac_source_params", !12, i64 0, !12, i64 4, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !21, i64 14, !21, i64 16, !21, i64 18, !21, i64 20, !7, i64 22, !7, i64 23}
-!30 = !{!20, !12, i64 0}
-!31 = !{!29, !12, i64 4}
-!32 = !{!20, !12, i64 4}
-!33 = !{!29, !7, i64 8}
-!34 = !{!20, !7, i64 8}
-!35 = !{!29, !7, i64 9}
-!36 = !{!20, !7, i64 9}
-!37 = !{!29, !7, i64 10}
-!38 = !{!20, !7, i64 10}
-!39 = !{!29, !7, i64 11}
-!40 = !{!20, !7, i64 11}
-!41 = !{!29, !7, i64 12}
-!42 = !{!20, !7, i64 12}
-!43 = !{!29, !21, i64 14}
-!44 = !{!20, !21, i64 14}
-!45 = !{!29, !21, i64 16}
-!46 = !{!20, !21, i64 16}
-!47 = !{!29, !21, i64 18}
-!48 = !{!20, !21, i64 18}
-!49 = !{!20, !21, i64 20}
-!50 = !{!29, !7, i64 22}
-!51 = !{!20, !7, i64 22}
-!52 = !{!29, !7, i64 23}
-!53 = !{!20, !7, i64 23}
-!54 = !{!12, !12, i64 0}
-!55 = !{!20, !12, i64 40}
-!56 = !{!20, !12, i64 44}
-!57 = !{!20, !12, i64 52}
-!58 = !{!20, !12, i64 76}
-!59 = !{!60, !7, i64 0}
-!60 = !{!"", !7, i64 0, !12, i64 4}
-!61 = !{!60, !12, i64 4}
-!62 = !{!20, !12, i64 48}
-!63 = !{!64, !12, i64 0}
-!64 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8}
-!65 = !{!20, !12, i64 56}
-!66 = !{!64, !12, i64 4}
-!67 = !{!20, !12, i64 64}
-!68 = !{!64, !12, i64 8}
-!69 = !{!20, !12, i64 60}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !12, i64 68}
+!21 = !{!"AVDiracSeqHeader", !12, i64 0, !12, i64 4, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !22, i64 14, !22, i64 16, !22, i64 18, !22, i64 20, !7, i64 22, !7, i64 23, !12, i64 24, !12, i64 28, !23, i64 32, !23, i64 40, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !24, i64 68, !12, i64 76}
+!22 = !{!"short", !7, i64 0}
+!23 = !{!"AVRational", !12, i64 0, !12, i64 4}
+!24 = !{!"DiracVersionInfo", !12, i64 0, !12, i64 4}
+!25 = !{!21, !12, i64 72}
+!26 = !{!21, !12, i64 24}
+!27 = !{!21, !12, i64 28}
+!28 = !{!10, !12, i64 16}
+!29 = !{!30, !12, i64 0}
+!30 = !{!"dirac_source_params", !12, i64 0, !12, i64 4, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !22, i64 14, !22, i64 16, !22, i64 18, !22, i64 20, !7, i64 22, !7, i64 23}
+!31 = !{!21, !12, i64 0}
+!32 = !{!30, !12, i64 4}
+!33 = !{!21, !12, i64 4}
+!34 = !{!30, !7, i64 8}
+!35 = !{!21, !7, i64 8}
+!36 = !{!30, !7, i64 9}
+!37 = !{!21, !7, i64 9}
+!38 = !{!30, !7, i64 10}
+!39 = !{!21, !7, i64 10}
+!40 = !{!30, !7, i64 11}
+!41 = !{!21, !7, i64 11}
+!42 = !{!30, !7, i64 12}
+!43 = !{!21, !7, i64 12}
+!44 = !{!30, !22, i64 14}
+!45 = !{!21, !22, i64 14}
+!46 = !{!30, !22, i64 16}
+!47 = !{!21, !22, i64 16}
+!48 = !{!30, !22, i64 18}
+!49 = !{!21, !22, i64 18}
+!50 = !{!21, !22, i64 20}
+!51 = !{!30, !7, i64 22}
+!52 = !{!21, !7, i64 22}
+!53 = !{!30, !7, i64 23}
+!54 = !{!21, !7, i64 23}
+!55 = !{!12, !12, i64 0}
+!56 = !{!21, !12, i64 40}
+!57 = !{!21, !12, i64 44}
+!58 = !{!21, !12, i64 52}
+!59 = !{!21, !12, i64 76}
+!60 = !{!61, !7, i64 0}
+!61 = !{!"", !7, i64 0, !12, i64 4}
+!62 = !{!61, !12, i64 4}
+!63 = !{!21, !12, i64 48}
+!64 = !{!65, !12, i64 0}
+!65 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8}
+!66 = !{!21, !12, i64 56}
+!67 = !{!65, !12, i64 4}
+!68 = !{!21, !12, i64 64}
+!69 = !{!65, !12, i64 8}
+!70 = !{!21, !12, i64 60}

@@ -278,7 +278,7 @@ do.body:                                          ; preds = %while.cond, %do.bod
   br i1 %or.cond, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
-  br i1 %cmp29, label %while.cond, label %while.end, !llvm.loop !7
+  br i1 %cmp29, label %while.cond, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %do.end, %while.cond
   %result.2 = phi i32 [ %call28, %do.end ], [ 0, %while.cond ]
@@ -459,6 +459,7 @@ attributes #12 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

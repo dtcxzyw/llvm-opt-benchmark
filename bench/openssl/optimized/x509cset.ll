@@ -153,42 +153,42 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get0_lastUpdate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get0_nextUpdate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get_lastUpdate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get_nextUpdate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get_issuer(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_CRL_get0_extensions(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
@@ -206,7 +206,7 @@ define void @X509_CRL_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %5, ptr %1, align 8, !tbaa !38
+  store ptr %5, ptr %1, align 8, !tbaa !39
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -215,7 +215,7 @@ define void @X509_CRL_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %8, ptr %2, align 8, !tbaa !39
+  store ptr %8, ptr %2, align 8, !tbaa !40
   br label %9
 
 9:                                                ; preds = %7, %6
@@ -225,7 +225,7 @@ define void @X509_CRL_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 ; Function Attrs: nounwind uwtable
 define i32 @X509_CRL_get_signature_nid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #6
   ret i32 %4
 }
@@ -235,7 +235,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REVOKED_get0_revocationDate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   ret ptr %3
 }
 
@@ -284,7 +284,7 @@ declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REVOKED_get0_extensions(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
   ret ptr %3
 }
 
@@ -340,15 +340,16 @@ attributes #6 = { nounwind }
 !29 = !{!30, !19, i64 52}
 !30 = !{!"x509_revoked_st", !20, i64 0, !6, i64 24, !15, i64 32, !31, i64 40, !19, i64 48, !19, i64 52}
 !31 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!4, !6, i64 32}
-!35 = !{!4, !6, i64 40}
-!36 = !{!4, !13, i64 24}
-!37 = !{!4, !15, i64 56}
-!38 = !{!6, !6, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
-!41 = !{!4, !11, i64 88}
-!42 = !{!30, !6, i64 24}
-!43 = !{!30, !15, i64 32}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!4, !6, i64 32}
+!36 = !{!4, !6, i64 40}
+!37 = !{!4, !13, i64 24}
+!38 = !{!4, !15, i64 56}
+!39 = !{!6, !6, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
+!42 = !{!4, !11, i64 88}
+!43 = !{!30, !6, i64 24}
+!44 = !{!30, !15, i64 32}

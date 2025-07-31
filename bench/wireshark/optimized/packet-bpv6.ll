@@ -2427,7 +2427,7 @@ evaluate_sdnv.exit408.i:                          ; preds = %988
   %999 = add i32 %991, %990
   %1000 = add nuw nsw i32 %.0373548.i, 1
   %exitcond.not.i = icmp eq i32 %1000, %.0.i403580.i
-  br i1 %exitcond.not.i, label %.loopexit536.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit536.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit536.i:                                   ; preds = %997, %evaluate_sdnv.exit408.i, %evaluate_sdnv.exit406.i, %evaluate_sdnv.exit404.i, %evaluate_sdnv.exit404.thread581.i, %evaluate_sdnv.exit.i55
   %.0369.i = phi i32 [ %971, %evaluate_sdnv.exit.i55 ], [ %.1370549.i, %evaluate_sdnv.exit406.i ], [ %990, %evaluate_sdnv.exit408.i ], [ %980, %evaluate_sdnv.exit404.i ], [ %971, %evaluate_sdnv.exit404.thread581.i ], [ %999, %997 ]
@@ -2819,7 +2819,7 @@ evaluate_sdnv.exit428.i:                          ; preds = %1169, %1168, %evalu
   %1175 = add i32 %.0383553.i, 2
   %1176 = add i32 %1175, %.0.i7.i423.ph.i
   %.not400.not.i = icmp slt i32 %1176, %.0.i7.i.ph.i
-  br i1 %.not400.not.i, label %.lr.ph555.i, label %.loopexit.i, !llvm.loop !9
+  br i1 %.not400.not.i, label %.lr.ph555.i, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %1174, %1113, %evaluate_sdnv.exit420.i
   %.5361.i = phi i32 [ %1100, %evaluate_sdnv.exit420.i ], [ %1119, %1113 ], [ %.9365.i, %1174 ]
@@ -2987,7 +2987,7 @@ evaluate_sdnv.exit438.i:                          ; preds = %1236, %1235, %evalu
   %1246 = add i32 %.0372558.i, 2
   %1247 = add i32 %1246, %.0.i7.i433.ph.i
   %.not402.not.i = icmp slt i32 %1247, %.0.i429.i
-  br i1 %.not402.not.i, label %.lr.ph560.i, label %display_extension_block.exit, !llvm.loop !10
+  br i1 %.not402.not.i, label %.lr.ph560.i, label %display_extension_block.exit, !llvm.loop !11
 
 1248:                                             ; preds = %1013
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #6
@@ -3161,7 +3161,7 @@ display_extension_block.exit:                     ; preds = %1245, %1009, %1020,
   %.166 = phi i8 [ %.3, %dissect_payload_header.exit ], [ %.4, %display_extension_block.exit ]
   %.1 = phi i32 [ %.095.i, %dissect_payload_header.exit ], [ %.0.i58, %display_extension_block.exit ]
   %1329 = icmp eq i8 %.166, 0
-  br i1 %1329, label %527, label %1330, !llvm.loop !11
+  br i1 %1329, label %527, label %1330, !llvm.loop !12
 
 1330:                                             ; preds = %1328
   call void @proto_item_set_len(ptr noundef %79, i32 noundef %.1)
@@ -3887,9 +3887,10 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

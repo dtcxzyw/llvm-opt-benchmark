@@ -90,7 +90,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
   %7 = phi ptr [ %13, %10 ], [ %6, %.lr.ph ]
   %.01425.us = phi i64 [ %11, %10 ], [ %4, %.lr.ph ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not18.us = icmp eq ptr %9, null
   br i1 %.not18.us, label %10, label %.split.us
 
@@ -99,13 +99,13 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
   %12 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %.not.us = icmp eq i64 %11, 31
-  br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %20
   %14 = phi ptr [ %23, %20 ], [ %6, %.lr.ph ]
   %.01425 = phi i64 [ %21, %20 ], [ %4, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %20, label %.split.us
 
@@ -115,7 +115,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
   %17 = add i64 %.us-phi, 1
   %18 = inttoptr i64 %17 to ptr
   store ptr %18, ptr %0, align 8, !tbaa !4
-  %19 = load ptr, ptr %.us-phi26, align 8, !tbaa !21
+  %19 = load ptr, ptr %.us-phi26, align 8, !tbaa !22
   br label %24
 
 20:                                               ; preds = %.lr.ph.split
@@ -123,7 +123,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
   %22 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %.not = icmp eq i64 %21, 31
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %20, %10, %2
   store ptr null, ptr %0, align 8, !tbaa !4
@@ -143,12 +143,12 @@ define ptr @avio_protocol_get_class(ptr noundef readonly captures(none) %0) loca
   %3 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %.not = icmp eq i64 %indvars.iv.next, 31
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !24
 
 5:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %6 = phi ptr [ @ff_async_protocol, %1 ], [ %4, %2 ]
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #5
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %9, label %2
@@ -184,12 +184,12 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not26, label %10, label %5
 
 5:                                                ; preds = %.preheader.split.us
-  %6 = load i8, ptr %1, align 1, !tbaa !24
+  %6 = load i8, ptr %1, align 1, !tbaa !25
   %.not27.us = icmp eq i8 %6, 0
   br i1 %.not27.us, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load ptr, ptr %4, align 8, !tbaa !22
   %9 = tail call i32 @av_match_name(ptr noundef %8, ptr noundef nonnull %1) #6
   %.not28.us = icmp eq i32 %9, 0
   br i1 %.not28.us, label %10, label %14
@@ -207,7 +207,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %15 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next42
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %.not22.us = icmp eq i64 %indvars.iv.next42, 31
-  br i1 %.not22.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !25
+  br i1 %.not22.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !26
 
 .preheader.split:                                 ; preds = %.preheader
   br i1 %.not26, label %.preheader.split.split.us, label %.preheader.split.split
@@ -216,12 +216,12 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %26 ], [ 0, %.preheader.split ]
   %17 = phi ptr [ %28, %26 ], [ @ff_async_protocol, %.preheader.split ]
   %.01630.us31 = phi i32 [ %.1.us33, %26 ], [ 0, %.preheader.split ]
-  %18 = load i8, ptr %0, align 1, !tbaa !24
+  %18 = load i8, ptr %0, align 1, !tbaa !25
   %.not24.us = icmp eq i8 %18, 0
   br i1 %.not24.us, label %22, label %19
 
 19:                                               ; preds = %.preheader.split.split.us
-  %20 = load ptr, ptr %17, align 8, !tbaa !21
+  %20 = load ptr, ptr %17, align 8, !tbaa !22
   %21 = tail call i32 @av_match_name(ptr noundef %20, ptr noundef nonnull %0) #6
   %.not25.us = icmp eq i32 %21, 0
   br i1 %.not25.us, label %26, label %22
@@ -239,29 +239,29 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %27 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next39
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %.not22.us34 = icmp eq i64 %indvars.iv.next39, 31
-  br i1 %.not22.us34, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !26
+  br i1 %.not22.us34, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !27
 
 .preheader.split.split:                           ; preds = %.preheader.split, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader.split ]
   %29 = phi ptr [ %45, %43 ], [ @ff_async_protocol, %.preheader.split ]
   %.01630 = phi i32 [ %.1, %43 ], [ 0, %.preheader.split ]
-  %30 = load i8, ptr %0, align 1, !tbaa !24
+  %30 = load i8, ptr %0, align 1, !tbaa !25
   %.not24 = icmp eq i8 %30, 0
   br i1 %.not24, label %34, label %31
 
 31:                                               ; preds = %.preheader.split.split
-  %32 = load ptr, ptr %29, align 8, !tbaa !21
+  %32 = load ptr, ptr %29, align 8, !tbaa !22
   %33 = tail call i32 @av_match_name(ptr noundef %32, ptr noundef nonnull %0) #6
   %.not25 = icmp eq i32 %33, 0
   br i1 %.not25, label %43, label %34
 
 34:                                               ; preds = %31, %.preheader.split.split
-  %35 = load i8, ptr %1, align 1, !tbaa !24
+  %35 = load i8, ptr %1, align 1, !tbaa !25
   %.not27 = icmp eq i8 %35, 0
   br i1 %.not27, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %29, align 8, !tbaa !21
+  %37 = load ptr, ptr %29, align 8, !tbaa !22
   %38 = tail call i32 @av_match_name(ptr noundef %37, ptr noundef nonnull %1) #6
   %.not28 = icmp eq i32 %38, 0
   br i1 %.not28, label %39, label %43
@@ -279,7 +279,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %44 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next
   %45 = load ptr, ptr %44, align 8, !tbaa !8
   %.not22 = icmp eq i64 %indvars.iv.next, 31
-  br i1 %.not22, label %.loopexit, label %.preheader.split.split, !llvm.loop !27
+  br i1 %.not22, label %.loopexit, label %.preheader.split.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %43, %26, %14, %2
   ret ptr %3
@@ -314,16 +314,17 @@ attributes #6 = { nounwind }
 !12 = !{!"p1 omnipotent char", !5, i64 0}
 !13 = !{!"p1 _ZTS7AVClass", !5, i64 0}
 !14 = !{!"int", !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!11, !5, i64 40}
-!18 = distinct !{!18, !16, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!11, !5, i64 48}
-!21 = !{!11, !12, i64 0}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !16, !19}
-!26 = distinct !{!26, !16, !19}
-!27 = distinct !{!27, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!11, !5, i64 40}
+!19 = distinct !{!19, !16, !17, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!11, !5, i64 48}
+!22 = !{!11, !12, i64 0}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !16, !17, !20}
+!27 = distinct !{!27, !16, !17, !20}
+!28 = distinct !{!28, !16, !17}

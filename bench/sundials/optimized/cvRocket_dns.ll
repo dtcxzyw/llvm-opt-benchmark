@@ -286,7 +286,7 @@ check_retval.exit85.thread:                       ; preds = %104, %110, %117
   %.139 = select i1 %122, double %126, double %.038
   %127 = load double, ptr %23, align 8, !tbaa !11
   %128 = fcmp olt double %127, 0.000000e+00
-  br i1 %128, label %129, label %76
+  br i1 %128, label %129, label %76, !llvm.loop !16
 
 129:                                              ; preds = %125, %check_retval.exit85.thread
   call fastcc void @PrintFinalStats(ptr noundef %120)
@@ -527,16 +527,16 @@ check_retval.exit22:                              ; preds = %check_retval.exit20
 
 check_retval.exit24:                              ; preds = %check_retval.exit22, %53
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %56 = load i64, ptr %2, align 8, !tbaa !16
-  %57 = load i64, ptr %3, align 8, !tbaa !16
-  %58 = load i64, ptr %4, align 8, !tbaa !16
-  %59 = load i64, ptr %6, align 8, !tbaa !16
-  %60 = load i64, ptr %5, align 8, !tbaa !16
+  %56 = load i64, ptr %2, align 8, !tbaa !18
+  %57 = load i64, ptr %3, align 8, !tbaa !18
+  %58 = load i64, ptr %4, align 8, !tbaa !18
+  %59 = load i64, ptr %6, align 8, !tbaa !18
+  %60 = load i64, ptr %5, align 8, !tbaa !18
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i64 noundef %56, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %60)
-  %62 = load i64, ptr %7, align 8, !tbaa !16
-  %63 = load i64, ptr %8, align 8, !tbaa !16
-  %64 = load i64, ptr %9, align 8, !tbaa !16
-  %65 = load i64, ptr %10, align 8, !tbaa !16
+  %62 = load i64, ptr %7, align 8, !tbaa !18
+  %63 = load i64, ptr %8, align 8, !tbaa !18
+  %64 = load i64, ptr %9, align 8, !tbaa !18
+  %65 = load i64, ptr %10, align 8, !tbaa !18
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
@@ -624,5 +624,7 @@ attributes #9 = { cold nounwind }
 !13 = !{!6, !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}

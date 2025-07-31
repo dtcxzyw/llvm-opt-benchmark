@@ -69,23 +69,23 @@ define internal i32 @framecrc_write_header(ptr noundef %0) #0 {
 define internal noundef i32 @framecrc_write_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load i32, ptr %6, align 8, !tbaa !42
+  %7 = load i32, ptr %6, align 8, !tbaa !43
   %8 = sext i32 %7 to i64
   %9 = tail call i32 @av_adler32_update(i32 noundef 0, ptr noundef %5, i64 noundef %8) #6
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !43
+  %11 = load i32, ptr %10, align 4, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !44
+  %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !45
+  %15 = load i64, ptr %14, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = load i64, ptr %16, align 8, !tbaa !46
+  %17 = load i64, ptr %16, align 8, !tbaa !47
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.3, i32 noundef %11, i64 noundef %13, i64 noundef %15, i64 noundef %17, i32 noundef %7, i32 noundef %9) #7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !47
+  %20 = load i32, ptr %19, align 8, !tbaa !48
   %.not = icmp eq i32 %20, 1
   br i1 %.not, label %23, label %21
 
@@ -95,13 +95,13 @@ define internal noundef i32 @framecrc_write_packet(ptr noundef readonly captures
 
 23:                                               ; preds = %21, %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %25 = load i32, ptr %24, align 8, !tbaa !48
+  %25 = load i32, ptr %24, align 8, !tbaa !49
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %.loopexit, label %26
 
 26:                                               ; preds = %23
   %27 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.5, i32 noundef %25) #7
-  %28 = load i32, ptr %24, align 8, !tbaa !48
+  %28 = load i32, ptr %24, align 8, !tbaa !49
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %.loopexit
 
@@ -111,15 +111,15 @@ define internal noundef i32 @framecrc_write_packet(ptr noundef readonly captures
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = load ptr, ptr %30, align 8, !tbaa !49
+  %32 = load ptr, ptr %30, align 8, !tbaa !50
   %33 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %32, i64 %indvars.iv, i32 1
-  %34 = load i64, ptr %33, align 8, !tbaa !50
+  %34 = load i64, ptr %33, align 8, !tbaa !51
   %35 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.6, i64 noundef %34) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %24, align 8, !tbaa !48
+  %36 = load i32, ptr %24, align 8, !tbaa !49
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %31, label %.loopexit, !llvm.loop !52
+  br i1 %38, label %31, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %31, %26, %23
   %39 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.7) #7
@@ -205,17 +205,18 @@ attributes #7 = { nounwind }
 !36 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
 !37 = !{!35, !13, i64 24}
 !38 = !{!5, !12, i64 32}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!31, !18, i64 24}
-!42 = !{!31, !13, i64 32}
-!43 = !{!31, !13, i64 36}
-!44 = !{!31, !19, i64 16}
-!45 = !{!31, !19, i64 8}
-!46 = !{!31, !19, i64 64}
-!47 = !{!31, !13, i64 40}
-!48 = !{!31, !13, i64 56}
-!49 = !{!31, !33, i64 48}
-!50 = !{!51, !19, i64 8}
-!51 = !{!"AVPacketSideData", !18, i64 0, !19, i64 8, !13, i64 16}
-!52 = distinct !{!52, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!31, !18, i64 24}
+!43 = !{!31, !13, i64 32}
+!44 = !{!31, !13, i64 36}
+!45 = !{!31, !19, i64 16}
+!46 = !{!31, !19, i64 8}
+!47 = !{!31, !19, i64 64}
+!48 = !{!31, !13, i64 40}
+!49 = !{!31, !13, i64 56}
+!50 = !{!31, !33, i64 48}
+!51 = !{!52, !19, i64 8}
+!52 = !{!"AVPacketSideData", !18, i64 0, !19, i64 8, !13, i64 16}
+!53 = distinct !{!53, !40, !41}

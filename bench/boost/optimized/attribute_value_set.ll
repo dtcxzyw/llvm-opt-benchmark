@@ -425,7 +425,7 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_setD2Ev(ptr noundef non
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !6, !noalias !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !6, !noalias !45
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.not7.i.i.i = icmp eq ptr %5, %6
   br i1 %.not7.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
@@ -435,7 +435,7 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_setD2Ev(ptr noundef non
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i, i64 32
-  %10 = load i8, ptr %9, align 8, !tbaa !33, !range !47, !noundef !48
+  %10 = load i8, ptr %9, align 8, !tbaa !33, !range !48, !noundef !49
   %11 = trunc nuw i8 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !29
@@ -480,7 +480,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set4nodeD2Ev.exit4.i.i.i.i: ; preds 
 
 _ZNK5boost3log11v2_mt_posix19attribute_value_set14implementation8disposerclEPNS2_4nodeE.exit.i.i.i: ; preds = %_ZN5boost3log11v2_mt_posix19attribute_value_set4nodeD2Ev.exit4.i.i.i.i, %19, %15, %14
   %.not.i.i.i = icmp eq ptr %8, %6
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !50
 
 .loopexit:                                        ; preds = %_ZNK5boost3log11v2_mt_posix19attribute_value_set14implementation8disposerclEPNS2_4nodeE.exit.i.i.i, %3
   tail call void @free(ptr noundef nonnull %2) #12
@@ -529,7 +529,7 @@ define { ptr, ptr } @_ZNK5boost3log11v2_mt_posix19attribute_value_set5beginEv(pt
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation5beginEv.exit: ; preds = %9, %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !6, !noalias !50
+  %14 = load ptr, ptr %13, align 8, !tbaa !6, !noalias !51
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %14, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -604,20 +604,20 @@ define { ptr, ptr } @_ZNK5boost3log11v2_mt_posix19attribute_value_set4findENS1_1
 .lr.ph.i.i:                                       ; preds = %9, %15
   %.08.i.i = phi ptr [ %.0.i.i, %15 ], [ %8, %9 ]
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
-  %13 = load i32, ptr %12, align 4, !tbaa !53
+  %13 = load i32, ptr %12, align 4, !tbaa !54
   %14 = icmp ult i32 %13, %1
   br i1 %14, label %15, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
-  %.0.i.i = load ptr, ptr %16, align 8, !tbaa !54
+  %.0.i.i = load ptr, ptr %16, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %.0.i.i, %11
-  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !55
+  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !56
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i: ; preds = %15, %.lr.ph.i.i, %9
   %.0.lcssa.i.i = phi ptr [ %8, %9 ], [ %.0.i.i, %15 ], [ %.08.i.i, %.lr.ph.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !53
+  %18 = load i32, ptr %17, align 4, !tbaa !54
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation4findENS1_14attribute_nameE.exit, label %20
 
@@ -677,11 +677,11 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_set6insertENS1_14attrib
   %6 = tail call { ptr, i8 } @_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6insertENS1_14attribute_nameERKNS1_15attribute_valueE(ptr noundef nonnull align 8 dereferenceable(320) %5, i32 %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.fca.0.extract = extractvalue { ptr, i8 } %6, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %6, 1
-  store ptr %.fca.0.extract, ptr %0, align 8, !tbaa !54
+  store ptr %.fca.0.extract, ptr %0, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !54
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fca.1.extract, ptr %7, align 8, !tbaa !56
+  store i8 %.fca.1.extract, ptr %7, align 8, !tbaa !57
   ret void
 }
 
@@ -693,22 +693,22 @@ define linkonce_odr hidden { ptr, i8 } @_ZN5boost3log11v2_mt_posix19attribute_va
   %7 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_value_set::implementation::bucket"], ptr %4, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !41
-  %.06.i = load ptr, ptr %7, align 8, !tbaa !54
+  %.06.i = load ptr, ptr %7, align 8, !tbaa !55
   %.not7.i = icmp eq ptr %.06.i, %9
   br i1 %.not7.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %13
   %.08.i = phi ptr [ %.0.i, %13 ], [ %.06.i, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !53
+  %11 = load i32, ptr %10, align 4, !tbaa !54
   %12 = icmp ult i32 %11, %1
   br i1 %12, label %13, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.thread
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %.0.i = load ptr, ptr %14, align 8, !tbaa !54
+  %.0.i = load ptr, ptr %14, align 8, !tbaa !55
   %.not.i = icmp eq ptr %.0.i, %9
-  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !56
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit: ; preds = %13, %3
   %.0.lcssa.i = phi ptr [ %.06.i, %3 ], [ %.0.i, %13 ]
@@ -717,7 +717,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketE
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit._ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.thread_crit_edge: ; preds = %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !53
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !54
   br label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.thread
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.thread: ; preds = %.lr.ph.i, %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit._ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.thread_crit_edge
@@ -781,7 +781,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %_ZN5boost3l
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i25, i64 16
-  %39 = load i32, ptr %38, align 4, !tbaa !53
+  %39 = load i32, ptr %38, align 4, !tbaa !54
   %40 = icmp ugt i32 %1, %39
   br i1 %40, label %41, label %44
 
@@ -802,16 +802,16 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %_ZN5boost3l
 _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %32, %41, %44, %46
   %.sroa.030.0.i = phi ptr [ %33, %32 ], [ %43, %41 ], [ %.0.lcssa.i25, %46 ], [ %.0.lcssa.i25, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !59
-  store ptr %48, ptr %.sink36, align 8, !tbaa !10, !noalias !59
+  %48 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !60
+  store ptr %48, ptr %.sink36, align 8, !tbaa !10, !noalias !60
   %49 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
-  store ptr %.sroa.030.0.i, ptr %49, align 8, !tbaa !6, !noalias !59
-  store ptr %.sink36, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !59
+  store ptr %.sroa.030.0.i, ptr %49, align 8, !tbaa !6, !noalias !60
+  store ptr %.sink36, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !60
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %.sink36, ptr %50, align 8, !tbaa !6, !noalias !59
-  %51 = load i64, ptr %47, align 8, !tbaa !25, !noalias !59
+  store ptr %.sink36, ptr %50, align 8, !tbaa !6, !noalias !60
+  %51 = load i64, ptr %47, align 8, !tbaa !25, !noalias !60
   %52 = add i64 %51, 1
-  store i64 %52, ptr %47, align 8, !tbaa !25, !noalias !59
+  store i64 %52, ptr %47, align 8, !tbaa !25, !noalias !60
   br label %63
 
 53:                                               ; preds = %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i
@@ -877,33 +877,33 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix19attribute_va
   %11 = and i32 %1, 15
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %10, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !62
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation4findENS1_14attribute_nameE.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
   %.not7.i.i = icmp eq ptr %14, %17
   br i1 %.not7.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %21
   %.08.i.i = phi ptr [ %.0.i.i, %21 ], [ %14, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !53
+  %19 = load i32, ptr %18, align 4, !tbaa !54
   %20 = icmp ult i32 %19, %1
   br i1 %20, label %21, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
-  %.0.i.i = load ptr, ptr %22, align 8, !tbaa !54
+  %.0.i.i = load ptr, ptr %22, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %.0.i.i, %17
-  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !65
+  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !66
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i: ; preds = %21, %.lr.ph.i.i, %15
   %.0.lcssa.i.i = phi ptr [ %14, %15 ], [ %.0.i.i, %21 ], [ %.08.i.i, %.lr.ph.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !53
+  %24 = load i32, ptr %23, align 4, !tbaa !54
   %25 = icmp eq i32 %24, %1
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = icmp ne ptr %.0.lcssa.i.i, %26
@@ -912,10 +912,10 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
 
 28:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !66, !noalias !68
-  %31 = load ptr, ptr %30, align 8, !tbaa !3, !noalias !68
+  %30 = load ptr, ptr %29, align 8, !tbaa !67, !noalias !69
+  %31 = load ptr, ptr %30, align 8, !tbaa !3, !noalias !69
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8, !noalias !68
+  %33 = load ptr, ptr %32, align 8, !noalias !69
   call void %33(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %30)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !11
@@ -962,7 +962,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %28
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = load i32, ptr %53, align 4, !tbaa !53
+  %54 = load i32, ptr %53, align 4, !tbaa !54
   %55 = icmp ugt i32 %1, %54
   br i1 %55, label %56, label %59
 
@@ -983,16 +983,16 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %28
 _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %47, %56, %59, %61
   %.sroa.030.0.i = phi ptr [ %48, %47 ], [ %58, %56 ], [ %3, %61 ], [ %3, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !71
-  store ptr %63, ptr %.sink100, align 8, !tbaa !10, !noalias !71
+  %63 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !72
+  store ptr %63, ptr %.sink100, align 8, !tbaa !10, !noalias !72
   %64 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
-  store ptr %.sroa.030.0.i, ptr %64, align 8, !tbaa !6, !noalias !71
-  store ptr %.sink100, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !71
+  store ptr %.sroa.030.0.i, ptr %64, align 8, !tbaa !6, !noalias !72
+  store ptr %.sink100, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !72
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %.sink100, ptr %65, align 8, !tbaa !6, !noalias !71
-  %66 = load i64, ptr %62, align 8, !tbaa !25, !noalias !71
+  store ptr %.sink100, ptr %65, align 8, !tbaa !6, !noalias !72
+  %66 = load i64, ptr %62, align 8, !tbaa !25, !noalias !72
   %67 = add i64 %66, 1
-  store i64 %67, ptr %62, align 8, !tbaa !25, !noalias !71
+  store i64 %67, ptr %62, align 8, !tbaa !25, !noalias !72
   br label %212
 
 68:                                               ; preds = %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i
@@ -1019,33 +1019,33 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation4findENS1_14attribute_n
   %79 = and i32 %1, 15
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %78, i64 0, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !62
+  %82 = load ptr, ptr %81, align 8, !tbaa !63
   %.not.i35 = icmp eq ptr %82, null
   br i1 %.not.i35, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation4findENS1_14attribute_nameE.exit44.thread, label %83
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !64
+  %85 = load ptr, ptr %84, align 8, !tbaa !65
   %.not7.i.i36 = icmp eq ptr %82, %85
   br i1 %.not7.i.i36, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39, label %.lr.ph.i.i37
 
 .lr.ph.i.i37:                                     ; preds = %83, %89
   %.08.i.i38 = phi ptr [ %.0.i.i42, %89 ], [ %82, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %.08.i.i38, i64 16
-  %87 = load i32, ptr %86, align 4, !tbaa !53
+  %87 = load i32, ptr %86, align 4, !tbaa !54
   %88 = icmp ult i32 %87, %1
   br i1 %88, label %89, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39
 
 89:                                               ; preds = %.lr.ph.i.i37
   %90 = getelementptr inbounds nuw i8, ptr %.08.i.i38, i64 8
-  %.0.i.i42 = load ptr, ptr %90, align 8, !tbaa !54
+  %.0.i.i42 = load ptr, ptr %90, align 8, !tbaa !55
   %.not.i.i43 = icmp eq ptr %.0.i.i42, %85
-  br i1 %.not.i.i43, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39, label %.lr.ph.i.i37, !llvm.loop !65
+  br i1 %.not.i.i43, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39, label %.lr.ph.i.i37, !llvm.loop !66
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39: ; preds = %89, %.lr.ph.i.i37, %83
   %.0.lcssa.i.i40 = phi ptr [ %82, %83 ], [ %.0.i.i42, %89 ], [ %.08.i.i38, %.lr.ph.i.i37 ]
   %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i40, i64 16
-  %92 = load i32, ptr %91, align 4, !tbaa !53
+  %92 = load i32, ptr %91, align 4, !tbaa !54
   %93 = icmp eq i32 %92, %1
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %95 = icmp ne ptr %.0.lcssa.i.i40, %94
@@ -1054,10 +1054,10 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
 
 96:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i39
   %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i40, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !66, !noalias !74
-  %99 = load ptr, ptr %98, align 8, !tbaa !3, !noalias !74
+  %98 = load ptr, ptr %97, align 8, !tbaa !67, !noalias !75
+  %99 = load ptr, ptr %98, align 8, !tbaa !3, !noalias !75
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8, !noalias !74
+  %101 = load ptr, ptr %100, align 8, !noalias !75
   call void %101(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %98)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !11
@@ -1104,7 +1104,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i49: ; preds = %96
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %122 = load i32, ptr %121, align 4, !tbaa !53
+  %122 = load i32, ptr %121, align 4, !tbaa !54
   %123 = icmp ugt i32 %1, %122
   br i1 %123, label %124, label %127
 
@@ -1125,16 +1125,16 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i49: ; preds = %96
 _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit53: ; preds = %115, %124, %127, %129
   %.sroa.030.0.i48 = phi ptr [ %116, %115 ], [ %126, %124 ], [ %3, %129 ], [ %3, %127 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %131 = load ptr, ptr %.sroa.030.0.i48, align 8, !tbaa !10, !noalias !77
-  store ptr %131, ptr %.sink109, align 8, !tbaa !10, !noalias !77
+  %131 = load ptr, ptr %.sroa.030.0.i48, align 8, !tbaa !10, !noalias !78
+  store ptr %131, ptr %.sink109, align 8, !tbaa !10, !noalias !78
   %132 = getelementptr inbounds nuw i8, ptr %.sink109, i64 8
-  store ptr %.sroa.030.0.i48, ptr %132, align 8, !tbaa !6, !noalias !77
-  store ptr %.sink109, ptr %.sroa.030.0.i48, align 8, !tbaa !10, !noalias !77
+  store ptr %.sroa.030.0.i48, ptr %132, align 8, !tbaa !6, !noalias !78
+  store ptr %.sink109, ptr %.sroa.030.0.i48, align 8, !tbaa !10, !noalias !78
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store ptr %.sink109, ptr %133, align 8, !tbaa !6, !noalias !77
-  %134 = load i64, ptr %130, align 8, !tbaa !25, !noalias !77
+  store ptr %.sink109, ptr %133, align 8, !tbaa !6, !noalias !78
+  %134 = load i64, ptr %130, align 8, !tbaa !25, !noalias !78
   %135 = add i64 %134, 1
-  store i64 %135, ptr %130, align 8, !tbaa !25, !noalias !77
+  store i64 %135, ptr %130, align 8, !tbaa !25, !noalias !78
   br label %212
 
 136:                                              ; preds = %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i49
@@ -1161,33 +1161,33 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation4findENS1_14attribute_n
   %147 = and i32 %1, 15
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %146, i64 0, i64 %148
-  %150 = load ptr, ptr %149, align 8, !tbaa !62
+  %150 = load ptr, ptr %149, align 8, !tbaa !63
   %.not.i56 = icmp eq ptr %150, null
   br i1 %.not.i56, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation4findENS1_14attribute_nameE.exit65.thread, label %151
 
 151:                                              ; preds = %145
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !64
+  %153 = load ptr, ptr %152, align 8, !tbaa !65
   %.not7.i.i57 = icmp eq ptr %150, %153
   br i1 %.not7.i.i57, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60, label %.lr.ph.i.i58
 
 .lr.ph.i.i58:                                     ; preds = %151, %157
   %.08.i.i59 = phi ptr [ %.0.i.i63, %157 ], [ %150, %151 ]
   %154 = getelementptr inbounds nuw i8, ptr %.08.i.i59, i64 16
-  %155 = load i32, ptr %154, align 4, !tbaa !53
+  %155 = load i32, ptr %154, align 4, !tbaa !54
   %156 = icmp ult i32 %155, %1
   br i1 %156, label %157, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60
 
 157:                                              ; preds = %.lr.ph.i.i58
   %158 = getelementptr inbounds nuw i8, ptr %.08.i.i59, i64 8
-  %.0.i.i63 = load ptr, ptr %158, align 8, !tbaa !54
+  %.0.i.i63 = load ptr, ptr %158, align 8, !tbaa !55
   %.not.i.i64 = icmp eq ptr %.0.i.i63, %153
-  br i1 %.not.i.i64, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60, label %.lr.ph.i.i58, !llvm.loop !65
+  br i1 %.not.i.i64, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60, label %.lr.ph.i.i58, !llvm.loop !66
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60: ; preds = %157, %.lr.ph.i.i58, %151
   %.0.lcssa.i.i61 = phi ptr [ %150, %151 ], [ %.0.i.i63, %157 ], [ %.08.i.i59, %.lr.ph.i.i58 ]
   %159 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i61, i64 16
-  %160 = load i32, ptr %159, align 4, !tbaa !53
+  %160 = load i32, ptr %159, align 4, !tbaa !54
   %161 = icmp eq i32 %160, %1
   %162 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %163 = icmp ne ptr %.0.lcssa.i.i61, %162
@@ -1196,10 +1196,10 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
 
 164:                                              ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i60
   %165 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i61, i64 24
-  %166 = load ptr, ptr %165, align 8, !tbaa !66, !noalias !80
-  %167 = load ptr, ptr %166, align 8, !tbaa !3, !noalias !80
+  %166 = load ptr, ptr %165, align 8, !tbaa !67, !noalias !81
+  %167 = load ptr, ptr %166, align 8, !tbaa !3, !noalias !81
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 8, !noalias !80
+  %169 = load ptr, ptr %168, align 8, !noalias !81
   call void %169(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %166)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %171 = load ptr, ptr %170, align 8, !tbaa !11
@@ -1246,7 +1246,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i70: ; preds = %164
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %190 = load i32, ptr %189, align 4, !tbaa !53
+  %190 = load i32, ptr %189, align 4, !tbaa !54
   %191 = icmp ugt i32 %1, %190
   br i1 %191, label %192, label %195
 
@@ -1267,16 +1267,16 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i70: ; preds = %164
 _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit74: ; preds = %183, %192, %195, %197
   %.sroa.030.0.i69 = phi ptr [ %184, %183 ], [ %194, %192 ], [ %3, %197 ], [ %3, %195 ]
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %199 = load ptr, ptr %.sroa.030.0.i69, align 8, !tbaa !10, !noalias !83
-  store ptr %199, ptr %.sink118, align 8, !tbaa !10, !noalias !83
+  %199 = load ptr, ptr %.sroa.030.0.i69, align 8, !tbaa !10, !noalias !84
+  store ptr %199, ptr %.sink118, align 8, !tbaa !10, !noalias !84
   %200 = getelementptr inbounds nuw i8, ptr %.sink118, i64 8
-  store ptr %.sroa.030.0.i69, ptr %200, align 8, !tbaa !6, !noalias !83
-  store ptr %.sink118, ptr %.sroa.030.0.i69, align 8, !tbaa !10, !noalias !83
+  store ptr %.sroa.030.0.i69, ptr %200, align 8, !tbaa !6, !noalias !84
+  store ptr %.sink118, ptr %.sroa.030.0.i69, align 8, !tbaa !10, !noalias !84
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store ptr %.sink118, ptr %201, align 8, !tbaa !6, !noalias !83
-  %202 = load i64, ptr %198, align 8, !tbaa !25, !noalias !83
+  store ptr %.sink118, ptr %201, align 8, !tbaa !6, !noalias !84
+  %202 = load i64, ptr %198, align 8, !tbaa !25, !noalias !84
   %203 = add i64 %202, 1
-  store i64 %203, ptr %198, align 8, !tbaa !25, !noalias !83
+  store i64 %203, ptr %198, align 8, !tbaa !25, !noalias !84
   br label %212
 
 204:                                              ; preds = %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i70
@@ -1322,7 +1322,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix19attribute_value_set
   %3 = alloca %"class.boost::log::v2_mt_posix::attribute_value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.022.027 = load ptr, ptr %4, align 8, !tbaa !86
+  %.sroa.022.027 = load ptr, ptr %4, align 8, !tbaa !87
   %.not2628 = icmp eq ptr %.sroa.022.027, %5
   br i1 %.not2628, label %._crit_edge, label %.lr.ph
 
@@ -1354,30 +1354,30 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix19attribute_value_set
 .lr.ph.i:                                         ; preds = %18, %24
   %.08.i = phi ptr [ %.0.i, %24 ], [ %17, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
-  %22 = load i32, ptr %21, align 4, !tbaa !53
+  %22 = load i32, ptr %21, align 4, !tbaa !54
   %23 = icmp ult i32 %22, %13
   br i1 %23, label %24, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %.0.i = load ptr, ptr %25, align 8, !tbaa !54
+  %.0.i = load ptr, ptr %25, align 8, !tbaa !55
   %.not.i = icmp eq ptr %.0.i, %20
-  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !56
 
 _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit: ; preds = %.lr.ph.i, %24, %18
   %.0.lcssa.i = phi ptr [ %17, %18 ], [ %.08.i, %.lr.ph.i ], [ %.0.i, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
-  %27 = load i32, ptr %26, align 4, !tbaa !53
+  %27 = load i32, ptr %26, align 4, !tbaa !54
   %28 = icmp eq i32 %27, %13
   br i1 %28, label %65, label %29
 
 29:                                               ; preds = %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, %11
   %.0 = phi ptr [ %.0.lcssa.i, %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit ], [ null, %11 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !66, !noalias !88
-  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !88
+  %31 = load ptr, ptr %30, align 8, !tbaa !67, !noalias !89
+  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !89
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !noalias !88
+  %34 = load ptr, ptr %33, align 8, !noalias !89
   call void %34(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %31)
   %35 = load ptr, ptr %7, align 8, !tbaa !11
   %36 = load ptr, ptr %8, align 8, !tbaa !20
@@ -1422,7 +1422,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %29
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %52 = load i32, ptr %51, align 4, !tbaa !53
+  %52 = load i32, ptr %51, align 4, !tbaa !54
   %53 = icmp ugt i32 %13, %52
   br i1 %53, label %54, label %57
 
@@ -1442,23 +1442,23 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i: ; preds = %29
 
 _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %46, %54, %57, %59
   %.sroa.030.0.i = phi ptr [ %9, %46 ], [ %56, %54 ], [ %.0, %59 ], [ %.0, %57 ]
-  %60 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !91
-  store ptr %60, ptr %.sink36, align 8, !tbaa !10, !noalias !91
+  %60 = load ptr, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !92
+  store ptr %60, ptr %.sink36, align 8, !tbaa !10, !noalias !92
   %61 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
-  store ptr %.sroa.030.0.i, ptr %61, align 8, !tbaa !6, !noalias !91
-  store ptr %.sink36, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !91
+  store ptr %.sroa.030.0.i, ptr %61, align 8, !tbaa !6, !noalias !92
+  store ptr %.sink36, ptr %.sroa.030.0.i, align 8, !tbaa !10, !noalias !92
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %.sink36, ptr %62, align 8, !tbaa !6, !noalias !91
-  %63 = load i64, ptr %10, align 8, !tbaa !25, !noalias !91
+  store ptr %.sink36, ptr %62, align 8, !tbaa !6, !noalias !92
+  %63 = load i64, ptr %10, align 8, !tbaa !25, !noalias !92
   %64 = add i64 %63, 1
-  store i64 %64, ptr %10, align 8, !tbaa !25, !noalias !91
+  store i64 %64, ptr %10, align 8, !tbaa !25, !noalias !92
   br label %65
 
 65:                                               ; preds = %_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 8
-  %.sroa.022.0 = load ptr, ptr %66, align 8, !tbaa !86
+  %.sroa.022.0 = load ptr, ptr %66, align 8, !tbaa !87
   %.not26 = icmp eq ptr %.sroa.022.0, %5
-  br i1 %.not26, label %._crit_edge, label %11, !llvm.loop !94
+  br i1 %.not26, label %._crit_edge, label %11, !llvm.loop !95
 
 67:                                               ; preds = %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit24.i
   %68 = landingpad { ptr, i32 }
@@ -1548,56 +1548,57 @@ attributes #15 = { builtin allocsize(0) }
 !39 = !{!40, !8, i64 0}
 !40 = !{!"_ZTSN5boost3log11v2_mt_posix19attribute_value_set14implementation6bucketE", !8, i64 0, !8, i64 8}
 !41 = !{!40, !8, i64 8}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!46 = distinct !{!46, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
-!47 = !{i8 0, i8 2}
-!48 = !{}
-!49 = distinct !{!49, !43}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!52 = distinct !{!52, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
-!53 = !{!36, !32, i64 0}
-!54 = !{!8, !8, i64 0}
-!55 = distinct !{!55, !43}
-!56 = !{!57, !38, i64 16}
-!57 = !{!"_ZTSSt4pairIN5boost3log11v2_mt_posix19attribute_value_set14const_iteratorEbE", !58, i64 0, !38, i64 16}
-!58 = !{!"_ZTSN5boost3log11v2_mt_posix19attribute_value_set14const_iteratorE", !8, i64 0, !8, i64 8}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!61 = distinct !{!61, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!62 = !{!63, !8, i64 0}
-!63 = !{!"_ZTSN5boost3log11v2_mt_posix13attribute_set14implementation6bucketE", !8, i64 0, !8, i64 8}
-!64 = !{!63, !8, i64 8}
-!65 = distinct !{!65, !43}
-!66 = !{!67, !8, i64 0}
-!67 = !{!"_ZTSN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEEE", !8, i64 0}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!73 = distinct !{!73, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!79 = distinct !{!79, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
-!82 = distinct !{!82, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!85 = distinct !{!85, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!86 = !{!87, !8, i64 8}
-!87 = !{!"_ZTSN5boost3log11v2_mt_posix13attribute_set9node_baseE", !8, i64 0, !8, i64 8}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
-!90 = distinct !{!90, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!93 = distinct !{!93, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!94 = distinct !{!94, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!47 = distinct !{!47, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!48 = !{i8 0, i8 2}
+!49 = !{}
+!50 = distinct !{!50, !43, !44}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!53 = distinct !{!53, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!54 = !{!36, !32, i64 0}
+!55 = !{!8, !8, i64 0}
+!56 = distinct !{!56, !43, !44}
+!57 = !{!58, !38, i64 16}
+!58 = !{!"_ZTSSt4pairIN5boost3log11v2_mt_posix19attribute_value_set14const_iteratorEbE", !59, i64 0, !38, i64 16}
+!59 = !{!"_ZTSN5boost3log11v2_mt_posix19attribute_value_set14const_iteratorE", !8, i64 0, !8, i64 8}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!62 = distinct !{!62, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!63 = !{!64, !8, i64 0}
+!64 = !{!"_ZTSN5boost3log11v2_mt_posix13attribute_set14implementation6bucketE", !8, i64 0, !8, i64 8}
+!65 = !{!64, !8, i64 8}
+!66 = distinct !{!66, !43, !44}
+!67 = !{!68, !8, i64 0}
+!68 = !{!"_ZTSN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEEE", !8, i64 0}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
+!71 = distinct !{!71, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!74 = distinct !{!74, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
+!77 = distinct !{!77, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!80 = distinct !{!80, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
+!83 = distinct !{!83, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!86 = distinct !{!86, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!87 = !{!88, !8, i64 8}
+!88 = !{!"_ZTSN5boost3log11v2_mt_posix13attribute_set9node_baseE", !8, i64 0, !8, i64 8}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv: argument 0"}
+!91 = distinct !{!91, !"_ZNK5boost3log11v2_mt_posix9attribute9get_valueEv"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!94 = distinct !{!94, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix19attribute_value_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!95 = distinct !{!95, !43, !44}

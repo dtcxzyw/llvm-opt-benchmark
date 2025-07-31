@@ -1621,12 +1621,12 @@ define internal void @snmp_users_auth_model_tostr_cb(ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !11
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !10
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !11
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -1709,12 +1709,12 @@ define internal void @snmp_users_priv_proto_set_cb(ptr noundef writeonly capture
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !11
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !12
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -1749,12 +1749,12 @@ define internal void @snmp_users_priv_proto_tostr_cb(ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !12
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !13
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -1837,12 +1837,12 @@ define internal void @snmp_users_priv_key_exp_set_cb(ptr noundef writeonly captu
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !13
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !14
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -1877,12 +1877,12 @@ define internal void @snmp_users_priv_key_exp_tostr_cb(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !15
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !14
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !15
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -2129,7 +2129,7 @@ define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly ca
 .thread:                                          ; preds = %30, %34, %39, %24, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %38, %43, %12, %13, %6
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2455,7 +2455,7 @@ define internal i32 @dissect_snmp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = add i32 %13, %.010
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %4, %7
   %.010 = phi i32 [ %8, %7 ], [ 0, %4 ]
@@ -2615,7 +2615,7 @@ ue_dup.exit.thread:                               ; preds = %38, %ue_dup.exit
   %62 = load i32, ptr @num_ueas, align 4
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %61, %0
   ret void
@@ -2663,7 +2663,7 @@ define internal void @snmpstat_init(ptr readnone captures(none) %0, ptr noundef 
   tail call void @init_srt_table_row(ptr noundef %3, i32 noundef %.05, ptr noundef %5)
   %6 = add nuw nsw i32 %.05, 1
   %exitcond.not = icmp eq i32 %6, 8
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !18
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !19
 
 7:                                                ; preds = %4
   ret void
@@ -3648,7 +3648,7 @@ switch.lookup:                                    ; preds = %164
   store i8 %320, ptr %321, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %322 = zext i32 %.0433557 to i64
@@ -3709,7 +3709,7 @@ switch.lookup:                                    ; preds = %164
   %347 = getelementptr inbounds nuw i8, ptr %.0450644, i64 32
   %348 = load ptr, ptr %347, align 8
   %.not513 = icmp eq ptr %348, null
-  br i1 %.not513, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not513, label %.loopexit, label %.preheader, !llvm.loop !21
 
 349:                                              ; preds = %222
   %350 = load ptr, ptr %29, align 8
@@ -3848,7 +3848,7 @@ switch.lookup:                                    ; preds = %164
   %416 = add nuw i32 %.0426649, 1
   %417 = load i32, ptr %9, align 4
   %418 = icmp ult i32 %416, %417
-  br i1 %418, label %.lr.ph651, label %._crit_edge652, !llvm.loop !21
+  br i1 %418, label %.lr.ph651, label %._crit_edge652, !llvm.loop !22
 
 ._crit_edge652:                                   ; preds = %.lr.ph651, %408
   %.2430.lcssa = phi i64 [ %spec.select540, %408 ], [ %414, %.lr.ph651 ]
@@ -4506,7 +4506,7 @@ define internal i32 @dissect_snmp_SpecificTrap(i1 noundef zeroext %0, ptr nounde
 25:                                               ; preds = %21, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %snmp_lookup_specific_trap.exit.thread, label %16, !llvm.loop !22
+  br i1 %exitcond.not.i, label %snmp_lookup_specific_trap.exit.thread, label %16, !llvm.loop !23
 
 snmp_lookup_specific_trap.exit:                   ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4702,7 +4702,7 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   %54 = getelementptr inbounds nuw i8, ptr %storemerge49.i, i64 128
   %storemerge.i = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %storemerge.i, null
-  br i1 %.not.i, label %.preheader.i, label %38, !llvm.loop !23
+  br i1 %.not.i, label %.preheader.i, label %38, !llvm.loop !24
 
 55:                                               ; preds = %115, %.lr.ph55.i
   %storemerge3854.i = phi ptr [ %storemerge3852.i, %.lr.ph55.i ], [ %storemerge38.i, %115 ]
@@ -4797,7 +4797,7 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   %116 = getelementptr inbounds nuw i8, ptr %storemerge3854.i, i64 128
   %storemerge38.i = load ptr, ptr %116, align 8
   %.not39.i = icmp eq ptr %storemerge38.i, null
-  br i1 %.not39.i, label %get_user_assoc.exit, label %55, !llvm.loop !24
+  br i1 %.not39.i, label %get_user_assoc.exit, label %55, !llvm.loop !25
 
 .loopexit43.i:                                    ; preds = %50
   store ptr %storemerge49.i, ptr @get_user_assoc.a, align 8
@@ -4989,7 +4989,7 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
   %.065 = phi i32 [ %7, %23 ], [ %26, %24 ]
   %25 = icmp ult i32 %.065, %switch.select74
   %26 = add i32 %.065, %7
-  br i1 %25, label %24, label %27, !llvm.loop !25
+  br i1 %25, label %24, label %27, !llvm.loop !26
 
 27:                                               ; preds = %24
   %28 = zext i32 %.065 to i64
@@ -5062,7 +5062,7 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
 67:                                               ; preds = %58, %40, %42
   %68 = add i32 %.16676, %7
   %.not70 = icmp ult i32 %68, %switch.select74
-  br i1 %.not70, label %40, label %.critedge72, !llvm.loop !26
+  br i1 %.not70, label %40, label %.critedge72, !llvm.loop !27
 
 .critedge:                                        ; preds = %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
@@ -5121,7 +5121,7 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   call void @gcry_md_write(ptr noundef %16, ptr noundef nonnull %8, i64 noundef 64)
   %17 = add nuw nsw i32 %.02332.us, 64
   %18 = icmp samesign ult i32 %.02332.us, 1048512
-  br i1 %18, label %.split.us, label %.split34.us, !llvm.loop !27
+  br i1 %18, label %.split.us, label %.split34.us, !llvm.loop !28
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %.02332 = phi i32 [ %27, %.loopexit ], [ 0, %.preheader.preheader ]
@@ -5139,14 +5139,14 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   %25 = getelementptr i8, ptr %.030, i64 1
   store i8 %24, ptr %.030, align 1
   %exitcond.not = icmp eq ptr %.030, %scevgep
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !30
 
 .loopexit:                                        ; preds = %19
   %26 = load ptr, ptr %7, align 8
   call void @gcry_md_write(ptr noundef %26, ptr noundef nonnull %8, i64 noundef 64)
   %27 = add nuw nsw i32 %.02332, 64
   %28 = icmp samesign ult i32 %.02332, 1048512
-  br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !30
+  br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !31
 
 .split34.us:                                      ; preds = %.loopexit, %.split.us
   %29 = load ptr, ptr %7, align 8
@@ -5451,7 +5451,7 @@ define internal ptr @snmp_usm_priv_des(ptr noundef readonly captures(none) %0, p
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %28, label %21, !llvm.loop !31
+  br i1 %exitcond.not, label %28, label %21, !llvm.loop !32
 
 28:                                               ; preds = %21
   %29 = tail call i32 @tvb_captured_length(ptr noundef %1)
@@ -5738,7 +5738,7 @@ define internal fastcc void @free_ue_cache(ptr noundef captures(none) %0) unname
   %storemerge = load ptr, ptr @free_ue_cache.nxt, align 8
   store ptr %storemerge, ptr @free_ue_cache.a, align 8
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %0, align 8
@@ -5902,28 +5902,29 @@ attributes #15 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}

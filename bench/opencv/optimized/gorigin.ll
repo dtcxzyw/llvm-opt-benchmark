@@ -574,8 +574,8 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEE6cctr_hIS6_E4helpEPNSt15aligned_storageILm96ELm8EE4typeEPKSD_(ptr noundef %0, ptr noundef %1) #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !55
-  store ptr %3, ptr %0, align 8, !tbaa !55
+  %3 = load ptr, ptr %1, align 8, !tbaa !56
+  store ptr %3, ptr %0, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
@@ -700,6 +700,7 @@ attributes #18 = { builtin nounwind }
 !50 = !{!"_ZTSSt8functionIFvRN2cv6detail9OpaqueRefEEE", !46, i64 0, !12, i64 24}
 !51 = !{!52, !52, i64 0}
 !52 = !{!"double", !6, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!38, !39, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!38, !39, i64 0}

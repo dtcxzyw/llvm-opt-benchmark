@@ -74,7 +74,7 @@ define hidden void @lj_opt_dce(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %32, %12
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count28.i
-  br i1 %exitcond29.not.i, label %dce_marksnap.exit, label %12, !llvm.loop !38
+  br i1 %exitcond29.not.i, label %dce_marksnap.exit, label %12, !llvm.loop !39
 
 dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   call void @llvm.lifetime.start.p0(i64 808, ptr nonnull %2) #3
@@ -85,14 +85,14 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   %indvars.iv.i4 = phi i64 [ 0, %dce_marksnap.exit ], [ %indvars.iv.next.i5, %34 ]
   %35 = getelementptr inbounds nuw [101 x i16], ptr %33, i64 0, i64 %indvars.iv.i4
   %36 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %indvars.iv.i4
-  store ptr %35, ptr %36, align 8, !tbaa !39
+  store ptr %35, ptr %36, align 8, !tbaa !40
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 101
-  br i1 %exitcond.not.i6, label %37, label %34, !llvm.loop !41
+  br i1 %exitcond.not.i6, label %37, label %34, !llvm.loop !42
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !42
+  %39 = load i32, ptr %38, align 4, !tbaa !43
   %.026.i = add i32 %39, -1
   %40 = icmp ugt i32 %.026.i, 32768
   br i1 %40, label %.lr.ph.i8, label %dce_propagate.exit
@@ -135,8 +135,8 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %62 = load i16, ptr %61, align 2, !tbaa !35
   %63 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %55
-  %64 = load ptr, ptr %63, align 8, !tbaa !39
-  store i16 %62, ptr %64, align 2, !tbaa !43
+  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  store i16 %62, ptr %64, align 2, !tbaa !44
   store i16 3072, ptr %46, align 4, !tbaa !35
   %65 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i16 0, ptr %65, align 2, !tbaa !35
@@ -148,7 +148,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   %.pre-phi.i = phi i64 [ %55, %51 ], [ %.pre32.i, %49 ]
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %68 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %.pre-phi.i
-  store ptr %67, ptr %68, align 8, !tbaa !39
+  store ptr %67, ptr %68, align 8, !tbaa !40
   %69 = load i16, ptr %45, align 8, !tbaa !35
   %70 = icmp ugt i16 %69, -32768
   br i1 %70, label %71, label %78
@@ -183,7 +183,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, -1
   %indvars.i = trunc i64 %indvars.iv.next30.i to i32
   %90 = icmp ugt i32 %indvars.i, 32768
-  br i1 %90, label %43, label %dce_propagate.exit, !llvm.loop !44
+  br i1 %90, label %43, label %dce_propagate.exit, !llvm.loop !45
 
 dce_propagate.exit:                               ; preds = %89, %37
   call void @llvm.lifetime.end.p0(i64 808, ptr nonnull %2) #3
@@ -247,12 +247,13 @@ attributes #3 = { nounwind }
 !33 = !{!12, !12, i64 0}
 !34 = !{!5, !13, i64 32}
 !35 = !{!9, !9, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 short", !14, i64 0}
-!41 = distinct !{!41, !37}
-!42 = !{!5, !12, i64 12}
-!43 = !{!11, !11, i64 0}
-!44 = distinct !{!44, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 short", !14, i64 0}
+!42 = distinct !{!42, !37, !38}
+!43 = !{!5, !12, i64 12}
+!44 = !{!11, !11, i64 0}
+!45 = distinct !{!45, !37, !38}

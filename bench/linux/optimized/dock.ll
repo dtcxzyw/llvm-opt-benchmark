@@ -102,7 +102,7 @@ define dso_local void @register_dock_dependent_device(ptr noundef %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %0
-  br i1 %23, label %24, label %16, !llvm.loop !8
+  br i1 %23, label %24, label %16, !llvm.loop !9
 
 24:                                               ; preds = %20
   %25 = icmp eq ptr %18, null
@@ -170,12 +170,12 @@ define dso_local noundef range(i32 0, 2) i32 @is_dock_device(ptr noundef readonl
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
-  br i1 %20, label %21, label %13, !llvm.loop !8
+  br i1 %20, label %21, label %13, !llvm.loop !10
 
 21:                                               ; preds = %17, %13
   %22 = phi ptr [ %15, %17 ], [ null, %13 ]
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %21, %.preheader, %4, %1
   %24 = phi i32 [ 0, %1 ], [ 1, %4 ], [ 0, %.preheader ], [ 1, %21 ]
@@ -210,7 +210,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %19 = getelementptr i8, ptr %16, i64 -40
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %13
-  br i1 %21, label %22, label %14, !llvm.loop !5
+  br i1 %21, label %22, label %14, !llvm.loop !12
 
 22:                                               ; preds = %18
   %23 = getelementptr i8, ptr %16, i64 -40
@@ -260,11 +260,11 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %51 = or disjoint i32 %27, 1
   store i32 %51, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
-  store i64 0, ptr %9, align 8, !annotation !10
+  store i64 0, ptr %9, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store i64 0, ptr %11, align 8, !annotation !10
+  store i64 0, ptr %11, align 8, !annotation !13
   %52 = load ptr, ptr %23, align 8
   tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %52, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #8
   store i32 1, ptr %9, align 8
@@ -290,7 +290,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  store i64 0, ptr %8, align 8, !annotation !10
+  store i64 0, ptr %8, align 8, !annotation !13
   %60 = load ptr, ptr %23, align 8
   %61 = call i32 @acpi_evaluate_integer(ptr noundef %60, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %8) #8
   %62 = icmp ne i32 %61, 0
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 88:                                               ; preds = %87, %86
   %89 = load ptr, ptr %76, align 8
   %90 = icmp eq ptr %89, %71
-  br i1 %90, label %.loopexit32.loopexit, label %.preheader31, !llvm.loop !11
+  br i1 %90, label %.loopexit32.loopexit, label %.preheader31, !llvm.loop !14
 
 .loopexit30.loopexit:                             ; preds = %106
   %.pre38 = load ptr, ptr %71, align 8
@@ -391,7 +391,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 106:                                              ; preds = %105, %103
   %107 = load ptr, ptr %93, align 8
   %108 = icmp eq ptr %107, %71
-  br i1 %108, label %.loopexit30.loopexit, label %.preheader29, !llvm.loop !12
+  br i1 %108, label %.loopexit30.loopexit, label %.preheader29, !llvm.loop !15
 
 .preheader27:                                     ; preds = %.loopexit30, %122
   %109 = phi ptr [ %123, %122 ], [ %91, %.loopexit30 ]
@@ -416,7 +416,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 122:                                              ; preds = %118, %113
   %123 = load ptr, ptr %109, align 8
   %124 = icmp eq ptr %123, %71
-  br i1 %124, label %.loopexit28, label %.preheader27, !llvm.loop !13
+  br i1 %124, label %.loopexit28, label %.preheader27, !llvm.loop !16
 
 .loopexit28:                                      ; preds = %122, %.loopexit30
   %125 = load i32, ptr %26, align 8
@@ -468,7 +468,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 148:                                              ; preds = %147, %146
   %149 = load ptr, ptr %136, align 8
   %150 = icmp eq ptr %149, %71
-  br i1 %150, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %150, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %148, %.loopexit28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
@@ -480,7 +480,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 
 .critedge:                                        ; preds = %33, %45, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !13
   %154 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #8
   %155 = icmp ne i32 %154, 0
   %156 = load i64, ptr %5, align 8
@@ -507,7 +507,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 170:                                              ; preds = %25
   %171 = or i32 %27, 2
   store i32 %171, ptr %26, align 8
-  %172 = load i8, ptr @immediate_undock, align 1, !range !15, !noundef !16
+  %172 = load i8, ptr @immediate_undock, align 1, !range !18, !noundef !19
   %173 = icmp ne i8 %172, 0
   %174 = and i32 %27, 32
   %175 = icmp eq i32 %174, 0
@@ -566,7 +566,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 198:                                              ; preds = %197, %196
   %199 = load ptr, ptr %186, align 8
   %200 = icmp eq ptr %199, %183
-  br i1 %200, label %.loopexit34, label %.preheader33, !llvm.loop !14
+  br i1 %200, label %.loopexit34, label %.preheader33, !llvm.loop !20
 
 .loopexit34:                                      ; preds = %198, %178
   %201 = call i32 @kobject_uevent_env(ptr noundef nonnull %181, i32 noundef 2, ptr noundef nonnull %4) #8
@@ -654,7 +654,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr n
 39:                                               ; preds = %38, %37
   %40 = load ptr, ptr %27, align 8
   %41 = icmp eq ptr %40, %24
-  br i1 %41, label %.loopexit13, label %.preheader12, !llvm.loop !14
+  br i1 %41, label %.loopexit13, label %.preheader12, !llvm.loop !21
 
 .loopexit13:                                      ; preds = %39, %19
   %42 = call i32 @kobject_uevent_env(ptr noundef nonnull %22, i32 noundef 2, ptr noundef nonnull %7) #8
@@ -703,7 +703,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr n
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %24
-  br i1 %64, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !17
+  br i1 %64, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !22
 
 .preheader:                                       ; preds = %.loopexit11, %.preheader
   %65 = phi ptr [ %69, %.preheader ], [ %46, %.loopexit11 ]
@@ -713,15 +713,15 @@ define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr n
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %24
-  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !13
   %71 = load ptr, ptr %0, align 8
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %71, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #8
   store i32 1, ptr %3, align 8
@@ -751,7 +751,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr n
   %81 = load ptr, ptr %0, align 8
   %82 = call i32 @acpi_evaluate_ej0(ptr noundef %81) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store i64 0, ptr %2, align 8, !annotation !10
+  store i64 0, ptr %2, align 8, !annotation !13
   %83 = icmp eq ptr %0, null
   br i1 %83, label %91, label %84
 
@@ -1046,7 +1046,7 @@ declare dso_local void @acpi_scan_lock_release() local_unnamed_addr #2
 define internal range(i64 -2147483648, 2147483648) i64 @uid_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store i64 0, ptr %4, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1115,17 +1115,22 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}

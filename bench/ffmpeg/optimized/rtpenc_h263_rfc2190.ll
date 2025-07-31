@@ -170,7 +170,7 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %124 = zext nneg i32 %123 to i64
   %.not = icmp sgt i64 %115, %124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %.not, label %117, label %.split.loop.exit
+  br i1 %.not, label %117, label %.split.loop.exit, !llvm.loop !31
 
 .split.loop.exit:                                 ; preds = %119
   %125 = trunc nsw i64 %indvars.iv to i32
@@ -198,7 +198,7 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %136 = lshr i32 %135, 3
   %137 = zext nneg i32 %136 to i64
   %.not105 = icmp sgt i64 %126, %137
-  br i1 %.not105, label %130, label %.split.loop.exit171
+  br i1 %.not105, label %130, label %.split.loop.exit171, !llvm.loop !33
 
 .split.loop.exit171:                              ; preds = %132
   %138 = trunc nsw i64 %indvars.iv165 to i32
@@ -284,18 +284,18 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %185 = zext i1 %184 to i32
   %186 = load ptr, ptr %6, align 8, !tbaa !4
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 96
-  %188 = load ptr, ptr %187, align 8, !tbaa !31
+  %188 = load ptr, ptr %187, align 8, !tbaa !34
   %189 = shl i32 %.192, 4
   %.reass.reass.reass = or disjoint i32 %189, %invariant.op
   %190 = shl i32 %.reass.reass.reass, 20
   %.reass163 = or disjoint i32 %190, %invariant.op162
   %191 = tail call i32 @llvm.bswap.i32(i32 %.reass163)
   store i32 %191, ptr %188, align 1, !tbaa !29
-  %192 = load ptr, ptr %187, align 8, !tbaa !31
+  %192 = load ptr, ptr %187, align 8, !tbaa !34
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = sext i32 %.086 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr nonnull readonly align 1 %.0161, i64 %194, i1 false)
-  %195 = load ptr, ptr %187, align 8, !tbaa !31
+  %195 = load ptr, ptr %187, align 8, !tbaa !34
   %196 = add nsw i32 %.086, 4
   tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %195, i32 noundef %196, i32 noundef range(i32 0, 2) %185) #4
   br label %230
@@ -305,7 +305,7 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %199 = zext i1 %198 to i32
   %200 = load ptr, ptr %6, align 8, !tbaa !4
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 96
-  %202 = load ptr, ptr %201, align 8, !tbaa !31
+  %202 = load ptr, ptr %201, align 8, !tbaa !34
   %203 = shl i32 %.087159, 6
   %204 = shl i32 %.192, 3
   %205 = or i32 %203, %204
@@ -330,11 +330,11 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %223 = or i32 %222, %.sroa.9.0153
   %224 = tail call i32 @llvm.bswap.i32(i32 %223)
   store i32 %224, ptr %216, align 1, !tbaa !29
-  %225 = load ptr, ptr %201, align 8, !tbaa !31
+  %225 = load ptr, ptr %201, align 8, !tbaa !34
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = sext i32 %.086 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr readonly align 1 %.0161, i64 %227, i1 false)
-  %228 = load ptr, ptr %201, align 8, !tbaa !31
+  %228 = load ptr, ptr %201, align 8, !tbaa !34
   %229 = add nsw i32 %.086, 8
   tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %228, i32 noundef %229, i32 noundef range(i32 0, 2) %199) #4
   br label %230
@@ -349,7 +349,7 @@ define void @ff_rtp_send_h263_rfc2190(ptr noundef %0, ptr noundef %1, i32 nounde
   %234 = getelementptr inbounds i8, ptr %.0161, i64 %233
   %235 = sub nsw i32 %.085160, %.3
   %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %100, label %._crit_edge, !llvm.loop !32
+  br i1 %236, label %100, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %230, %82
   ret void
@@ -415,6 +415,9 @@ attributes #4 = { nounwind }
 !28 = !{!25, !13, i64 44}
 !29 = !{!8, !8, i64 0}
 !30 = !{!25, !13, i64 56}
-!31 = !{!25, !18, i64 96}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !32}
+!34 = !{!25, !18, i64 96}
+!35 = distinct !{!35, !36, !32}
+!36 = !{!"llvm.loop.mustprogress"}

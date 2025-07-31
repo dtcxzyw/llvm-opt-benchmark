@@ -1879,7 +1879,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %.pre, ptr %15, align 8, !tbaa !210
+  store i64 %.pre, ptr %15, align 8, !tbaa !211
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -1908,9 +1908,9 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !213
+  %30 = load i64, ptr %29, align 8, !tbaa !214
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !213
+  store i64 %31, ptr %29, align 8, !tbaa !214
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.critedge
@@ -2405,7 +2405,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !214
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2441,7 +2441,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !216
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !217
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2469,7 +2469,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !217
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !218
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2505,7 +2505,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !218
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !219
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2533,7 +2533,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !219
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2569,7 +2569,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !220
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !221
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2597,7 +2597,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !221
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2633,7 +2633,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !222
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !223
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
@@ -2707,7 +2707,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI11vxsat_csr_tSaI
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !223
+  %7 = load ptr, ptr %6, align 8, !tbaa !224
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -2824,7 +2824,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI12vector_csr_tSa
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !223
+  %7 = load ptr, ptr %6, align 8, !tbaa !224
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -2940,7 +2940,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI15composite_csr_
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !223
+  %7 = load ptr, ptr %6, align 8, !tbaa !224
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3145,7 +3145,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !213
+  %8 = load i64, ptr %7, align 8, !tbaa !214
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
@@ -3177,7 +3177,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !207
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !225
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !226
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3185,7 +3185,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !226
+  %24 = load ptr, ptr %23, align 8, !tbaa !227
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
@@ -3228,7 +3228,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !227
+  %48 = load ptr, ptr %47, align 8, !tbaa !228
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -3249,7 +3249,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !207
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !225
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !226
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3293,7 +3293,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !227
+  %74 = load ptr, ptr %73, align 8, !tbaa !228
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -3314,7 +3314,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !207
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !225
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !226
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3322,7 +3322,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !226
+  %82 = load ptr, ptr %81, align 8, !tbaa !227
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
@@ -3604,23 +3604,24 @@ attributes #20 = { nounwind willreturn memory(read) }
 !205 = !{}
 !206 = !{!106, !109, i64 8}
 !207 = !{!109, !109, i64 0}
-!208 = distinct !{!208, !209}
+!208 = distinct !{!208, !209, !210}
 !209 = !{!"llvm.loop.mustprogress"}
-!210 = !{!211, !10, i64 0}
-!211 = !{!"_ZTSSt4pairIKm10float128_tE", !10, i64 0, !212, i64 8}
-!212 = !{!"_ZTS10float128_t", !7, i64 0}
-!213 = !{!106, !10, i64 32}
-!214 = distinct !{!214, !209, !215}
-!215 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!216 = distinct !{!216, !209}
-!217 = distinct !{!217, !209, !215}
-!218 = distinct !{!218, !209}
-!219 = distinct !{!219, !209, !215}
-!220 = distinct !{!220, !209}
-!221 = distinct !{!221, !209, !215}
-!222 = distinct !{!222, !209}
-!223 = !{!224, !100, i64 8}
-!224 = !{!"_ZTSSt9type_info", !100, i64 8}
-!225 = distinct !{!225, !209}
-!226 = !{!106, !109, i64 16}
-!227 = !{!107, !109, i64 24}
+!210 = !{!"llvm.loop.estimated_trip_count"}
+!211 = !{!212, !10, i64 0}
+!212 = !{!"_ZTSSt4pairIKm10float128_tE", !10, i64 0, !213, i64 8}
+!213 = !{!"_ZTS10float128_t", !7, i64 0}
+!214 = !{!106, !10, i64 32}
+!215 = distinct !{!215, !209, !210, !216}
+!216 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!217 = distinct !{!217, !209, !210}
+!218 = distinct !{!218, !209, !210, !216}
+!219 = distinct !{!219, !209, !210}
+!220 = distinct !{!220, !209, !210, !216}
+!221 = distinct !{!221, !209, !210}
+!222 = distinct !{!222, !209, !210, !216}
+!223 = distinct !{!223, !209, !210}
+!224 = !{!225, !100, i64 8}
+!225 = !{!"_ZTSSt9type_info", !100, i64 8}
+!226 = distinct !{!226, !209, !210}
+!227 = !{!106, !109, i64 16}
+!228 = !{!107, !109, i64 24}

@@ -212,7 +212,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %28 = getelementptr i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1
   %.not50 = icmp eq i8 %29, 0
-  br i1 %.not50, label %._crit_edge62.loopexit, label %.lr.ph61, !llvm.loop !8
+  br i1 %.not50, label %._crit_edge62.loopexit, label %.lr.ph61, !llvm.loop !9
 
 ._crit_edge62.loopexit:                           ; preds = %.lr.ph61
   %30 = trunc nuw i64 %indvars.iv.next to i32
@@ -289,7 +289,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef %50) #7
   %70 = icmp samesign ugt i64 %indvars.iv68, 1
-  br i1 %70, label %.lr.ph64, label %.loopexit, !llvm.loop !9
+  br i1 %70, label %.lr.ph64, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %66, %38
   tail call void @free(ptr noundef nonnull %31) #7
@@ -785,7 +785,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   store ptr null, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph106.preheader, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph106.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %65
   %indvars.iv116 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next117, %65 ]
@@ -849,7 +849,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   tail call void %73(ptr noundef nonnull %0, ptr noundef %37) #7
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !11
+  br i1 %exitcond120.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %65
   %74 = load ptr, ptr @scardGetStatusChange, align 8
@@ -914,7 +914,7 @@ throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
 108:                                              ; preds = %.lr.ph108
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %throwOutOfMemoryError.exit98, label %.lr.ph108, !llvm.loop !12
+  br i1 %exitcond125.not, label %throwOutOfMemoryError.exit98, label %.lr.ph108, !llvm.loop !13
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %108
   %indvars.iv121 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next122, %108 ]
@@ -961,7 +961,7 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   call void @free(ptr noundef %127) #7
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !13
+  br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !14
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.exit98.thread134, %throwOutOfMemoryError.exit98
   %.089132 = phi ptr [ %.089, %throwOutOfMemoryError.exit98 ], [ %103, %throwOutOfMemoryError.exit98.thread134 ], [ %.089133, %.lr.ph112 ]
@@ -1175,11 +1175,12 @@ attributes #10 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

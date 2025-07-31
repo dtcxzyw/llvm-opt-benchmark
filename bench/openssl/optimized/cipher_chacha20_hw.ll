@@ -35,14 +35,14 @@ define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(non
 
 .loopexit:                                        ; preds = %5, %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i32 0, ptr %11, align 8, !tbaa !8
+  store i32 0, ptr %11, align 8, !tbaa !9
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i32, ptr %5, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 8, !tbaa !9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %36, label %.preheader
 
@@ -74,7 +74,7 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   %20 = icmp ne i64 %19, 0
   %21 = icmp samesign ult i64 %indvars.iv, 63
   %22 = and i1 %20, %21
-  br i1 %22, label %12, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %22, label %12, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %12
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -85,7 +85,7 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   %.171.lcssa = phi i64 [ %3, %.preheader ], [ %19, %._crit_edge.loopexit ]
   %.169.lcssa = phi ptr [ %1, %.preheader ], [ %18, %._crit_edge.loopexit ]
   %.066.lcssa = phi i32 [ %6, %.preheader ], [ %23, %._crit_edge.loopexit ]
-  store i32 %.066.lcssa, ptr %5, align 8, !tbaa !8
+  store i32 %.066.lcssa, ptr %5, align 8, !tbaa !9
   %24 = icmp eq i64 %.171.lcssa, 0
   br i1 %24, label %71, label %25
 
@@ -94,19 +94,19 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
-  store i32 0, ptr %5, align 8, !tbaa !8
+  store i32 0, ptr %5, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %29 = load i32, ptr %28, align 8, !tbaa !18
+  %29 = load i32, ptr %28, align 8, !tbaa !19
   %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 8, !tbaa !18
+  store i32 %30, ptr %28, align 8, !tbaa !19
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %34 = load i32, ptr %33, align 4, !tbaa !18
+  %34 = load i32, ptr %33, align 4, !tbaa !19
   %35 = add i32 %34, 1
-  store i32 %35, ptr %33, align 4, !tbaa !18
+  store i32 %35, ptr %33, align 4, !tbaa !19
   br label %36
 
 36:                                               ; preds = %25, %32, %27, %4
@@ -121,7 +121,7 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not7989, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %36
-  %41 = load i32, ptr %40, align 8, !tbaa !18
+  %41 = load i32, ptr %40, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 228
   br label %44
@@ -145,19 +145,19 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   %52 = sub i64 %.27291, %51
   %53 = getelementptr inbounds nuw i8, ptr %.27590, i64 %51
   %54 = getelementptr inbounds nuw i8, ptr %.292, i64 %51
-  store i32 %spec.select, ptr %40, align 8, !tbaa !18
+  store i32 %spec.select, ptr %40, align 8, !tbaa !19
   %55 = icmp eq i32 %spec.select, 0
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %44
-  %57 = load i32, ptr %43, align 4, !tbaa !18
+  %57 = load i32, ptr %43, align 4, !tbaa !19
   %58 = add i32 %57, 1
-  store i32 %58, ptr %43, align 4, !tbaa !18
+  store i32 %58, ptr %43, align 4, !tbaa !19
   br label %59
 
 59:                                               ; preds = %56, %44
   %.not79 = icmp eq i64 %52, 0
-  br i1 %.not79, label %._crit_edge96, label %44, !llvm.loop !19
+  br i1 %.not79, label %._crit_edge96, label %44, !llvm.loop !20
 
 ._crit_edge96:                                    ; preds = %59, %36
   %.275.lcssa = phi ptr [ %.073, %36 ], [ %53, %59 ]
@@ -184,10 +184,10 @@ define internal noundef i32 @chacha20_cipher(ptr noundef %0, ptr noundef %1, ptr
   store i8 %68, ptr %69, align 1, !tbaa !3
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %70, label %63, !llvm.loop !20
+  br i1 %exitcond.not, label %70, label %63, !llvm.loop !21
 
 70:                                               ; preds = %63
-  store i32 %38, ptr %5, align 8, !tbaa !8
+  store i32 %38, ptr %5, align 8, !tbaa !9
   br label %71
 
 71:                                               ; preds = %._crit_edge96, %70, %._crit_edge
@@ -212,14 +212,14 @@ define internal noundef i32 @chacha20_initiv(ptr noundef captures(none) %0) #1 {
   %8 = load i32, ptr %7, align 1
   %9 = lshr exact i64 %indvars.iv, 2
   %10 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %9
-  store i32 %8, ptr %10, align 4, !tbaa !18
+  store i32 %8, ptr %10, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %11 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %11, label %6, label %.loopexit, !llvm.loop !21
+  br i1 %11, label %6, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i32 0, ptr %12, align 8, !tbaa !8
+  store i32 0, ptr %12, align 8, !tbaa !9
   ret i32 1
 }
 
@@ -247,19 +247,20 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !12, i64 304}
-!9 = !{!"", !10, i64 0, !4, i64 192, !4, i64 224, !4, i64 240, !12, i64 304}
-!10 = !{!"prov_cipher_ctx_st", !4, i64 0, !4, i64 16, !4, i64 32, !11, i64 48, !4, i64 56, !12, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !12, i64 104, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 112, !14, i64 120, !12, i64 128, !13, i64 136, !12, i64 144, !13, i64 152, !12, i64 160, !15, i64 168, !11, i64 176, !16, i64 184}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = !{!"p1 omnipotent char", !11, i64 0}
-!15 = !{!"p1 _ZTS17prov_cipher_hw_st", !11, i64 0}
-!16 = !{!"p1 _ZTS15ossl_lib_ctx_st", !11, i64 0}
-!17 = distinct !{!17, !7}
-!18 = !{!12, !12, i64 0}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !13, i64 304}
+!10 = !{!"", !11, i64 0, !4, i64 192, !4, i64 224, !4, i64 240, !13, i64 304}
+!11 = !{!"prov_cipher_ctx_st", !4, i64 0, !4, i64 16, !4, i64 32, !12, i64 48, !4, i64 56, !13, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !13, i64 104, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 112, !15, i64 120, !13, i64 128, !14, i64 136, !13, i64 144, !14, i64 152, !13, i64 160, !16, i64 168, !12, i64 176, !17, i64 184}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"int", !4, i64 0}
+!14 = !{!"long", !4, i64 0}
+!15 = !{!"p1 omnipotent char", !12, i64 0}
+!16 = !{!"p1 _ZTS17prov_cipher_hw_st", !12, i64 0}
+!17 = !{!"p1 _ZTS15ossl_lib_ctx_st", !12, i64 0}
+!18 = distinct !{!18, !7, !8}
+!19 = !{!13, !13, i64 0}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

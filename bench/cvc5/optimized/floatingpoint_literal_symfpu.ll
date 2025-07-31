@@ -11009,7 +11009,7 @@ common.resume:                                    ; preds = %66, %281, %210, %53
 
 _ZN6symfpu20normaliseShiftResultIN4cvc58internal13symfpuLiteral6traitsEEC2ERKNS3_16wrappedBitVectorILb0EEES9_RKb.exit: ; preds = %._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %30, ptr %58, align 8, !tbaa !111
+  store i8 %30, ptr %58, align 8, !tbaa !112
   call void @_ZdlPvm(ptr noundef nonnull %.069.lcssa, i64 noundef 1) #19
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %59
@@ -11165,10 +11165,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj.exit: ; preds = %.
           to label %101 unwind label %146
 
 101:                                              ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %102 = select i1 %99, ptr %12, ptr %.0267
-  %103 = load i32, ptr %102, align 8, !tbaa !9, !noalias !113
-  store i32 %103, ptr %11, align 8, !tbaa !9, !alias.scope !113
+  %103 = load i32, ptr %102, align 8, !tbaa !9, !noalias !114
+  store i32 %103, ptr %11, align 8, !tbaa !9, !alias.scope !114
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %.0267, i64 8
   %.sroa.sel = select i1 %99, ptr %.sroa.gep, ptr %.0.sroa.gep
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.sel)
@@ -11511,7 +11511,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit124:          ; preds = %_ZN4cvc58internal9B
   %201 = lshr i32 %200, 1
   store i32 %201, ptr %4, align 4, !tbaa !27
   %.not = icmp ult i32 %200, 2
-  br i1 %.not, label %._crit_edge, label %68, !llvm.loop !116
+  br i1 %.not, label %._crit_edge, label %68, !llvm.loop !117
 
 202:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit122, %160, %158, %156
   %.pn91 = phi { ptr, i32 } [ %161, %160 ], [ %157, %156 ], [ %.pn88.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit122 ], [ %159, %158 ]
@@ -11557,7 +11557,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit126:          ; preds = %206, %_ZN4cvc58inte
           to label %213 unwind label %255
 
 213:                                              ; preds = %211
-  %214 = load i8, ptr %58, align 8, !tbaa !111, !range !21, !noundef !22
+  %214 = load i8, ptr %58, align 8, !tbaa !112, !range !21, !noundef !22
   %215 = zext i1 %212 to i8
   %216 = icmp eq i8 %214, %215
   %217 = zext i1 %216 to i8
@@ -11581,7 +11581,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit127:          ; preds = %218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #16
-  %223 = load i8, ptr %58, align 8, !tbaa !111, !range !21, !noundef !22
+  %223 = load i8, ptr %58, align 8, !tbaa !112, !range !21, !noundef !22
   %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %225, label %227
 
@@ -12047,7 +12047,7 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv.exit: ; pre
   %.val = load i32, ptr %6, align 8
   %.val14 = load i32, ptr %4, align 8
   %13 = select i1 %12, i32 %.val, i32 %.val14
-  store i32 %13, ptr %0, align 8, !tbaa !9, !alias.scope !117
+  store i32 %13, ptr %0, align 8, !tbaa !9, !alias.scope !118
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.gep13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12354,8 +12354,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16, !noalias !122
-  call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE4biasERKNS2_17FloatingPointSizeE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %4, ptr noundef nonnull align 4 dereferenceable(8) %1), !noalias !122
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16, !noalias !123
+  call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE4biasERKNS2_17FloatingPointSizeE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %4, ptr noundef nonnull align 4 dereferenceable(8) %1), !noalias !123
   invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %16 unwind label %21
 
@@ -12390,11 +12390,11 @@ common.resume:                                    ; preds = %_ZN4cvc58internal9B
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16, !noalias !122
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16, !noalias !123
   br label %common.resume
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE.exit: ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16, !noalias !122
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16, !noalias !123
   %27 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %28 unwind label %52
 
@@ -12508,8 +12508,8 @@ define linkonce_odr hidden void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symf
   %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
   %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16, !noalias !125
-  call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE4biasERKNS2_17FloatingPointSizeE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %1), !noalias !125
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16, !noalias !126
+  call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE4biasERKNS2_17FloatingPointSizeE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %1), !noalias !126
   invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %6 unwind label %11
 
@@ -12544,11 +12544,11 @@ common.resume:                                    ; preds = %_ZN4cvc58internal9B
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16, !noalias !125
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16, !noalias !126
   br label %common.resume
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE.exit: ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16, !noalias !125
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16, !noalias !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
   %17 = load i32, ptr %1, align 4, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13182,13 +13182,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit45:           ; preds = %35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %40 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !128, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  %40 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !129, !noundef !22
   %41 = trunc nuw i8 %40 to i1
   %.val = load i32, ptr %8, align 8
   %.val67 = load i32, ptr %2, align 8
   %42 = select i1 %41, i32 %.val, i32 %.val67
-  store i32 %42, ptr %0, align 8, !tbaa !9, !alias.scope !128
+  store i32 %42, ptr %0, align 8, !tbaa !9, !alias.scope !129
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.gep50 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13628,7 +13628,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit63:           ; preds = %_ZN4cvc58internal9B
   %.val = load i32, ptr %16, align 8
   %.val106 = load i32, ptr %17, align 8
   %65 = select i1 %61, i32 %.val, i32 %.val106
-  store i32 %65, ptr %15, align 8, !tbaa !9, !alias.scope !131
+  store i32 %65, ptr %15, align 8, !tbaa !9, !alias.scope !132
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.gep100 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.gep101 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -13670,7 +13670,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit65:           ; preds = %_ZN4cvc58internal9B
   %.val107 = load i32, ptr %10, align 8
   %.val108 = load i32, ptr %19, align 8
   %74 = select i1 %61, i32 %.val107, i32 %.val108
-  store i32 %74, ptr %18, align 8, !tbaa !9, !alias.scope !134
+  store i32 %74, ptr %18, align 8, !tbaa !9, !alias.scope !135
   %75 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.gep99 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -13819,7 +13819,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj.exit72: ; preds = 
 _ZN4cvc58internal9BitVectorD2Ev.exit73:           ; preds = %117
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #16
   %122 = zext i1 %116 to i8
-  store i8 %62, ptr %0, align 8, !tbaa !137
+  store i8 %62, ptr %0, align 8, !tbaa !138
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load i32, ptr %15, align 8, !tbaa !9
   store i32 %124, ptr %123, align 8, !tbaa !9
@@ -13850,15 +13850,15 @@ _ZN4cvc58internal9BitVectorD2Ev.exit73:           ; preds = %117
 
 134:                                              ; preds = %.noexc
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %95, ptr %135, align 8, !tbaa !139
+  store i8 %95, ptr %135, align 8, !tbaa !140
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 %103, ptr %136, align 1, !tbaa !140
+  store i8 %103, ptr %136, align 1, !tbaa !141
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i8 %111, ptr %137, align 2, !tbaa !141
+  store i8 %111, ptr %137, align 2, !tbaa !142
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  store i8 %113, ptr %138, align 1, !tbaa !142
+  store i8 %113, ptr %138, align 1, !tbaa !143
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 %122, ptr %139, align 4, !tbaa !143
+  store i8 %122, ptr %139, align 4, !tbaa !144
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %75)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit74 unwind label %140
 
@@ -14339,7 +14339,7 @@ define linkonce_odr hidden void @_ZN6symfpu13arithmeticAddIN4cvc58internal13symf
   br label %117
 
 108:                                              ; preds = %8
-  %109 = load i8, ptr %7, align 8, !tbaa !137, !range !21, !noundef !22
+  %109 = load i8, ptr %7, align 8, !tbaa !138, !range !21, !noundef !22
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %112, label %.thread347
 
@@ -14359,7 +14359,7 @@ define linkonce_odr hidden void @_ZN6symfpu13arithmeticAddIN4cvc58internal13symf
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #16
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %spec.select349 = select i1 %narrow, ptr %93, ptr %116
   br label %117
 
@@ -14367,8 +14367,8 @@ define linkonce_odr hidden void @_ZN6symfpu13arithmeticAddIN4cvc58internal13symf
   %118 = phi ptr [ %111, %.thread347 ], [ %107, %.thread ], [ %116, %112 ]
   %119 = phi i1 [ false, %.thread347 ], [ true, %.thread ], [ %narrow, %112 ]
   %120 = phi ptr [ %111, %.thread347 ], [ %93, %.thread ], [ %spec.select349, %112 ]
-  %121 = load i32, ptr %120, align 8, !tbaa !9, !noalias !144
-  store i32 %121, ptr %14, align 8, !tbaa !9, !alias.scope !144
+  %121 = load i32, ptr %120, align 8, !tbaa !9, !noalias !145
+  store i32 %121, ptr %14, align 8, !tbaa !9, !alias.scope !145
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %123)
@@ -14429,10 +14429,10 @@ _ZN4cvc58internal9BitVectorD2Ev.exit180:          ; preds = %_ZN4cvc58internal9B
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !147)
+  call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %138 = select i1 %119, ptr %118, ptr %93
-  %139 = load i32, ptr %138, align 8, !tbaa !9, !noalias !147
-  store i32 %139, ptr %19, align 8, !tbaa !9, !alias.scope !147
+  %139 = load i32, ptr %138, align 8, !tbaa !9, !noalias !148
+  store i32 %139, ptr %19, align 8, !tbaa !9, !alias.scope !148
   %140 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %141)
@@ -14586,7 +14586,7 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit188: ; 
   %.val = load i32, ptr %31, align 8
   %.val333 = load i32, ptr %33, align 8
   %183 = select i1 %89, i32 %.val, i32 %.val333
-  store i32 %183, ptr %30, align 8, !tbaa !9, !alias.scope !150
+  store i32 %183, ptr %30, align 8, !tbaa !9, !alias.scope !151
   %184 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.gep302 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.gep303 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -14595,13 +14595,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit188: ; 
           to label %_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_.exit189 unwind label %545
 
 _ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_.exit189: ; preds = %182
-  call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  %185 = load i8, ptr %177, align 4, !tbaa !13, !range !21, !noalias !153, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !154)
+  %185 = load i8, ptr %177, align 4, !tbaa !13, !range !21, !noalias !154, !noundef !22
   %186 = trunc nuw i8 %185 to i1
   %.val334 = load i32, ptr %30, align 8
   %.val335 = load i32, ptr %28, align 8
   %187 = select i1 %186, i32 %.val334, i32 %.val335
-  store i32 %187, ptr %29, align 8, !tbaa !9, !alias.scope !153
+  store i32 %187, ptr %29, align 8, !tbaa !9, !alias.scope !154
   %188 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.gep306 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.sel307 = select i1 %186, ptr %184, ptr %.sroa.gep306
@@ -14674,13 +14674,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit195: ; 
 
 204:                                              ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit195
   %205 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %206 = load i8, ptr %202, align 2, !tbaa !13, !range !21, !noalias !156, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  %206 = load i8, ptr %202, align 2, !tbaa !13, !range !21, !noalias !157, !noundef !22
   %207 = trunc nuw i8 %206 to i1
   %.val336 = load i32, ptr %37, align 8
   %.val337 = load i32, ptr %205, align 8
   %208 = select i1 %207, i32 %.val336, i32 %.val337
-  store i32 %208, ptr %36, align 8, !tbaa !9, !alias.scope !156
+  store i32 %208, ptr %36, align 8, !tbaa !9, !alias.scope !157
   %209 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.gep299 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.gep300 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -14886,13 +14886,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit199:          ; preds = %267
           to label %275 unwind label %612
 
 275:                                              ; preds = %274
-  call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %276 = load i8, ptr %43, align 1, !tbaa !13, !range !21, !noalias !159, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  %276 = load i8, ptr %43, align 1, !tbaa !13, !range !21, !noalias !160, !noundef !22
   %277 = trunc nuw i8 %276 to i1
   %.val338 = load i32, ptr %57, align 8
   %.val339 = load i32, ptr %58, align 8
   %278 = select i1 %277, i32 %.val338, i32 %.val339
-  store i32 %278, ptr %56, align 8, !tbaa !9, !alias.scope !159
+  store i32 %278, ptr %56, align 8, !tbaa !9, !alias.scope !160
   %279 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.gep287 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.gep288 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -14901,13 +14901,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit199:          ; preds = %267
           to label %_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_.exit unwind label %614
 
 _ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_.exit: ; preds = %275
-  call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  %280 = load i8, ptr %44, align 1, !tbaa !13, !range !21, !noalias !162, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !163)
+  %280 = load i8, ptr %44, align 1, !tbaa !13, !range !21, !noalias !163, !noundef !22
   %281 = trunc nuw i8 %280 to i1
   %.val340 = load i32, ptr %54, align 8
   %.val341 = load i32, ptr %56, align 8
   %282 = select i1 %281, i32 %.val340, i32 %.val341
-  store i32 %282, ptr %53, align 8, !tbaa !9, !alias.scope !162
+  store i32 %282, ptr %53, align 8, !tbaa !9, !alias.scope !163
   %283 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.gep290 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.sel292 = select i1 %281, ptr %.sroa.gep290, ptr %279
@@ -15015,7 +15015,7 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit206: ; 
   %.val342 = load i32, ptr %68, align 8
   %.val343 = load i32, ptr %66, align 8
   %309 = select i1 %308, i32 %.val342, i32 %.val343
-  store i32 %309, ptr %65, align 8, !tbaa !9, !alias.scope !165
+  store i32 %309, ptr %65, align 8, !tbaa !9, !alias.scope !166
   %310 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.gep282 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -15042,7 +15042,7 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit208: ; 
   %.val344 = load i32, ptr %61, align 8
   %.val345 = load i32, ptr %63, align 8
   %317 = select i1 %316, i32 %.val344, i32 %.val345
-  store i32 %317, ptr %60, align 8, !tbaa !9, !alias.scope !168
+  store i32 %317, ptr %60, align 8, !tbaa !9, !alias.scope !169
   %318 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.gep283 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.gep284 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -17615,7 +17615,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit345:          ; preds = %_ZN4cvc58internal9B
   %.val = load i32, ptr %25, align 8
   %.val513 = load i32, ptr %41, align 8
   %398 = select i1 %321, i32 %.val, i32 %.val513
-  store i32 %398, ptr %65, align 8, !tbaa !9, !alias.scope !171
+  store i32 %398, ptr %65, align 8, !tbaa !9, !alias.scope !172
   %399 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.gep478 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.gep479 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -17628,7 +17628,7 @@ _ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT
   %.val514 = load i32, ptr %56, align 8
   %.val515 = load i32, ptr %63, align 8
   %400 = select i1 %321, i32 %.val514, i32 %.val515
-  store i32 %400, ptr %66, align 8, !tbaa !9, !alias.scope !174
+  store i32 %400, ptr %66, align 8, !tbaa !9, !alias.scope !175
   %401 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.gep460 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -19827,13 +19827,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit45:           ; preds = %35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  %40 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !177, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  %40 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !178, !noundef !22
   %41 = trunc nuw i8 %40 to i1
   %.val = load i32, ptr %8, align 8
   %.val67 = load i32, ptr %2, align 8
   %42 = select i1 %41, i32 %.val, i32 %.val67
-  store i32 %42, ptr %0, align 8, !tbaa !9, !alias.scope !177
+  store i32 %42, ptr %0, align 8, !tbaa !9, !alias.scope !178
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.gep50 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20124,13 +20124,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %20
 
 _ZN4cvc58internal9BitVectorD2Ev.exit21:           ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %30 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !180, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  %30 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !181, !noundef !22
   %31 = trunc nuw i8 %30 to i1
   %.val = load i32, ptr %7, align 8
   %.val28 = load i32, ptr %2, align 8
   %32 = select i1 %31, i32 %.val, i32 %.val28
-  store i32 %32, ptr %0, align 8, !tbaa !9, !alias.scope !180
+  store i32 %32, ptr %0, align 8, !tbaa !9, !alias.scope !181
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.gep26 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20251,13 +20251,13 @@ define linkonce_odr hidden void @_ZN6symfpu24conditionalRightShiftOneIN4cvc58int
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %13 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !183, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  %13 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !184, !noundef !22
   %14 = trunc nuw i8 %13 to i1
   %.val = load i32, ptr %5, align 8
   %.val11 = load i32, ptr %2, align 8
   %15 = select i1 %14, i32 %.val, i32 %.val11
-  store i32 %15, ptr %0, align 8, !tbaa !9, !alias.scope !183
+  store i32 %15, ptr %0, align 8, !tbaa !9, !alias.scope !184
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.gep10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20335,10 +20335,10 @@ define linkonce_odr hidden void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symf
   store i8 %11, ptr %10, align 1, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16, !noalias !186
-  %13 = load i32, ptr %1, align 4, !tbaa !3, !noalias !186
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16, !noalias !187
+  %13 = load i32, ptr %1, align 4, !tbaa !3, !noalias !187
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !8, !noalias !186
+  %15 = load i32, ptr %14, align 4, !tbaa !8, !noalias !187
   %16 = icmp ult i32 %15, 4
   br i1 %16, label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE.exit, label %17
 
@@ -20366,9 +20366,9 @@ define linkonce_odr hidden void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symf
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE.exit: ; preds = %5, %28
   %.0.i.i = phi i32 [ %.1.i.i, %28 ], [ %13, %5 ]
-  store i32 %.0.i.i, ptr %6, align 4, !tbaa !27, !noalias !186
+  store i32 %.0.i.i, ptr %6, align 4, !tbaa !27, !noalias !187
   call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !186
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !187
   invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10matchWidthERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %29 unwind label %38
 
@@ -20513,7 +20513,7 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit14: ; p
   %.val = load i32, ptr %6, align 8
   %.val23 = load i32, ptr %8, align 8
   %17 = select i1 %11, i32 %.val, i32 %.val23
-  store i32 %17, ptr %0, align 8, !tbaa !9, !alias.scope !189
+  store i32 %17, ptr %0, align 8, !tbaa !9, !alias.scope !190
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.gep22 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -20836,13 +20836,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %21
           to label %28 unwind label %53
 
 28:                                               ; preds = %26
-  call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !192, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !193, !noundef !22
   %30 = trunc nuw i8 %29 to i1
   %.val = load i32, ptr %9, align 8
   %.val33 = load i32, ptr %10, align 8
   %31 = select i1 %30, i32 %.val, i32 %.val33
-  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !192
+  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !193
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.gep31 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -20992,17 +20992,17 @@ define linkonce_odr hidden void @_ZN6symfpu6collarIN4cvc58internal13symfpuLitera
   %6 = tail call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
   %7 = tail call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %8 = select i1 %7, ptr %3, ptr %1
-  %9 = load i32, ptr %8, align 8, !tbaa !9, !noalias !195
-  store i32 %9, ptr %5, align 8, !tbaa !9, !alias.scope !195
+  %9 = load i32, ptr %8, align 8, !tbaa !9, !noalias !196
+  store i32 %9, ptr %5, align 8, !tbaa !9, !alias.scope !196
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %.val = load i32, ptr %2, align 8
   %.val11 = load i32, ptr %5, align 8
   %12 = select i1 %6, i32 %.val, i32 %.val11
-  store i32 %12, ptr %0, align 8, !tbaa !9, !alias.scope !198
+  store i32 %12, ptr %0, align 8, !tbaa !9, !alias.scope !199
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.sel = select i1 %6, ptr %.sroa.gep, ptr %10
@@ -22904,13 +22904,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv.exit: ; pre
           to label %21 unwind label %40
 
 21:                                               ; preds = %20
-  call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  %22 = load i8, ptr %3, align 1, !tbaa !13, !range !21, !noalias !201, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !202)
+  %22 = load i8, ptr %3, align 1, !tbaa !13, !range !21, !noalias !202, !noundef !22
   %23 = trunc nuw i8 %22 to i1
   %.val = load i32, ptr %11, align 8
   %.val32 = load i32, ptr %12, align 8
   %24 = select i1 %23, i32 %.val, i32 %.val32
-  store i32 %24, ptr %10, align 8, !tbaa !9, !alias.scope !201
+  store i32 %24, ptr %10, align 8, !tbaa !9, !alias.scope !202
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.gep31 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -24438,7 +24438,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit28:           ; preds = %37
   %52 = xor i1 %46, true
   %53 = zext i1 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %53, ptr %54, align 8, !tbaa !204
+  store i8 %53, ptr %54, align 8, !tbaa !205
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit29 unwind label %55
 
@@ -24734,13 +24734,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %21
           to label %28 unwind label %53
 
 28:                                               ; preds = %26
-  call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !206, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !207)
+  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !207, !noundef !22
   %30 = trunc nuw i8 %29 to i1
   %.val = load i32, ptr %9, align 8
   %.val33 = load i32, ptr %10, align 8
   %31 = select i1 %30, i32 %.val, i32 %.val33
-  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !206
+  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !207
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.gep31 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -26112,7 +26112,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit56:           ; preds = %_ZN4cvc58internal9B
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
   %.0 = add i32 %.085, -1
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %._crit_edge, label %51, !llvm.loop !209
+  br i1 %.not, label %._crit_edge, label %51, !llvm.loop !210
 
 95:                                               ; preds = %2
   %96 = landingpad { ptr, i32 }
@@ -26373,7 +26373,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit68:           ; preds = %_ZN4cvc58internal9B
   %172 = xor i1 %166, true
   %173 = zext i1 %172 to i8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %173, ptr %174, align 8, !tbaa !204
+  store i8 %173, ptr %174, align 8, !tbaa !205
   %175 = getelementptr inbounds nuw i8, ptr %19, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %175)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit69 unwind label %176
@@ -26768,7 +26768,7 @@ _ZN6symfpu16roundingDecisionIN4cvc58internal13symfpuLiteral6traitsEEENT_4propERK
   %.val = load i32, ptr %13, align 8
   %.val172 = load i32, ptr %24, align 8
   %120 = select i1 %118, i32 %.val, i32 %.val172
-  store i32 %120, ptr %23, align 8, !tbaa !9, !alias.scope !210
+  store i32 %120, ptr %23, align 8, !tbaa !9, !alias.scope !211
   %121 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.gep157 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -27010,7 +27010,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit113:          ; preds = %_ZN4cvc58internal9B
 188:                                              ; preds = %184
   %189 = zext i1 %183 to i8
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %189, ptr %190, align 8, !tbaa !213
+  store i8 %189, ptr %190, align 8, !tbaa !214
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %187)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit115 unwind label %191
 
@@ -28067,10 +28067,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj.exit: ; preds = %8
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !215)
+  call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %96 = select i1 %91, ptr %.033236, ptr %10
-  %97 = load i32, ptr %96, align 8, !tbaa !9, !noalias !215
-  store i32 %97, ptr %15, align 8, !tbaa !9, !alias.scope !215
+  %97 = load i32, ptr %96, align 8, !tbaa !9, !noalias !216
+  store i32 %97, ptr %15, align 8, !tbaa !9, !alias.scope !216
   %.033.sroa.gep = getelementptr inbounds nuw i8, ptr %.033236, i64 8
   %.sroa.sel198 = select i1 %91, ptr %.033.sroa.gep, ptr %.sroa.gep197
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.sel198)
@@ -28131,7 +28131,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit117:          ; preds = %_ZN6symfpu22resultW
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #16
   %.0 = add i32 %.0237, -1
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %._crit_edge, label %89, !llvm.loop !218
+  br i1 %.not, label %._crit_edge, label %89, !llvm.loop !219
 
 112:                                              ; preds = %89
   %113 = landingpad { ptr, i32 }
@@ -28267,10 +28267,10 @@ _ZN4cvc58internal9BitVectorD2Ev.exit122:          ; preds = %_ZN4cvc58internal9B
 _ZN4cvc58internal9BitVectorD2Ev.exit123:          ; preds = %149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !219)
+  call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %154 = select i1 %148, ptr %.033.lcssa, ptr %10
-  %155 = load i32, ptr %154, align 8, !tbaa !9, !noalias !219
-  store i32 %155, ptr %21, align 8, !tbaa !9, !alias.scope !219
+  %155 = load i32, ptr %154, align 8, !tbaa !9, !noalias !220
+  store i32 %155, ptr %21, align 8, !tbaa !9, !alias.scope !220
   %156 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.033.sroa.gep199 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 8
   %.sroa.gep200 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -28342,13 +28342,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit128:          ; preds = %_ZN4cvc58internal9B
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %177 = load i8, ptr %17, align 1, !tbaa !13, !range !21, !noalias !222, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  %177 = load i8, ptr %17, align 1, !tbaa !13, !range !21, !noalias !223, !noundef !22
   %178 = trunc nuw i8 %177 to i1
   %.val = load i32, ptr %22, align 8
   %.val208 = load i32, ptr %10, align 8
   %179 = select i1 %178, i32 %.val, i32 %.val208
-  store i32 %179, ptr %25, align 8, !tbaa !9, !alias.scope !222
+  store i32 %179, ptr %25, align 8, !tbaa !9, !alias.scope !223
   %180 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.gep192 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.sel194 = select i1 %178, ptr %.sroa.gep192, ptr %.sroa.gep200
@@ -28367,7 +28367,7 @@ _ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT
   %.val209 = load i32, ptr %26, align 8
   %.val210 = load i32, ptr %10, align 8
   %184 = select i1 %167, i32 %.val209, i32 %.val210
-  store i32 %184, ptr %27, align 8, !tbaa !9, !alias.scope !225
+  store i32 %184, ptr %27, align 8, !tbaa !9, !alias.scope !226
   %185 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.sel = select i1 %167, ptr %.sroa.gep, ptr %.sroa.gep200
@@ -29411,7 +29411,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit23:           ; preds = %31
   %.val = load i32, ptr %9, align 8
   %.val36 = load i32, ptr %1, align 8
   %36 = select i1 %29, i32 %.val, i32 %.val36
-  store i32 %36, ptr %11, align 8, !tbaa !9, !alias.scope !228
+  store i32 %36, ptr %11, align 8, !tbaa !9, !alias.scope !229
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.gep34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -29439,7 +29439,7 @@ _ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %30, ptr %44, align 8, !tbaa !204
+  store i8 %30, ptr %44, align 8, !tbaa !205
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %42)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit24 unwind label %45
 
@@ -30367,13 +30367,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv.exit97: ; p
           to label %131 unwind label %224
 
 131:                                              ; preds = %130
-  call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  %132 = load i8, ptr %129, align 2, !tbaa !13, !range !21, !noalias !231, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !232)
+  %132 = load i8, ptr %129, align 2, !tbaa !13, !range !21, !noalias !232, !noundef !22
   %133 = trunc nuw i8 %132 to i1
   %.val = load i32, ptr %18, align 8
   %.val137 = load i32, ptr %19, align 8
   %134 = select i1 %133, i32 %.val, i32 %.val137
-  store i32 %134, ptr %17, align 8, !tbaa !9, !alias.scope !231
+  store i32 %134, ptr %17, align 8, !tbaa !9, !alias.scope !232
   %135 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.gep136 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -31670,7 +31670,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit93:           ; preds = %_ZN4cvc58internal9B
 206:                                              ; preds = %202
   %207 = zext i1 %201 to i8
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %207, ptr %208, align 8, !tbaa !213
+  store i8 %207, ptr %208, align 8, !tbaa !214
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %205)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit95 unwind label %209
 
@@ -31936,13 +31936,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %21
           to label %28 unwind label %53
 
 28:                                               ; preds = %26
-  call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !234, !noundef !22
+  call void @llvm.experimental.noalias.scope.decl(metadata !235)
+  %29 = load i8, ptr %1, align 1, !tbaa !13, !range !21, !noalias !235, !noundef !22
   %30 = trunc nuw i8 %29 to i1
   %.val = load i32, ptr %9, align 8
   %.val33 = load i32, ptr %10, align 8
   %31 = select i1 %30, i32 %.val, i32 %.val33
-  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !234
+  store i32 %31, ptr %8, align 8, !tbaa !9, !alias.scope !235
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.gep31 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -32239,131 +32239,132 @@ attributes #19 = { builtin nounwind }
 !106 = !{!107}
 !107 = distinct !{!107, !108, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
 !108 = distinct !{!108, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!109 = distinct !{!109, !110}
+!109 = distinct !{!109, !110, !111}
 !110 = !{!"llvm.loop.mustprogress"}
-!111 = !{!112, !14, i64 48}
-!112 = !{!"_ZTSN6symfpu20normaliseShiftResultIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !18, i64 24, !14, i64 48}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!115 = distinct !{!115, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!116 = distinct !{!116, !110}
-!117 = !{!118, !120}
-!118 = distinct !{!118, !119, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!119 = distinct !{!119, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!120 = distinct !{!120, !121, !"_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsENS3_16wrappedBitVectorILb1EEEEET0_RKS7_S9_: argument 0"}
-!121 = distinct !{!121, !"_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsENS3_16wrappedBitVectorILb1EEEEET0_RKS7_S9_"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE: argument 0"}
-!124 = distinct !{!124, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE"}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE: argument 0"}
-!127 = distinct !{!127, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE"}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!130 = distinct !{!130, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!133 = distinct !{!133, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!136 = distinct !{!136, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!137 = !{!138, !14, i64 0}
-!138 = !{!"_ZTSN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEEE", !14, i64 0, !17, i64 8, !17, i64 32, !14, i64 56, !14, i64 57, !14, i64 58, !14, i64 59, !14, i64 60}
-!139 = !{!138, !14, i64 56}
-!140 = !{!138, !14, i64 57}
-!141 = !{!138, !14, i64 58}
-!142 = !{!138, !14, i64 59}
-!143 = !{!138, !14, i64 60}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!146 = distinct !{!146, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!149 = distinct !{!149, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!152 = distinct !{!152, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!155 = distinct !{!155, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!158 = distinct !{!158, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!161 = distinct !{!161, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!164 = distinct !{!164, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!167 = distinct !{!167, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!170 = distinct !{!170, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!173 = distinct !{!173, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!176 = distinct !{!176, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!179 = distinct !{!179, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!182 = distinct !{!182, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!185 = distinct !{!185, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE: argument 0"}
-!188 = distinct !{!188, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!191 = distinct !{!191, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!194 = distinct !{!194, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!197 = distinct !{!197, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!200 = distinct !{!200, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!203 = distinct !{!203, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!204 = !{!205, !14, i64 24}
-!205 = !{!"_ZTSN6symfpu22resultWithRemainderBitIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !14, i64 24}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!208 = distinct !{!208, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
-!209 = distinct !{!209, !110}
-!210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!212 = distinct !{!212, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!213 = !{!214, !14, i64 24}
-!214 = !{!"_ZTSN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !14, i64 24}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!217 = distinct !{!217, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!218 = distinct !{!218, !110}
-!219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!221 = distinct !{!221, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!224 = distinct !{!224, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!227 = distinct !{!227, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!230 = distinct !{!230, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!233 = distinct !{!233, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
-!236 = distinct !{!236, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!111 = !{!"llvm.loop.estimated_trip_count"}
+!112 = !{!113, !14, i64 48}
+!113 = !{!"_ZTSN6symfpu20normaliseShiftResultIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !18, i64 24, !14, i64 48}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!116 = distinct !{!116, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!117 = distinct !{!117, !110, !111}
+!118 = !{!119, !121}
+!119 = distinct !{!119, !120, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!120 = distinct !{!120, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!121 = distinct !{!121, !122, !"_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsENS3_16wrappedBitVectorILb1EEEEET0_RKS7_S9_: argument 0"}
+!122 = distinct !{!122, !"_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsENS3_16wrappedBitVectorILb1EEEEET0_RKS7_S9_"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE: argument 0"}
+!125 = distinct !{!125, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE: argument 0"}
+!128 = distinct !{!128, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE20maxSubnormalExponentERKNS2_17FloatingPointSizeE"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!131 = distinct !{!131, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!134 = distinct !{!134, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!137 = distinct !{!137, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!138 = !{!139, !14, i64 0}
+!139 = !{!"_ZTSN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEEE", !14, i64 0, !17, i64 8, !17, i64 32, !14, i64 56, !14, i64 57, !14, i64 58, !14, i64 59, !14, i64 60}
+!140 = !{!139, !14, i64 56}
+!141 = !{!139, !14, i64 57}
+!142 = !{!139, !14, i64 58}
+!143 = !{!139, !14, i64 59}
+!144 = !{!139, !14, i64 60}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!147 = distinct !{!147, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!150 = distinct !{!150, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!151 = !{!152}
+!152 = distinct !{!152, !153, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!153 = distinct !{!153, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!156 = distinct !{!156, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!159 = distinct !{!159, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!162 = distinct !{!162, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!165 = distinct !{!165, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!168 = distinct !{!168, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!171 = distinct !{!171, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!174 = distinct !{!174, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!177 = distinct !{!177, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!180 = distinct !{!180, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!183 = distinct !{!183, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!186 = distinct !{!186, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE: argument 0"}
+!189 = distinct !{!189, !"_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE"}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!192 = distinct !{!192, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!193 = !{!194}
+!194 = distinct !{!194, !195, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!195 = distinct !{!195, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!198 = distinct !{!198, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!201 = distinct !{!201, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!204 = distinct !{!204, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!205 = !{!206, !14, i64 24}
+!206 = !{!"_ZTSN6symfpu22resultWithRemainderBitIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !14, i64 24}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!209 = distinct !{!209, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEEEEKT0_RKT_RS7_SB_"}
+!210 = distinct !{!210, !110, !111}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!213 = distinct !{!213, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!214 = !{!215, !14, i64 24}
+!215 = !{!"_ZTSN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEEE", !18, i64 0, !14, i64 24}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!218 = distinct !{!218, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!219 = distinct !{!219, !110, !111}
+!220 = !{!221}
+!221 = distinct !{!221, !222, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!222 = distinct !{!222, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!225 = distinct !{!225, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!226 = !{!227}
+!227 = distinct !{!227, !228, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!228 = distinct !{!228, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!231 = distinct !{!231, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!234 = distinct !{!234, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_: argument 0"}
+!237 = distinct !{!237, !"_ZN6symfpu3ITEIbN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEEEEKT0_RKT_RS7_SB_"}

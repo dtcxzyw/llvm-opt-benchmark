@@ -91,7 +91,7 @@ define hidden i32 @der_offs(ptr noundef readonly captures(none) %0, ptr noundef 
   %19 = add i32 %16, -128
   %20 = add i32 %19, %18
   %exitcond.not = icmp eq i64 %17, %.
-  br i1 %exitcond.not, label %gettag.exit.thread, label %.preheader.i
+  br i1 %exitcond.not, label %gettag.exit.thread, label %.preheader.i, !llvm.loop !19
 
 gettag.exit:                                      ; preds = %.preheader.i
   %21 = icmp eq i32 %.0.i, -1
@@ -132,7 +132,7 @@ gettag.exit.thread31:                             ; preds = %8, %gettag.exit
   %37 = or disjoint i64 %32, %36
   %38 = add nuw nsw i8 %.02429.i, 1
   %exitcond.not.i = icmp eq i8 %38, %26
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %39 = add nsw i8 %26, -1
@@ -158,13 +158,13 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
   %.0.i2341 = phi i64 [ %.023.lcssa.i, %._crit_edge.i ], [ %27, %29 ]
   %.340 = phi i64 [ %.2, %._crit_edge.i ], [ %25, %29 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %50 = load i32, ptr %49, align 8, !tbaa !19
+  %50 = load i32, ptr %49, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %52 = load i32, ptr %51, align 4, !tbaa !23
   %53 = add i32 %52, %50
   %54 = zext i32 %53 to i64
   %55 = add i64 %.340, %54
-  %56 = load i16, ptr %1, align 8, !tbaa !22
+  %56 = load i16, ptr %1, align 8, !tbaa !25
   %57 = zext i16 %56 to i64
   %.not21 = icmp eq i16 %56, 0
   br i1 %.not21, label %69, label %58
@@ -178,11 +178,11 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
 62:                                               ; preds = %58
   %63 = trunc i64 %60 to i32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = load ptr, ptr %64, align 8, !tbaa !26
   %66 = add nuw nsw i64 %57, 4294967295
   %67 = and i64 %66, 4294967295
   %68 = getelementptr inbounds nuw %struct.level_info, ptr %65, i64 %67
-  store i32 %63, ptr %68, align 4, !tbaa !24
+  store i32 %63, ptr %68, align 4, !tbaa !27
   br label %69
 
 69:                                               ; preds = %62, %getlength.exit.thread37
@@ -241,7 +241,7 @@ gettag.exit.thread62:                             ; preds = %9
   %21 = add i32 %18, -128
   %22 = add i32 %21, %20
   %exitcond.not = icmp eq i64 %19, %8
-  br i1 %exitcond.not, label %gettag.exit.thread, label %.preheader.i
+  br i1 %exitcond.not, label %gettag.exit.thread, label %.preheader.i, !llvm.loop !19
 
 gettag.exit:                                      ; preds = %.preheader.i
   %23 = icmp eq i32 %.0.i, -1
@@ -287,7 +287,7 @@ getlength.exit.thread69:                          ; preds = %32
   %41 = or disjoint i64 %36, %40
   %42 = add nuw nsw i8 %.02429.i, 1
   %exitcond.not.i = icmp eq i8 %42, %29
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %43 = add nsw i8 %29, -1
@@ -318,7 +318,7 @@ getlength.exit.thread69:                          ; preds = %32
 55:                                               ; preds = %53
   %56 = zext nneg i32 %.016.i66 to i64
   %57 = getelementptr inbounds nuw [37 x ptr], ptr @der__tag, i64 0, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !26
+  %58 = load ptr, ptr %57, align 8, !tbaa !29
   %59 = call i64 @php_strlcpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef 128) #7
   br label %der_tag.exit
 
@@ -328,13 +328,13 @@ getlength.exit.thread69:                          ; preds = %32
 
 der_tag.exit:                                     ; preds = %55, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %63 = load i32, ptr %62, align 4, !tbaa !27
+  %63 = load i32, ptr %62, align 4, !tbaa !30
   %64 = and i32 %63, 1
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %68, label %65
 
 65:                                               ; preds = %der_tag.exit
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !31
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.der_cmp, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6) #8
   br label %68
 
@@ -438,20 +438,20 @@ der_tag.exit:                                     ; preds = %55, %60
 132:                                              ; preds = %124, %.lr.ph.i54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i, %73
-  br i1 %exitcond.not.i55, label %der_data.exit, label %.lr.ph.i54
+  br i1 %exitcond.not.i55, label %der_data.exit, label %.lr.ph.i54, !llvm.loop !33
 
 der_data.exit:                                    ; preds = %132, %120, %79, %83
-  %133 = load i32, ptr %62, align 4, !tbaa !27
+  %133 = load i32, ptr %62, align 4, !tbaa !30
   %134 = and i32 %133, 1
   %.not42 = icmp eq i32 %134, 0
   br i1 %.not42, label %163, label %160
 
 135:                                              ; preds = %74
   %136 = tail call ptr @__ctype_b_loc() #10
-  %137 = load ptr, ptr %136, align 8, !tbaa !30
+  %137 = load ptr, ptr %136, align 8, !tbaa !34
   %138 = zext i8 %75 to i64
   %139 = getelementptr inbounds nuw i16, ptr %137, i64 %138
-  %140 = load i16, ptr %139, align 2, !tbaa !32
+  %140 = load i16, ptr %139, align 2, !tbaa !36
   %141 = and i16 %140, 2048
   %.not45 = icmp eq i16 %141, 0
   br i1 %.not45, label %gettag.exit.thread, label %.preheader
@@ -468,28 +468,28 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
   %148 = load i8, ptr %147, align 1, !tbaa !18
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw i16, ptr %137, i64 %149
-  %151 = load i16, ptr %150, align 2, !tbaa !32
+  %151 = load i16, ptr %150, align 2, !tbaa !36
   %152 = and i16 %151, 2048
   %.not46 = icmp eq i16 %152, 0
-  br i1 %.not46, label %153, label %.preheader
+  br i1 %.not46, label %153, label %.preheader, !llvm.loop !37
 
 153:                                              ; preds = %.preheader
-  %154 = load i32, ptr %62, align 4, !tbaa !27
+  %154 = load i32, ptr %62, align 4, !tbaa !30
   %155 = and i32 %154, 1
   %.not47 = icmp eq i32 %155, 0
   br i1 %.not47, label %159, label %156
 
 156:                                              ; preds = %153
-  %157 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %157 = load ptr, ptr @stderr, align 8, !tbaa !31
   %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.der_cmp, i64 noundef %146, i32 noundef %.0.i5073) #8
   br label %159
 
 159:                                              ; preds = %156, %153
   %.not48 = icmp eq i64 %146, %73
-  br i1 %.not48, label %74, label %gettag.exit.thread
+  br i1 %.not48, label %74, label %gettag.exit.thread, !llvm.loop !38
 
 160:                                              ; preds = %der_data.exit
-  %161 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %161 = load ptr, ptr @stderr, align 8, !tbaa !31
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.der_cmp, ptr noundef nonnull %3, ptr noundef nonnull %77) #8
   br label %163
 
@@ -580,17 +580,23 @@ attributes #10 = { nounwind willreturn memory(none) }
 !16 = !{!"", !13, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
 !17 = !{!5, !9, i64 112}
 !18 = !{!6, !6, i64 0}
-!19 = !{!5, !14, i64 56}
-!20 = !{!21, !14, i64 12}
-!21 = !{!"magic", !15, i64 0, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !14, i64 12, !14, i64 16, !14, i64 20, !6, i64 24, !6, i64 32, !6, i64 160, !6, i64 224, !6, i64 304, !6, i64 312}
-!22 = !{!21, !15, i64 0}
-!23 = !{!5, !10, i64 24}
-!24 = !{!25, !14, i64 0}
-!25 = !{!"level_info", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!26 = !{!13, !13, i64 0}
-!27 = !{!5, !14, i64 68}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 short", !11, i64 0}
-!32 = !{!15, !15, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = !{!5, !14, i64 56}
+!23 = !{!24, !14, i64 12}
+!24 = !{!"magic", !15, i64 0, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !14, i64 12, !14, i64 16, !14, i64 20, !6, i64 24, !6, i64 32, !6, i64 160, !6, i64 224, !6, i64 304, !6, i64 312}
+!25 = !{!24, !15, i64 0}
+!26 = !{!5, !10, i64 24}
+!27 = !{!28, !14, i64 0}
+!28 = !{!"level_info", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!29 = !{!13, !13, i64 0}
+!30 = !{!5, !14, i64 68}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!33 = distinct !{!33, !20}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 short", !11, i64 0}
+!36 = !{!15, !15, i64 0}
+!37 = distinct !{!37, !20}
+!38 = distinct !{!38, !20}

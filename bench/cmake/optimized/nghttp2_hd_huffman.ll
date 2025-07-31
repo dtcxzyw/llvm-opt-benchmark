@@ -42,11 +42,11 @@ define dso_local range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_c
 define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -77,7 +77,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !22
+  %23 = load i32, ptr %22, align 4, !tbaa !23
   %24 = zext i32 %23 to i64
   %25 = sub i64 32, %.042
   %26 = shl i64 %24, %25
@@ -86,7 +86,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %29 = zext i32 %28 to i64
   %30 = add i64 %.042, %29
   %31 = icmp ult i64 %30, 32
-  br i1 %31, label %15, label %32, !llvm.loop !23
+  br i1 %31, label %15, label %32, !llvm.loop !24
 
 32:                                               ; preds = %17
   %33 = icmp ugt i64 %.0.ph, 3
@@ -97,13 +97,13 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %36 = trunc nuw i64 %35 to i32
   %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
   store i32 %37, ptr %39, align 1
-  %40 = load ptr, ptr %5, align 8, !tbaa !12
+  %40 = load ptr, ptr %5, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store ptr %43, ptr %41, align 8, !tbaa !21
+  store ptr %43, ptr %41, align 8, !tbaa !22
   %44 = add i64 %.0.ph, -4
   %45 = shl i64 %27, 32
   %46 = add i64 %30, -32
@@ -114,7 +114,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %.044.ph.be = phi i64 [ %51, %._crit_edge ], [ %45, %34 ]
   %.042.ph.be = phi i64 [ %52, %._crit_edge ], [ %46, %34 ]
   %.0.ph.be = phi i64 [ %56, %._crit_edge ], [ %44, %34 ]
-  br label %.outer, !llvm.loop !23
+  br label %.outer, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %32, %50
   %.170 = phi i64 [ %52, %50 ], [ %30, %32 ]
@@ -129,14 +129,14 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %51 = shl i64 %.14569, 8
   %52 = add i64 %.170, -8
   %53 = icmp ugt i64 %52, 7
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %50
-  %.pre = load ptr, ptr %5, align 8, !tbaa !12
+  %.pre = load ptr, ptr %5, align 8, !tbaa !13
   %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre93 = load ptr, ptr %.phi.trans.insert92, align 8, !tbaa !21
+  %.pre93 = load ptr, ptr %.phi.trans.insert92, align 8, !tbaa !22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre91 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
+  %.pre91 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
   %54 = ptrtoint ptr %.pre91 to i64
   %55 = ptrtoint ptr %.pre93 to i64
   %56 = sub i64 %54, %55
@@ -155,7 +155,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %61 = shl i64 %.24672, 8
   %62 = add i64 %.273, -8
   %63 = icmp ugt i64 %62, 7
-  br i1 %63, label %.lr.ph74, label %._crit_edge75, !llvm.loop !25
+  br i1 %63, label %.lr.ph74, label %._crit_edge75, !llvm.loop !26
 
 ._crit_edge75:                                    ; preds = %60, %.preheader
   %.246.lcssa = phi i64 [ %.044, %.preheader ], [ %61, %60 ]
@@ -188,14 +188,14 @@ declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly captures(none) initializes((0, 2)) %0) local_unnamed_addr #3 {
-  store i16 16384, ptr %0, align 2, !tbaa !26
+  store i16 16384, ptr %0, align 2, !tbaa !27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %7 = load i16, ptr %0, align 2, !tbaa !26
+  %7 = load i16, ptr %0, align 2, !tbaa !27
   %.not27 = icmp samesign eq i64 %3, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -215,16 +215,16 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   %17 = lshr i32 %16, 4
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr %15, i64 0, i64 %18
-  %20 = load i16, ptr %19, align 2, !tbaa !29
+  %20 = load i16, ptr %19, align 2, !tbaa !30
   %.not25 = icmp sgt i16 %20, -1
   br i1 %.not25, label %26, label %21
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %23 = load i8, ptr %22, align 2, !tbaa !31
-  %24 = load ptr, ptr %8, align 8, !tbaa !32
+  %23 = load i8, ptr %22, align 2, !tbaa !32
+  %24 = load ptr, ptr %8, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store ptr %25, ptr %8, align 8, !tbaa !32
+  store ptr %25, ptr %8, align 8, !tbaa !33
   store i8 %23, ptr %24, align 1, !tbaa !4
   br label %26
 
@@ -235,26 +235,26 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   %30 = and i32 %16, 15
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr %29, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !29
+  %33 = load i16, ptr %32, align 2, !tbaa !30
   %.not26 = icmp sgt i16 %33, -1
   br i1 %.not26, label %39, label %34
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  %36 = load i8, ptr %35, align 2, !tbaa !31
-  %37 = load ptr, ptr %8, align 8, !tbaa !32
+  %36 = load i8, ptr %35, align 2, !tbaa !32
+  %37 = load ptr, ptr %8, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store ptr %38, ptr %8, align 8, !tbaa !32
+  store ptr %38, ptr %8, align 8, !tbaa !33
   store i8 %36, ptr %37, align 1, !tbaa !4
   br label %39
 
 39:                                               ; preds = %34, %26
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %39, %5
   %40 = phi i16 [ %7, %5 ], [ %33, %39 ]
-  store i16 %40, ptr %0, align 2, !tbaa !26
+  store i16 %40, ptr %0, align 2, !tbaa !27
   %.not23 = icmp ne i32 %4, 0
   %41 = and i16 %40, 16384
   %.not24 = icmp eq i16 %41, 0
@@ -265,7 +265,7 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i16, ptr %0, align 2, !tbaa !26
+  %2 = load i16, ptr %0, align 2, !tbaa !27
   %3 = icmp eq i16 %2, 256
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -295,27 +295,28 @@ attributes #7 = { nounwind }
 !7 = !{!8, !9, i64 0}
 !8 = !{!"", !9, i64 0, !9, i64 4}
 !9 = !{!"int", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !14, i64 8}
-!13 = !{!"", !14, i64 0, !14, i64 8, !15, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56}
-!14 = !{!"p1 _ZTS17nghttp2_buf_chain", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!"long", !5, i64 0}
-!17 = !{!18, !20, i64 16}
-!18 = !{!"nghttp2_buf_chain", !14, i64 0, !19, i64 8}
-!19 = !{!"", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32}
-!20 = !{!"p1 omnipotent char", !15, i64 0}
-!21 = !{!18, !20, i64 32}
-!22 = !{!8, !9, i64 4}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"", !28, i64 0}
-!28 = !{!"short", !5, i64 0}
-!29 = !{!30, !28, i64 0}
-!30 = !{!"", !28, i64 0, !5, i64 2}
-!31 = !{!30, !5, i64 2}
-!32 = !{!19, !20, i64 24}
-!33 = distinct !{!33, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !15, i64 8}
+!14 = !{!"", !15, i64 0, !15, i64 8, !16, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56}
+!15 = !{!"p1 _ZTS17nghttp2_buf_chain", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!19, !21, i64 16}
+!19 = !{!"nghttp2_buf_chain", !15, i64 0, !20, i64 8}
+!20 = !{!"", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
+!21 = !{!"p1 omnipotent char", !16, i64 0}
+!22 = !{!19, !21, i64 32}
+!23 = !{!8, !9, i64 4}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"", !29, i64 0}
+!29 = !{!"short", !5, i64 0}
+!30 = !{!31, !29, i64 0}
+!31 = !{!"", !29, i64 0, !5, i64 2}
+!32 = !{!31, !5, i64 2}
+!33 = !{!20, !21, i64 24}
+!34 = distinct !{!34, !11, !12}

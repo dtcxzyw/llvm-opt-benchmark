@@ -1199,7 +1199,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %124 = add i32 %.0167171, 1
   %125 = load i32, ptr %8, align 4
   %.not168 = icmp ugt i32 %124, %125
-  br i1 %.not168, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not168, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %83
   %.1.lcssa = phi i32 [ 89, %83 ], [ %121, %.lr.ph ]
@@ -1432,7 +1432,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %109 = add nuw i32 %.0190, 1
   %110 = load i32, ptr %8, align 4
   %111 = icmp ult i32 %109, %110
-  br i1 %111, label %.lr.ph, label %.preheader188, !llvm.loop !9
+  br i1 %111, label %.lr.ph, label %.preheader188, !llvm.loop !10
 
 .preheader187:                                    ; preds = %.lr.ph193, %81, %.preheader188
   %.2173.lcssa = phi i32 [ %108, %.preheader188 ], [ %103, %81 ], [ %115, %.lr.ph193 ]
@@ -1449,7 +1449,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %116 = add nuw i32 %.1192, 1
   %117 = load i32, ptr %8, align 4
   %118 = icmp ult i32 %116, %117
-  br i1 %118, label %.lr.ph193, label %.preheader187, !llvm.loop !10
+  br i1 %118, label %.lr.ph193, label %.preheader187, !llvm.loop !11
 
 .preheader186:                                    ; preds = %.lr.ph197, %.preheader187
   %.3174.lcssa = phi i32 [ %.2173.lcssa, %.preheader187 ], [ %122, %.lr.ph197 ]
@@ -1466,7 +1466,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %123 = add nuw i32 %.2196, 1
   %124 = load i32, ptr %9, align 4
   %125 = icmp ult i32 %123, %124
-  br i1 %125, label %.lr.ph197, label %.preheader186, !llvm.loop !11
+  br i1 %125, label %.lr.ph197, label %.preheader186, !llvm.loop !12
 
 .preheader185:                                    ; preds = %.lr.ph201, %.preheader186
   %.4175.lcssa = phi i32 [ %.3174.lcssa, %.preheader186 ], [ %129, %.lr.ph201 ]
@@ -1483,7 +1483,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %130 = add nuw i32 %.3200, 1
   %131 = load i32, ptr %10, align 4
   %132 = icmp ult i32 %130, %131
-  br i1 %132, label %.lr.ph201, label %.preheader185, !llvm.loop !12
+  br i1 %132, label %.lr.ph201, label %.preheader185, !llvm.loop !13
 
 .preheader184:                                    ; preds = %.lr.ph205, %.preheader185
   %.5176.lcssa = phi i32 [ %.4175.lcssa, %.preheader185 ], [ %136, %.lr.ph205 ]
@@ -1500,7 +1500,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %137 = add nuw i32 %.4204, 1
   %138 = load i32, ptr %11, align 4
   %139 = icmp ult i32 %137, %138
-  br i1 %139, label %.lr.ph205, label %.preheader184, !llvm.loop !13
+  br i1 %139, label %.lr.ph205, label %.preheader184, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph209, %.preheader184
   %.6177.lcssa = phi i32 [ %.5176.lcssa, %.preheader184 ], [ %143, %.lr.ph209 ]
@@ -1517,7 +1517,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %144 = add nuw i32 %.5208, 1
   %145 = load i32, ptr %12, align 4
   %146 = icmp ult i32 %144, %145
-  br i1 %146, label %.lr.ph209, label %.preheader, !llvm.loop !14
+  br i1 %146, label %.lr.ph209, label %.preheader, !llvm.loop !15
 
 .lr.ph213:                                        ; preds = %.preheader, %.lr.ph213
   %.6212 = phi i32 [ %150, %.lr.ph213 ], [ 0, %.preheader ]
@@ -1528,7 +1528,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %150 = add nuw i32 %.6212, 1
   %151 = load i32, ptr %13, align 4
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %.lr.ph213, label %._crit_edge, !llvm.loop !15
+  br i1 %152, label %.lr.ph213, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph213, %.preheader
   %.7.lcssa = phi i32 [ %.6177.lcssa, %.preheader ], [ %149, %.lr.ph213 ]
@@ -1544,7 +1544,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   %155 = add i32 %.0178216, 1
   %156 = load i32, ptr %7, align 4
   %.not181 = icmp ugt i32 %155, %156
-  br i1 %.not181, label %._crit_edge220, label %.lr.ph219, !llvm.loop !16
+  br i1 %.not181, label %._crit_edge220, label %.lr.ph219, !llvm.loop !17
 
 ._crit_edge220:                                   ; preds = %._crit_edge, %32
   %.0171.lcssa = phi i32 [ %30, %32 ], [ %.7.lcssa, %._crit_edge ]
@@ -3912,14 +3912,15 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

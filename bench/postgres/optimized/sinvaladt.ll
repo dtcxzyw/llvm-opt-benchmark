@@ -278,7 +278,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %16
-  br i1 %26, label %27, label %18, !llvm.loop !9
+  br i1 %26, label %27, label %18, !llvm.loop !10
 
 27:                                               ; preds = %21
   %28 = trunc nuw i64 %indvars.iv to i32
@@ -352,7 +352,7 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %23, %17
   tail call void @SICleanupQueue(i1 noundef zeroext true, i32 noundef %13)
-  br label %17
+  br label %17, !llvm.loop !11
 
 .preheader:                                       ; preds = %23, %.preheader
   %.137 = phi ptr [ %30, %.preheader ], [ %.040, %23 ]
@@ -366,11 +366,11 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %.137, i64 16, i1 false)
   %31 = add i32 %.03036, 1
   %32 = icmp sgt i32 %.03235, 1
-  br i1 %32, label %.preheader, label %33, !llvm.loop !10
+  br i1 %32, label %.preheader, label %33, !llvm.loop !12
 
 33:                                               ; preds = %.preheader
   %34 = sub nsw i32 %.03139, %13
-  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #9, !srcloc !11
+  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #9, !srcloc !13
   %.not33 = icmp eq i8 %35, 0
   br i1 %.not33, label %38, label %36
 
@@ -380,7 +380,7 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
 
 38:                                               ; preds = %33, %36
   store i32 %31, ptr %6, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   store i8 0, ptr %8, align 4
   %39 = load i32, ptr %9, align 8
   %40 = icmp sgt i32 %39, 0
@@ -401,14 +401,14 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
   store i8 1, ptr %46, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %48 = load ptr, ptr @MainLWLockArray, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 768
   tail call void @LWLockRelease(ptr noundef nonnull %49) #9
   %50 = icmp sgt i32 %34, 0
-  br i1 %50, label %12, label %._crit_edge43, !llvm.loop !14
+  br i1 %50, label %12, label %._crit_edge43, !llvm.loop !16
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %2
   ret void
@@ -495,7 +495,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %.1 = phi i32 [ %.066, %40 ], [ %.066, %34 ], [ %.066, %23 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %48, label %23, label %._crit_edge, !llvm.loop !15
+  br i1 %48, label %23, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47
   store i32 %.1, ptr %3, align 8
@@ -537,7 +537,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   store i32 %64, ptr %62, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %65 = icmp samesign ult i64 %indvars.iv.next73, %57
-  br i1 %65, label %58, label %.loopexit.loopexit, !llvm.loop !16
+  br i1 %65, label %58, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %58
   %.pre75 = load i32, ptr %12, align 4
@@ -630,7 +630,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #9
   store i8 0, ptr %8, align 2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !11
+  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !13
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %19, label %17
 
@@ -641,7 +641,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
 19:                                               ; preds = %11, %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !19
   store i8 0, ptr %15, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load i8, ptr %22, align 4, !range !4, !noundef !5
@@ -683,7 +683,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
   %39 = add i32 %38, 1
   store i32 %39, ptr %25, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !20
 
 .critedge.loopexit.split.loop.exit34:             ; preds = %30
   %40 = trunc nuw nsw i64 %indvars.iv to i32
@@ -726,7 +726,7 @@ define dso_local range(i32 1, 0) i32 @GetNextLocalTransactionId() local_unnamed_
 1:                                                ; preds = %1, %0
   %2 = phi i32 [ 1, %1 ], [ %.pr, %0 ]
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %1, label %3, !llvm.loop !19
+  br i1 %.not, label %1, label %3, !llvm.loop !21
 
 3:                                                ; preds = %1
   %4 = add i32 %2, 1
@@ -767,16 +767,18 @@ attributes #10 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{i64 2149575912}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{i64 2018329, i64 2018345}
-!12 = !{i64 2149579894}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = !{i64 2149580251}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = !{i64 2018329, i64 2018345}
+!14 = !{i64 2149579894}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = !{i64 2149580251}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}

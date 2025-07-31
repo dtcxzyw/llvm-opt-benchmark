@@ -84,7 +84,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.out
   br i1 %17, label %sub_0.i.i, label %openFile.exit.i.outer, !llvm.loop !13
 
 sub_0.i.i:                                        ; preds = %13
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !16
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.12, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.11) #11
   tail call void @perror(ptr noundef %15) #12
   tail call fastcc void @graphviz_exit(i32 noundef 1) #13
@@ -103,14 +103,14 @@ sub_0.i.i:                                        ; preds = %13
   unreachable
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !16
   %27 = load ptr, ptr @cmd, align 8, !tbaa !8
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.5, ptr noundef %27, i32 noundef %22) #11
   tail call fastcc void @usage(i32 noundef -1)
   unreachable
 
 29:                                               ; preds = %openFile.exit.i
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !16
   %31 = load ptr, ptr @cmd, align 8, !tbaa !8
   %32 = load i32, ptr @optopt, align 4, !tbaa !11
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.6, ptr noundef %31, i32 noundef %32) #11
@@ -118,7 +118,7 @@ sub_0.i.i:                                        ; preds = %13
   unreachable
 
 34:                                               ; preds = %openFile.exit.i
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !16
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 87) #11
   tail call void @abort() #14
   unreachable
@@ -141,25 +141,25 @@ sub_0.i.i:                                        ; preds = %13
   br i1 %46, label %sub_0.i19.i, label %openFile.exit20.i
 
 sub_0.i19.i:                                      ; preds = %40
-  %47 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !16
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %41, ptr noundef %44, ptr noundef nonnull @.str.10) #11
   tail call void @perror(ptr noundef %44) #12
   tail call fastcc void @graphviz_exit(i32 noundef 1) #13
   unreachable
 
 49:                                               ; preds = %37
-  %50 = load ptr, ptr @stdin, align 8, !tbaa !15
+  %50 = load ptr, ptr @stdin, align 8, !tbaa !16
   br label %openFile.exit20.i
 
 openFile.exit20.i:                                ; preds = %49, %40
   %storemerge.i = phi ptr [ %50, %49 ], [ %45, %40 ]
-  store ptr %storemerge.i, ptr @inFile, align 8, !tbaa !15
+  store ptr %storemerge.i, ptr @inFile, align 8, !tbaa !16
   %.not17.i = icmp eq ptr %.ph, null
   br i1 %.not17.i, label %51, label %init.exit
 
 51:                                               ; preds = %openFile.exit20.i
-  %52 = load ptr, ptr @stdout, align 8, !tbaa !15
-  store ptr %52, ptr %3, align 8, !tbaa !17
+  %52 = load ptr, ptr @stdout, align 8, !tbaa !16
+  store ptr %52, ptr %3, align 8, !tbaa !18
   br label %init.exit
 
 init.exit:                                        ; preds = %openFile.exit20.i, %51
@@ -175,12 +175,12 @@ init.exit:                                        ; preds = %openFile.exit20.i, 
 56:                                               ; preds = %54
   %57 = call zeroext i1 @graphviz_acyclic(ptr noundef nonnull %53, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %58 = zext i1 %57 to i32
-  %59 = load i8, ptr %6, align 1, !tbaa !20, !range !21, !noundef !22
+  %59 = load i8, ptr %6, align 1, !tbaa !21, !range !22, !noundef !23
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %75
 
 61:                                               ; preds = %56
-  %62 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %62 = load ptr, ptr @stderr, align 8, !tbaa !16
   %63 = call ptr @agnameof(ptr noundef nonnull %53) #10
   br i1 %57, label %64, label %67
 
@@ -198,7 +198,7 @@ init.exit:                                        ; preds = %openFile.exit20.i, 
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !16
   %73 = tail call ptr @agnameof(ptr noundef nonnull %53) #10
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.2, ptr noundef %73) #11
   br label %75
@@ -244,7 +244,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @usage(i32 noundef range(i32 -1, 1) %0) unnamed_addr #7 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !16
   %3 = load ptr, ptr @cmd, align 8, !tbaa !8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %3) #11
   tail call fastcc void @graphviz_exit(i32 noundef %0) #13
@@ -294,13 +294,14 @@ attributes #14 = { noreturn nounwind }
 !10 = !{!"any pointer", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!17 = !{!18, !16, i64 0}
-!18 = !{!"", !16, i64 0, !19, i64 8, !19, i64 9}
-!19 = !{!"_Bool", !6, i64 0}
-!20 = !{!18, !19, i64 9}
-!21 = !{i8 0, i8 2}
-!22 = !{}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!18 = !{!19, !17, i64 0}
+!19 = !{!"", !17, i64 0, !20, i64 8, !20, i64 9}
+!20 = !{!"_Bool", !6, i64 0}
+!21 = !{!19, !20, i64 9}
+!22 = !{i8 0, i8 2}
+!23 = !{}

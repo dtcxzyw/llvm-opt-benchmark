@@ -208,7 +208,7 @@ _ZNSt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS1_EED2Ev.exit: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %30 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !3
   %.not = icmp eq ptr %30, %12
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZNSt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS1_EED2Ev.exit, %9, %_ZN4llvm13ManagedStaticINSt7__cxx114listISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS5_EESaIS8_EEENS_14object_creatorISA_EENS_14object_deleterISA_EEEptEv.exit
   %31 = load atomic i64, ptr @_ZZN5clang27getAttributePluginInstancesB5cxx11EvE19PluginAttrInstancesB5cxx11 acquire, align 8
@@ -246,10 +246,10 @@ declare void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(
 define linkonce_odr hidden noundef ptr @_ZN4llvm14object_creatorINSt7__cxx114listISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS5_EESaIS8_EEEE4callEv() #0 comdat align 2 {
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #7
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %1, ptr %2, align 8, !tbaa !34
+  store ptr %1, ptr %2, align 8, !tbaa !36
   store ptr %1, ptr %1, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 0, ptr %3, align 8, !tbaa !35
+  store i64 0, ptr %3, align 8, !tbaa !37
   ret ptr %1
 }
 
@@ -281,7 +281,7 @@ _ZNKSt14default_deleteIN5clang14ParsedAttrInfoEEclEPS1_.exit.i.i.i.i.i: ; preds 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EEEEE7destroyIS6_EEvRS8_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang14ParsedAttrInfoEEclEPS1_.exit.i.i.i.i.i, %.lr.ph.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 24) #8
   %.not.i.i = icmp eq ptr %5, %0
-  br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !38
 
 _ZNSt7__cxx1110_List_baseISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EEEEE7destroyIS6_EEvRS8_PT_.exit.i.i, %3
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 24) #8
@@ -337,7 +337,9 @@ attributes #8 = { builtin nounwind }
 !31 = !{!"_ZTSNSt8__detail17_List_node_headerE", !16, i64 0, !22, i64 16}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"vtable pointer", !8, i64 0}
-!34 = !{!16, !17, i64 8}
-!35 = !{!31, !22, i64 16}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!16, !17, i64 8}
+!37 = !{!31, !22, i64 16}
+!38 = distinct !{!38, !39, !35}
+!39 = !{!"llvm.loop.mustprogress"}

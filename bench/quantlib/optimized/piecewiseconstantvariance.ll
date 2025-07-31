@@ -768,7 +768,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %i
   %2 = load double, ptr %add.ptr.i, align 8, !tbaa !17
   %div = fdiv double %call, %2
-  %call4 = tail call double @sqrt(double noundef %div) #15, !tbaa !26
+  %call4 = tail call double @sqrt(double noundef %div) #15, !tbaa !27
   ret double %call4
 }
 
@@ -855,7 +855,8 @@ attributes #18 = { noreturn nounwind }
 !21 = !{!22, !8, i64 0}
 !22 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}
 !23 = !{!8, !8, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"int", !9, i64 0}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"int", !9, i64 0}

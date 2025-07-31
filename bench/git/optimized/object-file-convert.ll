@@ -435,8 +435,8 @@ _.exit173.i:                                      ; preds = %139, %137
 
 .critedge2.i:                                     ; preds = %142, %.lr.ph.i, %126
   %.1.lcssa.i = phi ptr [ %38, %126 ], [ %.1198.i, %.lr.ph.i ], [ %136, %142 ]
-  %148 = load ptr, ptr %24, align 8, !tbaa !39
-  %149 = load i64, ptr %25, align 8, !tbaa !41
+  %148 = load ptr, ptr %24, align 8, !tbaa !40
+  %149 = load i64, ptr %25, align 8, !tbaa !42
   %150 = call fastcc i32 @convert_tag_object(ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, ptr noundef %148, i64 noundef %149)
   %.not140.i = icmp eq i32 %150, 0
   br i1 %.not140.i, label %152, label %151
@@ -453,8 +453,8 @@ _.exit173.i:                                      ; preds = %139, %137
 
 152:                                              ; preds = %.critedge2.i
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef 8) #10
-  %153 = load ptr, ptr %26, align 8, !tbaa !39
-  %154 = load i64, ptr %27, align 8, !tbaa !41
+  %153 = load ptr, ptr %26, align 8, !tbaa !40
+  %154 = load i64, ptr %27, align 8, !tbaa !42
   call void @strbuf_add_lines(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %153, i64 noundef %154) #10
   call void @strbuf_release(ptr noundef nonnull %13) #10
   call void @strbuf_release(ptr noundef nonnull %14) #10
@@ -568,12 +568,12 @@ _.exit176.i:                                      ; preds = %191, %189
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.2115203.i, i64 noundef %196) #10
   %.2115.i = getelementptr inbounds nuw i8, ptr %188, i64 1
   %197 = icmp ult ptr %.2115.i, %22
-  br i1 %197, label %.lr.ph204.i, label %.critedge4.i, !llvm.loop !42
+  br i1 %197, label %.lr.ph204.i, label %.critedge4.i, !llvm.loop !43
 
 .critedge4.i:                                     ; preds = %194, %.lr.ph204.i, %181
   %.2115.lcssa.i = phi ptr [ %.2115202.i, %181 ], [ %.2115203.i, %.lr.ph204.i ], [ %.2115.i, %194 ]
   %198 = icmp ult ptr %.2115.lcssa.i, %22
-  br i1 %198, label %33, label %convert_commit_object.exit, !llvm.loop !43
+  br i1 %198, label %33, label %convert_commit_object.exit, !llvm.loop !44
 
 .critedge.i:                                      ; preds = %33
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.0113208.i, i64 noundef %36) #10
@@ -597,7 +597,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
   %203 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %204 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.pre.i = load i64, ptr %202, align 8, !tbaa !44
+  %.pre.i = load i64, ptr %202, align 8, !tbaa !45
   br label %206
 
 206:                                              ; preds = %272, %.lr.ph.i32
@@ -641,7 +641,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
   %.pr.i.i.i = load i8, ptr %224, align 1, !tbaa !33
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 1
   %.not.i.i.i = icmp eq i8 %.pr.i.i.i, 32
-  br i1 %.not.i.i.i, label %229, label %223, !llvm.loop !45
+  br i1 %.not.i.i.i, label %229, label %223, !llvm.loop !46
 
 229:                                              ; preds = %227
   %230 = load i8, ptr %228, align 1, !tbaa !33
@@ -674,7 +674,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
 241:                                              ; preds = %239
   %242 = add nuw nsw i64 %.0811.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %242, 3
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit.thread.i, label %239, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit.thread.i, label %239, !llvm.loop !47
 
 .loopexit.thread.i:                               ; preds = %241
   store i32 0, ptr %203, align 4, !tbaa !4
@@ -757,14 +757,14 @@ _.exit28.i:                                       ; preds = %268, %repo_oid_to_a
   %274 = sub i64 %273, %208
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01943.i, i64 noundef %274) #10
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %228, i64 noundef %233) #10
-  %275 = load i64, ptr %205, align 8, !tbaa !44
+  %275 = load i64, ptr %205, align 8, !tbaa !45
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %275) #10
-  %276 = load i64, ptr %202, align 8, !tbaa !44
+  %276 = load i64, ptr %202, align 8, !tbaa !45
   %277 = getelementptr inbounds nuw i8, ptr %234, i64 %276
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #10
   %278 = icmp ult ptr %277, %200
-  br i1 %278, label %206, label %convert_tree_object.exit.thread, !llvm.loop !47
+  br i1 %278, label %206, label %convert_tree_object.exit.thread, !llvm.loop !48
 
 .critedge.i36:                                    ; preds = %_.exit28.i, %_.exit.i35
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #10
@@ -790,8 +790,8 @@ convert_tree_object.exit.thread44:                ; preds = %.critedge.i36, %18,
 
 282:                                              ; preds = %convert_tree_object.exit.thread44
   %283 = call fastcc ptr @_(ptr noundef nonnull @.str.2)
-  %284 = load ptr, ptr %1, align 8, !tbaa !48
-  %285 = load ptr, ptr %2, align 8, !tbaa !48
+  %284 = load ptr, ptr %1, align 8, !tbaa !49
+  %285 = load ptr, ptr %2, align 8, !tbaa !49
   call void (ptr, ...) @die(ptr noundef %283, ptr noundef %284, ptr noundef %285) #11
   unreachable
 
@@ -898,7 +898,7 @@ repo_oid_to_algop.exit:                           ; preds = %45
   br label %72
 
 50:                                               ; preds = %43, %45, %41
-  %51 = load ptr, ptr %11, align 8, !tbaa !49
+  %51 = load ptr, ptr %11, align 8, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %3 to i64
@@ -925,7 +925,7 @@ repo_oid_to_algop.exit:                           ; preds = %45
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %66) #10
   call void @strbuf_addbuf(ptr noundef %0, ptr noundef nonnull %6) #10
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !41
+  %68 = load i64, ptr %67, align 8, !tbaa !42
   %.not38 = icmp eq i64 %68, 0
   br i1 %.not38, label %71, label %69
 
@@ -1069,16 +1069,17 @@ attributes #12 = { nounwind willreturn memory(read) }
 !34 = !{!8, !8, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 _ZTS10repository", !12, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !11, i64 16}
-!40 = !{!"strbuf", !23, i64 0, !23, i64 8, !11, i64 16}
-!41 = !{!40, !23, i64 8}
-!42 = distinct !{!42, !38}
-!43 = distinct !{!43, !38}
-!44 = !{!31, !23, i64 16}
-!45 = distinct !{!45, !38}
-!46 = distinct !{!46, !38}
-!47 = distinct !{!47, !38}
-!48 = !{!31, !11, i64 0}
-!49 = !{!11, !11, i64 0}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!41, !11, i64 16}
+!41 = !{!"strbuf", !23, i64 0, !23, i64 8, !11, i64 16}
+!42 = !{!41, !23, i64 8}
+!43 = distinct !{!43, !38, !39}
+!44 = distinct !{!44, !38, !39}
+!45 = !{!31, !23, i64 16}
+!46 = distinct !{!46, !38, !39}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !38, !39}
+!49 = !{!31, !11, i64 0}
+!50 = !{!11, !11, i64 0}

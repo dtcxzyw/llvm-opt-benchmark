@@ -75,7 +75,7 @@ define hidden ptr @_PyTokenizer_FromString(ptr noundef %0, i32 noundef %1, i32 n
 33:                                               ; preds = %30, %28
   %.1.i = phi i32 [ 1, %30 ], [ %.0.i, %28 ]
   %34 = getelementptr i8, ptr %.044.i, i64 1
-  br label %28
+  br label %28, !llvm.loop !17
 
 35:                                               ; preds = %30, %28
   store ptr null, ptr %12, align 8, !tbaa !13
@@ -98,7 +98,7 @@ define hidden ptr @_PyTokenizer_FromString(ptr noundef %0, i32 noundef %1, i32 n
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 2744
-  %47 = load i32, ptr %46, align 8, !tbaa !17
+  %47 = load i32, ptr %46, align 8, !tbaa !19
   %48 = icmp ne i32 %47, 2
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -137,7 +137,7 @@ define hidden ptr @_PyTokenizer_FromString(ptr noundef %0, i32 noundef %1, i32 n
   %.148.i = phi ptr [ %59, %63 ], [ %.047.i, %57 ], [ %.047.i, %35 ], [ %.047.i, %45 ]
   %.146.i = phi ptr [ %64, %63 ], [ %.045.i, %57 ], [ %.045.i, %35 ], [ %.045.i, %45 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 2792
-  store ptr %.148.i, ptr %65, align 8, !tbaa !18
+  store ptr %.148.i, ptr %65, align 8, !tbaa !20
   br label %decode_str.exit
 
 decode_str.exit.thread:                           ; preds = %7, %37, %52
@@ -156,14 +156,14 @@ decode_str.exit:                                  ; preds = %15, %23, %61, %.thr
 
 68:                                               ; preds = %decode_str.exit
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.049.i, ptr %69, align 8, !tbaa !19
+  store ptr %.049.i, ptr %69, align 8, !tbaa !21
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.049.i, ptr %70, align 8, !tbaa !20
-  store ptr %.049.i, ptr %5, align 8, !tbaa !21
+  store ptr %.049.i, ptr %70, align 8, !tbaa !22
+  store ptr %.049.i, ptr %5, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %.049.i, ptr %71, align 8, !tbaa !22
+  store ptr %.049.i, ptr %71, align 8, !tbaa !24
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 2840
-  store ptr @tok_underflow_string, ptr %72, align 8, !tbaa !23
+  store ptr @tok_underflow_string, ptr %72, align 8, !tbaa !25
   br label %73
 
 73:                                               ; preds = %3, %68, %67
@@ -181,7 +181,7 @@ declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @tok_underflow_string(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 10) #11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -198,32 +198,32 @@ define internal range(i32 0, 2) i32 @tok_underflow_string(ptr noundef captures(n
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 11, ptr %10, align 8, !tbaa !24
+  store i32 11, ptr %10, align 8, !tbaa !26
   br label %23
 
 11:                                               ; preds = %7, %5
   %.0 = phi ptr [ %6, %5 ], [ %strchr, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = icmp eq ptr %13, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   br i1 %14, label %17, label %._crit_edge
 
 17:                                               ; preds = %11
-  store ptr %16, ptr %0, align 8, !tbaa !21
+  store ptr %16, ptr %0, align 8, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2768
-  store ptr %16, ptr %18, align 8, !tbaa !26
+  store ptr %16, ptr %18, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %20 = load i32, ptr %19, align 8, !tbaa !27
+  %20 = load i32, ptr %19, align 8, !tbaa !29
   %21 = add i32 %20, 1
-  store i32 %21, ptr %19, align 8, !tbaa !27
+  store i32 %21, ptr %19, align 8, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  store i32 0, ptr %22, align 4, !tbaa !28
-  store ptr %.0, ptr %2, align 8, !tbaa !19
+  store i32 0, ptr %22, align 4, !tbaa !30
+  store ptr %.0, ptr %2, align 8, !tbaa !21
   br label %23
 
 23:                                               ; preds = %._crit_edge, %9
@@ -314,15 +314,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !14 = !{!5, !6, i64 2816}
 !15 = !{!8, !8, i64 0}
 !16 = !{!6, !6, i64 0}
-!17 = !{!5, !10, i64 2744}
-!18 = !{!5, !12, i64 2792}
-!19 = !{!5, !6, i64 16}
-!20 = !{!5, !6, i64 8}
-!21 = !{!5, !6, i64 0}
-!22 = !{!5, !6, i64 48}
-!23 = !{!5, !7, i64 2840}
-!24 = !{!5, !10, i64 64}
-!25 = !{!5, !6, i64 56}
-!26 = !{!5, !6, i64 2768}
-!27 = !{!5, !10, i64 512}
-!28 = !{!5, !10, i64 524}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!5, !10, i64 2744}
+!20 = !{!5, !12, i64 2792}
+!21 = !{!5, !6, i64 16}
+!22 = !{!5, !6, i64 8}
+!23 = !{!5, !6, i64 0}
+!24 = !{!5, !6, i64 48}
+!25 = !{!5, !7, i64 2840}
+!26 = !{!5, !10, i64 64}
+!27 = !{!5, !6, i64 56}
+!28 = !{!5, !6, i64 2768}
+!29 = !{!5, !10, i64 512}
+!30 = !{!5, !10, i64 524}

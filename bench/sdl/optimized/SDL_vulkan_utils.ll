@@ -653,7 +653,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 170:                                              ; preds = %.preheader
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
-  br i1 %exitcond322.not, label %.critedge, label %.preheader, !llvm.loop !5
+  br i1 %exitcond322.not, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge.split.loop.exit352:                     ; preds = %.preheader
   %171 = trunc nuw i64 %indvars.iv318 to i32
@@ -704,7 +704,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %186 = load i32, ptr %9, align 4
   %187 = zext i32 %186 to i64
   %188 = icmp samesign ult i64 %indvars.iv.next324, %187
-  br i1 %188, label %146, label %.thread249, !llvm.loop !6
+  br i1 %188, label %146, label %.thread249, !llvm.loop !7
 
 189:                                              ; preds = %182
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.69, i32 noundef %151, i32 noundef %179, i32 noundef %181, i32 noundef %183, i32 noundef %184) #7
@@ -733,7 +733,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 199:                                              ; preds = %200
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next327, 4
-  br i1 %exitcond329.not, label %.loopexit, label %200, !llvm.loop !7
+  br i1 %exitcond329.not, label %.loopexit, label %200, !llvm.loop !8
 
 200:                                              ; preds = %192, %199
   %indvars.iv326 = phi i64 [ 0, %192 ], [ %indvars.iv.next327, %199 ]
@@ -777,7 +777,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %208 = load i32, ptr %6, align 4
   %209 = zext i32 %208 to i64
   %210 = icmp samesign ult i64 %indvars.iv.next, %209
-  br i1 %210, label %.lr.ph, label %.loopexit263.loopexit, !llvm.loop !8
+  br i1 %210, label %.lr.ph, label %.loopexit263.loopexit, !llvm.loop !9
 
 .loopexit263.loopexit:                            ; preds = %207
   %211 = trunc nuw i64 %indvars.iv.next to i32
@@ -868,9 +868,10 @@ attributes #8 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}

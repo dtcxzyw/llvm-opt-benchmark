@@ -301,11 +301,11 @@ define internal fastcc void @_update_color_harmony_gui(ptr %.280.val) unnamed_ad
   tail call void @gtk_toggle_button_set_active(ptr noundef %27, i32 noundef %29) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %23
+  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %23, !llvm.loop !92
 
 _color_harmony_button_on.exit:                    ; preds = %23
   %30 = getelementptr i8, ptr %.280.val, i64 2496
-  %.val = load ptr, ptr %30, align 64, !tbaa !92
+  %.val = load ptr, ptr %30, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %.val) #17
   ret void
 }
@@ -315,13 +315,13 @@ define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = tail call i32 %7(ptr noundef %2) #17
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !95
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !97
   %12 = and i32 %11, 2
   %13 = icmp ne i32 %12, 0
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3216), align 8
@@ -330,7 +330,7 @@ define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, 
   br i1 %or.cond, label %16, label %20
 
 16:                                               ; preds = %10
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !98
   %18 = and i32 %17, 1048576
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %20, label %19
@@ -340,16 +340,16 @@ define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, 
   br label %20
 
 20:                                               ; preds = %16, %19, %10
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   tail call void @dt_control_signal_connect(ptr noundef %21, i32 noundef 21, ptr noundef nonnull @_lib_histogram_preview_updated_callback, ptr noundef nonnull %0) #17
   br label %22
 
 22:                                               ; preds = %20, %3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 2504
-  %24 = load ptr, ptr %23, align 8, !tbaa !98
+  %24 = load ptr, ptr %23, align 8, !tbaa !100
   tail call void @gtk_widget_hide(ptr noundef %24) #17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 2512
-  %26 = load ptr, ptr %25, align 16, !tbaa !99
+  %26 = load ptr, ptr %25, align 16, !tbaa !101
   tail call void @gtk_widget_hide(ptr noundef %26) #17
   %.val = load ptr, ptr %4, align 8, !tbaa !6
   tail call fastcc void @_update_color_harmony_gui(ptr %.val)
@@ -368,7 +368,7 @@ define internal void @_lib_histogram_preview_updated_callback(ptr readnone captu
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  %6 = load ptr, ptr %5, align 64, !tbaa !92
+  %6 = load ptr, ptr %5, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %6) #17
   ret void
 }
@@ -380,13 +380,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define void @view_leave(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !95
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !97
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !98
   %8 = and i32 %7, 1048576
   %.not1 = icmp eq i32 %8, 0
   br i1 %.not1, label %10, label %9
@@ -396,7 +396,7 @@ define void @view_leave(ptr noundef %0, ptr noundef readnone captures(none) %1, 
   br label %10
 
 10:                                               ; preds = %9, %6, %3
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_lib_histogram_preview_updated_callback, ptr noundef %0) #17
   ret void
 }
@@ -422,13 +422,13 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %7 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #17
   %8 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.33) #17
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2720
-  store i32 %8, ptr %9, align 32, !tbaa !100
+  store i32 %8, ptr %9, align 32, !tbaa !102
   %10 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.34) #17
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2724
-  store i32 %10, ptr %11, align 4, !tbaa !101
+  store i32 %10, ptr %11, align 4, !tbaa !103
   %12 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.35) #17
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 2728
-  store i32 %12, ptr %13, align 8, !tbaa !102
+  store i32 %12, ptr %13, align 8, !tbaa !104
   %14 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.36) #17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2692
   br label %19
@@ -441,20 +441,20 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
 19:                                               ; preds = %dt_calloc_aligned.exit, %26
   %indvars.iv = phi i64 [ 0, %dt_calloc_aligned.exit ], [ %indvars.iv.next, %26 ]
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !103
+  %21 = load ptr, ptr %20, align 8, !tbaa !105
   %22 = tail call i32 @g_strcmp0(ptr noundef %14, ptr noundef %21) #17
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %25, ptr %15, align 4, !tbaa !104
+  store i32 %25, ptr %15, align 4, !tbaa !106
   br label %26
 
 26:                                               ; preds = %19, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %16, label %19
+  br i1 %exitcond.not, label %16, label %19, !llvm.loop !107
 
 27:                                               ; preds = %38
   %28 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.38) #17
@@ -465,18 +465,18 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %31 = phi i1 [ true, %16 ], [ false, %38 ]
   %indvars.iv264 = phi i64 [ 0, %16 ], [ 1, %38 ]
   %32 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 %indvars.iv264
-  %33 = load ptr, ptr %32, align 8, !tbaa !103
+  %33 = load ptr, ptr %32, align 8, !tbaa !105
   %34 = tail call i32 @g_strcmp0(ptr noundef %17, ptr noundef %33) #17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %30
   %37 = trunc nuw nsw i64 %indvars.iv264 to i32
-  store i32 %37, ptr %18, align 8, !tbaa !105
+  store i32 %37, ptr %18, align 8, !tbaa !108
   br label %38
 
 38:                                               ; preds = %30, %36
-  br i1 %31, label %30, label %27
+  br i1 %31, label %30, label %27, !llvm.loop !109
 
 39:                                               ; preds = %50
   %40 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.39) #17
@@ -487,18 +487,18 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %43 = phi i1 [ true, %27 ], [ false, %50 ]
   %indvars.iv267 = phi i64 [ 0, %27 ], [ 1, %50 ]
   %44 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_orient_names, i64 0, i64 %indvars.iv267
-  %45 = load ptr, ptr %44, align 8, !tbaa !103
+  %45 = load ptr, ptr %44, align 8, !tbaa !105
   %46 = tail call i32 @g_strcmp0(ptr noundef %28, ptr noundef %45) #17
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %42
   %49 = trunc nuw nsw i64 %indvars.iv267 to i32
-  store i32 %49, ptr %29, align 4, !tbaa !106
+  store i32 %49, ptr %29, align 4, !tbaa !110
   br label %50
 
 50:                                               ; preds = %42, %48
-  br i1 %43, label %42, label %39
+  br i1 %43, label %42, label %39, !llvm.loop !111
 
 51:                                               ; preds = %61
   %52 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.40) #17
@@ -508,47 +508,47 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
 54:                                               ; preds = %39, %61
   %indvars.iv270 = phi i64 [ 0, %39 ], [ %indvars.iv.next271, %61 ]
   %55 = getelementptr inbounds nuw [3 x ptr], ptr @dt_lib_histogram_vectorscope_type_names, i64 0, i64 %indvars.iv270
-  %56 = load ptr, ptr %55, align 8, !tbaa !103
+  %56 = load ptr, ptr %55, align 8, !tbaa !105
   %57 = tail call i32 @g_strcmp0(ptr noundef %40, ptr noundef %56) #17
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %54
   %60 = trunc nuw nsw i64 %indvars.iv270 to i32
-  store i32 %60, ptr %41, align 16, !tbaa !107
+  store i32 %60, ptr %41, align 16, !tbaa !112
   br label %61
 
 61:                                               ; preds = %54, %59
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, 3
-  br i1 %exitcond273.not, label %51, label %54
+  br i1 %exitcond273.not, label %51, label %54, !llvm.loop !113
 
 62:                                               ; preds = %93
   %63 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.41) #17
   %64 = sitofp i32 %63 to double
   %65 = fmul reassoc nsz arcp contract afn double %64, 0x3F91DF46A2529D39
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 2712
-  store double %65, ptr %66, align 8, !tbaa !108
+  store double %65, ptr %66, align 8, !tbaa !114
   %67 = tail call ptr @dt_alloc_aligned(i64 noundef 4096) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 64) ]
-  store ptr %67, ptr %3, align 64, !tbaa !109
+  store ptr %67, ptr %3, align 64, !tbaa !115
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(4096) %67, i8 0, i64 4096, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %68, align 8, !tbaa !110
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !111
+  store i32 0, ptr %68, align 8, !tbaa !116
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !117
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 36
-  %71 = load i32, ptr %70, align 4, !tbaa !112
+  %71 = load i32, ptr %70, align 4, !tbaa !118
   %72 = lshr i32 %71, 1
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 %72, ptr %73, align 16, !tbaa !113
+  store i32 %72, ptr %73, align 16, !tbaa !119
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %74, align 8, !tbaa !114
+  store i32 0, ptr %74, align 8, !tbaa !120
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 160, ptr %75, align 4, !tbaa !115
+  store i32 160, ptr %75, align 4, !tbaa !121
   %76 = tail call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %72) #17
   %77 = mul nsw i32 %76, 160
-  %78 = load i32, ptr %73, align 16, !tbaa !113
-  %79 = load i32, ptr %75, align 4, !tbaa !115
+  %78 = load i32, ptr %73, align 16, !tbaa !119
+  %79 = load i32, ptr %75, align 4, !tbaa !121
   %80 = tail call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %79) #17
   %81 = mul nsw i32 %80, %78
   %82 = tail call i32 @llvm.umax.i32(i32 %77, i32 %81)
@@ -560,30 +560,30 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %86 = phi i1 [ true, %51 ], [ false, %93 ]
   %indvars.iv274 = phi i64 [ 0, %51 ], [ 1, %93 ]
   %87 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 %indvars.iv274
-  %88 = load ptr, ptr %87, align 8, !tbaa !103
+  %88 = load ptr, ptr %87, align 8, !tbaa !105
   %89 = tail call i32 @g_strcmp0(ptr noundef %52, ptr noundef %88) #17
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %85
   %92 = trunc nuw nsw i64 %indvars.iv274 to i32
-  store i32 %92, ptr %53, align 4, !tbaa !116
+  store i32 %92, ptr %53, align 4, !tbaa !122
   br label %93
 
 93:                                               ; preds = %85, %91
-  br i1 %86, label %85, label %62
+  br i1 %86, label %85, label %62, !llvm.loop !123
 
 94:                                               ; preds = %121
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i32 384, ptr %95, align 4, !tbaa !117
+  store i32 384, ptr %95, align 4, !tbaa !124
   %96 = tail call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef 384) #17
   %97 = mul nsw i32 %96, 384
   %98 = sext i32 %97 to i64
   %99 = tail call ptr @dt_alloc_aligned(i64 noundef range(i64 -2147483648, 4294967296) %98) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 64) ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %99, ptr %100, align 8, !tbaa !118
-  %101 = load i32, ptr %95, align 4, !tbaa !117
+  store ptr %99, ptr %100, align 8, !tbaa !125
+  %101 = load i32, ptr %95, align 4, !tbaa !124
   %102 = shl i32 %101, 2
   %103 = tail call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %101) #17
   %104 = mul i32 %102, %103
@@ -591,25 +591,25 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %106 = tail call ptr @dt_alloc_aligned(i64 noundef range(i64 -2147483648, 4294967296) %105) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 64) ]
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %106, ptr %107, align 64, !tbaa !119
+  store ptr %106, ptr %107, align 64, !tbaa !126
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 2432
-  store ptr null, ptr %108, align 64, !tbaa !120
+  store ptr null, ptr %108, align 64, !tbaa !127
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 2440
-  store i32 2, ptr %109, align 8, !tbaa !121
+  store i32 2, ptr %109, align 8, !tbaa !128
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 2444
-  store i32 3, ptr %110, align 4, !tbaa !122
+  store i32 3, ptr %110, align 4, !tbaa !129
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 2448
-  store double 0.000000e+00, ptr %111, align 16, !tbaa !123
+  store double 0.000000e+00, ptr %111, align 16, !tbaa !130
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr null, ptr %112, align 16, !tbaa !124
+  store ptr null, ptr %112, align 16, !tbaa !131
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 -1, ptr %113, align 8, !tbaa !125
+  store i32 -1, ptr %113, align 8, !tbaa !132
   %114 = tail call ptr @interpolate_set(i32 noundef 7, ptr noundef nonnull @x_vtx, ptr noundef nonnull @ryb_y_vtx, i32 noundef 0) #17
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 2736
-  store ptr %114, ptr %115, align 16, !tbaa !126
+  store ptr %114, ptr %115, align 16, !tbaa !133
   %116 = tail call ptr @interpolate_set(i32 noundef 7, ptr noundef nonnull @x_vtx, ptr noundef nonnull @rgb_y_vtx, i32 noundef 0) #17
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 2744
-  store ptr %116, ptr %117, align 8, !tbaa !127
+  store ptr %116, ptr %117, align 8, !tbaa !134
   %118 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.42) #17
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 2756
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 2752
@@ -620,10 +620,10 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %122 = tail call ptr @dt_alloc_aligned(i64 noundef range(i64 -2147483648, 4294967296) %83) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 64) ]
   %123 = getelementptr inbounds nuw [3 x ptr], ptr %84, i64 0, i64 %indvars.iv277
-  store ptr %122, ptr %123, align 8, !tbaa !103
+  store ptr %122, ptr %123, align 8, !tbaa !105
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next278, 3
-  br i1 %exitcond280.not, label %94, label %121
+  br i1 %exitcond280.not, label %94, label %121, !llvm.loop !135
 
 124:                                              ; preds = %187
   %125 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #17
@@ -632,88 +632,88 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %127 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.44) #17
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 2764
   store i32 %127, ptr %128, align 4, !tbaa !90
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 112
-  store ptr %0, ptr %130, align 8, !tbaa !129
+  store ptr %0, ptr %130, align 8, !tbaa !137
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 120
-  store ptr @dt_lib_histogram_process, ptr %131, align 8, !tbaa !137
-  %132 = load i32, ptr %18, align 8, !tbaa !105
+  store ptr @dt_lib_histogram_process, ptr %131, align 8, !tbaa !145
+  %132 = load i32, ptr %18, align 8, !tbaa !108
   %133 = icmp eq i32 %132, 1
   %134 = zext i1 %133 to i32
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 128
-  store i32 %134, ptr %135, align 8, !tbaa !138
+  store i32 %134, ptr %135, align 8, !tbaa !146
   %136 = tail call ptr @gtk_overlay_new() #17
-  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !139
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !147
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 408
-  %139 = load ptr, ptr %138, align 8, !tbaa !140
+  %139 = load ptr, ptr %138, align 8, !tbaa !148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store ptr @.str.13, ptr %2, align 8, !tbaa !103
+  store ptr @.str.13, ptr %2, align 8, !tbaa !105
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %140, align 8, !tbaa !103
+  store ptr null, ptr %140, align 8, !tbaa !105
   %141 = call ptr @dt_action_locate(ptr noundef %139, ptr noundef nonnull %2, i32 noundef 1) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %142 = call ptr @dt_action_register(ptr noundef %141, ptr noundef nonnull @.str.45, ptr noundef nonnull @_lib_histogram_cycle_mode_callback, i32 noundef 0, i32 noundef 0) #17
   %143 = call ptr @dt_ui_resize_wrap(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.46) #17
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store ptr %143, ptr %144, align 64, !tbaa !92
+  store ptr %143, ptr %144, align 64, !tbaa !94
   %145 = call ptr @dt_action_define(ptr noundef %141, ptr noundef null, ptr noundef nonnull @.str.47, ptr noundef %143, ptr noundef null) #17
   %146 = call ptr @dt_action_register(ptr noundef %145, ptr noundef null, ptr noundef nonnull @_lib_histogram_collapse_callback, i32 noundef 72, i32 noundef 5) #17
-  %147 = load ptr, ptr %144, align 64, !tbaa !92
+  %147 = load ptr, ptr %144, align 64, !tbaa !94
   call void @gtk_widget_set_events(ptr noundef %147, i32 noundef 4096) #17
   %148 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 2504
-  store ptr %148, ptr %149, align 8, !tbaa !98
+  store ptr %148, ptr %149, align 8, !tbaa !100
   call void @dt_gui_add_class(ptr noundef %148, ptr noundef nonnull @.str.48) #17
-  %150 = load ptr, ptr %149, align 8, !tbaa !98
+  %150 = load ptr, ptr %149, align 8, !tbaa !100
   call void @gtk_widget_set_valign(ptr noundef %150, i32 noundef 1) #17
-  %151 = load ptr, ptr %149, align 8, !tbaa !98
+  %151 = load ptr, ptr %149, align 8, !tbaa !100
   call void @gtk_widget_set_halign(ptr noundef %151, i32 noundef 1) #17
   %152 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
   call void @gtk_widget_set_valign(ptr noundef %152, i32 noundef 1) #17
   call void @gtk_widget_set_halign(ptr noundef %152, i32 noundef 1) #17
-  %153 = load ptr, ptr %149, align 8, !tbaa !98
+  %153 = load ptr, ptr %149, align 8, !tbaa !100
   %154 = tail call i64 @gtk_box_get_type() #18
   %155 = call ptr @g_type_check_instance_cast(ptr noundef %153, i64 noundef %154) #17
   call void @gtk_box_pack_start(ptr noundef %155, ptr noundef %152, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %156 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   %157 = getelementptr inbounds nuw i8, ptr %3, i64 2528
-  store ptr %156, ptr %157, align 32, !tbaa !156
+  store ptr %156, ptr %157, align 32, !tbaa !164
   call void @gtk_widget_set_valign(ptr noundef %156, i32 noundef 1) #17
-  %158 = load ptr, ptr %157, align 32, !tbaa !156
+  %158 = load ptr, ptr %157, align 32, !tbaa !164
   call void @gtk_widget_set_halign(ptr noundef %158, i32 noundef 1) #17
   %159 = call ptr @gtk_fixed_new() #17
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 2536
-  store ptr %159, ptr %160, align 8, !tbaa !157
+  store ptr %159, ptr %160, align 8, !tbaa !165
   %161 = tail call i64 @gtk_fixed_get_type() #18
   %162 = call ptr @g_type_check_instance_cast(ptr noundef %159, i64 noundef %161) #17
-  %163 = load ptr, ptr %157, align 32, !tbaa !156
+  %163 = load ptr, ptr %157, align 32, !tbaa !164
   call void @gtk_fixed_put(ptr noundef %162, ptr noundef %163, i32 noundef 0, i32 noundef 0) #17
-  %164 = load ptr, ptr %149, align 8, !tbaa !98
+  %164 = load ptr, ptr %149, align 8, !tbaa !100
   %165 = call ptr @g_type_check_instance_cast(ptr noundef %164, i64 noundef %154) #17
-  %166 = load ptr, ptr %160, align 8, !tbaa !157
+  %166 = load ptr, ptr %160, align 8, !tbaa !165
   call void @gtk_box_pack_start(ptr noundef %165, ptr noundef %166, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %167 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 2512
-  store ptr %167, ptr %168, align 16, !tbaa !99
+  store ptr %167, ptr %168, align 16, !tbaa !101
   call void @dt_gui_add_class(ptr noundef %167, ptr noundef nonnull @.str.48) #17
-  %169 = load ptr, ptr %168, align 16, !tbaa !99
+  %169 = load ptr, ptr %168, align 16, !tbaa !101
   call void @gtk_widget_set_valign(ptr noundef %169, i32 noundef 1) #17
-  %170 = load ptr, ptr %168, align 16, !tbaa !99
+  %170 = load ptr, ptr %168, align 16, !tbaa !101
   call void @gtk_widget_set_halign(ptr noundef %170, i32 noundef 2) #17
   %171 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
   call void @gtk_widget_set_valign(ptr noundef %171, i32 noundef 1) #17
   call void @gtk_widget_set_halign(ptr noundef %171, i32 noundef 1) #17
-  %172 = load ptr, ptr %168, align 16, !tbaa !99
+  %172 = load ptr, ptr %168, align 16, !tbaa !101
   %173 = call ptr @g_type_check_instance_cast(ptr noundef %172, i64 noundef %154) #17
   call void @gtk_box_pack_start(ptr noundef %173, ptr noundef %171, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %174 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 2520
-  store ptr %174, ptr %175, align 8, !tbaa !158
+  store ptr %174, ptr %175, align 8, !tbaa !166
   call void @gtk_widget_set_valign(ptr noundef %174, i32 noundef 3) #17
-  %176 = load ptr, ptr %175, align 8, !tbaa !158
+  %176 = load ptr, ptr %175, align 8, !tbaa !166
   call void @gtk_widget_set_halign(ptr noundef %176, i32 noundef 2) #17
   %177 = call ptr @g_type_check_instance_cast(ptr noundef %171, i64 noundef %154) #17
-  %178 = load ptr, ptr %175, align 8, !tbaa !158
+  %178 = load ptr, ptr %175, align 8, !tbaa !166
   call void @gtk_box_pack_end(ptr noundef %177, ptr noundef %178, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   br label %198
@@ -721,7 +721,7 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
 180:                                              ; preds = %94, %187
   %indvars.iv281 = phi i64 [ 0, %94 ], [ %indvars.iv.next282, %187 ]
   %181 = getelementptr inbounds nuw [10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 %indvars.iv281
-  %182 = load ptr, ptr %181, align 16, !tbaa !159
+  %182 = load ptr, ptr %181, align 16, !tbaa !167
   %183 = tail call i32 @g_strcmp0(ptr noundef %118, ptr noundef %182) #17
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %187
@@ -729,40 +729,40 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
 185:                                              ; preds = %180
   %186 = trunc nuw nsw i64 %indvars.iv281 to i32
   store i32 %186, ptr %119, align 4, !tbaa !84
-  store i32 %186, ptr %120, align 64, !tbaa !161
+  store i32 %186, ptr %120, align 64, !tbaa !169
   br label %187
 
 187:                                              ; preds = %180, %185
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next282, 10
-  br i1 %exitcond284.not, label %124, label %180
+  br i1 %exitcond284.not, label %124, label %180, !llvm.loop !170
 
 188:                                              ; preds = %198
-  %189 = load i32, ptr %15, align 4, !tbaa !104
+  %189 = load i32, ptr %15, align 4, !tbaa !106
   %190 = zext i32 %189 to i64
   %191 = getelementptr inbounds nuw [4 x ptr], ptr %179, i64 0, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !91
   %193 = tail call i64 @gtk_toggle_button_get_type() #18
   %194 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %193) #17
   call void @gtk_toggle_button_set_active(ptr noundef %194, i32 noundef 1) #17
-  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !139
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !147
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 520
-  %197 = load ptr, ptr %196, align 8, !tbaa !162
+  %197 = load ptr, ptr %196, align 8, !tbaa !171
   %.not = icmp eq ptr %197, null
   br i1 %.not, label %218, label %214
 
 198:                                              ; preds = %124, %198
   %indvars.iv285 = phi i64 [ 0, %124 ], [ %indvars.iv.next286, %198 ]
   %199 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_icons, i64 0, i64 %indvars.iv285
-  %200 = load ptr, ptr %199, align 8, !tbaa !163
+  %200 = load ptr, ptr %199, align 8, !tbaa !172
   %201 = call ptr @dtgtk_togglebutton_new(ptr noundef %200, i32 noundef 0, ptr noundef null) #17
   %202 = getelementptr inbounds nuw [4 x ptr], ptr %179, i64 0, i64 %indvars.iv285
   store ptr %201, ptr %202, align 8, !tbaa !91
   %203 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %indvars.iv285
-  %204 = load ptr, ptr %203, align 8, !tbaa !103
+  %204 = load ptr, ptr %203, align 8, !tbaa !105
   %205 = call ptr @dcgettext(ptr noundef null, ptr noundef %204, i32 noundef 5) #17
   call void @gtk_widget_set_tooltip_text(ptr noundef %201, ptr noundef %205) #17
-  %206 = load ptr, ptr %203, align 8, !tbaa !103
+  %206 = load ptr, ptr %203, align 8, !tbaa !105
   %207 = load ptr, ptr %202, align 8, !tbaa !91
   %208 = call ptr @dt_action_define(ptr noundef %141, ptr noundef nonnull @.str.49, ptr noundef %206, ptr noundef %207, ptr noundef nonnull @dt_action_def_toggle) #17
   %209 = call ptr @g_type_check_instance_cast(ptr noundef %152, i64 noundef %154) #17
@@ -773,7 +773,7 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   %213 = call i64 @g_signal_connect_data(ptr noundef %212, ptr noundef nonnull @.str.50, ptr noundef nonnull @_scope_histogram_mode_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next286, 4
-  br i1 %exitcond288.not, label %188, label %198
+  br i1 %exitcond288.not, label %188, label %198, !llvm.loop !173
 
 214:                                              ; preds = %188
   %215 = call ptr @dt_action_register(ptr noundef nonnull %197, ptr noundef nonnull @.str.45, ptr noundef nonnull @_lib_histogram_cycle_mode_callback, i32 noundef 0, i32 noundef 0) #17
@@ -784,74 +784,74 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
 218:                                              ; preds = %214, %188
   %219 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_color, i32 noundef 0, ptr noundef null) #17
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 2600
-  store ptr %219, ptr %220, align 8, !tbaa !164
+  store ptr %219, ptr %220, align 8, !tbaa !174
   call void @dt_gui_add_class(ptr noundef %219, ptr noundef nonnull @.str.52) #17
-  %221 = load ptr, ptr %220, align 8, !tbaa !164
+  %221 = load ptr, ptr %220, align 8, !tbaa !174
   call void @gtk_widget_set_name(ptr noundef %221, ptr noundef nonnull @.str.53) #17
-  %222 = load ptr, ptr %220, align 8, !tbaa !164
+  %222 = load ptr, ptr %220, align 8, !tbaa !174
   %223 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #17
   call void @gtk_widget_set_tooltip_text(ptr noundef %222, ptr noundef %223) #17
-  %224 = load ptr, ptr %220, align 8, !tbaa !164
+  %224 = load ptr, ptr %220, align 8, !tbaa !174
   %225 = call ptr @g_type_check_instance_cast(ptr noundef %224, i64 noundef %193) #17
-  %226 = load i32, ptr %13, align 8, !tbaa !102
+  %226 = load i32, ptr %13, align 8, !tbaa !104
   call void @gtk_toggle_button_set_active(ptr noundef %225, i32 noundef %226) #17
-  %227 = load ptr, ptr %220, align 8, !tbaa !164
+  %227 = load ptr, ptr %220, align 8, !tbaa !174
   %228 = call ptr @dt_action_define(ptr noundef %141, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, ptr noundef %227, ptr noundef nonnull @dt_action_def_toggle) #17
-  %229 = load ptr, ptr %175, align 8, !tbaa !158
+  %229 = load ptr, ptr %175, align 8, !tbaa !166
   %230 = call ptr @g_type_check_instance_cast(ptr noundef %229, i64 noundef %154) #17
-  %231 = load ptr, ptr %220, align 8, !tbaa !164
+  %231 = load ptr, ptr %220, align 8, !tbaa !174
   call void @gtk_box_pack_end(ptr noundef %230, ptr noundef %231, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %232 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_color, i32 noundef 0, ptr noundef null) #17
   %233 = getelementptr inbounds nuw i8, ptr %3, i64 2592
-  store ptr %232, ptr %233, align 32, !tbaa !165
+  store ptr %232, ptr %233, align 32, !tbaa !175
   call void @dt_gui_add_class(ptr noundef %232, ptr noundef nonnull @.str.52) #17
-  %234 = load ptr, ptr %233, align 32, !tbaa !165
+  %234 = load ptr, ptr %233, align 32, !tbaa !175
   call void @gtk_widget_set_name(ptr noundef %234, ptr noundef nonnull @.str.57) #17
-  %235 = load ptr, ptr %233, align 32, !tbaa !165
+  %235 = load ptr, ptr %233, align 32, !tbaa !175
   %236 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #17
   call void @gtk_widget_set_tooltip_text(ptr noundef %235, ptr noundef %236) #17
-  %237 = load ptr, ptr %233, align 32, !tbaa !165
+  %237 = load ptr, ptr %233, align 32, !tbaa !175
   %238 = call ptr @g_type_check_instance_cast(ptr noundef %237, i64 noundef %193) #17
-  %239 = load i32, ptr %11, align 4, !tbaa !101
+  %239 = load i32, ptr %11, align 4, !tbaa !103
   call void @gtk_toggle_button_set_active(ptr noundef %238, i32 noundef %239) #17
-  %240 = load ptr, ptr %233, align 32, !tbaa !165
+  %240 = load ptr, ptr %233, align 32, !tbaa !175
   %241 = call ptr @dt_action_define(ptr noundef %141, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.59, ptr noundef %240, ptr noundef nonnull @dt_action_def_toggle) #17
-  %242 = load ptr, ptr %175, align 8, !tbaa !158
+  %242 = load ptr, ptr %175, align 8, !tbaa !166
   %243 = call ptr @g_type_check_instance_cast(ptr noundef %242, i64 noundef %154) #17
-  %244 = load ptr, ptr %233, align 32, !tbaa !165
+  %244 = load ptr, ptr %233, align 32, !tbaa !175
   call void @gtk_box_pack_end(ptr noundef %243, ptr noundef %244, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %245 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_color, i32 noundef 0, ptr noundef null) #17
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 2584
-  store ptr %245, ptr %246, align 8, !tbaa !166
+  store ptr %245, ptr %246, align 8, !tbaa !176
   call void @dt_gui_add_class(ptr noundef %245, ptr noundef nonnull @.str.52) #17
-  %247 = load ptr, ptr %246, align 8, !tbaa !166
+  %247 = load ptr, ptr %246, align 8, !tbaa !176
   call void @gtk_widget_set_name(ptr noundef %247, ptr noundef nonnull @.str.60) #17
-  %248 = load ptr, ptr %246, align 8, !tbaa !166
+  %248 = load ptr, ptr %246, align 8, !tbaa !176
   %249 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #17
   call void @gtk_widget_set_tooltip_text(ptr noundef %248, ptr noundef %249) #17
-  %250 = load ptr, ptr %246, align 8, !tbaa !166
+  %250 = load ptr, ptr %246, align 8, !tbaa !176
   %251 = call ptr @g_type_check_instance_cast(ptr noundef %250, i64 noundef %193) #17
-  %252 = load i32, ptr %9, align 32, !tbaa !100
+  %252 = load i32, ptr %9, align 32, !tbaa !102
   call void @gtk_toggle_button_set_active(ptr noundef %251, i32 noundef %252) #17
-  %253 = load ptr, ptr %246, align 8, !tbaa !166
+  %253 = load ptr, ptr %246, align 8, !tbaa !176
   %254 = call ptr @dt_action_define(ptr noundef %141, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.62, ptr noundef %253, ptr noundef nonnull @dt_action_def_toggle) #17
-  %255 = load ptr, ptr %175, align 8, !tbaa !158
+  %255 = load ptr, ptr %175, align 8, !tbaa !166
   %256 = call ptr @g_type_check_instance_cast(ptr noundef %255, i64 noundef %154) #17
-  %257 = load ptr, ptr %246, align 8, !tbaa !166
+  %257 = load ptr, ptr %246, align 8, !tbaa !176
   call void @gtk_box_pack_end(ptr noundef %256, ptr noundef %257, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %258 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_empty, i32 noundef 0, ptr noundef null) #17
   %259 = getelementptr inbounds nuw i8, ptr %3, i64 2576
-  store ptr %258, ptr %259, align 16, !tbaa !167
+  store ptr %258, ptr %259, align 16, !tbaa !177
   %260 = call ptr @dt_action_define(ptr noundef %141, ptr noundef null, ptr noundef nonnull @.str.51, ptr noundef %258, ptr noundef nonnull @dt_action_def_button) #17
   %261 = call ptr @g_type_check_instance_cast(ptr noundef %171, i64 noundef %154) #17
-  %262 = load ptr, ptr %259, align 16, !tbaa !167
+  %262 = load ptr, ptr %259, align 16, !tbaa !177
   call void @gtk_box_pack_end(ptr noundef %261, ptr noundef %262, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %263 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_empty, i32 noundef 0, ptr noundef null) #17
   %264 = getelementptr inbounds nuw i8, ptr %3, i64 2608
-  store ptr %263, ptr %264, align 16, !tbaa !168
+  store ptr %263, ptr %264, align 16, !tbaa !178
   %265 = call ptr @dt_action_define(ptr noundef %141, ptr noundef null, ptr noundef nonnull @.str.63, ptr noundef %263, ptr noundef nonnull @dt_action_def_button) #17
   %266 = call ptr @g_type_check_instance_cast(ptr noundef %171, i64 noundef %154) #17
-  %267 = load ptr, ptr %264, align 16, !tbaa !168
+  %267 = load ptr, ptr %264, align 16, !tbaa !178
   call void @gtk_box_pack_end(ptr noundef %266, ptr noundef %267, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %268 = getelementptr inbounds nuw i8, ptr %3, i64 2616
   br label %340
@@ -872,7 +872,7 @@ dt_calloc_aligned.exit:                           ; preds = %1, %4
   call void @gtk_toggle_button_set_active(ptr noundef %276, i32 noundef %278) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %272
+  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %272, !llvm.loop !92
 
 _color_harmony_button_on.exit:                    ; preds = %272
   %279 = call ptr @dt_action_register(ptr noundef %141, ptr noundef nonnull @.str.67, ptr noundef nonnull @_lib_histogram_cycle_harmony_callback, i32 noundef 0, i32 noundef 0) #17
@@ -880,55 +880,55 @@ _color_harmony_button_on.exit:                    ; preds = %272
   %280 = call ptr @gtk_event_box_new() #17
   %281 = tail call i64 @gtk_container_get_type() #18
   %282 = call ptr @g_type_check_instance_cast(ptr noundef %136, i64 noundef %281) #17
-  %283 = load ptr, ptr %144, align 64, !tbaa !92
+  %283 = load ptr, ptr %144, align 64, !tbaa !94
   call void @gtk_container_add(ptr noundef %282, ptr noundef %283) #17
   %284 = tail call i64 @gtk_overlay_get_type() #18
   %285 = call ptr @g_type_check_instance_cast(ptr noundef %136, i64 noundef %284) #17
-  %286 = load ptr, ptr %149, align 8, !tbaa !98
+  %286 = load ptr, ptr %149, align 8, !tbaa !100
   call void @gtk_overlay_add_overlay(ptr noundef %285, ptr noundef %286) #17
   %287 = call ptr @g_type_check_instance_cast(ptr noundef %136, i64 noundef %284) #17
-  %288 = load ptr, ptr %168, align 16, !tbaa !99
+  %288 = load ptr, ptr %168, align 16, !tbaa !101
   call void @gtk_overlay_add_overlay(ptr noundef %287, ptr noundef %288) #17
   %289 = call ptr @g_type_check_instance_cast(ptr noundef %280, i64 noundef %281) #17
   call void @gtk_container_add(ptr noundef %289, ptr noundef %136) #17
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %280, ptr %290, align 8, !tbaa !169
+  store ptr %280, ptr %290, align 8, !tbaa !179
   call void @gtk_widget_set_name(ptr noundef %280, ptr noundef nonnull @.str.68) #17
-  %291 = load ptr, ptr %259, align 16, !tbaa !167
+  %291 = load ptr, ptr %259, align 16, !tbaa !177
   %292 = call ptr @g_type_check_instance_cast(ptr noundef %291, i64 noundef 80) #17
   %293 = call i64 @g_signal_connect_data(ptr noundef %292, ptr noundef nonnull @.str.69, ptr noundef nonnull @_scope_view_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %294 = load ptr, ptr %264, align 16, !tbaa !168
+  %294 = load ptr, ptr %264, align 16, !tbaa !178
   %295 = call ptr @g_type_check_instance_cast(ptr noundef %294, i64 noundef 80) #17
   %296 = call i64 @g_signal_connect_data(ptr noundef %295, ptr noundef nonnull @.str.69, ptr noundef nonnull @_colorspace_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %297 = load ptr, ptr %246, align 8, !tbaa !166
+  %297 = load ptr, ptr %246, align 8, !tbaa !176
   %298 = call ptr @g_type_check_instance_cast(ptr noundef %297, i64 noundef 80) #17
   %299 = call i64 @g_signal_connect_data(ptr noundef %298, ptr noundef nonnull @.str.70, ptr noundef nonnull @_red_channel_toggle, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %300 = load ptr, ptr %233, align 32, !tbaa !165
+  %300 = load ptr, ptr %233, align 32, !tbaa !175
   %301 = call ptr @g_type_check_instance_cast(ptr noundef %300, i64 noundef 80) #17
   %302 = call i64 @g_signal_connect_data(ptr noundef %301, ptr noundef nonnull @.str.70, ptr noundef nonnull @_green_channel_toggle, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %303 = load ptr, ptr %220, align 8, !tbaa !164
+  %303 = load ptr, ptr %220, align 8, !tbaa !174
   %304 = call ptr @g_type_check_instance_cast(ptr noundef %303, i64 noundef 80) #17
   %305 = call i64 @g_signal_connect_data(ptr noundef %304, ptr noundef nonnull @.str.70, ptr noundef nonnull @_blue_channel_toggle, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %306 = load ptr, ptr %144, align 64, !tbaa !92
+  %306 = load ptr, ptr %144, align 64, !tbaa !94
   call void @gtk_widget_add_events(ptr noundef %306, i32 noundef 8964) #17
-  %307 = load ptr, ptr %144, align 64, !tbaa !92
+  %307 = load ptr, ptr %144, align 64, !tbaa !94
   %308 = call ptr @g_type_check_instance_cast(ptr noundef %307, i64 noundef 80) #17
   %309 = call i64 @g_signal_connect_data(ptr noundef %308, ptr noundef nonnull @.str.71, ptr noundef nonnull @_drawable_draw_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %310 = load ptr, ptr %144, align 64, !tbaa !92
+  %310 = load ptr, ptr %144, align 64, !tbaa !94
   %311 = call ptr @g_type_check_instance_cast(ptr noundef %310, i64 noundef 80) #17
   %312 = call i64 @g_signal_connect_data(ptr noundef %311, ptr noundef nonnull @.str.66, ptr noundef nonnull @_drawable_leave_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %313 = load ptr, ptr %144, align 64, !tbaa !92
+  %313 = load ptr, ptr %144, align 64, !tbaa !94
   %314 = call ptr @g_type_check_instance_cast(ptr noundef %313, i64 noundef 80) #17
   %315 = call i64 @g_signal_connect_data(ptr noundef %314, ptr noundef nonnull @.str.50, ptr noundef nonnull @_drawable_button_press_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %316 = load ptr, ptr %144, align 64, !tbaa !92
+  %316 = load ptr, ptr %144, align 64, !tbaa !94
   %317 = call ptr @g_type_check_instance_cast(ptr noundef %316, i64 noundef 80) #17
   %318 = call i64 @g_signal_connect_data(ptr noundef %317, ptr noundef nonnull @.str.72, ptr noundef nonnull @_drawable_button_release_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %319 = load ptr, ptr %144, align 64, !tbaa !92
+  %319 = load ptr, ptr %144, align 64, !tbaa !94
   %320 = call ptr @g_type_check_instance_cast(ptr noundef %319, i64 noundef 80) #17
   %321 = call i64 @g_signal_connect_data(ptr noundef %320, ptr noundef nonnull @.str.73, ptr noundef nonnull @_drawable_motion_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %322 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %322 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 5552
-  %324 = load i32, ptr %323, align 8, !tbaa !171
+  %324 = load i32, ptr %323, align 8, !tbaa !181
   %325 = or i32 %324, 12292
   call void @gtk_widget_add_events(ptr noundef %280, i32 noundef %325) #17
   %326 = call ptr @g_type_check_instance_cast(ptr noundef %280, i64 noundef 80) #17
@@ -939,9 +939,9 @@ _color_harmony_button_on.exit:                    ; preds = %272
   %331 = call i64 @g_signal_connect_data(ptr noundef %330, ptr noundef nonnull @.str.66, ptr noundef nonnull @_eventbox_leave_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
   %332 = call ptr @g_type_check_instance_cast(ptr noundef %280, i64 noundef 80) #17
   %333 = call i64 @g_signal_connect_data(ptr noundef %332, ptr noundef nonnull @.str.73, ptr noundef nonnull @_eventbox_motion_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %334 = load ptr, ptr %290, align 8, !tbaa !169
+  %334 = load ptr, ptr %290, align 8, !tbaa !179
   call void @gtk_widget_show_all(ptr noundef %334) #17
-  %335 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !95
+  %335 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !97
   %336 = and i32 %335, 2
   %337 = icmp ne i32 %336, 0
   %338 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3248), align 8
@@ -953,7 +953,7 @@ _color_harmony_button_on.exit:                    ; preds = %272
   %indvars.iv289 = phi i64 [ 1, %218 ], [ %indvars.iv.next290, %340 ]
   %341 = getelementptr inbounds nuw [10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 %indvars.iv289
   %342 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_color_harmony, i32 noundef 0, ptr noundef nonnull %341) #17
-  %343 = load ptr, ptr %341, align 16, !tbaa !159
+  %343 = load ptr, ptr %341, align 16, !tbaa !167
   %344 = call ptr @dt_action_define(ptr noundef %141, ptr noundef nonnull @.str.64, ptr noundef %343, ptr noundef %342, ptr noundef nonnull @dt_action_def_toggle) #17
   %345 = call ptr @g_type_check_instance_cast(ptr noundef %342, i64 noundef 80) #17
   %346 = call i64 @g_signal_connect_data(ptr noundef %345, ptr noundef nonnull @.str.50, ptr noundef nonnull @_color_harmony_clicked, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
@@ -961,7 +961,7 @@ _color_harmony_button_on.exit:                    ; preds = %272
   %348 = call i64 @g_signal_connect_data(ptr noundef %347, ptr noundef nonnull @.str.65, ptr noundef nonnull @_color_harmony_enter_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
   %349 = call ptr @g_type_check_instance_cast(ptr noundef %342, i64 noundef 80) #17
   %350 = call i64 @g_signal_connect_data(ptr noundef %349, ptr noundef nonnull @.str.66, ptr noundef nonnull @_color_harmony_leave_notify_callback, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
-  %351 = load ptr, ptr %157, align 32, !tbaa !156
+  %351 = load ptr, ptr %157, align 32, !tbaa !164
   %352 = call ptr @g_type_check_instance_cast(ptr noundef %351, i64 noundef %154) #17
   call void @gtk_box_pack_start(ptr noundef %352, ptr noundef %342, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %353 = add nsw i64 %indvars.iv289, -1
@@ -969,10 +969,10 @@ _color_harmony_button_on.exit:                    ; preds = %272
   store ptr %342, ptr %354, align 8, !tbaa !91
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 10
-  br i1 %exitcond292.not, label %269, label %340
+  br i1 %exitcond292.not, label %269, label %340, !llvm.loop !186
 
 355:                                              ; preds = %_color_harmony_button_on.exit
-  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !98
   %357 = and i32 %356, 1048576
   %.not253 = icmp eq i32 %357, 0
   br i1 %.not253, label %359, label %358
@@ -982,7 +982,7 @@ _color_harmony_button_on.exit:                    ; preds = %272
   br label %359
 
 359:                                              ; preds = %355, %358, %_color_harmony_button_on.exit
-  %360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
+  %360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   call void @dt_control_signal_connect(ptr noundef %360, i32 noundef 29, ptr noundef nonnull @_signal_image_changed, ptr noundef nonnull %0) #17
   ret void
 }
@@ -1029,7 +1029,7 @@ define internal void @dt_lib_histogram_process(ptr noundef readonly captures(non
   %28 = alloca %struct.dt_histogram_roi_t, align 4
   %29 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #17
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !98
   %31 = and i32 %30, 16
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %dt_get_perf_times.exit, label %32
@@ -1037,28 +1037,28 @@ define internal void @dt_lib_histogram_process(ptr noundef readonly captures(non
 32:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #17
   %33 = call i32 @gettimeofday(ptr noundef nonnull %26, ptr noundef null) #17
-  %34 = load i64, ptr %26, align 8, !tbaa !176
+  %34 = load i64, ptr %26, align 8, !tbaa !187
   %35 = add nsw i64 %34, -1290608000
   %36 = sitofp i64 %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !178
+  %38 = load i64, ptr %37, align 8, !tbaa !189
   %39 = sitofp i64 %38 to double
   %40 = fmul reassoc nsz arcp contract afn double %39, 0x3EB0C6F7A0B5ED8D
   %41 = fadd reassoc nsz arcp contract afn double %40, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #17
-  store double %41, ptr %27, align 8, !tbaa !179
+  store double %41, ptr %27, align 8, !tbaa !190
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %25) #17
   %42 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %25) #17
-  %43 = load i64, ptr %25, align 8, !tbaa !181
+  %43 = load i64, ptr %25, align 8, !tbaa !192
   %44 = sitofp i64 %43 to double
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !183
+  %46 = load i64, ptr %45, align 8, !tbaa !194
   %47 = sitofp i64 %46 to double
   %48 = fmul reassoc nsz arcp contract afn double %47, 0x3EB0C6F7A0B5ED8D
   %49 = fadd reassoc nsz arcp contract afn double %48, %44
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %25) #17
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store double %49, ptr %50, align 8, !tbaa !184
+  store double %49, ptr %50, align 8, !tbaa !195
   br label %dt_get_perf_times.exit
 
 dt_get_perf_times.exit:                           ; preds = %6, %32
@@ -1070,20 +1070,20 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 53:                                               ; preds = %dt_get_perf_times.exit
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 2456
   %55 = call i32 @pthread_mutex_lock(ptr noundef nonnull %54) #17
-  %56 = load ptr, ptr %52, align 64, !tbaa !109
+  %56 = load ptr, ptr %52, align 64, !tbaa !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %56, i8 0, i64 4096, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store i32 0, ptr %57, align 8, !tbaa !114
+  store i32 0, ptr %57, align 8, !tbaa !120
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 2448
-  store double 0.000000e+00, ptr %58, align 16, !tbaa !123
+  store double 0.000000e+00, ptr %58, align 16, !tbaa !130
   %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %54) #17
   br label %1089
 
 60:                                               ; preds = %dt_get_perf_times.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #17
-  store i32 %2, ptr %28, align 4, !tbaa !185
+  store i32 %2, ptr %28, align 4, !tbaa !196
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 %3, ptr %61, align 4, !tbaa !187
+  store i32 %3, ptr %61, align 4, !tbaa !198
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %64 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -1094,29 +1094,29 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   br i1 %67, label %68, label %128
 
 68:                                               ; preds = %60
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 60
-  %71 = load i32, ptr %70, align 4, !tbaa !188
+  %71 = load i32, ptr %70, align 4, !tbaa !199
   %.not92 = icmp eq i32 %71, 0
   br i1 %.not92, label %128, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !189
+  %74 = load ptr, ptr %73, align 8, !tbaa !200
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !190
+  %76 = load ptr, ptr %75, align 8, !tbaa !201
   %.not93 = icmp eq ptr %76, null
   br i1 %.not93, label %128, label %77
 
 77:                                               ; preds = %72
-  %78 = load ptr, ptr %76, align 8, !tbaa !191
+  %78 = load ptr, ptr %76, align 8, !tbaa !202
   %.not94 = icmp eq ptr %78, null
   br i1 %.not94, label %79, label %128
 
 79:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #17
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %81 = load i32, ptr %80, align 8, !tbaa !193
+  %81 = load i32, ptr %80, align 8, !tbaa !204
   %or.cond = icmp ult i32 %81, 2
   br i1 %or.cond, label %82, label %123
 
@@ -1128,24 +1128,24 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
   call void @dt_color_picker_transform_box(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef nonnull %29, i32 noundef 1) #17
   %87 = sitofp i32 %2 to float
-  %88 = load float, ptr %29, align 16, !tbaa !196
+  %88 = load float, ptr %29, align 16, !tbaa !207
   %89 = fmul reassoc nsz arcp contract afn float %88, %87
   %90 = fcmp reassoc nsz arcp contract afn olt float %89, 0.000000e+00
   %91 = select reassoc nsz arcp contract afn i1 %90, float 0.000000e+00, float %89
   %92 = fcmp reassoc nsz arcp contract afn ogt float %91, %87
   %. = select reassoc nsz arcp contract afn i1 %92, float %87, float %91
   %93 = fptosi float %. to i32
-  store i32 %93, ptr %62, align 4, !tbaa !197
+  store i32 %93, ptr %62, align 4, !tbaa !208
   %94 = sitofp i32 %3 to float
   %95 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %96 = load float, ptr %95, align 4, !tbaa !196
+  %96 = load float, ptr %95, align 4, !tbaa !207
   %97 = fmul reassoc nsz arcp contract afn float %96, %94
   %98 = fcmp reassoc nsz arcp contract afn olt float %97, 0.000000e+00
   %99 = select reassoc nsz arcp contract afn i1 %98, float 0.000000e+00, float %97
   %100 = fcmp reassoc nsz arcp contract afn ogt float %99, %94
   %101 = select reassoc nsz arcp contract afn i1 %100, float %94, float %99
   %102 = fptosi float %101 to i32
-  store i32 %102, ptr %63, align 4, !tbaa !198
+  store i32 %102, ptr %63, align 4, !tbaa !209
   %103 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %104 = load float, ptr %103, align 8
   %105 = select reassoc nsz arcp contract afn i1 %83, float %104, float %88
@@ -1156,7 +1156,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %110 = select i1 %109, float %87, float %108
   %111 = fsub reassoc nsz arcp contract afn float %87, %110
   %112 = fptosi float %111 to i32
-  store i32 %112, ptr %64, align 4, !tbaa !199
+  store i32 %112, ptr %64, align 4, !tbaa !210
   %113 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %114 = load float, ptr %113, align 4
   %115 = select reassoc nsz arcp contract afn i1 %83, float %114, float %96
@@ -1167,7 +1167,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %120 = select i1 %119, float %94, float %118
   %121 = fsub reassoc nsz arcp contract afn float %94, %120
   %122 = fptosi float %121 to i32
-  store i32 %122, ptr %65, align 4, !tbaa !200
+  store i32 %122, ptr %65, align 4, !tbaa !211
   br label %123
 
 123:                                              ; preds = %79, %82
@@ -1210,7 +1210,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %145 = getelementptr inbounds nuw i8, ptr %52, i64 2456
   %146 = call i32 @pthread_mutex_lock(ptr noundef nonnull %145) #17
   %147 = getelementptr inbounds nuw i8, ptr %52, i64 2692
-  %148 = load i32, ptr %147, align 4, !tbaa !104
+  %148 = load i32, ptr %147, align 4, !tbaa !106
   switch i32 %148, label %1082 [
     i32 3, label %149
     i32 1, label %159
@@ -1228,19 +1228,19 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 0, ptr %151, align 8, !tbaa !110
-  %152 = load ptr, ptr %52, align 64, !tbaa !109
+  store i32 0, ptr %151, align 8, !tbaa !116
+  %152 = load ptr, ptr %52, align 64, !tbaa !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %152, i8 0, i64 4096, i1 false)
-  store ptr %28, ptr %22, align 8, !tbaa !201
+  store ptr %28, ptr %22, align 8, !tbaa !212
   call void @dt_histogram_helper(ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 2, i32 noundef -1, ptr noundef nonnull %137, ptr noundef nonnull %52, ptr noundef nonnull %24, i32 noundef 0, ptr noundef null) #17
-  %153 = load i32, ptr %24, align 16, !tbaa !112
+  %153 = load i32, ptr %24, align 16, !tbaa !118
   %154 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %155 = load i32, ptr %154, align 4, !tbaa !112
+  %155 = load i32, ptr %154, align 4, !tbaa !118
   %156 = call i32 @llvm.umax.i32(i32 %153, i32 %155)
   %157 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %158 = load i32, ptr %157, align 8, !tbaa !112
+  %158 = load i32, ptr %157, align 8, !tbaa !118
   %..i = call i32 @llvm.umax.i32(i32 %156, i32 %158)
-  store i32 %..i, ptr %151, align 8, !tbaa !110
+  store i32 %..i, ptr %151, align 8, !tbaa !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
@@ -1254,13 +1254,13 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %163 = sub i32 %3, %162
   %164 = call i32 @llvm.smax.i32(i32 %163, i32 1)
   %165 = getelementptr inbounds nuw i8, ptr %52, i64 2700
-  %166 = load i32, ptr %165, align 4, !tbaa !106
+  %166 = load i32, ptr %165, align 4, !tbaa !110
   %.fr163.i = freeze i32 %166
   %167 = icmp eq i32 %.fr163.i, 0
   %168 = select i1 %167, i32 %spec.select.i, i32 %164
   %169 = uitofp nneg i32 %168 to float
   %170 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %171 = load i32, ptr %170, align 16, !tbaa !113
+  %171 = load i32, ptr %170, align 16, !tbaa !119
   %172 = sitofp i32 %171 to float
   %173 = fdiv reassoc nsz arcp contract afn float %169, %172
   %174 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %173)
@@ -1271,9 +1271,9 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %179 = fptoui float %178 to i64
   %180 = trunc i64 %179 to i32
   %181 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store i32 %180, ptr %181, align 8, !tbaa !114
+  store i32 %180, ptr %181, align 8, !tbaa !120
   %182 = getelementptr inbounds nuw i8, ptr %52, i64 44
-  %183 = load i32, ptr %182, align 4, !tbaa !115
+  %183 = load i32, ptr %182, align 4, !tbaa !121
   %184 = sext i32 %183 to i64
   %185 = mul nsw i64 %184, 12
   %186 = mul i64 %185, %179
@@ -1311,7 +1311,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #17
   %202 = add nuw nsw i64 %.0110132.us.us.i, 1
   %exitcond174.not.i = icmp eq i64 %202, %191
-  br i1 %exitcond174.not.i, label %.split134.us.us.i, label %198, !llvm.loop !204
+  br i1 %exitcond174.not.i, label %.split134.us.us.i, label %198, !llvm.loop !215
 
 .preheader129.us.us.i:                            ; preds = %.preheader129.us.us.preheader.i, %.preheader129.us.us.i
   %.0117131.us.us.i = phi i64 [ %212, %.preheader129.us.us.i ], [ 0, %.preheader129.us.us.preheader.i ]
@@ -1319,20 +1319,20 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %204 = add i64 %203, %226
   %205 = mul i64 %204, %184
   %206 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0117131.us.us.i
-  %207 = load i64, ptr %206, align 8, !tbaa !206
+  %207 = load i64, ptr %206, align 8, !tbaa !217
   %208 = getelementptr i32, ptr %189, i64 %205
   %209 = getelementptr i32, ptr %208, i64 %207
-  %210 = load i32, ptr %209, align 4, !tbaa !112
+  %210 = load i32, ptr %209, align 4, !tbaa !118
   %211 = add i32 %210, 1
-  store i32 %211, ptr %209, align 4, !tbaa !112
+  store i32 %211, ptr %209, align 4, !tbaa !118
   %212 = add nuw nsw i64 %.0117131.us.us.i, 1
   %exitcond173.not.i = icmp eq i64 %212, 3
-  br i1 %exitcond173.not.i, label %201, label %.preheader129.us.us.i
+  br i1 %exitcond173.not.i, label %201, label %.preheader129.us.us.i, !llvm.loop !218
 
 213:                                              ; preds = %213, %198
   %.0113130.us.us.i = phi i64 [ 0, %198 ], [ %225, %213 ]
   %214 = getelementptr inbounds nuw float, ptr %200, i64 %.0113130.us.us.i
-  %215 = load float, ptr %214, align 4, !tbaa !196
+  %215 = load float, ptr %214, align 4, !tbaa !207
   %216 = fmul reassoc nsz arcp contract afn float %215, 0x3FEC71C720000000
   %217 = fcmp reassoc nsz arcp contract afn ogt float %216, 0.000000e+00
   %218 = fcmp reassoc nsz arcp contract afn olt float %216, 1.000000e+00
@@ -1342,10 +1342,10 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %222 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %221)
   %223 = fptoui float %222 to i64
   %224 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0113130.us.us.i
-  store i64 %223, ptr %224, align 8, !tbaa !206
+  store i64 %223, ptr %224, align 8, !tbaa !217
   %225 = add nuw nsw i64 %.0113130.us.us.i, 1
   %exitcond172.not.i = icmp eq i64 %225, 4
-  br i1 %exitcond172.not.i, label %.preheader129.us.us.preheader.i, label %213
+  br i1 %exitcond172.not.i, label %.preheader129.us.us.preheader.i, label %213, !llvm.loop !219
 
 .preheader129.us.us.preheader.i:                  ; preds = %213
   %226 = udiv i64 %.0110132.us.us.i, %175
@@ -1354,7 +1354,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 .split134.us.us.i:                                ; preds = %201
   %227 = add nuw nsw i64 %.0135.us.i, 1
   %exitcond175.not.i = icmp eq i64 %227, %190
-  br i1 %exitcond175.not.i, label %.split138.us.i, label %.split.us.us.i, !llvm.loop !207
+  br i1 %exitcond175.not.i, label %.split138.us.i, label %.split.us.us.i, !llvm.loop !220
 
 .split138.us.i:                                   ; preds = %.split134.i, %.split134.us.us.i
   %.pre-phi.i = phi i64 [ %190, %.split134.us.us.i ], [ %191, %.split134.i ]
@@ -1362,10 +1362,10 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !17
   %230 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %229, i32 noundef 23, ptr noundef nonnull @.str.79, i32 noundef 0) #17
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 736
-  %232 = load ptr, ptr %231, align 32, !tbaa !208
+  %232 = load ptr, ptr %231, align 32, !tbaa !221
   call void @llvm.assume(i1 true) [ "align"(ptr %232, i64 64) ]
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 704
-  %234 = load i32, ptr %233, align 64, !tbaa !209
+  %234 = load i32, ptr %233, align 64, !tbaa !222
   %235 = add nsw i32 %234, -1
   %236 = sitofp i32 %235 to float
   %237 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %228) #17
@@ -1389,7 +1389,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 ._crit_edge147.us.i:                              ; preds = %._crit_edge.us.us.i, %.preheader128.us.i
   %246 = add nuw nsw i64 %.0116155.us.i, 1
   %exitcond179.not.i = icmp eq i64 %246, 3
-  br i1 %exitcond179.not.i, label %_lib_histogram_process_waveform.exit, label %.preheader128.us.i, !llvm.loop !211
+  br i1 %exitcond179.not.i, label %_lib_histogram_process_waveform.exit, label %.preheader128.us.i, !llvm.loop !224
 
 .preheader.lr.ph.split.us.us.i:                   ; preds = %.preheader128.us.i
   call void @llvm.assume(i1 true) [ "align"(ptr %189, i64 64) ]
@@ -1405,10 +1405,10 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 
 .lr.ph.split.us154.us.i:                          ; preds = %.preheader.us.us.i, %.lr.ph.split.us154.us.i
   %.0114140.us148.us.i = phi i64 [ %264, %.lr.ph.split.us154.us.i ], [ 0, %.preheader.us.us.i ]
-  %250 = load ptr, ptr %244, align 8, !tbaa !103
+  %250 = load ptr, ptr %244, align 8, !tbaa !105
   call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 64) ]
   %gep142.us149.us.i = getelementptr i32, ptr %invariant.gep141.us.us.i, i64 %.0114140.us148.us.i
-  %251 = load i32, ptr %gep142.us149.us.i, align 4, !tbaa !112
+  %251 = load i32, ptr %gep142.us149.us.i, align 4, !tbaa !118
   %252 = uitofp i32 %251 to float
   %.reass.us151.us.i = fmul reassoc nsz arcp contract afn float %.reass144.i, %252
   %253 = fcmp reassoc nsz arcp contract afn ogt float %.reass.us151.us.i, 1.000000e+00
@@ -1417,27 +1417,27 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %256 = fptosi float %255 to i32
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds float, ptr %232, i64 %257
-  %259 = load float, ptr %258, align 4, !tbaa !196
+  %259 = load float, ptr %258, align 4, !tbaa !207
   %260 = fmul reassoc nsz arcp contract afn float %259, 2.550000e+02
   %261 = fptoui float %260 to i8
   %262 = getelementptr i8, ptr %250, i64 %249
   %263 = getelementptr i8, ptr %262, i64 %.0114140.us148.us.i
-  store i8 %261, ptr %263, align 1, !tbaa !212
+  store i8 %261, ptr %263, align 1, !tbaa !225
   %264 = add nuw i64 %.0114140.us148.us.i, 1
   %exitcond176.not.i = icmp eq i64 %264, %184
-  br i1 %exitcond176.not.i, label %._crit_edge.us.us.i, label %.lr.ph.split.us154.us.i
+  br i1 %exitcond176.not.i, label %._crit_edge.us.us.i, label %.lr.ph.split.us154.us.i, !llvm.loop !226
 
 ._crit_edge.us.us.i:                              ; preds = %.lr.ph.split.us154.us.i, %.lr.ph.split.us.us.us.i
   %265 = add nuw i64 %.0115145.us.us.i, 1
   %exitcond178.not.i = icmp eq i64 %265, %179
-  br i1 %exitcond178.not.i, label %._crit_edge147.us.i, label %.preheader.us.us.i, !llvm.loop !213
+  br i1 %exitcond178.not.i, label %._crit_edge147.us.i, label %.preheader.us.us.i, !llvm.loop !227
 
 .lr.ph.split.us.us.us.i:                          ; preds = %.preheader.us.us.i, %.lr.ph.split.us.us.us.i
   %.0114140.us.us.us.i = phi i64 [ %281, %.lr.ph.split.us.us.us.i ], [ 0, %.preheader.us.us.i ]
-  %266 = load ptr, ptr %244, align 8, !tbaa !103
+  %266 = load ptr, ptr %244, align 8, !tbaa !105
   call void @llvm.assume(i1 true) [ "align"(ptr %266, i64 64) ]
   %gep142.us.us.us.i = getelementptr i32, ptr %invariant.gep141.us.us.i, i64 %.0114140.us.us.us.i
-  %267 = load i32, ptr %gep142.us.us.us.i, align 4, !tbaa !112
+  %267 = load i32, ptr %gep142.us.us.us.i, align 4, !tbaa !118
   %268 = uitofp i32 %267 to float
   %.reass.us.us.us.i = fmul reassoc nsz arcp contract afn float %.reass144.i, %268
   %269 = fcmp reassoc nsz arcp contract afn ogt float %.reass.us.us.us.i, 1.000000e+00
@@ -1446,16 +1446,16 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %272 = fptosi float %271 to i32
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds float, ptr %232, i64 %273
-  %275 = load float, ptr %274, align 4, !tbaa !196
+  %275 = load float, ptr %274, align 4, !tbaa !207
   %276 = fmul reassoc nsz arcp contract afn float %275, 2.550000e+02
   %277 = fptoui float %276 to i8
   %278 = mul i64 %.0114140.us.us.us.i, %238
   %279 = getelementptr i8, ptr %266, i64 %278
   %280 = getelementptr i8, ptr %279, i64 %.0115145.us.us.i
-  store i8 %277, ptr %280, align 1, !tbaa !212
+  store i8 %277, ptr %280, align 1, !tbaa !225
   %281 = add nuw i64 %.0114140.us.us.us.i, 1
   %exitcond177.not.i = icmp eq i64 %281, %184
-  br i1 %exitcond177.not.i, label %._crit_edge.us.us.i, label %.lr.ph.split.us.us.us.i, !llvm.loop !214
+  br i1 %exitcond177.not.i, label %._crit_edge.us.us.i, label %.lr.ph.split.us.us.us.i, !llvm.loop !228
 
 .split.i:                                         ; preds = %159, %.split134.i
   %.0135.i = phi i64 [ %285, %.split134.i ], [ 0, %159 ]
@@ -1469,7 +1469,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 .split134.i:                                      ; preds = %302
   %285 = add nuw nsw i64 %.0135.i, 1
   %exitcond171.not.i = icmp eq i64 %285, %190
-  br i1 %exitcond171.not.i, label %.split138.us.i, label %.split.i
+  br i1 %exitcond171.not.i, label %.split138.us.i, label %.split.i, !llvm.loop !229
 
 286:                                              ; preds = %302, %.split.i
   %.0110132.i = phi i64 [ 0, %.split.i ], [ %303, %302 ]
@@ -1482,7 +1482,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 289:                                              ; preds = %289, %286
   %.0113130.i = phi i64 [ 0, %286 ], [ %301, %289 ]
   %290 = getelementptr inbounds nuw float, ptr %288, i64 %.0113130.i
-  %291 = load float, ptr %290, align 4, !tbaa !196
+  %291 = load float, ptr %290, align 4, !tbaa !207
   %292 = fmul reassoc nsz arcp contract afn float %291, 0x3FEC71C720000000
   %293 = fcmp reassoc nsz arcp contract afn ogt float %292, 0.000000e+00
   %294 = fcmp reassoc nsz arcp contract afn olt float %292, 1.000000e+00
@@ -1492,16 +1492,16 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %298 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %297)
   %299 = fptoui float %298 to i64
   %300 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0113130.i
-  store i64 %299, ptr %300, align 8, !tbaa !206
+  store i64 %299, ptr %300, align 8, !tbaa !217
   %301 = add nuw nsw i64 %.0113130.i, 1
   %exitcond.not.i = icmp eq i64 %301, 4
-  br i1 %exitcond.not.i, label %.preheader129.i, label %289
+  br i1 %exitcond.not.i, label %.preheader129.i, label %289, !llvm.loop !219
 
 302:                                              ; preds = %.preheader129.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #17
   %303 = add nuw nsw i64 %.0110132.i, 1
   %exitcond170.not.i = icmp eq i64 %303, %191
-  br i1 %exitcond170.not.i, label %.split134.i, label %286
+  br i1 %exitcond170.not.i, label %.split134.i, label %286, !llvm.loop !230
 
 .preheader129.i:                                  ; preds = %289, %.preheader129.i
   %.0117131.i = phi i64 [ %313, %.preheader129.i ], [ 0, %289 ]
@@ -1509,50 +1509,50 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %305 = add i64 %304, %284
   %306 = mul i64 %305, %184
   %307 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0117131.i
-  %308 = load i64, ptr %307, align 8, !tbaa !206
+  %308 = load i64, ptr %307, align 8, !tbaa !217
   %309 = getelementptr i32, ptr %189, i64 %306
   %310 = getelementptr i32, ptr %309, i64 %308
-  %311 = load i32, ptr %310, align 4, !tbaa !112
+  %311 = load i32, ptr %310, align 4, !tbaa !118
   %312 = add i32 %311, 1
-  store i32 %312, ptr %310, align 4, !tbaa !112
+  store i32 %312, ptr %310, align 4, !tbaa !118
   %313 = add nuw nsw i64 %.0117131.i, 1
   %exitcond169.not.i = icmp eq i64 %313, 3
-  br i1 %exitcond169.not.i, label %302, label %.preheader129.i
+  br i1 %exitcond169.not.i, label %302, label %.preheader129.i, !llvm.loop !218
 
 _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i, %.split138.us.i
   call void @free(ptr noundef %189) #17
   br label %1082
 
 314:                                              ; preds = %141
-  %315 = load i32, ptr %144, align 64, !tbaa !215
+  %315 = load i32, ptr %144, align 64, !tbaa !231
   %.not97 = icmp eq i32 %315, 0
   %316 = select i1 %.not97, ptr %143, ptr %144
   %317 = getelementptr inbounds nuw i8, ptr %52, i64 92
-  %318 = load i32, ptr %317, align 4, !tbaa !117
+  %318 = load i32, ptr %317, align 4, !tbaa !124
   %319 = getelementptr inbounds nuw i8, ptr %52, i64 2704
-  %320 = load i32, ptr %319, align 16, !tbaa !107
+  %320 = load i32, ptr %319, align 16, !tbaa !112
   %321 = getelementptr inbounds nuw i8, ptr %52, i64 2708
-  %322 = load i32, ptr %321, align 4, !tbaa !116
+  %322 = load i32, ptr %321, align 4, !tbaa !122
   %323 = getelementptr inbounds nuw i8, ptr %52, i64 2432
-  %324 = load ptr, ptr %323, align 64, !tbaa !120
+  %324 = load ptr, ptr %323, align 64, !tbaa !127
   %325 = icmp eq ptr %316, %324
   br i1 %325, label %326, label %335
 
 326:                                              ; preds = %314
   %327 = getelementptr inbounds nuw i8, ptr %52, i64 2440
-  %328 = load i32, ptr %327, align 8, !tbaa !121
+  %328 = load i32, ptr %327, align 8, !tbaa !128
   %329 = icmp eq i32 %322, %328
   br i1 %329, label %330, label %335
 
 330:                                              ; preds = %326
   %331 = getelementptr inbounds nuw i8, ptr %52, i64 2444
-  %332 = load i32, ptr %331, align 4, !tbaa !122
+  %332 = load i32, ptr %331, align 4, !tbaa !129
   %333 = icmp eq i32 %320, %332
   br i1 %333, label %._lib_histogram_vectorscope_bkgd.exit_crit_edge.i, label %335
 
 ._lib_histogram_vectorscope_bkgd.exit_crit_edge.i: ; preds = %330
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %52, i64 2448
-  %.pre.i = load double, ptr %.phi.trans.insert.i, align 16, !tbaa !123
+  %.pre.i = load double, ptr %.phi.trans.insert.i, align 16, !tbaa !130
   %334 = fptrunc reassoc nsz arcp contract afn double %.pre.i to float
   br label %_lib_histogram_vectorscope_bkgd.exit.i
 
@@ -1591,10 +1591,10 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
   call void @cairo_mesh_pattern_begin_patch(ptr noundef %336) #17
   call void @cairo_mesh_pattern_move_to(ptr noundef %336, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   call void @cairo_mesh_pattern_line_to(ptr noundef %336, double noundef %.pre-phi.i.i, double noundef %.pre-phi232.i.i) #17
-  %363 = load float, ptr %361, align 64, !tbaa !196
+  %363 = load float, ptr %361, align 64, !tbaa !207
   %364 = fpext reassoc nsz arcp contract afn float %363 to double
   %365 = getelementptr inbounds nuw i8, ptr %52, i64 132
-  %366 = load float, ptr %365, align 4, !tbaa !196
+  %366 = load float, ptr %365, align 4, !tbaa !207
   %367 = fpext reassoc nsz arcp contract afn float %366 to double
   call void @cairo_mesh_pattern_line_to(ptr noundef %336, double noundef %364, double noundef %367) #17
   %368 = fpext reassoc nsz arcp contract afn float %.sroa.0221.0.copyload.i.i to double
@@ -1608,7 +1608,7 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 2, double noundef %371, double noundef %372, double noundef %373) #17
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 3, double noundef %371, double noundef %372, double noundef %373) #17
   call void @cairo_mesh_pattern_end_patch(ptr noundef %336) #17
-  %374 = load i32, ptr %317, align 4, !tbaa !117
+  %374 = load i32, ptr %317, align 4, !tbaa !124
   %375 = sitofp i32 %374 to float
   %376 = call reassoc nsz arcp contract afn float @hypotf(float noundef %375, float noundef %375) #18
   %377 = fpext reassoc nsz arcp contract afn float %376 to double
@@ -1621,7 +1621,7 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
   call void @cairo_matrix_translate(ptr noundef nonnull %16, double noundef %381, double noundef %381) #17
   call void @cairo_pattern_set_matrix(ptr noundef %336, ptr noundef nonnull %16) #17
   %382 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %383 = load ptr, ptr %382, align 64, !tbaa !119
+  %383 = load ptr, ptr %382, align 64, !tbaa !126
   %384 = call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %374) #17
   %385 = call ptr @cairo_image_surface_create_for_data(ptr noundef %383, i32 noundef 1, i32 noundef %374, i32 noundef %374, i32 noundef %384) #17
   %386 = call ptr @cairo_create(ptr noundef %385) #17
@@ -1631,7 +1631,7 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
   call void @cairo_surface_destroy(ptr noundef %385) #17
   call void @cairo_pattern_destroy(ptr noundef %336) #17
   call void @cairo_destroy(ptr noundef %386) #17
-  %387 = load i32, ptr %321, align 4, !tbaa !116
+  %387 = load i32, ptr %321, align 4, !tbaa !122
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %.preheader176.i.i, label %.loopexit.i.i
 
@@ -1668,20 +1668,20 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
 399:                                              ; preds = %399, %391
   %.0147188.i.i = phi i64 [ 0, %391 ], [ %407, %399 ]
   %400 = getelementptr inbounds nuw [4 x float], ptr %394, i64 0, i64 %.0147188.i.i
-  %401 = load float, ptr %400, align 4, !tbaa !196
+  %401 = load float, ptr %400, align 4, !tbaa !207
   %402 = getelementptr inbounds nuw [4 x float], ptr %395, i64 0, i64 %.0147188.i.i
-  %403 = load float, ptr %402, align 4, !tbaa !196
+  %403 = load float, ptr %402, align 4, !tbaa !207
   %404 = fsub reassoc nsz arcp contract afn float %401, %403
   %405 = fmul reassoc nsz arcp contract afn float %404, 0x3F95555560000000
   %406 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0147188.i.i
-  store float %405, ptr %406, align 4, !tbaa !196
+  store float %405, ptr %406, align 4, !tbaa !207
   %407 = add nuw nsw i64 %.0147188.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %407, 4
-  br i1 %exitcond.not.i.i, label %.preheader179.i.i, label %399
+  br i1 %exitcond.not.i.i, label %.preheader179.i.i, label %399, !llvm.loop !232
 
 408:                                              ; preds = %.loopexit178.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
-  br i1 %392, label %362, label %391
+  br i1 %392, label %362, label %391, !llvm.loop !233
 
 409:                                              ; preds = %.loopexit178.i.i, %.preheader179.i.i
   %.sroa.0221.1.i.i = phi nsz float [ %.sroa.0221.0.i.i, %.preheader179.i.i ], [ %.sroa.0221.0.copyload.i.i, %.loopexit178.i.i ]
@@ -1714,24 +1714,24 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
 413:                                              ; preds = %413, %409
   %.0149189.i.i = phi i64 [ 0, %409 ], [ %421, %413 ]
   %414 = getelementptr inbounds nuw [4 x float], ptr %395, i64 0, i64 %.0149189.i.i
-  %415 = load float, ptr %414, align 4, !tbaa !196
+  %415 = load float, ptr %414, align 4, !tbaa !207
   %416 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0149189.i.i
-  %417 = load float, ptr %416, align 4, !tbaa !196
+  %417 = load float, ptr %416, align 4, !tbaa !207
   %418 = fmul reassoc nsz arcp contract afn float %417, %411
   %419 = fadd reassoc nsz arcp contract afn float %418, %415
   %420 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.0149189.i.i
-  store float %419, ptr %420, align 4, !tbaa !196
+  store float %419, ptr %420, align 4, !tbaa !207
   %421 = add nuw nsw i64 %.0149189.i.i, 1
   %exitcond205.not.i.i = icmp eq i64 %421, 4
-  br i1 %exitcond205.not.i.i, label %412, label %413
+  br i1 %exitcond205.not.i.i, label %412, label %413, !llvm.loop !234
 
 422:                                              ; preds = %412
-  %423 = load i32, ptr %347, align 4, !tbaa !216
+  %423 = load i32, ptr %347, align 4, !tbaa !235
   %.not.i.i.i = icmp eq i32 %423, 0
   br i1 %.not.i.i.i, label %487, label %424
 
 424:                                              ; preds = %422
-  %425 = load i32, ptr %348, align 64, !tbaa !209
+  %425 = load i32, ptr %348, align 64, !tbaa !222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
   %426 = add nsw i32 %425, -1
   %427 = sitofp i32 %426 to float
@@ -1742,11 +1742,11 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
 430:                                              ; preds = %467, %424
   %indvars.iv.i.i.i.i = phi i64 [ 0, %424 ], [ %indvars.iv.next.i.i.i.i, %467 ]
   %431 = getelementptr inbounds nuw ptr, ptr %345, i64 %indvars.iv.i.i.i.i
-  %432 = load ptr, ptr %431, align 8, !tbaa !208
-  %433 = load float, ptr %432, align 4, !tbaa !196
+  %432 = load ptr, ptr %431, align 8, !tbaa !221
+  %433 = load float, ptr %432, align 4, !tbaa !207
   %434 = fcmp reassoc nsz arcp contract afn ult float %433, 0.000000e+00
   %435 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i.i.i
-  %436 = load float, ptr %435, align 4, !tbaa !196
+  %436 = load float, ptr %435, align 4, !tbaa !207
   br i1 %434, label %467, label %437
 
 437:                                              ; preds = %430
@@ -1766,9 +1766,9 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
   %448 = fsub reassoc nsz arcp contract afn float %443, %447
   %449 = sext i32 %446 to i64
   %450 = getelementptr inbounds float, ptr %432, i64 %449
-  %451 = load float, ptr %450, align 4, !tbaa !196
+  %451 = load float, ptr %450, align 4, !tbaa !207
   %452 = getelementptr i8, ptr %450, i64 4
-  %453 = load float, ptr %452, align 4, !tbaa !196
+  %453 = load float, ptr %452, align 4, !tbaa !207
   %454 = fsub reassoc nsz arcp contract afn float %453, %451
   %455 = fmul reassoc nsz arcp contract afn float %454, %448
   %456 = fadd reassoc nsz arcp contract afn float %455, %451
@@ -1777,11 +1777,11 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
 457:                                              ; preds = %437
   %458 = getelementptr inbounds nuw [3 x float], ptr %346, i64 %indvars.iv.i.i.i.i
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 4
-  %460 = load float, ptr %459, align 4, !tbaa !196
-  %461 = load float, ptr %458, align 4, !tbaa !196
+  %460 = load float, ptr %459, align 4, !tbaa !207
+  %461 = load float, ptr %458, align 4, !tbaa !207
   %462 = fmul reassoc nsz arcp contract afn float %461, %436
   %463 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %464 = load float, ptr %463, align 4, !tbaa !196
+  %464 = load float, ptr %463, align 4, !tbaa !207
   %465 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %462, float %464)
   %466 = fmul reassoc nsz arcp contract afn float %465, %460
   br label %467
@@ -1789,64 +1789,64 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.us.i
 467:                                              ; preds = %457, %439, %430
   %468 = phi reassoc nsz arcp contract afn float [ %456, %439 ], [ %466, %457 ], [ %436, %430 ]
   %469 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i.i
-  store float %468, ptr %469, align 4, !tbaa !196
+  store float %468, ptr %469, align 4, !tbaa !207
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %dt_ioppr_apply_trc.exit.i.i.i, label %430
+  br i1 %exitcond.not.i.i.i.i, label %dt_ioppr_apply_trc.exit.i.i.i, label %430, !llvm.loop !236
 
 dt_ioppr_apply_trc.exit.i.i.i:                    ; preds = %467
-  %470 = load float, ptr %9, align 16, !tbaa !196
-  %471 = load float, ptr %359, align 4, !tbaa !196
-  %472 = load float, ptr %360, align 8, !tbaa !196
+  %470 = load float, ptr %9, align 16, !tbaa !207
+  %471 = load float, ptr %359, align 4, !tbaa !207
+  %472 = load float, ptr %360, align 8, !tbaa !207
   br label %473
 
 473:                                              ; preds = %473, %dt_ioppr_apply_trc.exit.i.i.i
   %.012.i.i.i.i = phi i64 [ 0, %dt_ioppr_apply_trc.exit.i.i.i ], [ %486, %473 ]
   %474 = getelementptr inbounds nuw [4 x float], ptr %344, i64 0, i64 %.012.i.i.i.i
-  %475 = load float, ptr %474, align 4, !tbaa !196
+  %475 = load float, ptr %474, align 4, !tbaa !207
   %476 = fmul reassoc nsz arcp contract afn float %475, %470
   %477 = getelementptr inbounds nuw [4 x float], ptr %349, i64 0, i64 %.012.i.i.i.i
-  %478 = load float, ptr %477, align 4, !tbaa !196
+  %478 = load float, ptr %477, align 4, !tbaa !207
   %479 = fmul reassoc nsz arcp contract afn float %478, %471
   %480 = fadd reassoc nsz arcp contract afn float %479, %476
   %481 = getelementptr inbounds nuw [4 x float], ptr %351, i64 0, i64 %.012.i.i.i.i
-  %482 = load float, ptr %481, align 4, !tbaa !196
+  %482 = load float, ptr %481, align 4, !tbaa !207
   %483 = fmul reassoc nsz arcp contract afn float %482, %472
   %484 = fadd reassoc nsz arcp contract afn float %480, %483
   %485 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i.i.i.i
-  store float %484, ptr %485, align 4, !tbaa !196
+  store float %484, ptr %485, align 4, !tbaa !207
   %486 = add nuw nsw i64 %.012.i.i.i.i, 1
   %exitcond.not.i9.i.i.i = icmp eq i64 %486, 4
-  br i1 %exitcond.not.i9.i.i.i, label %dt_apply_transposed_color_matrix.exit.i.i.i, label %473
+  br i1 %exitcond.not.i9.i.i.i, label %dt_apply_transposed_color_matrix.exit.i.i.i, label %473, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i.i.i:      ; preds = %473
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
   br label %dt_ioppr_rgb_matrix_to_xyz.exit.i.i
 
 487:                                              ; preds = %422
-  %488 = load float, ptr %12, align 16, !tbaa !196
-  %489 = load float, ptr %338, align 4, !tbaa !196
-  %490 = load float, ptr %339, align 8, !tbaa !196
+  %488 = load float, ptr %12, align 16, !tbaa !207
+  %489 = load float, ptr %338, align 4, !tbaa !207
+  %490 = load float, ptr %339, align 8, !tbaa !207
   br label %491
 
 491:                                              ; preds = %491, %487
   %.012.i10.i.i.i = phi i64 [ 0, %487 ], [ %504, %491 ]
   %492 = getelementptr inbounds nuw [4 x float], ptr %344, i64 0, i64 %.012.i10.i.i.i
-  %493 = load float, ptr %492, align 4, !tbaa !196
+  %493 = load float, ptr %492, align 4, !tbaa !207
   %494 = fmul reassoc nsz arcp contract afn float %493, %488
   %495 = getelementptr inbounds nuw [4 x float], ptr %349, i64 0, i64 %.012.i10.i.i.i
-  %496 = load float, ptr %495, align 4, !tbaa !196
+  %496 = load float, ptr %495, align 4, !tbaa !207
   %497 = fmul reassoc nsz arcp contract afn float %496, %489
   %498 = fadd reassoc nsz arcp contract afn float %497, %494
   %499 = getelementptr inbounds nuw [4 x float], ptr %351, i64 0, i64 %.012.i10.i.i.i
-  %500 = load float, ptr %499, align 4, !tbaa !196
+  %500 = load float, ptr %499, align 4, !tbaa !207
   %501 = fmul reassoc nsz arcp contract afn float %500, %490
   %502 = fadd reassoc nsz arcp contract afn float %498, %501
   %503 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i10.i.i.i
-  store float %502, ptr %503, align 4, !tbaa !196
+  store float %502, ptr %503, align 4, !tbaa !207
   %504 = add nuw nsw i64 %.012.i10.i.i.i, 1
   %exitcond.not.i11.i.i.i = icmp eq i64 %504, 4
-  br i1 %exitcond.not.i11.i.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit.i.i, label %491
+  br i1 %exitcond.not.i11.i.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit.i.i, label %491, !llvm.loop !237
 
 dt_ioppr_rgb_matrix_to_xyz.exit.i.i:              ; preds = %491, %dt_apply_transposed_color_matrix.exit.i.i.i
   %.val.i.i = load <4 x float>, ptr %13, align 16
@@ -1887,42 +1887,42 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %519, %517
   %529 = fdiv reassoc nsz arcp contract afn float %524, %528
   %530 = fmul reassoc nsz arcp contract afn float %510, 4.000000e+00
   %531 = fdiv reassoc nsz arcp contract afn float %530, %528
-  store float %523, ptr %14, align 16, !tbaa !196
+  store float %523, ptr %14, align 16, !tbaa !207
   %532 = fmul reassoc nsz arcp contract afn float %523, 1.300000e+01
   %533 = fadd reassoc nsz arcp contract afn float %531, 0xBFCAC5BA20000000
   %534 = fmul reassoc nsz arcp contract afn float %532, %533
-  store float %534, ptr %342, align 4, !tbaa !196
+  store float %534, ptr %342, align 4, !tbaa !207
   %535 = fadd reassoc nsz arcp contract afn float %529, 0xBFDF3CA040000000
   %536 = fmul reassoc nsz arcp contract afn float %532, %535
-  store float %536, ptr %343, align 8, !tbaa !196
+  store float %536, ptr %343, align 8, !tbaa !207
   br label %537
 
 537:                                              ; preds = %537, %dt_xyY_to_Luv.exit.i.i
   %.012.i.i153.i.i = phi i64 [ 0, %dt_xyY_to_Luv.exit.i.i ], [ %550, %537 ]
   %538 = getelementptr inbounds nuw [4 x float], ptr @xyz_to_srgb_transposed, i64 0, i64 %.012.i.i153.i.i
-  %539 = load float, ptr %538, align 4, !tbaa !196
+  %539 = load float, ptr %538, align 4, !tbaa !207
   %540 = fmul reassoc nsz arcp contract afn float %539, %514
   %541 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @xyz_to_srgb_transposed, i64 16), i64 0, i64 %.012.i.i153.i.i
-  %542 = load float, ptr %541, align 4, !tbaa !196
+  %542 = load float, ptr %541, align 4, !tbaa !207
   %543 = fmul reassoc nsz arcp contract afn float %542, %515
   %544 = fadd reassoc nsz arcp contract afn float %543, %540
   %545 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @xyz_to_srgb_transposed, i64 32), i64 0, i64 %.012.i.i153.i.i
-  %546 = load float, ptr %545, align 4, !tbaa !196
+  %546 = load float, ptr %545, align 4, !tbaa !207
   %547 = fmul reassoc nsz arcp contract afn float %546, %516
   %548 = fadd reassoc nsz arcp contract afn float %544, %547
   %549 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i.i153.i.i
-  store float %548, ptr %549, align 4, !tbaa !196
+  store float %548, ptr %549, align 4, !tbaa !207
   %550 = add nuw nsw i64 %.012.i.i153.i.i, 1
   %exitcond.not.i.i154.i.i = icmp eq i64 %550, 4
-  br i1 %exitcond.not.i.i154.i.i, label %dt_XYZ_to_Rec709_D50.exit.i.i, label %537
+  br i1 %exitcond.not.i.i154.i.i, label %dt_XYZ_to_Rec709_D50.exit.i.i, label %537, !llvm.loop !237
 
 551:                                              ; preds = %412
-  %552 = load i32, ptr %347, align 4, !tbaa !216
+  %552 = load i32, ptr %347, align 4, !tbaa !235
   %.not.i156.i.i = icmp eq i32 %552, 0
   br i1 %.not.i156.i.i, label %616, label %553
 
 553:                                              ; preds = %551
-  %554 = load i32, ptr %348, align 64, !tbaa !209
+  %554 = load i32, ptr %348, align 64, !tbaa !222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
   %555 = add nsw i32 %554, -1
   %556 = sitofp i32 %555 to float
@@ -1933,11 +1933,11 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %519, %517
 559:                                              ; preds = %596, %553
   %indvars.iv.i.i157.i.i = phi i64 [ 0, %553 ], [ %indvars.iv.next.i.i158.i.i, %596 ]
   %560 = getelementptr inbounds nuw ptr, ptr %345, i64 %indvars.iv.i.i157.i.i
-  %561 = load ptr, ptr %560, align 8, !tbaa !208
-  %562 = load float, ptr %561, align 4, !tbaa !196
+  %561 = load ptr, ptr %560, align 8, !tbaa !221
+  %562 = load float, ptr %561, align 4, !tbaa !207
   %563 = fcmp reassoc nsz arcp contract afn ult float %562, 0.000000e+00
   %564 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i157.i.i
-  %565 = load float, ptr %564, align 4, !tbaa !196
+  %565 = load float, ptr %564, align 4, !tbaa !207
   br i1 %563, label %596, label %566
 
 566:                                              ; preds = %559
@@ -1957,9 +1957,9 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %519, %517
   %577 = fsub reassoc nsz arcp contract afn float %572, %576
   %578 = sext i32 %575 to i64
   %579 = getelementptr inbounds float, ptr %561, i64 %578
-  %580 = load float, ptr %579, align 4, !tbaa !196
+  %580 = load float, ptr %579, align 4, !tbaa !207
   %581 = getelementptr i8, ptr %579, i64 4
-  %582 = load float, ptr %581, align 4, !tbaa !196
+  %582 = load float, ptr %581, align 4, !tbaa !207
   %583 = fsub reassoc nsz arcp contract afn float %582, %580
   %584 = fmul reassoc nsz arcp contract afn float %583, %577
   %585 = fadd reassoc nsz arcp contract afn float %584, %580
@@ -1968,11 +1968,11 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %519, %517
 586:                                              ; preds = %566
   %587 = getelementptr inbounds nuw [3 x float], ptr %346, i64 %indvars.iv.i.i157.i.i
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 4
-  %589 = load float, ptr %588, align 4, !tbaa !196
-  %590 = load float, ptr %587, align 4, !tbaa !196
+  %589 = load float, ptr %588, align 4, !tbaa !207
+  %590 = load float, ptr %587, align 4, !tbaa !207
   %591 = fmul reassoc nsz arcp contract afn float %590, %565
   %592 = getelementptr inbounds nuw i8, ptr %587, i64 8
-  %593 = load float, ptr %592, align 4, !tbaa !196
+  %593 = load float, ptr %592, align 4, !tbaa !207
   %594 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %591, float %593)
   %595 = fmul reassoc nsz arcp contract afn float %594, %589
   br label %596
@@ -1980,98 +1980,98 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %519, %517
 596:                                              ; preds = %586, %568, %559
   %597 = phi reassoc nsz arcp contract afn float [ %585, %568 ], [ %595, %586 ], [ %565, %559 ]
   %598 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i157.i.i
-  store float %597, ptr %598, align 4, !tbaa !196
+  store float %597, ptr %598, align 4, !tbaa !207
   %indvars.iv.next.i.i158.i.i = add nuw nsw i64 %indvars.iv.i.i157.i.i, 1
   %exitcond.not.i.i159.i.i = icmp eq i64 %indvars.iv.next.i.i158.i.i, 3
-  br i1 %exitcond.not.i.i159.i.i, label %dt_ioppr_apply_trc.exit.i160.i.i, label %559
+  br i1 %exitcond.not.i.i159.i.i, label %dt_ioppr_apply_trc.exit.i160.i.i, label %559, !llvm.loop !236
 
 dt_ioppr_apply_trc.exit.i160.i.i:                 ; preds = %596
-  %599 = load float, ptr %8, align 16, !tbaa !196
-  %600 = load float, ptr %350, align 4, !tbaa !196
-  %601 = load float, ptr %352, align 8, !tbaa !196
+  %599 = load float, ptr %8, align 16, !tbaa !207
+  %600 = load float, ptr %350, align 4, !tbaa !207
+  %601 = load float, ptr %352, align 8, !tbaa !207
   br label %602
 
 602:                                              ; preds = %602, %dt_ioppr_apply_trc.exit.i160.i.i
   %.012.i.i161.i.i = phi i64 [ 0, %dt_ioppr_apply_trc.exit.i160.i.i ], [ %615, %602 ]
   %603 = getelementptr inbounds nuw [4 x float], ptr %344, i64 0, i64 %.012.i.i161.i.i
-  %604 = load float, ptr %603, align 4, !tbaa !196
+  %604 = load float, ptr %603, align 4, !tbaa !207
   %605 = fmul reassoc nsz arcp contract afn float %604, %599
   %606 = getelementptr inbounds nuw [4 x float], ptr %349, i64 0, i64 %.012.i.i161.i.i
-  %607 = load float, ptr %606, align 4, !tbaa !196
+  %607 = load float, ptr %606, align 4, !tbaa !207
   %608 = fmul reassoc nsz arcp contract afn float %607, %600
   %609 = fadd reassoc nsz arcp contract afn float %608, %605
   %610 = getelementptr inbounds nuw [4 x float], ptr %351, i64 0, i64 %.012.i.i161.i.i
-  %611 = load float, ptr %610, align 4, !tbaa !196
+  %611 = load float, ptr %610, align 4, !tbaa !207
   %612 = fmul reassoc nsz arcp contract afn float %611, %601
   %613 = fadd reassoc nsz arcp contract afn float %609, %612
   %614 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i.i161.i.i
-  store float %613, ptr %614, align 4, !tbaa !196
+  store float %613, ptr %614, align 4, !tbaa !207
   %615 = add nuw nsw i64 %.012.i.i161.i.i, 1
   %exitcond.not.i9.i162.i.i = icmp eq i64 %615, 4
-  br i1 %exitcond.not.i9.i162.i.i, label %dt_apply_transposed_color_matrix.exit.i163.i.i, label %602
+  br i1 %exitcond.not.i9.i162.i.i, label %dt_apply_transposed_color_matrix.exit.i163.i.i, label %602, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i163.i.i:   ; preds = %602
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
   br label %dt_ioppr_rgb_matrix_to_xyz.exit167.i.i
 
 616:                                              ; preds = %551
-  %617 = load float, ptr %12, align 16, !tbaa !196
-  %618 = load float, ptr %338, align 4, !tbaa !196
-  %619 = load float, ptr %339, align 8, !tbaa !196
+  %617 = load float, ptr %12, align 16, !tbaa !207
+  %618 = load float, ptr %338, align 4, !tbaa !207
+  %619 = load float, ptr %339, align 8, !tbaa !207
   br label %620
 
 620:                                              ; preds = %620, %616
   %.012.i10.i165.i.i = phi i64 [ 0, %616 ], [ %633, %620 ]
   %621 = getelementptr inbounds nuw [4 x float], ptr %344, i64 0, i64 %.012.i10.i165.i.i
-  %622 = load float, ptr %621, align 4, !tbaa !196
+  %622 = load float, ptr %621, align 4, !tbaa !207
   %623 = fmul reassoc nsz arcp contract afn float %622, %617
   %624 = getelementptr inbounds nuw [4 x float], ptr %349, i64 0, i64 %.012.i10.i165.i.i
-  %625 = load float, ptr %624, align 4, !tbaa !196
+  %625 = load float, ptr %624, align 4, !tbaa !207
   %626 = fmul reassoc nsz arcp contract afn float %625, %618
   %627 = fadd reassoc nsz arcp contract afn float %626, %623
   %628 = getelementptr inbounds nuw [4 x float], ptr %351, i64 0, i64 %.012.i10.i165.i.i
-  %629 = load float, ptr %628, align 4, !tbaa !196
+  %629 = load float, ptr %628, align 4, !tbaa !207
   %630 = fmul reassoc nsz arcp contract afn float %629, %619
   %631 = fadd reassoc nsz arcp contract afn float %627, %630
   %632 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i10.i165.i.i
-  store float %631, ptr %632, align 4, !tbaa !196
+  store float %631, ptr %632, align 4, !tbaa !207
   %633 = add nuw nsw i64 %.012.i10.i165.i.i, 1
   %exitcond.not.i11.i166.i.i = icmp eq i64 %633, 4
-  br i1 %exitcond.not.i11.i166.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit167.i.i, label %620
+  br i1 %exitcond.not.i11.i166.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit167.i.i, label %620, !llvm.loop !237
 
 dt_ioppr_rgb_matrix_to_xyz.exit167.i.i:           ; preds = %620, %dt_apply_transposed_color_matrix.exit.i163.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
-  %634 = load float, ptr %13, align 16, !tbaa !196
-  %635 = load float, ptr %353, align 4, !tbaa !196
-  %636 = load float, ptr %354, align 8, !tbaa !196
+  %634 = load float, ptr %13, align 16, !tbaa !207
+  %635 = load float, ptr %353, align 4, !tbaa !207
+  %636 = load float, ptr %354, align 8, !tbaa !207
   br label %637
 
 637:                                              ; preds = %637, %dt_ioppr_rgb_matrix_to_xyz.exit167.i.i
   %.09.i.i.i = phi i64 [ 0, %dt_ioppr_rgb_matrix_to_xyz.exit167.i.i ], [ %650, %637 ]
   %638 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 0, i64 %.09.i.i.i
-  %639 = load float, ptr %638, align 4, !tbaa !196
+  %639 = load float, ptr %638, align 4, !tbaa !207
   %640 = fmul reassoc nsz arcp contract afn float %639, %634
   %641 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 16), i64 0, i64 %.09.i.i.i
-  %642 = load float, ptr %641, align 4, !tbaa !196
+  %642 = load float, ptr %641, align 4, !tbaa !207
   %643 = fmul reassoc nsz arcp contract afn float %642, %635
   %644 = fadd reassoc nsz arcp contract afn float %643, %640
   %645 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 32), i64 0, i64 %.09.i.i.i
-  %646 = load float, ptr %645, align 4, !tbaa !196
+  %646 = load float, ptr %645, align 4, !tbaa !207
   %647 = fmul reassoc nsz arcp contract afn float %646, %636
   %648 = fadd reassoc nsz arcp contract afn float %644, %647
   %649 = getelementptr inbounds nuw float, ptr %15, i64 %.09.i.i.i
-  store float %648, ptr %649, align 4, !tbaa !196
+  store float %648, ptr %649, align 4, !tbaa !207
   %650 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %650, 4
-  br i1 %exitcond.not.i.i.i, label %dt_XYZ_D50_2_XYZ_D65.exit.i.i, label %637
+  br i1 %exitcond.not.i.i.i, label %dt_XYZ_D50_2_XYZ_D65.exit.i.i, label %637, !llvm.loop !238
 
 dt_XYZ_D50_2_XYZ_D65.exit.i.i:                    ; preds = %637
-  %651 = load float, ptr %15, align 16, !tbaa !196
+  %651 = load float, ptr %15, align 16, !tbaa !207
   %652 = fmul reassoc nsz arcp contract afn float %651, 0x3FF2666660000000
-  %653 = load float, ptr %355, align 8, !tbaa !196
+  %653 = load float, ptr %355, align 8, !tbaa !207
   %654 = fmul reassoc nsz arcp contract afn float %653, 0x3FC3333300000000
   %655 = fsub reassoc nsz arcp contract afn float %652, %654
-  %656 = load float, ptr %356, align 4, !tbaa !196
+  %656 = load float, ptr %356, align 4, !tbaa !207
   %657 = fmul reassoc nsz arcp contract afn float %656, 0x3FE51EB860000000
   %658 = fmul reassoc nsz arcp contract afn float %651, 0x3FD5C28F40000000
   %659 = fadd reassoc nsz arcp contract afn float %657, %658
@@ -2082,51 +2082,51 @@ dt_XYZ_D50_2_XYZ_D65.exit.i.i:                    ; preds = %637
 660:                                              ; preds = %660, %dt_XYZ_D50_2_XYZ_D65.exit.i.i
   %.012.i.i168.i.i = phi i64 [ 0, %dt_XYZ_D50_2_XYZ_D65.exit.i.i ], [ %673, %660 ]
   %661 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 0, i64 %.012.i.i168.i.i
-  %662 = load float, ptr %661, align 4, !tbaa !196
+  %662 = load float, ptr %661, align 4, !tbaa !207
   %663 = fmul reassoc nsz arcp contract afn float %662, %655
   %664 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 16), i64 0, i64 %.012.i.i168.i.i
-  %665 = load float, ptr %664, align 4, !tbaa !196
+  %665 = load float, ptr %664, align 4, !tbaa !207
   %666 = fmul reassoc nsz arcp contract afn float %665, %659
   %667 = fadd reassoc nsz arcp contract afn float %666, %663
   %668 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 32), i64 0, i64 %.012.i.i168.i.i
-  %669 = load float, ptr %668, align 4, !tbaa !196
+  %669 = load float, ptr %668, align 4, !tbaa !207
   %670 = fmul reassoc nsz arcp contract afn float %669, %653
   %671 = fadd reassoc nsz arcp contract afn float %667, %670
   %672 = getelementptr inbounds nuw float, ptr %7, i64 %.012.i.i168.i.i
-  store float %671, ptr %672, align 4, !tbaa !196
+  store float %671, ptr %672, align 4, !tbaa !207
   %673 = add nuw nsw i64 %.012.i.i168.i.i, 1
   %exitcond.not.i.i169.i.i = icmp eq i64 %673, 4
-  br i1 %exitcond.not.i.i169.i.i, label %dt_apply_transposed_color_matrix.exit.i170.i.i, label %660
+  br i1 %exitcond.not.i.i169.i.i, label %dt_apply_transposed_color_matrix.exit.i170.i.i, label %660, !llvm.loop !237
 
 674:                                              ; preds = %dt_apply_transposed_color_matrix.exit.i170.i.i
-  %675 = load float, ptr %7, align 16, !tbaa !196
-  %676 = load float, ptr %357, align 4, !tbaa !196
-  %677 = load float, ptr %358, align 8, !tbaa !196
+  %675 = load float, ptr %7, align 16, !tbaa !207
+  %676 = load float, ptr %357, align 4, !tbaa !207
+  %677 = load float, ptr %358, align 8, !tbaa !207
   br label %678
 
 678:                                              ; preds = %678, %674
   %.012.i15.i.i.i = phi i64 [ 0, %674 ], [ %691, %678 ]
   %679 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 0, i64 %.012.i15.i.i.i
-  %680 = load float, ptr %679, align 4, !tbaa !196
+  %680 = load float, ptr %679, align 4, !tbaa !207
   %681 = fmul reassoc nsz arcp contract afn float %680, %675
   %682 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 16), i64 0, i64 %.012.i15.i.i.i
-  %683 = load float, ptr %682, align 4, !tbaa !196
+  %683 = load float, ptr %682, align 4, !tbaa !207
   %684 = fmul reassoc nsz arcp contract afn float %683, %676
   %685 = fadd reassoc nsz arcp contract afn float %684, %681
   %686 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 32), i64 0, i64 %.012.i15.i.i.i
-  %687 = load float, ptr %686, align 4, !tbaa !196
+  %687 = load float, ptr %686, align 4, !tbaa !207
   %688 = fmul reassoc nsz arcp contract afn float %687, %677
   %689 = fadd reassoc nsz arcp contract afn float %685, %688
   %690 = getelementptr inbounds nuw float, ptr %14, i64 %.012.i15.i.i.i
-  store float %689, ptr %690, align 4, !tbaa !196
+  store float %689, ptr %690, align 4, !tbaa !207
   %691 = add nuw nsw i64 %.012.i15.i.i.i, 1
   %exitcond.not.i16.i.i.i = icmp eq i64 %691, 4
-  br i1 %exitcond.not.i16.i.i.i, label %dt_XYZ_2_JzAzBz.exit.i.i, label %678
+  br i1 %exitcond.not.i16.i.i.i, label %dt_XYZ_2_JzAzBz.exit.i.i, label %678, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i170.i.i:   ; preds = %660, %dt_apply_transposed_color_matrix.exit.i170.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %dt_apply_transposed_color_matrix.exit.i170.i.i ], [ 0, %660 ]
   %692 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i
-  %693 = load float, ptr %692, align 4, !tbaa !196
+  %693 = load float, ptr %692, align 4, !tbaa !207
   %694 = fmul reassoc nsz arcp contract afn float %693, 0x3F1A36E2E0000000
   %695 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %694, float 0.000000e+00)
   %696 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %695, float 0x3FC4640000000000)
@@ -2136,53 +2136,53 @@ dt_apply_transposed_color_matrix.exit.i170.i.i:   ; preds = %660, %dt_apply_tran
   %700 = fadd reassoc nsz arcp contract afn float %699, 1.000000e+00
   %701 = fdiv reassoc nsz arcp contract afn float %698, %700
   %702 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %701, float 0x4060C119A0000000)
-  store float %702, ptr %692, align 4, !tbaa !196
+  store float %702, ptr %692, align 4, !tbaa !207
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i171.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i171.i.i, label %674, label %dt_apply_transposed_color_matrix.exit.i170.i.i
+  br i1 %exitcond.not.i171.i.i, label %674, label %dt_apply_transposed_color_matrix.exit.i170.i.i, !llvm.loop !239
 
 dt_XYZ_2_JzAzBz.exit.i.i:                         ; preds = %678
-  %703 = load float, ptr %14, align 16, !tbaa !196
+  %703 = load float, ptr %14, align 16, !tbaa !207
   %704 = fmul reassoc nsz arcp contract afn float %703, 0x3FDC28F5C0000000
   %705 = fmul reassoc nsz arcp contract afn float %703, 0x3FE1EB8520000000
   %706 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %705
   %707 = fdiv reassoc nsz arcp contract afn float %704, %706
   %708 = fadd reassoc nsz arcp contract afn float %707, 0xBDB1EAC680000000
   %709 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %708, float 0.000000e+00)
-  store float %709, ptr %14, align 16, !tbaa !196
+  store float %709, ptr %14, align 16, !tbaa !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   br label %710
 
 710:                                              ; preds = %710, %dt_XYZ_2_JzAzBz.exit.i.i
   %.012.i.i172.i.i = phi i64 [ 0, %dt_XYZ_2_JzAzBz.exit.i.i ], [ %723, %710 ]
   %711 = getelementptr inbounds nuw [4 x float], ptr @xyz_to_srgb_transposed, i64 0, i64 %.012.i.i172.i.i
-  %712 = load float, ptr %711, align 4, !tbaa !196
+  %712 = load float, ptr %711, align 4, !tbaa !207
   %713 = fmul reassoc nsz arcp contract afn float %712, %634
   %714 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @xyz_to_srgb_transposed, i64 16), i64 0, i64 %.012.i.i172.i.i
-  %715 = load float, ptr %714, align 4, !tbaa !196
+  %715 = load float, ptr %714, align 4, !tbaa !207
   %716 = fmul reassoc nsz arcp contract afn float %715, %635
   %717 = fadd reassoc nsz arcp contract afn float %716, %713
   %718 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @xyz_to_srgb_transposed, i64 32), i64 0, i64 %.012.i.i172.i.i
-  %719 = load float, ptr %718, align 4, !tbaa !196
+  %719 = load float, ptr %718, align 4, !tbaa !207
   %720 = fmul reassoc nsz arcp contract afn float %719, %636
   %721 = fadd reassoc nsz arcp contract afn float %717, %720
   %722 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i.i172.i.i
-  store float %721, ptr %722, align 4, !tbaa !196
+  store float %721, ptr %722, align 4, !tbaa !207
   %723 = add nuw nsw i64 %.012.i.i172.i.i, 1
   %exitcond.not.i.i173.i.i = icmp eq i64 %723, 4
-  br i1 %exitcond.not.i.i173.i.i, label %dt_XYZ_to_Rec709_D50.exit175.i.i, label %710
+  br i1 %exitcond.not.i.i173.i.i, label %dt_XYZ_to_Rec709_D50.exit175.i.i, label %710, !llvm.loop !237
 
 dt_XYZ_to_Rec709_D50.exit175.i.i:                 ; preds = %710
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
-  %.pre.i.i = load float, ptr %342, align 4, !tbaa !196
-  %.pre226.i.i = load float, ptr %343, align 8, !tbaa !196
+  %.pre.i.i = load float, ptr %342, align 4, !tbaa !207
+  %.pre226.i.i = load float, ptr %343, align 8, !tbaa !207
   br label %dt_XYZ_to_Rec709_D50.exit.i.i
 
 724:                                              ; preds = %412
-  %725 = load ptr, ptr %337, align 8, !tbaa !127
-  %726 = load float, ptr %12, align 16, !tbaa !196
-  %727 = load float, ptr %338, align 4, !tbaa !196
-  %728 = load float, ptr %339, align 8, !tbaa !196
+  %725 = load ptr, ptr %337, align 8, !tbaa !134
+  %726 = load float, ptr %12, align 16, !tbaa !207
+  %727 = load float, ptr %338, align 4, !tbaa !207
+  %728 = load float, ptr %339, align 8, !tbaa !207
   %729 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %727, float %728)
   %730 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %726, float %729)
   %731 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %727, float %728)
@@ -2272,9 +2272,9 @@ _ryb2rgb.exit.i.i:                                ; preds = %773, %772, %771, %7
   %.sink54.i.i.i.i.i = phi float [ %767, %769 ], [ %761, %771 ], [ %732, %773 ], [ %766, %772 ], [ %761, %770 ], [ %732, %dt_RGB_2_HSV.exit.i.i.i ]
   %.sink53.i.i.i.i.i = phi float [ %732, %769 ], [ %767, %771 ], [ %761, %773 ], [ %761, %772 ], [ %732, %770 ], [ %766, %dt_RGB_2_HSV.exit.i.i.i ]
   %.sink.i.i.i.i.i = phi float [ %761, %769 ], [ %732, %771 ], [ %767, %773 ], [ %732, %772 ], [ %766, %770 ], [ %761, %dt_RGB_2_HSV.exit.i.i.i ]
-  store float %.sink54.i.i.i.i.i, ptr %10, align 16, !tbaa !196
-  store float %.sink53.i.i.i.i.i, ptr %341, align 4, !tbaa !196
-  store float %.sink.i.i.i.i.i, ptr %340, align 8, !tbaa !196
+  store float %.sink54.i.i.i.i.i, ptr %10, align 16, !tbaa !207
+  store float %.sink53.i.i.i.i.i, ptr %341, align 4, !tbaa !207
+  store float %.sink.i.i.i.i.i, ptr %340, align 8, !tbaa !207
   %774 = fmul reassoc nsz arcp contract afn float %411, 0x3F95555560000000
   %775 = fadd reassoc nsz arcp contract afn float %774, %397
   %776 = fpext reassoc nsz arcp contract afn float %775 to double
@@ -2288,7 +2288,7 @@ _ryb2rgb.exit.i.i:                                ; preds = %773, %772, %771, %7
   %784 = fpext reassoc nsz arcp contract afn float %783 to double
   %785 = fmul reassoc nsz arcp contract afn double %784, 1.000000e-02
   %786 = fptrunc reassoc nsz arcp contract afn double %785 to float
-  store float %786, ptr %343, align 8, !tbaa !196
+  store float %786, ptr %343, align 8, !tbaa !207
   br label %dt_XYZ_to_Rec709_D50.exit.i.i
 
 787:                                              ; preds = %412
@@ -2299,14 +2299,14 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
   %788 = phi float [ %786, %_ryb2rgb.exit.i.i ], [ %.pre226.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ 0.000000e+00, %412 ], [ %536, %537 ]
   %789 = phi float [ %782, %_ryb2rgb.exit.i.i ], [ %.pre.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ 0.000000e+00, %412 ], [ %534, %537 ]
   %790 = getelementptr inbounds nuw [48 x [2 x float]], ptr %398, i64 0, i64 %indvars.iv.i.i
-  store float %789, ptr %790, align 8, !tbaa !196
+  store float %789, ptr %790, align 8, !tbaa !207
   %791 = getelementptr inbounds nuw i8, ptr %790, i64 4
-  store float %788, ptr %791, align 4, !tbaa !196
-  %792 = load float, ptr %10, align 16, !tbaa !196
-  %793 = load float, ptr %341, align 4, !tbaa !196
+  store float %788, ptr %791, align 4, !tbaa !207
+  %792 = load float, ptr %10, align 16, !tbaa !207
+  %793 = load float, ptr %341, align 4, !tbaa !207
   %794 = fcmp reassoc nsz arcp contract afn ogt float %792, %793
   %795 = select reassoc nsz arcp contract afn i1 %794, float %792, float %793
-  %796 = load float, ptr %340, align 8, !tbaa !196
+  %796 = load float, ptr %340, align 8, !tbaa !207
   %797 = fcmp reassoc nsz arcp contract afn ogt float %795, %796
   %..i.i = select reassoc nsz arcp contract afn i1 %797, float %795, float %796
   %798 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
@@ -2324,9 +2324,9 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
   br i1 %or.cond.i.i, label %.preheader177.preheader.i.i, label %812
 
 .preheader177.preheader.i.i:                      ; preds = %799
-  %.sroa.0.0.copyload.i.i = load float, ptr %10, align 16, !tbaa !196
-  %.sroa.5.0.copyload.i.i = load float, ptr %341, align 4, !tbaa !196
-  %.sroa.6.0.copyload.i.i = load float, ptr %340, align 8, !tbaa !196
+  %.sroa.0.0.copyload.i.i = load float, ptr %10, align 16, !tbaa !207
+  %.sroa.5.0.copyload.i.i = load float, ptr %341, align 4, !tbaa !207
+  %.sroa.6.0.copyload.i.i = load float, ptr %340, align 8, !tbaa !207
   %.pre230.i.i = fpext reassoc nsz arcp contract afn float %789 to double
   %.pre231.i.i = fpext reassoc nsz arcp contract afn float %788 to double
   br label %.loopexit178.i.i
@@ -2334,12 +2334,12 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
 807:                                              ; preds = %807, %dt_XYZ_to_Rec709_D50.exit.i.i
   %.0146190.i.i = phi i64 [ 0, %dt_XYZ_to_Rec709_D50.exit.i.i ], [ %811, %807 ]
   %808 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.0146190.i.i
-  %809 = load float, ptr %808, align 4, !tbaa !196
+  %809 = load float, ptr %808, align 4, !tbaa !207
   %810 = fmul reassoc nsz arcp contract afn float %809, %798
-  store float %810, ptr %808, align 4, !tbaa !196
+  store float %810, ptr %808, align 4, !tbaa !207
   %811 = add nuw nsw i64 %.0146190.i.i, 1
   %exitcond206.not.i.i = icmp eq i64 %811, 4
-  br i1 %exitcond206.not.i.i, label %799, label %807
+  br i1 %exitcond206.not.i.i, label %799, label %807, !llvm.loop !240
 
 812:                                              ; preds = %799
   %813 = fcmp reassoc nsz arcp contract afn ult float %803, 0x3810000000000000
@@ -2359,11 +2359,11 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
   %823 = fpext reassoc nsz arcp contract afn float %.sroa.8.1.i.i to double
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 0, double noundef %821, double noundef %822, double noundef %823) #17
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 1, double noundef %821, double noundef %822, double noundef %823) #17
-  %824 = load float, ptr %10, align 16, !tbaa !196
+  %824 = load float, ptr %10, align 16, !tbaa !207
   %825 = fpext reassoc nsz arcp contract afn float %824 to double
-  %826 = load float, ptr %341, align 4, !tbaa !196
+  %826 = load float, ptr %341, align 4, !tbaa !207
   %827 = fpext reassoc nsz arcp contract afn float %826 to double
-  %828 = load float, ptr %340, align 8, !tbaa !196
+  %828 = load float, ptr %340, align 8, !tbaa !207
   %829 = fpext reassoc nsz arcp contract afn float %828 to double
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 2, double noundef %825, double noundef %827, double noundef %829) #17
   call void @cairo_mesh_pattern_set_corner_color_rgb(ptr noundef %336, i32 noundef 3, double noundef %825, double noundef %827, double noundef %829) #17
@@ -2384,7 +2384,7 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond208.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 48
-  br i1 %exitcond208.not.i.i, label %408, label %409
+  br i1 %exitcond208.not.i.i, label %408, label %409, !llvm.loop !241
 
 .preheader.i.i:                                   ; preds = %831, %.preheader176.i.i
   %indvars.iv217.i.i = phi i64 [ 0, %.preheader176.i.i ], [ %indvars.iv.next218.i.i, %831 ]
@@ -2394,14 +2394,14 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
 831:                                              ; preds = %log_scale.exit.i.i
   %indvars.iv.next218.i.i = add nuw nsw i64 %indvars.iv217.i.i, 1
   %exitcond220.not.i.i = icmp eq i64 %indvars.iv.next218.i.i, 6
-  br i1 %exitcond220.not.i.i, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %exitcond220.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !242
 
 832:                                              ; preds = %log_scale.exit.i.i, %.preheader.i.i
   %indvars.iv213.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next214.i.i, %log_scale.exit.i.i ]
   %833 = getelementptr inbounds nuw [48 x [2 x float]], ptr %830, i64 0, i64 %indvars.iv213.i.i
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 4
-  %835 = load float, ptr %833, align 4, !tbaa !196
-  %836 = load float, ptr %834, align 4, !tbaa !196
+  %835 = load float, ptr %833, align 4, !tbaa !207
+  %836 = load float, ptr %834, align 4, !tbaa !207
   %837 = fmul reassoc nsz arcp contract afn float %835, %835
   %838 = fmul reassoc nsz arcp contract afn float %836, %836
   %839 = fadd reassoc nsz arcp contract afn float %838, %837
@@ -2416,25 +2416,25 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %537, %_ryb2rgb.exit
   %846 = fmul reassoc nsz arcp contract afn float %389, %845
   %847 = fdiv reassoc nsz arcp contract afn float %846, %840
   %848 = fmul reassoc nsz arcp contract afn float %847, %835
-  store float %848, ptr %833, align 4, !tbaa !196
+  store float %848, ptr %833, align 4, !tbaa !207
   %849 = fmul reassoc nsz arcp contract afn float %847, %836
-  store float %849, ptr %834, align 4, !tbaa !196
+  store float %849, ptr %834, align 4, !tbaa !207
   br label %log_scale.exit.i.i
 
 log_scale.exit.i.i:                               ; preds = %842, %832
   %indvars.iv.next214.i.i = add nuw nsw i64 %indvars.iv213.i.i, 1
   %exitcond216.not.i.i = icmp eq i64 %indvars.iv.next214.i.i, 48
-  br i1 %exitcond216.not.i.i, label %831, label %832
+  br i1 %exitcond216.not.i.i, label %831, label %832, !llvm.loop !243
 
 .loopexit.i.i:                                    ; preds = %831, %362
   %850 = getelementptr inbounds nuw i8, ptr %52, i64 2448
-  store double %378, ptr %850, align 16, !tbaa !123
-  store ptr %316, ptr %323, align 64, !tbaa !120
+  store double %378, ptr %850, align 16, !tbaa !130
+  store ptr %316, ptr %323, align 64, !tbaa !127
   %851 = getelementptr inbounds nuw i8, ptr %52, i64 2440
-  store i32 %387, ptr %851, align 8, !tbaa !121
-  %852 = load i32, ptr %319, align 16, !tbaa !107
+  store i32 %387, ptr %851, align 8, !tbaa !128
+  %852 = load i32, ptr %319, align 16, !tbaa !112
   %853 = getelementptr inbounds nuw i8, ptr %52, i64 2444
-  store i32 %852, ptr %853, align 4, !tbaa !122
+  store i32 %852, ptr %853, align 4, !tbaa !129
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
   br label %_lib_histogram_vectorscope_bkgd.exit.i
@@ -2453,15 +2453,15 @@ _lib_histogram_vectorscope_bkgd.exit.i:           ; preds = %.loopexit.i.i, %._l
   br i1 %or.cond.i, label %862, label %863
 
 862:                                              ; preds = %_lib_histogram_vectorscope_bkgd.exit.i
-  store i32 0, ptr %63, align 4, !tbaa !198
-  store i32 0, ptr %62, align 4, !tbaa !197
+  store i32 0, ptr %63, align 4, !tbaa !209
+  store i32 0, ptr %62, align 4, !tbaa !208
   br label %863
 
 863:                                              ; preds = %862, %_lib_histogram_vectorscope_bkgd.exit.i
   %.0142.i = phi i32 [ %3, %862 ], [ %859, %_lib_histogram_vectorscope_bkgd.exit.i ]
   %.0.i = phi i32 [ %2, %862 ], [ %spec.select.i99, %_lib_histogram_vectorscope_bkgd.exit.i ]
   %864 = getelementptr inbounds nuw i8, ptr %52, i64 2736
-  %865 = load ptr, ptr %864, align 16, !tbaa !126
+  %865 = load ptr, ptr %864, align 16, !tbaa !133
   %866 = mul nsw i32 %318, %318
   %867 = zext nneg i32 %866 to i64
   %868 = shl nuw nsw i64 %867, 2
@@ -2509,14 +2509,14 @@ dt_calloc_align_int.exit.i:                       ; preds = %870, %863
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #17
-  %887 = load i32, ptr %63, align 4, !tbaa !198
+  %887 = load i32, ptr %63, align 4, !tbaa !209
   %888 = sext i32 %887 to i64
   %889 = add i64 %.0145184.us.i, %888
-  %890 = load i32, ptr %28, align 4, !tbaa !185
+  %890 = load i32, ptr %28, align 4, !tbaa !196
   %891 = sext i32 %890 to i64
   %892 = mul i64 %889, %891
   %893 = add i64 %892, %.0146180.us.i
-  %894 = load i32, ptr %62, align 4, !tbaa !197
+  %894 = load i32, ptr %62, align 4, !tbaa !208
   %895 = sext i32 %894 to i64
   %896 = add i64 %893, %895
   %.idx.us.i100 = shl i64 %896, 4
@@ -2526,8 +2526,8 @@ dt_calloc_align_int.exit.i:                       ; preds = %870, %863
 
 898:                                              ; preds = %940
   call fastcc void @_get_chromaticity(ptr noundef %17, ptr noundef %18, i32 noundef %320, ptr noundef %316, ptr noundef %865)
-  %.pre202.i = load float, ptr %878, align 4, !tbaa !196
-  %899 = load float, ptr %879, align 8, !tbaa !196
+  %.pre202.i = load float, ptr %878, align 4, !tbaa !207
+  %899 = load float, ptr %879, align 8, !tbaa !207
   br i1 %877, label %900, label %log_scale.exit.us.i
 
 900:                                              ; preds = %898
@@ -2545,9 +2545,9 @@ dt_calloc_align_int.exit.i:                       ; preds = %870, %863
   %910 = fmul reassoc nsz arcp contract afn float %880, %909
   %911 = fdiv reassoc nsz arcp contract afn float %910, %904
   %912 = fmul reassoc nsz arcp contract afn float %911, %.pre202.i
-  store float %912, ptr %878, align 4, !tbaa !196
+  store float %912, ptr %878, align 4, !tbaa !207
   %913 = fmul reassoc nsz arcp contract afn float %911, %899
-  store float %913, ptr %879, align 8, !tbaa !196
+  store float %913, ptr %879, align 8, !tbaa !207
   br label %log_scale.exit.us.i
 
 log_scale.exit.us.i:                              ; preds = %898, %906, %900
@@ -2588,26 +2588,26 @@ log_scale.exit.us.i:                              ; preds = %898, %906, %900
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
   %938 = add i64 %.0146180.us.i, 2
   %939 = icmp ult i64 %938, %876
-  br i1 %939, label %886, label %._crit_edge.us.i
+  br i1 %939, label %886, label %._crit_edge.us.i, !llvm.loop !244
 
 940:                                              ; preds = %941
-  br i1 %954, label %.preheader175.us.i, label %898
+  br i1 %954, label %.preheader175.us.i, label %898, !llvm.loop !245
 
 941:                                              ; preds = %942
-  br i1 %950, label %.preheader174.us.i, label %940
+  br i1 %950, label %.preheader174.us.i, label %940, !llvm.loop !246
 
 942:                                              ; preds = %.preheader174.us.i, %942
   %.0149177.us.i = phi i64 [ 0, %.preheader174.us.i ], [ %949, %942 ]
   %943 = getelementptr inbounds nuw float, ptr %953, i64 %.0149177.us.i
-  %944 = load float, ptr %943, align 4, !tbaa !196
+  %944 = load float, ptr %943, align 4, !tbaa !207
   %945 = fmul reassoc nsz arcp contract afn float %944, 2.500000e-01
   %946 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0149177.us.i
-  %947 = load float, ptr %946, align 4, !tbaa !196
+  %947 = load float, ptr %946, align 4, !tbaa !207
   %948 = fadd reassoc nsz arcp contract afn float %947, %945
-  store float %948, ptr %946, align 4, !tbaa !196
+  store float %948, ptr %946, align 4, !tbaa !207
   %949 = add nuw nsw i64 %.0149177.us.i, 1
   %exitcond.not.i101 = icmp eq i64 %949, 4
-  br i1 %exitcond.not.i101, label %941, label %942
+  br i1 %exitcond.not.i101, label %941, label %942, !llvm.loop !247
 
 .preheader174.us.i:                               ; preds = %.preheader175.us.i, %941
   %950 = phi i1 [ true, %.preheader175.us.i ], [ false, %941 ]
@@ -2626,22 +2626,22 @@ log_scale.exit.us.i:                              ; preds = %898, %906, %900
 ._crit_edge.us.i:                                 ; preds = %937
   %955 = add i64 %.0145184.us.i, 2
   %956 = icmp ult i64 %955, %873
-  br i1 %956, label %.preheader176.us.i, label %._crit_edge185.i, !llvm.loop !217
+  br i1 %956, label %.preheader176.us.i, label %._crit_edge185.i, !llvm.loop !248
 
 .preheader176.i:                                  ; preds = %.preheader176.lr.ph.i, %.preheader176.i
   %.0145184.i = phi i64 [ %957, %.preheader176.i ], [ 0, %.preheader176.lr.ph.i ]
   %957 = add i64 %.0145184.i, 2
   %958 = icmp ult i64 %957, %873
-  br i1 %958, label %.preheader176.i, label %._crit_edge185.i
+  br i1 %958, label %.preheader176.i, label %._crit_edge185.i, !llvm.loop !249
 
 ._crit_edge185.i:                                 ; preds = %._crit_edge.us.i, %.preheader176.i, %dt_calloc_align_int.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #17
-  %959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 64
-  %961 = load i32, ptr %960, align 8, !tbaa !218
+  %961 = load i32, ptr %960, align 8, !tbaa !250
   %962 = getelementptr inbounds nuw i8, ptr %959, i64 24
-  %963 = load ptr, ptr %962, align 8, !tbaa !189
+  %963 = load ptr, ptr %962, align 8, !tbaa !200
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 112
   %965 = zext i32 %961 to i64
   %966 = getelementptr inbounds nuw [3 x [4 x float]], ptr %964, i64 0, i64 %965
@@ -2652,15 +2652,15 @@ log_scale.exit.us.i:                              ; preds = %898, %906, %900
   br i1 %967, label %969, label %._crit_edge185.log_scale.exit167_crit_edge.i
 
 ._crit_edge185.log_scale.exit167_crit_edge.i:     ; preds = %._crit_edge185.i
-  %.pre205.i = load float, ptr %968, align 4, !tbaa !196
+  %.pre205.i = load float, ptr %968, align 4, !tbaa !207
   %.phi.trans.insert206.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.pre207.i = load float, ptr %.phi.trans.insert206.i, align 8, !tbaa !196
+  %.pre207.i = load float, ptr %.phi.trans.insert206.i, align 8, !tbaa !207
   br label %log_scale.exit167.i
 
 969:                                              ; preds = %._crit_edge185.i
   %970 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %971 = load float, ptr %968, align 4, !tbaa !196
-  %972 = load float, ptr %970, align 8, !tbaa !196
+  %971 = load float, ptr %968, align 4, !tbaa !207
+  %972 = load float, ptr %970, align 8, !tbaa !207
   %973 = fmul reassoc nsz arcp contract afn float %971, %971
   %974 = fmul reassoc nsz arcp contract afn float %972, %972
   %975 = fadd reassoc nsz arcp contract afn float %974, %973
@@ -2676,49 +2676,49 @@ log_scale.exit.us.i:                              ; preds = %898, %906, %900
   %983 = fmul reassoc nsz arcp contract afn float %982, %981
   %984 = fdiv reassoc nsz arcp contract afn float %983, %976
   %985 = fmul reassoc nsz arcp contract afn float %984, %971
-  store float %985, ptr %968, align 4, !tbaa !196
+  store float %985, ptr %968, align 4, !tbaa !207
   %986 = fmul reassoc nsz arcp contract afn float %984, %972
-  store float %986, ptr %970, align 8, !tbaa !196
+  store float %986, ptr %970, align 8, !tbaa !207
   br label %log_scale.exit167.i
 
 log_scale.exit167.i:                              ; preds = %978, %969, %._crit_edge185.log_scale.exit167_crit_edge.i
   %987 = phi float [ %.pre207.i, %._crit_edge185.log_scale.exit167_crit_edge.i ], [ %986, %978 ], [ %972, %969 ]
   %988 = phi float [ %.pre205.i, %._crit_edge185.log_scale.exit167_crit_edge.i ], [ %985, %978 ], [ %971, %969 ]
   %989 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  store float %988, ptr %989, align 8, !tbaa !196
+  store float %988, ptr %989, align 8, !tbaa !207
   %990 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %991 = getelementptr inbounds nuw i8, ptr %52, i64 76
-  store float %987, ptr %991, align 4, !tbaa !196
+  store float %987, ptr %991, align 4, !tbaa !207
   %992 = getelementptr inbounds nuw i8, ptr %52, i64 80
-  %993 = load ptr, ptr %992, align 16, !tbaa !124
+  %993 = load ptr, ptr %992, align 16, !tbaa !131
   %.not.i102 = icmp eq ptr %993, null
-  %.pre209.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %.pre209.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   br i1 %.not.i102, label %999, label %994
 
 994:                                              ; preds = %log_scale.exit167.i
   %995 = getelementptr inbounds nuw i8, ptr %.pre209.i, i64 56
-  %996 = load i32, ptr %995, align 8, !tbaa !219
+  %996 = load i32, ptr %995, align 8, !tbaa !251
   %.not160.i = icmp eq i32 %996, 0
   br i1 %.not160.i, label %999, label %997
 
 997:                                              ; preds = %994
   call void @g_slist_free_full(ptr noundef nonnull %993, ptr noundef nonnull @free) #17
-  store ptr null, ptr %992, align 16, !tbaa !124
+  store ptr null, ptr %992, align 16, !tbaa !131
   %998 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  store i32 -1, ptr %998, align 8, !tbaa !125
-  %.pre208.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  store i32 -1, ptr %998, align 8, !tbaa !132
+  %.pre208.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   br label %999
 
 999:                                              ; preds = %997, %994, %log_scale.exit167.i
   %1000 = phi ptr [ %.pre208.i, %997 ], [ %.pre209.i, %994 ], [ %.pre209.i, %log_scale.exit167.i ]
   %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 40
-  %1002 = load ptr, ptr %1001, align 8, !tbaa !220
+  %1002 = load ptr, ptr %1001, align 8, !tbaa !252
   %.not161.i = icmp eq ptr %1002, null
   br i1 %.not161.i, label %.loopexit.i, label %1003
 
 1003:                                             ; preds = %999
   %1004 = getelementptr inbounds nuw i8, ptr %1000, i64 48
-  %1005 = load ptr, ptr %1004, align 8, !tbaa !221
+  %1005 = load ptr, ptr %1004, align 8, !tbaa !253
   %1006 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %1007 = fmul reassoc nsz arcp contract afn float %854, 0x3FD2D12080000000
   %1008 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %854
@@ -2727,12 +2727,12 @@ log_scale.exit167.i:                              ; preds = %978, %969, %._crit_
 1009:                                             ; preds = %log_scale.exit168.i, %1003
   %.0150187.i = phi ptr [ %1002, %1003 ], [ %1039, %log_scale.exit168.i ]
   %.0151186.i = phi i32 [ 0, %1003 ], [ %1014, %log_scale.exit168.i ]
-  %1010 = load ptr, ptr %.0150187.i, align 8, !tbaa !222
+  %1010 = load ptr, ptr %.0150187.i, align 8, !tbaa !254
   %1011 = icmp eq ptr %1010, %1005
   br i1 %1011, label %1012, label %1013
 
 1012:                                             ; preds = %1009
-  store i32 %.0151186.i, ptr %1006, align 8, !tbaa !125
+  store i32 %.0151186.i, ptr %1006, align 8, !tbaa !132
   br label %1013
 
 1013:                                             ; preds = %1012, %1009
@@ -2741,8 +2741,8 @@ log_scale.exit167.i:                              ; preds = %978, %969, %._crit_
   %1016 = getelementptr inbounds nuw [3 x [4 x float]], ptr %1015, i64 0, i64 %965
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %1016, i64 16, i1 false)
   call fastcc void @_get_chromaticity(ptr noundef %19, ptr noundef %20, i32 noundef %320, ptr noundef %316, ptr noundef %865)
-  %.pre210.i = load float, ptr %968, align 4, !tbaa !196
-  %1017 = load float, ptr %990, align 8, !tbaa !196
+  %.pre210.i = load float, ptr %968, align 4, !tbaa !207
+  %1017 = load float, ptr %990, align 8, !tbaa !207
   br i1 %967, label %1018, label %log_scale.exit168.i
 
 1018:                                             ; preds = %1013
@@ -2760,39 +2760,39 @@ log_scale.exit167.i:                              ; preds = %978, %969, %._crit_
   %1028 = fmul reassoc nsz arcp contract afn float %1007, %1027
   %1029 = fdiv reassoc nsz arcp contract afn float %1028, %1022
   %1030 = fmul reassoc nsz arcp contract afn float %1029, %.pre210.i
-  store float %1030, ptr %968, align 4, !tbaa !196
+  store float %1030, ptr %968, align 4, !tbaa !207
   %1031 = fmul reassoc nsz arcp contract afn float %1029, %1017
-  store float %1031, ptr %990, align 8, !tbaa !196
+  store float %1031, ptr %990, align 8, !tbaa !207
   br label %log_scale.exit168.i
 
 log_scale.exit168.i:                              ; preds = %1013, %1024, %1018
   %1032 = phi float [ %1031, %1024 ], [ %1017, %1018 ], [ %1017, %1013 ]
   %1033 = phi float [ %1030, %1024 ], [ %.pre210.i, %1018 ], [ %.pre210.i, %1013 ]
   %1034 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 2, i64 noundef 4) #19
-  store float %1033, ptr %1034, align 4, !tbaa !196
+  store float %1033, ptr %1034, align 4, !tbaa !207
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 4
-  store float %1032, ptr %1035, align 4, !tbaa !196
-  %1036 = load ptr, ptr %992, align 16, !tbaa !124
+  store float %1032, ptr %1035, align 4, !tbaa !207
+  %1036 = load ptr, ptr %992, align 16, !tbaa !131
   %1037 = call ptr @g_slist_append(ptr noundef %1036, ptr noundef nonnull %1034) #17
-  store ptr %1037, ptr %992, align 16, !tbaa !124
+  store ptr %1037, ptr %992, align 16, !tbaa !131
   %1038 = getelementptr inbounds nuw i8, ptr %.0150187.i, i64 8
-  %1039 = load ptr, ptr %1038, align 8, !tbaa !224
+  %1039 = load ptr, ptr %1038, align 8, !tbaa !256
   %.not162.i = icmp eq ptr %1039, null
-  br i1 %.not162.i, label %.loopexit.i, label %1009
+  br i1 %.not162.i, label %.loopexit.i, label %1009, !llvm.loop !257
 
 .loopexit.i:                                      ; preds = %log_scale.exit168.i, %999
   %1040 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !17
   %1041 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %1040, i32 noundef 23, ptr noundef nonnull @.str.79, i32 noundef 0) #17
   %1042 = getelementptr inbounds nuw i8, ptr %1041, i64 736
-  %1043 = load ptr, ptr %1042, align 32, !tbaa !208
+  %1043 = load ptr, ptr %1042, align 32, !tbaa !221
   call void @llvm.assume(i1 true) [ "align"(ptr %1043, i64 64) ]
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 704
-  %1045 = load i32, ptr %1044, align 64, !tbaa !209
+  %1045 = load i32, ptr %1044, align 64, !tbaa !222
   %1046 = add nsw i32 %1045, -1
   %1047 = sitofp i32 %1046 to float
   %1048 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %318) #17
   %1049 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %1050 = load ptr, ptr %1049, align 8, !tbaa !118
+  %1050 = load ptr, ptr %1049, align 8, !tbaa !125
   %1051 = sext i32 %318 to i64
   %.not198.i = icmp eq i32 %318, 0
   br i1 %.not198.i, label %_lib_histogram_process_vectorscope.exit, label %.preheader.lr.ph.i
@@ -2817,12 +2817,12 @@ log_scale.exit168.i:                              ; preds = %1013, %1024, %1018
 1062:                                             ; preds = %1064
   %1063 = add nuw i64 %.0144195.i, 1
   %exitcond201.not.i = icmp eq i64 %1063, %1051
-  br i1 %exitcond201.not.i, label %_lib_histogram_process_vectorscope.exit, label %.preheader.i
+  br i1 %exitcond201.not.i, label %_lib_histogram_process_vectorscope.exit, label %.preheader.i, !llvm.loop !258
 
 1064:                                             ; preds = %1064, %.preheader.i
   %.0143190.i = phi i64 [ 0, %.preheader.i ], [ %1080, %1064 ]
   %1065 = getelementptr i32, ptr %1059, i64 %.0143190.i
-  %1066 = load atomic i32, ptr %1065 seq_cst, align 4, !tbaa !212
+  %1066 = load atomic i32, ptr %1065 seq_cst, align 4, !tbaa !225
   %1067 = sitofp i32 %1066 to float
   %1068 = fmul reassoc nsz arcp contract afn float %1053, %1067
   %1069 = fmul reassoc nsz arcp contract afn float %1068, %1057
@@ -2832,14 +2832,14 @@ log_scale.exit168.i:                              ; preds = %1013, %1024, %1018
   %1073 = fptosi float %1072 to i32
   %1074 = sext i32 %1073 to i64
   %1075 = getelementptr inbounds float, ptr %1043, i64 %1074
-  %1076 = load float, ptr %1075, align 4, !tbaa !196
+  %1076 = load float, ptr %1075, align 4, !tbaa !207
   %1077 = fmul reassoc nsz arcp contract afn float %1076, 2.550000e+02
   %1078 = fptoui float %1077 to i8
   %1079 = getelementptr i8, ptr %1061, i64 %.0143190.i
-  store i8 %1078, ptr %1079, align 1, !tbaa !212
+  store i8 %1078, ptr %1079, align 1, !tbaa !225
   %1080 = add nuw i64 %.0143190.i, 1
   %exitcond200.not.i = icmp eq i64 %1080, %1051
-  br i1 %exitcond200.not.i, label %1062, label %1064
+  br i1 %exitcond200.not.i, label %1062, label %1064, !llvm.loop !259
 
 _lib_histogram_process_vectorscope.exit:          ; preds = %1062, %.loopexit.i
   call void @free(ptr noundef %869) #17
@@ -2854,10 +2854,10 @@ _lib_histogram_process_vectorscope.exit:          ; preds = %1062, %.loopexit.i
 1082:                                             ; preds = %_lib_histogram_process_vectorscope.exit, %_lib_histogram_process_waveform.exit, %149, %141
   %1083 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %145) #17
   call void @free(ptr noundef %137) #17
-  %1084 = load i32, ptr %147, align 4, !tbaa !104
+  %1084 = load i32, ptr %147, align 4, !tbaa !106
   %1085 = zext i32 %1084 to i64
   %1086 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %1085
-  %1087 = load ptr, ptr %1086, align 8, !tbaa !103
+  %1087 = load ptr, ptr %1086, align 8, !tbaa !105
   call void (ptr, ptr, ptr, ...) @dt_show_times_f(ptr noundef nonnull %27, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef %1087) #17
   br label %1088
 
@@ -2876,16 +2876,16 @@ declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(none) %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2688
-  store i32 0, ptr %7, align 64, !tbaa !225
+  store i32 0, ptr %7, align 64, !tbaa !260
   tail call void @dt_control_change_cursor(i32 noundef 68) #17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2692
-  %9 = load i32, ptr %8, align 4, !tbaa !104
+  %9 = load i32, ptr %8, align 4, !tbaa !106
   switch i32 %9, label %_colorspace_clicked.exit [
     i32 3, label %10
     i32 1, label %21
@@ -2896,7 +2896,7 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 2696
-  %12 = load i32, ptr %11, align 8, !tbaa !105
+  %12 = load i32, ptr %11, align 8, !tbaa !108
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
@@ -2906,8 +2906,8 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 2700
-  store i32 0, ptr %16, align 4, !tbaa !106
-  %17 = load ptr, ptr @dt_lib_histogram_orient_names, align 16, !tbaa !103
+  store i32 0, ptr %16, align 4, !tbaa !110
+  %17 = load ptr, ptr @dt_lib_histogram_orient_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.38, ptr noundef %17) #17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2552
   %19 = load ptr, ptr %18, align 8, !tbaa !91
@@ -2916,7 +2916,7 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 2700
-  %23 = load i32, ptr %22, align 4, !tbaa !106
+  %23 = load i32, ptr %22, align 4, !tbaa !110
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %26
 
@@ -2925,11 +2925,11 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
   br label %_colorspace_clicked.exit
 
 26:                                               ; preds = %21
-  store i32 0, ptr %22, align 4, !tbaa !106
-  %27 = load ptr, ptr @dt_lib_histogram_orient_names, align 16, !tbaa !103
+  store i32 0, ptr %22, align 4, !tbaa !110
+  %27 = load ptr, ptr @dt_lib_histogram_orient_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.38, ptr noundef %27) #17
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %28, align 8, !tbaa !114
+  store i32 0, ptr %28, align 8, !tbaa !120
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 2560
   %30 = load ptr, ptr %29, align 16, !tbaa !91
   %31 = tail call i32 @_scope_histogram_mode_clicked(ptr noundef %30, ptr poison, ptr noundef nonnull %6)
@@ -2937,7 +2937,7 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 2700
-  %34 = load i32, ptr %33, align 4, !tbaa !106
+  %34 = load i32, ptr %33, align 4, !tbaa !110
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
@@ -2947,12 +2947,12 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 2704
-  store i32 0, ptr %38, align 16, !tbaa !107
-  %39 = load ptr, ptr @dt_lib_histogram_vectorscope_type_names, align 16, !tbaa !103
+  store i32 0, ptr %38, align 16, !tbaa !112
+  %39 = load ptr, ptr @dt_lib_histogram_vectorscope_type_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.39, ptr noundef %39) #17
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 2708
-  store i32 0, ptr %40, align 4, !tbaa !116
-  %41 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !103
+  store i32 0, ptr %40, align 4, !tbaa !122
+  %41 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.40, ptr noundef %41) #17
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 2544
   %43 = load ptr, ptr %42, align 16, !tbaa !91
@@ -2961,7 +2961,7 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 45:                                               ; preds = %1
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 2708
-  %47 = load i32, ptr %46, align 4, !tbaa !116
+  %47 = load i32, ptr %46, align 4, !tbaa !122
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -2971,21 +2971,21 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 2704
-  %52 = load i32, ptr %51, align 16, !tbaa !107
+  %52 = load i32, ptr %51, align 16, !tbaa !112
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %67
 
 54:                                               ; preds = %50
-  store i32 0, ptr %46, align 4, !tbaa !116
-  %55 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !103
+  store i32 0, ptr %46, align 4, !tbaa !122
+  %55 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.40, ptr noundef %55) #17
-  %56 = load i32, ptr %51, align 16, !tbaa !107
+  %56 = load i32, ptr %51, align 16, !tbaa !112
   %57 = add i32 %56, 1
   %58 = urem i32 %57, 3
-  store i32 %58, ptr %51, align 16, !tbaa !107
+  store i32 %58, ptr %51, align 16, !tbaa !112
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw [3 x ptr], ptr @dt_lib_histogram_vectorscope_type_names, i64 0, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !103
+  %61 = load ptr, ptr %60, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.39, ptr noundef %61) #17
   tail call fastcc void @_vectorscope_view_update(ptr noundef nonnull %6)
   %62 = tail call i32 @dt_view_get_current() #17
@@ -3003,8 +3003,8 @@ define internal void @_lib_histogram_cycle_mode_callback(ptr readnone captures(n
 
 67:                                               ; preds = %50
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 2696
-  store i32 0, ptr %68, align 8, !tbaa !105
-  %69 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !103
+  store i32 0, ptr %68, align 8, !tbaa !108
+  %69 = load ptr, ptr @dt_lib_histogram_scale_names, align 16, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.37, ptr noundef %69) #17
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2568
   %71 = load ptr, ptr %70, align 8, !tbaa !91
@@ -3025,9 +3025,9 @@ declare ptr @dt_action_define(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_collapse_callback(ptr readnone captures(none) %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = tail call i32 @dt_lib_is_visible(ptr noundef %4) #17
   %.not = icmp eq i32 %5, 0
   %6 = zext i1 %.not to i32
@@ -3089,7 +3089,7 @@ define internal noundef i32 @_scope_histogram_mode_clicked(ptr noundef %0, ptr r
 12:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.loop.exit25, label %8
+  br i1 %exitcond.not, label %.split.loop.exit25, label %8, !llvm.loop !261
 
 .split.loop.exit:                                 ; preds = %8
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3098,7 +3098,7 @@ define internal noundef i32 @_scope_histogram_mode_clicked(ptr noundef %0, ptr r
 .split.loop.exit25:                               ; preds = %12, %.split.loop.exit
   %.019.lcssa = phi i32 [ %13, %.split.loop.exit ], [ 4, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %15 = load i32, ptr %14, align 4, !tbaa !104
+  %15 = load i32, ptr %14, align 4, !tbaa !106
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !91
@@ -3106,8 +3106,8 @@ define internal noundef i32 @_scope_histogram_mode_clicked(ptr noundef %0, ptr r
   tail call void @gtk_toggle_button_set_active(ptr noundef %19, i32 noundef 0) #17
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #17
   tail call void @gtk_toggle_button_set_active(ptr noundef %20, i32 noundef 1) #17
-  %21 = load i32, ptr %14, align 4, !tbaa !104
-  store i32 %.019.lcssa, ptr %14, align 4, !tbaa !104
+  %21 = load i32, ptr %14, align 4, !tbaa !106
+  store i32 %.019.lcssa, ptr %14, align 4, !tbaa !106
   %22 = icmp ne i32 %.019.lcssa, 2
   %23 = icmp ne i32 %21, 1
   %or.cond = select i1 %22, i1 true, i1 %23
@@ -3121,23 +3121,23 @@ define internal noundef i32 @_scope_histogram_mode_clicked(ptr noundef %0, ptr r
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %26, align 8, !tbaa !114
+  store i32 0, ptr %26, align 8, !tbaa !120
   br label %27
 
 27:                                               ; preds = %24, %.split.loop.exit25, %25
   %28 = zext nneg i32 %.019.lcssa to i64
   %29 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !103
+  %30 = load ptr, ptr %29, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.36, ptr noundef %30) #17
   tail call fastcc void @_scope_type_update(ptr noundef nonnull readonly %2)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %32 = load i32, ptr %31, align 8, !tbaa !114
+  %32 = load i32, ptr %31, align 8, !tbaa !120
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %36, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2496
-  %35 = load ptr, ptr %34, align 64, !tbaa !92
+  %35 = load ptr, ptr %34, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %35) #17
   br label %_scope_type_changed.exit
 
@@ -3166,9 +3166,9 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_change_type_callback(ptr readnone captures(none) %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   tail call void @_scope_view_clicked(ptr poison, ptr noundef %6)
@@ -3201,7 +3201,7 @@ define internal noundef i32 @_color_harmony_clicked(ptr noundef %0, ptr readnone
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #17
   tail call void @gtk_toggle_button_set_active(ptr noundef %9, i32 noundef 0) #17
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  store i32 0, ptr %10, align 64, !tbaa !161
+  store i32 0, ptr %10, align 64, !tbaa !169
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 2756
   store i32 0, ptr %11, align 4, !tbaa !84
   br label %_color_harmony_button_on.exit
@@ -3217,7 +3217,7 @@ define internal noundef i32 @_color_harmony_clicked(ptr noundef %0, ptr readnone
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = add nuw nsw i32 %17, 1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  store i32 %18, ptr %19, align 64, !tbaa !161
+  store i32 %18, ptr %19, align 64, !tbaa !169
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 2756
   store i32 %18, ptr %20, align 4, !tbaa !84
   br label %.loopexit
@@ -3225,7 +3225,7 @@ define internal noundef i32 @_color_harmony_clicked(ptr noundef %0, ptr readnone
 21:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %12
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %12, !llvm.loop !262
 
 .loopexit.loopexit:                               ; preds = %21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 2756
@@ -3248,7 +3248,7 @@ define internal noundef i32 @_color_harmony_clicked(ptr noundef %0, ptr readnone
   tail call void @gtk_toggle_button_set_active(ptr noundef %28, i32 noundef %30) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %24
+  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %24, !llvm.loop !92
 
 _color_harmony_button_on.exit:                    ; preds = %24, %8
   tail call fastcc void @_color_harmony_changed_record(ptr noundef nonnull %2)
@@ -3260,7 +3260,7 @@ define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2756
   %5 = load i32, ptr %4, align 4, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  store i32 %5, ptr %6, align 64, !tbaa !161
+  store i32 %5, ptr %6, align 64, !tbaa !169
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2616
   br label %8
 
@@ -3280,11 +3280,11 @@ define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef re
 15:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit, label %8
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !263
 
 .loopexit:                                        ; preds = %15, %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2496
-  %17 = load ptr, ptr %16, align 64, !tbaa !92
+  %17 = load ptr, ptr %16, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %17) #17
   ret i32 0
 }
@@ -3292,11 +3292,11 @@ define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_color_harmony_leave_notify_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) initializes((2756, 2760)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  %5 = load i32, ptr %4, align 64, !tbaa !161
+  %5 = load i32, ptr %4, align 64, !tbaa !169
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2756
   store i32 %5, ptr %6, align 4, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2496
-  %8 = load ptr, ptr %7, align 64, !tbaa !92
+  %8 = load ptr, ptr %7, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %8) #17
   ret i32 0
 }
@@ -3324,18 +3324,18 @@ define internal fastcc void @_color_harmony_button_on(ptr noundef readonly captu
   tail call void @gtk_toggle_button_set_active(ptr noundef %12, i32 noundef %14) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %7, label %8
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !92
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_histogram_cycle_harmony_callback(ptr readnone captures(none) %0) #2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2752
-  %8 = load i32, ptr %7, align 64, !tbaa !161
+  %8 = load i32, ptr %7, align 64, !tbaa !169
   %9 = add i32 %8, 1
   %10 = urem i32 %9, 10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 2756
@@ -3356,11 +3356,11 @@ define internal void @_lib_histogram_cycle_harmony_callback(ptr readnone capture
   tail call void @gtk_toggle_button_set_active(ptr noundef %19, i32 noundef %21) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %15
+  br i1 %exitcond.not.i, label %_color_harmony_button_on.exit, label %15, !llvm.loop !92
 
 _color_harmony_button_on.exit:                    ; preds = %15
   %22 = load i32, ptr %11, align 4, !tbaa !84
-  store i32 %22, ptr %7, align 64, !tbaa !161
+  store i32 %22, ptr %7, align 64, !tbaa !169
   tail call fastcc void @_color_harmony_changed_record(ptr noundef nonnull %6)
   ret void
 }
@@ -3368,10 +3368,10 @@ _color_harmony_button_on.exit:                    ; preds = %15
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_scope_type_update(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %3 = load ptr, ptr %2, align 32, !tbaa !156
+  %3 = load ptr, ptr %2, align 32, !tbaa !164
   tail call void @gtk_widget_hide(ptr noundef %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2692
-  %5 = load i32, ptr %4, align 4, !tbaa !104
+  %5 = load i32, ptr %4, align 4, !tbaa !106
   switch i32 %5, label %27 [
     i32 3, label %6
     i32 1, label %11
@@ -3382,40 +3382,40 @@ define internal fastcc void @_scope_type_update(ptr noundef readonly captures(no
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %8 = load ptr, ptr %7, align 8, !tbaa !158
+  %8 = load ptr, ptr %7, align 8, !tbaa !166
   tail call void @gtk_widget_show(ptr noundef %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %10 = load ptr, ptr %9, align 16, !tbaa !168
+  %10 = load ptr, ptr %9, align 16, !tbaa !178
   tail call void @gtk_widget_hide(ptr noundef %10) #17
   tail call fastcc void @_histogram_scale_update(ptr noundef nonnull %0)
   br label %27
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %13 = load ptr, ptr %12, align 8, !tbaa !158
+  %13 = load ptr, ptr %12, align 8, !tbaa !166
   tail call void @gtk_widget_show(ptr noundef %13) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %15 = load ptr, ptr %14, align 16, !tbaa !168
+  %15 = load ptr, ptr %14, align 16, !tbaa !178
   tail call void @gtk_widget_hide(ptr noundef %15) #17
   tail call fastcc void @_scope_orient_update(ptr noundef nonnull %0)
   br label %27
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %18 = load ptr, ptr %17, align 8, !tbaa !158
+  %18 = load ptr, ptr %17, align 8, !tbaa !166
   tail call void @gtk_widget_hide(ptr noundef %18) #17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %20 = load ptr, ptr %19, align 16, !tbaa !168
+  %20 = load ptr, ptr %19, align 16, !tbaa !178
   tail call void @gtk_widget_hide(ptr noundef %20) #17
   tail call fastcc void @_scope_orient_update(ptr noundef nonnull %0)
   br label %27
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %23 = load ptr, ptr %22, align 8, !tbaa !158
+  %23 = load ptr, ptr %22, align 8, !tbaa !166
   tail call void @gtk_widget_hide(ptr noundef %23) #17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %25 = load ptr, ptr %24, align 16, !tbaa !168
+  %25 = load ptr, ptr %24, align 16, !tbaa !178
   tail call void @gtk_widget_show(ptr noundef %25) #17
   tail call fastcc void @_vectorscope_view_update(ptr noundef nonnull %0)
   br label %27
@@ -3443,7 +3443,7 @@ declare i64 @gtk_overlay_get_type() local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal void @_scope_view_clicked(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2692
-  %4 = load i32, ptr %3, align 4, !tbaa !104
+  %4 = load i32, ptr %3, align 4, !tbaa !106
   switch i32 %4, label %33 [
     i32 3, label %5
     i32 1, label %15
@@ -3454,44 +3454,44 @@ define internal void @_scope_view_clicked(ptr readnone captures(none) %0, ptr no
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2696
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !108
   %8 = and i32 %7, 1
   %9 = xor i32 %8, 1
-  store i32 %9, ptr %6, align 8, !tbaa !105
+  store i32 %9, ptr %6, align 8, !tbaa !108
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.37, ptr noundef %12) #17
   tail call fastcc void @_histogram_scale_update(ptr noundef nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2496
-  %14 = load ptr, ptr %13, align 64, !tbaa !92
+  %14 = load ptr, ptr %13, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %14) #17
   br label %39
 
 15:                                               ; preds = %2, %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2700
-  %17 = load i32, ptr %16, align 4, !tbaa !106
+  %17 = load i32, ptr %16, align 4, !tbaa !110
   %18 = and i32 %17, 1
   %19 = xor i32 %18, 1
-  store i32 %19, ptr %16, align 4, !tbaa !106
+  store i32 %19, ptr %16, align 4, !tbaa !110
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_orient_names, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.38, ptr noundef %22) #17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %23, align 8, !tbaa !114
+  store i32 0, ptr %23, align 8, !tbaa !120
   tail call fastcc void @_scope_orient_update(ptr noundef nonnull %1)
   br label %33
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2708
-  %26 = load i32, ptr %25, align 4, !tbaa !116
+  %26 = load i32, ptr %25, align 4, !tbaa !122
   %27 = and i32 %26, 1
   %28 = xor i32 %27, 1
-  store i32 %28, ptr %25, align 4, !tbaa !116
+  store i32 %28, ptr %25, align 4, !tbaa !122
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [2 x ptr], ptr @dt_lib_histogram_scale_names, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !103
+  %31 = load ptr, ptr %30, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.40, ptr noundef %31) #17
   tail call fastcc void @_vectorscope_view_update(ptr noundef nonnull %1)
   br label %33
@@ -3521,13 +3521,13 @@ define internal void @_scope_view_clicked(ptr readnone captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @_colorspace_clicked(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2704
-  %4 = load i32, ptr %3, align 16, !tbaa !107
+  %4 = load i32, ptr %3, align 16, !tbaa !112
   %5 = add i32 %4, 1
   %6 = urem i32 %5, 3
-  store i32 %6, ptr %3, align 16, !tbaa !107
+  store i32 %6, ptr %3, align 16, !tbaa !112
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [3 x ptr], ptr @dt_lib_histogram_vectorscope_type_names, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %8, align 8, !tbaa !105
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.39, ptr noundef %9) #17
   tail call fastcc void @_vectorscope_view_update(ptr noundef %1)
   %10 = tail call i32 @dt_view_get_current() #17
@@ -3553,10 +3553,10 @@ define internal void @_red_channel_toggle(ptr noundef %0, ptr noundef captures(n
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2720
-  store i32 %5, ptr %6, align 32, !tbaa !100
+  store i32 %5, ptr %6, align 32, !tbaa !102
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.33, i32 noundef %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2496
-  %8 = load ptr, ptr %7, align 64, !tbaa !92
+  %8 = load ptr, ptr %7, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %8) #17
   ret void
 }
@@ -3567,10 +3567,10 @@ define internal void @_green_channel_toggle(ptr noundef %0, ptr noundef captures
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2724
-  store i32 %5, ptr %6, align 4, !tbaa !101
+  store i32 %5, ptr %6, align 4, !tbaa !103
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.34, i32 noundef %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2496
-  %8 = load ptr, ptr %7, align 64, !tbaa !92
+  %8 = load ptr, ptr %7, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %8) #17
   ret void
 }
@@ -3581,10 +3581,10 @@ define internal void @_blue_channel_toggle(ptr noundef %0, ptr noundef captures(
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2728
-  store i32 %5, ptr %6, align 8, !tbaa !102
+  store i32 %5, ptr %6, align 8, !tbaa !104
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.35, i32 noundef %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2496
-  %8 = load ptr, ptr %7, align 64, !tbaa !92
+  %8 = load ptr, ptr %7, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %8) #17
   ret void
 }
@@ -3604,7 +3604,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %12 = alloca %struct._cairo_rectangle_int, align 4
   %13 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !98
   %15 = and i32 %14, 16
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %dt_get_perf_times.exit, label %16
@@ -3612,28 +3612,28 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
   %17 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #17
-  %18 = load i64, ptr %10, align 8, !tbaa !176
+  %18 = load i64, ptr %10, align 8, !tbaa !187
   %19 = add nsw i64 %18, -1290608000
   %20 = sitofp i64 %19 to double
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !178
+  %22 = load i64, ptr %21, align 8, !tbaa !189
   %23 = sitofp i64 %22 to double
   %24 = fmul reassoc nsz arcp contract afn double %23, 0x3EB0C6F7A0B5ED8D
   %25 = fadd reassoc nsz arcp contract afn double %24, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  store double %25, ptr %11, align 8, !tbaa !179
+  store double %25, ptr %11, align 8, !tbaa !190
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #17
   %26 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %9) #17
-  %27 = load i64, ptr %9, align 8, !tbaa !181
+  %27 = load i64, ptr %9, align 8, !tbaa !192
   %28 = sitofp i64 %27 to double
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !183
+  %30 = load i64, ptr %29, align 8, !tbaa !194
   %31 = sitofp i64 %30 to double
   %32 = fmul reassoc nsz arcp contract afn double %31, 0x3EB0C6F7A0B5ED8D
   %33 = fadd reassoc nsz arcp contract afn double %32, %28
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #17
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store double %33, ptr %34, align 8, !tbaa !184
+  store double %33, ptr %34, align 8, !tbaa !195
   br label %dt_get_perf_times.exit
 
 dt_get_perf_times.exit:                           ; preds = %3, %16
@@ -3641,40 +3641,40 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %12) #17
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %37 = load i32, ptr %36, align 4, !tbaa !226
+  %37 = load i32, ptr %36, align 4, !tbaa !264
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !228
+  %39 = load i32, ptr %38, align 4, !tbaa !266
   %40 = sitofp i32 %37 to double
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1432
-  %43 = load double, ptr %42, align 8, !tbaa !229
+  %43 = load double, ptr %42, align 8, !tbaa !267
   %44 = fmul reassoc nsz arcp contract afn double %43, %40
   %45 = fptosi double %44 to i32
   %46 = sitofp i32 %39 to double
   %47 = fmul reassoc nsz arcp contract afn double %43, %46
   %48 = fptosi double %47 to i32
   %49 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %45, i32 noundef %48) #17
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1432
-  %52 = load double, ptr %51, align 8, !tbaa !229
+  %52 = load double, ptr %51, align 8, !tbaa !267
   call void @cairo_surface_set_device_scale(ptr noundef %49, double noundef %52, double noundef %52) #17
   %53 = call ptr @cairo_create(ptr noundef %49) #17
   %54 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #17
   call void @gtk_render_background(ptr noundef %54, ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #17
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1424
-  %57 = load double, ptr %56, align 8, !tbaa !230
+  %57 = load double, ptr %56, align 8, !tbaa !268
   %58 = fmul reassoc nsz arcp contract afn double %57, 5.000000e-01
   call void @cairo_set_line_width(ptr noundef %53, double noundef %58) #17
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %60 = load i32, ptr %59, align 4, !tbaa !104
+  %60 = load i32, ptr %59, align 4, !tbaa !106
   %.not = icmp eq i32 %60, 0
   br i1 %.not, label %64, label %61
 
 61:                                               ; preds = %dt_get_perf_times.exit
   call void @cairo_save(ptr noundef %53) #17
   call void @cairo_rectangle(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #17
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 592
   %.sroa.0.0.copyload = load double, ptr %63, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 600
@@ -3690,14 +3690,14 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
 
 64:                                               ; preds = %61, %dt_get_perf_times.exit
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %66 = load i32, ptr %65, align 64, !tbaa !225
+  %66 = load i32, ptr %65, align 64, !tbaa !260
   switch i32 %66, label %97 [
     i32 1, label %67
     i32 2, label %82
   ]
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 784
   %.sroa.0130.0.copyload = load double, ptr %69, align 8
   %.sroa.4131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 792
@@ -3707,7 +3707,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   %.sroa.6133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 808
   %.sroa.6133.0.copyload = load double, ptr %.sroa.6133.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0130.0.copyload, double noundef %.sroa.4131.0.copyload, double noundef %.sroa.5132.0.copyload, double noundef %.sroa.6133.0.copyload) #17
-  %70 = load i32, ptr %59, align 4, !tbaa !104
+  %70 = load i32, ptr %59, align 4, !tbaa !106
   %71 = icmp eq i32 %70, 3
   br i1 %71, label %72, label %74
 
@@ -3718,7 +3718,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %76 = load i32, ptr %75, align 4, !tbaa !106
+  %76 = load i32, ptr %75, align 4, !tbaa !110
   switch i32 %76, label %81 [
     i32 0, label %77
     i32 1, label %79
@@ -3739,7 +3739,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   unreachable
 
 82:                                               ; preds = %64
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 784
   %.sroa.0134.0.copyload = load double, ptr %84, align 8
   %.sroa.4135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 792
@@ -3749,7 +3749,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   %.sroa.6137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 808
   %.sroa.6137.0.copyload = load double, ptr %.sroa.6137.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0134.0.copyload, double noundef %.sroa.4135.0.copyload, double noundef %.sroa.5136.0.copyload, double noundef %.sroa.6137.0.copyload) #17
-  %85 = load i32, ptr %59, align 4, !tbaa !104
+  %85 = load i32, ptr %59, align 4, !tbaa !106
   %86 = icmp eq i32 %85, 3
   br i1 %86, label %87, label %89
 
@@ -3760,7 +3760,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
 
 89:                                               ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %91 = load i32, ptr %90, align 4, !tbaa !106
+  %91 = load i32, ptr %90, align 4, !tbaa !110
   switch i32 %91, label %96 [
     i32 0, label %92
     i32 1, label %94
@@ -3785,7 +3785,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   br label %97
 
 97:                                               ; preds = %.sink.split, %64
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 720
   %.sroa.0138.0.copyload = load double, ptr %99, align 8
   %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 728
@@ -3795,7 +3795,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   %.sroa.6141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 744
   %.sroa.6141.0.copyload = load double, ptr %.sroa.6141.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0138.0.copyload, double noundef %.sroa.4139.0.copyload, double noundef %.sroa.5140.0.copyload, double noundef %.sroa.6141.0.copyload) #17
-  %100 = load i32, ptr %59, align 4, !tbaa !104
+  %100 = load i32, ptr %59, align 4, !tbaa !106
   switch i32 %100, label %dt_draw_grid.exit [
     i32 3, label %101
     i32 1, label %111
@@ -3827,16 +3827,16 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   call void @cairo_stroke(ptr noundef %53) #17
   %110 = add nuw nsw i32 %.032.i, 1
   %exitcond.not.i = icmp eq i32 %110, 4
-  br i1 %exitcond.not.i, label %dt_draw_grid.exit, label %106
+  br i1 %exitcond.not.i, label %dt_draw_grid.exit, label %106, !llvm.loop !270
 
 111:                                              ; preds = %97, %97
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %113 = load i32, ptr %112, align 4, !tbaa !106
+  %113 = load i32, ptr %112, align 4, !tbaa !110
   %.not146 = icmp eq i32 %113, 0
   %114 = sitofp i32 %37 to float
   %115 = sitofp i32 %39 to float
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  store double 4.000000e+00, ptr %8, align 8, !tbaa !232
+  store double 4.000000e+00, ptr %8, align 8, !tbaa !271
   call void @cairo_save(ptr noundef %53) #17
   %116 = call reassoc nsz arcp contract afn double @cairo_get_line_width(ptr noundef %53) #17
   %117 = fmul reassoc nsz arcp contract afn double %116, 3.000000e+00
@@ -3866,7 +3866,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   call void @cairo_stroke(ptr noundef %53) #17
   %133 = add nuw nsw i32 %.037.us.i, 1
   %exitcond41.not.i = icmp eq i32 %133, 9
-  br i1 %exitcond41.not.i, label %dt_draw_waveform_lines.exit, label %.split.us.i, !llvm.loop !233
+  br i1 %exitcond41.not.i, label %dt_draw_waveform_lines.exit, label %.split.us.i, !llvm.loop !272
 
 .split.i:                                         ; preds = %111, %.split.i
   %.037.i = phi i32 [ %143, %.split.i ], [ 1, %111 ]
@@ -3886,7 +3886,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   call void @cairo_stroke(ptr noundef %53) #17
   %143 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i102 = icmp eq i32 %143, 9
-  br i1 %exitcond.not.i102, label %dt_draw_waveform_lines.exit, label %.split.i
+  br i1 %exitcond.not.i102, label %dt_draw_waveform_lines.exit, label %.split.i, !llvm.loop !273
 
 dt_draw_waveform_lines.exit:                      ; preds = %.split.us.i, %.split.i
   call void @cairo_restore(ptr noundef %53) #17
@@ -3908,29 +3908,29 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   %150 = getelementptr inbounds nuw i8, ptr %35, i64 1544
   %151 = load i32, ptr %150, align 8, !tbaa !54
   %152 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %153 = load ptr, ptr %152, align 16, !tbaa !234
+  %153 = load ptr, ptr %152, align 16, !tbaa !274
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 580
-  %155 = load i32, ptr %154, align 4, !tbaa !235
+  %155 = load i32, ptr %154, align 4, !tbaa !275
   %156 = icmp eq i32 %151, %155
   br i1 %156, label %157, label %676
 
 157:                                              ; preds = %149, %dt_draw_grid.exit
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #17
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 2720
-  %159 = load i32, ptr %158, align 32, !tbaa !100
+  %159 = load i32, ptr %158, align 32, !tbaa !102
   %160 = trunc i32 %159 to i8
-  store i8 %160, ptr %13, align 1, !tbaa !212
+  store i8 %160, ptr %13, align 1, !tbaa !225
   %161 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 2724
-  %163 = load i32, ptr %162, align 4, !tbaa !101
+  %163 = load i32, ptr %162, align 4, !tbaa !103
   %164 = trunc i32 %163 to i8
-  store i8 %164, ptr %161, align 1, !tbaa !212
+  store i8 %164, ptr %161, align 1, !tbaa !225
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 2728
-  %167 = load i32, ptr %166, align 8, !tbaa !102
+  %167 = load i32, ptr %166, align 8, !tbaa !104
   %168 = trunc i32 %167 to i8
-  store i8 %168, ptr %165, align 1, !tbaa !212
-  %169 = load i32, ptr %59, align 4, !tbaa !104
+  store i8 %168, ptr %165, align 1, !tbaa !225
+  %169 = load i32, ptr %59, align 4, !tbaa !106
   switch i32 %169, label %_lib_histogram_draw_histogram.exit [
     i32 3, label %170
     i32 1, label %217
@@ -3941,13 +3941,13 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
 
 170:                                              ; preds = %157
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %172 = load i32, ptr %171, align 8, !tbaa !110
+  %172 = load i32, ptr %171, align 8, !tbaa !116
   %.not.i104 = icmp eq i32 %172, 0
   br i1 %.not.i104, label %_lib_histogram_draw_histogram.exit, label %173
 
 173:                                              ; preds = %170
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 2696
-  %175 = load i32, ptr %174, align 8, !tbaa !105
+  %175 = load i32, ptr %174, align 8, !tbaa !108
   %176 = icmp eq i32 %175, 1
   br i1 %176, label %177, label %179
 
@@ -3974,9 +3974,9 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   %190 = fpext reassoc nsz arcp contract afn float %189 to double
   call void @cairo_scale(ptr noundef %53, double noundef %186, double noundef %190) #17
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 12) #17
-  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 1424
-  %193 = load double, ptr %192, align 8, !tbaa !230
+  %193 = load double, ptr %192, align 8, !tbaa !268
   call void @cairo_set_line_width(ptr noundef %53, double noundef %193) #17
   br label %195
 
@@ -3990,12 +3990,12 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
 195:                                              ; preds = %216, %184
   %indvars.iv.i = phi i64 [ 0, %184 ], [ %indvars.iv.next.i, %216 ]
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
-  %197 = load i8, ptr %196, align 1, !tbaa !212
+  %197 = load i8, ptr %196, align 1, !tbaa !225
   %.not28.i = icmp eq i8 %197, 0
   br i1 %.not28.i, label %216, label %198
 
 198:                                              ; preds = %195
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 848
   %201 = getelementptr inbounds nuw [3 x %struct._GdkRGBA], ptr %200, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load double, ptr %201, align 8
@@ -4006,8 +4006,8 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %201, i64 24
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0.0.copyload.i, double noundef %.sroa.4.0.copyload.i, double noundef %.sroa.5.0.copyload.i, double noundef %.sroa.6.0.copyload.i) #17
-  %202 = load ptr, ptr %2, align 64, !tbaa !109
-  %203 = load i32, ptr %174, align 8, !tbaa !105
+  %202 = load ptr, ptr %2, align 64, !tbaa !115
+  %203 = load i32, ptr %174, align 8, !tbaa !108
   %.not29.i = icmp eq i32 %203, 1
   call void @cairo_move_to(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   %invariant.gep.i8.i.i = getelementptr i32, ptr %202, i64 %indvars.iv.i
@@ -4019,12 +4019,12 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   %205 = uitofp nneg i32 %204 to double
   %.idx.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i8.i.i, i64 %.idx.i.i.i
-  %206 = load i32, ptr %gep.i.i.i, align 4, !tbaa !112
+  %206 = load i32, ptr %gep.i.i.i, align 4, !tbaa !118
   %207 = uitofp i32 %206 to double
   call void @cairo_line_to(ptr noundef %53, double noundef %205, double noundef %207) #17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
-  br i1 %exitcond.not.i.i.i, label %dt_draw_histogram_8.exit.i, label %.preheader.i
+  br i1 %exitcond.not.i.i.i, label %dt_draw_histogram_8.exit.i, label %.preheader.i, !llvm.loop !282
 
 .preheader30.i:                                   ; preds = %198, %.preheader30.i
   %indvars.iv.i9.i.i = phi i64 [ %indvars.iv.next.i12.i.i, %.preheader30.i ], [ 0, %198 ]
@@ -4032,7 +4032,7 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   %209 = uitofp nneg i32 %208 to double
   %.idx.i10.i.i = shl i64 %indvars.iv.i9.i.i, 4
   %gep.i11.i.i = getelementptr i8, ptr %invariant.gep.i8.i.i, i64 %.idx.i10.i.i
-  %210 = load i32, ptr %gep.i11.i.i, align 4, !tbaa !112
+  %210 = load i32, ptr %gep.i11.i.i, align 4, !tbaa !118
   %211 = uitofp i32 %210 to double
   %212 = fadd reassoc nsz arcp contract afn double %211, 1.000000e+00
   %213 = fptrunc reassoc nsz arcp contract afn double %212 to float
@@ -4041,7 +4041,7 @@ dt_draw_grid.exit:                                ; preds = %106, %dt_draw_wavef
   call void @cairo_line_to(ptr noundef %53, double noundef %209, double noundef %215) #17
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i9.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, 256
-  br i1 %exitcond.not.i13.i.i, label %dt_draw_histogram_8.exit.i, label %.preheader30.i
+  br i1 %exitcond.not.i13.i.i, label %dt_draw_histogram_8.exit.i, label %.preheader30.i, !llvm.loop !283
 
 dt_draw_histogram_8.exit.i:                       ; preds = %.preheader30.i, %.preheader.i
   call void @cairo_line_to(ptr noundef %53, double noundef 2.550000e+02, double noundef 0.000000e+00) #17
@@ -4052,23 +4052,23 @@ dt_draw_histogram_8.exit.i:                       ; preds = %.preheader30.i, %.p
 216:                                              ; preds = %dt_draw_histogram_8.exit.i, %195
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i105, label %194, label %195
+  br i1 %exitcond.not.i105, label %194, label %195, !llvm.loop !284
 
 217:                                              ; preds = %157
   %218 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %219 = load i32, ptr %218, align 8, !tbaa !114
+  %219 = load i32, ptr %218, align 8, !tbaa !120
   %.not99 = icmp eq i32 %219, 0
   br i1 %.not99, label %_lib_histogram_draw_histogram.exit, label %220
 
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %222 = load i32, ptr %221, align 4, !tbaa !106
+  %222 = load i32, ptr %221, align 4, !tbaa !110
   %223 = icmp eq i32 %222, 0
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %.in.i = select i1 %223, ptr %218, ptr %224
-  %225 = load i32, ptr %.in.i, align 4, !tbaa !112
+  %225 = load i32, ptr %.in.i, align 4, !tbaa !118
   %.in59.i = select i1 %223, ptr %224, ptr %218
-  %226 = load i32, ptr %.in59.i, align 4, !tbaa !112
+  %226 = load i32, ptr %.in59.i, align 4, !tbaa !118
   %227 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %225) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4085,16 +4085,16 @@ dt_draw_histogram_8.exit.i:                       ; preds = %.preheader30.i, %.p
 232:                                              ; preds = %246, %220
   %indvars.iv.i106 = phi i64 [ 0, %220 ], [ %indvars.iv.next.i107, %246 ]
   %233 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i106
-  %234 = load i8, ptr %233, align 1, !tbaa !212
+  %234 = load i8, ptr %233, align 1, !tbaa !225
   %.not60.i = icmp eq i8 %234, 0
   br i1 %.not60.i, label %246, label %235
 
 235:                                              ; preds = %232
   %236 = getelementptr inbounds nuw [3 x ptr], ptr %230, i64 0, i64 %indvars.iv.i106
-  %237 = load ptr, ptr %236, align 8, !tbaa !103
+  %237 = load ptr, ptr %236, align 8, !tbaa !105
   %238 = call ptr @cairo_image_surface_create_for_data(ptr noundef %237, i32 noundef 2, i32 noundef %225, i32 noundef %226, i32 noundef %227) #17
   %239 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.i106
-  store ptr %238, ptr %239, align 8, !tbaa !242
+  store ptr %238, ptr %239, align 8, !tbaa !285
   %240 = icmp eq i64 %indvars.iv.i106, 0
   %241 = select reassoc nsz arcp contract afn i1 %240, double 1.000000e+00, double 0.000000e+00
   %242 = icmp eq i64 %indvars.iv.i106, 1
@@ -4108,19 +4108,19 @@ dt_draw_histogram_8.exit.i:                       ; preds = %.preheader30.i, %.p
 246:                                              ; preds = %235, %232
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, 3
-  br i1 %exitcond.not.i108, label %231, label %232
+  br i1 %exitcond.not.i108, label %231, label %232, !llvm.loop !287
 
 247:                                              ; preds = %260
   call void @cairo_destroy(ptr noundef %229) #17
   call void @cairo_save(ptr noundef %53) #17
-  %248 = load i32, ptr %221, align 4, !tbaa !106
+  %248 = load i32, ptr %221, align 4, !tbaa !110
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %261, label %266
 
 250:                                              ; preds = %260, %231
   %indvars.iv64.i = phi i64 [ 0, %231 ], [ %indvars.iv.next65.i, %260 ]
   %251 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv64.i
-  %252 = load ptr, ptr %251, align 8, !tbaa !242
+  %252 = load ptr, ptr %251, align 8, !tbaa !285
   %.not.i109 = icmp eq ptr %252, null
   br i1 %.not.i109, label %260, label %253
 
@@ -4139,7 +4139,7 @@ dt_draw_histogram_8.exit.i:                       ; preds = %.preheader30.i, %.p
 260:                                              ; preds = %253, %250
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 3
-  br i1 %exitcond67.not.i, label %247, label %250
+  br i1 %exitcond67.not.i, label %247, label %250, !llvm.loop !288
 
 261:                                              ; preds = %247
   call void @cairo_translate(ptr noundef %53, double noundef 0.000000e+00, double noundef %46) #17
@@ -4174,23 +4174,23 @@ _lib_histogram_draw_waveform.exit:                ; preds = %261, %266
 
 274:                                              ; preds = %157
   %275 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %276 = load i32, ptr %275, align 8, !tbaa !114
+  %276 = load i32, ptr %275, align 8, !tbaa !120
   %.not98 = icmp eq i32 %276, 0
   br i1 %.not98, label %_lib_histogram_draw_histogram.exit, label %277
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %279 = load i32, ptr %278, align 4, !tbaa !106
+  %279 = load i32, ptr %278, align 4, !tbaa !110
   %280 = icmp eq i32 %279, 0
   %281 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %.in.i110 = select i1 %280, ptr %275, ptr %281
-  %282 = load i32, ptr %.in.i110, align 4, !tbaa !112
+  %282 = load i32, ptr %.in.i110, align 4, !tbaa !118
   %.in60.i = select i1 %280, ptr %281, ptr %275
-  %283 = load i32, ptr %.in60.i, align 4, !tbaa !112
+  %283 = load i32, ptr %.in60.i, align 4, !tbaa !118
   %284 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %282) #17
   %285 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %282, i32 noundef %283) #17
   %286 = call ptr @cairo_create(ptr noundef %285) #17
-  %287 = load i32, ptr %278, align 4, !tbaa !106
+  %287 = load i32, ptr %278, align 4, !tbaa !110
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %289, label %290
 
@@ -4211,14 +4211,14 @@ _lib_histogram_draw_waveform.exit:                ; preds = %261, %266
 295:                                              ; preds = %315
   call void @cairo_destroy(ptr noundef %286) #17
   call void @cairo_save(ptr noundef %53) #17
-  %296 = load i32, ptr %278, align 4, !tbaa !106
+  %296 = load i32, ptr %278, align 4, !tbaa !110
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %316, label %321
 
 298:                                              ; preds = %315, %291
   %indvars.iv.i111 = phi i64 [ 0, %291 ], [ %indvars.iv.next.i112, %315 ]
   %299 = getelementptr inbounds nuw [3 x ptr], ptr %292, i64 0, i64 %indvars.iv.i111
-  %300 = load ptr, ptr %299, align 8, !tbaa !103
+  %300 = load ptr, ptr %299, align 8, !tbaa !105
   %301 = call ptr @cairo_image_surface_create_for_data(ptr noundef %300, i32 noundef 2, i32 noundef %282, i32 noundef %283, i32 noundef %284) #17
   %302 = icmp eq i64 %indvars.iv.i111, 0
   %303 = select reassoc nsz arcp contract afn i1 %302, double 1.000000e+00, double 0.000000e+00
@@ -4236,7 +4236,7 @@ _lib_histogram_draw_waveform.exit:                ; preds = %261, %266
   call void @cairo_set_source_rgba(ptr noundef %286, double noundef %308, double noundef %309, double noundef %310, double noundef 6.500000e-01) #17
   call void @cairo_mask_surface(ptr noundef %286, ptr noundef %301, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   call void @cairo_surface_destroy(ptr noundef %301) #17
-  %311 = load i32, ptr %278, align 4, !tbaa !106
+  %311 = load i32, ptr %278, align 4, !tbaa !110
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %314
 
@@ -4251,7 +4251,7 @@ _lib_histogram_draw_waveform.exit:                ; preds = %261, %266
 315:                                              ; preds = %314, %313
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, 3
-  br i1 %exitcond.not.i113, label %295, label %298
+  br i1 %exitcond.not.i113, label %295, label %298, !llvm.loop !289
 
 316:                                              ; preds = %295
   call void @cairo_translate(ptr noundef %53, double noundef 0.000000e+00, double noundef %46) #17
@@ -4285,17 +4285,17 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 329:                                              ; preds = %157
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 2448
-  %331 = load double, ptr %330, align 16, !tbaa !123
+  %331 = load double, ptr %330, align 16, !tbaa !130
   %332 = fcmp reassoc nsz arcp contract afn une double %331, 0.000000e+00
   br i1 %332, label %333, label %_lib_histogram_draw_histogram.exit
 
 333:                                              ; preds = %329
   %334 = fptrunc reassoc nsz arcp contract afn double %331 to float
   %335 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %336 = load i32, ptr %335, align 4, !tbaa !117
-  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %336 = load i32, ptr %335, align 4, !tbaa !124
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 1424
-  %339 = load double, ptr %338, align 8, !tbaa !230
+  %339 = load double, ptr %338, align 8, !tbaa !268
   %340 = fmul reassoc nsz arcp contract afn double %339, 2.000000e+00
   %341 = call i32 @llvm.smin.i32(i32 %37, i32 %39)
   %342 = sitofp i32 %341 to double
@@ -4313,21 +4313,21 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %353 = call reassoc nsz arcp contract afn double @hypot(double noundef %346, double noundef %346) #18
   %354 = fmul reassoc nsz arcp contract afn double %353, 5.000000e-01
   %355 = call ptr @cairo_pattern_create_radial(double noundef %350, double noundef %351, double noundef %352, double noundef %350, double noundef %351, double noundef %354) #17
-  %356 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %356 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 592
-  %358 = load double, ptr %357, align 8, !tbaa !244
+  %358 = load double, ptr %357, align 8, !tbaa !290
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 600
-  %360 = load double, ptr %359, align 8, !tbaa !251
+  %360 = load double, ptr %359, align 8, !tbaa !297
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 608
-  %362 = load double, ptr %361, align 8, !tbaa !252
+  %362 = load double, ptr %361, align 8, !tbaa !298
   call void @cairo_pattern_add_color_stop_rgb(ptr noundef %355, double noundef 0.000000e+00, double noundef %358, double noundef %360, double noundef %362) #17
-  %363 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %363 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 624
-  %365 = load double, ptr %364, align 8, !tbaa !253
+  %365 = load double, ptr %364, align 8, !tbaa !299
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 632
-  %367 = load double, ptr %366, align 8, !tbaa !254
+  %367 = load double, ptr %366, align 8, !tbaa !300
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 640
-  %369 = load double, ptr %368, align 8, !tbaa !255
+  %369 = load double, ptr %368, align 8, !tbaa !301
   call void @cairo_pattern_add_color_stop_rgb(ptr noundef %355, double noundef 1.000000e+00, double noundef %365, double noundef %367, double noundef %369) #17
   call void @cairo_rectangle(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #17
   call void @cairo_set_source(ptr noundef %53, ptr noundef %355) #17
@@ -4335,10 +4335,10 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @cairo_pattern_destroy(ptr noundef %355) #17
   call void @cairo_translate(ptr noundef %53, double noundef %350, double noundef %351) #17
   %370 = getelementptr inbounds nuw i8, ptr %2, i64 2712
-  %371 = load double, ptr %370, align 8, !tbaa !108
+  %371 = load double, ptr %370, align 8, !tbaa !114
   call void @cairo_rotate(ptr noundef %53, double noundef %371) #17
   call void @cairo_scale(ptr noundef %53, double noundef 1.000000e+00, double noundef -1.000000e+00) #17
-  %372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 720
   %.sroa.0.0.copyload.i116 = load double, ptr %373, align 8
   %.sroa.4.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %372, i64 728
@@ -4348,12 +4348,12 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %.sroa.6.0..sroa_idx.i121 = getelementptr inbounds nuw i8, ptr %372, i64 744
   %.sroa.6.0.copyload.i122 = load double, ptr %.sroa.6.0..sroa_idx.i121, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0.0.copyload.i116, double noundef %.sroa.4.0.copyload.i118, double noundef %.sroa.5.0.copyload.i120, double noundef %.sroa.6.0.copyload.i122) #17
-  %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 1424
-  %376 = load double, ptr %375, align 8, !tbaa !230
+  %376 = load double, ptr %375, align 8, !tbaa !268
   call void @cairo_set_line_width(ptr noundef %53, double noundef %376) #17
   %377 = getelementptr inbounds nuw i8, ptr %2, i64 2444
-  %378 = load i32, ptr %377, align 4, !tbaa !122
+  %378 = load i32, ptr %377, align 4, !tbaa !129
   %379 = icmp eq i32 %378, 0
   %380 = select i1 %379, float 1.000000e+02, float 0x3F847AE140000000
   %381 = fdiv reassoc nsz arcp contract afn float %334, %380
@@ -4371,26 +4371,26 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 ._crit_edge.i:                                    ; preds = %418, %333
   %388 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %389 = load ptr, ptr %388, align 64, !tbaa !119
+  %389 = load ptr, ptr %388, align 64, !tbaa !126
   %390 = call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %336) #17
   %391 = call ptr @cairo_image_surface_create_for_data(ptr noundef %389, i32 noundef 1, i32 noundef %336, i32 noundef %336, i32 noundef %390) #17
-  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 1432
-  %394 = load double, ptr %393, align 8, !tbaa !229
+  %394 = load double, ptr %393, align 8, !tbaa !267
   call void @cairo_surface_set_device_scale(ptr noundef %391, double noundef %394, double noundef %394) #17
   %395 = call ptr @cairo_pattern_create_for_surface(ptr noundef %391) #17
   call void @cairo_pattern_set_extend(ptr noundef %395, i32 noundef 3) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
   %396 = sitofp i32 %336 to double
   %397 = fmul reassoc nsz arcp contract afn double %396, 5.000000e-01
-  %398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 1432
-  %400 = load double, ptr %399, align 8, !tbaa !229
+  %400 = load double, ptr %399, align 8, !tbaa !267
   %401 = fdiv reassoc nsz arcp contract afn double %397, %400
   call void @cairo_matrix_init_translate(ptr noundef nonnull %4, double noundef %401, double noundef %401) #17
-  %402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 1432
-  %404 = load double, ptr %403, align 8, !tbaa !229
+  %404 = load double, ptr %403, align 8, !tbaa !267
   %405 = fmul reassoc nsz arcp contract afn double %404, %346
   %406 = fdiv reassoc nsz arcp contract afn double %396, %405
   call void @cairo_matrix_scale(ptr noundef nonnull %4, double noundef %406, double noundef %406) #17
@@ -4405,7 +4405,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %409 = phi float [ 1.000000e+00, %.lr.ph.i ], [ %422, %418 ]
   %.0255308.i = phi i32 [ 1, %.lr.ph.i ], [ %421, %418 ]
   %410 = fmul reassoc nsz arcp contract afn float %409, %380
-  %411 = load i32, ptr %385, align 4, !tbaa !116
+  %411 = load i32, ptr %385, align 4, !tbaa !122
   %412 = icmp eq i32 %411, 0
   br i1 %412, label %413, label %418
 
@@ -4425,7 +4425,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %421 = add nuw nsw i32 %.0255308.i, 1
   %422 = uitofp nneg i32 %421 to float
   %423 = fcmp reassoc nsz arcp contract afn ogt float %383, %422
-  br i1 %423, label %408, label %._crit_edge.i
+  br i1 %423, label %408, label %._crit_edge.i, !llvm.loop !302
 
 .preheader307.i:                                  ; preds = %426, %._crit_edge.i
   %indvars.iv325.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next326.i, %426 ]
@@ -4442,14 +4442,14 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 426:                                              ; preds = %427
   %indvars.iv.next326.i = add nuw nsw i64 %indvars.iv325.i, 1
   %exitcond328.not.i = icmp eq i64 %indvars.iv.next326.i, 6
-  br i1 %exitcond328.not.i, label %425, label %.preheader307.i
+  br i1 %exitcond328.not.i, label %425, label %.preheader307.i, !llvm.loop !303
 
 427:                                              ; preds = %427, %.preheader307.i
   %indvars.iv.i123 = phi i64 [ 0, %.preheader307.i ], [ %indvars.iv.next.i124, %427 ]
   %428 = getelementptr inbounds nuw [48 x [2 x float]], ptr %424, i64 0, i64 %indvars.iv.i123
-  %429 = load float, ptr %428, align 8, !tbaa !196
+  %429 = load float, ptr %428, align 8, !tbaa !207
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 4
-  %431 = load float, ptr %430, align 4, !tbaa !196
+  %431 = load float, ptr %430, align 4, !tbaa !207
   %432 = fpext reassoc nsz arcp contract afn float %429 to double
   %433 = fmul reassoc nsz arcp contract afn double %349, %432
   %434 = fpext reassoc nsz arcp contract afn float %431 to double
@@ -4457,32 +4457,32 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @cairo_line_to(ptr noundef %53, double noundef %433, double noundef %435) #17
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, 48
-  br i1 %exitcond.not.i125, label %426, label %427
+  br i1 %exitcond.not.i125, label %426, label %427, !llvm.loop !304
 
 436:                                              ; preds = %448
   %437 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %438 = load ptr, ptr %437, align 8, !tbaa !118
+  %438 = load ptr, ptr %437, align 8, !tbaa !125
   %439 = call i32 @cairo_format_stride_for_width(i32 noundef 2, i32 noundef %336) #17
   %440 = call ptr @cairo_image_surface_create_for_data(ptr noundef %438, i32 noundef 2, i32 noundef %336, i32 noundef %336, i32 noundef %439) #17
-  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 1432
-  %443 = load double, ptr %442, align 8, !tbaa !229
+  %443 = load double, ptr %442, align 8, !tbaa !267
   call void @cairo_surface_set_device_scale(ptr noundef %440, double noundef %443, double noundef %443) #17
   %444 = call ptr @cairo_pattern_create_for_surface(ptr noundef %440) #17
   call void @cairo_pattern_set_matrix(ptr noundef %444, ptr noundef nonnull %4) #17
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 12) #17
-  %445 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %445 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 60
-  %447 = load i32, ptr %446, align 4, !tbaa !188
+  %447 = load i32, ptr %446, align 4, !tbaa !199
   %.not.i126 = icmp eq i32 %447, 0
   br i1 %.not.i126, label %465, label %459
 
 448:                                              ; preds = %448, %425
   %indvars.iv329.i = phi i64 [ 0, %425 ], [ %indvars.iv.next330.i, %448 ]
   %449 = getelementptr inbounds nuw [6 x [48 x [2 x float]]], ptr %407, i64 0, i64 %indvars.iv329.i
-  %450 = load float, ptr %449, align 64, !tbaa !196
+  %450 = load float, ptr %449, align 64, !tbaa !207
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 4
-  %452 = load float, ptr %451, align 4, !tbaa !196
+  %452 = load float, ptr %451, align 4, !tbaa !207
   %453 = fpext reassoc nsz arcp contract afn float %450 to double
   %454 = fmul reassoc nsz arcp contract afn double %349, %453
   %455 = fpext reassoc nsz arcp contract afn float %452 to double
@@ -4490,7 +4490,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @cairo_arc(ptr noundef %53, double noundef %454, double noundef %456, double noundef %340, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #17
   call void @cairo_set_source(ptr noundef %53, ptr noundef %395) #17
   call void @cairo_fill_preserve(ptr noundef %53) #17
-  %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 720
   %.sroa.0274.0.copyload.i = load double, ptr %458, align 8
   %.sroa.4275.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %457, i64 728
@@ -4503,33 +4503,33 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @cairo_stroke(ptr noundef %53) #17
   %indvars.iv.next330.i = add nuw nsw i64 %indvars.iv329.i, 1
   %exitcond332.not.i = icmp eq i64 %indvars.iv.next330.i, 6
-  br i1 %exitcond332.not.i, label %436, label %448
+  br i1 %exitcond332.not.i, label %436, label %448, !llvm.loop !305
 
 459:                                              ; preds = %436
   %460 = getelementptr inbounds nuw i8, ptr %445, i64 24
-  %461 = load ptr, ptr %460, align 8, !tbaa !189
+  %461 = load ptr, ptr %460, align 8, !tbaa !200
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 40
-  %463 = load i32, ptr %462, align 8, !tbaa !193
+  %463 = load i32, ptr %462, align 8, !tbaa !204
   %464 = icmp eq i32 %463, 0
   br label %465
 
 465:                                              ; preds = %459, %436
   %466 = phi i1 [ false, %436 ], [ %464, %459 ]
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %468 = load ptr, ptr %467, align 16, !tbaa !124
+  %468 = load ptr, ptr %467, align 16, !tbaa !131
   %.not268.i = icmp eq ptr %468, null
   br i1 %.not268.i, label %473, label %469
 
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %445, i64 56
-  %471 = load i32, ptr %470, align 8, !tbaa !219
+  %471 = load i32, ptr %470, align 8, !tbaa !251
   %472 = icmp ne i32 %471, 0
   br label %473
 
 473:                                              ; preds = %469, %465
   %474 = phi i1 [ false, %465 ], [ %472, %469 ]
   %475 = getelementptr inbounds nuw i8, ptr %2, i64 2704
-  %476 = load i32, ptr %475, align 16, !tbaa !107
+  %476 = load i32, ptr %475, align 16, !tbaa !112
   %477 = icmp eq i32 %476, 2
   br i1 %477, label %478, label %612
 
@@ -4545,18 +4545,18 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %483 = load i32, ptr %482, align 4, !tbaa !90
   %484 = zext i32 %483 to i64
   %485 = getelementptr inbounds nuw [4 x float], ptr @dt_lib_histogram_color_harmony_width, i64 0, i64 %484
-  %486 = load float, ptr %485, align 4, !tbaa !196
-  %487 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %486 = load float, ptr %485, align 4, !tbaa !207
+  %487 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 1424
-  %489 = load double, ptr %488, align 8, !tbaa !230
+  %489 = load double, ptr %488, align 8, !tbaa !268
   call void @cairo_set_line_width(ptr noundef %53, double noundef %489) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #17
   %490 = load i32, ptr %479, align 4, !tbaa !84
   %491 = zext i32 %490 to i64
   %492 = getelementptr inbounds nuw [10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 %491
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %492, i64 48, i1 false), !tbaa.struct !256
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %492, i64 48, i1 false), !tbaa.struct !306
   %493 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %494 = load i32, ptr %493, align 8, !tbaa !257
+  %494 = load i32, ptr %493, align 8, !tbaa !307
   %495 = icmp sgt i32 %494, 0
   br i1 %495, label %.lr.ph315.i, label %._crit_edge316.i
 
@@ -4576,7 +4576,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 ._crit_edge316.i:                                 ; preds = %541, %481
   call void @cairo_close_path(ptr noundef %53) #17
   call void @cairo_set_source(ptr noundef %53, ptr noundef %395) #17
-  %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 688
   %.sroa.0278.0.copyload.i = load double, ptr %505, align 8
   %.sroa.4279.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %504, i64 696
@@ -4593,9 +4593,9 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 508:                                              ; preds = %541, %.lr.ph315.i
   %indvars.iv333.i = phi i64 [ 0, %.lr.ph315.i ], [ %indvars.iv.next334.pre-phi.i, %541 ]
   %509 = getelementptr inbounds nuw [4 x float], ptr %496, i64 0, i64 %indvars.iv333.i
-  %510 = load float, ptr %509, align 4, !tbaa !196
+  %510 = load float, ptr %509, align 4, !tbaa !207
   %511 = fmul reassoc nsz arcp contract afn float %510, %334
-  %512 = load i32, ptr %497, align 4, !tbaa !116
+  %512 = load i32, ptr %497, align 4, !tbaa !122
   %513 = icmp eq i32 %512, 0
   br i1 %513, label %514, label %519
 
@@ -4613,10 +4613,10 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 520:                                              ; preds = %519
   %521 = getelementptr inbounds nuw [4 x float], ptr %499, i64 0, i64 %indvars.iv333.i
-  %522 = load float, ptr %521, align 4, !tbaa !196
+  %522 = load float, ptr %521, align 4, !tbaa !207
   %523 = add nsw i64 %indvars.iv333.i, -1
   %524 = getelementptr inbounds nuw [4 x float], ptr %499, i64 0, i64 %523
-  %525 = load float, ptr %524, align 4, !tbaa !196
+  %525 = load float, ptr %524, align 4, !tbaa !207
   %526 = fsub reassoc nsz arcp contract afn float %522, %525
   %527 = fmul reassoc nsz arcp contract afn float %526, 5.000000e-01
   %528 = fcmp reassoc nsz arcp contract afn olt float %486, %527
@@ -4630,16 +4630,16 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 ._crit_edge337.i:                                 ; preds = %529
   %.phi.trans.insert.i = getelementptr inbounds nuw [4 x float], ptr %499, i64 0, i64 %indvars.iv333.i
-  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !196
+  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !207
   %.pre338.i = add nuw nsw i64 %indvars.iv333.i, 1
   br label %541
 
 532:                                              ; preds = %529
   %533 = add nuw nsw i64 %indvars.iv333.i, 1
   %534 = getelementptr inbounds nuw [4 x float], ptr %499, i64 0, i64 %533
-  %535 = load float, ptr %534, align 4, !tbaa !196
+  %535 = load float, ptr %534, align 4, !tbaa !207
   %536 = getelementptr inbounds nuw [4 x float], ptr %499, i64 0, i64 %indvars.iv333.i
-  %537 = load float, ptr %536, align 4, !tbaa !196
+  %537 = load float, ptr %536, align 4, !tbaa !207
   %538 = fsub reassoc nsz arcp contract afn float %535, %537
   %539 = fmul reassoc nsz arcp contract afn float %538, 5.000000e-01
   %540 = fcmp reassoc nsz arcp contract afn olt float %486, %539
@@ -4672,7 +4672,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @cairo_arc(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %560, double noundef %561, double noundef %562) #17
   call void @cairo_line_to(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   %exitcond336.not.i = icmp eq i64 %indvars.iv.next334.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond336.not.i, label %._crit_edge316.i, label %508
+  br i1 %exitcond336.not.i, label %._crit_edge316.i, label %508, !llvm.loop !308
 
 563:                                              ; preds = %._crit_edge316.i
   call void @cairo_stroke(ptr noundef %53) #17
@@ -4698,21 +4698,21 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 569:                                              ; preds = %564, %563
   %.1.i = phi ptr [ %444, %563 ], [ %568, %564 ]
   %570 = getelementptr inbounds nuw i8, ptr %2, i64 2504
-  %571 = load ptr, ptr %570, align 8, !tbaa !98
+  %571 = load ptr, ptr %570, align 8, !tbaa !100
   %572 = call i32 @gtk_widget_get_visible(ptr noundef %571) #17
   %.not270.i = icmp eq i32 %572, 0
   br i1 %.not270.i, label %611, label %573
 
 573:                                              ; preds = %569
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
-  %574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 336
-  %576 = load ptr, ptr %575, align 8, !tbaa !258
+  %576 = load ptr, ptr %575, align 8, !tbaa !309
   %577 = call ptr @pango_font_description_copy_static(ptr noundef %576) #17
   call void @pango_font_description_set_weight(ptr noundef %577, i32 noundef 400) #17
-  %578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 1424
-  %580 = load double, ptr %579, align 8, !tbaa !230
+  %580 = load double, ptr %579, align 8, !tbaa !268
   %581 = fmul reassoc nsz arcp contract afn double %580, 1.638400e+04
   call void @pango_font_description_set_absolute_size(ptr noundef %577, double noundef %581) #17
   %582 = call ptr @pango_cairo_create_layout(ptr noundef %53) #17
@@ -4720,10 +4720,10 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @pango_layout_set_alignment(ptr noundef %582, i32 noundef 2) #17
   %583 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   %584 = load i32, ptr %583, align 4, !tbaa !89
-  %585 = load ptr, ptr %5, align 8, !tbaa !159
+  %585 = load ptr, ptr %5, align 8, !tbaa !167
   %586 = call ptr @dcgettext(ptr noundef null, ptr noundef %585, i32 noundef 5) #17
   %587 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.95, i32 noundef %584, ptr noundef %586) #17
-  %588 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %588 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 688
   %.sroa.0282.0.copyload.i = load double, ptr %589, align 8
   %.sroa.4283.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %588, i64 696
@@ -4736,25 +4736,25 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @pango_layout_set_text(ptr noundef %582, ptr noundef %587, i32 noundef -1) #17
   call void @pango_layout_get_pixel_extents(ptr noundef %582, ptr noundef null, ptr noundef nonnull %6) #17
   call void @cairo_scale(ptr noundef %53, double noundef 1.000000e+00, double noundef -1.000000e+00) #17
-  %590 = load double, ptr %370, align 8, !tbaa !108
+  %590 = load double, ptr %370, align 8, !tbaa !114
   %591 = fneg reassoc nsz arcp contract afn double %590
   call void @cairo_rotate(ptr noundef %53, double noundef %591) #17
   %592 = sitofp i32 %37 to float
   %593 = fmul reassoc nsz arcp contract afn float %592, 0x3FDEB851E0000000
   %594 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %595 = load i32, ptr %594, align 4, !tbaa !259
+  %595 = load i32, ptr %594, align 4, !tbaa !310
   %596 = sitofp i32 %595 to float
-  %597 = load i32, ptr %6, align 4, !tbaa !261
+  %597 = load i32, ptr %6, align 4, !tbaa !312
   %598 = sitofp i32 %597 to float
   %599 = fadd reassoc nsz arcp contract afn float %596, %598
   %600 = fsub reassoc nsz arcp contract afn float %593, %599
   %601 = fpext reassoc nsz arcp contract afn float %600 to double
   %602 = fmul reassoc nsz arcp contract afn double %46, 4.800000e-01
   %603 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %604 = load i32, ptr %603, align 4, !tbaa !262
+  %604 = load i32, ptr %603, align 4, !tbaa !313
   %605 = sitofp i32 %604 to double
   %606 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %607 = load i32, ptr %606, align 4, !tbaa !263
+  %607 = load i32, ptr %606, align 4, !tbaa !314
   %608 = sitofp i32 %607 to double
   %609 = fadd reassoc nsz arcp contract afn double %605, %608
   %610 = fsub reassoc nsz arcp contract afn double %602, %609
@@ -4806,7 +4806,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 614:                                              ; preds = %.critedge.i, %613
   call void @cairo_set_operator(ptr noundef %53, i32 noundef 2) #17
-  %615 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %615 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 720
   %.sroa.0286.0.copyload.i = load double, ptr %616, align 8
   %.sroa.4287.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %615, i64 728
@@ -4816,22 +4816,22 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %.sroa.6289.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %615, i64 744
   %.sroa.6289.0.copyload.i = load double, ptr %.sroa.6289.0..sroa_idx.i, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0286.0.copyload.i, double noundef %.sroa.4287.0.copyload.i, double noundef %.sroa.5288.0.copyload.i, double noundef %.sroa.6289.0.copyload.i) #17
-  %617 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %617 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 1424
-  %619 = load double, ptr %618, align 8, !tbaa !230
+  %619 = load double, ptr %618, align 8, !tbaa !268
   %620 = fmul reassoc nsz arcp contract afn double %619, 1.500000e+00
   call void @cairo_set_line_width(ptr noundef %53, double noundef %620) #17
   call void @cairo_new_sub_path(ptr noundef %53) #17
-  %621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 1424
-  %623 = load double, ptr %622, align 8, !tbaa !230
+  %623 = load double, ptr %622, align 8, !tbaa !268
   %624 = fmul reassoc nsz arcp contract afn double %623, 3.000000e+00
   call void @cairo_arc(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %624, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #17
   call void @cairo_fill(ptr noundef %53) #17
   br i1 %466, label %625, label %640
 
 625:                                              ; preds = %614
-  %626 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %626 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 688
   %.sroa.0290.0.copyload.i = load double, ptr %627, align 8
   %.sroa.4291.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %626, i64 696
@@ -4842,16 +4842,16 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %.sroa.6293.0.copyload.i = load double, ptr %.sroa.6293.0..sroa_idx.i, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0290.0.copyload.i, double noundef %.sroa.4291.0.copyload.i, double noundef %.sroa.5292.0.copyload.i, double noundef %.sroa.6293.0.copyload.i) #17
   %628 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %629 = load float, ptr %628, align 8, !tbaa !196
+  %629 = load float, ptr %628, align 8, !tbaa !207
   %630 = fpext reassoc nsz arcp contract afn float %629 to double
   %631 = fmul reassoc nsz arcp contract afn double %349, %630
   %632 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %633 = load float, ptr %632, align 4, !tbaa !196
+  %633 = load float, ptr %632, align 4, !tbaa !207
   %634 = fpext reassoc nsz arcp contract afn float %633 to double
   %635 = fmul reassoc nsz arcp contract afn double %349, %634
-  %636 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %636 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 1424
-  %638 = load double, ptr %637, align 8, !tbaa !230
+  %638 = load double, ptr %637, align 8, !tbaa !268
   %639 = fmul reassoc nsz arcp contract afn double %638, 3.000000e+00
   call void @cairo_arc(ptr noundef %53, double noundef %631, double noundef %635, double noundef %639, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #17
   call void @cairo_fill(ptr noundef %53) #17
@@ -4861,7 +4861,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   br i1 %474, label %.preheader.i127, label %_lib_histogram_draw_vectorscope.exit
 
 .preheader.i127:                                  ; preds = %640
-  %.0254319.i = load ptr, ptr %467, align 8, !tbaa !264
+  %.0254319.i = load ptr, ptr %467, align 8, !tbaa !315
   %.not271320.i = icmp eq ptr %.0254319.i, null
   br i1 %.not271320.i, label %_lib_histogram_draw_vectorscope.exit, label %.lr.ph323.i
 
@@ -4872,10 +4872,10 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 642:                                              ; preds = %672, %.lr.ph323.i
   %.0254322.i = phi ptr [ %.0254319.i, %.lr.ph323.i ], [ %.0254.i, %672 ]
   %.0321.i = phi i32 [ 0, %.lr.ph323.i ], [ %673, %672 ]
-  %643 = load ptr, ptr %.0254322.i, align 8, !tbaa !222
-  %644 = load i32, ptr %641, align 8, !tbaa !125
+  %643 = load ptr, ptr %.0254322.i, align 8, !tbaa !254
+  %644 = load i32, ptr %641, align 8, !tbaa !132
   %645 = icmp eq i32 %.0321.i, %644
-  %646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %647 = getelementptr inbounds nuw i8, ptr %643, i64 4
   br i1 %645, label %648, label %660
 
@@ -4889,15 +4889,15 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %.sroa.6297.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %646, i64 776
   %.sroa.6297.0.copyload.i = load double, ptr %.sroa.6297.0..sroa_idx.i, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0294.0.copyload.i, double noundef %.sroa.4295.0.copyload.i, double noundef %.sroa.5296.0.copyload.i, double noundef %.sroa.6297.0.copyload.i) #17
-  %650 = load float, ptr %643, align 4, !tbaa !196
+  %650 = load float, ptr %643, align 4, !tbaa !207
   %651 = fpext reassoc nsz arcp contract afn float %650 to double
   %652 = fmul reassoc nsz arcp contract afn double %349, %651
-  %653 = load float, ptr %647, align 4, !tbaa !196
+  %653 = load float, ptr %647, align 4, !tbaa !207
   %654 = fpext reassoc nsz arcp contract afn float %653 to double
   %655 = fmul reassoc nsz arcp contract afn double %349, %654
-  %656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 1424
-  %658 = load double, ptr %657, align 8, !tbaa !230
+  %658 = load double, ptr %657, align 8, !tbaa !268
   %659 = fmul reassoc nsz arcp contract afn double %658, 6.000000e+00
   call void @cairo_arc(ptr noundef %53, double noundef %652, double noundef %655, double noundef %659, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #17
   call void @cairo_fill(ptr noundef %53) #17
@@ -4913,15 +4913,15 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %.sroa.6301.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %646, i64 712
   %.sroa.6301.0.copyload.i = load double, ptr %.sroa.6301.0..sroa_idx.i, align 8
   call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0298.0.copyload.i, double noundef %.sroa.4299.0.copyload.i, double noundef %.sroa.5300.0.copyload.i, double noundef %.sroa.6301.0.copyload.i) #17
-  %662 = load float, ptr %643, align 4, !tbaa !196
+  %662 = load float, ptr %643, align 4, !tbaa !207
   %663 = fpext reassoc nsz arcp contract afn float %662 to double
   %664 = fmul reassoc nsz arcp contract afn double %349, %663
-  %665 = load float, ptr %647, align 4, !tbaa !196
+  %665 = load float, ptr %647, align 4, !tbaa !207
   %666 = fpext reassoc nsz arcp contract afn float %665 to double
   %667 = fmul reassoc nsz arcp contract afn double %349, %666
-  %668 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
+  %668 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !180
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 1424
-  %670 = load double, ptr %669, align 8, !tbaa !230
+  %670 = load double, ptr %669, align 8, !tbaa !268
   %671 = fmul reassoc nsz arcp contract afn double %670, 4.000000e+00
   call void @cairo_arc(ptr noundef %53, double noundef %664, double noundef %667, double noundef %671, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #17
   call void @cairo_stroke(ptr noundef %53) #17
@@ -4930,9 +4930,9 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 672:                                              ; preds = %660, %648
   %673 = add nuw nsw i32 %.0321.i, 1
   %674 = getelementptr inbounds nuw i8, ptr %.0254322.i, i64 8
-  %.0254.i = load ptr, ptr %674, align 8, !tbaa !264
+  %.0254.i = load ptr, ptr %674, align 8, !tbaa !315
   %.not271.i = icmp eq ptr %.0254.i, null
-  br i1 %.not271.i, label %_lib_histogram_draw_vectorscope.exit, label %642
+  br i1 %.not271.i, label %_lib_histogram_draw_vectorscope.exit, label %642, !llvm.loop !316
 
 _lib_histogram_draw_vectorscope.exit:             ; preds = %672, %640, %.preheader.i127
   call void @cairo_restore(ptr noundef %53) #17
@@ -4950,7 +4950,7 @@ _lib_histogram_draw_histogram.exit:               ; preds = %194, %170, %329, %_
 676:                                              ; preds = %_lib_histogram_draw_histogram.exit, %149
   %677 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %145) #17
   call void @cairo_rectangle(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %40, double noundef %46) #17
-  %678 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !231
+  %678 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !269
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 656
   %.sroa.0142.0.copyload = load double, ptr %679, align 8
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %678, i64 664
@@ -4974,19 +4974,19 @@ _lib_histogram_draw_histogram.exit:               ; preds = %194, %170, %329, %_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_drawable_leave_notify_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %5 = load i32, ptr %4, align 4, !tbaa !265
+  %5 = load i32, ptr %4, align 4, !tbaa !317
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %9 = load i32, ptr %8, align 64, !tbaa !225
+  %9 = load i32, ptr %8, align 64, !tbaa !260
   %.not4 = icmp eq i32 %9, 0
   br i1 %.not4, label %11, label %10
 
 10:                                               ; preds = %7
-  store i32 0, ptr %8, align 64, !tbaa !225
+  store i32 0, ptr %8, align 64, !tbaa !260
   tail call void @dt_control_change_cursor(i32 noundef 68) #17
   tail call void @gtk_widget_queue_draw(ptr noundef %0) #17
   br label %11
@@ -4998,28 +4998,28 @@ define internal noundef i32 @_drawable_leave_notify_callback(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_drawable_button_press_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %5 = load i32, ptr %4, align 64, !tbaa !225
+  %5 = load i32, ptr %4, align 64, !tbaa !260
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %8 = load i32, ptr %7, align 4, !tbaa !104
+  %8 = load i32, ptr %7, align 4, !tbaa !106
   %.not7 = icmp eq i32 %8, 3
   br i1 %.not7, label %17, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %11 = load i32, ptr %10, align 4, !tbaa !106
+  %11 = load i32, ptr %10, align 4, !tbaa !110
   %.not8 = icmp eq i32 %11, 1
   br i1 %.not8, label %17, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !268
+  %14 = load double, ptr %13, align 8, !tbaa !320
   %15 = fneg reassoc nsz arcp contract afn double %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %15, ptr %16, align 8, !tbaa !272
+  store double %15, ptr %16, align 8, !tbaa !324
   br label %17
 
 17:                                               ; preds = %12, %9, %6
@@ -5043,29 +5043,29 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !273
+  %7 = load i32, ptr %6, align 8, !tbaa !325
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %11 = load i32, ptr %10, align 4, !tbaa !104
+  %11 = load i32, ptr %10, align 4, !tbaa !106
   %.not34 = icmp eq i32 %11, 3
   br i1 %.not34, label %20, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %14 = load i32, ptr %13, align 4, !tbaa !106
+  %14 = load i32, ptr %13, align 4, !tbaa !110
   %.not35 = icmp eq i32 %14, 1
   br i1 %.not35, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load double, ptr %16, align 8, !tbaa !275
+  %17 = load double, ptr %16, align 8, !tbaa !327
   %18 = fneg reassoc nsz arcp contract afn double %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %18, ptr %19, align 8, !tbaa !276
+  store double %18, ptr %19, align 8, !tbaa !328
   br label %20
 
 20:                                               ; preds = %15, %12, %9
@@ -5076,41 +5076,41 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load double, ptr %22, align 8, !tbaa !276
+  %23 = load double, ptr %22, align 8, !tbaa !328
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i32, ptr %24, align 4, !tbaa !226
+  %25 = load i32, ptr %24, align 4, !tbaa !264
   %26 = sitofp i32 %25 to float
   %27 = fpext reassoc nsz arcp contract afn float %26 to double
   %28 = fdiv reassoc nsz arcp contract afn double %23, %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load double, ptr %29, align 8, !tbaa !275
+  %30 = load double, ptr %29, align 8, !tbaa !327
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !228
+  %32 = load i32, ptr %31, align 4, !tbaa !266
   %33 = sitofp i32 %32 to float
   %34 = fpext reassoc nsz arcp contract afn float %33 to double
   %35 = fdiv reassoc nsz arcp contract afn double %30, %34
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %37 = load i32, ptr %36, align 64, !tbaa !225
+  %37 = load i32, ptr %36, align 64, !tbaa !260
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %39 = load i32, ptr %38, align 4, !tbaa !104
+  %39 = load i32, ptr %38, align 4, !tbaa !106
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %42 = load ptr, ptr %41, align 8, !tbaa !105
   %43 = call ptr @dcgettext(ptr noundef null, ptr noundef %42, i32 noundef 5) #17
   %44 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #17
   %45 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.98, i32 noundef 5) #17
   %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #17
   %47 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46) #17
-  store ptr %47, ptr %5, align 8, !tbaa !103
-  %48 = load i32, ptr %38, align 4, !tbaa !104
+  store ptr %47, ptr %5, align 8, !tbaa !105
+  %48 = load i32, ptr %38, align 4, !tbaa !106
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %21
-  store i32 0, ptr %36, align 64, !tbaa !225
+  store i32 0, ptr %36, align 64, !tbaa !260
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 2704
-  %52 = load i32, ptr %51, align 16, !tbaa !107
+  %52 = load i32, ptr %51, align 16, !tbaa !112
   %53 = icmp eq i32 %52, 2
   br i1 %53, label %54, label %84
 
@@ -5144,7 +5144,7 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %70 = load i32, ptr %69, align 4, !tbaa !106
+  %70 = load i32, ptr %69, align 4, !tbaa !110
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %78, label %72
 
@@ -5154,36 +5154,36 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %76 = load i32, ptr %75, align 4, !tbaa !106
+  %76 = load i32, ptr %75, align 4, !tbaa !110
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %62, %74, %68
-  store i32 1, ptr %36, align 64, !tbaa !225
+  store i32 1, ptr %36, align 64, !tbaa !260
   %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.106, i32 noundef 5) #17
   %80 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %79, ptr noundef %80) #17
   br label %84
 
 81:                                               ; preds = %65, %74, %72
-  store i32 2, ptr %36, align 64, !tbaa !225
+  store i32 2, ptr %36, align 64, !tbaa !260
   %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef 5) #17
   %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %82, ptr noundef %83) #17
   br label %84
 
 84:                                               ; preds = %78, %81, %50, %54, %57
-  %85 = load ptr, ptr %5, align 8, !tbaa !103
+  %85 = load ptr, ptr %5, align 8, !tbaa !105
   call void @gtk_widget_set_tooltip_text(ptr noundef %0, ptr noundef %85) #17
-  %86 = load ptr, ptr %5, align 8, !tbaa !103
+  %86 = load ptr, ptr %5, align 8, !tbaa !105
   call void @g_free(ptr noundef %86) #17
-  %87 = load i32, ptr %36, align 64, !tbaa !225
+  %87 = load i32, ptr %36, align 64, !tbaa !260
   %.not32 = icmp eq i32 %37, %87
   br i1 %.not32, label %91, label %88
 
 88:                                               ; preds = %84
   call void @gtk_widget_queue_draw(ptr noundef %0) #17
-  %89 = load i32, ptr %36, align 64, !tbaa !225
+  %89 = load i32, ptr %36, align 64, !tbaa !260
   %.not33 = icmp eq i32 %89, 0
   br i1 %.not33, label %91, label %90
 
@@ -5204,11 +5204,11 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
 define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #2 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  store i32 0, ptr %4, align 4, !tbaa !112
+  store i32 0, ptr %4, align 4, !tbaa !118
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !277
+  %6 = load i32, ptr %5, align 8, !tbaa !329
   %7 = tail call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %8 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
+  %8 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !118
   %9 = or i32 %8, %6
   %10 = and i32 %9, %7
   %.not = icmp eq i32 %10, 9
@@ -5216,13 +5216,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 2496
-  %13 = load ptr, ptr %12, align 64, !tbaa !92
+  %13 = load ptr, ptr %12, align 64, !tbaa !94
   %14 = tail call i32 @gtk_widget_event(ptr noundef %13, ptr noundef nonnull %1) #17
   br label %96
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %17 = load i32, ptr %16, align 64, !tbaa !225
+  %17 = load i32, ptr %16, align 64, !tbaa !260
   %.not43 = icmp eq i32 %17, 0
   br i1 %.not43, label %29, label %18
 
@@ -5233,13 +5233,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %23 = load double, ptr %22, align 8, !tbaa !279
+  %23 = load double, ptr %22, align 8, !tbaa !331
   %24 = fneg reassoc nsz arcp contract afn double %23
-  store double %24, ptr %22, align 8, !tbaa !279
+  store double %24, ptr %22, align 8, !tbaa !331
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %26 = load double, ptr %25, align 8, !tbaa !280
+  %26 = load double, ptr %25, align 8, !tbaa !332
   %27 = fneg reassoc nsz arcp contract afn double %26
-  store double %27, ptr %25, align 8, !tbaa !280
+  store double %27, ptr %25, align 8, !tbaa !332
   br label %28
 
 28:                                               ; preds = %21, %18
@@ -5256,14 +5256,14 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %36 = load i32, ptr %35, align 4, !tbaa !104
+  %36 = load i32, ptr %35, align 4, !tbaa !106
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %96
 
 38:                                               ; preds = %34
-  %39 = load i32, ptr %5, align 8, !tbaa !277
+  %39 = load i32, ptr %5, align 8, !tbaa !329
   %40 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %41 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
+  %41 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !118
   %42 = or i32 %41, %39
   %43 = and i32 %42, %40
   %.not47 = icmp eq i32 %43, 1
@@ -5289,9 +5289,9 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   br label %95
 
 54:                                               ; preds = %38
-  %55 = load i32, ptr %5, align 8, !tbaa !277
+  %55 = load i32, ptr %5, align 8, !tbaa !329
   %56 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %57 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
+  %57 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !118
   %58 = or i32 %57, %55
   %59 = and i32 %58, %56
   %.not48 = icmp eq i32 %59, 8
@@ -5299,7 +5299,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  %62 = load i32, ptr %61, align 64, !tbaa !161
+  %62 = load i32, ptr %61, align 64, !tbaa !169
   %63 = icmp eq i32 %62, 0
   %64 = load i32, ptr %4, align 4
   %65 = icmp slt i32 %64, 0
@@ -5317,13 +5317,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   store i32 %.sink, ptr %70, align 4, !tbaa !84
   call fastcc void @_color_harmony_button_on(ptr noundef nonnull %2)
   %71 = load i32, ptr %70, align 4, !tbaa !84
-  store i32 %71, ptr %61, align 64, !tbaa !161
+  store i32 %71, ptr %61, align 64, !tbaa !169
   br label %95
 
 72:                                               ; preds = %54
-  %73 = load i32, ptr %5, align 8, !tbaa !277
+  %73 = load i32, ptr %5, align 8, !tbaa !329
   %74 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %75 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
+  %75 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !118
   %76 = or i32 %75, %73
   %77 = and i32 %76, %74
   %.not49 = icmp eq i32 %77, 4
@@ -5332,7 +5332,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   br i1 %.not49, label %80, label %83
 
 80:                                               ; preds = %72
-  %81 = load i32, ptr %4, align 4, !tbaa !112
+  %81 = load i32, ptr %4, align 4, !tbaa !118
   %82 = add nsw i32 %81, %79
   br label %90
 
@@ -5340,7 +5340,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   %84 = sitofp i32 %79 to double
   %85 = fmul reassoc nsz arcp contract afn double %84, 0x3FB1111111111111
   %86 = fptosi double %85 to i32
-  %87 = load i32, ptr %4, align 4, !tbaa !112
+  %87 = load i32, ptr %4, align 4, !tbaa !118
   %88 = add i32 %87, %86
   %89 = mul i32 %88, 15
   br label %90
@@ -5368,10 +5368,10 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 define internal noundef i32 @_eventbox_enter_notify_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   tail call fastcc void @_scope_type_update(ptr noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2504
-  %5 = load ptr, ptr %4, align 8, !tbaa !98
+  %5 = load ptr, ptr %4, align 8, !tbaa !100
   tail call void @gtk_widget_show(ptr noundef %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2512
-  %7 = load ptr, ptr %6, align 16, !tbaa !99
+  %7 = load ptr, ptr %6, align 16, !tbaa !101
   tail call void @gtk_widget_show(ptr noundef %7) #17
   ret i32 0
 }
@@ -5379,22 +5379,22 @@ define internal noundef i32 @_eventbox_enter_notify_callback(ptr readnone captur
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_eventbox_leave_notify_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i32, ptr %4, align 8, !tbaa !281
+  %5 = load i32, ptr %4, align 8, !tbaa !333
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %9 = load i32, ptr %8, align 4, !tbaa !282
+  %9 = load i32, ptr %8, align 4, !tbaa !334
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %7, %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 2504
-  %13 = load ptr, ptr %12, align 8, !tbaa !98
+  %13 = load ptr, ptr %12, align 8, !tbaa !100
   tail call void @gtk_widget_hide(ptr noundef %13) #17
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 2512
-  %15 = load ptr, ptr %14, align 16, !tbaa !99
+  %15 = load ptr, ptr %14, align 16, !tbaa !101
   tail call void @gtk_widget_hide(ptr noundef %15) #17
   br label %16
 
@@ -5408,16 +5408,16 @@ define internal noundef i32 @_eventbox_motion_notify_callback(ptr noundef %0, pt
   tail call fastcc void @_scope_type_update(ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2536
-  %6 = load ptr, ptr %5, align 8, !tbaa !157
+  %6 = load ptr, ptr %5, align 8, !tbaa !165
   call void @gtk_widget_get_allocation(ptr noundef %6, ptr noundef nonnull %4) #17
   %7 = call i32 @gtk_widget_get_allocated_height(ptr noundef %0) #17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 2528
-  %9 = load ptr, ptr %8, align 32, !tbaa !156
+  %9 = load ptr, ptr %8, align 32, !tbaa !164
   %10 = call i32 @gtk_widget_get_allocated_height(ptr noundef %9) #17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !283
+  %12 = load i32, ptr %11, align 4, !tbaa !335
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !275
+  %14 = load double, ptr %13, align 8, !tbaa !327
   %15 = sitofp i32 %12 to double
   %16 = fsub reassoc nsz arcp contract afn double %14, %15
   %17 = fcmp reassoc nsz arcp contract afn ogt double %16, 0.000000e+00
@@ -5430,10 +5430,10 @@ define internal noundef i32 @_eventbox_motion_notify_callback(ptr noundef %0, pt
   %24 = sitofp i32 %23 to double
   %25 = fdiv reassoc nsz arcp contract afn double %22, %24
   %26 = fptosi double %25 to i32
-  %27 = load ptr, ptr %5, align 8, !tbaa !157
+  %27 = load ptr, ptr %5, align 8, !tbaa !165
   %28 = tail call i64 @gtk_fixed_get_type() #18
   %29 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #17
-  %30 = load ptr, ptr %8, align 32, !tbaa !156
+  %30 = load ptr, ptr %8, align 32, !tbaa !164
   %31 = call i32 @llvm.smax.i32(i32 %26, i32 0)
   %32 = sub nsw i32 0, %31
   call void @gtk_fixed_move(ptr noundef %29, ptr noundef %30, i32 noundef 0, i32 noundef %32) #17
@@ -5447,47 +5447,47 @@ declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #1
 define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr %3, align 64, !tbaa !109
+  %4 = load ptr, ptr %3, align 64, !tbaa !115
   tail call void @free(ptr noundef %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %13
 
 6:                                                ; preds = %13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !118
+  %8 = load ptr, ptr %7, align 8, !tbaa !125
   tail call void @free(ptr noundef %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %10 = load ptr, ptr %9, align 64, !tbaa !119
+  %10 = load ptr, ptr %9, align 64, !tbaa !126
   tail call void @free(ptr noundef %10) #17
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %12 = load ptr, ptr %11, align 16, !tbaa !124
+  %12 = load ptr, ptr %11, align 16, !tbaa !131
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %16
 
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !103
+  %15 = load ptr, ptr %14, align 8, !tbaa !105
   tail call void @free(ptr noundef %15) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %13
+  br i1 %exitcond.not, label %6, label %13, !llvm.loop !336
 
 16:                                               ; preds = %6
   tail call void @g_slist_free_full(ptr noundef nonnull %12, ptr noundef nonnull @free) #17
   br label %17
 
 17:                                               ; preds = %16, %6
-  store ptr null, ptr %11, align 16, !tbaa !124
+  store ptr null, ptr %11, align 16, !tbaa !131
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 -1, ptr %18, align 8, !tbaa !125
+  store i32 -1, ptr %18, align 8, !tbaa !132
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 2456
   %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %19) #17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 2736
-  %22 = load ptr, ptr %21, align 16, !tbaa !126
+  %22 = load ptr, ptr %21, align 16, !tbaa !133
   tail call void @g_free(ptr noundef %22) #17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2744
-  %24 = load ptr, ptr %23, align 8, !tbaa !127
+  %24 = load ptr, ptr %23, align 8, !tbaa !134
   tail call void @g_free(ptr noundef %24) #17
   %25 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @free(ptr noundef %25) #17
@@ -5581,13 +5581,13 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 712
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 768
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %32 = load i32, ptr %31, align 4, !tbaa !216
+  %32 = load i32, ptr %31, align 4, !tbaa !235
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %101, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 704
-  %35 = load i32, ptr %34, align 64, !tbaa !209
+  %35 = load i32, ptr %34, align 64, !tbaa !222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
   %36 = add nsw i32 %35, -1
   %37 = sitofp i32 %36 to float
@@ -5598,11 +5598,11 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
 40:                                               ; preds = %77, %33
   %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %77 ]
   %41 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
-  %42 = load ptr, ptr %41, align 8, !tbaa !208
-  %43 = load float, ptr %42, align 4, !tbaa !196
+  %42 = load ptr, ptr %41, align 8, !tbaa !221
+  %43 = load float, ptr %42, align 4, !tbaa !207
   %44 = fcmp reassoc nsz arcp contract afn ult float %43, 0.000000e+00
   %45 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
-  %46 = load float, ptr %45, align 4, !tbaa !196
+  %46 = load float, ptr %45, align 4, !tbaa !207
   br i1 %44, label %77, label %47
 
 47:                                               ; preds = %40
@@ -5622,9 +5622,9 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
   %58 = fsub reassoc nsz arcp contract afn float %53, %57
   %59 = sext i32 %56 to i64
   %60 = getelementptr inbounds float, ptr %42, i64 %59
-  %61 = load float, ptr %60, align 4, !tbaa !196
+  %61 = load float, ptr %60, align 4, !tbaa !207
   %62 = getelementptr i8, ptr %60, i64 4
-  %63 = load float, ptr %62, align 4, !tbaa !196
+  %63 = load float, ptr %62, align 4, !tbaa !207
   %64 = fsub reassoc nsz arcp contract afn float %63, %61
   %65 = fmul reassoc nsz arcp contract afn float %64, %58
   %66 = fadd reassoc nsz arcp contract afn float %65, %61
@@ -5633,11 +5633,11 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
 67:                                               ; preds = %47
   %68 = getelementptr inbounds nuw [3 x float], ptr %30, i64 %indvars.iv.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %70 = load float, ptr %69, align 4, !tbaa !196
-  %71 = load float, ptr %68, align 4, !tbaa !196
+  %70 = load float, ptr %69, align 4, !tbaa !207
+  %71 = load float, ptr %68, align 4, !tbaa !207
   %72 = fmul reassoc nsz arcp contract afn float %71, %46
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %74 = load float, ptr %73, align 4, !tbaa !196
+  %74 = load float, ptr %73, align 4, !tbaa !207
   %75 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %72, float %74)
   %76 = fmul reassoc nsz arcp contract afn float %75, %70
   br label %77
@@ -5645,39 +5645,39 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
 77:                                               ; preds = %67, %49, %40
   %78 = phi reassoc nsz arcp contract afn float [ %66, %49 ], [ %76, %67 ], [ %46, %40 ]
   %79 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i
-  store float %78, ptr %79, align 4, !tbaa !196
+  store float %78, ptr %79, align 4, !tbaa !207
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %dt_ioppr_apply_trc.exit.i, label %40
+  br i1 %exitcond.not.i.i, label %dt_ioppr_apply_trc.exit.i, label %40, !llvm.loop !236
 
 dt_ioppr_apply_trc.exit.i:                        ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %84 = load float, ptr %22, align 16, !tbaa !196
-  %85 = load float, ptr %81, align 4, !tbaa !196
-  %86 = load float, ptr %83, align 8, !tbaa !196
+  %84 = load float, ptr %22, align 16, !tbaa !207
+  %85 = load float, ptr %81, align 4, !tbaa !207
+  %86 = load float, ptr %83, align 8, !tbaa !207
   br label %87
 
 87:                                               ; preds = %87, %dt_ioppr_apply_trc.exit.i
   %.012.i.i = phi i64 [ 0, %dt_ioppr_apply_trc.exit.i ], [ %100, %87 ]
   %88 = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %.012.i.i
-  %89 = load float, ptr %88, align 4, !tbaa !196
+  %89 = load float, ptr %88, align 4, !tbaa !207
   %90 = fmul reassoc nsz arcp contract afn float %89, %84
   %91 = getelementptr inbounds nuw [4 x float], ptr %80, i64 0, i64 %.012.i.i
-  %92 = load float, ptr %91, align 4, !tbaa !196
+  %92 = load float, ptr %91, align 4, !tbaa !207
   %93 = fmul reassoc nsz arcp contract afn float %92, %85
   %94 = fadd reassoc nsz arcp contract afn float %93, %90
   %95 = getelementptr inbounds nuw [4 x float], ptr %82, i64 0, i64 %.012.i.i
-  %96 = load float, ptr %95, align 4, !tbaa !196
+  %96 = load float, ptr %95, align 4, !tbaa !207
   %97 = fmul reassoc nsz arcp contract afn float %96, %86
   %98 = fadd reassoc nsz arcp contract afn float %94, %97
   %99 = getelementptr inbounds nuw float, ptr %23, i64 %.012.i.i
-  store float %98, ptr %99, align 4, !tbaa !196
+  store float %98, ptr %99, align 4, !tbaa !207
   %100 = add nuw nsw i64 %.012.i.i, 1
   %exitcond.not.i9.i = icmp eq i64 %100, 4
-  br i1 %exitcond.not.i9.i, label %dt_apply_transposed_color_matrix.exit.i, label %87
+  br i1 %exitcond.not.i9.i, label %dt_apply_transposed_color_matrix.exit.i, label %87, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i:          ; preds = %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
@@ -5688,32 +5688,32 @@ dt_apply_transposed_color_matrix.exit.i:          ; preds = %87
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %106 = load float, ptr %0, align 4, !tbaa !196
-  %107 = load float, ptr %103, align 4, !tbaa !196
-  %108 = load float, ptr %105, align 4, !tbaa !196
+  %106 = load float, ptr %0, align 4, !tbaa !207
+  %107 = load float, ptr %103, align 4, !tbaa !207
+  %108 = load float, ptr %105, align 4, !tbaa !207
   br label %109
 
 109:                                              ; preds = %109, %101
   %.012.i10.i = phi i64 [ 0, %101 ], [ %122, %109 ]
   %110 = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %.012.i10.i
-  %111 = load float, ptr %110, align 4, !tbaa !196
+  %111 = load float, ptr %110, align 4, !tbaa !207
   %112 = fmul reassoc nsz arcp contract afn float %106, %111
   %113 = getelementptr inbounds nuw [4 x float], ptr %102, i64 0, i64 %.012.i10.i
-  %114 = load float, ptr %113, align 4, !tbaa !196
+  %114 = load float, ptr %113, align 4, !tbaa !207
   %115 = fmul reassoc nsz arcp contract afn float %107, %114
   %116 = fadd reassoc nsz arcp contract afn float %115, %112
   %117 = getelementptr inbounds nuw [4 x float], ptr %104, i64 0, i64 %.012.i10.i
-  %118 = load float, ptr %117, align 4, !tbaa !196
+  %118 = load float, ptr %117, align 4, !tbaa !207
   %119 = fmul reassoc nsz arcp contract afn float %108, %118
   %120 = fadd reassoc nsz arcp contract afn float %116, %119
   %121 = getelementptr inbounds nuw float, ptr %23, i64 %.012.i10.i
-  store float %120, ptr %121, align 4, !tbaa !196
+  store float %120, ptr %121, align 4, !tbaa !207
   %122 = add nuw nsw i64 %.012.i10.i, 1
   %exitcond.not.i11.i = icmp eq i64 %122, 4
-  br i1 %exitcond.not.i11.i, label %dt_ioppr_rgb_matrix_to_xyz.exit, label %109
+  br i1 %exitcond.not.i11.i, label %dt_ioppr_rgb_matrix_to_xyz.exit, label %109, !llvm.loop !237
 
 dt_ioppr_rgb_matrix_to_xyz.exit:                  ; preds = %109, %dt_apply_transposed_color_matrix.exit.i
-  %.val = load <4 x float>, ptr %23, align 16, !tbaa !212
+  %.val = load <4 x float>, ptr %23, align 16, !tbaa !225
   %123 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val, <4 x float> zeroinitializer)
   %.sroa.0.0.vec.extract.i = extractelement <4 x float> %123, i64 0
   %.sroa.0.4.vec.extract4.i = extractelement <4 x float> %123, i64 1
@@ -5748,16 +5748,16 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
   %144 = fdiv reassoc nsz arcp contract afn float %139, %143
   %145 = fmul reassoc nsz arcp contract afn float %128, 4.000000e+00
   %146 = fdiv reassoc nsz arcp contract afn float %145, %143
-  store float %138, ptr %1, align 4, !tbaa !196
+  store float %138, ptr %1, align 4, !tbaa !207
   %147 = fmul reassoc nsz arcp contract afn float %138, 1.300000e+01
   %148 = fadd reassoc nsz arcp contract afn float %146, 0xBFCAC5BA20000000
   %149 = fmul reassoc nsz arcp contract afn float %147, %148
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %149, ptr %150, align 4, !tbaa !196
+  store float %149, ptr %150, align 4, !tbaa !207
   %151 = fadd reassoc nsz arcp contract afn float %144, 0xBFDF3CA040000000
   %152 = fmul reassoc nsz arcp contract afn float %147, %151
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %152, ptr %153, align 4, !tbaa !196
+  store float %152, ptr %153, align 4, !tbaa !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #17
   br label %547
 
@@ -5767,13 +5767,13 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 712
   %157 = getelementptr inbounds nuw i8, ptr %3, i64 768
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %159 = load i32, ptr %158, align 4, !tbaa !216
+  %159 = load i32, ptr %158, align 4, !tbaa !235
   %.not.i20 = icmp eq i32 %159, 0
   br i1 %.not.i20, label %228, label %160
 
 160:                                              ; preds = %154
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 704
-  %162 = load i32, ptr %161, align 64, !tbaa !209
+  %162 = load i32, ptr %161, align 64, !tbaa !222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #17
   %163 = add nsw i32 %162, -1
   %164 = sitofp i32 %163 to float
@@ -5784,11 +5784,11 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
 167:                                              ; preds = %204, %160
   %indvars.iv.i.i21 = phi i64 [ 0, %160 ], [ %indvars.iv.next.i.i22, %204 ]
   %168 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i.i21
-  %169 = load ptr, ptr %168, align 8, !tbaa !208
-  %170 = load float, ptr %169, align 4, !tbaa !196
+  %169 = load ptr, ptr %168, align 8, !tbaa !221
+  %170 = load float, ptr %169, align 4, !tbaa !207
   %171 = fcmp reassoc nsz arcp contract afn ult float %170, 0.000000e+00
   %172 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i21
-  %173 = load float, ptr %172, align 4, !tbaa !196
+  %173 = load float, ptr %172, align 4, !tbaa !207
   br i1 %171, label %204, label %174
 
 174:                                              ; preds = %167
@@ -5808,9 +5808,9 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
   %185 = fsub reassoc nsz arcp contract afn float %180, %184
   %186 = sext i32 %183 to i64
   %187 = getelementptr inbounds float, ptr %169, i64 %186
-  %188 = load float, ptr %187, align 4, !tbaa !196
+  %188 = load float, ptr %187, align 4, !tbaa !207
   %189 = getelementptr i8, ptr %187, i64 4
-  %190 = load float, ptr %189, align 4, !tbaa !196
+  %190 = load float, ptr %189, align 4, !tbaa !207
   %191 = fsub reassoc nsz arcp contract afn float %190, %188
   %192 = fmul reassoc nsz arcp contract afn float %191, %185
   %193 = fadd reassoc nsz arcp contract afn float %192, %188
@@ -5819,11 +5819,11 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
 194:                                              ; preds = %174
   %195 = getelementptr inbounds nuw [3 x float], ptr %157, i64 %indvars.iv.i.i21
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
-  %197 = load float, ptr %196, align 4, !tbaa !196
-  %198 = load float, ptr %195, align 4, !tbaa !196
+  %197 = load float, ptr %196, align 4, !tbaa !207
+  %198 = load float, ptr %195, align 4, !tbaa !207
   %199 = fmul reassoc nsz arcp contract afn float %198, %173
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %201 = load float, ptr %200, align 4, !tbaa !196
+  %201 = load float, ptr %200, align 4, !tbaa !207
   %202 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %199, float %201)
   %203 = fmul reassoc nsz arcp contract afn float %202, %197
   br label %204
@@ -5831,39 +5831,39 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
 204:                                              ; preds = %194, %176, %167
   %205 = phi reassoc nsz arcp contract afn float [ %193, %176 ], [ %203, %194 ], [ %173, %167 ]
   %206 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.i21
-  store float %205, ptr %206, align 4, !tbaa !196
+  store float %205, ptr %206, align 4, !tbaa !207
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, 3
-  br i1 %exitcond.not.i.i23, label %dt_ioppr_apply_trc.exit.i24, label %167
+  br i1 %exitcond.not.i.i23, label %dt_ioppr_apply_trc.exit.i24, label %167, !llvm.loop !236
 
 dt_ioppr_apply_trc.exit.i24:                      ; preds = %204
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %208 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %209 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %210 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %211 = load float, ptr %21, align 16, !tbaa !196
-  %212 = load float, ptr %208, align 4, !tbaa !196
-  %213 = load float, ptr %210, align 8, !tbaa !196
+  %211 = load float, ptr %21, align 16, !tbaa !207
+  %212 = load float, ptr %208, align 4, !tbaa !207
+  %213 = load float, ptr %210, align 8, !tbaa !207
   br label %214
 
 214:                                              ; preds = %214, %dt_ioppr_apply_trc.exit.i24
   %.012.i.i25 = phi i64 [ 0, %dt_ioppr_apply_trc.exit.i24 ], [ %227, %214 ]
   %215 = getelementptr inbounds nuw [4 x float], ptr %155, i64 0, i64 %.012.i.i25
-  %216 = load float, ptr %215, align 4, !tbaa !196
+  %216 = load float, ptr %215, align 4, !tbaa !207
   %217 = fmul reassoc nsz arcp contract afn float %216, %211
   %218 = getelementptr inbounds nuw [4 x float], ptr %207, i64 0, i64 %.012.i.i25
-  %219 = load float, ptr %218, align 4, !tbaa !196
+  %219 = load float, ptr %218, align 4, !tbaa !207
   %220 = fmul reassoc nsz arcp contract afn float %219, %212
   %221 = fadd reassoc nsz arcp contract afn float %220, %217
   %222 = getelementptr inbounds nuw [4 x float], ptr %209, i64 0, i64 %.012.i.i25
-  %223 = load float, ptr %222, align 4, !tbaa !196
+  %223 = load float, ptr %222, align 4, !tbaa !207
   %224 = fmul reassoc nsz arcp contract afn float %223, %213
   %225 = fadd reassoc nsz arcp contract afn float %221, %224
   %226 = getelementptr inbounds nuw float, ptr %24, i64 %.012.i.i25
-  store float %225, ptr %226, align 4, !tbaa !196
+  store float %225, ptr %226, align 4, !tbaa !207
   %227 = add nuw nsw i64 %.012.i.i25, 1
   %exitcond.not.i9.i26 = icmp eq i64 %227, 4
-  br i1 %exitcond.not.i9.i26, label %dt_apply_transposed_color_matrix.exit.i27, label %214
+  br i1 %exitcond.not.i9.i26, label %dt_apply_transposed_color_matrix.exit.i27, label %214, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i27:        ; preds = %214
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #17
@@ -5874,67 +5874,67 @@ dt_apply_transposed_color_matrix.exit.i27:        ; preds = %214
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %233 = load float, ptr %0, align 4, !tbaa !196
-  %234 = load float, ptr %230, align 4, !tbaa !196
-  %235 = load float, ptr %232, align 4, !tbaa !196
+  %233 = load float, ptr %0, align 4, !tbaa !207
+  %234 = load float, ptr %230, align 4, !tbaa !207
+  %235 = load float, ptr %232, align 4, !tbaa !207
   br label %236
 
 236:                                              ; preds = %236, %228
   %.012.i10.i29 = phi i64 [ 0, %228 ], [ %249, %236 ]
   %237 = getelementptr inbounds nuw [4 x float], ptr %155, i64 0, i64 %.012.i10.i29
-  %238 = load float, ptr %237, align 4, !tbaa !196
+  %238 = load float, ptr %237, align 4, !tbaa !207
   %239 = fmul reassoc nsz arcp contract afn float %233, %238
   %240 = getelementptr inbounds nuw [4 x float], ptr %229, i64 0, i64 %.012.i10.i29
-  %241 = load float, ptr %240, align 4, !tbaa !196
+  %241 = load float, ptr %240, align 4, !tbaa !207
   %242 = fmul reassoc nsz arcp contract afn float %234, %241
   %243 = fadd reassoc nsz arcp contract afn float %242, %239
   %244 = getelementptr inbounds nuw [4 x float], ptr %231, i64 0, i64 %.012.i10.i29
-  %245 = load float, ptr %244, align 4, !tbaa !196
+  %245 = load float, ptr %244, align 4, !tbaa !207
   %246 = fmul reassoc nsz arcp contract afn float %235, %245
   %247 = fadd reassoc nsz arcp contract afn float %243, %246
   %248 = getelementptr inbounds nuw float, ptr %24, i64 %.012.i10.i29
-  store float %247, ptr %248, align 4, !tbaa !196
+  store float %247, ptr %248, align 4, !tbaa !207
   %249 = add nuw nsw i64 %.012.i10.i29, 1
   %exitcond.not.i11.i30 = icmp eq i64 %249, 4
-  br i1 %exitcond.not.i11.i30, label %dt_ioppr_rgb_matrix_to_xyz.exit31, label %236
+  br i1 %exitcond.not.i11.i30, label %dt_ioppr_rgb_matrix_to_xyz.exit31, label %236, !llvm.loop !237
 
 dt_ioppr_rgb_matrix_to_xyz.exit31:                ; preds = %236, %dt_apply_transposed_color_matrix.exit.i27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #17
   %250 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %251 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %252 = load float, ptr %24, align 16, !tbaa !196
-  %253 = load float, ptr %250, align 4, !tbaa !196
-  %254 = load float, ptr %251, align 8, !tbaa !196
+  %252 = load float, ptr %24, align 16, !tbaa !207
+  %253 = load float, ptr %250, align 4, !tbaa !207
+  %254 = load float, ptr %251, align 8, !tbaa !207
   br label %255
 
 255:                                              ; preds = %255, %dt_ioppr_rgb_matrix_to_xyz.exit31
   %.09.i = phi i64 [ 0, %dt_ioppr_rgb_matrix_to_xyz.exit31 ], [ %268, %255 ]
   %256 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 0, i64 %.09.i
-  %257 = load float, ptr %256, align 4, !tbaa !196
+  %257 = load float, ptr %256, align 4, !tbaa !207
   %258 = fmul reassoc nsz arcp contract afn float %252, %257
   %259 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 16), i64 0, i64 %.09.i
-  %260 = load float, ptr %259, align 4, !tbaa !196
+  %260 = load float, ptr %259, align 4, !tbaa !207
   %261 = fmul reassoc nsz arcp contract afn float %253, %260
   %262 = fadd reassoc nsz arcp contract afn float %261, %258
   %263 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_D50_2_XYZ_D65.M_transposed, i64 32), i64 0, i64 %.09.i
-  %264 = load float, ptr %263, align 4, !tbaa !196
+  %264 = load float, ptr %263, align 4, !tbaa !207
   %265 = fmul reassoc nsz arcp contract afn float %254, %264
   %266 = fadd reassoc nsz arcp contract afn float %262, %265
   %267 = getelementptr inbounds nuw float, ptr %25, i64 %.09.i
-  store float %266, ptr %267, align 4, !tbaa !196
+  store float %266, ptr %267, align 4, !tbaa !207
   %268 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %268, 4
-  br i1 %exitcond.not.i, label %dt_XYZ_D50_2_XYZ_D65.exit, label %255
+  br i1 %exitcond.not.i, label %dt_XYZ_D50_2_XYZ_D65.exit, label %255, !llvm.loop !238
 
 dt_XYZ_D50_2_XYZ_D65.exit:                        ; preds = %255
-  %269 = load float, ptr %25, align 16, !tbaa !196
+  %269 = load float, ptr %25, align 16, !tbaa !207
   %270 = fmul reassoc nsz arcp contract afn float %269, 0x3FF2666660000000
   %271 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %272 = load float, ptr %271, align 8, !tbaa !196
+  %272 = load float, ptr %271, align 8, !tbaa !207
   %273 = fmul reassoc nsz arcp contract afn float %272, 0x3FC3333300000000
   %274 = fsub reassoc nsz arcp contract afn float %270, %273
   %275 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %276 = load float, ptr %275, align 4, !tbaa !196
+  %276 = load float, ptr %275, align 4, !tbaa !207
   %277 = fmul reassoc nsz arcp contract afn float %276, 0x3FE51EB860000000
   %278 = fmul reassoc nsz arcp contract afn float %269, 0x3FD5C28F40000000
   %279 = fadd reassoc nsz arcp contract afn float %277, %278
@@ -5945,53 +5945,53 @@ dt_XYZ_D50_2_XYZ_D65.exit:                        ; preds = %255
 280:                                              ; preds = %280, %dt_XYZ_D50_2_XYZ_D65.exit
   %.012.i.i32 = phi i64 [ 0, %dt_XYZ_D50_2_XYZ_D65.exit ], [ %293, %280 ]
   %281 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 0, i64 %.012.i.i32
-  %282 = load float, ptr %281, align 4, !tbaa !196
+  %282 = load float, ptr %281, align 4, !tbaa !207
   %283 = fmul reassoc nsz arcp contract afn float %282, %274
   %284 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 16), i64 0, i64 %.012.i.i32
-  %285 = load float, ptr %284, align 4, !tbaa !196
+  %285 = load float, ptr %284, align 4, !tbaa !207
   %286 = fmul reassoc nsz arcp contract afn float %285, %279
   %287 = fadd reassoc nsz arcp contract afn float %286, %283
   %288 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.M_transposed, i64 32), i64 0, i64 %.012.i.i32
-  %289 = load float, ptr %288, align 4, !tbaa !196
+  %289 = load float, ptr %288, align 4, !tbaa !207
   %290 = fmul reassoc nsz arcp contract afn float %289, %272
   %291 = fadd reassoc nsz arcp contract afn float %287, %290
   %292 = getelementptr inbounds nuw float, ptr %20, i64 %.012.i.i32
-  store float %291, ptr %292, align 4, !tbaa !196
+  store float %291, ptr %292, align 4, !tbaa !207
   %293 = add nuw nsw i64 %.012.i.i32, 1
   %exitcond.not.i.i33 = icmp eq i64 %293, 4
-  br i1 %exitcond.not.i.i33, label %dt_apply_transposed_color_matrix.exit.i34, label %280
+  br i1 %exitcond.not.i.i33, label %dt_apply_transposed_color_matrix.exit.i34, label %280, !llvm.loop !237
 
 294:                                              ; preds = %dt_apply_transposed_color_matrix.exit.i34
   %295 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %296 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %297 = load float, ptr %20, align 16, !tbaa !196
-  %298 = load float, ptr %295, align 4, !tbaa !196
-  %299 = load float, ptr %296, align 8, !tbaa !196
+  %297 = load float, ptr %20, align 16, !tbaa !207
+  %298 = load float, ptr %295, align 4, !tbaa !207
+  %299 = load float, ptr %296, align 8, !tbaa !207
   br label %300
 
 300:                                              ; preds = %300, %294
   %.012.i15.i = phi i64 [ 0, %294 ], [ %313, %300 ]
   %301 = getelementptr inbounds nuw [4 x float], ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 0, i64 %.012.i15.i
-  %302 = load float, ptr %301, align 4, !tbaa !196
+  %302 = load float, ptr %301, align 4, !tbaa !207
   %303 = fmul reassoc nsz arcp contract afn float %302, %297
   %304 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 16), i64 0, i64 %.012.i15.i
-  %305 = load float, ptr %304, align 4, !tbaa !196
+  %305 = load float, ptr %304, align 4, !tbaa !207
   %306 = fmul reassoc nsz arcp contract afn float %305, %298
   %307 = fadd reassoc nsz arcp contract afn float %306, %303
   %308 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_2_JzAzBz.A_transposed, i64 32), i64 0, i64 %.012.i15.i
-  %309 = load float, ptr %308, align 4, !tbaa !196
+  %309 = load float, ptr %308, align 4, !tbaa !207
   %310 = fmul reassoc nsz arcp contract afn float %309, %299
   %311 = fadd reassoc nsz arcp contract afn float %307, %310
   %312 = getelementptr inbounds nuw float, ptr %1, i64 %.012.i15.i
-  store float %311, ptr %312, align 4, !tbaa !196
+  store float %311, ptr %312, align 4, !tbaa !207
   %313 = add nuw nsw i64 %.012.i15.i, 1
   %exitcond.not.i16.i = icmp eq i64 %313, 4
-  br i1 %exitcond.not.i16.i, label %dt_XYZ_2_JzAzBz.exit, label %300
+  br i1 %exitcond.not.i16.i, label %dt_XYZ_2_JzAzBz.exit, label %300, !llvm.loop !237
 
 dt_apply_transposed_color_matrix.exit.i34:        ; preds = %280, %dt_apply_transposed_color_matrix.exit.i34
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %dt_apply_transposed_color_matrix.exit.i34 ], [ 0, %280 ]
   %314 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %indvars.iv.i
-  %315 = load float, ptr %314, align 4, !tbaa !196
+  %315 = load float, ptr %314, align 4, !tbaa !207
   %316 = fmul reassoc nsz arcp contract afn float %315, 0x3F1A36E2E0000000
   %317 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %316, float 0.000000e+00)
   %318 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %317, float 0x3FC4640000000000)
@@ -6001,20 +6001,20 @@ dt_apply_transposed_color_matrix.exit.i34:        ; preds = %280, %dt_apply_tran
   %322 = fadd reassoc nsz arcp contract afn float %321, 1.000000e+00
   %323 = fdiv reassoc nsz arcp contract afn float %320, %322
   %324 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %323, float 0x4060C119A0000000)
-  store float %324, ptr %314, align 4, !tbaa !196
+  store float %324, ptr %314, align 4, !tbaa !207
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i35, label %294, label %dt_apply_transposed_color_matrix.exit.i34
+  br i1 %exitcond.not.i35, label %294, label %dt_apply_transposed_color_matrix.exit.i34, !llvm.loop !239
 
 dt_XYZ_2_JzAzBz.exit:                             ; preds = %300
-  %325 = load float, ptr %1, align 4, !tbaa !196
+  %325 = load float, ptr %1, align 4, !tbaa !207
   %326 = fmul reassoc nsz arcp contract afn float %325, 0x3FDC28F5C0000000
   %327 = fmul reassoc nsz arcp contract afn float %325, 0x3FE1EB8520000000
   %328 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %327
   %329 = fdiv reassoc nsz arcp contract afn float %326, %328
   %330 = fadd reassoc nsz arcp contract afn float %329, 0xBDB1EAC680000000
   %331 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %330, float 0.000000e+00)
-  store float %331, ptr %1, align 4, !tbaa !196
+  store float %331, ptr %1, align 4, !tbaa !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #17
@@ -6031,20 +6031,20 @@ dt_XYZ_2_JzAzBz.exit:                             ; preds = %300
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
-  %334 = load float, ptr %18, align 16, !tbaa !196
-  store float %334, ptr %13, align 4, !tbaa !196
+  %334 = load float, ptr %18, align 16, !tbaa !207
+  store float %334, ptr %13, align 4, !tbaa !207
   %335 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %336 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %337 = load float, ptr %336, align 4, !tbaa !196
-  store float %337, ptr %335, align 4, !tbaa !196
+  %337 = load float, ptr %336, align 4, !tbaa !207
+  store float %337, ptr %335, align 4, !tbaa !207
   %338 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %339 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %340 = load float, ptr %339, align 8, !tbaa !196
-  store float %340, ptr %338, align 4, !tbaa !196
+  %340 = load float, ptr %339, align 8, !tbaa !207
+  store float %340, ptr %338, align 4, !tbaa !207
   %341 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %342 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %343 = load float, ptr %342, align 4, !tbaa !196
-  store float %343, ptr %341, align 4, !tbaa !196
+  %343 = load float, ptr %342, align 4, !tbaa !207
+  store float %343, ptr %341, align 4, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #17
   br label %345
 
@@ -6055,25 +6055,25 @@ dt_XYZ_2_JzAzBz.exit:                             ; preds = %300
 345:                                              ; preds = %345, %333
   %.02425.i.i.i = phi i64 [ 0, %333 ], [ %356, %345 ]
   %346 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %.02425.i.i.i
-  %347 = load i32, ptr %346, align 4, !tbaa !212
+  %347 = load i32, ptr %346, align 4, !tbaa !225
   %348 = and i32 %347, 8388607
   %349 = or disjoint i32 %348, 1065353216
   %350 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %.02425.i.i.i
-  store i32 %349, ptr %350, align 4, !tbaa !212
+  store i32 %349, ptr %350, align 4, !tbaa !225
   %351 = lshr i32 %347, 23
   %352 = and i32 %351, 255
   %353 = add nsw i32 %352, -127
   %354 = sitofp i32 %353 to float
   %355 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.02425.i.i.i
-  store float %354, ptr %355, align 4, !tbaa !196
+  store float %354, ptr %355, align 4, !tbaa !207
   %356 = add nuw nsw i64 %.02425.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %356, 4
-  br i1 %exitcond.not.i.i.i, label %344, label %345
+  br i1 %exitcond.not.i.i.i, label %344, label %345, !llvm.loop !337
 
 357:                                              ; preds = %357, %344
   %.02326.i.i.i = phi i64 [ 0, %344 ], [ %369, %357 ]
   %358 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.02326.i.i.i
-  %359 = load float, ptr %358, align 4, !tbaa !212
+  %359 = load float, ptr %358, align 4, !tbaa !225
   %360 = fmul reassoc nsz arcp contract afn float %359, 0x3FAE8AA5E0000000
   %361 = fadd reassoc nsz arcp contract afn float %360, 0xBFDDCE72E0000000
   %362 = fmul reassoc nsz arcp contract afn float %361, %359
@@ -6083,27 +6083,27 @@ dt_XYZ_2_JzAzBz.exit:                             ; preds = %300
   %366 = fmul reassoc nsz arcp contract afn float %365, %359
   %367 = fadd reassoc nsz arcp contract afn float %366, 0x40071B2D80000000
   %368 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.02326.i.i.i
-  store float %367, ptr %368, align 4, !tbaa !196
+  store float %367, ptr %368, align 4, !tbaa !207
   %369 = add nuw nsw i64 %.02326.i.i.i, 1
   %exitcond28.not.i.i.i = icmp eq i64 %369, 4
-  br i1 %exitcond28.not.i.i.i, label %.preheader.i.i.i, label %357
+  br i1 %exitcond28.not.i.i.i, label %.preheader.i.i.i, label %357, !llvm.loop !338
 
 .preheader.i.i.i:                                 ; preds = %357, %.preheader.i.i.i
   %.027.i.i.i = phi i64 [ %380, %.preheader.i.i.i ], [ 0, %357 ]
   %370 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.027.i.i.i
-  %371 = load float, ptr %370, align 4, !tbaa !196
+  %371 = load float, ptr %370, align 4, !tbaa !207
   %372 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.027.i.i.i
-  %373 = load float, ptr %372, align 4, !tbaa !212
+  %373 = load float, ptr %372, align 4, !tbaa !225
   %374 = fadd reassoc nsz arcp contract afn float %373, -1.000000e+00
   %375 = fmul reassoc nsz arcp contract afn float %374, %371
   %376 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.027.i.i.i
-  %377 = load float, ptr %376, align 4, !tbaa !196
+  %377 = load float, ptr %376, align 4, !tbaa !207
   %378 = fadd reassoc nsz arcp contract afn float %375, %377
   %379 = getelementptr inbounds nuw float, ptr %16, i64 %.027.i.i.i
-  store float %378, ptr %379, align 4, !tbaa !196
+  store float %378, ptr %379, align 4, !tbaa !207
   %380 = add nuw nsw i64 %.027.i.i.i, 1
   %exitcond29.not.i.i.i = icmp eq i64 %380, 4
-  br i1 %exitcond29.not.i.i.i, label %dt_vector_log2.exit.i.i, label %.preheader.i.i.i
+  br i1 %exitcond29.not.i.i.i, label %dt_vector_log2.exit.i.i, label %.preheader.i.i.i, !llvm.loop !339
 
 dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
@@ -6113,33 +6113,33 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   br label %431
 
 381:                                              ; preds = %431
-  %.val.i.i = load <4 x float>, ptr %16, align 16, !tbaa !212
+  %.val.i.i = load <4 x float>, ptr %16, align 16, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %382 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i.i, <4 x float> splat (float 1.290000e+02))
   %383 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %382, <4 x float> splat (float 0xC05FBFFFE0000000))
-  store <4 x float> %383, ptr %6, align 16, !tbaa !212
+  store <4 x float> %383, ptr %6, align 16, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
   br label %387
 
 384:                                              ; preds = %387
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
-  %.val32.i.i.i = load <4 x float>, ptr %7, align 16, !tbaa !212
+  %.val32.i.i.i = load <4 x float>, ptr %7, align 16, !tbaa !225
   %385 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %.val32.i.i.i)
   %386 = sitofp <4 x i32> %385 to <4 x float>
-  store <4 x float> %386, ptr %8, align 16, !tbaa !212
+  store <4 x float> %386, ptr %8, align 16, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
   br label %394
 
 387:                                              ; preds = %387, %381
   %.0301.i.i.i = phi i64 [ 0, %381 ], [ %392, %387 ]
   %388 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.0301.i.i.i
-  %389 = load float, ptr %388, align 4, !tbaa !196
+  %389 = load float, ptr %388, align 4, !tbaa !207
   %390 = fadd reassoc nsz arcp contract afn float %389, -5.000000e-01
   %391 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0301.i.i.i
-  store float %390, ptr %391, align 4, !tbaa !196
+  store float %390, ptr %391, align 4, !tbaa !207
   %392 = add nuw nsw i64 %.0301.i.i.i, 1
   %exitcond.not.i6.i.i = icmp eq i64 %392, 4
-  br i1 %exitcond.not.i6.i.i, label %384, label %387
+  br i1 %exitcond.not.i6.i.i, label %384, label %387, !llvm.loop !340
 
 393:                                              ; preds = %394
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
@@ -6148,15 +6148,15 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
 394:                                              ; preds = %394, %384
   %.0292.i.i.i = phi i64 [ 0, %384 ], [ %401, %394 ]
   %395 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.0292.i.i.i
-  %396 = load float, ptr %395, align 4, !tbaa !196
+  %396 = load float, ptr %395, align 4, !tbaa !207
   %397 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.0292.i.i.i
-  %398 = load float, ptr %397, align 4, !tbaa !196
+  %398 = load float, ptr %397, align 4, !tbaa !207
   %399 = fsub reassoc nsz arcp contract afn float %396, %398
   %400 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0292.i.i.i
-  store float %399, ptr %400, align 4, !tbaa !196
+  store float %399, ptr %400, align 4, !tbaa !207
   %401 = add nuw nsw i64 %.0292.i.i.i, 1
   %exitcond6.not.i.i.i = icmp eq i64 %401, 4
-  br i1 %exitcond6.not.i.i.i, label %393, label %394
+  br i1 %exitcond6.not.i.i.i, label %393, label %394, !llvm.loop !341
 
 402:                                              ; preds = %403
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
@@ -6165,20 +6165,20 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
 403:                                              ; preds = %403, %393
   %.0283.i.i.i = phi i64 [ 0, %393 ], [ %410, %403 ]
   %404 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.0283.i.i.i
-  %405 = load float, ptr %404, align 4, !tbaa !196
+  %405 = load float, ptr %404, align 4, !tbaa !207
   %406 = fptosi float %405 to i32
   %407 = shl i32 %406, 23
   %408 = add i32 %407, 1065353216
   %409 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %.0283.i.i.i
-  store i32 %408, ptr %409, align 4, !tbaa !212
+  store i32 %408, ptr %409, align 4, !tbaa !225
   %410 = add nuw nsw i64 %.0283.i.i.i, 1
   %exitcond7.not.i.i.i = icmp eq i64 %410, 4
-  br i1 %exitcond7.not.i.i.i, label %402, label %403
+  br i1 %exitcond7.not.i.i.i, label %402, label %403, !llvm.loop !342
 
 411:                                              ; preds = %411, %402
   %.0274.i.i.i = phi i64 [ 0, %402 ], [ %423, %411 ]
   %412 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0274.i.i.i
-  %413 = load float, ptr %412, align 4, !tbaa !196
+  %413 = load float, ptr %412, align 4, !tbaa !207
   %414 = fmul reassoc nsz arcp contract afn float %413, 0x3F8BB7CD20000000
   %415 = fadd reassoc nsz arcp contract afn float %414, 0x3FAAA13F20000000
   %416 = fmul reassoc nsz arcp contract afn float %415, %413
@@ -6188,33 +6188,33 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   %420 = fmul reassoc nsz arcp contract afn float %419, %413
   %421 = fadd reassoc nsz arcp contract afn float %420, 0x3FF00002C0000000
   %422 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0274.i.i.i
-  store float %421, ptr %422, align 4, !tbaa !196
+  store float %421, ptr %422, align 4, !tbaa !207
   %423 = add nuw nsw i64 %.0274.i.i.i, 1
   %exitcond8.not.i.i.i = icmp eq i64 %423, 4
-  br i1 %exitcond8.not.i.i.i, label %.preheader.i7.i.i, label %411
+  br i1 %exitcond8.not.i.i.i, label %.preheader.i7.i.i, label %411, !llvm.loop !343
 
 .preheader.i7.i.i:                                ; preds = %411, %.preheader.i7.i.i
   %.05.i.i.i = phi i64 [ %430, %.preheader.i7.i.i ], [ 0, %411 ]
   %424 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i.i.i
-  %425 = load float, ptr %424, align 4, !tbaa !212
+  %425 = load float, ptr %424, align 4, !tbaa !225
   %426 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i.i.i
-  %427 = load float, ptr %426, align 4, !tbaa !196
+  %427 = load float, ptr %426, align 4, !tbaa !207
   %428 = fmul reassoc nsz arcp contract afn float %427, %425
   %429 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i.i.i
-  store float %428, ptr %429, align 4, !tbaa !196
+  store float %428, ptr %429, align 4, !tbaa !207
   %430 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond9.not.i.i.i = icmp eq i64 %430, 4
-  br i1 %exitcond9.not.i.i.i, label %dt_vector_powf.exit.i, label %.preheader.i7.i.i
+  br i1 %exitcond9.not.i.i.i, label %dt_vector_powf.exit.i, label %.preheader.i7.i.i, !llvm.loop !344
 
 431:                                              ; preds = %431, %dt_vector_log2.exit.i.i
   %.01.i.i = phi i64 [ 0, %dt_vector_log2.exit.i.i ], [ %435, %431 ]
   %432 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.01.i.i
-  %433 = load float, ptr %432, align 4, !tbaa !196
+  %433 = load float, ptr %432, align 4, !tbaa !207
   %434 = fmul reassoc nsz arcp contract afn float %433, 0x4003333340000000
-  store float %434, ptr %432, align 4, !tbaa !196
+  store float %434, ptr %432, align 4, !tbaa !207
   %435 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i37 = icmp eq i64 %435, 4
-  br i1 %exitcond.not.i.i37, label %381, label %431
+  br i1 %exitcond.not.i.i37, label %381, label %431, !llvm.loop !345
 
 dt_vector_powf.exit.i:                            ; preds = %.preheader.i7.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
@@ -6229,41 +6229,41 @@ dt_vector_powf.exit.i:                            ; preds = %.preheader.i7.i.i
 436:                                              ; preds = %436, %332
   %.01718.i = phi i64 [ 0, %332 ], [ %444, %436 ]
   %437 = getelementptr inbounds nuw float, ptr %0, i64 %.01718.i
-  %438 = load float, ptr %437, align 4, !tbaa !196
+  %438 = load float, ptr %437, align 4, !tbaa !207
   %439 = fmul reassoc nsz arcp contract afn float %438, 0x3FB3D07220000000
   %440 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.01718.i
-  store float %439, ptr %440, align 4, !tbaa !196
+  store float %439, ptr %440, align 4, !tbaa !207
   %441 = fmul reassoc nsz arcp contract afn float %438, 0x3FEE54EDE0000000
   %442 = fadd reassoc nsz arcp contract afn float %441, 0x3FAAB12340000000
   %443 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.01718.i
-  store float %442, ptr %443, align 4, !tbaa !196
+  store float %442, ptr %443, align 4, !tbaa !207
   %444 = add nuw nsw i64 %.01718.i, 1
   %exitcond.not.i36 = icmp eq i64 %444, 4
-  br i1 %exitcond.not.i36, label %333, label %436
+  br i1 %exitcond.not.i36, label %333, label %436, !llvm.loop !346
 
 445:                                              ; preds = %445, %dt_vector_powf.exit.i
   %.019.i = phi i64 [ 0, %dt_vector_powf.exit.i ], [ %451, %445 ]
   %446 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i
-  %447 = load float, ptr %446, align 4, !tbaa !196
+  %447 = load float, ptr %446, align 4, !tbaa !207
   %448 = fcmp reassoc nsz arcp contract afn ugt float %447, 0x3FA4B5DCC0000000
   %..i = select i1 %448, ptr %19, ptr %17
   %.in.i = getelementptr inbounds nuw [4 x float], ptr %..i, i64 0, i64 %.019.i
-  %449 = load float, ptr %.in.i, align 4, !tbaa !196
+  %449 = load float, ptr %.in.i, align 4, !tbaa !207
   %450 = getelementptr inbounds nuw float, ptr %26, i64 %.019.i
-  store float %449, ptr %450, align 4, !tbaa !196
+  store float %449, ptr %450, align 4, !tbaa !207
   %451 = add nuw nsw i64 %.019.i, 1
   %exitcond20.not.i = icmp eq i64 %451, 4
-  br i1 %exitcond20.not.i, label %dt_sRGB_to_linear_sRGB.exit, label %445
+  br i1 %exitcond20.not.i, label %dt_sRGB_to_linear_sRGB.exit, label %445, !llvm.loop !347
 
 dt_sRGB_to_linear_sRGB.exit:                      ; preds = %445
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
-  %452 = load float, ptr %26, align 16, !tbaa !196
+  %452 = load float, ptr %26, align 16, !tbaa !207
   %453 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %454 = load float, ptr %453, align 4, !tbaa !196
+  %454 = load float, ptr %453, align 4, !tbaa !207
   %455 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %456 = load float, ptr %455, align 8, !tbaa !196
+  %456 = load float, ptr %455, align 8, !tbaa !207
   %457 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %454, float %456)
   %458 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %452, float %457)
   %459 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %454, float %456)
@@ -6413,14 +6413,14 @@ dt_RGB_2_HCV.exit:                                ; preds = %_rgb2ryb.exit, %_dt
   %537 = fmul reassoc nsz arcp contract afn double %536, 1.000000e-02
   %538 = fptrunc reassoc nsz arcp contract afn double %537 to float
   %539 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %538, ptr %539, align 4, !tbaa !196
+  store float %538, ptr %539, align 4, !tbaa !207
   %540 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %.0.i)
   %541 = fmul reassoc nsz arcp contract afn float %540, %.021.i
   %542 = fpext reassoc nsz arcp contract afn float %541 to double
   %543 = fmul reassoc nsz arcp contract afn double %542, 1.000000e-02
   %544 = fptrunc reassoc nsz arcp contract afn double %543 to float
   %545 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %544, ptr %545, align 4, !tbaa !196
+  store float %544, ptr %545, align 4, !tbaa !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #17
   br label %547
 
@@ -6540,7 +6540,7 @@ define internal fastcc void @_color_harmony_changed_record(ptr noundef readonly 
   %3 = load i32, ptr %2, align 4, !tbaa !84
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 16, !tbaa !159
+  %6 = load ptr, ptr %5, align 16, !tbaa !167
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.42, ptr noundef %6) #17
   %7 = load i32, ptr %2, align 4, !tbaa !84
   %.not = icmp eq i32 %7, 0
@@ -6557,7 +6557,7 @@ define internal fastcc void @_color_harmony_changed_record(ptr noundef readonly 
 
 13:                                               ; preds = %8, %1
   %14 = getelementptr i8, ptr %0, i64 2496
-  %.val = load ptr, ptr %14, align 64, !tbaa !92
+  %.val = load ptr, ptr %14, align 64, !tbaa !94
   tail call void @gtk_widget_queue_draw(ptr noundef %.val) #17
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1544
@@ -6580,7 +6580,7 @@ declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_histogram_scale_update(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2696
-  %3 = load i32, ptr %2, align 8, !tbaa !105
+  %3 = load i32, ptr %2, align 8, !tbaa !108
   switch i32 %3, label %12 [
     i32 0, label %.sink.split
     i32 1, label %4
@@ -6598,29 +6598,29 @@ define internal fastcc void @_histogram_scale_update(ptr noundef readonly captur
   %.str.87.sink = phi ptr [ @.str.87, %4 ], [ @.str.86, %1 ]
   %dtgtk_cairo_paint_linear_scale.sink = phi ptr [ @dtgtk_cairo_paint_linear_scale, %4 ], [ @dtgtk_cairo_paint_logarithmic_scale, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2576
-  %7 = load ptr, ptr %6, align 16, !tbaa !167
+  %7 = load ptr, ptr %6, align 16, !tbaa !177
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.87.sink, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %7, ptr noundef %8) #17
-  %9 = load ptr, ptr %6, align 16, !tbaa !167
+  %9 = load ptr, ptr %6, align 16, !tbaa !177
   %10 = tail call i64 @dtgtk_button_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %11, ptr noundef nonnull %dtgtk_cairo_paint_linear_scale.sink, i32 noundef 0, ptr noundef null) #17
   br label %12
 
 12:                                               ; preds = %.sink.split, %1
-  %13 = load i32, ptr %2, align 8, !tbaa !105
+  %13 = load i32, ptr %2, align 8, !tbaa !108
   %14 = icmp eq i32 %13, 1
   %15 = zext i1 %14 to i32
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !128
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  store i32 %15, ptr %17, align 8, !tbaa !138
+  store i32 %15, ptr %17, align 8, !tbaa !146
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_scope_orient_update(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2700
-  %3 = load i32, ptr %2, align 4, !tbaa !106
+  %3 = load i32, ptr %2, align 4, !tbaa !110
   switch i32 %3, label %12 [
     i32 0, label %.sink.split
     i32 1, label %4
@@ -6638,10 +6638,10 @@ define internal fastcc void @_scope_orient_update(ptr noundef readonly captures(
   %.str.89.sink = phi ptr [ @.str.89, %4 ], [ @.str.88, %1 ]
   %.sink5 = phi i32 [ 4, %4 ], [ 2, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2576
-  %7 = load ptr, ptr %6, align 16, !tbaa !167
+  %7 = load ptr, ptr %6, align 16, !tbaa !177
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.89.sink, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %7, ptr noundef %8) #17
-  %9 = load ptr, ptr %6, align 16, !tbaa !167
+  %9 = load ptr, ptr %6, align 16, !tbaa !177
   %10 = tail call i64 @dtgtk_button_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %11, ptr noundef nonnull @dtgtk_cairo_paint_arrow, i32 noundef %.sink5, ptr noundef null) #17
@@ -6654,7 +6654,7 @@ define internal fastcc void @_scope_orient_update(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_vectorscope_view_update(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2708
-  %3 = load i32, ptr %2, align 4, !tbaa !116
+  %3 = load i32, ptr %2, align 4, !tbaa !122
   switch i32 %3, label %12 [
     i32 0, label %.sink.split
     i32 1, label %4
@@ -6672,10 +6672,10 @@ define internal fastcc void @_vectorscope_view_update(ptr noundef readonly captu
   %.str.87.sink = phi ptr [ @.str.87, %4 ], [ @.str.86, %1 ]
   %dtgtk_cairo_paint_linear_scale.sink = phi ptr [ @dtgtk_cairo_paint_linear_scale, %4 ], [ @dtgtk_cairo_paint_logarithmic_scale, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2576
-  %7 = load ptr, ptr %6, align 16, !tbaa !167
+  %7 = load ptr, ptr %6, align 16, !tbaa !177
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.87.sink, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %7, ptr noundef %8) #17
-  %9 = load ptr, ptr %6, align 16, !tbaa !167
+  %9 = load ptr, ptr %6, align 16, !tbaa !177
   %10 = tail call i64 @dtgtk_button_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %11, ptr noundef nonnull %dtgtk_cairo_paint_linear_scale.sink, i32 noundef 0, ptr noundef null) #17
@@ -6683,7 +6683,7 @@ define internal fastcc void @_vectorscope_view_update(ptr noundef readonly captu
 
 12:                                               ; preds = %.sink.split, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2704
-  %14 = load i32, ptr %13, align 16, !tbaa !107
+  %14 = load i32, ptr %13, align 16, !tbaa !112
   switch i32 %14, label %43 [
     i32 0, label %15
     i32 1, label %24
@@ -6693,43 +6693,43 @@ define internal fastcc void @_vectorscope_view_update(ptr noundef readonly captu
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %17 = load ptr, ptr %16, align 16, !tbaa !168
+  %17 = load ptr, ptr %16, align 16, !tbaa !178
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.90, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %17, ptr noundef %18) #17
-  %19 = load ptr, ptr %16, align 16, !tbaa !168
+  %19 = load ptr, ptr %16, align 16, !tbaa !178
   %20 = tail call i64 @dtgtk_button_get_type() #17
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %21, ptr noundef nonnull @dtgtk_cairo_paint_luv, i32 noundef 0, ptr noundef null) #17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %23 = load ptr, ptr %22, align 32, !tbaa !156
+  %23 = load ptr, ptr %22, align 32, !tbaa !164
   tail call void @gtk_widget_hide(ptr noundef %23) #17
   br label %43
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %26 = load ptr, ptr %25, align 16, !tbaa !168
+  %26 = load ptr, ptr %25, align 16, !tbaa !178
   %27 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %26, ptr noundef %27) #17
-  %28 = load ptr, ptr %25, align 16, !tbaa !168
+  %28 = load ptr, ptr %25, align 16, !tbaa !178
   %29 = tail call i64 @dtgtk_button_get_type() #17
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %29) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %30, ptr noundef nonnull @dtgtk_cairo_paint_jzazbz, i32 noundef 0, ptr noundef null) #17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %32 = load ptr, ptr %31, align 32, !tbaa !156
+  %32 = load ptr, ptr %31, align 32, !tbaa !164
   tail call void @gtk_widget_hide(ptr noundef %32) #17
   br label %43
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %35 = load ptr, ptr %34, align 16, !tbaa !168
+  %35 = load ptr, ptr %34, align 16, !tbaa !178
   %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.92, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %35, ptr noundef %36) #17
-  %37 = load ptr, ptr %34, align 16, !tbaa !168
+  %37 = load ptr, ptr %34, align 16, !tbaa !178
   %38 = tail call i64 @dtgtk_button_get_type() #17
   %39 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %38) #17
   tail call void @dtgtk_button_set_paint(ptr noundef %39, ptr noundef nonnull @dtgtk_cairo_paint_ryb, i32 noundef 0, ptr noundef null) #17
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %41 = load ptr, ptr %40, align 32, !tbaa !156
+  %41 = load ptr, ptr %40, align 32, !tbaa !164
   tail call void @gtk_widget_show(ptr noundef %41) #17
   br label %43
 
@@ -7007,195 +7007,259 @@ attributes #19 = { nounwind allocsize(0,1) }
 !89 = !{!85, !9, i64 2760}
 !90 = !{!85, !9, i64 2764}
 !91 = !{!16, !16, i64 0}
-!92 = !{!85, !16, i64 2496}
-!93 = !{!94, !13, i64 64}
-!94 = !{!"dt_view_t", !8, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !10, i64 216, !15, i64 280, !13, i64 288, !9, i64 296, !9, i64 300, !59, i64 304, !59, i64 308, !59, i64 312, !59, i64 316, !59, i64 320, !59, i64 324, !59, i64 328, !59, i64 332}
-!95 = !{!18, !9, i64 3128}
-!96 = !{!18, !9, i64 8}
-!97 = !{!18, !27, i64 96}
-!98 = !{!85, !16, i64 2504}
-!99 = !{!85, !16, i64 2512}
-!100 = !{!85, !9, i64 2720}
-!101 = !{!85, !9, i64 2724}
-!102 = !{!85, !9, i64 2728}
-!103 = !{!12, !12, i64 0}
-!104 = !{!85, !9, i64 2692}
-!105 = !{!85, !9, i64 2696}
-!106 = !{!85, !9, i64 2700}
-!107 = !{!85, !9, i64 2704}
-!108 = !{!85, !46, i64 2712}
-!109 = !{!85, !51, i64 0}
-!110 = !{!85, !9, i64 8}
-!111 = !{!18, !29, i64 112}
-!112 = !{!9, !9, i64 0}
-!113 = !{!85, !9, i64 48}
-!114 = !{!85, !9, i64 40}
-!115 = !{!85, !9, i64 44}
-!116 = !{!85, !9, i64 2708}
-!117 = !{!85, !9, i64 92}
-!118 = !{!85, !12, i64 56}
-!119 = !{!85, !12, i64 64}
-!120 = !{!85, !87, i64 2432}
-!121 = !{!85, !9, i64 2440}
-!122 = !{!85, !9, i64 2444}
-!123 = !{!85, !46, i64 2448}
-!124 = !{!85, !86, i64 80}
-!125 = !{!85, !9, i64 88}
-!126 = !{!85, !88, i64 2736}
-!127 = !{!85, !88, i64 2744}
-!128 = !{!18, !24, i64 72}
-!129 = !{!130, !73, i64 112}
-!130 = !{!"dt_lib_t", !20, i64 0, !73, i64 8, !131, i64 16}
-!131 = !{!"", !132, i64 0, !135, i64 96, !136, i64 120, !45, i64 128}
-!132 = !{!"", !73, i64 0, !133, i64 8, !134, i64 16, !86, i64 24, !133, i64 32, !9, i64 40, !9, i64 44, !9, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
-!133 = !{!"p1 _ZTS23dt_colorpicker_sample_t", !13, i64 0}
-!134 = !{!"p1 _ZTS21dt_iop_color_picker_t", !13, i64 0}
-!135 = !{!"", !73, i64 0, !13, i64 8, !9, i64 16}
-!136 = !{!"", !73, i64 0}
-!137 = !{!130, !13, i64 120}
-!138 = !{!130, !9, i64 128}
-!139 = !{!18, !25, i64 80}
-!140 = !{!141, !142, i64 408}
-!141 = !{!"dt_view_manager_t", !20, i64 0, !142, i64 8, !86, i64 16, !143, i64 24, !145, i64 56, !146, i64 88, !146, i64 128, !147, i64 168, !149, i64 216, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !150, i64 272}
-!142 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
-!143 = !{!"dt_history_copy_item_t", !20, i64 0, !144, i64 8, !9, i64 16, !9, i64 20, !9, i64 24}
-!144 = !{!"p1 _ZTS12_GtkTreeView", !13, i64 0}
-!145 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !9, i64 24, !9, i64 28}
-!146 = !{!"dt_act_on_cache_t", !20, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !86, i64 24, !9, i64 32, !9, i64 36}
-!147 = !{!"", !148, i64 0, !148, i64 8, !148, i64 16, !148, i64 24, !148, i64 32, !148, i64 40}
-!148 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
-!149 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8}
-!150 = !{!"", !151, i64 0, !151, i64 16, !152, i64 32, !151, i64 64, !136, i64 80, !74, i64 88, !136, i64 128, !153, i64 136, !154, i64 152, !155, i64 248, !136, i64 280, !153, i64 288}
-!151 = !{!"", !73, i64 0, !13, i64 8}
-!152 = !{!"", !73, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!153 = !{!"", !142, i64 0, !13, i64 8}
-!154 = !{!"", !73, i64 0, !142, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
-!155 = !{!"", !142, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!156 = !{!85, !16, i64 2528}
-!157 = !{!85, !16, i64 2536}
-!158 = !{!85, !16, i64 2520}
-!159 = !{!160, !12, i64 0}
-!160 = !{!"dt_lib_histogram_color_harmony_t", !12, i64 0, !9, i64 8, !10, i64 12, !10, i64 28}
-!161 = !{!85, !9, i64 2752}
-!162 = !{!141, !142, i64 520}
-!163 = !{!13, !13, i64 0}
-!164 = !{!85, !16, i64 2600}
-!165 = !{!85, !16, i64 2592}
-!166 = !{!85, !16, i64 2584}
-!167 = !{!85, !16, i64 2576}
-!168 = !{!85, !16, i64 2608}
-!169 = !{!7, !16, i64 416}
-!170 = !{!18, !28, i64 104}
-!171 = !{!172, !9, i64 5552}
-!172 = !{!"dt_gui_gtk_t", !173, i64 0, !174, i64 8, !175, i64 56, !9, i64 80, !12, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !46, i64 1376, !46, i64 1384, !46, i64 1392, !46, i64 1400, !16, i64 1408, !46, i64 1416, !46, i64 1424, !46, i64 1432, !46, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !44, i64 5568}
-!173 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
-!174 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!175 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
-!176 = !{!177, !50, i64 0}
-!177 = !{!"timeval", !50, i64 0, !50, i64 8}
-!178 = !{!177, !50, i64 8}
-!179 = !{!180, !46, i64 0}
-!180 = !{!"", !46, i64 0, !46, i64 8}
-!181 = !{!182, !50, i64 0}
-!182 = !{!"rusage", !177, i64 0, !177, i64 16, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136}
-!183 = !{!182, !50, i64 8}
-!184 = !{!180, !46, i64 8}
-!185 = !{!186, !9, i64 0}
-!186 = !{!"dt_histogram_roi_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
-!187 = !{!186, !9, i64 4}
-!188 = !{!130, !9, i64 60}
-!189 = !{!130, !133, i64 24}
-!190 = !{!130, !134, i64 32}
-!191 = !{!192, !56, i64 0}
-!192 = !{!"dt_iop_color_picker_t", !56, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !16, i64 24, !10, i64 32, !10, i64 40, !9, i64 72}
-!193 = !{!194, !9, i64 40}
-!194 = !{!"dt_colorpicker_sample_t", !10, i64 0, !10, i64 8, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !10, i64 64, !10, i64 112, !10, i64 160, !10, i64 208, !195, i64 224, !16, i64 256, !16, i64 264, !16, i64 272}
-!195 = !{!"_GdkRGBA", !46, i64 0, !46, i64 8, !46, i64 16, !46, i64 24}
-!196 = !{!59, !59, i64 0}
-!197 = !{!186, !9, i64 8}
-!198 = !{!186, !9, i64 12}
-!199 = !{!186, !9, i64 16}
-!200 = !{!186, !9, i64 20}
-!201 = !{!202, !203, i64 0}
-!202 = !{!"dt_dev_histogram_collection_params_t", !203, i64 0, !9, i64 8}
-!203 = !{!"p1 _ZTS18dt_histogram_roi_t", !13, i64 0}
-!204 = distinct !{!204, !205}
-!205 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!206 = !{!50, !50, i64 0}
-!207 = distinct !{!207, !205}
-!208 = !{!88, !88, i64 0}
-!209 = !{!210, !9, i64 704}
-!210 = !{!"dt_iop_order_iccprofile_info_t", !9, i64 0, !10, i64 4, !9, i64 516, !10, i64 576, !10, i64 640, !9, i64 704, !10, i64 712, !10, i64 736, !10, i64 768, !10, i64 816, !9, i64 852, !59, i64 856, !10, i64 896, !10, i64 960, !10, i64 1024, !10, i64 1048}
-!211 = distinct !{!211, !205}
-!212 = !{!10, !10, i64 0}
-!213 = distinct !{!213, !205}
-!214 = distinct !{!214, !205}
-!215 = !{!210, !9, i64 0}
-!216 = !{!210, !9, i64 852}
-!217 = distinct !{!217, !205}
-!218 = !{!130, !9, i64 64}
-!219 = !{!130, !9, i64 56}
-!220 = !{!130, !86, i64 40}
-!221 = !{!130, !133, i64 48}
-!222 = !{!223, !13, i64 0}
-!223 = !{!"_GSList", !13, i64 0, !86, i64 8}
-!224 = !{!223, !86, i64 8}
-!225 = !{!85, !9, i64 2688}
-!226 = !{!227, !9, i64 8}
-!227 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!228 = !{!227, !9, i64 12}
-!229 = !{!172, !46, i64 1432}
-!230 = !{!172, !46, i64 1424}
-!231 = !{!18, !31, i64 128}
-!232 = !{!46, !46, i64 0}
-!233 = distinct !{!233, !205}
-!234 = !{!55, !57, i64 96}
-!235 = !{!236, !9, i64 580}
-!236 = !{!"dt_dev_pixelpipe_t", !237, i64 0, !9, i64 120, !50, i64 128, !88, i64 136, !9, i64 144, !9, i64 148, !59, i64 152, !9, i64 156, !9, i64 160, !60, i64 176, !87, i64 304, !87, i64 312, !87, i64 320, !20, i64 328, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !12, i64 352, !50, i64 360, !9, i64 368, !9, i64 372, !59, i64 376, !59, i64 380, !59, i64 384, !50, i64 392, !44, i64 400, !44, i64 440, !44, i64 480, !9, i64 520, !9, i64 524, !9, i64 528, !240, i64 536, !9, i64 576, !9, i64 580, !9, i64 584, !10, i64 588, !9, i64 592, !9, i64 596, !9, i64 600, !9, i64 604, !9, i64 608, !9, i64 612, !9, i64 616, !9, i64 620, !9, i64 624, !9, i64 628, !58, i64 640, !9, i64 2496, !12, i64 2504, !9, i64 2512, !20, i64 2520, !20, i64 2528, !20, i64 2536, !9, i64 2544, !88, i64 2552, !50, i64 2560}
-!237 = !{!"dt_dev_pixelpipe_cache_t", !9, i64 0, !50, i64 8, !50, i64 16, !13, i64 24, !238, i64 32, !239, i64 40, !238, i64 48, !51, i64 56, !51, i64 64, !50, i64 72, !9, i64 80, !50, i64 88, !50, i64 96, !9, i64 104, !9, i64 108, !9, i64 112}
-!238 = !{!"p1 long", !13, i64 0}
-!239 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !13, i64 0}
-!240 = !{!"dt_dev_detail_mask_t", !241, i64 0, !50, i64 24, !88, i64 32}
-!241 = !{!"dt_iop_roi_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !59, i64 16}
-!242 = !{!243, !243, i64 0}
-!243 = !{!"p1 _ZTS14_cairo_surface", !13, i64 0}
-!244 = !{!245, !46, i64 592}
-!245 = !{!"dt_bauhaus_t", !246, i64 0, !247, i64 8, !16, i64 64, !59, i64 72, !59, i64 76, !9, i64 80, !9, i64 84, !59, i64 88, !10, i64 92, !9, i64 272, !9, i64 276, !10, i64 280, !9, i64 288, !249, i64 296, !249, i64 304, !59, i64 312, !59, i64 316, !59, i64 320, !59, i64 324, !59, i64 328, !250, i64 336, !250, i64 344, !9, i64 352, !9, i64 356, !9, i64 360, !195, i64 368, !195, i64 400, !195, i64 432, !195, i64 464, !195, i64 496, !195, i64 528, !195, i64 560, !195, i64 592, !195, i64 624, !195, i64 656, !195, i64 688, !195, i64 720, !195, i64 752, !195, i64 784, !195, i64 816, !10, i64 848, !10, i64 944}
-!246 = !{!"p1 _ZTS16_DtBauhausWidget", !13, i64 0}
-!247 = !{!"dt_bauhaus_popup_t", !16, i64 0, !16, i64 8, !248, i64 16, !227, i64 24, !9, i64 40, !9, i64 44, !9, i64 48}
-!248 = !{!"_GtkBorder", !62, i64 0, !62, i64 2, !62, i64 4, !62, i64 6}
-!249 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
-!250 = !{!"p1 _ZTS21_PangoFontDescription", !13, i64 0}
-!251 = !{!245, !46, i64 600}
-!252 = !{!245, !46, i64 608}
-!253 = !{!245, !46, i64 624}
-!254 = !{!245, !46, i64 632}
-!255 = !{!245, !46, i64 640}
-!256 = !{i64 0, i64 8, !103, i64 8, i64 4, !112, i64 12, i64 16, !212, i64 28, i64 16, !212}
-!257 = !{!160, !9, i64 8}
-!258 = !{!245, !250, i64 336}
-!259 = !{!260, !9, i64 8}
-!260 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!261 = !{!260, !9, i64 0}
-!262 = !{!260, !9, i64 12}
-!263 = !{!260, !9, i64 4}
-!264 = !{!86, !86, i64 0}
-!265 = !{!266, !9, i64 84}
-!266 = !{!"_GdkEventCrossing", !9, i64 0, !267, i64 8, !10, i64 16, !267, i64 24, !9, i64 32, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}
-!267 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!268 = !{!269, !46, i64 32}
-!269 = !{!"_GdkEventButton", !9, i64 0, !267, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !270, i64 40, !9, i64 48, !9, i64 52, !271, i64 56, !46, i64 64, !46, i64 72}
-!270 = !{!"p1 double", !13, i64 0}
-!271 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!272 = !{!269, !46, i64 24}
-!273 = !{!274, !9, i64 48}
-!274 = !{!"_GdkEventMotion", !9, i64 0, !267, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !270, i64 40, !9, i64 48, !62, i64 52, !271, i64 56, !46, i64 64, !46, i64 72}
-!275 = !{!274, !46, i64 32}
-!276 = !{!274, !46, i64 24}
-!277 = !{!278, !9, i64 40}
-!278 = !{!"_GdkEventScroll", !9, i64 0, !267, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !9, i64 40, !9, i64 44, !271, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !46, i64 80, !9, i64 88}
-!279 = !{!278, !46, i64 72}
-!280 = !{!278, !46, i64 80}
-!281 = !{!266, !9, i64 72}
-!282 = !{!266, !9, i64 76}
-!283 = !{!227, !9, i64 4}
+!92 = distinct !{!92, !93}
+!93 = !{!"llvm.loop.estimated_trip_count"}
+!94 = !{!85, !16, i64 2496}
+!95 = !{!96, !13, i64 64}
+!96 = !{!"dt_view_t", !8, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !10, i64 216, !15, i64 280, !13, i64 288, !9, i64 296, !9, i64 300, !59, i64 304, !59, i64 308, !59, i64 312, !59, i64 316, !59, i64 320, !59, i64 324, !59, i64 328, !59, i64 332}
+!97 = !{!18, !9, i64 3128}
+!98 = !{!18, !9, i64 8}
+!99 = !{!18, !27, i64 96}
+!100 = !{!85, !16, i64 2504}
+!101 = !{!85, !16, i64 2512}
+!102 = !{!85, !9, i64 2720}
+!103 = !{!85, !9, i64 2724}
+!104 = !{!85, !9, i64 2728}
+!105 = !{!12, !12, i64 0}
+!106 = !{!85, !9, i64 2692}
+!107 = distinct !{!107, !93}
+!108 = !{!85, !9, i64 2696}
+!109 = distinct !{!109, !93}
+!110 = !{!85, !9, i64 2700}
+!111 = distinct !{!111, !93}
+!112 = !{!85, !9, i64 2704}
+!113 = distinct !{!113, !93}
+!114 = !{!85, !46, i64 2712}
+!115 = !{!85, !51, i64 0}
+!116 = !{!85, !9, i64 8}
+!117 = !{!18, !29, i64 112}
+!118 = !{!9, !9, i64 0}
+!119 = !{!85, !9, i64 48}
+!120 = !{!85, !9, i64 40}
+!121 = !{!85, !9, i64 44}
+!122 = !{!85, !9, i64 2708}
+!123 = distinct !{!123, !93}
+!124 = !{!85, !9, i64 92}
+!125 = !{!85, !12, i64 56}
+!126 = !{!85, !12, i64 64}
+!127 = !{!85, !87, i64 2432}
+!128 = !{!85, !9, i64 2440}
+!129 = !{!85, !9, i64 2444}
+!130 = !{!85, !46, i64 2448}
+!131 = !{!85, !86, i64 80}
+!132 = !{!85, !9, i64 88}
+!133 = !{!85, !88, i64 2736}
+!134 = !{!85, !88, i64 2744}
+!135 = distinct !{!135, !93}
+!136 = !{!18, !24, i64 72}
+!137 = !{!138, !73, i64 112}
+!138 = !{!"dt_lib_t", !20, i64 0, !73, i64 8, !139, i64 16}
+!139 = !{!"", !140, i64 0, !143, i64 96, !144, i64 120, !45, i64 128}
+!140 = !{!"", !73, i64 0, !141, i64 8, !142, i64 16, !86, i64 24, !141, i64 32, !9, i64 40, !9, i64 44, !9, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
+!141 = !{!"p1 _ZTS23dt_colorpicker_sample_t", !13, i64 0}
+!142 = !{!"p1 _ZTS21dt_iop_color_picker_t", !13, i64 0}
+!143 = !{!"", !73, i64 0, !13, i64 8, !9, i64 16}
+!144 = !{!"", !73, i64 0}
+!145 = !{!138, !13, i64 120}
+!146 = !{!138, !9, i64 128}
+!147 = !{!18, !25, i64 80}
+!148 = !{!149, !150, i64 408}
+!149 = !{!"dt_view_manager_t", !20, i64 0, !150, i64 8, !86, i64 16, !151, i64 24, !153, i64 56, !154, i64 88, !154, i64 128, !155, i64 168, !157, i64 216, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !158, i64 272}
+!150 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
+!151 = !{!"dt_history_copy_item_t", !20, i64 0, !152, i64 8, !9, i64 16, !9, i64 20, !9, i64 24}
+!152 = !{!"p1 _ZTS12_GtkTreeView", !13, i64 0}
+!153 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !9, i64 24, !9, i64 28}
+!154 = !{!"dt_act_on_cache_t", !20, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !86, i64 24, !9, i64 32, !9, i64 36}
+!155 = !{!"", !156, i64 0, !156, i64 8, !156, i64 16, !156, i64 24, !156, i64 32, !156, i64 40}
+!156 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
+!157 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8}
+!158 = !{!"", !159, i64 0, !159, i64 16, !160, i64 32, !159, i64 64, !144, i64 80, !74, i64 88, !144, i64 128, !161, i64 136, !162, i64 152, !163, i64 248, !144, i64 280, !161, i64 288}
+!159 = !{!"", !73, i64 0, !13, i64 8}
+!160 = !{!"", !73, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!161 = !{!"", !150, i64 0, !13, i64 8}
+!162 = !{!"", !73, i64 0, !150, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
+!163 = !{!"", !150, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!164 = !{!85, !16, i64 2528}
+!165 = !{!85, !16, i64 2536}
+!166 = !{!85, !16, i64 2520}
+!167 = !{!168, !12, i64 0}
+!168 = !{!"dt_lib_histogram_color_harmony_t", !12, i64 0, !9, i64 8, !10, i64 12, !10, i64 28}
+!169 = !{!85, !9, i64 2752}
+!170 = distinct !{!170, !93}
+!171 = !{!149, !150, i64 520}
+!172 = !{!13, !13, i64 0}
+!173 = distinct !{!173, !93}
+!174 = !{!85, !16, i64 2600}
+!175 = !{!85, !16, i64 2592}
+!176 = !{!85, !16, i64 2584}
+!177 = !{!85, !16, i64 2576}
+!178 = !{!85, !16, i64 2608}
+!179 = !{!7, !16, i64 416}
+!180 = !{!18, !28, i64 104}
+!181 = !{!182, !9, i64 5552}
+!182 = !{!"dt_gui_gtk_t", !183, i64 0, !184, i64 8, !185, i64 56, !9, i64 80, !12, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !46, i64 1376, !46, i64 1384, !46, i64 1392, !46, i64 1400, !16, i64 1408, !46, i64 1416, !46, i64 1424, !46, i64 1432, !46, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !44, i64 5568}
+!183 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!184 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!185 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
+!186 = distinct !{!186, !93}
+!187 = !{!188, !50, i64 0}
+!188 = !{!"timeval", !50, i64 0, !50, i64 8}
+!189 = !{!188, !50, i64 8}
+!190 = !{!191, !46, i64 0}
+!191 = !{!"", !46, i64 0, !46, i64 8}
+!192 = !{!193, !50, i64 0}
+!193 = !{!"rusage", !188, i64 0, !188, i64 16, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136}
+!194 = !{!193, !50, i64 8}
+!195 = !{!191, !46, i64 8}
+!196 = !{!197, !9, i64 0}
+!197 = !{!"dt_histogram_roi_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
+!198 = !{!197, !9, i64 4}
+!199 = !{!138, !9, i64 60}
+!200 = !{!138, !141, i64 24}
+!201 = !{!138, !142, i64 32}
+!202 = !{!203, !56, i64 0}
+!203 = !{!"dt_iop_color_picker_t", !56, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !16, i64 24, !10, i64 32, !10, i64 40, !9, i64 72}
+!204 = !{!205, !9, i64 40}
+!205 = !{!"dt_colorpicker_sample_t", !10, i64 0, !10, i64 8, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !10, i64 64, !10, i64 112, !10, i64 160, !10, i64 208, !206, i64 224, !16, i64 256, !16, i64 264, !16, i64 272}
+!206 = !{!"_GdkRGBA", !46, i64 0, !46, i64 8, !46, i64 16, !46, i64 24}
+!207 = !{!59, !59, i64 0}
+!208 = !{!197, !9, i64 8}
+!209 = !{!197, !9, i64 12}
+!210 = !{!197, !9, i64 16}
+!211 = !{!197, !9, i64 20}
+!212 = !{!213, !214, i64 0}
+!213 = !{!"dt_dev_histogram_collection_params_t", !214, i64 0, !9, i64 8}
+!214 = !{!"p1 _ZTS18dt_histogram_roi_t", !13, i64 0}
+!215 = distinct !{!215, !93, !216}
+!216 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!217 = !{!50, !50, i64 0}
+!218 = distinct !{!218, !93}
+!219 = distinct !{!219, !93}
+!220 = distinct !{!220, !93, !216}
+!221 = !{!88, !88, i64 0}
+!222 = !{!223, !9, i64 704}
+!223 = !{!"dt_iop_order_iccprofile_info_t", !9, i64 0, !10, i64 4, !9, i64 516, !10, i64 576, !10, i64 640, !9, i64 704, !10, i64 712, !10, i64 736, !10, i64 768, !10, i64 816, !9, i64 852, !59, i64 856, !10, i64 896, !10, i64 960, !10, i64 1024, !10, i64 1048}
+!224 = distinct !{!224, !93, !216}
+!225 = !{!10, !10, i64 0}
+!226 = distinct !{!226, !93}
+!227 = distinct !{!227, !93, !216}
+!228 = distinct !{!228, !93, !216}
+!229 = distinct !{!229, !93}
+!230 = distinct !{!230, !93}
+!231 = !{!223, !9, i64 0}
+!232 = distinct !{!232, !93}
+!233 = distinct !{!233, !93}
+!234 = distinct !{!234, !93}
+!235 = !{!223, !9, i64 852}
+!236 = distinct !{!236, !93}
+!237 = distinct !{!237, !93}
+!238 = distinct !{!238, !93}
+!239 = distinct !{!239, !93}
+!240 = distinct !{!240, !93}
+!241 = distinct !{!241, !93}
+!242 = distinct !{!242, !93}
+!243 = distinct !{!243, !93}
+!244 = distinct !{!244, !93}
+!245 = distinct !{!245, !93}
+!246 = distinct !{!246, !93}
+!247 = distinct !{!247, !93}
+!248 = distinct !{!248, !93, !216}
+!249 = distinct !{!249, !93}
+!250 = !{!138, !9, i64 64}
+!251 = !{!138, !9, i64 56}
+!252 = !{!138, !86, i64 40}
+!253 = !{!138, !141, i64 48}
+!254 = !{!255, !13, i64 0}
+!255 = !{!"_GSList", !13, i64 0, !86, i64 8}
+!256 = !{!255, !86, i64 8}
+!257 = distinct !{!257, !93}
+!258 = distinct !{!258, !93}
+!259 = distinct !{!259, !93}
+!260 = !{!85, !9, i64 2688}
+!261 = distinct !{!261, !93}
+!262 = distinct !{!262, !93}
+!263 = distinct !{!263, !93}
+!264 = !{!265, !9, i64 8}
+!265 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!266 = !{!265, !9, i64 12}
+!267 = !{!182, !46, i64 1432}
+!268 = !{!182, !46, i64 1424}
+!269 = !{!18, !31, i64 128}
+!270 = distinct !{!270, !93}
+!271 = !{!46, !46, i64 0}
+!272 = distinct !{!272, !93, !216}
+!273 = distinct !{!273, !93}
+!274 = !{!55, !57, i64 96}
+!275 = !{!276, !9, i64 580}
+!276 = !{!"dt_dev_pixelpipe_t", !277, i64 0, !9, i64 120, !50, i64 128, !88, i64 136, !9, i64 144, !9, i64 148, !59, i64 152, !9, i64 156, !9, i64 160, !60, i64 176, !87, i64 304, !87, i64 312, !87, i64 320, !20, i64 328, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !12, i64 352, !50, i64 360, !9, i64 368, !9, i64 372, !59, i64 376, !59, i64 380, !59, i64 384, !50, i64 392, !44, i64 400, !44, i64 440, !44, i64 480, !9, i64 520, !9, i64 524, !9, i64 528, !280, i64 536, !9, i64 576, !9, i64 580, !9, i64 584, !10, i64 588, !9, i64 592, !9, i64 596, !9, i64 600, !9, i64 604, !9, i64 608, !9, i64 612, !9, i64 616, !9, i64 620, !9, i64 624, !9, i64 628, !58, i64 640, !9, i64 2496, !12, i64 2504, !9, i64 2512, !20, i64 2520, !20, i64 2528, !20, i64 2536, !9, i64 2544, !88, i64 2552, !50, i64 2560}
+!277 = !{!"dt_dev_pixelpipe_cache_t", !9, i64 0, !50, i64 8, !50, i64 16, !13, i64 24, !278, i64 32, !279, i64 40, !278, i64 48, !51, i64 56, !51, i64 64, !50, i64 72, !9, i64 80, !50, i64 88, !50, i64 96, !9, i64 104, !9, i64 108, !9, i64 112}
+!278 = !{!"p1 long", !13, i64 0}
+!279 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !13, i64 0}
+!280 = !{!"dt_dev_detail_mask_t", !281, i64 0, !50, i64 24, !88, i64 32}
+!281 = !{!"dt_iop_roi_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !59, i64 16}
+!282 = distinct !{!282, !93}
+!283 = distinct !{!283, !93}
+!284 = distinct !{!284, !93}
+!285 = !{!286, !286, i64 0}
+!286 = !{!"p1 _ZTS14_cairo_surface", !13, i64 0}
+!287 = distinct !{!287, !93}
+!288 = distinct !{!288, !93}
+!289 = distinct !{!289, !93}
+!290 = !{!291, !46, i64 592}
+!291 = !{!"dt_bauhaus_t", !292, i64 0, !293, i64 8, !16, i64 64, !59, i64 72, !59, i64 76, !9, i64 80, !9, i64 84, !59, i64 88, !10, i64 92, !9, i64 272, !9, i64 276, !10, i64 280, !9, i64 288, !295, i64 296, !295, i64 304, !59, i64 312, !59, i64 316, !59, i64 320, !59, i64 324, !59, i64 328, !296, i64 336, !296, i64 344, !9, i64 352, !9, i64 356, !9, i64 360, !206, i64 368, !206, i64 400, !206, i64 432, !206, i64 464, !206, i64 496, !206, i64 528, !206, i64 560, !206, i64 592, !206, i64 624, !206, i64 656, !206, i64 688, !206, i64 720, !206, i64 752, !206, i64 784, !206, i64 816, !10, i64 848, !10, i64 944}
+!292 = !{!"p1 _ZTS16_DtBauhausWidget", !13, i64 0}
+!293 = !{!"dt_bauhaus_popup_t", !16, i64 0, !16, i64 8, !294, i64 16, !265, i64 24, !9, i64 40, !9, i64 44, !9, i64 48}
+!294 = !{!"_GtkBorder", !62, i64 0, !62, i64 2, !62, i64 4, !62, i64 6}
+!295 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
+!296 = !{!"p1 _ZTS21_PangoFontDescription", !13, i64 0}
+!297 = !{!291, !46, i64 600}
+!298 = !{!291, !46, i64 608}
+!299 = !{!291, !46, i64 624}
+!300 = !{!291, !46, i64 632}
+!301 = !{!291, !46, i64 640}
+!302 = distinct !{!302, !93}
+!303 = distinct !{!303, !93}
+!304 = distinct !{!304, !93}
+!305 = distinct !{!305, !93}
+!306 = !{i64 0, i64 8, !105, i64 8, i64 4, !118, i64 12, i64 16, !225, i64 28, i64 16, !225}
+!307 = !{!168, !9, i64 8}
+!308 = distinct !{!308, !93}
+!309 = !{!291, !296, i64 336}
+!310 = !{!311, !9, i64 8}
+!311 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!312 = !{!311, !9, i64 0}
+!313 = !{!311, !9, i64 12}
+!314 = !{!311, !9, i64 4}
+!315 = !{!86, !86, i64 0}
+!316 = distinct !{!316, !93}
+!317 = !{!318, !9, i64 84}
+!318 = !{!"_GdkEventCrossing", !9, i64 0, !319, i64 8, !10, i64 16, !319, i64 24, !9, i64 32, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}
+!319 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!320 = !{!321, !46, i64 32}
+!321 = !{!"_GdkEventButton", !9, i64 0, !319, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !322, i64 40, !9, i64 48, !9, i64 52, !323, i64 56, !46, i64 64, !46, i64 72}
+!322 = !{!"p1 double", !13, i64 0}
+!323 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!324 = !{!321, !46, i64 24}
+!325 = !{!326, !9, i64 48}
+!326 = !{!"_GdkEventMotion", !9, i64 0, !319, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !322, i64 40, !9, i64 48, !62, i64 52, !323, i64 56, !46, i64 64, !46, i64 72}
+!327 = !{!326, !46, i64 32}
+!328 = !{!326, !46, i64 24}
+!329 = !{!330, !9, i64 40}
+!330 = !{!"_GdkEventScroll", !9, i64 0, !319, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !9, i64 40, !9, i64 44, !323, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !46, i64 80, !9, i64 88}
+!331 = !{!330, !46, i64 72}
+!332 = !{!330, !46, i64 80}
+!333 = !{!318, !9, i64 72}
+!334 = !{!318, !9, i64 76}
+!335 = !{!265, !9, i64 4}
+!336 = distinct !{!336, !93}
+!337 = distinct !{!337, !93}
+!338 = distinct !{!338, !93}
+!339 = distinct !{!339, !93}
+!340 = distinct !{!340, !93}
+!341 = distinct !{!341, !93}
+!342 = distinct !{!342, !93}
+!343 = distinct !{!343, !93}
+!344 = distinct !{!344, !93}
+!345 = distinct !{!345, !93}
+!346 = distinct !{!346, !93}
+!347 = distinct !{!347, !93}

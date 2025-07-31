@@ -2180,13 +2180,13 @@ entry:
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %2)
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.17)
   %from_i = getelementptr inbounds nuw i8, ptr %ma, i64 80
-  %3 = load i16, ptr %from_i, align 8, !tbaa !33
+  %3 = load i16, ptr %from_i, align 8, !tbaa !34
   %conv = sext i16 %3 to i64
   %add = add nsw i64 %conv, 1
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %add)
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.18)
   %to_i = getelementptr inbounds nuw i8, ptr %ma, i64 168
-  %4 = load i16, ptr %to_i, align 8, !tbaa !39
+  %4 = load i16, ptr %to_i, align 8, !tbaa !40
   %conv9 = sext i16 %4 to i64
   %add10 = add nsw i64 %conv9, 1
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %add10)
@@ -2439,7 +2439,7 @@ invoke.cont26:                                    ; preds = %invoke.cont25
   %to_inv = getelementptr inbounds nuw i8, ptr %ma, i64 88
   %to_list = getelementptr inbounds nuw i8, ptr %ma, i64 136
   %to_i = getelementptr inbounds nuw i8, ptr %ma, i64 168
-  %2 = load i16, ptr %to_i, align 8, !tbaa !39
+  %2 = load i16, ptr %to_i, align 8, !tbaa !40
   %conv = sext i16 %2 to i32
   invoke void @_ZN15ScriptApiPlayer20pushPutTakeArgumentsEPKcRK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRK9ItemStackP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(46) %to_inv, ptr noundef nonnull align 8 dereferenceable(32) %to_list, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(312) %stack, ptr noundef %player)
           to label %invoke.cont27 unwind label %lpad24
@@ -2466,7 +2466,7 @@ cond.true:                                        ; preds = %invoke.cont33
 
 cond.false:                                       ; preds = %invoke.cont33
   %count = getelementptr inbounds nuw i8, ptr %stack, i64 32
-  %3 = load i16, ptr %count, align 8, !tbaa !40
+  %3 = load i16, ptr %count, align 8, !tbaa !41
   %conv38 = uitofp i16 %3 to double
   br label %cond.end
 
@@ -2587,7 +2587,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 invoke.cont26:                                    ; preds = %invoke.cont25
   %from_list = getelementptr inbounds nuw i8, ptr %ma, i64 48
   %from_i = getelementptr inbounds nuw i8, ptr %ma, i64 80
-  %2 = load i16, ptr %from_i, align 8, !tbaa !33
+  %2 = load i16, ptr %from_i, align 8, !tbaa !34
   %conv = sext i16 %2 to i32
   invoke void @_ZN15ScriptApiPlayer20pushPutTakeArgumentsEPKcRK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRK9ItemStackP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(46) %ma, ptr noundef nonnull align 8 dereferenceable(32) %from_list, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(312) %stack, ptr noundef %player)
           to label %invoke.cont27 unwind label %lpad24
@@ -2614,7 +2614,7 @@ cond.true:                                        ; preds = %invoke.cont33
 
 cond.false:                                       ; preds = %invoke.cont33
   %count = getelementptr inbounds nuw i8, ptr %stack, i64 32
-  %3 = load i16, ptr %count, align 8, !tbaa !40
+  %3 = load i16, ptr %count, align 8, !tbaa !41
   %conv38 = uitofp i16 %3 to double
   br label %cond.end
 
@@ -2860,7 +2860,7 @@ invoke.cont26:                                    ; preds = %invoke.cont25
   %to_inv = getelementptr inbounds nuw i8, ptr %ma, i64 88
   %to_list = getelementptr inbounds nuw i8, ptr %ma, i64 136
   %to_i = getelementptr inbounds nuw i8, ptr %ma, i64 168
-  %2 = load i16, ptr %to_i, align 8, !tbaa !39
+  %2 = load i16, ptr %to_i, align 8, !tbaa !40
   %conv = sext i16 %2 to i32
   invoke void @_ZN15ScriptApiPlayer20pushPutTakeArgumentsEPKcRK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRK9ItemStackP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(46) %to_inv, ptr noundef nonnull align 8 dereferenceable(32) %to_list, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(312) %stack, ptr noundef %player)
           to label %invoke.cont27 unwind label %lpad24
@@ -2988,7 +2988,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 invoke.cont26:                                    ; preds = %invoke.cont25
   %from_list = getelementptr inbounds nuw i8, ptr %ma, i64 48
   %from_i = getelementptr inbounds nuw i8, ptr %ma, i64 80
-  %2 = load i16, ptr %from_i, align 8, !tbaa !33
+  %2 = load i16, ptr %from_i, align 8, !tbaa !34
   %conv = sext i16 %2 to i32
   invoke void @_ZN15ScriptApiPlayer20pushPutTakeArgumentsEPKcRK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRK9ItemStackP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(46) %ma, ptr noundef nonnull align 8 dereferenceable(32) %from_list, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(312) %stack, ptr noundef %player)
           to label %invoke.cont27 unwind label %lpad24
@@ -3142,30 +3142,31 @@ attributes #19 = { builtin nounwind }
 !28 = !{!9, !9, i64 0}
 !29 = !{!30, !18, i64 0}
 !30 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !38, i64 80}
-!34 = !{!"_ZTS10MoveAction", !35, i64 0, !16, i64 48, !38, i64 80, !35, i64 88, !16, i64 136, !38, i64 168}
-!35 = !{!"_ZTS17InventoryLocation", !36, i64 0, !16, i64 8, !37, i64 40}
-!36 = !{!"_ZTSN17InventoryLocation4TypeE", !9, i64 0}
-!37 = !{!"_ZTSN3irr4core8vector3dIsEE", !38, i64 0, !38, i64 2, !38, i64 4}
-!38 = !{!"short", !9, i64 0}
-!39 = !{!34, !38, i64 168}
-!40 = !{!41, !38, i64 32}
-!41 = !{!"_ZTS9ItemStack", !16, i64 0, !38, i64 32, !38, i64 34, !42, i64 40}
-!42 = !{!"_ZTS17ItemStackMetadata", !43, i64 0, !19, i64 72, !48, i64 80, !53, i64 208}
-!43 = !{!"_ZTS14SimpleMetadata", !19, i64 8, !44, i64 16}
-!44 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE", !45, i64 0}
-!45 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !46, i64 32, !18, i64 48}
-!46 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !47, i64 0, !11, i64 8}
-!47 = !{!"float", !9, i64 0}
-!48 = !{!"_ZTS16ToolCapabilities", !47, i64 0, !8, i64 4, !49, i64 8, !51, i64 64, !8, i64 120}
-!49 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12ToolGroupCapSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE", !50, i64 0}
-!50 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_12ToolGroupCapESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !46, i64 32, !18, i64 48}
-!51 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_sEEE", !52, i64 0}
-!52 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_sESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !46, i64 32, !18, i64 48}
-!53 = !{!"_ZTSSt8optionalI13WearBarParamsE", !54, i64 0}
-!54 = !{!"_ZTSSt14_Optional_baseI13WearBarParamsLb0ELb0EE", !55, i64 0}
-!55 = !{!"_ZTSSt17_Optional_payloadI13WearBarParamsLb0ELb0ELb0EE", !56, i64 0}
-!56 = !{!"_ZTSSt17_Optional_payloadI13WearBarParamsLb1ELb0ELb0EE", !57, i64 0}
-!57 = !{!"_ZTSSt22_Optional_payload_baseI13WearBarParamsE", !9, i64 0, !19, i64 56}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !39, i64 80}
+!35 = !{!"_ZTS10MoveAction", !36, i64 0, !16, i64 48, !39, i64 80, !36, i64 88, !16, i64 136, !39, i64 168}
+!36 = !{!"_ZTS17InventoryLocation", !37, i64 0, !16, i64 8, !38, i64 40}
+!37 = !{!"_ZTSN17InventoryLocation4TypeE", !9, i64 0}
+!38 = !{!"_ZTSN3irr4core8vector3dIsEE", !39, i64 0, !39, i64 2, !39, i64 4}
+!39 = !{!"short", !9, i64 0}
+!40 = !{!35, !39, i64 168}
+!41 = !{!42, !39, i64 32}
+!42 = !{!"_ZTS9ItemStack", !16, i64 0, !39, i64 32, !39, i64 34, !43, i64 40}
+!43 = !{!"_ZTS17ItemStackMetadata", !44, i64 0, !19, i64 72, !49, i64 80, !54, i64 208}
+!44 = !{!"_ZTS14SimpleMetadata", !19, i64 8, !45, i64 16}
+!45 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE", !46, i64 0}
+!46 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !47, i64 32, !18, i64 48}
+!47 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !48, i64 0, !11, i64 8}
+!48 = !{!"float", !9, i64 0}
+!49 = !{!"_ZTS16ToolCapabilities", !48, i64 0, !8, i64 4, !50, i64 8, !52, i64 64, !8, i64 120}
+!50 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12ToolGroupCapSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE", !51, i64 0}
+!51 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_12ToolGroupCapESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !47, i64 32, !18, i64 48}
+!52 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_sEEE", !53, i64 0}
+!53 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_sESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !18, i64 0, !11, i64 8, !30, i64 16, !11, i64 24, !47, i64 32, !18, i64 48}
+!54 = !{!"_ZTSSt8optionalI13WearBarParamsE", !55, i64 0}
+!55 = !{!"_ZTSSt14_Optional_baseI13WearBarParamsLb0ELb0EE", !56, i64 0}
+!56 = !{!"_ZTSSt17_Optional_payloadI13WearBarParamsLb0ELb0ELb0EE", !57, i64 0}
+!57 = !{!"_ZTSSt17_Optional_payloadI13WearBarParamsLb1ELb0ELb0EE", !58, i64 0}
+!58 = !{!"_ZTSSt22_Optional_payload_baseI13WearBarParamsE", !9, i64 0, !19, i64 56}

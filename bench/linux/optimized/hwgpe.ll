@@ -441,7 +441,7 @@ define dso_local i32 @acpi_hw_clear_gpe_block(ptr noundef readnone captures(none
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %10, %12
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !9
+  br i1 %13, label %14, label %.loopexit, !llvm.loop !10
 
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
@@ -518,7 +518,7 @@ define dso_local i32 @acpi_hw_enable_runtime_gpe_block(ptr readnone captures(non
   %34 = load i32, ptr %4, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %33, %35
-  br i1 %36, label %9, label %.loopexit, !llvm.loop !10
+  br i1 %36, label %9, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %32, %28, %3
   %37 = phi i32 [ 0, %3 ], [ 0, %32 ], [ %30, %28 ]
@@ -562,7 +562,7 @@ define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr readnone captures(none)
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %10, %12
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !11
+  br i1 %13, label %14, label %.loopexit, !llvm.loop !12
 
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
@@ -761,7 +761,7 @@ define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr readnone captures(
   %70 = load i32, ptr %6, align 8
   %71 = zext i32 %70 to i64
   %72 = icmp samesign ult i64 %69, %71
-  br i1 %72, label %13, label %.loopexit, !llvm.loop !12
+  br i1 %72, label %13, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %68, %3
   ret i32 0
@@ -782,10 +782,11 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}

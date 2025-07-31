@@ -345,7 +345,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %22
 34:                                               ; preds = %33, %fnv1a.exit
   %35 = add nuw nsw i32 %.0261919, 1
   %exitcond.not = icmp eq i32 %35, 186
-  br i1 %exitcond.not, label %fnv1a.exit35, label %22, !llvm.loop !9
+  br i1 %exitcond.not, label %fnv1a.exit35, label %22, !llvm.loop !10
 
 fnv1a.exit35:                                     ; preds = %34
   store i32 65, ptr %3, align 4
@@ -859,7 +859,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 44:                                               ; preds = %34, %29, %25
   %45 = load ptr, ptr %.041, align 8
   %.not45 = icmp eq ptr %45, null
-  br i1 %.not45, label %46, label %25, !llvm.loop !10
+  br i1 %.not45, label %46, label %25, !llvm.loop !11
 
 46:                                               ; preds = %44
   %47 = tail call ptr @calloc_arena(i64 noundef 40) #12
@@ -934,7 +934,7 @@ define dso_local ptr @symtab_find(ptr noundef readonly captures(none) %0, i32 no
 30:                                               ; preds = %20, %15, %11
   %.0 = load ptr, ptr %.019, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %11, !llvm.loop !12
 
 .loopexit:                                        ; preds = %30, %4, %24
   %.014 = phi ptr [ %29, %24 ], [ null, %4 ], [ null, %30 ]
@@ -1037,7 +1037,7 @@ define dso_local ptr @stable_set(ptr noundef captures(none) %0, ptr noundef %1, 
   %23 = icmp eq ptr %22, %1
   %.not.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %23, %.not.i
-  br i1 %or.cond.i, label %sentry_find.exit, label %.lr.ph.i
+  br i1 %or.cond.i, label %sentry_find.exit, label %.lr.ph.i, !llvm.loop !13
 
 sentry_find.exit:                                 ; preds = %.lr.ph.i, %3
   %.lcssa.i = phi ptr [ %15, %3 ], [ %21, %.lr.ph.i ]
@@ -1122,7 +1122,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %3
   %65 = icmp eq ptr %64, %47
   %.not.i.i = icmp eq ptr %64, null
   %or.cond.i.i = or i1 %65, %.not.i.i
-  br i1 %or.cond.i.i, label %sentry_find.exit.i, label %.lr.ph.i.i
+  br i1 %or.cond.i.i, label %sentry_find.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 sentry_find.exit.i:                               ; preds = %.lr.ph.i.i, %48
   %.lcssa.i.i = phi ptr [ %57, %48 ], [ %63, %.lr.ph.i.i ]
@@ -1136,7 +1136,7 @@ sentry_find.exit.i:                               ; preds = %.lr.ph.i.i, %48
 69:                                               ; preds = %sentry_find.exit.i, %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %stable_resize.exit, label %44, !llvm.loop !12
+  br i1 %exitcond.not.i, label %stable_resize.exit, label %44, !llvm.loop !14
 
 stable_resize.exit:                               ; preds = %69, %37
   store ptr %41, ptr %4, align 8
@@ -1185,7 +1185,7 @@ define dso_local ptr @stable_get(ptr noundef readonly captures(none) %0, ptr nou
   %23 = icmp eq ptr %22, %1
   %.not.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %23, %.not.i
-  br i1 %or.cond.i, label %sentry_find.exit, label %.lr.ph.i
+  br i1 %or.cond.i, label %sentry_find.exit, label %.lr.ph.i, !llvm.loop !13
 
 sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
   %24 = phi ptr [ %16, %5 ], [ %22, %.lr.ph.i ]
@@ -1272,7 +1272,7 @@ define dso_local ptr @htable_set(ptr noundef readonly captures(none) %0, ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, null
-  br i1 %.not31, label %26, label %.preheader, !llvm.loop !13
+  br i1 %.not31, label %26, label %.preheader, !llvm.loop !15
 
 26:                                               ; preds = %23
   %27 = tail call ptr @calloc_arena(i64 noundef 24) #12
@@ -1320,7 +1320,7 @@ define dso_local ptr @htable_get(ptr noundef readonly captures(none) %0, ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %19, %2, %16
   %.011 = phi ptr [ %18, %16 ], [ null, %2 ], [ null, %19 ]
@@ -1358,11 +1358,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

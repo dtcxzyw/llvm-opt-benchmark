@@ -150,7 +150,7 @@ define dso_local noundef ptr @ExecInitGatherMerge(ptr noundef %0, ptr noundef %1
   %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.next.i
   store ptr %83, ptr %85, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %gather_merge_setup.exit, label %77, !llvm.loop !8
+  br i1 %exitcond.not.i, label %gather_merge_setup.exit, label %77, !llvm.loop !9
 
 gather_merge_setup.exit:                          ; preds = %77, %.loopexit
   %86 = tail call ptr @binaryheap_allocate(i32 noundef %67, ptr noundef nonnull @heap_compare_slots, ptr noundef nonnull %4) #4
@@ -167,7 +167,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %4, !prof !9
+  br i1 %.not, label %5, label %4, !prof !10
 
 4:                                                ; preds = %1
   tail call void @ProcessInterrupts() #4
@@ -334,7 +334,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef %102) #4
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %93, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %93, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %93, %86
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -365,7 +365,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %.152.i.i = phi i32 [ 0, %.lr.ph54.i.i ], [ %172, %load_tuple_array.exit.i.i ]
   %114 = load volatile i32, ptr @InterruptPending, align 4
   %.not48.i.i = icmp eq i32 %114, 0
-  br i1 %.not48.i.i, label %116, label %115, !prof !9
+  br i1 %.not48.i.i, label %116, label %115, !prof !10
 
 115:                                              ; preds = %113
   tail call void @ProcessInterrupts() #4
@@ -447,7 +447,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %indvars.iv.i.i.i = phi i64 [ %157, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %167 ]
   %159 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i.i.i = icmp eq i32 %159, 0
-  br i1 %.not.i.i.i.i, label %161, label %160, !prof !9
+  br i1 %.not.i.i.i.i, label %161, label %160, !prof !10
 
 160:                                              ; preds = %158
   tail call void @ProcessInterrupts() #4
@@ -475,12 +475,12 @@ gm_readnext_tuple.exit.i.i.i:                     ; preds = %161
   store i32 %171, ptr %148, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 10
-  br i1 %exitcond.not.i.i.i, label %load_tuple_array.exit.i.i, label %158, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %load_tuple_array.exit.i.i, label %158, !llvm.loop !12
 
 load_tuple_array.exit.i.i:                        ; preds = %167, %gm_readnext_tuple.exit.i.i.i, %161, %153, %142, %140, %138, %121, %118
   %172 = add i32 %.152.i.i, 1
   %.not.i.i = icmp sgt i32 %172, %88
-  br i1 %.not.i.i, label %..preheader_crit_edge.i.i, label %113, !llvm.loop !12
+  br i1 %.not.i.i, label %..preheader_crit_edge.i.i, label %113, !llvm.loop !13
 
 173:                                              ; preds = %189, %.lr.ph57.i.i
   %.256.i.i = phi i32 [ 1, %.lr.ph57.i.i ], [ %190, %189 ]
@@ -497,19 +497,19 @@ load_tuple_array.exit.i.i:                        ; preds = %167, %gm_readnext_t
   %182 = getelementptr inbounds ptr, ptr %180, i64 %181
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
-  br i1 %184, label %.lr.ph54.i.i.loopexit, label %185
+  br i1 %184, label %.lr.ph54.i.i.loopexit, label %185, !llvm.loop !14
 
 185:                                              ; preds = %179
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %187 = load i16, ptr %186, align 4
   %188 = and i16 %187, 2
   %.not47.i.i = icmp eq i16 %188, 0
-  br i1 %.not47.i.i, label %189, label %.lr.ph54.i.i.loopexit
+  br i1 %.not47.i.i, label %189, label %.lr.ph54.i.i.loopexit, !llvm.loop !14
 
 189:                                              ; preds = %185, %173
   %190 = add i32 %.256.i.i, 1
   %.not46.i.i = icmp sgt i32 %190, %88
-  br i1 %.not46.i.i, label %gather_merge_init.exit.i, label %173, !llvm.loop !13
+  br i1 %.not46.i.i, label %gather_merge_init.exit.i, label %173, !llvm.loop !15
 
 gather_merge_init.exit.i:                         ; preds = %..preheader_crit_edge.i.i, %189, %._crit_edge.i.i
   %191 = load ptr, ptr %107, align 8
@@ -577,7 +577,7 @@ gather_merge_init.exit.i:                         ; preds = %..preheader_crit_ed
   %228 = load i32, ptr %217, align 4
   %229 = load i32, ptr %218, align 8
   %230 = icmp slt i32 %228, %229
-  br i1 %230, label %.lr.ph.i16.i, label %._crit_edge.i14.i, !llvm.loop !14
+  br i1 %230, label %.lr.ph.i16.i, label %._crit_edge.i14.i, !llvm.loop !16
 
 ._crit_edge.i14.i:                                ; preds = %.lr.ph.i16.i, %214
   %231 = load ptr, ptr %213, align 8
@@ -592,7 +592,7 @@ gather_merge_init.exit.i:                         ; preds = %..preheader_crit_ed
   %238 = load i32, ptr %209, align 4
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next.i15.i, %239
-  br i1 %240, label %214, label %gather_merge_getnext.exit.thread, !llvm.loop !15
+  br i1 %240, label %214, label %gather_merge_getnext.exit.thread, !llvm.loop !17
 
 gather_merge_getnext.exit:                        ; preds = %203
   %241 = tail call i64 @binaryheap_first(ptr noundef nonnull %205) #4
@@ -815,7 +815,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %9, %12
   %32 = load i32, ptr %21, align 4
   %33 = load i32, ptr %22, align 8
   %34 = icmp slt i32 %32, %33
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %18
   %35 = load ptr, ptr %17, align 8
@@ -830,7 +830,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %9, %12
   %42 = load i32, ptr %13, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %18, label %gather_merge_clear_tuples.exit, !llvm.loop !15
+  br i1 %44, label %18, label %gather_merge_clear_tuples.exit, !llvm.loop !17
 
 gather_merge_clear_tuples.exit:                   ; preds = %._crit_edge.i, %ExecShutdownGatherMergeWorkers.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -980,7 +980,7 @@ ExecProcNode.exit:                                ; preds = %19, %24
 57:                                               ; preds = %53
   %58 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i41 = icmp eq i32 %58, 0
-  br i1 %.not.i41, label %60, label %59, !prof !9
+  br i1 %.not.i41, label %60, label %59, !prof !10
 
 59:                                               ; preds = %57
   tail call void @ProcessInterrupts() #4
@@ -1029,7 +1029,7 @@ gm_readnext_tuple.exit:                           ; preds = %60
   %indvars.iv.i = phi i64 [ %79, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
   %81 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i, label %83, label %82, !prof !9
+  br i1 %.not.i.i, label %83, label %82, !prof !10
 
 82:                                               ; preds = %80
   tail call void @ProcessInterrupts() #4
@@ -1057,7 +1057,7 @@ gm_readnext_tuple.exit.i:                         ; preds = %83
   store i32 %93, ptr %70, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %load_tuple_array.exit, label %80, !llvm.loop !11
+  br i1 %exitcond.not.i, label %load_tuple_array.exit, label %80, !llvm.loop !12
 
 load_tuple_array.exit:                            ; preds = %89, %gm_readnext_tuple.exit.i, %83, %75, %47
   %.033 = phi ptr [ %52, %47 ], [ %66, %75 ], [ %66, %83 ], [ %66, %gm_readnext_tuple.exit.i ], [ %66, %89 ]
@@ -1214,7 +1214,7 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   %68 = load i32, ptr %12, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %22, label %.thread46, !llvm.loop !16
+  br i1 %70, label %22, label %.thread46, !llvm.loop !18
 
 .thread46.loopexit.split.loop.exit53:             ; preds = %ApplySortComparator.exit
   %71 = icmp slt i32 %.0.i.fr, 0
@@ -1243,14 +1243,16 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

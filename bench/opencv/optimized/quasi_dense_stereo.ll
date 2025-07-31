@@ -3488,11 +3488,11 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %18
   %42 = phi i64 [ 0, %.lr.ph ], [ %86, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %85, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %43 = getelementptr inbounds nuw %"class.cv::Point_", ptr %41, i64 %42
-  %44 = load float, ptr %43, align 4, !tbaa !84
+  %44 = load float, ptr %43, align 4, !tbaa !85
   %45 = insertelement <4 x float> poison, float %44, i64 0
   %46 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %45)
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %48 = load float, ptr %47, align 4, !tbaa !86
+  %48 = load float, ptr %47, align 4, !tbaa !87
   %49 = insertelement <4 x float> poison, float %48, i64 0
   %50 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %49)
   %.sroa.2.0.insert.ext.i = zext i32 %50 to i64
@@ -3501,11 +3501,11 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %18
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %51 = load ptr, ptr %38, align 8, !tbaa !42
   %52 = getelementptr inbounds nuw %"class.cv::Point_", ptr %51, i64 %42
-  %53 = load float, ptr %52, align 4, !tbaa !84
+  %53 = load float, ptr %52, align 4, !tbaa !85
   %54 = insertelement <4 x float> poison, float %53, i64 0
   %55 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %54)
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %57 = load float, ptr %56, align 4, !tbaa !86
+  %57 = load float, ptr %56, align 4, !tbaa !87
   %58 = insertelement <4 x float> poison, float %57, i64 0
   %59 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %58)
   %.sroa.2.0.insert.ext.i9 = zext i32 %59 to i64
@@ -3562,7 +3562,7 @@ _ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i.i ], [ %77, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i ], [ %65, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !88
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i = icmp eq ptr %79, %40
@@ -3596,7 +3596,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit: ; preds
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 3
   %93 = icmp ugt i64 %92, %86
-  br i1 %93, label %39, label %._crit_edge, !llvm.loop !91
+  br i1 %93, label %39, label %._crit_edge, !llvm.loop !92
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3614,7 +3614,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl15getDenseMa
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE5clearEv.exit: ; preds = %2, %6
   %7 = phi ptr [ %5, %2 ], [ %3, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %9 = load i32, ptr %8, align 8, !tbaa !92
+  %9 = load i32, ptr %8, align 8, !tbaa !93
   %10 = sext i32 %9 to i64
   %11 = icmp slt i32 %9, 0
   br i1 %11, label %12, label %13
@@ -3644,7 +3644,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i:
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !101
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !102
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i = icmp eq ptr %25, %7
@@ -3669,7 +3669,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE13_M_deallocateEPS2_m.e
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %13, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE13_M_deallocateEPS2_m.exit.i
   %30 = phi ptr [ %7, %13 ], [ %28, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %32 = load i32, ptr %31, align 4, !tbaa !105
+  %32 = load i32, ptr %31, align 4, !tbaa !106
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.preheader.lr.ph, label %._crit_edge37
 
@@ -3677,7 +3677,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %37 = load i32, ptr %34, align 8, !tbaa !106
+  %37 = load i32, ptr %34, align 8, !tbaa !107
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.preheader, label %._crit_edge37
 
@@ -3697,7 +3697,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %13
   ret void
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
-  %.pre = load i32, ptr %31, align 4, !tbaa !105
+  %.pre = load i32, ptr %31, align 4, !tbaa !106
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -3707,14 +3707,14 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %13
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %46 = sext i32 %43 to i64
   %47 = icmp slt i64 %indvars.iv.next41, %46
-  br i1 %47, label %.preheader, label %._crit_edge37, !llvm.loop !107
+  br i1 %47, label %.preheader, label %._crit_edge37, !llvm.loop !108
 
 48:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
   %49 = phi ptr [ %40, %.lr.ph ], [ %83, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.416.0.insert.shift, %indvars.iv
-  %50 = load ptr, ptr %35, align 8, !tbaa !109
-  %51 = load ptr, ptr %36, align 8, !tbaa !110
+  %50 = load ptr, ptr %35, align 8, !tbaa !110
+  %51 = load ptr, ptr %36, align 8, !tbaa !111
   %52 = load i64, ptr %51, align 8, !tbaa !30
   %53 = mul i64 %52, %indvars.iv40
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
@@ -3774,7 +3774,7 @@ _ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i ], [ %76, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i ], [ %64, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !111
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !112
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 20
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i = icmp eq ptr %78, %49
@@ -3800,10 +3800,10 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEv
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %60, %48
   %83 = phi ptr [ %80, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %62, %60 ], [ %49, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = load i32, ptr %34, align 8, !tbaa !106
+  %84 = load i32, ptr %34, align 8, !tbaa !107
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %48, label %._crit_edge.loopexit, !llvm.loop !115
+  br i1 %86, label %48, label %._crit_edge.loopexit, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3822,37 +3822,37 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl7processERKN
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %13, align 8, !tbaa !116
+  store i32 0, ptr %13, align 8, !tbaa !117
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %14, align 4, !tbaa !118
-  store i32 16842752, ptr %4, align 8, !tbaa !119
+  store i32 0, ptr %14, align 4, !tbaa !119
+  store i32 16842752, ptr %4, align 8, !tbaa !120
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %15, align 8, !tbaa !121
+  store ptr %1, ptr %15, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %18, align 8
-  store i32 33619968, ptr %5, align 8, !tbaa !119
-  store ptr %16, ptr %17, align 8, !tbaa !121
+  store i32 33619968, ptr %5, align 8, !tbaa !120
+  store ptr %16, ptr %17, align 8, !tbaa !122
   call void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 6, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %19, align 8, !tbaa !116
+  store i32 0, ptr %19, align 8, !tbaa !117
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %20, align 4, !tbaa !118
-  store i32 16842752, ptr %6, align 8, !tbaa !119
+  store i32 0, ptr %20, align 4, !tbaa !119
+  store i32 16842752, ptr %6, align 8, !tbaa !120
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %21, align 8, !tbaa !121
+  store ptr %2, ptr %21, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %24, align 8
-  store i32 33619968, ptr %7, align 8, !tbaa !119
-  store ptr %22, ptr %23, align 8, !tbaa !121
+  store i32 33619968, ptr %7, align 8, !tbaa !120
+  store ptr %22, ptr %23, align 8, !tbaa !122
   call void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 6, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
@@ -3910,19 +3910,19 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl7processERKN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden <2 x float> @_ZN2cv6stereo20QuasiDenseStereoImpl8getMatchEii(ptr noundef nonnull align 8 dereferenceable(1192) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #15 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %5 = load ptr, ptr %4, align 8, !tbaa !109
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %6, align 8, !tbaa !111
   %8 = load i64, ptr %7, align 8, !tbaa !30
   %9 = sext i32 %2 to i64
   %10 = mul i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds %"class.cv::Point_.19", ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !122
+  %14 = load i32, ptr %13, align 4, !tbaa !123
   %15 = sitofp i32 %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !124
+  %17 = load i32, ptr %16, align 4, !tbaa !125
   %18 = sitofp i32 %17 to float
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %18, i64 1
@@ -3932,13 +3932,13 @@ define linkonce_odr hidden <2 x float> @_ZN2cv6stereo20QuasiDenseStereoImpl8getM
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl12getDisparityEv(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %4 = load i32, ptr %3, align 4, !tbaa !105
+  %4 = load i32, ptr %3, align 4, !tbaa !106
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.preheader.lr.ph.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl16computeDisparityERKNS_4Mat_INS_6Point_IiEEEERNS2_IfEE.exit
 
 .preheader.lr.ph.i:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %7 = load i32, ptr %6, align 8, !tbaa !106
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %8 = icmp sgt i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %10 = load ptr, ptr %9, align 8
@@ -3976,7 +3976,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl12getDispari
   %sext.i.us.i = shl nuw i64 %.sroa.0.0.insert.ext.i.us.i, 32
   %30 = ashr exact i64 %sext.i.us.i, 29
   %31 = getelementptr inbounds i8, ptr %21, i64 %30
-  %.val.us.i = load i32, ptr %31, align 4, !tbaa !122
+  %.val.us.i = load i32, ptr %31, align 4, !tbaa !123
   %32 = getelementptr i8, ptr %31, i64 4
   %.val22.us.i = load i32, ptr %32, align 4
   %33 = icmp eq i32 %.val.us.i, 0
@@ -4001,12 +4001,12 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl12getDispari
   store float %.sink.i, ptr %45, align 4, !tbaa !71
   %46 = add nuw nsw i32 %.02151.us.i, 1
   %exitcond.not.i = icmp eq i32 %46, %7
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %27, !llvm.loop !125
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %27, !llvm.loop !126
 
 ._crit_edge.us.i:                                 ; preds = %43
   %47 = add nuw nsw i32 %.052.us.i, 1
   %exitcond55.not.i = icmp eq i32 %47, %4
-  br i1 %exitcond55.not.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl16computeDisparityERKNS_4Mat_INS_6Point_IiEEEERNS2_IfEE.exit, label %.preheader.us.i, !llvm.loop !126
+  br i1 %exitcond55.not.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl16computeDisparityERKNS_4Mat_INS_6Point_IiEEEERNS2_IfEE.exit, label %.preheader.us.i, !llvm.loop !127
 
 _ZN2cv6stereo20QuasiDenseStereoImpl16computeDisparityERKNS_4Mat_INS_6Point_IiEEEERNS2_IfEE.exit: ; preds = %._crit_edge.us.i, %2, %.preheader.lr.ph.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 904
@@ -4105,18 +4105,18 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %5, %20
 25:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit, %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %26, align 8, !tbaa !116
+  store i32 0, ptr %26, align 8, !tbaa !117
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 0, ptr %27, align 4, !tbaa !118
-  store i32 16842752, ptr %8, align 8, !tbaa !119
+  store i32 0, ptr %27, align 4, !tbaa !119
+  store i32 16842752, ptr %8, align 8, !tbaa !120
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %28, align 8, !tbaa !121
+  store ptr %1, ptr %28, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %30, align 8
-  store i32 -2113732595, ptr %9, align 8, !tbaa !119
-  store ptr %3, ptr %29, align 8, !tbaa !121
+  store i32 -2113732595, ptr %9, align 8, !tbaa !120
+  store ptr %3, ptr %29, align 8, !tbaa !122
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i32, ptr %31, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4144,46 +4144,46 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %5, %20
   %48 = fpext float %47 to double
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #28
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %49, align 8, !tbaa !116
+  store i32 0, ptr %49, align 8, !tbaa !117
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 0, ptr %50, align 4, !tbaa !118
-  store i32 16842752, ptr %10, align 8, !tbaa !119
+  store i32 0, ptr %50, align 4, !tbaa !119
+  store i32 16842752, ptr %10, align 8, !tbaa !120
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %1, ptr %51, align 8, !tbaa !121
+  store ptr %1, ptr %51, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #28
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !116
+  store i32 0, ptr %52, align 8, !tbaa !117
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %53, align 4, !tbaa !118
-  store i32 16842752, ptr %11, align 8, !tbaa !119
+  store i32 0, ptr %53, align 4, !tbaa !119
+  store i32 16842752, ptr %11, align 8, !tbaa !120
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %2, ptr %54, align 8, !tbaa !121
+  store ptr %2, ptr %54, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #28
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %55, align 8, !tbaa !116
+  store i32 0, ptr %55, align 8, !tbaa !117
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 0, ptr %56, align 4, !tbaa !118
-  store i32 -2130509811, ptr %12, align 8, !tbaa !119
+  store i32 0, ptr %56, align 4, !tbaa !119
+  store i32 -2130509811, ptr %12, align 8, !tbaa !120
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %3, ptr %57, align 8, !tbaa !121
+  store ptr %3, ptr %57, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #28
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %59, align 8
-  store i32 -2096955379, ptr %13, align 8, !tbaa !119
-  store ptr %4, ptr %58, align 8, !tbaa !121
+  store i32 -2096955379, ptr %13, align 8, !tbaa !120
+  store ptr %4, ptr %58, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #28
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %61, align 8
-  store i32 -2113732608, ptr %14, align 8, !tbaa !119
-  store ptr %6, ptr %60, align 8, !tbaa !121
+  store i32 -2113732608, ptr %14, align 8, !tbaa !120
+  store ptr %6, ptr %60, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #28
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %63, align 8
-  store i32 -2113732603, ptr %15, align 8, !tbaa !119
-  store ptr %7, ptr %62, align 8, !tbaa !121
+  store i32 -2113732603, ptr %15, align 8, !tbaa !120
+  store ptr %7, ptr %62, align 8, !tbaa !122
   %.sroa.553.0.insert.ext = zext i32 %43 to i64
   %.sroa.553.0.insert.shift = shl nuw i64 %.sroa.553.0.insert.ext, 32
   %.sroa.052.0.insert.insert = or disjoint i64 %.sroa.553.0.insert.shift, %.sroa.553.0.insert.ext
@@ -4193,7 +4193,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %5, %20
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %45, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !70
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store double %48, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !128
+  store double %48, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !129
   invoke void @_ZN2cv20calcOpticalFlowPyrLKERKNS_11_InputArrayES2_S2_RKNS_17_InputOutputArrayERKNS_12_OutputArrayES8_NS_5Size_IiEEiNS_12TermCriteriaEid(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 %.sroa.052.0.insert.insert, i32 noundef %65, ptr noundef nonnull byval(%"class.cv::TermCriteria") align 8 %16, i32 noundef 0, double noundef 1.000000e-04)
           to label %66 unwind label %115
 
@@ -4214,7 +4214,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %5, %20
   br label %75
 
 ._crit_edge:                                      ; preds = %107, %66
-  %70 = load ptr, ptr %7, align 8, !tbaa !130
+  %70 = load ptr, ptr %7, align 8, !tbaa !131
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %71
 
@@ -4224,7 +4224,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %5, %20
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
-  %72 = load ptr, ptr %6, align 8, !tbaa !133
+  %72 = load ptr, ptr %6, align 8, !tbaa !134
   %.not.i.i.i46 = icmp eq ptr %72, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %73
 
@@ -4247,7 +4247,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %76 = phi ptr [ %68, %.lr.ph ], [ %108, %107 ]
   %77 = phi ptr [ %67, %.lr.ph ], [ %109, %107 ]
   %.054 = phi i64 [ 0, %.lr.ph ], [ %.1, %107 ]
-  %78 = load ptr, ptr %6, align 8, !tbaa !133
+  %78 = load ptr, ptr %6, align 8, !tbaa !134
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.054
   %80 = load i8, ptr %79, align 1, !tbaa !31
   %81 = icmp eq i8 %80, 0
@@ -4263,20 +4263,20 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %87 = load ptr, ptr %18, align 8, !tbaa !45
   %88 = getelementptr inbounds i8, ptr %87, i64 -8
   store ptr %88, ptr %18, align 8, !tbaa !45
-  %89 = load ptr, ptr %6, align 8, !tbaa !133
+  %89 = load ptr, ptr %6, align 8, !tbaa !134
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.054
-  %91 = load ptr, ptr %69, align 8, !tbaa !135
+  %91 = load ptr, ptr %69, align 8, !tbaa !136
   %92 = getelementptr inbounds i8, ptr %91, i64 -1
   %93 = load i8, ptr %90, align 1, !tbaa !31
   %94 = load i8, ptr %92, align 1, !tbaa !31
   store i8 %94, ptr %90, align 1, !tbaa !31
   store i8 %93, ptr %92, align 1, !tbaa !31
-  %95 = load ptr, ptr %69, align 8, !tbaa !136
+  %95 = load ptr, ptr %69, align 8, !tbaa !137
   %96 = getelementptr inbounds i8, ptr %95, i64 -1
-  store ptr %96, ptr %69, align 8, !tbaa !136
+  store ptr %96, ptr %69, align 8, !tbaa !137
   %97 = load ptr, ptr %4, align 8, !tbaa !42
   %98 = getelementptr inbounds nuw %"class.cv::Point_", ptr %97, i64 %.054
-  %99 = load ptr, ptr %22, align 8, !tbaa !137
+  %99 = load ptr, ptr %22, align 8, !tbaa !138
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %101 = load i64, ptr %98, align 4
   %102 = load i64, ptr %100, align 4
@@ -4302,7 +4302,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %112 = sub i64 %110, %111
   %113 = ashr exact i64 %112, 3
   %114 = icmp ult i64 %.1, %113
-  br i1 %114, label %75, label %._crit_edge, !llvm.loop !138
+  br i1 %114, label %75, label %._crit_edge, !llvm.loop !139
 
 115:                                              ; preds = %41
   %116 = landingpad { ptr, i32 }
@@ -4313,7 +4313,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #28
-  %.pre = load ptr, ptr %7, align 8, !tbaa !130
+  %.pre = load ptr, ptr %7, align 8, !tbaa !131
   %.not.i.i.i47 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIfSaIfEED2Ev.exit48, label %117
 
@@ -4324,7 +4324,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 _ZNSt6vectorIfSaIfEED2Ev.exit48:                  ; preds = %.thread, %115, %117
   %.pn36.pn.pn.pn.pn.pn.pn59 = phi { ptr, i32 } [ %74, %.thread ], [ %116, %115 ], [ %116, %117 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
-  %118 = load ptr, ptr %6, align 8, !tbaa !133
+  %118 = load ptr, ptr %6, align 8, !tbaa !134
   %.not.i.i.i49 = icmp eq ptr %118, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorIhSaIhEED2Ev.exit50, label %119
 
@@ -4354,12 +4354,12 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18quasiDense
   %13 = alloca %"class.std::priority_queue", align 8
   %14 = alloca %"struct.cv::stereo::MatchQuasiDense", align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %15, align 8, !tbaa !92
+  store i32 0, ptr %15, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %17 = load i32, ptr %16, align 8, !tbaa !106
+  %17 = load i32, ptr %16, align 8, !tbaa !107
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %19 = load i32, ptr %18, align 4, !tbaa !105
+  %19 = load i32, ptr %18, align 4, !tbaa !106
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef %19, i32 noundef %17, i32 noundef 12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -4391,7 +4391,7 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   %26 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load i32, ptr %18, align 4, !tbaa !105
+  %28 = load i32, ptr %18, align 4, !tbaa !106
   %29 = icmp sgt i32 %28, 2
   br i1 %29, label %.preheader.lr.ph.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.thread
 
@@ -4404,7 +4404,7 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %16, align 8, !tbaa !106
+  %38 = load i32, ptr %16, align 8, !tbaa !107
   %39 = icmp sgt i32 %38, 2
   br i1 %39, label %.preheader.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.thread
 
@@ -4436,7 +4436,7 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   br label %60
 
 ._crit_edge.loopexit.i:                           ; preds = %60
-  %.pre.i = load i32, ptr %18, align 4, !tbaa !105
+  %.pre.i = load i32, ptr %18, align 4, !tbaa !106
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.._crit_edge_crit_edge.i
@@ -4446,7 +4446,7 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   %57 = add nsw i32 %55, -1
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next58.pre-phi.i, %58
-  br i1 %59, label %.preheader.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit, !llvm.loop !139
+  br i1 %59, label %.preheader.i, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit, !llvm.loop !140
 
 60:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
@@ -4487,11 +4487,11 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   %92 = fptosi float %.sroa.speculated.i to i32
   %93 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
   store i32 %92, ptr %93, align 4, !tbaa !70
-  %94 = load i32, ptr %16, align 8, !tbaa !106
+  %94 = load i32, ptr %16, align 8, !tbaa !107
   %95 = add nsw i32 %94, -1
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next.i, %96
-  br i1 %97, label %60, label %._crit_edge.loopexit.i, !llvm.loop !140
+  br i1 %97, label %60, label %._crit_edge.loopexit.i, !llvm.loop !141
 
 _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit: ; preds = %._crit_edge.i
   %98 = icmp sgt i32 %55, 2
@@ -4537,7 +4537,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit: ;
   br label %128
 
 ._crit_edge.loopexit.i85:                         ; preds = %128
-  %.pre.i86 = load i32, ptr %18, align 4, !tbaa !105
+  %.pre.i86 = load i32, ptr %18, align 4, !tbaa !106
   br label %._crit_edge.i77
 
 ._crit_edge.i77:                                  ; preds = %._crit_edge.loopexit.i85, %.preheader.._crit_edge_crit_edge.i75
@@ -4547,7 +4547,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit: ;
   %125 = add nsw i32 %123, -1
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next58.pre-phi.i78, %126
-  br i1 %127, label %.preheader.i73, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.thread, !llvm.loop !139
+  br i1 %127, label %.preheader.i73, label %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.thread, !llvm.loop !140
 
 128:                                              ; preds = %128, %.lr.ph.i79
   %indvars.iv.i81 = phi i64 [ 1, %.lr.ph.i79 ], [ %indvars.iv.next.i83, %128 ]
@@ -4588,62 +4588,62 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit: ;
   %160 = fptosi float %.sroa.speculated.i84 to i32
   %161 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i81
   store i32 %160, ptr %161, align 4, !tbaa !70
-  %162 = load i32, ptr %16, align 8, !tbaa !106
+  %162 = load i32, ptr %16, align 8, !tbaa !107
   %163 = add nsw i32 %162, -1
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.i83, %164
-  br i1 %165, label %128, label %._crit_edge.loopexit.i85, !llvm.loop !140
+  br i1 %165, label %128, label %._crit_edge.loopexit.i85, !llvm.loop !141
 
 _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.thread: ; preds = %._crit_edge.i77, %.preheader.lr.ph.i, %_ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit, %_ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit, %.preheader.lr.ph.i72
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %167, align 8, !tbaa !116
+  store i32 0, ptr %167, align 8, !tbaa !117
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 0, ptr %168, align 4, !tbaa !118
-  store i32 16842752, ptr %7, align 8, !tbaa !119
+  store i32 0, ptr %168, align 4, !tbaa !119
+  store i32 16842752, ptr %7, align 8, !tbaa !120
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %27, ptr %169, align 8, !tbaa !121
+  store ptr %27, ptr %169, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %172, align 8
-  store i32 -2113863676, ptr %8, align 8, !tbaa !119
-  store ptr %170, ptr %171, align 8, !tbaa !121
+  store i32 -2113863676, ptr %8, align 8, !tbaa !120
+  store ptr %170, ptr %171, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %175, align 8
-  store i32 -2113863674, ptr %9, align 8, !tbaa !119
-  store ptr %173, ptr %174, align 8, !tbaa !121
+  store i32 -2113863674, ptr %9, align 8, !tbaa !120
+  store ptr %173, ptr %174, align 8, !tbaa !122
   call void @_ZN2cv8integralERKNS_11_InputArrayERKNS_12_OutputArrayES5_ii(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef -1, i32 noundef -1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #28
   %176 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %176, align 8, !tbaa !116
+  store i32 0, ptr %176, align 8, !tbaa !117
   %177 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 0, ptr %177, align 4, !tbaa !118
-  store i32 16842752, ptr %10, align 8, !tbaa !119
+  store i32 0, ptr %177, align 4, !tbaa !119
+  store i32 16842752, ptr %10, align 8, !tbaa !120
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %166, ptr %178, align 8, !tbaa !121
+  store ptr %166, ptr %178, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #28
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %180 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %181, align 8
-  store i32 -2113863676, ptr %11, align 8, !tbaa !119
-  store ptr %179, ptr %180, align 8, !tbaa !121
+  store i32 -2113863676, ptr %11, align 8, !tbaa !120
+  store ptr %179, ptr %180, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #28
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %183 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %184 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %184, align 8
-  store i32 -2113863674, ptr %12, align 8, !tbaa !119
-  store ptr %182, ptr %183, align 8, !tbaa !121
+  store i32 -2113863674, ptr %12, align 8, !tbaa !120
+  store ptr %182, ptr %183, align 8, !tbaa !122
   call void @_ZN2cv8integralERKNS_11_InputArrayERKNS_12_OutputArrayES5_ii(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef -1, i32 noundef -1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
@@ -4651,8 +4651,8 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #28
   call void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSparseSeedsERKSt6vectorINS_6Point_IfEESaIS4_EES8_RNS_4Mat_INS3_IiEEEESC_(ptr dead_on_unwind nonnull writable sret(%"class.std::priority_queue") align 8 %13, ptr noundef nonnull align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %25)
   %185 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %186 = load ptr, ptr %13, align 8, !tbaa !141
-  %187 = load ptr, ptr %185, align 8, !tbaa !141
+  %186 = load ptr, ptr %13, align 8, !tbaa !142
+  %187 = load ptr, ptr %185, align 8, !tbaa !142
   %188 = icmp eq ptr %186, %187
   br i1 %188, label %._crit_edge295, label %.lr.ph294
 
@@ -4715,16 +4715,16 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   %224 = add i64 %223, 2
   %225 = or disjoint i64 %223, 1
   %226 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %224, i32 2
-  %227 = load float, ptr %226, align 4, !tbaa !142
+  %227 = load float, ptr %226, align 4, !tbaa !143
   %228 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %225, i32 2
-  %229 = load float, ptr %228, align 4, !tbaa !142
+  %229 = load float, ptr %228, align 4, !tbaa !143
   %230 = fcmp olt float %227, %229
   %spec.select.i.i.i.i = select i1 %230, i64 %225, i64 %224
   %231 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %spec.select.i.i.i.i
   %232 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %.038.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %232, ptr noundef nonnull align 4 dereferenceable(20) %231, i64 20, i1 false), !tbaa.struct !77
   %233 = icmp slt i64 %spec.select.i.i.i.i, %221
-  br i1 %233, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !144
+  br i1 %233, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !145
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %215
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %215 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -4760,7 +4760,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   %.0919.i.i1011.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
   %245 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %.0919.i.i1011.i.i.i
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %247 = load float, ptr %246, align 4, !tbaa !142
+  %247 = load float, ptr %246, align 4, !tbaa !143
   %248 = fcmp olt float %247, %.sroa.49.0.copyload.i.i.i
   br i1 %248, label %249, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
@@ -4768,7 +4768,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   %250 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %210, i64 %.018.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %250, ptr noundef nonnull align 4 dereferenceable(20) %245, i64 20, i1 false), !tbaa.struct !77
   %.not12.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
-  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !145
+  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !146
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %249, %.lr.ph.i.i.i.i.i, %244
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %244 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %249 ]
@@ -4786,12 +4786,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   store ptr %254, ptr %185, align 8, !tbaa !75
   %255 = load i32, ptr %190, align 8, !tbaa !46
   %256 = load i32, ptr %191, align 4, !tbaa !50
-  %257 = load i32, ptr %18, align 4, !tbaa !105
+  %257 = load i32, ptr %18, align 4, !tbaa !106
   %258 = icmp slt i32 %.sroa.016.0.copyload, %255
   br i1 %258, label %_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, label %259
 
 259:                                              ; preds = %252
-  %260 = load i32, ptr %16, align 8, !tbaa !106
+  %260 = load i32, ptr %16, align 8, !tbaa !107
   %261 = sub nsw i32 %260, %255
   %262 = icmp sgt i32 %.sroa.016.0.copyload, %261
   %263 = icmp slt i32 %.sroa.6.0.copyload, %256
@@ -4813,7 +4813,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %270 = icmp sge i32 %.sroa.8.0.copyload, %256
   %271 = icmp sle i32 %.sroa.8.0.copyload, %265
   %or.cond20.not.i = and i1 %270, %271
-  br i1 %or.cond20.not.i, label %274, label %_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, !llvm.loop !146
+  br i1 %or.cond20.not.i, label %274, label %_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, !llvm.loop !147
 
 272:                                              ; preds = %_ZN2cv4Mat_INS_6Point_IiEEEC2ENS_5Size_IiEERKS2_.exit
   %273 = landingpad { ptr, i32 }
@@ -4869,7 +4869,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %indvars.iv.next312 = add nsw i64 %indvars.iv311, 1
   %290 = sext i32 %289 to i64
   %.not.not = icmp slt i64 %indvars.iv311, %290
-  br i1 %.not.not, label %.lr.ph288, label %.preheader, !llvm.loop !147
+  br i1 %.not.not, label %.lr.ph288, label %.preheader, !llvm.loop !148
 
 291:                                              ; preds = %.lr.ph277, %.loopexit211
   %292 = phi i32 [ %284, %.lr.ph277 ], [ %393, %.loopexit211 ]
@@ -4879,13 +4879,13 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %.sroa.12.3273 = phi ptr [ %.sroa.12.2284, %.lr.ph277 ], [ %.sroa.12.4, %.loopexit211 ]
   %.sroa.20.3272 = phi ptr [ %.sroa.20.2283, %.lr.ph277 ], [ %.sroa.20.4, %.loopexit211 ]
   %294 = add nsw i64 %indvars.iv308, %277
-  %295 = load ptr, ptr %193, align 8, !tbaa !109
-  %296 = load ptr, ptr %194, align 8, !tbaa !110
+  %295 = load ptr, ptr %193, align 8, !tbaa !110
+  %296 = load ptr, ptr %194, align 8, !tbaa !111
   %297 = load i64, ptr %296, align 8, !tbaa !30
   %298 = mul i64 %297, %286
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 %298
   %300 = getelementptr inbounds %"class.cv::Point_.19", ptr %299, i64 %294
-  %.val60 = load i32, ptr %300, align 4, !tbaa !122
+  %.val60 = load i32, ptr %300, align 4, !tbaa !123
   %301 = getelementptr i8, ptr %300, i64 4
   %.val61 = load i32, ptr %301, align 4
   %.not.i = icmp ne i32 %.val60, 0
@@ -4894,8 +4894,8 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   br i1 %303, label %.loopexit211, label %304
 
 304:                                              ; preds = %291
-  %305 = load ptr, ptr %195, align 8, !tbaa !109
-  %306 = load ptr, ptr %196, align 8, !tbaa !110
+  %305 = load ptr, ptr %195, align 8, !tbaa !110
+  %306 = load ptr, ptr %196, align 8, !tbaa !111
   %307 = load i64, ptr %306, align 8, !tbaa !30
   %308 = mul i64 %307, %286
   %309 = getelementptr inbounds nuw i8, ptr %305, i64 %308
@@ -4947,7 +4947,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %.sroa.0167.7.lcssa = phi ptr [ %.sroa.0167.6264, %.._crit_edge_crit_edge ], [ %.sroa.0167.8, %390 ]
   %indvars.iv.next306 = add nsw i64 %indvars.iv305, 1
   %.not51.not = icmp slt i64 %indvars.iv305, %.pre-phi
-  br i1 %.not51.not, label %320, label %.loopexit211.loopexit, !llvm.loop !148
+  br i1 %.not51.not, label %320, label %.loopexit211.loopexit, !llvm.loop !149
 
 326:                                              ; preds = %.lr.ph, %390
   %indvars.iv = phi i64 [ %324, %.lr.ph ], [ %indvars.iv.next, %390 ]
@@ -4955,13 +4955,13 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %.sroa.12.6256 = phi ptr [ %.sroa.12.5263, %.lr.ph ], [ %.sroa.12.7, %390 ]
   %.sroa.20.6255 = phi ptr [ %.sroa.20.5262, %.lr.ph ], [ %.sroa.20.7, %390 ]
   %327 = add nsw i64 %318, %indvars.iv
-  %328 = load ptr, ptr %199, align 8, !tbaa !109
-  %329 = load ptr, ptr %200, align 8, !tbaa !110
+  %328 = load ptr, ptr %199, align 8, !tbaa !110
+  %329 = load ptr, ptr %200, align 8, !tbaa !111
   %330 = load i64, ptr %329, align 8, !tbaa !30
   %331 = mul i64 %330, %323
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 %331
   %333 = getelementptr inbounds %"class.cv::Point_.19", ptr %332, i64 %327
-  %.val = load i32, ptr %333, align 4, !tbaa !122
+  %.val = load i32, ptr %333, align 4, !tbaa !123
   %334 = getelementptr i8, ptr %333, i64 4
   %.val57 = load i32, ptr %334, align 4
   %.not.i89 = icmp ne i32 %.val, 0
@@ -4970,8 +4970,8 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   br i1 %336, label %390, label %337
 
 337:                                              ; preds = %326
-  %338 = load ptr, ptr %201, align 8, !tbaa !109
-  %339 = load ptr, ptr %202, align 8, !tbaa !110
+  %338 = load ptr, ptr %201, align 8, !tbaa !110
+  %339 = load ptr, ptr %202, align 8, !tbaa !111
   %340 = load i64, ptr %339, align 8, !tbaa !30
   %341 = mul i64 %340, %323
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 %341
@@ -5047,7 +5047,7 @@ _ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc91, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %372, %.lr.ph.i.i.i.i.i.i.i ], [ %369, %.noexc91 ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %371, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0167.7257, %.noexc91 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !149
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !150
   %371 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 20
   %372 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i.i = icmp eq ptr %371, %.sroa.12.6256
@@ -5090,7 +5090,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %.0919.i1112.i.i = lshr i64 %.0919.in.i.i.i, 1
   %381 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.9, i64 %.0919.i1112.i.i
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
-  %383 = load float, ptr %382, align 4, !tbaa !142
+  %383 = load float, ptr %382, align 4, !tbaa !143
   %384 = fcmp olt float %383, %.sroa.410.0.copyload.i.i
   br i1 %384, label %385, label %.loopexit
 
@@ -5098,7 +5098,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %386 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.9, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %386, ptr noundef nonnull align 4 dereferenceable(20) %381, i64 20, i1 false), !tbaa.struct !77
   %.not.i3.i = icmp ult i64 %.0919.in.i.i.i, 2
-  br i1 %.not.i3.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !145
+  br i1 %.not.i3.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !146
 
 .loopexit:                                        ; preds = %385, %.lr.ph.i.i.i, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %379, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ 0, %385 ]
@@ -5132,7 +5132,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %391 = load i32, ptr %198, align 4, !tbaa !56
   %392 = sext i32 %391 to i64
   %.not52.not = icmp slt i64 %indvars.iv, %392
-  br i1 %.not52.not, label %326, label %._crit_edge, !llvm.loop !153
+  br i1 %.not52.not, label %326, label %._crit_edge, !llvm.loop !154
 
 .loopexit211.loopexit:                            ; preds = %._crit_edge
   %.pre = load i32, ptr %192, align 8, !tbaa !55
@@ -5147,7 +5147,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %indvars.iv.next309 = add nsw i64 %indvars.iv308, 1
   %395 = sext i32 %394 to i64
   %.not50.not = icmp slt i64 %indvars.iv308, %395
-  br i1 %.not50.not, label %291, label %._crit_edge278, !llvm.loop !154
+  br i1 %.not50.not, label %291, label %._crit_edge278, !llvm.loop !155
 
 396:                                              ; preds = %.lr.ph292, %482
   %.sroa.12.8291 = phi ptr [ %.sroa.12.3.lcssa, %.lr.ph292 ], [ %438, %482 ]
@@ -5179,16 +5179,16 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %409 = add i64 %408, 2
   %410 = or disjoint i64 %408, 1
   %411 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %409, i32 2
-  %412 = load float, ptr %411, align 4, !tbaa !142
+  %412 = load float, ptr %411, align 4, !tbaa !143
   %413 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %410, i32 2
-  %414 = load float, ptr %413, align 4, !tbaa !142
+  %414 = load float, ptr %413, align 4, !tbaa !143
   %415 = fcmp olt float %412, %414
   %spec.select.i.i.i.i112 = select i1 %415, i64 %410, i64 %409
   %416 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %spec.select.i.i.i.i112
   %417 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %.038.i.i.i.i111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %417, ptr noundef nonnull align 4 dereferenceable(20) %416, i64 20, i1 false), !tbaa.struct !77
   %418 = icmp slt i64 %spec.select.i.i.i.i112, %406
-  br i1 %418, label %.lr.ph.i.i.i.i110, label %._crit_edge.i.i.i.i95, !llvm.loop !144
+  br i1 %418, label %.lr.ph.i.i.i.i110, label %._crit_edge.i.i.i.i95, !llvm.loop !145
 
 ._crit_edge.i.i.i.i95:                            ; preds = %.lr.ph.i.i.i.i110, %400
   %.0.lcssa.i.i.i.i96 = phi i64 [ 0, %400 ], [ %spec.select.i.i.i.i112, %.lr.ph.i.i.i.i110 ]
@@ -5224,7 +5224,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %.0919.i.i1011.i.i.i103 = lshr i64 %.0919.in.i.i.i.i.i102, 1
   %430 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %.0919.i.i1011.i.i.i103
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
-  %432 = load float, ptr %431, align 4, !tbaa !142
+  %432 = load float, ptr %431, align 4, !tbaa !143
   %433 = fcmp olt float %432, %.sroa.49.0.copyload.i.i.i94
   br i1 %433, label %434, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i104
 
@@ -5232,7 +5232,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %435 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0167.4.lcssa, i64 %.018.i.i.i.i.i101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %435, ptr noundef nonnull align 4 dereferenceable(20) %430, i64 20, i1 false), !tbaa.struct !77
   %.not12.i.i.i108 = icmp ult i64 %.0919.in.i.i.i.i.i102, 2
-  br i1 %.not12.i.i.i108, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i104, label %.lr.ph.i.i.i.i.i100, !llvm.loop !145
+  br i1 %.not12.i.i.i108, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i104, label %.lr.ph.i.i.i.i.i100, !llvm.loop !146
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i104: ; preds = %434, %.lr.ph.i.i.i.i.i100, %429
   %.0.lcssa.i.i.i.i.i105 = phi i64 [ 0, %429 ], [ %.018.i.i.i.i.i101, %.lr.ph.i.i.i.i.i100 ], [ 0, %434 ]
@@ -5245,23 +5245,23 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
 
 437:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i104, %396
   %438 = getelementptr inbounds i8, ptr %.sroa.12.8291, i64 -20
-  %439 = load i32, ptr %205, align 4, !tbaa !155
-  %440 = load i32, ptr %14, align 8, !tbaa !156
-  %441 = load ptr, ptr %193, align 8, !tbaa !109
-  %442 = load ptr, ptr %194, align 8, !tbaa !110
+  %439 = load i32, ptr %205, align 4, !tbaa !156
+  %440 = load i32, ptr %14, align 8, !tbaa !157
+  %441 = load ptr, ptr %193, align 8, !tbaa !110
+  %442 = load ptr, ptr %194, align 8, !tbaa !111
   %443 = load i64, ptr %442, align 8, !tbaa !30
   %444 = sext i32 %439 to i64
   %445 = mul i64 %443, %444
   %446 = getelementptr inbounds nuw i8, ptr %441, i64 %445
   %447 = sext i32 %440 to i64
   %448 = getelementptr inbounds %"class.cv::Point_.19", ptr %446, i64 %447
-  %.val68 = load i32, ptr %448, align 4, !tbaa !122
+  %.val68 = load i32, ptr %448, align 4, !tbaa !123
   %449 = getelementptr i8, ptr %448, i64 4
   %.val69 = load i32, ptr %449, align 4
   %.not.i114 = icmp ne i32 %.val68, 0
   %450 = icmp ne i32 %.val69, 0
   %451 = select i1 %.not.i114, i1 true, i1 %450
-  br i1 %451, label %482, label %453, !llvm.loop !157
+  br i1 %451, label %482, label %453, !llvm.loop !158
 
 .thread199:                                       ; preds = %467
   %452 = landingpad { ptr, i32 }
@@ -5270,31 +5270,31 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   br label %489
 
 453:                                              ; preds = %437
-  %454 = load i32, ptr %207, align 4, !tbaa !158
-  %455 = load i32, ptr %206, align 8, !tbaa !159
-  %456 = load ptr, ptr %199, align 8, !tbaa !109
-  %457 = load ptr, ptr %200, align 8, !tbaa !110
+  %454 = load i32, ptr %207, align 4, !tbaa !159
+  %455 = load i32, ptr %206, align 8, !tbaa !160
+  %456 = load ptr, ptr %199, align 8, !tbaa !110
+  %457 = load ptr, ptr %200, align 8, !tbaa !111
   %458 = load i64, ptr %457, align 8, !tbaa !30
   %459 = sext i32 %454 to i64
   %460 = mul i64 %458, %459
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 %460
   %462 = sext i32 %455 to i64
   %463 = getelementptr inbounds %"class.cv::Point_.19", ptr %461, i64 %462
-  %.val64 = load i32, ptr %463, align 4, !tbaa !122
+  %.val64 = load i32, ptr %463, align 4, !tbaa !123
   %464 = getelementptr i8, ptr %463, i64 4
   %.val65 = load i32, ptr %464, align 4
   %.not.i115 = icmp ne i32 %.val64, 0
   %465 = icmp ne i32 %.val65, 0
   %466 = select i1 %.not.i115, i1 true, i1 %465
-  br i1 %466, label %482, label %467, !llvm.loop !157
+  br i1 %466, label %482, label %467, !llvm.loop !158
 
 467:                                              ; preds = %453
   %468 = load i64, ptr %206, align 8
   store i64 %468, ptr %448, align 4
-  %469 = load i32, ptr %207, align 4, !tbaa !158
-  %470 = load i32, ptr %206, align 8, !tbaa !159
-  %471 = load ptr, ptr %199, align 8, !tbaa !109
-  %472 = load ptr, ptr %200, align 8, !tbaa !110
+  %469 = load i32, ptr %207, align 4, !tbaa !159
+  %470 = load i32, ptr %206, align 8, !tbaa !160
+  %471 = load ptr, ptr %199, align 8, !tbaa !110
+  %472 = load ptr, ptr %200, align 8, !tbaa !111
   %473 = load i64, ptr %472, align 8, !tbaa !30
   %474 = sext i32 %469 to i64
   %475 = mul i64 %473, %474
@@ -5303,16 +5303,16 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   %478 = getelementptr inbounds %"class.cv::Point_.19", ptr %476, i64 %477
   %479 = load i64, ptr %14, align 8
   store i64 %479, ptr %478, align 4
-  %480 = load i32, ptr %15, align 8, !tbaa !92
+  %480 = load i32, ptr %15, align 8, !tbaa !93
   %481 = add nsw i32 %480, 1
-  store i32 %481, ptr %15, align 8, !tbaa !92
+  store i32 %481, ptr %15, align 8, !tbaa !93
   invoke void @_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %13, ptr noundef nonnull align 4 dereferenceable(20) %14)
           to label %482 unwind label %.thread199
 
 482:                                              ; preds = %467, %453, %437
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #28
   %483 = icmp eq ptr %.sroa.0167.4.lcssa, %438
-  br i1 %483, label %._crit_edge293, label %396
+  br i1 %483, label %._crit_edge293, label %396, !llvm.loop !161
 
 ._crit_edge293:                                   ; preds = %482, %.preheader
   %.not.i.i.i.i116 = icmp eq ptr %.sroa.0167.4.lcssa, null
@@ -5323,10 +5323,10 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   br label %_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit
 
 _ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit: ; preds = %274, %252, %259, %264, %267, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit, %._crit_edge293, %484
-  %485 = load ptr, ptr %13, align 8, !tbaa !141
-  %486 = load ptr, ptr %185, align 8, !tbaa !141
+  %485 = load ptr, ptr %13, align 8, !tbaa !142
+  %486 = load ptr, ptr %185, align 8, !tbaa !142
   %487 = icmp eq ptr %485, %486
-  br i1 %487, label %._crit_edge295, label %208
+  br i1 %487, label %._crit_edge295, label %208, !llvm.loop !162
 
 488:                                              ; preds = %.loopexit210, %.loopexit.split-lp, %388
   %.pn53.pn = phi { ptr, i32 } [ %389, %388 ], [ %lpad.loopexit, %.loopexit210 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -5410,11 +5410,11 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSpa
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %25, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !84
+  %28 = load float, ptr %27, align 4, !tbaa !85
   %29 = insertelement <4 x float> poison, float %28, i64 0
   %30 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %29)
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %32 = load float, ptr %31, align 4, !tbaa !86
+  %32 = load float, ptr %31, align 4, !tbaa !87
   %33 = insertelement <4 x float> poison, float %32, i64 0
   %34 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %33)
   %.sroa.2.0.insert.ext.i = zext i32 %34 to i64
@@ -5424,11 +5424,11 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSpa
   store i64 %.sroa.0.0.insert.insert.i, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw %"class.cv::Point_", ptr %35, i64 %26
-  %37 = load float, ptr %36, align 4, !tbaa !84
+  %37 = load float, ptr %36, align 4, !tbaa !85
   %38 = insertelement <4 x float> poison, float %37, i64 0
   %39 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %38)
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %41 = load float, ptr %40, align 4, !tbaa !86
+  %41 = load float, ptr %40, align 4, !tbaa !87
   %42 = insertelement <4 x float> poison, float %41, i64 0
   %43 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %42)
   %.sroa.2.0.insert.ext.i19 = zext i32 %43 to i64
@@ -5438,12 +5438,12 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSpa
   store i64 %.sroa.0.0.insert.insert.i22, ptr %11, align 8
   %44 = load i32, ptr %13, align 8, !tbaa !46
   %45 = load i32, ptr %14, align 4, !tbaa !50
-  %46 = load i32, ptr %15, align 4, !tbaa !105
+  %46 = load i32, ptr %15, align 4, !tbaa !106
   %47 = icmp slt i32 %30, %44
   br i1 %47, label %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread, label %48
 
 48:                                               ; preds = %24
-  %49 = load i32, ptr %16, align 8, !tbaa !106
+  %49 = load i32, ptr %16, align 8, !tbaa !107
   %50 = sub nsw i32 %49, %44
   %51 = icmp sgt i32 %30, %50
   %52 = icmp slt i32 %34, %45
@@ -5482,7 +5482,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
           to label %68 unwind label %61
 
 68:                                               ; preds = %64
-  store float %67, ptr %12, align 8, !tbaa !142
+  store float %67, ptr %12, align 8, !tbaa !143
   %69 = load float, ptr %19, align 8, !tbaa !53
   %70 = fcmp ogt float %67, %69
   br i1 %70, label %71, label %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread
@@ -5492,10 +5492,10 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
           to label %72 unwind label %61
 
 72:                                               ; preds = %71
-  %73 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !155
-  %74 = load i32, ptr %7, align 8, !tbaa !156
-  %75 = load ptr, ptr %20, align 8, !tbaa !109
-  %76 = load ptr, ptr %21, align 8, !tbaa !110
+  %73 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !156
+  %74 = load i32, ptr %7, align 8, !tbaa !157
+  %75 = load ptr, ptr %20, align 8, !tbaa !110
+  %76 = load ptr, ptr %21, align 8, !tbaa !111
   %77 = load i64, ptr %76, align 8, !tbaa !30
   %78 = sext i32 %73 to i64
   %79 = mul i64 %77, %78
@@ -5504,10 +5504,10 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %82 = getelementptr inbounds %"class.cv::Point_.19", ptr %80, i64 %81
   %83 = load i64, ptr %11, align 8
   store i64 %83, ptr %82, align 4
-  %84 = load i32, ptr %.sroa.425.0..sroa_idx, align 4, !tbaa !158
-  %85 = load i32, ptr %11, align 8, !tbaa !159
-  %86 = load ptr, ptr %22, align 8, !tbaa !109
-  %87 = load ptr, ptr %23, align 8, !tbaa !110
+  %84 = load i32, ptr %.sroa.425.0..sroa_idx, align 4, !tbaa !159
+  %85 = load i32, ptr %11, align 8, !tbaa !160
+  %86 = load ptr, ptr %22, align 8, !tbaa !110
+  %87 = load ptr, ptr %23, align 8, !tbaa !111
   %88 = load i64, ptr %87, align 8, !tbaa !30
   %89 = sext i32 %84 to i64
   %90 = mul i64 %88, %89
@@ -5529,7 +5529,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 3
   %103 = icmp ugt i64 %102, %96
-  br i1 %103, label %24, label %._crit_edge, !llvm.loop !160
+  br i1 %103, label %24, label %._crit_edge, !llvm.loop !163
 
 104:                                              ; preds = %61
   call void @_ZdlPv(ptr noundef nonnull %63) #26
@@ -5565,9 +5565,9 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %18 = add i32 %17, %.sroa.329.0.extract.trunc
   %.sroa.063.0.insert.ext64.i = zext i32 %13 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %20 = load ptr, ptr %19, align 8, !tbaa !109
+  %20 = load ptr, ptr %19, align 8, !tbaa !110
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %22 = load ptr, ptr %21, align 8, !tbaa !110
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
   %23 = load i64, ptr %22, align 8, !tbaa !30
   %24 = sext i32 %14 to i64
   %25 = mul i64 %23, %24
@@ -5593,26 +5593,26 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %42 = add nsw i32 %41, %39
   %43 = sitofp i32 %42 to float
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %45 = load ptr, ptr %44, align 8, !tbaa !109
+  %45 = load ptr, ptr %44, align 8, !tbaa !110
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %47 = load ptr, ptr %46, align 8, !tbaa !110
+  %47 = load ptr, ptr %46, align 8, !tbaa !111
   %48 = load i64, ptr %47, align 8, !tbaa !30
   %49 = mul i64 %48, %24
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
   %51 = ashr exact i64 %sext.i.i, 29
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  %53 = load double, ptr %52, align 8, !tbaa !128
+  %53 = load double, ptr %52, align 8, !tbaa !129
   %54 = ashr exact i64 %sext.i31.i, 29
   %55 = getelementptr inbounds i8, ptr %50, i64 %54
-  %56 = load double, ptr %55, align 8, !tbaa !128
+  %56 = load double, ptr %55, align 8, !tbaa !129
   %57 = fsub double %53, %56
   %58 = mul i64 %48, %33
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 %51
-  %61 = load double, ptr %60, align 8, !tbaa !128
+  %61 = load double, ptr %60, align 8, !tbaa !129
   %62 = fsub double %57, %61
   %63 = getelementptr inbounds i8, ptr %59, i64 %54
-  %64 = load double, ptr %63, align 8, !tbaa !128
+  %64 = load double, ptr %63, align 8, !tbaa !129
   %65 = fadd double %62, %64
   %66 = fptrunc double %65 to float
   %67 = sub nsw i32 %.sroa.027.0.extract.trunc, %3
@@ -5621,9 +5621,9 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %70 = add i32 %17, %.sroa.3.0.extract.trunc
   %.sroa.063.0.insert.ext64.i36 = zext i32 %67 to i64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %72 = load ptr, ptr %71, align 8, !tbaa !109
+  %72 = load ptr, ptr %71, align 8, !tbaa !110
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %74 = load ptr, ptr %73, align 8, !tbaa !110
+  %74 = load ptr, ptr %73, align 8, !tbaa !111
   %75 = load i64, ptr %74, align 8, !tbaa !30
   %76 = sext i32 %68 to i64
   %77 = mul i64 %75, %76
@@ -5649,26 +5649,26 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %94 = add nsw i32 %93, %91
   %95 = sitofp i32 %94 to float
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %97 = load ptr, ptr %96, align 8, !tbaa !109
+  %97 = load ptr, ptr %96, align 8, !tbaa !110
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %99 = load ptr, ptr %98, align 8, !tbaa !110
+  %99 = load ptr, ptr %98, align 8, !tbaa !111
   %100 = load i64, ptr %99, align 8, !tbaa !30
   %101 = mul i64 %100, %76
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 %101
   %103 = ashr exact i64 %sext.i.i37, 29
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  %105 = load double, ptr %104, align 8, !tbaa !128
+  %105 = load double, ptr %104, align 8, !tbaa !129
   %106 = ashr exact i64 %sext.i31.i39, 29
   %107 = getelementptr inbounds i8, ptr %102, i64 %106
-  %108 = load double, ptr %107, align 8, !tbaa !128
+  %108 = load double, ptr %107, align 8, !tbaa !129
   %109 = fsub double %105, %108
   %110 = mul i64 %100, %85
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 %103
-  %113 = load double, ptr %112, align 8, !tbaa !128
+  %113 = load double, ptr %112, align 8, !tbaa !129
   %114 = fsub double %109, %113
   %115 = getelementptr inbounds i8, ptr %111, i64 %106
-  %116 = load double, ptr %115, align 8, !tbaa !128
+  %116 = load double, ptr %115, align 8, !tbaa !129
   %117 = fadd double %114, %116
   %118 = fptrunc double %117 to float
   %119 = fdiv float %43, %12
@@ -5728,7 +5728,7 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
   %lftr.wideiv70 = trunc i64 %indvars.iv.next68 to i32
   %exitcond71.not = icmp eq i32 %17, %lftr.wideiv70
-  br i1 %exitcond71.not, label %._crit_edge63, label %.lr.ph, !llvm.loop !161
+  br i1 %exitcond71.not, label %._crit_edge63, label %.lr.ph, !llvm.loop !164
 
 151:                                              ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %151 ]
@@ -5747,7 +5747,7 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %15, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %151, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %151, !llvm.loop !165
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5765,7 +5765,7 @@ define linkonce_odr hidden void @_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDe
   %8 = load ptr, ptr %3, align 8, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store ptr %9, ptr %3, align 8, !tbaa !75
-  %.pre = load ptr, ptr %0, align 8, !tbaa !141
+  %.pre = load ptr, ptr %0, align 8, !tbaa !142
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
 
 10:                                               ; preds = %2
@@ -5799,7 +5799,7 @@ _ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %23, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i ], [ %11, %_ZNKSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !77, !alias.scope !166
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %4
@@ -5844,7 +5844,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit: ; preds
   %.0919.i1112.i = lshr i64 %.0919.in.i.i, 1
   %39 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %31, i64 %.0919.i1112.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load float, ptr %40, align 4, !tbaa !142
+  %41 = load float, ptr %40, align 4, !tbaa !143
   %42 = fcmp olt float %41, %.sroa.410.0.copyload.i
   br i1 %42, label %43, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit
 
@@ -5852,7 +5852,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit: ; preds
   %44 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %31, i64 %.018.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false), !tbaa.struct !77
   %.not.i3 = icmp ult i64 %.0919.in.i.i, 2
-  br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit, label %.lr.ph.i.i, !llvm.loop !145
+  br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit, label %.lr.ph.i.i, !llvm.loop !146
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit: ; preds = %.lr.ph.i.i, %43, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
   %.0.lcssa.i.i = phi i64 [ %37, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ], [ 0, %43 ], [ %.018.i.i, %.lr.ph.i.i ]
@@ -6020,88 +6020,91 @@ attributes #29 = { noreturn }
 !79 = distinct !{!79, !80, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
 !80 = distinct !{!80, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
 !81 = distinct !{!81, !80, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!82 = distinct !{!82, !83}
+!82 = distinct !{!82, !83, !84}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!85, !49, i64 0}
-!85 = !{!"_ZTSN2cv6Point_IfEE", !49, i64 0, !49, i64 4}
-!86 = !{!85, !49, i64 4}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!89 = distinct !{!89, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
-!90 = distinct !{!90, !89, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!91 = distinct !{!91, !83}
-!92 = !{!93, !10, i64 128}
-!93 = !{!"_ZTSN2cv6stereo20QuasiDenseStereoImplE", !47, i64 0, !94, i64 72, !94, i64 96, !10, i64 120, !10, i64 124, !10, i64 128, !35, i64 136, !35, i64 232, !97, i64 328, !97, i64 424, !98, i64 520, !98, i64 616, !99, i64 712, !99, i64 808, !100, i64 904, !98, i64 1000, !98, i64 1096}
-!94 = !{!"_ZTSSt6vectorIN2cv6Point_IfEESaIS2_EE", !95, i64 0}
-!95 = !{!"_ZTSSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE", !96, i64 0}
-!96 = !{!"_ZTSNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE12_Vector_implE", !43, i64 0}
-!97 = !{!"_ZTSN2cv4Mat_INS_6Point_IiEEEE", !35, i64 0}
-!98 = !{!"_ZTSN2cv4Mat_IiEE", !35, i64 0}
-!99 = !{!"_ZTSN2cv4Mat_IdEE", !35, i64 0}
-!100 = !{!"_ZTSN2cv4Mat_IfEE", !35, i64 0}
-!101 = !{!102, !104}
-!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
-!104 = distinct !{!104, !103, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!105 = !{!93, !10, i64 124}
-!106 = !{!93, !10, i64 120}
-!107 = distinct !{!107, !83, !108}
-!108 = !{!"llvm.loop.unswitch.partial.disable"}
-!109 = !{!35, !25, i64 16}
-!110 = !{!35, !41, i64 72}
-!111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!113 = distinct !{!113, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
-!114 = distinct !{!114, !113, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!115 = distinct !{!115, !83}
-!116 = !{!117, !10, i64 0}
-!117 = !{!"_ZTSN2cv5Size_IiEE", !10, i64 0, !10, i64 4}
-!118 = !{!117, !10, i64 4}
-!119 = !{!120, !10, i64 0}
-!120 = !{!"_ZTSN2cv11_InputArrayE", !10, i64 0, !19, i64 8, !117, i64 16}
-!121 = !{!120, !19, i64 8}
-!122 = !{!123, !10, i64 0}
-!123 = !{!"_ZTSN2cv6Point_IiEE", !10, i64 0, !10, i64 4}
-!124 = !{!123, !10, i64 4}
-!125 = distinct !{!125, !83}
-!126 = distinct !{!126, !83, !127}
-!127 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"double", !11, i64 0}
-!130 = !{!131, !132, i64 0}
-!131 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !132, i64 0, !132, i64 8, !132, i64 16}
-!132 = !{!"p1 float", !19, i64 0}
-!133 = !{!134, !25, i64 0}
-!134 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !25, i64 0, !25, i64 8, !25, i64 16}
-!135 = !{!25, !25, i64 0}
-!136 = !{!134, !25, i64 8}
-!137 = !{!44, !44, i64 0}
-!138 = distinct !{!138, !83}
-!139 = distinct !{!139, !83, !108}
-!140 = distinct !{!140, !83}
-!141 = !{!74, !74, i64 0}
-!142 = !{!143, !49, i64 16}
-!143 = !{!"_ZTSN2cv6stereo15MatchQuasiDenseE", !123, i64 0, !123, i64 8, !49, i64 16}
-!144 = distinct !{!144, !83}
-!145 = distinct !{!145, !83}
-!146 = distinct !{!146, !83}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = !{!86, !49, i64 0}
+!86 = !{!"_ZTSN2cv6Point_IfEE", !49, i64 0, !49, i64 4}
+!87 = !{!86, !49, i64 4}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!90 = distinct !{!90, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
+!91 = distinct !{!91, !90, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!92 = distinct !{!92, !83, !84}
+!93 = !{!94, !10, i64 128}
+!94 = !{!"_ZTSN2cv6stereo20QuasiDenseStereoImplE", !47, i64 0, !95, i64 72, !95, i64 96, !10, i64 120, !10, i64 124, !10, i64 128, !35, i64 136, !35, i64 232, !98, i64 328, !98, i64 424, !99, i64 520, !99, i64 616, !100, i64 712, !100, i64 808, !101, i64 904, !99, i64 1000, !99, i64 1096}
+!95 = !{!"_ZTSSt6vectorIN2cv6Point_IfEESaIS2_EE", !96, i64 0}
+!96 = !{!"_ZTSSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE", !97, i64 0}
+!97 = !{!"_ZTSNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE12_Vector_implE", !43, i64 0}
+!98 = !{!"_ZTSN2cv4Mat_INS_6Point_IiEEEE", !35, i64 0}
+!99 = !{!"_ZTSN2cv4Mat_IiEE", !35, i64 0}
+!100 = !{!"_ZTSN2cv4Mat_IdEE", !35, i64 0}
+!101 = !{!"_ZTSN2cv4Mat_IfEE", !35, i64 0}
+!102 = !{!103, !105}
+!103 = distinct !{!103, !104, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!104 = distinct !{!104, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
+!105 = distinct !{!105, !104, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!106 = !{!94, !10, i64 124}
+!107 = !{!94, !10, i64 120}
+!108 = distinct !{!108, !83, !84, !109}
+!109 = !{!"llvm.loop.unswitch.partial.disable"}
+!110 = !{!35, !25, i64 16}
+!111 = !{!35, !41, i64 72}
+!112 = !{!113, !115}
+!113 = distinct !{!113, !114, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!114 = distinct !{!114, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
+!115 = distinct !{!115, !114, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!116 = distinct !{!116, !83, !84}
+!117 = !{!118, !10, i64 0}
+!118 = !{!"_ZTSN2cv5Size_IiEE", !10, i64 0, !10, i64 4}
+!119 = !{!118, !10, i64 4}
+!120 = !{!121, !10, i64 0}
+!121 = !{!"_ZTSN2cv11_InputArrayE", !10, i64 0, !19, i64 8, !118, i64 16}
+!122 = !{!121, !19, i64 8}
+!123 = !{!124, !10, i64 0}
+!124 = !{!"_ZTSN2cv6Point_IiEE", !10, i64 0, !10, i64 4}
+!125 = !{!124, !10, i64 4}
+!126 = distinct !{!126, !83, !84}
+!127 = distinct !{!127, !83, !84, !128}
+!128 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"double", !11, i64 0}
+!131 = !{!132, !133, i64 0}
+!132 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !133, i64 0, !133, i64 8, !133, i64 16}
+!133 = !{!"p1 float", !19, i64 0}
+!134 = !{!135, !25, i64 0}
+!135 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !25, i64 0, !25, i64 8, !25, i64 16}
+!136 = !{!25, !25, i64 0}
+!137 = !{!135, !25, i64 8}
+!138 = !{!44, !44, i64 0}
+!139 = distinct !{!139, !83, !84}
+!140 = distinct !{!140, !83, !84, !109}
+!141 = distinct !{!141, !83, !84}
+!142 = !{!74, !74, i64 0}
+!143 = !{!144, !49, i64 16}
+!144 = !{!"_ZTSN2cv6stereo15MatchQuasiDenseE", !124, i64 0, !124, i64 8, !49, i64 16}
+!145 = distinct !{!145, !83, !84}
+!146 = distinct !{!146, !83, !84}
 !147 = distinct !{!147, !83}
-!148 = distinct !{!148, !83}
-!149 = !{!150, !152}
-!150 = distinct !{!150, !151, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!151 = distinct !{!151, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
-!152 = distinct !{!152, !151, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!153 = distinct !{!153, !83}
-!154 = distinct !{!154, !83}
-!155 = !{!143, !10, i64 4}
-!156 = !{!143, !10, i64 0}
-!157 = distinct !{!157, !83}
-!158 = !{!143, !10, i64 12}
-!159 = !{!143, !10, i64 8}
-!160 = distinct !{!160, !83}
-!161 = distinct !{!161, !83}
-!162 = distinct !{!162, !83}
-!163 = !{!164, !166}
-!164 = distinct !{!164, !165, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!165 = distinct !{!165, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
-!166 = distinct !{!166, !165, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!148 = distinct !{!148, !83, !84}
+!149 = distinct !{!149, !83, !84}
+!150 = !{!151, !153}
+!151 = distinct !{!151, !152, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!152 = distinct !{!152, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
+!153 = distinct !{!153, !152, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!154 = distinct !{!154, !83, !84}
+!155 = distinct !{!155, !83, !84}
+!156 = !{!144, !10, i64 4}
+!157 = !{!144, !10, i64 0}
+!158 = distinct !{!158, !83}
+!159 = !{!144, !10, i64 12}
+!160 = !{!144, !10, i64 8}
+!161 = distinct !{!161, !84}
+!162 = distinct !{!162, !84}
+!163 = distinct !{!163, !83, !84}
+!164 = distinct !{!164, !83, !84}
+!165 = distinct !{!165, !83, !84}
+!166 = !{!167, !169}
+!167 = distinct !{!167, !168, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!168 = distinct !{!168, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_"}
+!169 = distinct !{!169, !168, !"_ZSt19__relocate_object_aIN2cv6stereo15MatchQuasiDenseES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}

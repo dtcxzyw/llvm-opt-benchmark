@@ -180,7 +180,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %130 = getelementptr inbounds i8, ptr %.01224, i64 %.idx
   %131 = add nuw nsw i32 %.025, 1
   %exitcond29.not = icmp eq i32 %131, %7
-  br i1 %exitcond29.not, label %._crit_edge, label %12, !llvm.loop !15
+  br i1 %exitcond29.not, label %._crit_edge, label %12, !llvm.loop !16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -367,7 +367,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %152 = getelementptr inbounds nuw i8, ptr %.01222, i64 2
   %153 = add nuw nsw i32 %.023, 1
   %exitcond27.not = icmp eq i32 %153, %6
-  br i1 %exitcond27.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond27.not, label %._crit_edge, label %12, !llvm.loop !17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -514,7 +514,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %storemerge147.i.us = trunc i32 %95 to i16
   store i16 %storemerge147.i.us, ptr %98, align 2, !tbaa !11
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -805,7 +805,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   %storemerge147.i.us = trunc i32 %93 to i16
   store i16 %storemerge147.i.us, ptr %gep31.us, align 2, !tbaa !11
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -968,10 +968,11 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !10 = !{!5, !6, i64 16}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !14, !18}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !14, !15, !19}

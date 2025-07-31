@@ -1387,7 +1387,7 @@ reset_interface_config_cb.exit:                   ; preds = %0, %2
   %12 = load i32, ptr @asam_cmp_interface_num, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2084,7 +2084,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %393, %390, %38
   %411 = add nuw i32 %.06.i, 1
   %412 = load i32, ptr %31, align 4
   %413 = icmp ult i32 %411, %412
-  br i1 %413, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !9
+  br i1 %413, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 414:                                              ; preds = %._crit_edge.i, %dissect_asam_cmp_status_interface_support_mask.exit.i
   %.6.i = phi i32 [ %407, %._crit_edge.i ], [ %398, %dissect_asam_cmp_status_interface_support_mask.exit.i ]
@@ -2109,7 +2109,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %393, %390, %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
   %425 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8.i)
   %426 = icmp sgt i32 %425, 39
-  br i1 %426, label %.lr.ph10.i, label %.critedge.i, !llvm.loop !10
+  br i1 %426, label %.lr.ph10.i, label %.critedge.i, !llvm.loop !11
 
 427:                                              ; preds = %184
   %428 = load ptr, ptr %41, align 8
@@ -2413,7 +2413,7 @@ add_interface_id_text.exit.i:                     ; preds = %553, %ht_interface_
   br label %610
 
 596:                                              ; preds = %580
-  %597 = load i8, ptr @old_11bit_canid_encoding, align 1, !range !11, !noundef !12
+  %597 = load i8, ptr @old_11bit_canid_encoding, align 1, !range !12, !noundef !13
   %598 = trunc nuw i8 %597 to i1
   %599 = load i32, ptr @hf_cmp_can_id, align 4
   %600 = load i32, ptr @ett_asam_cmp_can_id, align 4
@@ -2501,7 +2501,7 @@ ht_interface_config_to_bus_id.exit.i:             ; preds = %645, %ht_lookup_int
   %.0.i.i = phi i16 [ %648, %645 ], [ 0, %ht_lookup_interface.exit.i.i93 ], [ 0, %633 ]
   store i16 %.0.i.i, ptr %92, align 4
   store i16 0, ptr %93, align 2
-  %649 = load i8, ptr @heuristic_first, align 1, !range !11, !noundef !12
+  %649 = load i8, ptr @heuristic_first, align 1, !range !12, !noundef !13
   %650 = trunc nuw i8 %649 to i1
   %651 = call zeroext i1 @socketcan_call_subdissectors(ptr noundef %634, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %12, i1 noundef zeroext %650)
   br i1 %651, label %654, label %652
@@ -2547,7 +2547,7 @@ ht_interface_config_to_bus_id.exit.i:             ; preds = %645, %ht_lookup_int
   br label %686
 
 674:                                              ; preds = %658
-  %675 = load i8, ptr @old_11bit_canid_encoding, align 1, !range !11, !noundef !12
+  %675 = load i8, ptr @old_11bit_canid_encoding, align 1, !range !12, !noundef !13
   %676 = trunc nuw i8 %675 to i1
   %677 = load i32, ptr @hf_cmp_canfd_id, align 4
   %678 = load i32, ptr @ett_asam_cmp_can_id, align 4
@@ -2620,7 +2620,7 @@ ht_interface_config_to_bus_id.exit479.i:          ; preds = %716, %ht_lookup_int
   %.0.i478.i = phi i16 [ %719, %716 ], [ 0, %ht_lookup_interface.exit.i477.i ], [ 0, %704 ]
   store i16 %.0.i478.i, ptr %88, align 4
   store i16 0, ptr %89, align 2
-  %720 = load i8, ptr @heuristic_first, align 1, !range !11, !noundef !12
+  %720 = load i8, ptr @heuristic_first, align 1, !range !12, !noundef !13
   %721 = trunc nuw i8 %720 to i1
   %722 = call zeroext i1 @socketcan_call_subdissectors(ptr noundef %705, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %13, i1 noundef zeroext %721)
   br i1 %722, label %725, label %723
@@ -2801,7 +2801,7 @@ ht_interface_config_to_bus_id.exit485.i:          ; preds = %828, %ht_lookup_int
   store i8 0, ptr %83, align 1
   %832 = load i32, ptr %7, align 4
   %833 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %816, i32 noundef %832)
-  %834 = load i8, ptr @heuristic_first, align 1, !range !11, !noundef !12
+  %834 = load i8, ptr @heuristic_first, align 1, !range !12, !noundef !13
   %835 = trunc nuw i8 %834 to i1
   %836 = call zeroext i1 @flexray_call_subdissectors(ptr noundef %833, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %15, i1 noundef zeroext %835)
   br i1 %836, label %839, label %837
@@ -2873,7 +2873,7 @@ ht_interface_config_to_bus_id.exit485.i:          ; preds = %828, %ht_lookup_int
   %872 = add nuw i32 %.0442505.i, 1
   %873 = load i32, ptr %7, align 4
   %874 = icmp ult i32 %872, %873
-  br i1 %874, label %.lr.ph507.i, label %.loopexit.i, !llvm.loop !13
+  br i1 %874, label %.lr.ph507.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %870, %842
   %.5.i = phi i32 [ %855, %842 ], [ %871, %870 ]
@@ -3003,7 +3003,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %936, %933, %proto_i
   %940 = add nsw i32 %.0440501.i, -2
   %941 = add i32 %.8502.i, 2
   %942 = icmp sgt i32 %.0440501.i, 3
-  br i1 %942, label %913, label %.loopexit496.i, !llvm.loop !14
+  br i1 %942, label %913, label %.loopexit496.i, !llvm.loop !15
 
 943:                                              ; preds = %proto_item_set_hidden.exit494.i, %.lr.ph.i90
   %.9500.i = phi i32 [ %899, %.lr.ph.i90 ], [ %971, %proto_item_set_hidden.exit494.i ]
@@ -3065,7 +3065,7 @@ proto_item_set_hidden.exit494.i:                  ; preds = %966, %963, %proto_i
   %970 = add nsw i32 %.1441499.i, -4
   %971 = add i32 %.9500.i, 4
   %972 = icmp sgt i32 %.1441499.i, 7
-  br i1 %972, label %943, label %.loopexit496.i, !llvm.loop !15
+  br i1 %972, label %943, label %.loopexit496.i, !llvm.loop !16
 
 .loopexit496.i:                                   ; preds = %proto_item_set_hidden.exit494.i, %proto_item_set_hidden.exit.i, %.preheader495.i, %.preheader497.i, %903, %875
   %.7.i = phi i32 [ %899, %903 ], [ %899, %875 ], [ %899, %.preheader495.i ], [ %899, %.preheader497.i ], [ %941, %proto_item_set_hidden.exit.i ], [ %971, %proto_item_set_hidden.exit494.i ]
@@ -3160,7 +3160,7 @@ dissect_asam_cmp_data_msg.exit:                   ; preds = %1005, %1010
   %.0.neg = sub i32 0, %.1
   %1013 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %1014 = icmp sgt i32 %1013, 15
-  br i1 %1014, label %100, label %._crit_edge, !llvm.loop !16
+  br i1 %1014, label %100, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %1012, %100, %add_device_id_text.exit
   %.0.lcssa.sink118 = phi i32 [ 8, %add_device_id_text.exit ], [ %.0103, %100 ], [ %.1, %1012 ]
@@ -3341,14 +3341,15 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

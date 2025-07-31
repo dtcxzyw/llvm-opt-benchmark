@@ -323,7 +323,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6Vec
   %106 = shl nuw i64 %.011.i.i, 10
   %107 = add nsw i32 %.0810.i.i, -10
   %108 = icmp ult i64 %.011.i.i, 17592186044416
-  br i1 %108, label %.lr.ph.i.i15, label %.preheader.i.i, !llvm.loop !6
+  br i1 %108, label %.lr.ph.i.i15, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph15.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph15.i.i
   %.114.i.i = phi i64 [ %109, %.lr.ph15.i.i ], [ %.0.lcssa.i.i13, %.preheader.i.i ]
@@ -331,7 +331,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6Vec
   %109 = shl nuw i64 %.114.i.i, 1
   %110 = add nsw i32 %.1913.i.i, -1
   %111 = icmp sgt i64 %109, -1
-  br i1 %111, label %.lr.ph15.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !7
+  br i1 %111, label %.lr.ph15.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i, %.preheader.i.i
   %.19.lcssa.i.i = phi i32 [ %.08.lcssa.i.i, %.preheader.i.i ], [ %110, %.lr.ph15.i.i ]
@@ -437,7 +437,7 @@ switch.lookup:                                    ; preds = %119
   %167 = shl nuw i64 %.011.i71.i, 10
   %168 = add nsw i32 %.0810.i72.i, -10
   %169 = icmp ult i64 %.011.i71.i, 17592186044416
-  br i1 %169, label %.lr.ph.i70.i, label %.preheader.i62.i, !llvm.loop !6
+  br i1 %169, label %.lr.ph.i70.i, label %.preheader.i62.i, !llvm.loop !7
 
 .lr.ph15.i67.i:                                   ; preds = %.preheader.i62.i, %.lr.ph15.i67.i
   %.114.i68.i = phi i64 [ %170, %.lr.ph15.i67.i ], [ %.0.lcssa.i64.i, %.preheader.i62.i ]
@@ -445,7 +445,7 @@ switch.lookup:                                    ; preds = %119
   %170 = shl nuw i64 %.114.i68.i, 1
   %171 = add nsw i32 %.1913.i69.i, -1
   %172 = icmp sgt i64 %170, -1
-  br i1 %172, label %.lr.ph15.i67.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i, !llvm.loop !7
+  br i1 %172, label %.lr.ph15.i67.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i: ; preds = %.lr.ph15.i67.i, %.preheader.i62.i
   %.19.lcssa.i65.i = phi i32 [ %.08.lcssa.i63.i, %.preheader.i62.i ], [ %171, %.lr.ph15.i67.i ]
@@ -498,7 +498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.e
   %200 = lshr i64 %.01620.i.i.i, 1
   %201 = add nsw i32 %.01521.i.i.i, 1
   %202 = icmp ugt i64 %.01620.i.i.i, 18014398509481983
-  br i1 %202, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i, !llvm.loop !8
+  br i1 %202, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i, !llvm.loop !9
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i75.i, %187
   %.016.lcssa.i.i.i = phi i64 [ %spec.select105.i, %187 ], [ %200, %.lr.ph.i.i75.i ]
@@ -526,7 +526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.e
   %213 = and i64 %.11723.i.i.i, 2251799813685248
   %214 = icmp eq i64 %213, 0
   %215 = select i1 %212, i1 %214, i1 false
-  br i1 %215, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !9
+  br i1 %215, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !10
 
 ._crit_edge26.i.i.i:                              ; preds = %.lr.ph25.i.i.i, %.preheader.i.i.i
   %.117.lcssa.i.i.i = phi i64 [ %.016.lcssa.i.i.i, %.preheader.i.i.i ], [ %210, %.lr.ph25.i.i.i ]
@@ -632,7 +632,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_convers
 13:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %13, %9, %3
   %.sroa.07.0.i.i = phi ptr [ %10, %9 ], [ %0, %3 ], [ %0, %13 ]
@@ -655,7 +655,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 %20
   %22 = load i8, ptr %21, align 1
   %.not.i26.i = icmp eq i8 %22, 48
-  br i1 %.not.i26.i, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
+  br i1 %.not.i26.i, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !12
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %19
   %23 = sub nsw i32 %.sroa.3.0.i.i, %16
@@ -779,7 +779,7 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversi
 12:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %12, %8, %3
   %.sroa.07.0.i.i = phi ptr [ %9, %8 ], [ %0, %3 ], [ %0, %12 ]
@@ -802,7 +802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not.i26.i = icmp eq i8 %21, 48
-  br i1 %.not.i26.i, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
+  br i1 %.not.i26.i, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !12
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %18
   %22 = sub nsw i32 %.sroa.3.0.i.i, %15
@@ -1036,11 +1036,12 @@ attributes #6 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

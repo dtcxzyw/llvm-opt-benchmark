@@ -990,7 +990,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2194,9 +2194,9 @@ _init_l_Lake_instReprDynlib___closed__1.exit:     ; preds = %_init_l___private_L
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____boxed, ptr %180, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  store i16 2, ptr %181, align 8, !tbaa !15
+  store i16 2, ptr %181, align 8, !tbaa !17
   %182 = getelementptr inbounds nuw i8, ptr %176, i64 18
-  store i16 0, ptr %182, align 2, !tbaa !15
+  store i16 0, ptr %182, align 2, !tbaa !17
   store ptr %176, ptr @l_Lake_instReprDynlib___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %176) #4
   %183 = load ptr, ptr @l_Lake_instReprDynlib___closed__1, align 8, !tbaa !4
@@ -2277,5 +2277,7 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}

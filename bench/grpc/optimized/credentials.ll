@@ -747,7 +747,7 @@ define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_ar
 
 .lr.ph:                                           ; preds = %.preheader, %5
   %.01013 = phi i64 [ %6, %5 ], [ 0, %.preheader ]
-  %9 = load ptr, ptr %3, align 8, !tbaa !50
+  %9 = load ptr, ptr %3, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.01013
   %11 = tail call noundef ptr @_Z33grpc_channel_credentials_from_argPK8grpc_arg(ptr noundef %10)
   %.not = icmp eq ptr %11, null
@@ -763,7 +763,7 @@ define void @grpc_server_credentials_release(ptr noundef %0) local_unnamed_addr 
   %2 = alloca ptr, align 8
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %4 = alloca %"class.grpc_core::ExecCtx", align 8
-  store ptr %0, ptr %2, align 8, !tbaa !51
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %5 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9api_traceE, i64 16) monotonic, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.critedge10, !prof !8
@@ -826,7 +826,7 @@ _ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i:     ; preds = %21, %15
 
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %22, %_ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i
   store ptr %4, ptr %16, align 8, !tbaa !26
-  %23 = load ptr, ptr %2, align 8, !tbaa !51
+  %23 = load ptr, ptr %2, align 8, !tbaa !52
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZNK9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit, label %24
 
@@ -927,7 +927,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
           to label %7 unwind label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !51
+  %8 = load ptr, ptr %1, align 8, !tbaa !52
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
           to label %_ZNSolsEPKv.exit unwind label %10
 
@@ -962,7 +962,7 @@ define void @_ZN23grpc_server_credentials27set_auth_metadata_processorERK28grpc_
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi59EEERS2_RAT__Kc.exit unwind label %28
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi59EEERS2_RAT__Kc.exit: ; preds = %9
-  store ptr %0, ptr %6, align 8, !tbaa !51
+  store ptr %0, ptr %6, align 8, !tbaa !52
   %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP23grpc_server_credentialsTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %11 unwind label %30
 
@@ -971,9 +971,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi59EEERS2_RAT__Kc.exit: ; pr
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit unwind label %30
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit: ; preds = %11
-  %12 = load ptr, ptr %1, align 8, !tbaa !53
+  %12 = load ptr, ptr %1, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %12, ptr %4, align 8, !tbaa !55
+  store ptr %12, ptr %4, align 8, !tbaa !56
   %13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPvTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %14 unwind label %30
 
@@ -984,9 +984,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit: ; pr
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi10EEERS2_RAT__Kc.exit: ; preds = %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %16, ptr %3, align 8, !tbaa !55
+  store ptr %16, ptr %3, align 8, !tbaa !56
   %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPvTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %18 unwind label %30
 
@@ -1007,13 +1007,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi10EEERS2_RAT__Kc.exit: ; pr
 
 .critedge14:                                      ; preds = %19, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN23grpc_server_credentials16DestroyProcessorEv.exit, label %23
 
 23:                                               ; preds = %.critedge14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !64
+  %25 = load ptr, ptr %24, align 8, !tbaa !65
   %.not2.i = icmp eq ptr %25, null
   br i1 %.not2.i, label %_ZN23grpc_server_credentials16DestroyProcessorEv.exit, label %26
 
@@ -1023,7 +1023,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi10EEERS2_RAT__Kc.exit: ; pr
 
 _ZN23grpc_server_credentials16DestroyProcessorEv.exit: ; preds = %.critedge14, %23, %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !65
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !66
   ret void
 
 28:                                               ; preds = %9
@@ -1128,11 +1128,11 @@ define noundef ptr @_Z36grpc_find_server_credentials_in_argsPK17grpc_channel_arg
   %6 = add nuw i64 %.01013, 1
   %7 = load i64, ptr %0, align 8, !tbaa !46
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !66
+  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
 .lr.ph:                                           ; preds = %.preheader, %5
   %.01013 = phi i64 [ %6, %5 ], [ 0, %.preheader ]
-  %9 = load ptr, ptr %3, align 8, !tbaa !50
+  %9 = load ptr, ptr %3, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.01013
   %11 = tail call noundef ptr @_Z32grpc_server_credentials_from_argPK8grpc_arg(ptr noundef %10)
   %.not = icmp eq ptr %11, null
@@ -1167,7 +1167,7 @@ define internal void @__cxx_global_var_init.14() #13 section ".text.startup" com
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 8
   %4 = tail call noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef nonnull @_ZN9grpc_core12arena_detail19DestroyArenaContextIN17grpc_event_engine12experimental11EventEngineEEEvPv)
-  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !67
+  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !68
   %5 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E)
   br label %6
 
@@ -1179,7 +1179,7 @@ define internal void @__cxx_global_var_init.14() #13 section ".text.startup" com
 define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, !prof !69
+  br i1 %3, label %4, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, !prof !70
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #29
@@ -1192,21 +1192,21 @@ define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaC
   br label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
 
 _ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit: ; preds = %1, %4, %6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !70
-  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !73
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !71
+  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !74
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !74
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !75
   %.not.i2 = icmp eq ptr %7, %13
   br i1 %.not.i2, label %17, label %14
 
 14:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
-  store ptr %0, ptr %7, align 8, !tbaa !55
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !70
+  store ptr %0, ptr %7, align 8, !tbaa !56
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !70
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !71
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 17:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
@@ -1228,7 +1228,7 @@ _ZNKSt6vectorIPFvPvESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
   %24 = shl nuw nsw i64 %23, 3
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #35
   %26 = getelementptr inbounds i8, ptr %25, i64 %11
-  store ptr %0, ptr %26, align 8, !tbaa !55
+  store ptr %0, ptr %26, align 8, !tbaa !56
   %27 = icmp sgt i64 %11, 0
   br i1 %27, label %28, label %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -1246,10 +1246,10 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
   br label %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !73
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !70
+  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !74
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !71
   %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
-  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !74
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !75
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1381,7 +1381,7 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 define internal noundef ptr @_ZL28credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %0) #19 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !75
+  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !76
   ret ptr %0
 }
 
@@ -1430,9 +1430,9 @@ define internal noundef i32 @_ZL23credentials_pointer_cmpPvS_(ptr noundef %0, pt
 17:                                               ; preds = %2
   %18 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKvS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
-  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %19 = load ptr, ptr %18, align 8, !tbaa !79
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !81
+  %21 = load i64, ptr %20, align 8, !tbaa !82
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.16, i32 noundef 139, i64 %21, ptr %19) #30
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
   unreachable
@@ -1463,7 +1463,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202407221
 define internal noundef ptr @_ZL35server_credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %0) #19 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !82
+  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !83
   ret ptr %0
 }
 
@@ -1639,40 +1639,41 @@ attributes #36 = { builtin nounwind }
 !45 = !{!41, !41, i64 0}
 !46 = !{!47, !17, i64 0}
 !47 = !{!"_ZTS17grpc_channel_args", !17, i64 0, !5, i64 8}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!47, !5, i64 8}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS23grpc_server_credentials", !5, i64 0}
-!53 = !{!54, !5, i64 0}
-!54 = !{!"_ZTS28grpc_auth_metadata_processor", !5, i64 0, !5, i64 8, !5, i64 16}
-!55 = !{!5, !5, i64 0}
-!56 = !{!54, !5, i64 16}
-!57 = !{!58, !5, i64 24}
-!58 = !{!"_ZTS23grpc_server_credentials", !59, i64 0, !54, i64 16}
-!59 = !{!"_ZTSN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE", !60, i64 0, !61, i64 8}
-!60 = !{!"_ZTSN9grpc_core19PolymorphicRefCountE"}
-!61 = !{!"_ZTSN9grpc_core8RefCountE", !62, i64 0}
-!62 = !{!"_ZTSSt6atomicIlE", !63, i64 0}
-!63 = !{!"_ZTSSt13__atomic_baseIlE", !17, i64 0}
-!64 = !{!58, !5, i64 32}
-!65 = !{i64 0, i64 8, !55, i64 8, i64 8, !55, i64 16, i64 8, !55}
-!66 = distinct !{!66, !49}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"short", !6, i64 0}
-!69 = !{!"branch_weights", i32 1, i32 1048575}
-!70 = !{!71, !72, i64 8}
-!71 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !72, i64 0, !72, i64 8, !72, i64 16}
-!72 = !{!"any p2 pointer", !5, i64 0}
-!73 = !{!71, !72, i64 0}
-!74 = !{!71, !72, i64 16}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
-!77 = distinct !{!77, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!78 = !{!79, !42, i64 0}
-!79 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !80, i64 0, !17, i64 8, !6, i64 16}
-!80 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !42, i64 0}
-!81 = !{!79, !17, i64 8}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
-!84 = distinct !{!84, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!47, !5, i64 8}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS23grpc_server_credentials", !5, i64 0}
+!54 = !{!55, !5, i64 0}
+!55 = !{!"_ZTS28grpc_auth_metadata_processor", !5, i64 0, !5, i64 8, !5, i64 16}
+!56 = !{!5, !5, i64 0}
+!57 = !{!55, !5, i64 16}
+!58 = !{!59, !5, i64 24}
+!59 = !{!"_ZTS23grpc_server_credentials", !60, i64 0, !55, i64 16}
+!60 = !{!"_ZTSN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE", !61, i64 0, !62, i64 8}
+!61 = !{!"_ZTSN9grpc_core19PolymorphicRefCountE"}
+!62 = !{!"_ZTSN9grpc_core8RefCountE", !63, i64 0}
+!63 = !{!"_ZTSSt6atomicIlE", !64, i64 0}
+!64 = !{!"_ZTSSt13__atomic_baseIlE", !17, i64 0}
+!65 = !{!59, !5, i64 32}
+!66 = !{i64 0, i64 8, !56, i64 8, i64 8, !56, i64 16, i64 8, !56}
+!67 = distinct !{!67, !49, !50}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"short", !6, i64 0}
+!70 = !{!"branch_weights", i32 1, i32 1048575}
+!71 = !{!72, !73, i64 8}
+!72 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !73, i64 0, !73, i64 8, !73, i64 16}
+!73 = !{!"any p2 pointer", !5, i64 0}
+!74 = !{!72, !73, i64 0}
+!75 = !{!72, !73, i64 16}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
+!78 = distinct !{!78, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!79 = !{!80, !42, i64 0}
+!80 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !81, i64 0, !17, i64 8, !6, i64 16}
+!81 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !42, i64 0}
+!82 = !{!80, !17, i64 8}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
+!85 = distinct !{!85, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}

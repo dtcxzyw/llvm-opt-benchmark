@@ -259,7 +259,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %141 = getelementptr i32, ptr %19, i64 %indvars.iv960
   store i32 0, ptr %141, align 4, !tbaa !3
   %exitcond964.not = icmp eq i64 %indvars.iv.next961, %wide.trip.count963
-  br i1 %exitcond964.not, label %.loopexit821, label %.lr.ph833, !llvm.loop !11
+  br i1 %exitcond964.not, label %.loopexit821, label %.lr.ph833, !llvm.loop !12
 
 .loopexit821:                                     ; preds = %.lr.ph833, %134, %128
   %142 = load i32, ptr %12, align 4, !tbaa !3
@@ -390,7 +390,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next966 = add nsw i64 %indvars.iv965, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next966 to i32
   %exitcond968.not = icmp eq i32 %199, %lftr.wideiv
-  br i1 %exitcond968.not, label %._crit_edge840, label %.lr.ph839, !llvm.loop !12
+  br i1 %exitcond968.not, label %._crit_edge840, label %.lr.ph839, !llvm.loop !13
 
 ._crit_edge840:                                   ; preds = %.lr.ph839
   store double %209, ptr %33, align 8, !tbaa !7
@@ -434,7 +434,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %229 = add nuw nsw i32 %.2717845, 1
   %indvars.iv.next970 = add nsw i64 %indvars.iv969, 1
   %exitcond972.not = icmp eq i64 %indvars.iv969, %221
-  br i1 %exitcond972.not, label %._crit_edge848, label %.lr.ph847, !llvm.loop !13
+  br i1 %exitcond972.not, label %._crit_edge848, label %.lr.ph847, !llvm.loop !14
 
 ._crit_edge848:                                   ; preds = %.lr.ph847, %228
   %.2717.lcssa = phi i32 [ %.2717845, %.lr.ph847 ], [ %223, %228 ]
@@ -483,7 +483,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %253, ptr %254, align 8, !tbaa !7
   %lftr.wideiv976 = trunc i64 %indvars.iv.next974 to i32
   %exitcond977.not = icmp eq i32 %240, %lftr.wideiv976
-  br i1 %exitcond977.not, label %._crit_edge856, label %.lr.ph855, !llvm.loop !14
+  br i1 %exitcond977.not, label %._crit_edge856, label %.lr.ph855, !llvm.loop !15
 
 ._crit_edge856:                                   ; preds = %.lr.ph855, %231
   %255 = load double, ptr %3, align 8, !tbaa !7
@@ -831,7 +831,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %455 = fcmp oge double %.0743858, %454
   %456 = select i1 %455, double %.0743858, double %454
   %exitcond986.not = icmp eq i64 %indvars.iv.next981, %wide.trip.count985
-  br i1 %exitcond986.not, label %._crit_edge863, label %.lr.ph862, !llvm.loop !15
+  br i1 %exitcond986.not, label %._crit_edge863, label %.lr.ph862, !llvm.loop !16
 
 ._crit_edge863:                                   ; preds = %.lr.ph862
   store double %444, ptr %40, align 8, !tbaa !7
@@ -853,7 +853,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3722 = select i1 %462, i32 1, i32 %.2721868
   %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 1
   %exitcond991.not = icmp eq i64 %indvars.iv.next988, %wide.trip.count990
-  br i1 %exitcond991.not, label %..loopexit_crit_edge, label %.lr.ph870, !llvm.loop !16
+  br i1 %exitcond991.not, label %..loopexit_crit_edge, label %.lr.ph870, !llvm.loop !17
 
 ..loopexit_crit_edge:                             ; preds = %.lr.ph870
   store double %461, ptr %40, align 8, !tbaa !7
@@ -894,7 +894,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2 = phi double [ %.1877, %470 ], [ %.1877, %474 ], [ %479, %477 ]
   %481 = add nuw nsw i32 %.0736875, 1
   %exitcond992.not = icmp eq i32 %481, 7
-  br i1 %exitcond992.not, label %482, label %434, !llvm.loop !17
+  br i1 %exitcond992.not, label %482, label %434, !llvm.loop !18
 
 482:                                              ; preds = %480
   store i32 2, ptr %24, align 4, !tbaa !3
@@ -926,7 +926,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 1, ptr %490, align 4, !tbaa !3
   %indvars.iv.next994 = add nuw nsw i64 %indvars.iv993, 1
   %exitcond996.not = icmp eq i64 %indvars.iv.next994, 5
-  br i1 %exitcond996.not, label %491, label %.preheader, !llvm.loop !18
+  br i1 %exitcond996.not, label %491, label %.preheader, !llvm.loop !19
 
 491:                                              ; preds = %.preheader
   %492 = load i32, ptr %34, align 4, !tbaa !3
@@ -970,7 +970,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %512, ptr %510, align 8, !tbaa !7
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
   %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
-  br i1 %exitcond1001.not, label %._crit_edge883, label %498, !llvm.loop !19
+  br i1 %exitcond1001.not, label %._crit_edge883, label %498, !llvm.loop !20
 
 ._crit_edge883:                                   ; preds = %498, %.._crit_edge883_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge883_crit_edge ], [ %497, %498 ]
@@ -1011,7 +1011,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1035 = add nsw i64 %indvars.iv1034, 1
   %lftr.wideiv1037 = trunc i64 %indvars.iv.next1035 to i32
   %exitcond1038.not = icmp eq i32 %522, %lftr.wideiv1037
-  br i1 %exitcond1038.not, label %._crit_edge921, label %.lr.ph920, !llvm.loop !20
+  br i1 %exitcond1038.not, label %._crit_edge921, label %.lr.ph920, !llvm.loop !21
 
 ._crit_edge921:                                   ; preds = %.lr.ph920, %520
   %.not778.not922 = icmp slt i32 %.0713942, %152
@@ -1029,7 +1029,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %537, ptr %538, align 8, !tbaa !7
   %indvars.iv.next1040 = add nsw i64 %indvars.iv1039, 1
   %exitcond1043.not = icmp eq i64 %indvars.iv.next1040, %194
-  br i1 %exitcond1043.not, label %._crit_edge926, label %.lr.ph925, !llvm.loop !21
+  br i1 %exitcond1043.not, label %._crit_edge926, label %.lr.ph925, !llvm.loop !22
 
 ._crit_edge926:                                   ; preds = %.lr.ph925, %._crit_edge921
   %539 = load i32, ptr %27, align 4, !tbaa !3
@@ -1091,7 +1091,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %.10928, ptr %573, align 4, !tbaa !3
   %574 = add i32 %.10928, 1
   %exitcond1044.not = icmp eq i32 %.10928, %564
-  br i1 %exitcond1044.not, label %.loopexit817, label %.lr.ph930, !llvm.loop !22
+  br i1 %exitcond1044.not, label %.loopexit817, label %.lr.ph930, !llvm.loop !23
 
 575:                                              ; preds = %519
   %576 = load i32, ptr %34, align 4, !tbaa !3
@@ -1131,7 +1131,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1003 = add nsw i64 %indvars.iv1002, 1
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1010.not = icmp eq i64 %indvars.iv.next1005, %wide.trip.count1009
-  br i1 %exitcond1010.not, label %._crit_edge891, label %.lr.ph890, !llvm.loop !23
+  br i1 %exitcond1010.not, label %._crit_edge891, label %.lr.ph890, !llvm.loop !24
 
 ._crit_edge891:                                   ; preds = %.lr.ph890, %575
   %594 = getelementptr inbounds double, ptr %55, i64 %194
@@ -1167,7 +1167,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 608:                                              ; preds = %.lr.ph895
   %indvars.iv.next1012 = add nuw nsw i64 %indvars.iv1011, 1
   %exitcond1015.not = icmp eq i64 %indvars.iv.next1012, %wide.trip.count1014
-  br i1 %exitcond1015.not, label %._crit_edge896, label %.lr.ph895, !llvm.loop !24
+  br i1 %exitcond1015.not, label %._crit_edge896, label %.lr.ph895, !llvm.loop !25
 
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %608
   %indvars.iv1011 = phi i64 [ 1, %.lr.ph895.preheader ], [ %indvars.iv.next1012, %608 ]
@@ -1218,7 +1218,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1022 = add nsw i64 %indvars.iv1021, 1
   %lftr.wideiv1024 = trunc i64 %indvars.iv.next1022 to i32
   %exitcond1025.not = icmp eq i32 %619, %lftr.wideiv1024
-  br i1 %exitcond1025.not, label %.loopexit818, label %.lr.ph906, !llvm.loop !25
+  br i1 %exitcond1025.not, label %.loopexit818, label %.lr.ph906, !llvm.loop !26
 
 632:                                              ; preds = %._crit_edge896
   br i1 %.not785903, label %.loopexit818, label %.lr.ph900.preheader
@@ -1250,7 +1250,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1017 = add nsw i64 %indvars.iv1016, 1
   %lftr.wideiv1019 = trunc i64 %indvars.iv.next1017 to i32
   %exitcond1020.not = icmp eq i32 %634, %lftr.wideiv1019
-  br i1 %exitcond1020.not, label %.loopexit818, label %.lr.ph900, !llvm.loop !26
+  br i1 %exitcond1020.not, label %.loopexit818, label %.lr.ph900, !llvm.loop !27
 
 .loopexit818:                                     ; preds = %.lr.ph900, %.lr.ph906, %632, %616
   %648 = load i32, ptr %14, align 4, !tbaa !3
@@ -1275,7 +1275,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %658 = getelementptr double, ptr %16, i64 %indvars.iv1026
   store double %657, ptr %658, align 8, !tbaa !7
   %.not786.not = icmp slt i64 %indvars.iv.next1027, %651
-  br i1 %.not786.not, label %.lr.ph910, label %._crit_edge911, !llvm.loop !27
+  br i1 %.not786.not, label %.lr.ph910, label %._crit_edge911, !llvm.loop !28
 
 ._crit_edge911:                                   ; preds = %.lr.ph910, %.loopexit818
   %659 = add nsw i32 %648, -1
@@ -1308,7 +1308,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %674, ptr %675, align 8, !tbaa !7
   %lftr.wideiv1032 = trunc i64 %indvars.iv.next1030 to i32
   %exitcond1033.not = icmp eq i32 %648, %lftr.wideiv1032
-  br i1 %exitcond1033.not, label %._crit_edge916, label %.lr.ph915, !llvm.loop !28
+  br i1 %exitcond1033.not, label %._crit_edge916, label %.lr.ph915, !llvm.loop !29
 
 ._crit_edge916:                                   ; preds = %.lr.ph915, %._crit_edge911
   %676 = load double, ptr %3, align 8, !tbaa !7
@@ -1338,7 +1338,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1714 = add nsw i32 %152, 1
   %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
   %exitcond1049.not = icmp eq i64 %indvars.iv.next1046, %wide.trip.count1048
-  br i1 %exitcond1049.not, label %.loopexit820, label %150, !llvm.loop !29
+  br i1 %exitcond1049.not, label %.loopexit820, label %150, !llvm.loop !30
 
 .loopexit820:                                     ; preds = %689, %.loopexit821, %25, %612, %604, %550, %482, %280, %274, %133, %92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #5
@@ -1416,24 +1416,25 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}

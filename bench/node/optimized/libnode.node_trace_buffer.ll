@@ -180,7 +180,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i18,
   %arraydestroy.element.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i
   tail call void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %arraydestroy.element.ptr.i.i.i.i.i.i.i.i) #13
   %arraydestroy.done.i.i.i.i.i.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i, 8
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %7) #16
@@ -190,7 +190,7 @@ _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %0
-  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !14
 
 _ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
   store ptr %add.ptr, ptr %_M_finish.i, align 8
@@ -237,8 +237,8 @@ if.then9:                                         ; preds = %if.then
   br label %if.end16
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noalias noundef nonnull dereferenceable(10768) ptr @_Znwm(i64 noundef 10768) #15, !noalias !13
-  tail call void @_ZN2v88platform7tracing16TraceBufferChunkC1Ej(ptr noundef nonnull align 8 dereferenceable(10764) %call.i, i32 noundef %5) #13, !noalias !13
+  %call.i = tail call noalias noundef nonnull dereferenceable(10768) ptr @_Znwm(i64 noundef 10768) #15, !noalias !15
+  tail call void @_ZN2v88platform7tracing16TraceBufferChunkC1Ej(ptr noundef nonnull align 8 dereferenceable(10764) %call.i, i32 noundef %5) #13, !noalias !15
   %6 = load ptr, ptr %add.ptr.i4, align 8
   store ptr %call.i, ptr %add.ptr.i4, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -250,7 +250,7 @@ arraydestroy.body.i.i.i.i.i.i:                    ; preds = %if.else, %arraydest
   %arraydestroy.element.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %arraydestroy.elementPast.add.i.i.i.i.i.i
   tail call void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %arraydestroy.element.ptr.i.i.i.i.i.i) #13
   %arraydestroy.done.i.i.i.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i.i.i, 8
-  br i1 %arraydestroy.done.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #16
@@ -430,7 +430,7 @@ for.inc:                                          ; preds = %for.body8, %if.then
   %10 = phi ptr [ %6, %for.body8 ], [ %.pre, %if.then12 ]
   %inc = add nuw i64 %j.08, 1
   %cmp7 = icmp ult i64 %inc, %9
-  br i1 %cmp7, label %for.body8, label %for.inc13.loopexit, !llvm.loop !16
+  br i1 %cmp7, label %for.body8, label %for.inc13.loopexit, !llvm.loop !18
 
 for.inc13.loopexit:                               ; preds = %for.inc
   %.pre12 = load i64, ptr %total_chunks_, align 8
@@ -440,7 +440,7 @@ for.inc13:                                        ; preds = %for.inc13.loopexit,
   %11 = phi i64 [ %.pre12, %for.inc13.loopexit ], [ %1, %for.body ]
   %inc14 = add nuw i64 %i.010, 1
   %cmp3 = icmp ult i64 %inc14, %11
-  br i1 %cmp3, label %for.body, label %for.end15, !llvm.loop !17
+  br i1 %cmp3, label %for.body, label %for.end15, !llvm.loop !19
 
 for.end15:                                        ; preds = %for.inc13
   store i64 0, ptr %total_chunks_, align 8
@@ -643,7 +643,7 @@ for.inc.i:                                        ; preds = %if.then12.i, %for.b
   %18 = phi ptr [ %14, %for.body8.i ], [ %.pre.i, %if.then12.i ]
   %inc.i = add nuw i64 %j.08.i, 1
   %cmp7.i = icmp ult i64 %inc.i, %17
-  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !16
+  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !18
 
 for.inc13.loopexit.i:                             ; preds = %for.inc.i
   %.pre12.i = load i64, ptr %total_chunks_.i, align 8
@@ -653,7 +653,7 @@ for.inc13.i:                                      ; preds = %for.inc13.loopexit.
   %19 = phi i64 [ %.pre12.i, %for.inc13.loopexit.i ], [ %9, %for.body.i ]
   %inc14.i = add nuw i64 %i.010.i, 1
   %cmp3.i = icmp ult i64 %inc14.i, %19
-  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !17
+  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !19
 
 for.end15.i:                                      ; preds = %for.inc13.i
   store i64 0, ptr %total_chunks_.i, align 8
@@ -736,7 +736,7 @@ for.inc.i39:                                      ; preds = %if.then12.i36, %for
   %38 = phi ptr [ %34, %for.body8.i30 ], [ %.pre.i37, %if.then12.i36 ]
   %inc.i40 = add nuw i64 %j.08.i31, 1
   %cmp7.i41 = icmp ult i64 %inc.i40, %37
-  br i1 %cmp7.i41, label %for.body8.i30, label %for.inc13.loopexit.i42, !llvm.loop !16
+  br i1 %cmp7.i41, label %for.body8.i30, label %for.inc13.loopexit.i42, !llvm.loop !18
 
 for.inc13.loopexit.i42:                           ; preds = %for.inc.i39
   %.pre12.i43 = load i64, ptr %total_chunks_.i10, align 8
@@ -746,7 +746,7 @@ for.inc13.i44:                                    ; preds = %for.inc13.loopexit.
   %39 = phi i64 [ %.pre12.i43, %for.inc13.loopexit.i42 ], [ %29, %for.body.i26 ]
   %inc14.i45 = add nuw i64 %i.010.i27, 1
   %cmp3.i46 = icmp ult i64 %inc14.i45, %39
-  br i1 %cmp3.i46, label %for.body.i26, label %for.end15.i47, !llvm.loop !17
+  br i1 %cmp3.i46, label %for.body.i26, label %for.end15.i47, !llvm.loop !19
 
 for.end15.i47:                                    ; preds = %for.inc13.i44
   store i64 0, ptr %total_chunks_.i10, align 8
@@ -801,7 +801,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_, ptr noundef nonnull %exit_mutex_) #13
   %1 = load i8, ptr %exited_, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %exit_mutex_) #13
@@ -825,7 +825,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i,
   %arraydestroy.element.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i.i
   tail call void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %arraydestroy.element.ptr.i.i.i.i.i.i.i.i.i) #13
   %arraydestroy.done.i.i.i.i.i.i.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i.i, 8
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #16
@@ -835,7 +835,7 @@ _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !14
 
 _ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %chunks_.i, align 8
@@ -871,7 +871,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i.i7:             ; preds = %for.body.i.i.i.i.i4
   %arraydestroy.element.ptr.i.i.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %8, i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i.i9
   tail call void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %arraydestroy.element.ptr.i.i.i.i.i.i.i.i.i10) #13
   %arraydestroy.done.i.i.i.i.i.i.i.i.i11 = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i.i9, 8
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i11, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12, label %arraydestroy.body.i.i.i.i.i.i.i.i.i7
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i11, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12, label %arraydestroy.body.i.i.i.i.i.i.i.i.i7, !llvm.loop !13
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i.i7
   tail call void @_ZdlPv(ptr noundef nonnull %8) #16
@@ -881,7 +881,7 @@ _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default
   store ptr null, ptr %__first.addr.04.i.i.i.i.i5, align 8
   %incdec.ptr.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i5, i64 8
   %cmp.not.i.i.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i.i14, %7
-  br i1 %cmp.not.i.i.i.i.i15, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i16, label %for.body.i.i.i.i.i4, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i15, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i16, label %for.body.i.i.i.i.i4, !llvm.loop !14
 
 _ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i16: ; preds = %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i13
   %.pr.i.i17 = load ptr, ptr %chunks_.i1, align 8
@@ -1144,7 +1144,7 @@ for.inc.i:                                        ; preds = %if.then12.i, %for.b
   %10 = phi ptr [ %6, %for.body8.i ], [ %.pre.i, %if.then12.i ]
   %inc.i = add nuw i64 %j.08.i, 1
   %cmp7.i = icmp ult i64 %inc.i, %9
-  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !16
+  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !18
 
 for.inc13.loopexit.i:                             ; preds = %for.inc.i
   %.pre12.i = load i64, ptr %total_chunks_.i, align 8
@@ -1154,7 +1154,7 @@ for.inc13.i:                                      ; preds = %for.inc13.loopexit.
   %11 = phi i64 [ %.pre12.i, %for.inc13.loopexit.i ], [ %1, %for.body.i ]
   %inc14.i = add nuw i64 %i.010.i, 1
   %cmp3.i = icmp ult i64 %inc14.i, %11
-  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !17
+  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !19
 
 for.end15.i:                                      ; preds = %for.inc13.i
   store i64 0, ptr %total_chunks_.i, align 8
@@ -1213,7 +1213,7 @@ for.inc.i20:                                      ; preds = %if.then12.i17, %for
   %23 = phi ptr [ %19, %for.body8.i11 ], [ %.pre.i18, %if.then12.i17 ]
   %inc.i21 = add nuw i64 %j.08.i12, 1
   %cmp7.i22 = icmp ult i64 %inc.i21, %22
-  br i1 %cmp7.i22, label %for.body8.i11, label %for.inc13.loopexit.i23, !llvm.loop !16
+  br i1 %cmp7.i22, label %for.body8.i11, label %for.inc13.loopexit.i23, !llvm.loop !18
 
 for.inc13.loopexit.i23:                           ; preds = %for.inc.i20
   %.pre12.i24 = load i64, ptr %total_chunks_.i1, align 8
@@ -1223,7 +1223,7 @@ for.inc13.i25:                                    ; preds = %for.inc13.loopexit.
   %24 = phi i64 [ %.pre12.i24, %for.inc13.loopexit.i23 ], [ %14, %for.body.i7 ]
   %inc14.i26 = add nuw i64 %i.010.i8, 1
   %cmp3.i27 = icmp ult i64 %inc14.i26, %24
-  br i1 %cmp3.i27, label %for.body.i7, label %for.end15.i28, !llvm.loop !17
+  br i1 %cmp3.i27, label %for.body.i7, label %for.end15.i28, !llvm.loop !19
 
 for.end15.i28:                                    ; preds = %for.inc13.i25
   store i64 0, ptr %total_chunks_.i1, align 8
@@ -1339,12 +1339,14 @@ attributes #16 = { builtin nounwind }
 !7 = distinct !{!7, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
 !8 = !{!9}
 !9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!15 = distinct !{!15, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!17 = distinct !{!17, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}

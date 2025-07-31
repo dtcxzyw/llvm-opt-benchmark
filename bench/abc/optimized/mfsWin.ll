@@ -240,7 +240,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %52, %._crit_edge.i.
   %105 = load i32, ptr %104, align 4, !tbaa !17
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds ptr, ptr %.val12.val.val.i, i64 %106
-  %108 = load ptr, ptr %107, align 8, !tbaa !39
+  %108 = load ptr, ptr %107, align 8, !tbaa !40
   %109 = getelementptr i8, ptr %108, i64 20
   %.val14.i = load i32, ptr %109, align 4
   %110 = and i32 %.val14.i, 15
@@ -257,8 +257,8 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %52, %._crit_edge.i.
 
 .loopexit:                                        ; preds = %103, %Abc_NodeSetTravIdCurrent.exit
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %116 = load i32, ptr %115, align 4, !tbaa !40
-  %117 = load i32, ptr %3, align 8, !tbaa !41
+  %116 = load i32, ptr %115, align 4, !tbaa !41
+  %117 = load i32, ptr %3, align 8, !tbaa !42
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -288,7 +288,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %52, %._crit_edge.i.
 Vec_PtrGrow.exit.i:                               ; preds = %126, %124
   %128 = phi ptr [ %125, %124 ], [ %127, %126 ]
   store ptr %128, ptr %122, align 8, !tbaa !35
-  store i32 16, ptr %3, align 8, !tbaa !41
+  store i32 16, ptr %3, align 8, !tbaa !42
   br label %Vec_PtrPush.exit
 
 129:                                              ; preds = %119
@@ -311,17 +311,17 @@ Vec_PtrGrow.exit.i:                               ; preds = %126, %124
 139:                                              ; preds = %137, %135
   %140 = phi ptr [ %136, %135 ], [ %138, %137 ]
   store ptr %140, ptr %131, align 8, !tbaa !35
-  store i32 %130, ptr %3, align 8, !tbaa !41
+  store i32 %130, ptr %3, align 8, !tbaa !42
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %139
   %141 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %140, %139 ], [ %128, %Vec_PtrGrow.exit.i ]
-  %142 = load i32, ptr %115, align 4, !tbaa !40
+  %142 = load i32, ptr %115, align 4, !tbaa !41
   %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %115, align 4, !tbaa !40
+  store i32 %143, ptr %115, align 4, !tbaa !41
   %144 = sext i32 %142 to i64
   %145 = getelementptr inbounds ptr, ptr %141, i64 %144
-  store ptr %0, ptr %145, align 8, !tbaa !39
+  store ptr %0, ptr %145, align 8, !tbaa !40
   br label %.critedge
 
 146:                                              ; preds = %.lr.ph, %146
@@ -336,13 +336,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %150 = load i32, ptr %149, align 4, !tbaa !17
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %151
-  %153 = load ptr, ptr %152, align 8, !tbaa !39
+  %153 = load ptr, ptr %152, align 8, !tbaa !40
   tail call void @Abc_MfsComputeRoots_rec(ptr noundef %153, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val17 = load i32, ptr %96, align 4, !tbaa !32
   %154 = sext i32 %.val17 to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
-  br i1 %155, label %146, label %.critedge, !llvm.loop !42
+  br i1 %155, label %146, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %146, %.preheader.i, %Vec_PtrPush.exit, %Abc_NodeIsTravIdCurrent.exit
   ret void
@@ -352,14 +352,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define noalias noundef ptr @Abc_MfsComputeRoots(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %5, align 4, !tbaa !40
-  store i32 10, ptr %4, align 8, !tbaa !41
+  store i32 0, ptr %5, align 4, !tbaa !41
+  store i32 10, ptr %4, align 8, !tbaa !42
   %6 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !35
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 232
-  %10 = load ptr, ptr %9, align 8, !tbaa !43
+  %10 = load ptr, ptr %9, align 8, !tbaa !44
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %Abc_NtkIncrementTravId.exit
 
@@ -368,7 +368,7 @@ define noalias noundef ptr @Abc_MfsComputeRoots(ptr noundef %0, i32 noundef %1, 
   %13 = getelementptr i8, ptr %8, i64 32
   %.val.i = load ptr, ptr %13, align 8, !tbaa !34
   %14 = getelementptr i8, ptr %.val.i, i64 4
-  %.val.val.i = load i32, ptr %14, align 4, !tbaa !40
+  %.val.val.i = load i32, ptr %14, align 4, !tbaa !41
   %15 = add nsw i32 %.val.val.i, 500
   %16 = load i32, ptr %12, align 8, !tbaa !15
   %.not.i.i.i = icmp slt i32 %16, %15
@@ -466,10 +466,11 @@ attributes #5 = { nounwind allocsize(0) }
 !34 = !{!19, !22, i64 32}
 !35 = !{!36, !6, i64 8}
 !36 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!6, !6, i64 0}
-!40 = !{!36, !10, i64 4}
-!41 = !{!36, !10, i64 0}
-!42 = distinct !{!42, !38}
-!43 = !{!19, !12, i64 232}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!6, !6, i64 0}
+!41 = !{!36, !10, i64 4}
+!42 = !{!36, !10, i64 0}
+!43 = distinct !{!43, !38, !39}
+!44 = !{!19, !12, i64 232}

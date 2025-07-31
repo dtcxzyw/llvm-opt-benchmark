@@ -336,7 +336,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %79 = add i64 %.0121, %78
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !6
+  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !7
 
 ._crit_edge123:                                   ; preds = %._crit_edge, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %.0.lcssa = phi i64 [ %51, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %79, %._crit_edge ]
@@ -487,7 +487,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %133 = load i32, ptr %0, align 8
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next145, %134
-  br i1 %135, label %.lr.ph128, label %.preheader, !llvm.loop !7
+  br i1 %135, label %.lr.ph128, label %.preheader, !llvm.loop !8
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %._crit_edge132
   %indvars.iv152 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next153, %._crit_edge132 ]
@@ -557,13 +557,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 176:                                              ; preds = %172
   store i32 %spec.select110, ptr %175, align 4
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %141
-  br i1 %exitcond151.not, label %._crit_edge132, label %142, !llvm.loop !8
+  br i1 %exitcond151.not, label %._crit_edge132, label %142, !llvm.loop !9
 
 ._crit_edge132:                                   ; preds = %176, %.lr.ph135
   %177 = add nsw i32 %137, %.2134
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.loopexit111, label %.lr.ph135, !llvm.loop !9
+  br i1 %exitcond156.not, label %.loopexit111, label %.lr.ph135, !llvm.loop !10
 
 .loopexit111:                                     ; preds = %._crit_edge132, %.preheader, %64
   %.not.i.i.i96 = icmp eq ptr %.sroa.0.0, null
@@ -640,9 +640,10 @@ attributes #14 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

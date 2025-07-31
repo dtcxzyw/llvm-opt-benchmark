@@ -34,7 +34,7 @@ define dso_local void @allow_list_free() local_unnamed_addr #0 {
   tail call void @free(ptr noundef %4) #9
   store ptr %3, ptr @wfrom, align 8, !tbaa !4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %thread-pre-split, label %.lr.ph
+  br i1 %.not, label %thread-pre-split, label %.lr.ph, !llvm.loop !16
 
 thread-pre-split:                                 ; preds = %.lr.ph, %0
   %.pr4 = load ptr, ptr @wto, align 8, !tbaa !4
@@ -50,7 +50,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %0
   tail call void @free(ptr noundef %8) #9
   store ptr %7, ptr @wto, align 8, !tbaa !4
   %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %._crit_edge, label %.lr.ph7
+  br i1 %.not3, label %._crit_edge, label %.lr.ph7, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph7, %thread-pre-split
   ret void
@@ -89,7 +89,7 @@ define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unna
   br label %.thread58
 
 8:                                                ; preds = %.lr.ph65, %51
-  %9 = load i8, ptr %2, align 16, !tbaa !16
+  %9 = load i8, ptr %2, align 16, !tbaa !19
   switch i8 %9, label %10 [
     i8 58, label %51
     i8 35, label %51
@@ -124,17 +124,17 @@ define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
   %19 = getelementptr inbounds nuw i8, ptr %.033, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %20 = load i8, ptr %19, align 1, !tbaa !19
   switch i8 %20, label %23 [
     i8 10, label %21
     i8 13, label %21
   ]
 
 21:                                               ; preds = %.lr.ph, %.lr.ph
-  store i8 0, ptr %19, align 1, !tbaa !16
+  store i8 0, ptr %19, align 1, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = icmp sgt i64 %indvars.iv, 0
-  br i1 %22, label %.lr.ph, label %.thread
+  br i1 %22, label %.lr.ph, label %.thread, !llvm.loop !20
 
 23:                                               ; preds = %.lr.ph
   %.not44 = icmp eq i64 %indvars.iv, 0
@@ -160,7 +160,7 @@ define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unna
   call void @free(ptr noundef %30) #9
   store ptr %29, ptr @wfrom, align 8, !tbaa !4
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %thread-pre-split.i, label %.lr.ph.i
+  br i1 %.not.i, label %thread-pre-split.i, label %.lr.ph.i, !llvm.loop !16
 
 thread-pre-split.i:                               ; preds = %.lr.ph.i, %25
   %.pr4.i = load ptr, ptr @wto, align 8, !tbaa !4
@@ -176,7 +176,7 @@ thread-pre-split.i:                               ; preds = %.lr.ph.i, %25
   call void @free(ptr noundef %34) #9
   store ptr %33, ptr @wto, align 8, !tbaa !4
   %.not3.i = icmp eq ptr %33, null
-  br i1 %.not3.i, label %allow_list_free.exit, label %.lr.ph7.i
+  br i1 %.not3.i, label %allow_list_free.exit, label %.lr.ph7.i, !llvm.loop !18
 
 allow_list_free.exit:                             ; preds = %.lr.ph7.i, %thread-pre-split.i
   %35 = call i32 @fclose(ptr noundef nonnull %3)
@@ -206,7 +206,7 @@ allow_list_free.exit:                             ; preds = %.lr.ph7.i, %thread-
   call void @free(ptr noundef %45) #9
   store ptr %44, ptr @wfrom, align 8, !tbaa !4
   %.not.i50 = icmp eq ptr %44, null
-  br i1 %.not.i50, label %thread-pre-split.i51, label %.lr.ph.i49
+  br i1 %.not.i50, label %thread-pre-split.i51, label %.lr.ph.i49, !llvm.loop !16
 
 thread-pre-split.i51:                             ; preds = %.lr.ph.i49, %40
   %.pr4.i52 = load ptr, ptr @wto, align 8, !tbaa !4
@@ -222,7 +222,7 @@ thread-pre-split.i51:                             ; preds = %.lr.ph.i49, %40
   call void @free(ptr noundef %49) #9
   store ptr %48, ptr @wto, align 8, !tbaa !4
   %.not3.i55 = icmp eq ptr %48, null
-  br i1 %.not3.i55, label %allow_list_free.exit56, label %.lr.ph7.i54
+  br i1 %.not3.i55, label %allow_list_free.exit56, label %.lr.ph7.i54, !llvm.loop !18
 
 allow_list_free.exit56:                           ; preds = %.lr.ph7.i54, %thread-pre-split.i51
   %50 = call i32 @fclose(ptr noundef nonnull %3)
@@ -278,7 +278,7 @@ define dso_local range(i32 0, 2) i32 @allowed(ptr noundef %0, i32 noundef %1) lo
   %4 = getelementptr inbounds nuw i8, ptr %.110, i64 32
   %.1 = load ptr, ptr %4, align 8, !tbaa !4
   %.not6 = icmp eq ptr %.1, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %2, %3
   %.110 = phi ptr [ %.1, %3 ], [ %.18, %2 ]
@@ -321,7 +321,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.091188 = phi i32 [ %.192, %.thread ], [ 0, %.preheader ]
   %.098187 = phi i32 [ %.199, %.thread ], [ 0, %.preheader ]
   %.2106186 = phi ptr [ %.3107, %.thread ], [ null, %.preheader ]
-  %10 = load i8, ptr %2, align 16, !tbaa !16
+  %10 = load i8, ptr %2, align 16, !tbaa !19
   switch i8 %10, label %11 [
     i8 58, label %.thread
     i8 35, label %.thread
@@ -342,17 +342,17 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %16 = getelementptr inbounds nuw [2048 x i8], ptr %2, i64 0, i64 %indvars.iv
-  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %17 = load i8, ptr %16, align 1, !tbaa !19
   switch i8 %17, label %20 [
     i8 10, label %18
     i8 13, label %18
   ]
 
 18:                                               ; preds = %.lr.ph, %.lr.ph
-  store i8 0, ptr %16, align 1, !tbaa !16
+  store i8 0, ptr %16, align 1, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = icmp sgt i64 %indvars.iv, 0
-  br i1 %19, label %.lr.ph, label %.thread
+  br i1 %19, label %.lr.ph, label %.thread, !llvm.loop !22
 
 20:                                               ; preds = %.lr.ph
   %21 = icmp eq i64 %indvars.iv, 0
@@ -376,9 +376,9 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br i1 %.not126, label %30, label %.thread133
 
 30:                                               ; preds = %29
-  store i8 94, ptr %28, align 1, !tbaa !16
+  store i8 94, ptr %28, align 1, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 40, ptr %31, align 1, !tbaa !16
+  store i8 40, ptr %31, align 1, !tbaa !19
   br label %.thread133
 
 .thread138:                                       ; preds = %25
@@ -392,7 +392,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.2100 = phi i32 [ %.098187, %22 ], [ %26, %29 ], [ %26, %30 ]
   %.293 = phi i32 [ %.091188, %22 ], [ 2048, %29 ], [ 2046, %30 ]
   %.287 = phi i32 [ %.085189, %22 ], [ %.085189, %29 ], [ 2, %30 ]
-  %34 = load i8, ptr %2, align 16, !tbaa !16
+  %34 = load i8, ptr %2, align 16, !tbaa !19
   %.not127178 = icmp eq i8 %34, 0
   br i1 %.not127178, label %._crit_edge, label %.lr.ph183
 
@@ -416,18 +416,18 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 41:                                               ; preds = %38, %.lr.ph183
   %42 = sext i32 %.590180 to i64
   %43 = getelementptr inbounds i8, ptr %.4108, i64 %42
-  store i8 %35, ptr %43, align 1, !tbaa !16
+  store i8 %35, ptr %43, align 1, !tbaa !19
   br label %50
 
 44:                                               ; preds = %38
   %45 = sext i32 %.590180 to i64
   %46 = getelementptr inbounds i8, ptr %.4108, i64 %45
-  store i8 91, ptr %46, align 1, !tbaa !16
-  %47 = load i8, ptr %.080181, align 1, !tbaa !16
+  store i8 91, ptr %46, align 1, !tbaa !19
+  %47 = load i8, ptr %.080181, align 1, !tbaa !19
   %48 = getelementptr i8, ptr %46, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !16
+  store i8 %47, ptr %48, align 1, !tbaa !19
   %49 = getelementptr i8, ptr %46, i64 2
-  store i8 93, ptr %49, align 1, !tbaa !16
+  store i8 93, ptr %49, align 1, !tbaa !19
   br label %50
 
 50:                                               ; preds = %44, %41
@@ -436,9 +436,9 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %51 = add nsw i32 %.590180, %.sink209
   %52 = add nsw i32 %.596179, %.sink
   %53 = getelementptr inbounds nuw i8, ptr %.080181, i64 1
-  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %54 = load i8, ptr %53, align 1, !tbaa !19
   %.not127 = icmp eq i8 %54, 0
-  br i1 %.not127, label %._crit_edge, label %.lr.ph183
+  br i1 %.not127, label %._crit_edge, label %.lr.ph183, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %50, %.thread133
   %.596.lcssa = phi i32 [ %.293, %.thread133 ], [ %52, %50 ]
@@ -446,7 +446,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %55 = add nsw i32 %.590.lcssa, 1
   %56 = sext i32 %.590.lcssa to i64
   %57 = getelementptr inbounds i8, ptr %.4108, i64 %56
-  store i8 124, ptr %57, align 1, !tbaa !16
+  store i8 124, ptr %57, align 1, !tbaa !19
   %58 = add nsw i32 %.596.lcssa, -1
   br label %.thread
 
@@ -484,10 +484,10 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.6110 = phi ptr [ %64, %._crit_edge191.thread ], [ %.3107, %._crit_edge191 ]
   %68 = getelementptr i8, ptr %.6110, i64 %.085.lcssa205
   %69 = getelementptr i8, ptr %68, i64 -1
-  store i8 41, ptr %69, align 1, !tbaa !16
-  store i8 36, ptr %68, align 1, !tbaa !16
+  store i8 41, ptr %69, align 1, !tbaa !19
+  store i8 36, ptr %68, align 1, !tbaa !19
   %70 = getelementptr i8, ptr %68, i64 1
-  store i8 0, ptr %70, align 1, !tbaa !16
+  store i8 0, ptr %70, align 1, !tbaa !19
   %71 = call i32 @fclose(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %2) #9
   %72 = call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef %.6110, i32 noundef 7) #9
@@ -517,7 +517,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %.thread162
 
 .thread162:                                       ; preds = %.thread155, %77
-  store i32 1, ptr @skipauth, align 4, !tbaa !17
+  store i32 1, ptr @skipauth, align 4, !tbaa !24
   br label %78
 
 78:                                               ; preds = %.thread165, %.thread145, %75, %.thread162
@@ -533,7 +533,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @smtpauthed(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @skipauth, align 4, !tbaa !17
+  %2 = load i32, ptr @skipauth, align 4, !tbaa !24
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -582,5 +582,12 @@ attributes #12 = { nounwind allocsize(1) }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"p1 omnipotent char", !6, i64 0}
 !15 = !{!"p1 _ZTS7re_guts", !6, i64 0}
-!16 = !{!7, !7, i64 0}
-!17 = !{!12, !12, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = !{!7, !7, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = !{!12, !12, i64 0}

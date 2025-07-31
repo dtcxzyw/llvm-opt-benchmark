@@ -1308,10 +1308,10 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   call void @Inter_ManSetDefaultParams(ptr noundef nonnull %32) #12
   %598 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %599 = load i32, ptr %598, align 4, !tbaa !12
-  store i32 %599, ptr %32, align 8, !tbaa !67
-  %600 = load i32, ptr %51, align 4, !tbaa !69
+  store i32 %599, ptr %32, align 8, !tbaa !68
+  %600 = load i32, ptr %51, align 4, !tbaa !70
   %601 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store i32 %600, ptr %601, align 8, !tbaa !70
+  store i32 %600, ptr %601, align 8, !tbaa !71
   %602 = load ptr, ptr %31, align 8, !tbaa !35
   %603 = getelementptr i8, ptr %602, i64 112
   %.val407 = load i32, ptr %603, align 8, !tbaa !53
@@ -1339,23 +1339,23 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %.4527 = phi i32 [ %.6, %657 ], [ -1, %.preheader502 ]
   %.0236526 = phi i32 [ %.1237, %657 ], [ 0, %.preheader502 ]
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 24
-  %612 = load ptr, ptr %611, align 8, !tbaa !71
+  %612 = load ptr, ptr %611, align 8, !tbaa !72
   %613 = getelementptr i8, ptr %612, i64 8
-  %.val412 = load ptr, ptr %613, align 8, !tbaa !72
+  %.val412 = load ptr, ptr %613, align 8, !tbaa !73
   %614 = getelementptr inbounds nuw ptr, ptr %.val412, i64 %indvars.iv
-  %615 = load ptr, ptr %614, align 8, !tbaa !74
+  %615 = load ptr, ptr %614, align 8, !tbaa !75
   %616 = getelementptr i8, ptr %615, i64 8
-  %.val413 = load ptr, ptr %616, align 8, !tbaa !75
+  %.val413 = load ptr, ptr %616, align 8, !tbaa !76
   %617 = ptrtoint ptr %.val413 to i64
   %618 = and i64 %617, -2
   %619 = inttoptr i64 %618 to ptr
   %620 = getelementptr i8, ptr %610, i64 48
-  %.val414 = load ptr, ptr %620, align 8, !tbaa !76
+  %.val414 = load ptr, ptr %620, align 8, !tbaa !77
   %621 = icmp eq ptr %.val414, %619
   br i1 %621, label %657, label %622
 
 622:                                              ; preds = %.lr.ph529
-  %623 = load i32, ptr %601, align 8, !tbaa !70
+  %623 = load i32, ptr %601, align 8, !tbaa !71
   %.not309 = icmp eq i32 %623, 0
   %.pre564 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not309, label %._crit_edge563, label %624
@@ -1388,7 +1388,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %636 = call ptr @Abc_CexDup(ptr noundef nonnull %634, i32 noundef %.val361) #12
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %636, ptr %637, align 8, !tbaa !56
-  store i32 %.pre564, ptr %636, align 4, !tbaa !77
+  store i32 %.pre564, ptr %636, align 4, !tbaa !78
   call void @Aig_ManStop(ptr noundef nonnull %628) #12
   %638 = load ptr, ptr %31, align 8, !tbaa !35
   %639 = call i32 @Aig_ManCleanup(ptr noundef %638) #12
@@ -1401,7 +1401,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
 642:                                              ; preds = %640
   %643 = load ptr, ptr %31, align 8, !tbaa !35
   %644 = getelementptr i8, ptr %643, i64 48
-  %.val416 = load ptr, ptr %644, align 8, !tbaa !76
+  %.val416 = load ptr, ptr %644, align 8, !tbaa !77
   %645 = ptrtoint ptr %.val416 to i64
   %646 = xor i64 %645, 1
   %647 = inttoptr i64 %646 to ptr
@@ -1437,7 +1437,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %.val408 = load i32, ptr %659, align 8, !tbaa !53
   %660 = sext i32 %.val408 to i64
   %.not311 = icmp slt i64 %indvars.iv.next, %660
-  br i1 %.not311, label %.lr.ph529, label %._crit_edge, !llvm.loop !79
+  br i1 %.not311, label %.lr.ph529, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %657, %.preheader502
   %661 = phi ptr [ %602, %.preheader502 ], [ %658, %657 ]
@@ -1479,7 +1479,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   store ptr null, ptr %674, align 8, !tbaa !56
   %679 = load ptr, ptr %678, align 8, !tbaa !56
   %680 = call i32 @Saig_ManFindFailedPoCex(ptr noundef %677, ptr noundef %679) #12
-  store i32 %680, ptr %675, align 4, !tbaa !77
+  store i32 %680, ptr %675, align 4, !tbaa !78
   br label %681
 
 681:                                              ; preds = %676, %671
@@ -1551,27 +1551,27 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
 711:                                              ; preds = %707
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #12
   call void @Bbr_ManSetDefaultParams(ptr noundef nonnull %34) #12
-  store i32 0, ptr %34, align 4, !tbaa !80
+  store i32 0, ptr %34, align 4, !tbaa !81
   %712 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %713 = load i32, ptr %712, align 4, !tbaa !14
   %714 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %713, ptr %714, align 4, !tbaa !82
+  store i32 %713, ptr %714, align 4, !tbaa !83
   %715 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %716 = load i32, ptr %715, align 4, !tbaa !15
   %717 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %716, ptr %717, align 4, !tbaa !83
+  store i32 %716, ptr %717, align 4, !tbaa !84
   %718 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 1, ptr %718, align 4, !tbaa !84
+  store i32 1, ptr %718, align 4, !tbaa !85
   %719 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 1, ptr %719, align 4, !tbaa !85
+  store i32 1, ptr %719, align 4, !tbaa !86
   %720 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  store i32 1, ptr %720, align 4, !tbaa !86
+  store i32 1, ptr %720, align 4, !tbaa !87
   %721 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i32 0, ptr %721, align 4, !tbaa !87
+  store i32 0, ptr %721, align 4, !tbaa !88
   %722 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %723 = load i32, ptr %722, align 4, !tbaa !57
   %724 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i32 %723, ptr %724, align 4, !tbaa !88
+  store i32 %723, ptr %724, align 4, !tbaa !89
   %725 = load ptr, ptr %31, align 8, !tbaa !35
   %726 = getelementptr i8, ptr %725, i64 136
   %.val396 = load i32, ptr %726, align 8, !tbaa !51
@@ -1611,10 +1611,10 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %744 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %745 = load i32, ptr %744, align 4, !tbaa !28
   %746 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  store i32 %745, ptr %746, align 4, !tbaa !89
+  store i32 %745, ptr %746, align 4, !tbaa !90
   %747 = load i32, ptr %52, align 4, !tbaa !38
   %748 = getelementptr inbounds nuw i8, ptr %35, i64 100
-  store i32 %747, ptr %748, align 4, !tbaa !91
+  store i32 %747, ptr %748, align 4, !tbaa !92
   %.not314 = icmp eq i32 %747, 0
   br i1 %.not314, label %750, label %749
 
@@ -1636,7 +1636,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %758 = load ptr, ptr %31, align 8, !tbaa !35
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 408
   %760 = load ptr, ptr %759, align 8, !tbaa !56
-  store i32 %757, ptr %760, align 4, !tbaa !77
+  store i32 %757, ptr %760, align 4, !tbaa !78
   br label %761
 
 761:                                              ; preds = %756, %750
@@ -1766,7 +1766,7 @@ Abc_Clock.exit458:                                ; preds = %786, %790
   %829 = add nuw nsw i32 %.0531, 1
   %830 = load i32, ptr %815, align 4, !tbaa !52
   %831 = icmp slt i32 %829, %830
-  br i1 %831, label %821, label %.loopexit, !llvm.loop !92
+  br i1 %831, label %821, label %.loopexit, !llvm.loop !93
 
 .loopexit:                                        ; preds = %821, %.preheader, %805, %800
   %832 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2043,7 +2043,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !93
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !94
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #12
@@ -2051,7 +2051,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !93, !noalias !95
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !94, !noalias !96
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #12
   br label %17
 
@@ -2269,36 +2269,37 @@ attributes #13 = { nounwind willreturn memory(read) }
 !62 = !{!55, !5, i64 164}
 !63 = !{!64, !5, i64 28}
 !64 = !{!"Fra_Sml_t_", !36, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !6, i64 40}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!68, !5, i64 0}
-!68 = !{!"Inter_ManParams_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !41, i64 72}
-!69 = !{!4, !5, i64 96}
-!70 = !{!68, !5, i64 64}
-!71 = !{!40, !42, i64 24}
-!72 = !{!73, !37, i64 8}
-!73 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !37, i64 8}
-!74 = !{!37, !37, i64 0}
-!75 = !{!44, !43, i64 8}
-!76 = !{!40, !43, i64 48}
-!77 = !{!78, !5, i64 0}
-!78 = !{!"Abc_Cex_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20}
-!79 = distinct !{!79, !66}
-!80 = !{!81, !5, i64 0}
-!81 = !{!"Saig_ParBbr_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
-!82 = !{!81, !5, i64 4}
-!83 = !{!81, !5, i64 8}
-!84 = !{!81, !5, i64 12}
-!85 = !{!81, !5, i64 16}
-!86 = !{!81, !5, i64 20}
-!87 = !{!81, !5, i64 24}
-!88 = !{!81, !5, i64 28}
-!89 = !{!90, !5, i64 20}
-!90 = !{!"Pdr_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !37, i64 152, !37, i64 160, !32, i64 168, !49, i64 176, !41, i64 184}
-!91 = !{!90, !5, i64 100}
-!92 = distinct !{!92, !66}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTS8_IO_FILE", !37, i64 0}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"vprintf: argument 0"}
-!97 = distinct !{!97, !"vprintf"}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!69, !5, i64 0}
+!69 = !{!"Inter_ManParams_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !41, i64 72}
+!70 = !{!4, !5, i64 96}
+!71 = !{!69, !5, i64 64}
+!72 = !{!40, !42, i64 24}
+!73 = !{!74, !37, i64 8}
+!74 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !37, i64 8}
+!75 = !{!37, !37, i64 0}
+!76 = !{!44, !43, i64 8}
+!77 = !{!40, !43, i64 48}
+!78 = !{!79, !5, i64 0}
+!79 = !{!"Abc_Cex_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20}
+!80 = distinct !{!80, !66, !67}
+!81 = !{!82, !5, i64 0}
+!82 = !{!"Saig_ParBbr_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
+!83 = !{!82, !5, i64 4}
+!84 = !{!82, !5, i64 8}
+!85 = !{!82, !5, i64 12}
+!86 = !{!82, !5, i64 16}
+!87 = !{!82, !5, i64 20}
+!88 = !{!82, !5, i64 24}
+!89 = !{!82, !5, i64 28}
+!90 = !{!91, !5, i64 20}
+!91 = !{!"Pdr_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !37, i64 152, !37, i64 160, !32, i64 168, !49, i64 176, !41, i64 184}
+!92 = !{!91, !5, i64 100}
+!93 = distinct !{!93, !66, !67}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTS8_IO_FILE", !37, i64 0}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"vprintf: argument 0"}
+!98 = distinct !{!98, !"vprintf"}

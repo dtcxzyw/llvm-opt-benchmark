@@ -1556,7 +1556,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 25:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread105, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread105, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -1772,7 +1772,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
 92:                                               ; preds = %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %92, %50
   %.0116.lcssa = phi i32 [ 0, %50 ], [ %11, %92 ]
@@ -1828,7 +1828,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   %.7 = phi i8 [ %.6156, %100 ], [ %107, %106 ], [ %.6156, %.lr.ph158 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !10
+  br i1 %exitcond166.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !11
 
 ._crit_edge159:                                   ; preds = %109, %.thread
   tail call void @deallocate(ptr noundef %5, ptr noundef nonnull %46) #10
@@ -2212,7 +2212,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef readonly
   %.171 = phi i32 [ %.07081, %30 ], [ %53, %49 ], [ %.07081, %41 ], [ %.07081, %39 ]
   %55 = add nuw nsw i32 %.06982, 1
   %exitcond.not = icmp eq i32 %55, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %54, %.lr.ph, %32, %.preheader
   %.070.lcssa = phi i32 [ 0, %.preheader ], [ %.07081, %32 ], [ %.07081, %.lr.ph ], [ %.171, %54 ]
@@ -2242,7 +2242,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef readonly
   call void %65(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph89, !llvm.loop !12
+  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph89, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph89, %._crit_edge, %23
   call void @deallocate(ptr noundef %.0, ptr noundef %17) #10
@@ -2308,10 +2308,11 @@ attributes #13 = { cold }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

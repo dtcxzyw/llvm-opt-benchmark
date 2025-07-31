@@ -356,7 +356,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.4 = phi i32 [ 1, %159 ], [ 0, %.thread ], [ %.3232, %148 ], [ 0, %.lr.ph303 ]
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %.not249.not = icmp samesign ult i64 %indvars.iv316, %130
-  br i1 %.not249.not, label %.lr.ph303, label %._crit_edge304, !llvm.loop !11
+  br i1 %.not249.not, label %.lr.ph303, label %._crit_edge304, !llvm.loop !12
 
 ._crit_edge304:                                   ; preds = %162, %128
   br i1 %40, label %163, label %186
@@ -435,7 +435,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 205:                                              ; preds = %199, %193
   %.pre328 = load i32, ptr %27, align 4, !tbaa !3
-  br label %189
+  br label %189, !llvm.loop !13
 
 206:                                              ; preds = %189
   %207 = load double, ptr %22, align 8, !tbaa !7
@@ -472,7 +472,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double 0.000000e+00, ptr %221, align 8, !tbaa !7
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
-  br i1 %exitcond323.not, label %._crit_edge309, label %214, !llvm.loop !12
+  br i1 %exitcond323.not, label %._crit_edge309, label %214, !llvm.loop !14
 
 ._crit_edge309:                                   ; preds = %214
   %.not257310 = icmp eq i32 %211, 1
@@ -519,7 +519,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 248:                                              ; preds = %.lr.ph313, %230
   %.not257.not = icmp slt i64 %indvars.iv324, %224
-  br i1 %.not257.not, label %.lr.ph313, label %._crit_edge314, !llvm.loop !13
+  br i1 %.not257.not, label %.lr.ph313, label %._crit_edge314, !llvm.loop !15
 
 ._crit_edge314:                                   ; preds = %248, %210, %._crit_edge309
   store double %113, ptr %13, align 8, !tbaa !7
@@ -588,8 +588,10 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

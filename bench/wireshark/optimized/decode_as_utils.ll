@@ -82,7 +82,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %gep = getelementptr i8, ptr %invariant.gep, i64 %21
   %22 = load i8, ptr %gep, align 1
   %23 = icmp eq i8 %22, 32
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i8, ptr %.0134, align 1
@@ -184,7 +184,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %53 = and i16 %52, 256
   %.not169 = icmp eq i16 %53, 0
   %54 = getelementptr i8, ptr %.0128, i64 1
-  br i1 %.not169, label %55, label %48, !llvm.loop !9
+  br i1 %.not169, label %55, label %48, !llvm.loop !10
 
 55:                                               ; preds = %48
   %56 = call i64 @g_ascii_strtoull(ptr noundef %.0128, ptr noundef nonnull %3, i32 noundef 0)
@@ -289,7 +289,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %.0138 = getelementptr i8, ptr %.1141.pn, i64 1
   %88 = load i8, ptr %.0138, align 1
   %89 = icmp eq i8 %88, 32
-  br i1 %89, label %.preheader200, label %.preheader, !llvm.loop !10
+  br i1 %89, label %.preheader200, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader200
   %90 = call i64 @strlen(ptr noundef %.0138) #7
@@ -305,7 +305,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %gep205 = getelementptr i8, ptr %.1141.pn, i64 %93
   %94 = load i8, ptr %gep205, align 1
   %95 = icmp eq i8 %94, 32
-  br i1 %95, label %.lr.ph208, label %._crit_edge209.loopexit, !llvm.loop !11
+  br i1 %95, label %.lr.ph208, label %._crit_edge209.loopexit, !llvm.loop !12
 
 ._crit_edge209.loopexit:                          ; preds = %.lr.ph208
   %.pre219 = load i8, ptr %.0138, align 1
@@ -412,7 +412,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   call void @dissector_change_uint(ptr noundef %.0134, i32 noundef %123, ptr noundef nonnull %108)
   %124 = add nuw nsw i64 %.0132210, 1
   %125 = icmp samesign ult i64 %124, %122
-  br i1 %125, label %.lr.ph212, label %.loopexit, !llvm.loop !12
+  br i1 %125, label %.lr.ph212, label %.loopexit, !llvm.loop !13
 
 126:                                              ; preds = %118
   %127 = zext i32 %.0143228 to i64
@@ -425,7 +425,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   call void @dissector_change_uint(ptr noundef %.0134, i32 noundef %128, ptr noundef nonnull %108)
   %129 = add nuw i64 %.1133214, 1
   %exitcond.not = icmp eq i64 %.1133214, %.0145227
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph216, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph216, !llvm.loop !14
 
 130:                                              ; preds = %117, %117, %117, %117, %117
   call void @dissector_change_string(ptr noundef %.0134, ptr noundef %.0139187225, ptr noundef nonnull %108)
@@ -637,11 +637,12 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

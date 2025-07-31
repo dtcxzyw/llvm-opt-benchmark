@@ -95,12 +95,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
 27:                                               ; preds = %24, %27
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
-  %29 = load double, ptr %28, align 8, !tbaa !20
+  %29 = load double, ptr %28, align 8, !tbaa !21
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  store double %29, ptr %gep, align 8, !tbaa !20
+  store double %29, ptr %gep, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %26, label %27, !llvm.loop !22
+  br i1 %exitcond.not, label %26, label %27, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -189,20 +189,20 @@ _ZN5Eigen8internal23check_size_for_overflowINS_10QuaternionIdLi0EEEEEvm.exit.i.i
   store ptr %16, ptr %17, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !23
-  %20 = load ptr, ptr %1, align 8, !tbaa !24
-  %21 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %18, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %1, align 8, !tbaa !25
+  %21 = load ptr, ptr %3, align 8, !tbaa !25
   %.not13.i = icmp eq ptr %20, %21
   br i1 %.not13.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Eigen10QuaternionIdLi0EEESt6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEPS4_S9_ET0_T_SE_SD_RT1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %.015.i = phi ptr [ %23, %.lr.ph.i ], [ %16, %15 ]
   %.sroa.010.014.i = phi ptr [ %22, %.lr.ph.i ], [ %20, %15 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.015.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.010.014.i, i64 32, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.015.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.010.014.i, i64 32, i1 false), !tbaa.struct !26
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.015.i, i64 32
   %.not.i = icmp eq ptr %22, %21
-  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Eigen10QuaternionIdLi0EEESt6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEPS4_S9_ET0_T_SE_SD_RT1_.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Eigen10QuaternionIdLi0EEESt6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEPS4_S9_ET0_T_SE_SD_RT1_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Eigen10QuaternionIdLi0EEESt6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEPS4_S9_ET0_T_SE_SD_RT1_.exit: ; preds = %.lr.ph.i, %15
   %.0.lcssa.i = phi ptr [ %16, %15 ], [ %23, %.lr.ph.i ]
@@ -263,13 +263,14 @@ attributes #9 = { noreturn }
 !15 = !{!12, !13, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"vtable pointer", !9, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !8, i64 0}
-!22 = distinct !{!22, !19}
-!23 = !{!5, !6, i64 16}
-!24 = !{!6, !6, i64 0}
-!25 = !{i64 0, i64 32, !26}
-!26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !8, i64 0}
+!23 = distinct !{!23, !19, !20}
+!24 = !{!5, !6, i64 16}
+!25 = !{!6, !6, i64 0}
+!26 = !{i64 0, i64 32, !27}
+!27 = !{!8, !8, i64 0}
+!28 = distinct !{!28, !19, !20}

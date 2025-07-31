@@ -327,7 +327,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6herm
   %dst.1 = phi ptr [ %dst.053, %for.body ], [ %incdec.ptr, %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit ]
   %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %src.051, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr24, %add.ptr
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.end
   %count.0.lcssa = phi i32 [ 0, %if.end ], [ %count.1, %for.inc ]
@@ -367,7 +367,7 @@ do.body:                                          ; preds = %do.body, %if.then26
   %second.i46 = getelementptr inbounds nuw i8, ptr %dst.2, i64 4
   store i32 %cond, ptr %second.i46, align 4
   %incdec.ptr43 = getelementptr inbounds nuw i8, ptr %dst.2, i64 12
-  br i1 %cmp42.not, label %if.end46, label %do.body, !llvm.loop !17
+  br i1 %cmp42.not, label %if.end46, label %do.body, !llvm.loop !18
 
 if.end46:                                         ; preds = %do.body, %for.end
   %count.2 = phi i32 [ %count.0.lcssa, %for.end ], [ %add, %do.body ]
@@ -876,7 +876,7 @@ for.inc:                                          ; preds = %if.then4.i.i118, %i
   %25 = load i32, ptr %hashCapacity_, align 4
   %26 = zext i32 %25 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11raw_ostreamlsEPKc.exit58
   %27 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -1038,7 +1038,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit218:              ; preds = %if.then.i.i216, %if
   %48 = load i32, ptr %descriptorCapacity_, align 4
   %49 = zext i32 %48 to i64
   %cmp28 = icmp samesign ult i64 %indvars.iv.next225, %49
-  br i1 %cmp28, label %for.body29, label %for.end42, !llvm.loop !19
+  br i1 %cmp28, label %for.body29, label %for.end42, !llvm.loop !20
 
 for.end42:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit218, %_ZN4llvh11raw_ostreamlsEPKc.exit155
   ret void
@@ -1094,9 +1094,10 @@ attributes #9 = { nounwind }
 !11 = distinct !{!11, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
 !12 = distinct !{!12, !13, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
 !13 = distinct !{!13, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}

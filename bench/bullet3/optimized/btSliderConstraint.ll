@@ -516,9 +516,9 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyS1_RK11btTransfor
 .preheader.preheader:
   %6 = zext i1 %5 to i8
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 8 dereferenceable(744) %2)
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %0, align 8, !tbaa !62
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %0, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %7, align 8, !tbaa !64
+  store i8 0, ptr %7, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 16, i1 false), !tbaa.struct !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -633,9 +633,9 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyRK11btTransformb(
   %4 = zext i1 %3 to i8
   %5 = tail call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(744) %5, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %0, align 8, !tbaa !62
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV18btSliderConstraint, i64 16), ptr %0, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %6, align 8, !tbaa !64
+  store i8 0, ptr %6, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 16, i1 false), !tbaa.struct !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -651,43 +651,43 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyRK11btTransformb(
   store i8 %4, ptr %14, align 4, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load float, ptr %7, align 4, !tbaa !57, !noalias !65
-  %18 = load float, ptr %16, align 8, !tbaa !57, !noalias !65
-  %19 = load float, ptr %9, align 4, !tbaa !57, !noalias !65
+  %17 = load float, ptr %7, align 4, !tbaa !57, !noalias !66
+  %18 = load float, ptr %16, align 8, !tbaa !57, !noalias !66
+  %19 = load float, ptr %9, align 4, !tbaa !57, !noalias !66
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %21 = load float, ptr %20, align 4, !tbaa !57, !noalias !65
+  %21 = load float, ptr %20, align 4, !tbaa !57, !noalias !66
   %22 = fmul float %19, %21
   %23 = tail call float @llvm.fmuladd.f32(float %17, float %18, float %22)
-  %24 = load float, ptr %11, align 4, !tbaa !57, !noalias !65
+  %24 = load float, ptr %11, align 4, !tbaa !57, !noalias !66
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load float, ptr %25, align 8, !tbaa !57, !noalias !65
+  %26 = load float, ptr %25, align 8, !tbaa !57, !noalias !66
   %27 = tail call noundef float @llvm.fmuladd.f32(float %24, float %26, float %23)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %29 = load float, ptr %28, align 8, !tbaa !57, !noalias !65
+  %29 = load float, ptr %28, align 8, !tbaa !57, !noalias !66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %31 = load float, ptr %30, align 8, !tbaa !57, !noalias !65
+  %31 = load float, ptr %30, align 8, !tbaa !57, !noalias !66
   %32 = fmul float %21, %31
   %33 = tail call float @llvm.fmuladd.f32(float %29, float %18, float %32)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load float, ptr %34, align 8, !tbaa !57, !noalias !65
+  %35 = load float, ptr %34, align 8, !tbaa !57, !noalias !66
   %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %26, float %33)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %38 = load float, ptr %37, align 4, !tbaa !57, !noalias !65
+  %38 = load float, ptr %37, align 4, !tbaa !57, !noalias !66
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %40 = load float, ptr %39, align 4, !tbaa !57, !noalias !65
+  %40 = load float, ptr %39, align 4, !tbaa !57, !noalias !66
   %41 = fmul float %21, %40
   %42 = tail call float @llvm.fmuladd.f32(float %38, float %18, float %41)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %44 = load float, ptr %43, align 4, !tbaa !57, !noalias !65
+  %44 = load float, ptr %43, align 4, !tbaa !57, !noalias !66
   %45 = tail call noundef float @llvm.fmuladd.f32(float %44, float %26, float %42)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load float, ptr %46, align 8, !tbaa !57, !noalias !65
+  %47 = load float, ptr %46, align 8, !tbaa !57, !noalias !66
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %49 = load float, ptr %48, align 4, !tbaa !57, !noalias !65
+  %49 = load float, ptr %48, align 4, !tbaa !57, !noalias !66
   %50 = fmul float %19, %49
   %51 = tail call float @llvm.fmuladd.f32(float %17, float %47, float %50)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %53 = load float, ptr %52, align 8, !tbaa !57, !noalias !65
+  %53 = load float, ptr %52, align 8, !tbaa !57, !noalias !66
   %54 = tail call noundef float @llvm.fmuladd.f32(float %24, float %53, float %51)
   %55 = fmul float %31, %49
   %56 = tail call float @llvm.fmuladd.f32(float %29, float %47, float %55)
@@ -696,13 +696,13 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyRK11btTransformb(
   %59 = tail call float @llvm.fmuladd.f32(float %38, float %47, float %58)
   %60 = tail call noundef float @llvm.fmuladd.f32(float %44, float %53, float %59)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %62 = load float, ptr %61, align 8, !tbaa !57, !noalias !65
+  %62 = load float, ptr %61, align 8, !tbaa !57, !noalias !66
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %64 = load float, ptr %63, align 4, !tbaa !57, !noalias !65
+  %64 = load float, ptr %63, align 4, !tbaa !57, !noalias !66
   %65 = fmul float %19, %64
   %66 = tail call float @llvm.fmuladd.f32(float %17, float %62, float %65)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %68 = load float, ptr %67, align 8, !tbaa !57, !noalias !65
+  %68 = load float, ptr %67, align 8, !tbaa !57, !noalias !66
   %69 = tail call noundef float @llvm.fmuladd.f32(float %24, float %68, float %66)
   %70 = fmul float %31, %64
   %71 = tail call float @llvm.fmuladd.f32(float %29, float %62, float %70)
@@ -710,13 +710,13 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyRK11btTransformb(
   %73 = fmul float %40, %64
   %74 = tail call float @llvm.fmuladd.f32(float %38, float %62, float %73)
   %75 = tail call noundef float @llvm.fmuladd.f32(float %44, float %68, float %74)
-  %76 = load float, ptr %12, align 4, !tbaa !57, !noalias !70
+  %76 = load float, ptr %12, align 4, !tbaa !57, !noalias !71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %78 = load float, ptr %77, align 8, !tbaa !57, !noalias !70
+  %78 = load float, ptr %77, align 8, !tbaa !57, !noalias !71
   %79 = fmul float %21, %78
   %80 = tail call float @llvm.fmuladd.f32(float %76, float %18, float %79)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %82 = load float, ptr %81, align 4, !tbaa !57, !noalias !70
+  %82 = load float, ptr %81, align 4, !tbaa !57, !noalias !71
   %83 = tail call noundef float @llvm.fmuladd.f32(float %82, float %26, float %80)
   %84 = fmul float %49, %78
   %85 = tail call float @llvm.fmuladd.f32(float %76, float %47, float %84)
@@ -725,13 +725,13 @@ define dso_local void @_ZN18btSliderConstraintC2ER11btRigidBodyRK11btTransformb(
   %88 = tail call float @llvm.fmuladd.f32(float %76, float %62, float %87)
   %89 = tail call noundef float @llvm.fmuladd.f32(float %82, float %68, float %88)
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %91 = load float, ptr %90, align 8, !tbaa !57, !noalias !70
+  %91 = load float, ptr %90, align 8, !tbaa !57, !noalias !71
   %92 = fadd float %91, %83
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %94 = load float, ptr %93, align 4, !tbaa !57, !noalias !70
+  %94 = load float, ptr %93, align 4, !tbaa !57, !noalias !71
   %95 = fadd float %86, %94
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %97 = load float, ptr %96, align 8, !tbaa !57, !noalias !70
+  %97 = load float, ptr %96, align 8, !tbaa !57, !noalias !71
   %98 = fadd float %89, %97
   %.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> poison, float %92, i64 0
   %.sroa.0.4.vec.insert.i3.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i, float %95, i64 1
@@ -854,18 +854,18 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef captures(none) initializes((0, 8)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load i8, ptr %3, align 8, !tbaa !64, !range !55, !noundef !56
+  %4 = load i8, ptr %3, align 8, !tbaa !65, !range !55, !noundef !56
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %5, label %7, label %8
 
 7:                                                ; preds = %2
-  store i32 0, ptr %1, align 4, !tbaa !71
+  store i32 0, ptr %1, align 4, !tbaa !72
   br label %.sink.split
 
 8:                                                ; preds = %2
-  store i32 4, ptr %1, align 4, !tbaa !71
-  store i32 2, ptr %6, align 4, !tbaa !73
+  store i32 4, ptr %1, align 4, !tbaa !72
+  store i32 2, ptr %6, align 4, !tbaa !74
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -874,9 +874,9 @@ define dso_local void @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17b
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @_ZN18btSliderConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store float 0.000000e+00, ptr %15, align 8, !tbaa !74
+  store float 0.000000e+00, ptr %15, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 321
-  store i8 0, ptr %16, align 1, !tbaa !75
+  store i8 0, ptr %16, align 1, !tbaa !76
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load float, ptr %17, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -909,10 +909,10 @@ define dso_local void @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17b
   %44 = fmul float %27, %39
   %45 = tail call float @llvm.fmuladd.f32(float %38, float %26, float %44)
   %46 = tail call noundef float @llvm.fmuladd.f32(float %40, float %28, float %45)
-  %47 = tail call noundef float @atan2f(float noundef %43, float noundef %46) #20, !tbaa !76
+  %47 = tail call noundef float @atan2f(float noundef %43, float noundef %46) #20, !tbaa !77
   %48 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %47, float noundef %18, float noundef %20)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  store float %48, ptr %49, align 4, !tbaa !77
+  store float %48, ptr %49, align 4, !tbaa !78
   %50 = load float, ptr %17, align 8, !tbaa !20
   %51 = fcmp olt float %48, %50
   br i1 %51, label %.sink.split.i, label %52
@@ -925,17 +925,17 @@ define dso_local void @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17b
 .sink.split.i:                                    ; preds = %52, %22
   %.sink28.i = phi float [ %50, %22 ], [ %53, %52 ]
   %55 = fsub float %48, %.sink28.i
-  store float %55, ptr %15, align 8, !tbaa !74
-  store i8 1, ptr %16, align 1, !tbaa !75
+  store float %55, ptr %15, align 8, !tbaa !75
+  store i8 1, ptr %16, align 1, !tbaa !76
   br label %_ZN18btSliderConstraint13testAngLimitsEv.exit
 
 _ZN18btSliderConstraint13testAngLimitsEv.exit:    ; preds = %8, %52, %.sink.split.i
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i8 0, ptr %56, align 8, !tbaa !78
+  store i8 0, ptr %56, align 8, !tbaa !79
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %58 = load float, ptr %57, align 8, !tbaa !57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store float %58, ptr %59, align 8, !tbaa !79
+  store float %58, ptr %59, align 8, !tbaa !80
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %61 = load float, ptr %60, align 8, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -962,20 +962,20 @@ _ZN18btSliderConstraint13testLinLimitsEv.exit.thread.sink.split: ; preds = %67, 
   %.sink15 = phi float [ %63, %65 ], [ %61, %67 ]
   %72 = fsub float %58, %.sink15
   store float %72, ptr %57, align 8, !tbaa !57
-  store i8 1, ptr %56, align 8, !tbaa !78
+  store i8 1, ptr %56, align 8, !tbaa !79
   br label %_ZN18btSliderConstraint13testLinLimitsEv.exit.thread
 
 _ZN18btSliderConstraint13testLinLimitsEv.exit.thread: ; preds = %_ZN18btSliderConstraint13testLinLimitsEv.exit.thread.sink.split, %_ZN18btSliderConstraint13testLinLimitsEv.exit
-  %73 = load i32, ptr %1, align 4, !tbaa !71
+  %73 = load i32, ptr %1, align 4, !tbaa !72
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %1, align 4, !tbaa !71
-  %75 = load i32, ptr %6, align 4, !tbaa !73
+  store i32 %74, ptr %1, align 4, !tbaa !72
+  %75 = load i32, ptr %6, align 4, !tbaa !74
   %76 = add nsw i32 %75, -1
-  store i32 %76, ptr %6, align 4, !tbaa !73
+  store i32 %76, ptr %6, align 4, !tbaa !74
   br label %77
 
 77:                                               ; preds = %_ZN18btSliderConstraint13testLinLimitsEv.exit, %_ZN18btSliderConstraint13testLinLimitsEv.exit.thread
-  %78 = load i8, ptr %16, align 1, !tbaa !75, !range !55, !noundef !56
+  %78 = load i8, ptr %16, align 1, !tbaa !76, !range !55, !noundef !56
   %79 = trunc nuw i8 %78 to i1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %81 = load i8, ptr %80, align 8, !range !55
@@ -984,16 +984,16 @@ _ZN18btSliderConstraint13testLinLimitsEv.exit.thread: ; preds = %_ZN18btSliderCo
   br i1 %or.cond13, label %83, label %88
 
 83:                                               ; preds = %77
-  %84 = load i32, ptr %1, align 4, !tbaa !71
+  %84 = load i32, ptr %1, align 4, !tbaa !72
   %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %1, align 4, !tbaa !71
-  %86 = load i32, ptr %6, align 4, !tbaa !73
+  store i32 %85, ptr %1, align 4, !tbaa !72
+  %86 = load i32, ptr %6, align 4, !tbaa !74
   %87 = add nsw i32 %86, -1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %83
   %.sink = phi i32 [ %87, %83 ], [ 0, %7 ]
-  store i32 %.sink, ptr %6, align 4, !tbaa !73
+  store i32 %.sink, ptr %6, align 4, !tbaa !74
   br label %88
 
 88:                                               ; preds = %.sink.split, %77
@@ -1003,9 +1003,9 @@ _ZN18btSliderConstraint13testLinLimitsEv.exit.thread: ; preds = %_ZN18btSliderCo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18btSliderConstraint13testAngLimitsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1152) initializes((321, 322), (1112, 1116)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store float 0.000000e+00, ptr %2, align 8, !tbaa !74
+  store float 0.000000e+00, ptr %2, align 8, !tbaa !75
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 321
-  store i8 0, ptr %3, align 1, !tbaa !75
+  store i8 0, ptr %3, align 1, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load float, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -1038,10 +1038,10 @@ define dso_local void @_ZN18btSliderConstraint13testAngLimitsEv(ptr noundef nonn
   %31 = fmul float %14, %26
   %32 = tail call float @llvm.fmuladd.f32(float %25, float %13, float %31)
   %33 = tail call noundef float @llvm.fmuladd.f32(float %27, float %15, float %32)
-  %34 = tail call noundef float @atan2f(float noundef %30, float noundef %33) #20, !tbaa !76
+  %34 = tail call noundef float @atan2f(float noundef %30, float noundef %33) #20, !tbaa !77
   %35 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %34, float noundef %5, float noundef %7)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  store float %35, ptr %36, align 4, !tbaa !77
+  store float %35, ptr %36, align 4, !tbaa !78
   %37 = load float, ptr %4, align 8, !tbaa !20
   %38 = fcmp olt float %35, %37
   br i1 %38, label %.sink.split, label %39
@@ -1054,8 +1054,8 @@ define dso_local void @_ZN18btSliderConstraint13testAngLimitsEv(ptr noundef nonn
 .sink.split:                                      ; preds = %39, %9
   %.sink28 = phi float [ %37, %9 ], [ %40, %39 ]
   %42 = fsub float %35, %.sink28
-  store float %42, ptr %2, align 8, !tbaa !74
-  store i8 1, ptr %3, align 1, !tbaa !75
+  store float %42, ptr %2, align 8, !tbaa !75
+  store i8 1, ptr %3, align 1, !tbaa !76
   br label %43
 
 43:                                               ; preds = %.sink.split, %39, %1
@@ -1065,11 +1065,11 @@ define dso_local void @_ZN18btSliderConstraint13testAngLimitsEv(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN18btSliderConstraint13testLinLimitsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1152) initializes((320, 321), (1104, 1108)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i8 0, ptr %2, align 8, !tbaa !78
+  store i8 0, ptr %2, align 8, !tbaa !79
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load float, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store float %4, ptr %5, align 8, !tbaa !79
+  store float %4, ptr %5, align 8, !tbaa !80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load float, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -1084,7 +1084,7 @@ define dso_local void @_ZN18btSliderConstraint13testLinLimitsEv(ptr noundef nonn
 13:                                               ; preds = %11
   %14 = fsub float %4, %9
   store float %14, ptr %3, align 8, !tbaa !57
-  store i8 1, ptr %2, align 8, !tbaa !78
+  store i8 1, ptr %2, align 8, !tbaa !79
   br label %21
 
 15:                                               ; preds = %11
@@ -1094,7 +1094,7 @@ define dso_local void @_ZN18btSliderConstraint13testLinLimitsEv(ptr noundef nonn
 17:                                               ; preds = %15
   %18 = fsub float %4, %7
   store float %18, ptr %3, align 8, !tbaa !57
-  store i8 1, ptr %2, align 8, !tbaa !78
+  store i8 1, ptr %2, align 8, !tbaa !79
   br label %21
 
 19:                                               ; preds = %15
@@ -1111,9 +1111,9 @@ define dso_local void @_ZN18btSliderConstraint13testLinLimitsEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN18btSliderConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1152) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #7 align 2 {
-  store i32 6, ptr %1, align 4, !tbaa !71
+  store i32 6, ptr %1, align 4, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !73
+  store i32 0, ptr %3, align 4, !tbaa !74
   ret void
 }
 
@@ -1128,9 +1128,9 @@ define dso_local void @_ZN18btSliderConstraint8getInfo2EPN17btTypedConstraint17b
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 420
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 420
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 452
-  %12 = load float, ptr %11, align 4, !tbaa !80
+  %12 = load float, ptr %11, align 4, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 452
-  %14 = load float, ptr %13, align 4, !tbaa !80
+  %14 = load float, ptr %13, align 4, !tbaa !81
   tail call void @_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %10, float noundef %12, float noundef %14)
   ret void
 }
@@ -1144,7 +1144,7 @@ define dso_local void @_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedCo
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load i32, ptr %15, align 8, !tbaa !92
+  %16 = load i32, ptr %15, align 8, !tbaa !93
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %18 = load i8, ptr %17, align 4, !tbaa !54, !range !55, !noundef !56
   %19 = trunc nuw i8 %18 to i1
@@ -1303,7 +1303,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %.sroa.0822.0 = phi <2 x float> [ %.sroa.0822.4.vec.insert, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ], [ %.sroa.0.4.vec.insert.i449, %102 ]
   %.sroa.49.0 = phi <2 x float> [ %.sroa.49.8.vec.insert, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ], [ %.sroa.3.12.vec.insert.i450, %102 ]
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !95
+  %125 = load ptr, ptr %124, align 8, !tbaa !96
   store float %123, ptr %125, align 4, !tbaa !57
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
@@ -1325,7 +1325,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %118, ptr %138, align 4, !tbaa !57
   %139 = fneg float %123
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !96
+  %141 = load ptr, ptr %140, align 8, !tbaa !97
   store float %139, ptr %141, align 4, !tbaa !57
   %142 = fneg float %122
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -1352,13 +1352,13 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 157:                                              ; preds = %117
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %159 = load float, ptr %158, align 4, !tbaa !97
+  %159 = load float, ptr %158, align 4, !tbaa !98
   %160 = fmul float %156, %159
   br label %161
 
 161:                                              ; preds = %117, %157
   %162 = phi float [ %160, %157 ], [ %156, %117 ]
-  %163 = load float, ptr %1, align 8, !tbaa !98
+  %163 = load float, ptr %1, align 8, !tbaa !99
   %164 = fmul float %162, %163
   %165 = fneg float %51
   %166 = fmul float %47, %165
@@ -1374,7 +1374,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %176 = tail call noundef float @llvm.fmuladd.f32(float %173, float %121, float %175)
   %177 = fmul float %176, %164
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %179 = load ptr, ptr %178, align 8, !tbaa !99
+  %179 = load ptr, ptr %178, align 8, !tbaa !100
   store float %177, ptr %179, align 4, !tbaa !57
   %180 = fmul float %170, %119
   %181 = tail call float @llvm.fmuladd.f32(float %167, float %120, float %180)
@@ -1390,7 +1390,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %188 = load float, ptr %187, align 4, !tbaa !37
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %190 = load ptr, ptr %189, align 8, !tbaa !100
+  %190 = load ptr, ptr %189, align 8, !tbaa !101
   store float %188, ptr %190, align 4, !tbaa !57
   %191 = getelementptr inbounds float, ptr %190, i64 %130
   store float %188, ptr %191, align 4, !tbaa !57
@@ -1452,7 +1452,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %228 = fsub float %218, %225
   %229 = fsub float %220, %226
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %231 = load float, ptr %230, align 8, !tbaa !79
+  %231 = load float, ptr %230, align 8, !tbaa !80
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %233 = load float, ptr %232, align 8, !tbaa !57
   %234 = fsub float %231, %233
@@ -1581,7 +1581,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %310, ptr %gep1130, align 4, !tbaa !57
   %indvars.iv.next1054 = add nuw nsw i64 %indvars.iv1053, 1
   %exitcond1056.not = icmp eq i64 %indvars.iv.next1054, 3
-  br i1 %exitcond1056.not, label %311, label %.preheader998, !llvm.loop !101
+  br i1 %exitcond1056.not, label %311, label %.preheader998, !llvm.loop !102
 
 311:                                              ; preds = %.preheader998
   %312 = fneg float %290
@@ -1643,13 +1643,13 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 .preheader996:                                    ; preds = %.preheader997
   %339 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %340 = load ptr, ptr %339, align 8, !tbaa !102
+  %340 = load ptr, ptr %339, align 8, !tbaa !103
   %scevgep1065 = getelementptr i8, ptr %340, i64 %307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep1065, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false), !tbaa !57
   %scevgep1069 = getelementptr i8, ptr %340, i64 %338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep1069, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !57
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %342 = load ptr, ptr %341, align 8, !tbaa !103
+  %342 = load ptr, ptr %341, align 8, !tbaa !104
   %invariant.gep1133 = getelementptr float, ptr %342, i64 %306
   br label %346
 
@@ -1662,7 +1662,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %345, ptr %gep1132, align 4, !tbaa !57
   %indvars.iv.next1062 = add nuw nsw i64 %indvars.iv1061, 1
   %exitcond1064.not = icmp eq i64 %indvars.iv.next1062, 3
-  br i1 %exitcond1064.not, label %.preheader996, label %.preheader997, !llvm.loop !104
+  br i1 %exitcond1064.not, label %.preheader996, label %.preheader997, !llvm.loop !105
 
 .preheader:                                       ; preds = %346
   %invariant.gep1135 = getelementptr float, ptr %342, i64 %337
@@ -1677,7 +1677,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %349, ptr %gep1134, align 4, !tbaa !57
   %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
   %exitcond1076.not = icmp eq i64 %indvars.iv.next1074, 3
-  br i1 %exitcond1076.not, label %.preheader, label %346, !llvm.loop !105
+  br i1 %exitcond1076.not, label %.preheader, label %346, !llvm.loop !106
 
 350:                                              ; preds = %.preheader, %350
   %indvars.iv1077 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1078, %350 ]
@@ -1688,7 +1688,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %353, ptr %gep1136, align 4, !tbaa !57
   %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
   %exitcond1080.not = icmp eq i64 %indvars.iv.next1078, 3
-  br i1 %exitcond1080.not, label %.loopexit, label %350, !llvm.loop !106
+  br i1 %exitcond1080.not, label %.loopexit, label %350, !llvm.loop !107
 
 354:                                              ; preds = %192
   %355 = fsub float %.sroa.5782.48.copyload, %.sroa.5787.48.copyload
@@ -1720,7 +1720,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %369, ptr %gep, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader1004.preheader, label %366, !llvm.loop !107
+  br i1 %exitcond.not, label %.preheader1004.preheader, label %366, !llvm.loop !108
 
 .preheader1004.preheader:                         ; preds = %366
   %invariant.gep1119 = getelementptr float, ptr %141, i64 %365
@@ -1735,7 +1735,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %372, ptr %gep1120, align 4, !tbaa !57
   %indvars.iv.next1023 = add nuw nsw i64 %indvars.iv1022, 1
   %exitcond1025.not = icmp eq i64 %indvars.iv.next1023, 3
-  br i1 %exitcond1025.not, label %373, label %.preheader1004, !llvm.loop !108
+  br i1 %exitcond1025.not, label %373, label %.preheader1004, !llvm.loop !109
 
 373:                                              ; preds = %.preheader1004
   %374 = fmul float %357, %148
@@ -1762,7 +1762,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %384, ptr %gep1122, align 4, !tbaa !57
   %indvars.iv.next1027 = add nuw nsw i64 %indvars.iv1026, 1
   %exitcond1029.not = icmp eq i64 %indvars.iv.next1027, 3
-  br i1 %exitcond1029.not, label %.preheader1003.preheader, label %381, !llvm.loop !109
+  br i1 %exitcond1029.not, label %.preheader1003.preheader, label %381, !llvm.loop !110
 
 .preheader1003.preheader:                         ; preds = %381
   %invariant.gep1123 = getelementptr float, ptr %141, i64 %380
@@ -1770,7 +1770,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 .preheader1002:                                   ; preds = %.preheader1003
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %386 = load ptr, ptr %385, align 8, !tbaa !102
+  %386 = load ptr, ptr %385, align 8, !tbaa !103
   %387 = shl nsw i64 %365, 2
   %scevgep = getelementptr i8, ptr %386, i64 %387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false), !tbaa !57
@@ -1778,7 +1778,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %scevgep1037 = getelementptr i8, ptr %386, i64 %388
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep1037, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !57
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %390 = load ptr, ptr %389, align 8, !tbaa !103
+  %390 = load ptr, ptr %389, align 8, !tbaa !104
   %invariant.gep1125 = getelementptr float, ptr %390, i64 %365
   br label %394
 
@@ -1791,7 +1791,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %393, ptr %gep1124, align 4, !tbaa !57
   %indvars.iv.next1031 = add nuw nsw i64 %indvars.iv1030, 1
   %exitcond1033.not = icmp eq i64 %indvars.iv.next1031, 3
-  br i1 %exitcond1033.not, label %.preheader1002, label %.preheader1003, !llvm.loop !110
+  br i1 %exitcond1033.not, label %.preheader1002, label %.preheader1003, !llvm.loop !111
 
 .preheader999:                                    ; preds = %394
   %invariant.gep1127 = getelementptr float, ptr %390, i64 %380
@@ -1806,7 +1806,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %397, ptr %gep1126, align 4, !tbaa !57
   %indvars.iv.next1042 = add nuw nsw i64 %indvars.iv1041, 1
   %exitcond1044.not = icmp eq i64 %indvars.iv.next1042, 3
-  br i1 %exitcond1044.not, label %.preheader999, label %394, !llvm.loop !111
+  br i1 %exitcond1044.not, label %.preheader999, label %394, !llvm.loop !112
 
 398:                                              ; preds = %.preheader999, %398
   %indvars.iv1045 = phi i64 [ 0, %.preheader999 ], [ %indvars.iv.next1046, %398 ]
@@ -1817,7 +1817,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store float %401, ptr %gep1128, align 4, !tbaa !57
   %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
   %exitcond1048.not = icmp eq i64 %indvars.iv.next1046, 3
-  br i1 %exitcond1048.not, label %402, label %398, !llvm.loop !112
+  br i1 %exitcond1048.not, label %402, label %398, !llvm.loop !113
 
 402:                                              ; preds = %398
   %.sroa.0.0.vec.insert.i603 = insertelement <2 x float> poison, float %355, i64 0
@@ -1849,13 +1849,13 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 414:                                              ; preds = %.loopexit
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %416 = load float, ptr %415, align 4, !tbaa !97
+  %416 = load float, ptr %415, align 4, !tbaa !98
   %417 = fmul float %413, %416
   br label %418
 
 418:                                              ; preds = %.loopexit, %414
   %419 = phi float [ %417, %414 ], [ %413, %.loopexit ]
-  %420 = load float, ptr %1, align 8, !tbaa !98
+  %420 = load float, ptr %1, align 8, !tbaa !99
   %421 = fmul float %419, %420
   %422 = fmul float %30, %409
   %423 = tail call float @llvm.fmuladd.f32(float %410, float %25, float %422)
@@ -1879,7 +1879,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %437 = load float, ptr %436, align 4, !tbaa !33
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %439 = load ptr, ptr %438, align 8, !tbaa !100
+  %439 = load ptr, ptr %438, align 8, !tbaa !101
   %440 = getelementptr inbounds float, ptr %439, i64 %426
   store float %437, ptr %440, align 4, !tbaa !57
   %441 = getelementptr inbounds float, ptr %439, i64 %432
@@ -1888,7 +1888,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 442:                                              ; preds = %435, %418
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %444 = load i8, ptr %443, align 8, !tbaa !78, !range !55, !noundef !56
+  %444 = load i8, ptr %443, align 8, !tbaa !79, !range !55, !noundef !56
   %445 = trunc nuw i8 %444 to i1
   br i1 %445, label %.thread, label %453
 
@@ -2026,11 +2026,11 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %521 = getelementptr inbounds float, ptr %179, i64 %460
   store float 0.000000e+00, ptr %521, align 4, !tbaa !57
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %523 = load ptr, ptr %522, align 8, !tbaa !113
+  %523 = load ptr, ptr %522, align 8, !tbaa !114
   %524 = getelementptr inbounds float, ptr %523, i64 %460
   store float 0.000000e+00, ptr %524, align 4, !tbaa !57
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %526 = load ptr, ptr %525, align 8, !tbaa !114
+  %526 = load ptr, ptr %525, align 8, !tbaa !115
   %527 = getelementptr inbounds float, ptr %526, i64 %460
   store float 0.000000e+00, ptr %527, align 4, !tbaa !57
   %528 = and i32 %153, 512
@@ -2050,23 +2050,23 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %536 = load float, ptr %535, align 4, !tbaa !25
   %537 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %538 = load ptr, ptr %537, align 8, !tbaa !100
+  %538 = load ptr, ptr %537, align 8, !tbaa !101
   %539 = getelementptr inbounds float, ptr %538, i64 %460
   store float %536, ptr %539, align 4, !tbaa !57
   br label %540
 
 540:                                              ; preds = %534, %532
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %542 = load float, ptr %541, align 4, !tbaa !115
+  %542 = load float, ptr %541, align 4, !tbaa !116
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %544 = load float, ptr %543, align 8, !tbaa !79
+  %544 = load float, ptr %543, align 8, !tbaa !80
   %545 = load float, ptr %516, align 8, !tbaa !4
   %546 = load float, ptr %518, align 4, !tbaa !19
-  %547 = load float, ptr %1, align 8, !tbaa !98
+  %547 = load float, ptr %1, align 8, !tbaa !99
   %548 = fmul float %531, %547
   %549 = tail call noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %544, float noundef %545, float noundef %546, float noundef %542, float noundef %548)
-  %550 = load float, ptr %541, align 4, !tbaa !115
-  %551 = load ptr, ptr %178, align 8, !tbaa !99
+  %550 = load float, ptr %541, align 4, !tbaa !116
+  %551 = load ptr, ptr %178, align 8, !tbaa !100
   %552 = getelementptr inbounds float, ptr %551, i64 %460
   %553 = load float, ptr %552, align 4, !tbaa !57
   %554 = fneg float %549
@@ -2074,18 +2074,18 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %556 = tail call float @llvm.fmuladd.f32(float %555, float %550, float %553)
   store float %556, ptr %552, align 4, !tbaa !57
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %558 = load float, ptr %557, align 8, !tbaa !116
-  %559 = load float, ptr %1, align 8, !tbaa !98
-  %560 = load ptr, ptr %522, align 8, !tbaa !113
+  %558 = load float, ptr %557, align 8, !tbaa !117
+  %559 = load float, ptr %1, align 8, !tbaa !99
+  %560 = load ptr, ptr %522, align 8, !tbaa !114
   %561 = getelementptr inbounds float, ptr %560, i64 %460
   %562 = load float, ptr %561, align 4, !tbaa !57
   %563 = fdiv float %558, %559
   %564 = fsub float %562, %563
   store float %564, ptr %561, align 4, !tbaa !57
-  %565 = load float, ptr %557, align 8, !tbaa !116
-  %566 = load float, ptr %1, align 8, !tbaa !98
+  %565 = load float, ptr %557, align 8, !tbaa !117
+  %566 = load float, ptr %1, align 8, !tbaa !99
   %567 = fdiv float %565, %566
-  %568 = load ptr, ptr %525, align 8, !tbaa !114
+  %568 = load ptr, ptr %525, align 8, !tbaa !115
   %569 = getelementptr inbounds float, ptr %568, i64 %460
   %570 = load float, ptr %569, align 4, !tbaa !57
   %571 = fadd float %567, %570
@@ -2099,7 +2099,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br i1 %445, label %576, label %641
 
 576:                                              ; preds = %572
-  %577 = load float, ptr %1, align 8, !tbaa !98
+  %577 = load float, ptr %1, align 8, !tbaa !99
   %578 = fmul float %531, %577
   %579 = getelementptr inbounds float, ptr %575, i64 %460
   %580 = load float, ptr %579, align 4, !tbaa !57
@@ -2114,7 +2114,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %586 = load float, ptr %585, align 4, !tbaa !41
   %587 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %588 = load ptr, ptr %587, align 8, !tbaa !100
+  %588 = load ptr, ptr %587, align 8, !tbaa !101
   %589 = getelementptr inbounds float, ptr %588, i64 %460
   store float %586, ptr %589, align 4, !tbaa !57
   br label %590
@@ -2216,22 +2216,22 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %642 = phi ptr [ %179, %453 ], [ %575, %637 ], [ %575, %572 ]
   %.0416 = phi i32 [ 4, %453 ], [ 5, %637 ], [ 5, %572 ]
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 321
-  %644 = load i8, ptr %643, align 1, !tbaa !75, !range !55, !noundef !56
+  %644 = load i8, ptr %643, align 1, !tbaa !76, !range !55, !noundef !56
   %645 = trunc nuw i8 %644 to i1
   br i1 %645, label %.thread985, label %652
 
 .thread985:                                       ; preds = %641
   %646 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %647 = load float, ptr %646, align 8, !tbaa !74
+  %647 = load float, ptr %646, align 8, !tbaa !75
   %648 = fcmp ogt float %647, 0.000000e+00
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %650 = load i8, ptr %649, align 8, !tbaa !117, !range !55, !noundef !56
+  %650 = load i8, ptr %649, align 8, !tbaa !118, !range !55, !noundef !56
   %651 = trunc nuw i8 %650 to i1
   br label %656
 
 652:                                              ; preds = %641
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %654 = load i8, ptr %653, align 8, !tbaa !117, !range !55, !noundef !56
+  %654 = load i8, ptr %653, align 8, !tbaa !118, !range !55, !noundef !56
   %655 = trunc nuw i8 %654 to i1
   br i1 %655, label %656, label %792
 
@@ -2239,10 +2239,10 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %657 = phi i1 [ %651, %.thread985 ], [ true, %652 ]
   %.1418990 = phi float [ %647, %.thread985 ], [ 0.000000e+00, %652 ]
   %.1420989 = phi i1 [ %648, %.thread985 ], [ false, %652 ]
-  %658 = load i32, ptr %15, align 8, !tbaa !92
+  %658 = load i32, ptr %15, align 8, !tbaa !93
   %659 = mul nsw i32 %658, %.0416
   %.sroa.0822.0.vec.extract859 = extractelement <2 x float> %.sroa.0822.0, i64 0
-  %660 = load ptr, ptr %124, align 8, !tbaa !95
+  %660 = load ptr, ptr %124, align 8, !tbaa !96
   %661 = sext i32 %659 to i64
   %662 = getelementptr inbounds float, ptr %660, i64 %661
   store float %.sroa.0822.0.vec.extract859, ptr %662, align 4, !tbaa !57
@@ -2257,7 +2257,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %668 = getelementptr inbounds float, ptr %660, i64 %667
   store float %.sroa.49.8.vec.extract943, ptr %668, align 4, !tbaa !57
   %669 = fneg float %.sroa.0822.0.vec.extract859
-  %670 = load ptr, ptr %140, align 8, !tbaa !96
+  %670 = load ptr, ptr %140, align 8, !tbaa !97
   %671 = getelementptr inbounds float, ptr %670, i64 %661
   store float %669, ptr %671, align 4, !tbaa !57
   %672 = fneg float %.sroa.0822.4.vec.extract900
@@ -2292,7 +2292,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %689 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %690 = load float, ptr %689, align 4, !tbaa !29
   %691 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %692 = load ptr, ptr %691, align 8, !tbaa !100
+  %692 = load ptr, ptr %691, align 8, !tbaa !101
   %693 = getelementptr inbounds float, ptr %692, i64 %661
   store float %690, ptr %693, align 4, !tbaa !57
   %.pre1105 = load float, ptr %676, align 8, !tbaa !20
@@ -2303,31 +2303,31 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %695 = phi float [ %.pre1106, %688 ], [ %679, %686 ]
   %696 = phi float [ %.pre1105, %688 ], [ %677, %686 ]
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  %698 = load float, ptr %697, align 4, !tbaa !77
+  %698 = load float, ptr %697, align 4, !tbaa !78
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   %700 = load float, ptr %699, align 4, !tbaa !47
-  %701 = load float, ptr %1, align 8, !tbaa !98
+  %701 = load float, ptr %1, align 8, !tbaa !99
   %702 = fmul float %685, %701
   %703 = tail call noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %698, float noundef %696, float noundef %695, float noundef %700, float noundef %702)
   %704 = load float, ptr %699, align 4, !tbaa !47
   %705 = fmul float %703, %704
-  %706 = load ptr, ptr %178, align 8, !tbaa !99
+  %706 = load ptr, ptr %178, align 8, !tbaa !100
   %707 = getelementptr inbounds float, ptr %706, i64 %661
   store float %705, ptr %707, align 4, !tbaa !57
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %709 = load float, ptr %708, align 8, !tbaa !48
   %710 = fneg float %709
-  %711 = load float, ptr %1, align 8, !tbaa !98
+  %711 = load float, ptr %1, align 8, !tbaa !99
   %712 = fdiv float %710, %711
   %713 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %714 = load ptr, ptr %713, align 8, !tbaa !113
+  %714 = load ptr, ptr %713, align 8, !tbaa !114
   %715 = getelementptr inbounds float, ptr %714, i64 %661
   store float %712, ptr %715, align 4, !tbaa !57
   %716 = load float, ptr %708, align 8, !tbaa !48
-  %717 = load float, ptr %1, align 8, !tbaa !98
+  %717 = load float, ptr %1, align 8, !tbaa !99
   %718 = fdiv float %716, %717
   %719 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %720 = load ptr, ptr %719, align 8, !tbaa !114
+  %720 = load ptr, ptr %719, align 8, !tbaa !115
   %721 = getelementptr inbounds float, ptr %720, i64 %661
   store float %718, ptr %721, align 4, !tbaa !57
   br label %722
@@ -2337,7 +2337,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br i1 %645, label %724, label %792
 
 724:                                              ; preds = %722
-  %725 = load float, ptr %1, align 8, !tbaa !98
+  %725 = load float, ptr %1, align 8, !tbaa !99
   %726 = fmul float %685, %725
   %727 = getelementptr inbounds float, ptr %723, i64 %661
   %728 = load float, ptr %727, align 4, !tbaa !57
@@ -2352,14 +2352,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %733 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %734 = load float, ptr %733, align 4, !tbaa !45
   %735 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %736 = load ptr, ptr %735, align 8, !tbaa !100
+  %736 = load ptr, ptr %735, align 8, !tbaa !101
   %737 = getelementptr inbounds float, ptr %736, i64 %661
   store float %734, ptr %737, align 4, !tbaa !57
   br label %738
 
 738:                                              ; preds = %732, %724
   %739 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %740 = load ptr, ptr %739, align 8, !tbaa !113
+  %740 = load ptr, ptr %739, align 8, !tbaa !114
   %741 = getelementptr inbounds float, ptr %740, i64 %661
   br i1 %680, label %743, label %742
 
@@ -2373,7 +2373,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %.sink1139 = phi float [ 0x47EFFFFFE0000000, %738 ], [ %.1143, %742 ]
   store float %.sink1142, ptr %741, align 4, !tbaa !57
   %.sink1141.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink1141 = load ptr, ptr %.sink1141.in, align 8, !tbaa !114
+  %.sink1141 = load ptr, ptr %.sink1141.in, align 8, !tbaa !115
   %744 = getelementptr inbounds float, ptr %.sink1141, i64 %661
   store float %.sink1139, ptr %744, align 4, !tbaa !57
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -2470,7 +2470,7 @@ define linkonce_odr dso_local noundef float @_Z21btAdjustAngleToLimitsfff(float 
 
 7:                                                ; preds = %5
   %8 = fsub float %1, %0
-  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #20, !tbaa !76
+  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #20, !tbaa !77
   %10 = fcmp olt float %9, 0xC00921FB60000000
   br i1 %10, label %11, label %13
 
@@ -2490,7 +2490,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %11, %13, %15
   %.0.i = phi float [ %12, %11 ], [ %16, %15 ], [ %9, %13 ]
   %17 = tail call noundef float @llvm.fabs.f32(float %.0.i)
   %18 = fsub float %2, %0
-  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #20, !tbaa !76
+  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #20, !tbaa !77
   %20 = fcmp olt float %19, 0xC00921FB60000000
   br i1 %20, label %21, label %23
 
@@ -2520,7 +2520,7 @@ _Z16btNormalizeAnglef.exit29:                     ; preds = %21, %23, %25
 
 33:                                               ; preds = %31
   %34 = fsub float %0, %2
-  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #20, !tbaa !76
+  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #20, !tbaa !77
   %36 = fcmp olt float %35, 0xC00921FB60000000
   br i1 %36, label %37, label %39
 
@@ -2540,7 +2540,7 @@ _Z16btNormalizeAnglef.exit31:                     ; preds = %37, %39, %41
   %.0.i30 = phi float [ %38, %37 ], [ %42, %41 ], [ %35, %39 ]
   %43 = tail call noundef float @llvm.fabs.f32(float %.0.i30)
   %44 = fsub float %0, %1
-  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #20, !tbaa !76
+  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #20, !tbaa !77
   %46 = fcmp olt float %45, 0xC00921FB60000000
   br i1 %46, label %47, label %49
 
@@ -2606,23 +2606,23 @@ define dso_local { <2 x float>, <2 x float> } @_ZN18btSliderConstraint11getAncor
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %37 = load float, ptr %28, align 4, !tbaa !57, !noalias !118
-  %38 = load float, ptr %29, align 4, !tbaa !57, !noalias !118
-  %39 = load float, ptr %30, align 4, !tbaa !57, !noalias !118
-  %40 = load float, ptr %31, align 4, !tbaa !57, !noalias !118
-  %41 = load float, ptr %32, align 4, !tbaa !57, !noalias !118
-  %42 = load float, ptr %33, align 4, !tbaa !57, !noalias !118
-  %43 = load float, ptr %34, align 4, !tbaa !57, !noalias !118
-  %44 = load float, ptr %35, align 4, !tbaa !57, !noalias !118
-  %45 = load float, ptr %36, align 4, !tbaa !57, !noalias !118
+  %37 = load float, ptr %28, align 4, !tbaa !57, !noalias !119
+  %38 = load float, ptr %29, align 4, !tbaa !57, !noalias !119
+  %39 = load float, ptr %30, align 4, !tbaa !57, !noalias !119
+  %40 = load float, ptr %31, align 4, !tbaa !57, !noalias !119
+  %41 = load float, ptr %32, align 4, !tbaa !57, !noalias !119
+  %42 = load float, ptr %33, align 4, !tbaa !57, !noalias !119
+  %43 = load float, ptr %34, align 4, !tbaa !57, !noalias !119
+  %44 = load float, ptr %35, align 4, !tbaa !57, !noalias !119
+  %45 = load float, ptr %36, align 4, !tbaa !57, !noalias !119
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %47 = load float, ptr %46, align 4, !tbaa !57, !noalias !123
+  %47 = load float, ptr %46, align 4, !tbaa !57, !noalias !124
   %48 = fneg float %47
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 60
-  %50 = load float, ptr %49, align 4, !tbaa !57, !noalias !123
+  %50 = load float, ptr %49, align 4, !tbaa !57, !noalias !124
   %51 = fneg float %50
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %53 = load float, ptr %52, align 4, !tbaa !57, !noalias !123
+  %53 = load float, ptr %52, align 4, !tbaa !57, !noalias !124
   %54 = fneg float %53
   %55 = fmul float %38, %51
   %56 = tail call float @llvm.fmuladd.f32(float %37, float %48, float %55)
@@ -2946,12 +2946,12 @@ define linkonce_odr dso_local noundef ptr @_ZNK18btSliderConstraint9serializeEPv
   store float %12, ptr %13, align 4, !tbaa !57
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, label %10, !llvm.loop !124
+  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, label %10, !llvm.loop !125
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i: ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i, label %7, !llvm.loop !125
+  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i, label %7, !llvm.loop !126
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -2966,7 +2966,7 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVe
   store float %18, ptr %19, align 4, !tbaa !57
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
-  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit, label %16, !llvm.loop !124
+  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit, label %16, !llvm.loop !125
 
 _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -2987,12 +2987,12 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
   store float %27, ptr %28, align 4, !tbaa !57
   %indvars.iv.next.i.i.i14 = add nuw nsw i64 %indvars.iv.i.i.i13, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %indvars.iv.next.i.i.i14, 4
-  br i1 %exitcond.not.i.i.i15, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16, label %25, !llvm.loop !124
+  br i1 %exitcond.not.i.i.i15, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16, label %25, !llvm.loop !125
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16: ; preds = %25
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i12, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, 3
-  br i1 %exitcond.not.i.i18, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19, label %22, !llvm.loop !125
+  br i1 %exitcond.not.i.i18, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19, label %22, !llvm.loop !126
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -3007,35 +3007,35 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19: ; preds = %_ZNK9bt
   store float %33, ptr %34, align 4, !tbaa !57
   %indvars.iv.next.i4.i21 = add nuw nsw i64 %indvars.iv.i3.i20, 1
   %exitcond.not.i5.i22 = icmp eq i64 %indvars.iv.next.i4.i21, 4
-  br i1 %exitcond.not.i5.i22, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit23, label %31, !llvm.loop !124
+  br i1 %exitcond.not.i5.i22, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit23, label %31, !llvm.loop !125
 
 _ZNK11btTransform9serializeER20btTransformFloatData.exit23: ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %36 = load float, ptr %35, align 4, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store float %36, ptr %37, align 8, !tbaa !126
+  store float %36, ptr %37, align 8, !tbaa !127
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %39 = load float, ptr %38, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  store float %39, ptr %40, align 4, !tbaa !134
+  store float %39, ptr %40, align 4, !tbaa !135
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %42 = load float, ptr %41, align 4, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store float %42, ptr %43, align 8, !tbaa !135
+  store float %42, ptr %43, align 8, !tbaa !136
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %45 = load float, ptr %44, align 8, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  store float %45, ptr %46, align 4, !tbaa !136
+  store float %45, ptr %46, align 4, !tbaa !137
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %48 = load i8, ptr %47, align 4, !tbaa !54, !range !55, !noundef !56
   %49 = zext nneg i8 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  store i32 %49, ptr %50, align 8, !tbaa !137
+  store i32 %49, ptr %50, align 8, !tbaa !138
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %52 = load i8, ptr %51, align 1, !tbaa !51, !range !55, !noundef !56
   %53 = zext nneg i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  store i32 %53, ptr %54, align 4, !tbaa !138
+  store i32 %53, ptr %54, align 4, !tbaa !139
   ret ptr @.str
 }
 
@@ -3160,82 +3160,83 @@ attributes #21 = { noreturn nounwind }
 !57 = !{!11, !11, i64 0}
 !58 = !{!9, !9, i64 0}
 !59 = !{i64 0, i64 16, !58}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"vtable pointer", !10, i64 0}
-!64 = !{!5, !12, i64 72}
-!65 = !{!66, !68}
-!66 = distinct !{!66, !67, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
-!67 = distinct !{!67, !"_ZmlRK11btMatrix3x3S1_"}
-!68 = distinct !{!68, !69, !"_ZNK11btTransformmlERKS_: argument 0"}
-!69 = distinct !{!69, !"_ZNK11btTransformmlERKS_"}
-!70 = !{!68}
-!71 = !{!72, !8, i64 0}
-!72 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !8, i64 0, !8, i64 4}
-!73 = !{!72, !8, i64 4}
-!74 = !{!5, !11, i64 1112}
-!75 = !{!5, !12, i64 321}
-!76 = !{!8, !8, i64 0}
-!77 = !{!5, !11, i64 1108}
-!78 = !{!5, !12, i64 320}
-!79 = !{!5, !11, i64 1104}
-!80 = !{!81, !11, i64 452}
-!81 = !{!"_ZTS11btRigidBody", !82, i64 0, !17, i64 372, !18, i64 420, !18, i64 436, !11, i64 452, !18, i64 456, !18, i64 472, !18, i64 488, !18, i64 504, !18, i64 520, !18, i64 536, !11, i64 552, !11, i64 556, !12, i64 560, !11, i64 564, !11, i64 568, !11, i64 572, !11, i64 576, !11, i64 580, !11, i64 584, !88, i64 592, !89, i64 600, !8, i64 632, !8, i64 636, !18, i64 640, !18, i64 656, !18, i64 672, !18, i64 688, !18, i64 704, !18, i64 720, !8, i64 736, !8, i64 740}
-!82 = !{!"_ZTS17btCollisionObject", !16, i64 8, !16, i64 72, !18, i64 136, !18, i64 152, !18, i64 168, !8, i64 184, !11, i64 188, !83, i64 192, !84, i64 200, !14, i64 208, !84, i64 216, !8, i64 224, !8, i64 228, !8, i64 232, !8, i64 236, !8, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !11, i64 256, !11, i64 260, !11, i64 264, !11, i64 268, !8, i64 272, !14, i64 280, !8, i64 288, !8, i64 292, !8, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !8, i64 312, !85, i64 320, !8, i64 352, !18, i64 356}
-!83 = !{!"p1 _ZTS17btBroadphaseProxy", !14, i64 0}
-!84 = !{!"p1 _ZTS16btCollisionShape", !14, i64 0}
-!85 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !86, i64 0, !8, i64 4, !8, i64 8, !87, i64 16, !12, i64 24}
-!86 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
-!87 = !{!"p2 _ZTS17btCollisionObject", !14, i64 0}
-!88 = !{!"p1 _ZTS13btMotionState", !14, i64 0}
-!89 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !90, i64 0, !8, i64 4, !8, i64 8, !91, i64 16, !12, i64 24}
-!90 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
-!91 = !{!"p2 _ZTS17btTypedConstraint", !14, i64 0}
-!92 = !{!93, !8, i64 40}
-!93 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !11, i64 0, !11, i64 4, !94, i64 8, !94, i64 16, !94, i64 24, !94, i64 32, !8, i64 40, !94, i64 48, !94, i64 56, !94, i64 64, !94, i64 72, !8, i64 80, !11, i64 84}
-!94 = !{!"p1 float", !14, i64 0}
-!95 = !{!93, !94, i64 16}
-!96 = !{!93, !94, i64 32}
-!97 = !{!93, !11, i64 4}
-!98 = !{!93, !11, i64 0}
-!99 = !{!93, !94, i64 48}
-!100 = !{!93, !94, i64 56}
-!101 = distinct !{!101, !61}
-!102 = !{!93, !94, i64 8}
-!103 = !{!93, !94, i64 24}
-!104 = distinct !{!104, !61}
-!105 = distinct !{!105, !61}
-!106 = distinct !{!106, !61}
-!107 = distinct !{!107, !61}
-!108 = distinct !{!108, !61}
-!109 = distinct !{!109, !61}
-!110 = distinct !{!110, !61}
-!111 = distinct !{!111, !61}
-!112 = distinct !{!112, !61}
-!113 = !{!93, !94, i64 64}
-!114 = !{!93, !94, i64 72}
-!115 = !{!5, !11, i64 1124}
-!116 = !{!5, !11, i64 1128}
-!117 = !{!5, !12, i64 1136}
-!118 = !{!119, !121}
-!119 = distinct !{!119, !120, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!120 = distinct !{!120, !"_ZNK11btMatrix3x39transposeEv"}
-!121 = distinct !{!121, !122, !"_ZNK11btTransform7inverseEv: argument 0"}
-!122 = distinct !{!122, !"_ZNK11btTransform7inverseEv"}
-!123 = !{!121}
-!124 = distinct !{!124, !61}
-!125 = distinct !{!125, !61}
-!126 = !{!127, !11, i64 192}
-!127 = !{!"_ZTS22btSliderConstraintData", !128, i64 0, !131, i64 64, !131, i64 128, !11, i64 192, !11, i64 196, !11, i64 200, !11, i64 204, !8, i64 208, !8, i64 212}
-!128 = !{!"_ZTS21btTypedConstraintData", !129, i64 0, !129, i64 8, !130, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !11, i64 40, !11, i64 44, !8, i64 48, !8, i64 52, !11, i64 56, !8, i64 60}
-!129 = !{!"p1 _ZTS20btRigidBodyFloatData", !14, i64 0}
-!130 = !{!"p1 omnipotent char", !14, i64 0}
-!131 = !{!"_ZTS20btTransformFloatData", !132, i64 0, !133, i64 48}
-!132 = !{!"_ZTS20btMatrix3x3FloatData", !9, i64 0}
-!133 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!134 = !{!127, !11, i64 196}
-!135 = !{!127, !11, i64 200}
-!136 = !{!127, !11, i64 204}
-!137 = !{!127, !8, i64 208}
-!138 = !{!127, !8, i64 212}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"vtable pointer", !10, i64 0}
+!65 = !{!5, !12, i64 72}
+!66 = !{!67, !69}
+!67 = distinct !{!67, !68, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
+!68 = distinct !{!68, !"_ZmlRK11btMatrix3x3S1_"}
+!69 = distinct !{!69, !70, !"_ZNK11btTransformmlERKS_: argument 0"}
+!70 = distinct !{!70, !"_ZNK11btTransformmlERKS_"}
+!71 = !{!69}
+!72 = !{!73, !8, i64 0}
+!73 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !8, i64 0, !8, i64 4}
+!74 = !{!73, !8, i64 4}
+!75 = !{!5, !11, i64 1112}
+!76 = !{!5, !12, i64 321}
+!77 = !{!8, !8, i64 0}
+!78 = !{!5, !11, i64 1108}
+!79 = !{!5, !12, i64 320}
+!80 = !{!5, !11, i64 1104}
+!81 = !{!82, !11, i64 452}
+!82 = !{!"_ZTS11btRigidBody", !83, i64 0, !17, i64 372, !18, i64 420, !18, i64 436, !11, i64 452, !18, i64 456, !18, i64 472, !18, i64 488, !18, i64 504, !18, i64 520, !18, i64 536, !11, i64 552, !11, i64 556, !12, i64 560, !11, i64 564, !11, i64 568, !11, i64 572, !11, i64 576, !11, i64 580, !11, i64 584, !89, i64 592, !90, i64 600, !8, i64 632, !8, i64 636, !18, i64 640, !18, i64 656, !18, i64 672, !18, i64 688, !18, i64 704, !18, i64 720, !8, i64 736, !8, i64 740}
+!83 = !{!"_ZTS17btCollisionObject", !16, i64 8, !16, i64 72, !18, i64 136, !18, i64 152, !18, i64 168, !8, i64 184, !11, i64 188, !84, i64 192, !85, i64 200, !14, i64 208, !85, i64 216, !8, i64 224, !8, i64 228, !8, i64 232, !8, i64 236, !8, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !11, i64 256, !11, i64 260, !11, i64 264, !11, i64 268, !8, i64 272, !14, i64 280, !8, i64 288, !8, i64 292, !8, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !8, i64 312, !86, i64 320, !8, i64 352, !18, i64 356}
+!84 = !{!"p1 _ZTS17btBroadphaseProxy", !14, i64 0}
+!85 = !{!"p1 _ZTS16btCollisionShape", !14, i64 0}
+!86 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !87, i64 0, !8, i64 4, !8, i64 8, !88, i64 16, !12, i64 24}
+!87 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!88 = !{!"p2 _ZTS17btCollisionObject", !14, i64 0}
+!89 = !{!"p1 _ZTS13btMotionState", !14, i64 0}
+!90 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !91, i64 0, !8, i64 4, !8, i64 8, !92, i64 16, !12, i64 24}
+!91 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
+!92 = !{!"p2 _ZTS17btTypedConstraint", !14, i64 0}
+!93 = !{!94, !8, i64 40}
+!94 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !11, i64 0, !11, i64 4, !95, i64 8, !95, i64 16, !95, i64 24, !95, i64 32, !8, i64 40, !95, i64 48, !95, i64 56, !95, i64 64, !95, i64 72, !8, i64 80, !11, i64 84}
+!95 = !{!"p1 float", !14, i64 0}
+!96 = !{!94, !95, i64 16}
+!97 = !{!94, !95, i64 32}
+!98 = !{!94, !11, i64 4}
+!99 = !{!94, !11, i64 0}
+!100 = !{!94, !95, i64 48}
+!101 = !{!94, !95, i64 56}
+!102 = distinct !{!102, !61, !62}
+!103 = !{!94, !95, i64 8}
+!104 = !{!94, !95, i64 24}
+!105 = distinct !{!105, !61, !62}
+!106 = distinct !{!106, !61, !62}
+!107 = distinct !{!107, !61, !62}
+!108 = distinct !{!108, !61, !62}
+!109 = distinct !{!109, !61, !62}
+!110 = distinct !{!110, !61, !62}
+!111 = distinct !{!111, !61, !62}
+!112 = distinct !{!112, !61, !62}
+!113 = distinct !{!113, !61, !62}
+!114 = !{!94, !95, i64 64}
+!115 = !{!94, !95, i64 72}
+!116 = !{!5, !11, i64 1124}
+!117 = !{!5, !11, i64 1128}
+!118 = !{!5, !12, i64 1136}
+!119 = !{!120, !122}
+!120 = distinct !{!120, !121, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!121 = distinct !{!121, !"_ZNK11btMatrix3x39transposeEv"}
+!122 = distinct !{!122, !123, !"_ZNK11btTransform7inverseEv: argument 0"}
+!123 = distinct !{!123, !"_ZNK11btTransform7inverseEv"}
+!124 = !{!122}
+!125 = distinct !{!125, !61, !62}
+!126 = distinct !{!126, !61, !62}
+!127 = !{!128, !11, i64 192}
+!128 = !{!"_ZTS22btSliderConstraintData", !129, i64 0, !132, i64 64, !132, i64 128, !11, i64 192, !11, i64 196, !11, i64 200, !11, i64 204, !8, i64 208, !8, i64 212}
+!129 = !{!"_ZTS21btTypedConstraintData", !130, i64 0, !130, i64 8, !131, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !11, i64 40, !11, i64 44, !8, i64 48, !8, i64 52, !11, i64 56, !8, i64 60}
+!130 = !{!"p1 _ZTS20btRigidBodyFloatData", !14, i64 0}
+!131 = !{!"p1 omnipotent char", !14, i64 0}
+!132 = !{!"_ZTS20btTransformFloatData", !133, i64 0, !134, i64 48}
+!133 = !{!"_ZTS20btMatrix3x3FloatData", !9, i64 0}
+!134 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!135 = !{!128, !11, i64 196}
+!136 = !{!128, !11, i64 200}
+!137 = !{!128, !11, i64 204}
+!138 = !{!128, !8, i64 208}
+!139 = !{!128, !8, i64 212}

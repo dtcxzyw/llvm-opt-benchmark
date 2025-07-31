@@ -619,7 +619,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %49 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %48, i64 %16, i32 1
   %.0.i = load i32, ptr %49, align 4
   %.not.i = icmp eq i32 %.0.i, -1
-  br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit", label %14, !llvm.loop !6
+  br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit", label %14, !llvm.loop !7
 
 "_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i", %2
   ret void
@@ -661,7 +661,7 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
   %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16, i32 1
   %.018 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %.018, -1
-  br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !7
+  br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %14
   %23 = trunc nuw i64 %indvars.iv.next to i32
@@ -871,7 +871,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   %18 = udiv i32 %.02230.i, 10000
   %19 = add i32 %.02329.i, 4
   %20 = icmp ult i32 %.02230.i, 100000
-  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
@@ -932,7 +932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !9
+  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
@@ -1029,7 +1029,7 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
   %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16, i32 1
   %.018 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %.018, -1
-  br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %14
   %23 = trunc nuw i64 %indvars.iv.next to i32
@@ -1253,7 +1253,7 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
   %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7, i32 1
   %.0.i = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %.0.i, -1
-  br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit", label %5, !llvm.loop !11
+  br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit", label %5, !llvm.loop !12
 
 "_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit": ; preds = %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", %1
   ret void
@@ -1438,11 +1438,12 @@ attributes #20 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

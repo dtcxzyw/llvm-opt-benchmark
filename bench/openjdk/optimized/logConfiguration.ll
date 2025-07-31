@@ -275,7 +275,7 @@ define hidden void @_ZN16LogConfiguration15post_initializeEv() local_unnamed_add
   %33 = add nuw i64 %.09.i, 1
   %34 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph.i, label %_ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit, !llvm.loop !8
+  br i1 %35, label %.lr.ph.i, label %_ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit, !llvm.loop !9
 
 _ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit: ; preds = %32, %12
   call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
@@ -312,7 +312,7 @@ define hidden void @_ZN16LogConfiguration18describe_availableEP12outputStream(pt
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef %6) #11
   %7 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %7, 6
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !10
 
 8:                                                ; preds = %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -330,7 +330,7 @@ define hidden void @_ZN16LogConfiguration18describe_availableEP12outputStream(pt
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %15) #11
   %16 = add nuw nsw i64 %.01820, 1
   %exitcond21.not = icmp eq i64 %16, 12
-  br i1 %exitcond21.not, label %17, label %9, !llvm.loop !10
+  br i1 %exitcond21.not, label %17, label %9, !llvm.loop !11
 
 17:                                               ; preds = %9
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -376,7 +376,7 @@ define hidden void @_ZN16LogConfiguration30describe_current_configurationEP12out
   %17 = add nuw i64 %.09, 1
   %18 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -455,7 +455,7 @@ define hidden void @_ZN16LogConfiguration10initializeEl(i64 noundef %0) local_un
   tail call void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %30, ptr noundef %29, i32 noundef 4) #11
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -488,7 +488,7 @@ define hidden void @_ZN16LogConfiguration15disable_outputsEv() local_unnamed_add
   tail call void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 dereferenceable(52) %2) #11
   %.07 = load ptr, ptr %.0712, align 8
   %.not = icmp eq ptr %.07, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @_ZN14AsyncLogWriter5flushEv() #11
@@ -532,7 +532,7 @@ define hidden void @_ZN16LogConfiguration15disable_outputsEv() local_unnamed_add
 
 _ZN16LogConfiguration13delete_outputEm.exit:      ; preds = %18, %8, %22
   %.not9 = icmp eq i64 %3, 0
-  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !13
+  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !14
 
 ._crit_edge17:                                    ; preds = %_ZN16LogConfiguration13delete_outputEm.exit, %._crit_edge
   ret void
@@ -563,7 +563,7 @@ define hidden noundef i64 @_ZN16LogConfiguration11find_outputEPKc(ptr noundef re
   %13 = add nuw i64 %.06, 1
   %14 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12, %1
   %.05 = phi i64 [ -1, %1 ], [ -1, %12 ], [ %.06, %.lr.ph ]
@@ -738,7 +738,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9lev
   %.1 = phi i1 [ %28, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread ], [ %.03451, %12 ]
   %.033 = load ptr, ptr %.03353, align 8
   %.not37 = icmp eq ptr %.033, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %32, %3
   %.034.lcssa = phi i1 [ false, %3 ], [ %.1, %32 ]
@@ -755,7 +755,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9lev
   tail call void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(112) %.056, ptr noundef nonnull align 4 dereferenceable(4) @_ZN13LogDecorators4NoneE) #11
   %.0 = load ptr, ptr %.056, align 8
   %.not38 = icmp eq ptr %.0, null
-  br i1 %.not38, label %._crit_edge59, label %.lr.ph58, !llvm.loop !16
+  br i1 %.not38, label %._crit_edge59, label %.lr.ph58, !llvm.loop !17
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
   %35 = icmp ult i64 %0, 2
@@ -821,7 +821,7 @@ define hidden void @_ZN16LogConfiguration15disable_loggingEv() local_unnamed_add
   tail call void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(112) %.05, ptr noundef nonnull align 4 dereferenceable(4) @_ZN13LogDecorators4NoneE) #11
   %.0 = load ptr, ptr %.05, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %1 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
@@ -837,7 +837,7 @@ define hidden void @_ZN16LogConfiguration15disable_loggingEv() local_unnamed_add
   %5 = add nuw i64 %.03.i, 1
   %6 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
   %7 = icmp ult i64 %5, %6
-  br i1 %7, label %.lr.ph.i, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !18
+  br i1 %7, label %.lr.ph.i, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !19
 
 _ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i, %._crit_edge
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
@@ -859,7 +859,7 @@ define hidden void @_ZN16LogConfiguration23notify_update_listenersEv() local_unn
   %5 = add nuw i64 %.03, 1
   %6 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
   %7 = icmp ult i64 %5, %6
-  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -909,7 +909,7 @@ define hidden void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i
   %27 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %27, 5
   %or.cond = select i1 %26, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %28, label %10, !llvm.loop !19
+  br i1 %or.cond, label %28, label %10, !llvm.loop !20
 
 28:                                               ; preds = %20
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -924,7 +924,7 @@ define hidden void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i
   call void @_ZN12LogSelectionC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr.i) #11
   %.add.i = add nuw nsw i64 %.idx.i, 48
   %30 = icmp eq i64 %.add.i, 15368
-  br i1 %30, label %_ZN16LogSelectionListC2ERK12LogSelection.exit, label %29
+  br i1 %30, label %_ZN16LogSelectionListC2ERK12LogSelection.exit, label %29, !llvm.loop !21
 
 _ZN16LogSelectionListC2ERK12LogSelection.exit:    ; preds = %29
   %.ptr3.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -947,7 +947,7 @@ _ZN16LogSelectionListC2ERK12LogSelection.exit:    ; preds = %29
   %38 = add nuw i64 %.03.i, 1
   %39 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
   %40 = icmp ult i64 %38, %39
-  br i1 %40, label %.lr.ph.i, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !18
+  br i1 %40, label %.lr.ph.i, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !19
 
 _ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i, %_ZN16LogSelectionListC2ERK12LogSelection.exit
   call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
@@ -1009,14 +1009,14 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %21 = tail call noundef ptr @strpbrk(ptr noundef nonnull %20, ptr noundef nonnull @.str.9) #12
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.critedge60.thread, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.critedge60.thread, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph
   store i8 0, ptr %.05078, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.05078, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge60, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge60, label %6, !llvm.loop !23
 
 .critedge60:                                      ; preds = %.critedge
   %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
@@ -1150,7 +1150,7 @@ sub_271:                                          ; preds = %sub_170
   %79 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %80 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %79, i32 noundef 10) #12
   %.not59 = icmp eq ptr %80, null
-  br i1 %.not59, label %.loopexit, label %78, !llvm.loop !22
+  br i1 %.not59, label %.loopexit, label %78, !llvm.loop !24
 
 .loopexit:                                        ; preds = %78, %72
   call void @_ZN2os4freeEPv(ptr noundef %5) #11
@@ -1221,7 +1221,7 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration19parse_log_argumentsEPKc
   call void @_ZN12LogSelectionC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr.i) #11
   %.add.i = add nuw nsw i64 %.idx.i, 48
   %15 = icmp eq i64 %.add.i, 15368
-  br i1 %15, label %_ZN16LogSelectionListC2Ev.exit, label %14
+  br i1 %15, label %_ZN16LogSelectionListC2Ev.exit, label %14, !llvm.loop !25
 
 _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %16 = call noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream(ptr noundef nonnull align 8 dereferenceable(15368) %6, ptr noundef %1, ptr noundef %4) #11
@@ -1385,7 +1385,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %98 = add nuw i64 %.06.i, 1
   %99 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %100 = icmp ult i64 %98, %99
-  br i1 %100, label %.lr.ph.i, label %.loopexit, !llvm.loop !14
+  br i1 %100, label %.lr.ph.i, label %.loopexit, !llvm.loop !15
 
 .thread51:                                        ; preds = %.lr.ph.i
   store i64 %.06.i, ptr %8, align 8
@@ -1440,7 +1440,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %115 = add nuw i64 %.03.i, 1
   %116 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
   %117 = icmp ult i64 %115, %116
-  br i1 %117, label %.lr.ph.i45, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !18
+  br i1 %117, label %.lr.ph.i45, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !19
 
 _ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i45, %.thread53
   %118 = call noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12outputStream(ptr noundef nonnull align 8 dereferenceable(15368) %6, ptr noundef %4) #11
@@ -1521,7 +1521,7 @@ define hidden void @_ZN16LogConfiguration8describeEP12outputStream(ptr noundef n
   %17 = add nuw i64 %.09.i, 1
   %18 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %.lr.ph.i, label %_ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit, !llvm.loop !8
+  br i1 %19, label %.lr.ph.i, label %_ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit, !llvm.loop !9
 
 _ZN16LogConfiguration30describe_current_configurationEP12outputStream.exit: ; preds = %16, %1
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
@@ -1546,7 +1546,7 @@ define hidden void @_ZN16LogConfiguration23print_command_line_helpEP12outputStre
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef %6) #11
   %7 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %7, 6
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !23
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !26
 
 8:                                                ; preds = %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -1565,7 +1565,7 @@ define hidden void @_ZN16LogConfiguration23print_command_line_helpEP12outputStre
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %15) #11
   %16 = add nuw nsw i64 %.08183, 1
   %exitcond84.not = icmp eq i64 %16, 12
-  br i1 %exitcond84.not, label %17, label %9, !llvm.loop !24
+  br i1 %exitcond84.not, label %17, label %9, !llvm.loop !27
 
 17:                                               ; preds = %9
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -1651,7 +1651,7 @@ define hidden void @_ZN16LogConfiguration18rotate_all_outputsEv() local_unnamed_
   %9 = add nuw i64 %.03, 1
   %10 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %11 = icmp ult i64 %9, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1890,23 +1890,26 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}

@@ -1750,12 +1750,12 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang18DesignatedInitExpr7getInitEv
   %2 = alloca %"class.llvm::iterator_range", align 8
   %3 = alloca %"struct.clang::StmtIterator", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8, !noalias !434
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0) #8, !noalias !434
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8, !noalias !435
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0) #8, !noalias !435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8, !noalias !434
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8, !noalias !435
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !437
+  %5 = load i64, ptr %4, align 8, !tbaa !438
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -2254,10 +2254,11 @@ attributes #9 = { builtin nounwind }
 !429 = !{!430, !431, i64 0}
 !430 = !{!"_ZTSN5clang4Decl10MultipleDCE", !431, i64 0, !431, i64 8}
 !431 = !{!"p1 _ZTSN5clang11DeclContextE", !14, i64 0}
-!432 = distinct !{!432, !433}
+!432 = distinct !{!432, !433, !434}
 !433 = !{!"llvm.loop.mustprogress"}
-!434 = !{!435}
-!435 = distinct !{!435, !436, !"_ZN5clang4Stmt11child_beginEv: argument 0"}
-!436 = distinct !{!436, !"_ZN5clang4Stmt11child_beginEv"}
-!437 = !{!438, !159, i64 8}
-!438 = !{!"_ZTSN5clang16StmtIteratorBaseE", !7, i64 0, !159, i64 8, !351, i64 16}
+!434 = !{!"llvm.loop.estimated_trip_count"}
+!435 = !{!436}
+!436 = distinct !{!436, !437, !"_ZN5clang4Stmt11child_beginEv: argument 0"}
+!437 = distinct !{!437, !"_ZN5clang4Stmt11child_beginEv"}
+!438 = !{!439, !159, i64 8}
+!439 = !{!"_ZTSN5clang16StmtIteratorBaseE", !7, i64 0, !159, i64 8, !351, i64 16}

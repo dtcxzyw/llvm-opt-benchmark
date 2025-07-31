@@ -197,7 +197,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %112 = icmp sge i32 %111, %110
   %113 = icmp sle i32 %111, %110
   %.in = select i1 %74, i1 %112, i1 %113
-  br i1 %.in, label %85, label %.loopexit.loopexit, !llvm.loop !11
+  br i1 %.in, label %85, label %.loopexit.loopexit, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %._crit_edge
   %.pre233 = load i32, ptr %2, align 4, !tbaa !3
@@ -261,7 +261,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %145 = icmp sgt i32 %144, 0
   %146 = icmp slt i32 %144, 2
   %.in198 = select i1 %116, i1 %145, i1 %146
-  br i1 %.in198, label %120, label %._crit_edge232, !llvm.loop !12
+  br i1 %.in198, label %120, label %._crit_edge232, !llvm.loop !13
 
 ._crit_edge232:                                   ; preds = %143, %.loopexit
   store double %50, ptr %8, align 8, !tbaa !7
@@ -318,7 +318,8 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}

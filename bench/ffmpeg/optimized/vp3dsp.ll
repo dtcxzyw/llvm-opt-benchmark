@@ -166,7 +166,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %127 = sext i1 %isnotneg.i24 to i8
   %128 = trunc nuw i32 %126 to i8
   %.0.i25 = select i1 %.not.i23, i8 %128, i8 %127
-  store i8 %.0.i25, ptr %.0203.i28, align 1, !tbaa !10
+  store i8 %.0.i25, ptr %.0203.i28, align 1, !tbaa !11
   %129 = sub nsw i32 %121, %106
   %130 = ashr i32 %129, 4
   %.not.i20 = icmp ult i32 %130, 256
@@ -175,7 +175,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %132 = trunc nuw i32 %130 to i8
   %.0.i22 = select i1 %.not.i20, i8 %132, i8 %131
   %133 = getelementptr inbounds i8, ptr %.0203.i28, i64 %4
-  store i8 %.0.i22, ptr %133, align 1, !tbaa !10
+  store i8 %.0.i22, ptr %133, align 1, !tbaa !11
   %134 = add nsw i32 %122, %119
   %135 = ashr i32 %134, 4
   %.not.i17 = icmp ult i32 %135, 256
@@ -184,7 +184,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %137 = trunc nuw i32 %135 to i8
   %.0.i19 = select i1 %.not.i17, i8 %137, i8 %136
   %138 = getelementptr inbounds i8, ptr %.0203.i28, i64 %1
-  store i8 %.0.i19, ptr %138, align 1, !tbaa !10
+  store i8 %.0.i19, ptr %138, align 1, !tbaa !11
   %139 = sub nsw i32 %122, %119
   %140 = ashr i32 %139, 4
   %.not.i14 = icmp ult i32 %140, 256
@@ -193,7 +193,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %142 = trunc nuw i32 %140 to i8
   %.0.i16 = select i1 %.not.i14, i8 %142, i8 %141
   %143 = getelementptr inbounds i8, ptr %.0203.i28, i64 %5
-  store i8 %.0.i16, ptr %143, align 1, !tbaa !10
+  store i8 %.0.i16, ptr %143, align 1, !tbaa !11
   %144 = add nsw i32 %123, %107
   %145 = ashr i32 %144, 4
   %.not.i11 = icmp ult i32 %145, 256
@@ -202,7 +202,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %147 = trunc nuw i32 %145 to i8
   %.0.i13 = select i1 %.not.i11, i8 %147, i8 %146
   %148 = getelementptr inbounds i8, ptr %.0203.i28, i64 %6
-  store i8 %.0.i13, ptr %148, align 1, !tbaa !10
+  store i8 %.0.i13, ptr %148, align 1, !tbaa !11
   %149 = sub nsw i32 %123, %107
   %150 = ashr i32 %149, 4
   %.not.i8 = icmp ult i32 %150, 256
@@ -211,7 +211,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %152 = trunc nuw i32 %150 to i8
   %.0.i10 = select i1 %.not.i8, i8 %152, i8 %151
   %153 = getelementptr inbounds i8, ptr %.0203.i28, i64 %7
-  store i8 %.0.i10, ptr %153, align 1, !tbaa !10
+  store i8 %.0.i10, ptr %153, align 1, !tbaa !11
   %154 = add nsw i32 %124, %117
   %155 = ashr i32 %154, 4
   %.not.i5 = icmp ult i32 %155, 256
@@ -220,7 +220,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %157 = trunc nuw i32 %155 to i8
   %.0.i7 = select i1 %.not.i5, i8 %157, i8 %156
   %158 = getelementptr inbounds i8, ptr %.0203.i28, i64 %8
-  store i8 %.0.i7, ptr %158, align 1, !tbaa !10
+  store i8 %.0.i7, ptr %158, align 1, !tbaa !11
   %159 = sub nsw i32 %124, %117
   %160 = ashr i32 %159, 4
   %.not.i3 = icmp ult i32 %160, 256
@@ -229,25 +229,25 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %162 = trunc nuw i32 %160 to i8
   %.0.i4 = select i1 %.not.i3, i8 %162, i8 %161
   %163 = getelementptr inbounds i8, ptr %.0203.i28, i64 %9
-  store i8 %.0.i4, ptr %163, align 1, !tbaa !10
+  store i8 %.0.i4, ptr %163, align 1, !tbaa !11
   br label %172
 
 164:                                              ; preds = %77
   %165 = getelementptr inbounds i8, ptr %.0203.i28, i64 %4
-  store i8 -128, ptr %165, align 1, !tbaa !10
+  store i8 -128, ptr %165, align 1, !tbaa !11
   %166 = getelementptr inbounds i8, ptr %.0203.i28, i64 %9
-  store i8 -128, ptr %166, align 1, !tbaa !10
+  store i8 -128, ptr %166, align 1, !tbaa !11
   %167 = getelementptr inbounds i8, ptr %.0203.i28, i64 %8
-  store i8 -128, ptr %167, align 1, !tbaa !10
+  store i8 -128, ptr %167, align 1, !tbaa !11
   %168 = getelementptr inbounds i8, ptr %.0203.i28, i64 %7
-  store i8 -128, ptr %168, align 1, !tbaa !10
+  store i8 -128, ptr %168, align 1, !tbaa !11
   %169 = getelementptr inbounds i8, ptr %.0203.i28, i64 %6
-  store i8 -128, ptr %169, align 1, !tbaa !10
+  store i8 -128, ptr %169, align 1, !tbaa !11
   %170 = getelementptr inbounds i8, ptr %.0203.i28, i64 %5
-  store i8 -128, ptr %170, align 1, !tbaa !10
+  store i8 -128, ptr %170, align 1, !tbaa !11
   %171 = getelementptr inbounds i8, ptr %.0203.i28, i64 %1
-  store i8 -128, ptr %171, align 1, !tbaa !10
-  store i8 -128, ptr %.0203.i28, align 1, !tbaa !10
+  store i8 -128, ptr %171, align 1, !tbaa !11
+  store i8 -128, ptr %.0203.i28, align 1, !tbaa !11
   br label %172
 
 172:                                              ; preds = %164, %88
@@ -255,7 +255,7 @@ define void @ff_vp3dsp_idct10_put(ptr noundef writeonly captures(none) %0, i64 n
   %174 = getelementptr inbounds nuw i8, ptr %.0203.i28, i64 1
   %175 = add nuw nsw i32 %.1.i30, 1
   %exitcond31.not = icmp eq i32 %175, 8
-  br i1 %exitcond31.not, label %idct10.exit, label %77, !llvm.loop !11
+  br i1 %exitcond31.not, label %idct10.exit, label %77, !llvm.loop !12
 
 idct10.exit:                                      ; preds = %172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -416,7 +416,7 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %121 = add nsw i32 %119, %102
   %122 = add nsw i32 %115, 8
   %123 = add nsw i32 %117, 8
-  %124 = load i8, ptr %.0203.i28, align 1, !tbaa !10
+  %124 = load i8, ptr %.0203.i28, align 1, !tbaa !11
   %125 = zext i8 %124 to i32
   %126 = add nsw i32 %106, %120
   %127 = ashr i32 %126, 4
@@ -426,9 +426,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %129 = sext i1 %isnotneg.i24 to i8
   %130 = trunc nuw i32 %128 to i8
   %.0.i25 = select i1 %.not.i23, i8 %130, i8 %129
-  store i8 %.0.i25, ptr %.0203.i28, align 1, !tbaa !10
+  store i8 %.0.i25, ptr %.0203.i28, align 1, !tbaa !11
   %131 = getelementptr inbounds i8, ptr %.0203.i28, i64 %4
-  %132 = load i8, ptr %131, align 1, !tbaa !10
+  %132 = load i8, ptr %131, align 1, !tbaa !11
   %133 = zext i8 %132 to i32
   %134 = sub nsw i32 %120, %106
   %135 = ashr i32 %134, 4
@@ -438,9 +438,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %137 = sext i1 %isnotneg.i21 to i8
   %138 = trunc nuw i32 %136 to i8
   %.0.i22 = select i1 %.not.i20, i8 %138, i8 %137
-  store i8 %.0.i22, ptr %131, align 1, !tbaa !10
+  store i8 %.0.i22, ptr %131, align 1, !tbaa !11
   %139 = getelementptr inbounds i8, ptr %.0203.i28, i64 %1
-  %140 = load i8, ptr %139, align 1, !tbaa !10
+  %140 = load i8, ptr %139, align 1, !tbaa !11
   %141 = zext i8 %140 to i32
   %142 = add nsw i32 %121, %118
   %143 = ashr i32 %142, 4
@@ -450,9 +450,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %145 = sext i1 %isnotneg.i18 to i8
   %146 = trunc nuw i32 %144 to i8
   %.0.i19 = select i1 %.not.i17, i8 %146, i8 %145
-  store i8 %.0.i19, ptr %139, align 1, !tbaa !10
+  store i8 %.0.i19, ptr %139, align 1, !tbaa !11
   %147 = getelementptr inbounds i8, ptr %.0203.i28, i64 %5
-  %148 = load i8, ptr %147, align 1, !tbaa !10
+  %148 = load i8, ptr %147, align 1, !tbaa !11
   %149 = zext i8 %148 to i32
   %150 = sub nsw i32 %121, %118
   %151 = ashr i32 %150, 4
@@ -462,9 +462,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %153 = sext i1 %isnotneg.i15 to i8
   %154 = trunc nuw i32 %152 to i8
   %.0.i16 = select i1 %.not.i14, i8 %154, i8 %153
-  store i8 %.0.i16, ptr %147, align 1, !tbaa !10
+  store i8 %.0.i16, ptr %147, align 1, !tbaa !11
   %155 = getelementptr inbounds i8, ptr %.0203.i28, i64 %6
-  %156 = load i8, ptr %155, align 1, !tbaa !10
+  %156 = load i8, ptr %155, align 1, !tbaa !11
   %157 = zext i8 %156 to i32
   %158 = add nsw i32 %122, %107
   %159 = ashr i32 %158, 4
@@ -474,9 +474,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %161 = sext i1 %isnotneg.i12 to i8
   %162 = trunc nuw i32 %160 to i8
   %.0.i13 = select i1 %.not.i11, i8 %162, i8 %161
-  store i8 %.0.i13, ptr %155, align 1, !tbaa !10
+  store i8 %.0.i13, ptr %155, align 1, !tbaa !11
   %163 = getelementptr inbounds i8, ptr %.0203.i28, i64 %7
-  %164 = load i8, ptr %163, align 1, !tbaa !10
+  %164 = load i8, ptr %163, align 1, !tbaa !11
   %165 = zext i8 %164 to i32
   %166 = sub nsw i32 %122, %107
   %167 = ashr i32 %166, 4
@@ -486,9 +486,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %169 = sext i1 %isnotneg.i9 to i8
   %170 = trunc nuw i32 %168 to i8
   %.0.i10 = select i1 %.not.i8, i8 %170, i8 %169
-  store i8 %.0.i10, ptr %163, align 1, !tbaa !10
+  store i8 %.0.i10, ptr %163, align 1, !tbaa !11
   %171 = getelementptr inbounds i8, ptr %.0203.i28, i64 %8
-  %172 = load i8, ptr %171, align 1, !tbaa !10
+  %172 = load i8, ptr %171, align 1, !tbaa !11
   %173 = zext i8 %172 to i32
   %174 = add nsw i32 %123, %116
   %175 = ashr i32 %174, 4
@@ -498,9 +498,9 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %177 = sext i1 %isnotneg.i6 to i8
   %178 = trunc nuw i32 %176 to i8
   %.0.i7 = select i1 %.not.i5, i8 %178, i8 %177
-  store i8 %.0.i7, ptr %171, align 1, !tbaa !10
+  store i8 %.0.i7, ptr %171, align 1, !tbaa !11
   %179 = getelementptr inbounds i8, ptr %.0203.i28, i64 %9
-  %180 = load i8, ptr %179, align 1, !tbaa !10
+  %180 = load i8, ptr %179, align 1, !tbaa !11
   %181 = zext i8 %180 to i32
   %182 = sub nsw i32 %123, %116
   %183 = ashr i32 %182, 4
@@ -510,7 +510,7 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %185 = sext i1 %isnotneg.i to i8
   %186 = trunc nuw i32 %184 to i8
   %.0.i4 = select i1 %.not.i3, i8 %186, i8 %185
-  store i8 %.0.i4, ptr %179, align 1, !tbaa !10
+  store i8 %.0.i4, ptr %179, align 1, !tbaa !11
   br label %187
 
 187:                                              ; preds = %77, %88
@@ -518,7 +518,7 @@ define void @ff_vp3dsp_idct10_add(ptr noundef captures(none) %0, i64 noundef %1,
   %189 = getelementptr inbounds nuw i8, ptr %.0203.i28, i64 1
   %190 = add nuw nsw i32 %.1.i30, 1
   %exitcond31.not = icmp eq i32 %190, 8
-  br i1 %exitcond31.not, label %idct10.exit, label %77, !llvm.loop !11
+  br i1 %exitcond31.not, label %idct10.exit, label %77, !llvm.loop !12
 
 idct10.exit:                                      ; preds = %187
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -535,15 +535,15 @@ define void @ff_vp3dsp_v_loop_filter_12(ptr noundef captures(none) %0, i64 nound
   %.0.i.idx6 = phi i64 [ 0, %3 ], [ %.0.i.add, %6 ]
   %.0.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i.idx6
   %7 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %5
-  %8 = load i8, ptr %7, align 1, !tbaa !10
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %1
-  %11 = load i8, ptr %10, align 1, !tbaa !10
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %.0.i.ptr, align 1, !tbaa !10
+  %13 = load i8, ptr %.0.i.ptr, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %4
-  %16 = load i8, ptr %15, align 1, !tbaa !10
+  %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %14, %17
   %19 = mul nsw i32 %18, 3
@@ -553,15 +553,15 @@ define void @ff_vp3dsp_v_loop_filter_12(ptr noundef captures(none) %0, i64 nound
   %23 = ashr i32 %22, 3
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %2, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !12
+  %26 = load i32, ptr %25, align 4, !tbaa !13
   %27 = add nsw i32 %26, %17
   %.not.i3 = icmp ult i32 %27, 256
   %isnotneg.i4 = icmp sgt i32 %27, -1
   %28 = sext i1 %isnotneg.i4 to i8
   %29 = trunc nuw i32 %27 to i8
   %.0.i5 = select i1 %.not.i3, i8 %29, i8 %28
-  store i8 %.0.i5, ptr %15, align 1, !tbaa !10
-  %30 = load i8, ptr %.0.i.ptr, align 1, !tbaa !10
+  store i8 %.0.i5, ptr %15, align 1, !tbaa !11
+  %30 = load i8, ptr %.0.i.ptr, align 1, !tbaa !11
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %31, %26
   %.not.i = icmp ult i32 %32, 256
@@ -569,10 +569,10 @@ define void @ff_vp3dsp_v_loop_filter_12(ptr noundef captures(none) %0, i64 nound
   %33 = sext i1 %isnotneg.i to i8
   %34 = trunc nuw i32 %32 to i8
   %.0.i2 = select i1 %.not.i, i8 %34, i8 %33
-  store i8 %.0.i2, ptr %.0.i.ptr, align 1, !tbaa !10
+  store i8 %.0.i2, ptr %.0.i.ptr, align 1, !tbaa !11
   %.0.i.add = add nuw nsw i64 %.0.i.idx6, 1
   %exitcond.not = icmp eq i64 %.0.i.add, 12
-  br i1 %exitcond.not, label %vp3_v_loop_filter_c.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not, label %vp3_v_loop_filter_c.exit, label %6, !llvm.loop !15
 
 vp3_v_loop_filter_c.exit:                         ; preds = %6
   ret void
@@ -588,15 +588,15 @@ define void @ff_vp3dsp_h_loop_filter_12(ptr noundef captures(address) %0, i64 no
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i8 = phi ptr [ %32, %.lr.ph ], [ %0, %3 ]
   %6 = getelementptr inbounds i8, ptr %.0.i8, i64 -2
-  %7 = load i8, ptr %6, align 1, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !10
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = zext i8 %10 to i32
-  %12 = load i8, ptr %.0.i8, align 1, !tbaa !10
+  %12 = load i8, ptr %.0.i8, align 1, !tbaa !11
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds i8, ptr %.0.i8, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 %13, %16
   %18 = mul nsw i32 %17, 3
@@ -606,24 +606,24 @@ define void @ff_vp3dsp_h_loop_filter_12(ptr noundef captures(address) %0, i64 no
   %22 = ashr i32 %21, 3
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %2, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !12
+  %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = add nsw i32 %25, %16
   %.not.i4 = icmp ult i32 %26, 256
   %isnotneg.i5 = icmp sgt i32 %26, -1
   %27 = sext i1 %isnotneg.i5 to i8
   %28 = trunc nuw i32 %26 to i8
   %.0.i6 = select i1 %.not.i4, i8 %28, i8 %27
-  store i8 %.0.i6, ptr %14, align 1, !tbaa !10
+  store i8 %.0.i6, ptr %14, align 1, !tbaa !11
   %29 = sub nsw i32 %13, %25
   %.not.i2 = icmp ult i32 %29, 256
   %isnotneg.i = icmp sgt i32 %29, -1
   %30 = sext i1 %isnotneg.i to i8
   %31 = trunc nuw i32 %29 to i8
   %.0.i3 = select i1 %.not.i2, i8 %31, i8 %30
-  store i8 %.0.i3, ptr %.0.i8, align 1, !tbaa !10
+  store i8 %.0.i3, ptr %.0.i8, align 1, !tbaa !11
   %32 = getelementptr inbounds i8, ptr %.0.i8, i64 %1
   %.not.i = icmp eq ptr %32, %5
-  br i1 %.not.i, label %vp3_h_loop_filter_c.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not.i, label %vp3_h_loop_filter_c.exit, label %.lr.ph, !llvm.loop !16
 
 vp3_h_loop_filter_c.exit:                         ; preds = %.lr.ph, %3
   ret void
@@ -631,21 +631,21 @@ vp3_h_loop_filter_c.exit:                         ; preds = %.lr.ph, %3
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_vp3dsp_init(ptr noundef writeonly captures(none) initializes((0, 64)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  store ptr @put_no_rnd_pixels_l2, ptr %0, align 8, !tbaa !16
+  store ptr @put_no_rnd_pixels_l2, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @vp3_idct_put_c, ptr %3, align 8, !tbaa !19
+  store ptr @vp3_idct_put_c, ptr %3, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @vp3_idct_add_c, ptr %4, align 8, !tbaa !20
+  store ptr @vp3_idct_add_c, ptr %4, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @vp3_idct_dc_add_c, ptr %5, align 8, !tbaa !21
+  store ptr @vp3_idct_dc_add_c, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @vp3_v_loop_filter_8_c, ptr %6, align 8, !tbaa !22
+  store ptr @vp3_v_loop_filter_8_c, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @vp3_v_loop_filter_8_c, ptr %7, align 8, !tbaa !23
+  store ptr @vp3_v_loop_filter_8_c, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr @vp3_h_loop_filter_8_c, ptr %8, align 8, !tbaa !24
+  store ptr @vp3_h_loop_filter_8_c, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @vp3_h_loop_filter_8_c, ptr %9, align 8, !tbaa !25
+  store ptr @vp3_h_loop_filter_8_c, ptr %9, align 8, !tbaa !26
   ret void
 }
 
@@ -662,31 +662,31 @@ define internal void @put_no_rnd_pixels_l2(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = mul nsw i64 %3, %indvars.iv
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
-  %9 = load i32, ptr %8, align 1, !tbaa !10
+  %9 = load i32, ptr %8, align 1, !tbaa !11
   %10 = getelementptr inbounds i8, ptr %2, i64 %7
-  %11 = load i32, ptr %10, align 1, !tbaa !10
+  %11 = load i32, ptr %10, align 1, !tbaa !11
   %12 = and i32 %11, %9
   %13 = xor i32 %11, %9
   %14 = lshr i32 %13, 1
   %15 = and i32 %14, 2139062143
   %16 = add i32 %15, %12
   %17 = getelementptr inbounds i8, ptr %0, i64 %7
-  store i32 %16, ptr %17, align 4, !tbaa !10
+  store i32 %16, ptr %17, align 4, !tbaa !11
   %18 = add nsw i64 %7, 4
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
-  %20 = load i32, ptr %19, align 1, !tbaa !10
+  %20 = load i32, ptr %19, align 1, !tbaa !11
   %21 = getelementptr inbounds i8, ptr %2, i64 %18
-  %22 = load i32, ptr %21, align 1, !tbaa !10
+  %22 = load i32, ptr %21, align 1, !tbaa !11
   %23 = and i32 %22, %20
   %24 = xor i32 %22, %20
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 2139062143
   %27 = add i32 %26, %23
   %28 = getelementptr inbounds i8, ptr %0, i64 %18
-  store i32 %27, ptr %28, align 4, !tbaa !10
+  store i32 %27, ptr %28, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -822,7 +822,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %109 = getelementptr inbounds nuw i8, ptr %.0266.i3, i64 2
   %110 = add nuw nsw i32 %.0263.i4, 1
   %exitcond.not = icmp eq i32 %110, 8
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !27
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !28
 
 111:                                              ; preds = %.preheader, %249
   %.0.i7 = phi ptr [ %0, %.preheader ], [ %251, %249 ]
@@ -920,7 +920,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %196 = sext i1 %isnotneg.i341.i to i8
   %197 = trunc nuw i32 %195 to i8
   %.0.i342.i = select i1 %.not.i340.i, i8 %197, i8 %196
-  store i8 %.0.i342.i, ptr %.0.i7, align 1, !tbaa !10
+  store i8 %.0.i342.i, ptr %.0.i7, align 1, !tbaa !11
   %198 = sub nsw i32 %189, %164
   %199 = ashr i32 %198, 4
   %.not.i337.i = icmp ult i32 %199, 256
@@ -929,7 +929,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %201 = trunc nuw i32 %199 to i8
   %.0.i339.i = select i1 %.not.i337.i, i8 %201, i8 %200
   %202 = getelementptr inbounds i8, ptr %.0.i7, i64 %4
-  store i8 %.0.i339.i, ptr %202, align 1, !tbaa !10
+  store i8 %.0.i339.i, ptr %202, align 1, !tbaa !11
   %203 = add nsw i32 %190, %193
   %204 = ashr i32 %203, 4
   %.not.i334.i = icmp ult i32 %204, 256
@@ -938,7 +938,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %206 = trunc nuw i32 %204 to i8
   %.0.i336.i = select i1 %.not.i334.i, i8 %206, i8 %205
   %207 = getelementptr inbounds i8, ptr %.0.i7, i64 %1
-  store i8 %.0.i336.i, ptr %207, align 1, !tbaa !10
+  store i8 %.0.i336.i, ptr %207, align 1, !tbaa !11
   %208 = sub nsw i32 %190, %193
   %209 = ashr i32 %208, 4
   %.not.i331.i = icmp ult i32 %209, 256
@@ -947,7 +947,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %211 = trunc nuw i32 %209 to i8
   %.0.i333.i = select i1 %.not.i331.i, i8 %211, i8 %210
   %212 = getelementptr inbounds i8, ptr %.0.i7, i64 %5
-  store i8 %.0.i333.i, ptr %212, align 1, !tbaa !10
+  store i8 %.0.i333.i, ptr %212, align 1, !tbaa !11
   %213 = add nsw i32 %188, %165
   %214 = ashr i32 %213, 4
   %.not.i328.i = icmp ult i32 %214, 256
@@ -956,7 +956,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %216 = trunc nuw i32 %214 to i8
   %.0.i330.i = select i1 %.not.i328.i, i8 %216, i8 %215
   %217 = getelementptr inbounds i8, ptr %.0.i7, i64 %6
-  store i8 %.0.i330.i, ptr %217, align 1, !tbaa !10
+  store i8 %.0.i330.i, ptr %217, align 1, !tbaa !11
   %218 = sub nsw i32 %188, %165
   %219 = ashr i32 %218, 4
   %.not.i325.i = icmp ult i32 %219, 256
@@ -965,7 +965,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %221 = trunc nuw i32 %219 to i8
   %.0.i327.i = select i1 %.not.i325.i, i8 %221, i8 %220
   %222 = getelementptr inbounds i8, ptr %.0.i7, i64 %7
-  store i8 %.0.i327.i, ptr %222, align 1, !tbaa !10
+  store i8 %.0.i327.i, ptr %222, align 1, !tbaa !11
   %223 = add nsw i32 %192, %191
   %224 = ashr i32 %223, 4
   %.not.i322.i = icmp ult i32 %224, 256
@@ -974,7 +974,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %226 = trunc nuw i32 %224 to i8
   %.0.i324.i = select i1 %.not.i322.i, i8 %226, i8 %225
   %227 = getelementptr inbounds i8, ptr %.0.i7, i64 %8
-  store i8 %.0.i324.i, ptr %227, align 1, !tbaa !10
+  store i8 %.0.i324.i, ptr %227, align 1, !tbaa !11
   %228 = sub nsw i32 %192, %191
   %229 = ashr i32 %228, 4
   %.not.i319.i = icmp ult i32 %229, 256
@@ -983,7 +983,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %231 = trunc nuw i32 %229 to i8
   %.0.i321.i = select i1 %.not.i319.i, i8 %231, i8 %230
   %232 = getelementptr inbounds i8, ptr %.0.i7, i64 %9
-  store i8 %.0.i321.i, ptr %232, align 1, !tbaa !10
+  store i8 %.0.i321.i, ptr %232, align 1, !tbaa !11
   br label %249
 
 233:                                              ; preds = %111
@@ -999,20 +999,20 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %241 = trunc nuw i32 %239 to i8
   %.0.i294.i = select i1 %.not.i292.i, i8 %241, i8 %240
   %242 = getelementptr inbounds i8, ptr %.0.i7, i64 %4
-  store i8 %.0.i294.i, ptr %242, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %242, align 1, !tbaa !11
   %243 = getelementptr inbounds i8, ptr %.0.i7, i64 %9
-  store i8 %.0.i294.i, ptr %243, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %243, align 1, !tbaa !11
   %244 = getelementptr inbounds i8, ptr %.0.i7, i64 %8
-  store i8 %.0.i294.i, ptr %244, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %244, align 1, !tbaa !11
   %245 = getelementptr inbounds i8, ptr %.0.i7, i64 %7
-  store i8 %.0.i294.i, ptr %245, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %245, align 1, !tbaa !11
   %246 = getelementptr inbounds i8, ptr %.0.i7, i64 %6
-  store i8 %.0.i294.i, ptr %246, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %246, align 1, !tbaa !11
   %247 = getelementptr inbounds i8, ptr %.0.i7, i64 %5
-  store i8 %.0.i294.i, ptr %247, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %247, align 1, !tbaa !11
   %248 = getelementptr inbounds i8, ptr %.0.i7, i64 %1
-  store i8 %.0.i294.i, ptr %248, align 1, !tbaa !10
-  store i8 %.0.i294.i, ptr %.0.i7, align 1, !tbaa !10
+  store i8 %.0.i294.i, ptr %248, align 1, !tbaa !11
+  store i8 %.0.i294.i, ptr %.0.i7, align 1, !tbaa !11
   br label %249
 
 249:                                              ; preds = %233, %132
@@ -1020,7 +1020,7 @@ define internal void @vp3_idct_put_c(ptr noundef writeonly captures(none) %0, i6
   %251 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 1
   %252 = add nuw nsw i32 %.1.i6, 1
   %exitcond8.not = icmp eq i32 %252, 8
-  br i1 %exitcond8.not, label %idct.exit, label %111, !llvm.loop !28
+  br i1 %exitcond8.not, label %idct.exit, label %111, !llvm.loop !29
 
 idct.exit:                                        ; preds = %249
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -1157,7 +1157,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %109 = getelementptr inbounds nuw i8, ptr %.0266.i3, i64 2
   %110 = add nuw nsw i32 %.0263.i4, 1
   %exitcond.not = icmp eq i32 %110, 8
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !27
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !28
 
 111:                                              ; preds = %.preheader, %311
   %.0.i7 = phi ptr [ %0, %.preheader ], [ %313, %311 ]
@@ -1248,7 +1248,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %191 = sub nsw i32 %163, %187
   %192 = sub nsw i32 %175, %160
   %193 = add nsw i32 %163, %187
-  %194 = load i8, ptr %.0.i7, align 1, !tbaa !10
+  %194 = load i8, ptr %.0.i7, align 1, !tbaa !11
   %195 = zext i8 %194 to i32
   %196 = add nsw i32 %189, %164
   %197 = ashr i32 %196, 4
@@ -1258,9 +1258,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %199 = sext i1 %isnotneg.i317.i to i8
   %200 = trunc nuw i32 %198 to i8
   %.0.i318.i = select i1 %.not.i316.i, i8 %200, i8 %199
-  store i8 %.0.i318.i, ptr %.0.i7, align 1, !tbaa !10
+  store i8 %.0.i318.i, ptr %.0.i7, align 1, !tbaa !11
   %201 = getelementptr inbounds i8, ptr %.0.i7, i64 %4
-  %202 = load i8, ptr %201, align 1, !tbaa !10
+  %202 = load i8, ptr %201, align 1, !tbaa !11
   %203 = zext i8 %202 to i32
   %204 = sub nsw i32 %189, %164
   %205 = ashr i32 %204, 4
@@ -1270,9 +1270,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %207 = sext i1 %isnotneg.i314.i to i8
   %208 = trunc nuw i32 %206 to i8
   %.0.i315.i = select i1 %.not.i313.i, i8 %208, i8 %207
-  store i8 %.0.i315.i, ptr %201, align 1, !tbaa !10
+  store i8 %.0.i315.i, ptr %201, align 1, !tbaa !11
   %209 = getelementptr inbounds i8, ptr %.0.i7, i64 %1
-  %210 = load i8, ptr %209, align 1, !tbaa !10
+  %210 = load i8, ptr %209, align 1, !tbaa !11
   %211 = zext i8 %210 to i32
   %212 = add nsw i32 %190, %193
   %213 = ashr i32 %212, 4
@@ -1282,9 +1282,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %215 = sext i1 %isnotneg.i311.i to i8
   %216 = trunc nuw i32 %214 to i8
   %.0.i312.i = select i1 %.not.i310.i, i8 %216, i8 %215
-  store i8 %.0.i312.i, ptr %209, align 1, !tbaa !10
+  store i8 %.0.i312.i, ptr %209, align 1, !tbaa !11
   %217 = getelementptr inbounds i8, ptr %.0.i7, i64 %5
-  %218 = load i8, ptr %217, align 1, !tbaa !10
+  %218 = load i8, ptr %217, align 1, !tbaa !11
   %219 = zext i8 %218 to i32
   %220 = sub nsw i32 %190, %193
   %221 = ashr i32 %220, 4
@@ -1294,9 +1294,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %223 = sext i1 %isnotneg.i308.i to i8
   %224 = trunc nuw i32 %222 to i8
   %.0.i309.i = select i1 %.not.i307.i, i8 %224, i8 %223
-  store i8 %.0.i309.i, ptr %217, align 1, !tbaa !10
+  store i8 %.0.i309.i, ptr %217, align 1, !tbaa !11
   %225 = getelementptr inbounds i8, ptr %.0.i7, i64 %6
-  %226 = load i8, ptr %225, align 1, !tbaa !10
+  %226 = load i8, ptr %225, align 1, !tbaa !11
   %227 = zext i8 %226 to i32
   %228 = add nsw i32 %188, %165
   %229 = ashr i32 %228, 4
@@ -1306,9 +1306,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %231 = sext i1 %isnotneg.i305.i to i8
   %232 = trunc nuw i32 %230 to i8
   %.0.i306.i = select i1 %.not.i304.i, i8 %232, i8 %231
-  store i8 %.0.i306.i, ptr %225, align 1, !tbaa !10
+  store i8 %.0.i306.i, ptr %225, align 1, !tbaa !11
   %233 = getelementptr inbounds i8, ptr %.0.i7, i64 %7
-  %234 = load i8, ptr %233, align 1, !tbaa !10
+  %234 = load i8, ptr %233, align 1, !tbaa !11
   %235 = zext i8 %234 to i32
   %236 = sub nsw i32 %188, %165
   %237 = ashr i32 %236, 4
@@ -1318,9 +1318,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %239 = sext i1 %isnotneg.i302.i to i8
   %240 = trunc nuw i32 %238 to i8
   %.0.i303.i = select i1 %.not.i301.i, i8 %240, i8 %239
-  store i8 %.0.i303.i, ptr %233, align 1, !tbaa !10
+  store i8 %.0.i303.i, ptr %233, align 1, !tbaa !11
   %241 = getelementptr inbounds i8, ptr %.0.i7, i64 %8
-  %242 = load i8, ptr %241, align 1, !tbaa !10
+  %242 = load i8, ptr %241, align 1, !tbaa !11
   %243 = zext i8 %242 to i32
   %244 = add nsw i32 %192, %191
   %245 = ashr i32 %244, 4
@@ -1330,9 +1330,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %247 = sext i1 %isnotneg.i299.i to i8
   %248 = trunc nuw i32 %246 to i8
   %.0.i300.i = select i1 %.not.i298.i, i8 %248, i8 %247
-  store i8 %.0.i300.i, ptr %241, align 1, !tbaa !10
+  store i8 %.0.i300.i, ptr %241, align 1, !tbaa !11
   %249 = getelementptr inbounds i8, ptr %.0.i7, i64 %9
-  %250 = load i8, ptr %249, align 1, !tbaa !10
+  %250 = load i8, ptr %249, align 1, !tbaa !11
   %251 = zext i8 %250 to i32
   %252 = sub nsw i32 %192, %191
   %253 = ashr i32 %252, 4
@@ -1342,7 +1342,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %255 = sext i1 %isnotneg.i296.i to i8
   %256 = trunc nuw i32 %254 to i8
   %.0.i297.i = select i1 %.not.i295.i, i8 %256, i8 %255
-  store i8 %.0.i297.i, ptr %249, align 1, !tbaa !10
+  store i8 %.0.i297.i, ptr %249, align 1, !tbaa !11
   br label %311
 
 257:                                              ; preds = %111
@@ -1355,7 +1355,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %261 = mul nsw i32 %260, 46341
   %262 = add nsw i32 %261, 524288
   %263 = ashr i32 %262, 20
-  %264 = load i8, ptr %.0.i7, align 1, !tbaa !10
+  %264 = load i8, ptr %.0.i7, align 1, !tbaa !11
   %265 = zext i8 %264 to i32
   %266 = add nsw i32 %263, %265
   %.not.i289.i = icmp ult i32 %266, 256
@@ -1363,9 +1363,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %267 = sext i1 %isnotneg.i290.i to i8
   %268 = trunc nuw i32 %266 to i8
   %.0.i291.i = select i1 %.not.i289.i, i8 %268, i8 %267
-  store i8 %.0.i291.i, ptr %.0.i7, align 1, !tbaa !10
+  store i8 %.0.i291.i, ptr %.0.i7, align 1, !tbaa !11
   %269 = getelementptr inbounds i8, ptr %.0.i7, i64 %1
-  %270 = load i8, ptr %269, align 1, !tbaa !10
+  %270 = load i8, ptr %269, align 1, !tbaa !11
   %271 = zext i8 %270 to i32
   %272 = add nsw i32 %263, %271
   %.not.i286.i = icmp ult i32 %272, 256
@@ -1373,9 +1373,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %273 = sext i1 %isnotneg.i287.i to i8
   %274 = trunc nuw i32 %272 to i8
   %.0.i288.i = select i1 %.not.i286.i, i8 %274, i8 %273
-  store i8 %.0.i288.i, ptr %269, align 1, !tbaa !10
+  store i8 %.0.i288.i, ptr %269, align 1, !tbaa !11
   %275 = getelementptr inbounds i8, ptr %.0.i7, i64 %5
-  %276 = load i8, ptr %275, align 1, !tbaa !10
+  %276 = load i8, ptr %275, align 1, !tbaa !11
   %277 = zext i8 %276 to i32
   %278 = add nsw i32 %263, %277
   %.not.i283.i = icmp ult i32 %278, 256
@@ -1383,9 +1383,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %279 = sext i1 %isnotneg.i284.i to i8
   %280 = trunc nuw i32 %278 to i8
   %.0.i285.i = select i1 %.not.i283.i, i8 %280, i8 %279
-  store i8 %.0.i285.i, ptr %275, align 1, !tbaa !10
+  store i8 %.0.i285.i, ptr %275, align 1, !tbaa !11
   %281 = getelementptr inbounds i8, ptr %.0.i7, i64 %6
-  %282 = load i8, ptr %281, align 1, !tbaa !10
+  %282 = load i8, ptr %281, align 1, !tbaa !11
   %283 = zext i8 %282 to i32
   %284 = add nsw i32 %263, %283
   %.not.i280.i = icmp ult i32 %284, 256
@@ -1393,9 +1393,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %285 = sext i1 %isnotneg.i281.i to i8
   %286 = trunc nuw i32 %284 to i8
   %.0.i282.i = select i1 %.not.i280.i, i8 %286, i8 %285
-  store i8 %.0.i282.i, ptr %281, align 1, !tbaa !10
+  store i8 %.0.i282.i, ptr %281, align 1, !tbaa !11
   %287 = getelementptr inbounds i8, ptr %.0.i7, i64 %7
-  %288 = load i8, ptr %287, align 1, !tbaa !10
+  %288 = load i8, ptr %287, align 1, !tbaa !11
   %289 = zext i8 %288 to i32
   %290 = add nsw i32 %263, %289
   %.not.i277.i = icmp ult i32 %290, 256
@@ -1403,9 +1403,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %291 = sext i1 %isnotneg.i278.i to i8
   %292 = trunc nuw i32 %290 to i8
   %.0.i279.i = select i1 %.not.i277.i, i8 %292, i8 %291
-  store i8 %.0.i279.i, ptr %287, align 1, !tbaa !10
+  store i8 %.0.i279.i, ptr %287, align 1, !tbaa !11
   %293 = getelementptr inbounds i8, ptr %.0.i7, i64 %8
-  %294 = load i8, ptr %293, align 1, !tbaa !10
+  %294 = load i8, ptr %293, align 1, !tbaa !11
   %295 = zext i8 %294 to i32
   %296 = add nsw i32 %263, %295
   %.not.i274.i = icmp ult i32 %296, 256
@@ -1413,9 +1413,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %297 = sext i1 %isnotneg.i275.i to i8
   %298 = trunc nuw i32 %296 to i8
   %.0.i276.i = select i1 %.not.i274.i, i8 %298, i8 %297
-  store i8 %.0.i276.i, ptr %293, align 1, !tbaa !10
+  store i8 %.0.i276.i, ptr %293, align 1, !tbaa !11
   %299 = getelementptr inbounds i8, ptr %.0.i7, i64 %9
-  %300 = load i8, ptr %299, align 1, !tbaa !10
+  %300 = load i8, ptr %299, align 1, !tbaa !11
   %301 = zext i8 %300 to i32
   %302 = add nsw i32 %263, %301
   %.not.i271.i = icmp ult i32 %302, 256
@@ -1423,9 +1423,9 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %303 = sext i1 %isnotneg.i272.i to i8
   %304 = trunc nuw i32 %302 to i8
   %.0.i273.i = select i1 %.not.i271.i, i8 %304, i8 %303
-  store i8 %.0.i273.i, ptr %299, align 1, !tbaa !10
+  store i8 %.0.i273.i, ptr %299, align 1, !tbaa !11
   %305 = getelementptr inbounds i8, ptr %.0.i7, i64 %4
-  %306 = load i8, ptr %305, align 1, !tbaa !10
+  %306 = load i8, ptr %305, align 1, !tbaa !11
   %307 = zext i8 %306 to i32
   %308 = add nsw i32 %263, %307
   %.not.i.i = icmp ult i32 %308, 256
@@ -1433,7 +1433,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %309 = sext i1 %isnotneg.i.i to i8
   %310 = trunc nuw i32 %308 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %310, i8 %309
-  store i8 %.0.i.i, ptr %305, align 1, !tbaa !10
+  store i8 %.0.i.i, ptr %305, align 1, !tbaa !11
   br label %311
 
 311:                                              ; preds = %259, %257, %132
@@ -1441,7 +1441,7 @@ define internal void @vp3_idct_add_c(ptr noundef captures(none) %0, i64 noundef 
   %313 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 1
   %314 = add nuw nsw i32 %.1.i6, 1
   %exitcond8.not = icmp eq i32 %314, 8
-  br i1 %exitcond8.not, label %idct.exit, label %111, !llvm.loop !28
+  br i1 %exitcond8.not, label %idct.exit, label %111, !llvm.loop !29
 
 idct.exit:                                        ; preds = %311
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -1461,7 +1461,7 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %.052.lver.orig = phi ptr [ %54, %.ph.lver.orig ], [ %0, %.lver.check ]
   %.02951.lver.orig = phi i32 [ %55, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %7 = load i8, ptr %.052.lver.orig, align 1, !tbaa !10
+  %7 = load i8, ptr %.052.lver.orig, align 1, !tbaa !11
   %8 = zext i8 %7 to i32
   %9 = add nsw i32 %6, %8
   %.not.i.lver.orig = icmp ult i32 %9, 256
@@ -1469,9 +1469,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %10 = sext i1 %isnotneg.i.lver.orig to i8
   %11 = trunc nuw i32 %9 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %11, i8 %10
-  store i8 %.0.i.lver.orig, ptr %.052.lver.orig, align 1, !tbaa !10
+  store i8 %.0.i.lver.orig, ptr %.052.lver.orig, align 1, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !10
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = add nsw i32 %6, %14
   %.not.i30.lver.orig = icmp ult i32 %15, 256
@@ -1479,9 +1479,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %16 = sext i1 %isnotneg.i31.lver.orig to i8
   %17 = trunc nuw i32 %15 to i8
   %.0.i32.lver.orig = select i1 %.not.i30.lver.orig, i8 %17, i8 %16
-  store i8 %.0.i32.lver.orig, ptr %12, align 1, !tbaa !10
+  store i8 %.0.i32.lver.orig, ptr %12, align 1, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !10
+  %19 = load i8, ptr %18, align 1, !tbaa !11
   %20 = zext i8 %19 to i32
   %21 = add nsw i32 %6, %20
   %.not.i33.lver.orig = icmp ult i32 %21, 256
@@ -1489,9 +1489,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %22 = sext i1 %isnotneg.i34.lver.orig to i8
   %23 = trunc nuw i32 %21 to i8
   %.0.i35.lver.orig = select i1 %.not.i33.lver.orig, i8 %23, i8 %22
-  store i8 %.0.i35.lver.orig, ptr %18, align 1, !tbaa !10
+  store i8 %.0.i35.lver.orig, ptr %18, align 1, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 3
-  %25 = load i8, ptr %24, align 1, !tbaa !10
+  %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = zext i8 %25 to i32
   %27 = add nsw i32 %6, %26
   %.not.i36.lver.orig = icmp ult i32 %27, 256
@@ -1499,9 +1499,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %28 = sext i1 %isnotneg.i37.lver.orig to i8
   %29 = trunc nuw i32 %27 to i8
   %.0.i38.lver.orig = select i1 %.not.i36.lver.orig, i8 %29, i8 %28
-  store i8 %.0.i38.lver.orig, ptr %24, align 1, !tbaa !10
+  store i8 %.0.i38.lver.orig, ptr %24, align 1, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 4
-  %31 = load i8, ptr %30, align 1, !tbaa !10
+  %31 = load i8, ptr %30, align 1, !tbaa !11
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %6, %32
   %.not.i39.lver.orig = icmp ult i32 %33, 256
@@ -1509,9 +1509,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %34 = sext i1 %isnotneg.i40.lver.orig to i8
   %35 = trunc nuw i32 %33 to i8
   %.0.i41.lver.orig = select i1 %.not.i39.lver.orig, i8 %35, i8 %34
-  store i8 %.0.i41.lver.orig, ptr %30, align 1, !tbaa !10
+  store i8 %.0.i41.lver.orig, ptr %30, align 1, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 5
-  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %37 = load i8, ptr %36, align 1, !tbaa !11
   %38 = zext i8 %37 to i32
   %39 = add nsw i32 %6, %38
   %.not.i42.lver.orig = icmp ult i32 %39, 256
@@ -1519,9 +1519,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %40 = sext i1 %isnotneg.i43.lver.orig to i8
   %41 = trunc nuw i32 %39 to i8
   %.0.i44.lver.orig = select i1 %.not.i42.lver.orig, i8 %41, i8 %40
-  store i8 %.0.i44.lver.orig, ptr %36, align 1, !tbaa !10
+  store i8 %.0.i44.lver.orig, ptr %36, align 1, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 6
-  %43 = load i8, ptr %42, align 1, !tbaa !10
+  %43 = load i8, ptr %42, align 1, !tbaa !11
   %44 = zext i8 %43 to i32
   %45 = add nsw i32 %6, %44
   %.not.i45.lver.orig = icmp ult i32 %45, 256
@@ -1529,9 +1529,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %46 = sext i1 %isnotneg.i46.lver.orig to i8
   %47 = trunc nuw i32 %45 to i8
   %.0.i47.lver.orig = select i1 %.not.i45.lver.orig, i8 %47, i8 %46
-  store i8 %.0.i47.lver.orig, ptr %42, align 1, !tbaa !10
+  store i8 %.0.i47.lver.orig, ptr %42, align 1, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %.052.lver.orig, i64 7
-  %49 = load i8, ptr %48, align 1, !tbaa !10
+  %49 = load i8, ptr %48, align 1, !tbaa !11
   %50 = zext i8 %49 to i32
   %51 = add nsw i32 %6, %50
   %.not.i48.lver.orig = icmp ult i32 %51, 256
@@ -1539,11 +1539,11 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %52 = sext i1 %isnotneg.i49.lver.orig to i8
   %53 = trunc nuw i32 %51 to i8
   %.0.i50.lver.orig = select i1 %.not.i48.lver.orig, i8 %53, i8 %52
-  store i8 %.0.i50.lver.orig, ptr %48, align 1, !tbaa !10
+  store i8 %.0.i50.lver.orig, ptr %48, align 1, !tbaa !11
   %54 = getelementptr inbounds i8, ptr %.052.lver.orig, i64 %1
   %55 = add nuw nsw i32 %.02951.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %55, 8
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !29
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !30
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -1554,7 +1554,7 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i50, %56 ]
   %.052 = phi ptr [ %0, %.ph ], [ %103, %56 ]
   %.02951 = phi i32 [ 0, %.ph ], [ %104, %56 ]
-  %57 = load i8, ptr %.052, align 1, !tbaa !10
+  %57 = load i8, ptr %.052, align 1, !tbaa !11
   %58 = zext i8 %57 to i32
   %59 = add nsw i32 %6, %58
   %.not.i = icmp ult i32 %59, 256
@@ -1562,9 +1562,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %60 = sext i1 %isnotneg.i to i8
   %61 = trunc nuw i32 %59 to i8
   %.0.i = select i1 %.not.i, i8 %61, i8 %60
-  store i8 %.0.i, ptr %.052, align 1, !tbaa !10
+  store i8 %.0.i, ptr %.052, align 1, !tbaa !11
   %62 = getelementptr inbounds nuw i8, ptr %.052, i64 1
-  %63 = load i8, ptr %62, align 1, !tbaa !10
+  %63 = load i8, ptr %62, align 1, !tbaa !11
   %64 = zext i8 %63 to i32
   %65 = add nsw i32 %6, %64
   %.not.i30 = icmp ult i32 %65, 256
@@ -1572,9 +1572,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %66 = sext i1 %isnotneg.i31 to i8
   %67 = trunc nuw i32 %65 to i8
   %.0.i32 = select i1 %.not.i30, i8 %67, i8 %66
-  store i8 %.0.i32, ptr %62, align 1, !tbaa !10
+  store i8 %.0.i32, ptr %62, align 1, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %.052, i64 2
-  %69 = load i8, ptr %68, align 1, !tbaa !10
+  %69 = load i8, ptr %68, align 1, !tbaa !11
   %70 = zext i8 %69 to i32
   %71 = add nsw i32 %6, %70
   %.not.i33 = icmp ult i32 %71, 256
@@ -1582,9 +1582,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %72 = sext i1 %isnotneg.i34 to i8
   %73 = trunc nuw i32 %71 to i8
   %.0.i35 = select i1 %.not.i33, i8 %73, i8 %72
-  store i8 %.0.i35, ptr %68, align 1, !tbaa !10
+  store i8 %.0.i35, ptr %68, align 1, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %.052, i64 3
-  %75 = load i8, ptr %74, align 1, !tbaa !10
+  %75 = load i8, ptr %74, align 1, !tbaa !11
   %76 = zext i8 %75 to i32
   %77 = add nsw i32 %6, %76
   %.not.i36 = icmp ult i32 %77, 256
@@ -1592,9 +1592,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %78 = sext i1 %isnotneg.i37 to i8
   %79 = trunc nuw i32 %77 to i8
   %.0.i38 = select i1 %.not.i36, i8 %79, i8 %78
-  store i8 %.0.i38, ptr %74, align 1, !tbaa !10
+  store i8 %.0.i38, ptr %74, align 1, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %.052, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !10
+  %81 = load i8, ptr %80, align 1, !tbaa !11
   %82 = zext i8 %81 to i32
   %83 = add nsw i32 %6, %82
   %.not.i39 = icmp ult i32 %83, 256
@@ -1602,9 +1602,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %84 = sext i1 %isnotneg.i40 to i8
   %85 = trunc nuw i32 %83 to i8
   %.0.i41 = select i1 %.not.i39, i8 %85, i8 %84
-  store i8 %.0.i41, ptr %80, align 1, !tbaa !10
+  store i8 %.0.i41, ptr %80, align 1, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %.052, i64 5
-  %87 = load i8, ptr %86, align 1, !tbaa !10
+  %87 = load i8, ptr %86, align 1, !tbaa !11
   %88 = zext i8 %87 to i32
   %89 = add nsw i32 %6, %88
   %.not.i42 = icmp ult i32 %89, 256
@@ -1612,7 +1612,7 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %90 = sext i1 %isnotneg.i43 to i8
   %91 = trunc nuw i32 %89 to i8
   %.0.i44 = select i1 %.not.i42, i8 %91, i8 %90
-  store i8 %.0.i44, ptr %86, align 1, !tbaa !10
+  store i8 %.0.i44, ptr %86, align 1, !tbaa !11
   %92 = getelementptr inbounds nuw i8, ptr %.052, i64 6
   %93 = zext i8 %store_forwarded to i32
   %94 = add nsw i32 %6, %93
@@ -1621,9 +1621,9 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %95 = sext i1 %isnotneg.i46 to i8
   %96 = trunc nuw i32 %94 to i8
   %.0.i47 = select i1 %.not.i45, i8 %96, i8 %95
-  store i8 %.0.i47, ptr %92, align 1, !tbaa !10
+  store i8 %.0.i47, ptr %92, align 1, !tbaa !11
   %97 = getelementptr inbounds nuw i8, ptr %.052, i64 7
-  %98 = load i8, ptr %97, align 1, !tbaa !10
+  %98 = load i8, ptr %97, align 1, !tbaa !11
   %99 = zext i8 %98 to i32
   %100 = add nsw i32 %6, %99
   %.not.i48 = icmp ult i32 %100, 256
@@ -1631,11 +1631,11 @@ define internal void @vp3_idct_dc_add_c(ptr noundef captures(none) %0, i64 nound
   %101 = sext i1 %isnotneg.i49 to i8
   %102 = trunc nuw i32 %100 to i8
   %.0.i50 = select i1 %.not.i48, i8 %102, i8 %101
-  store i8 %.0.i50, ptr %97, align 1, !tbaa !10
+  store i8 %.0.i50, ptr %97, align 1, !tbaa !11
   %103 = getelementptr inbounds nuw i8, ptr %.052, i64 %1
   %104 = add nuw nsw i32 %.02951, 1
   %exitcond.not = icmp eq i32 %104, 8
-  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %56
   store i16 0, ptr %2, align 2, !tbaa !4
@@ -1652,15 +1652,15 @@ define internal void @vp3_v_loop_filter_8_c(ptr noundef captures(none) %0, i64 n
   %.0.i.idx6 = phi i64 [ 0, %3 ], [ %.0.i.add, %6 ]
   %.0.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i.idx6
   %7 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %5
-  %8 = load i8, ptr %7, align 1, !tbaa !10
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %1
-  %11 = load i8, ptr %10, align 1, !tbaa !10
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %.0.i.ptr, align 1, !tbaa !10
+  %13 = load i8, ptr %.0.i.ptr, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds i8, ptr %.0.i.ptr, i64 %4
-  %16 = load i8, ptr %15, align 1, !tbaa !10
+  %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %14, %17
   %19 = mul nsw i32 %18, 3
@@ -1670,15 +1670,15 @@ define internal void @vp3_v_loop_filter_8_c(ptr noundef captures(none) %0, i64 n
   %23 = ashr i32 %22, 3
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %2, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !12
+  %26 = load i32, ptr %25, align 4, !tbaa !13
   %27 = add nsw i32 %26, %17
   %.not.i3 = icmp ult i32 %27, 256
   %isnotneg.i4 = icmp sgt i32 %27, -1
   %28 = sext i1 %isnotneg.i4 to i8
   %29 = trunc nuw i32 %27 to i8
   %.0.i5 = select i1 %.not.i3, i8 %29, i8 %28
-  store i8 %.0.i5, ptr %15, align 1, !tbaa !10
-  %30 = load i8, ptr %.0.i.ptr, align 1, !tbaa !10
+  store i8 %.0.i5, ptr %15, align 1, !tbaa !11
+  %30 = load i8, ptr %.0.i.ptr, align 1, !tbaa !11
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %31, %26
   %.not.i = icmp ult i32 %32, 256
@@ -1686,10 +1686,10 @@ define internal void @vp3_v_loop_filter_8_c(ptr noundef captures(none) %0, i64 n
   %33 = sext i1 %isnotneg.i to i8
   %34 = trunc nuw i32 %32 to i8
   %.0.i2 = select i1 %.not.i, i8 %34, i8 %33
-  store i8 %.0.i2, ptr %.0.i.ptr, align 1, !tbaa !10
+  store i8 %.0.i2, ptr %.0.i.ptr, align 1, !tbaa !11
   %.0.i.add = add nuw nsw i64 %.0.i.idx6, 1
   %exitcond.not = icmp eq i64 %.0.i.add, 8
-  br i1 %exitcond.not, label %vp3_v_loop_filter_c.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not, label %vp3_v_loop_filter_c.exit, label %6, !llvm.loop !15
 
 vp3_v_loop_filter_c.exit:                         ; preds = %6
   ret void
@@ -1705,15 +1705,15 @@ define internal void @vp3_h_loop_filter_8_c(ptr noundef captures(address) %0, i6
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i8 = phi ptr [ %32, %.lr.ph ], [ %0, %3 ]
   %6 = getelementptr inbounds i8, ptr %.0.i8, i64 -2
-  %7 = load i8, ptr %6, align 1, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !10
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = zext i8 %10 to i32
-  %12 = load i8, ptr %.0.i8, align 1, !tbaa !10
+  %12 = load i8, ptr %.0.i8, align 1, !tbaa !11
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds i8, ptr %.0.i8, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 %13, %16
   %18 = mul nsw i32 %17, 3
@@ -1723,24 +1723,24 @@ define internal void @vp3_h_loop_filter_8_c(ptr noundef captures(address) %0, i6
   %22 = ashr i32 %21, 3
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %2, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !12
+  %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = add nsw i32 %25, %16
   %.not.i4 = icmp ult i32 %26, 256
   %isnotneg.i5 = icmp sgt i32 %26, -1
   %27 = sext i1 %isnotneg.i5 to i8
   %28 = trunc nuw i32 %26 to i8
   %.0.i6 = select i1 %.not.i4, i8 %28, i8 %27
-  store i8 %.0.i6, ptr %14, align 1, !tbaa !10
+  store i8 %.0.i6, ptr %14, align 1, !tbaa !11
   %29 = sub nsw i32 %13, %25
   %.not.i2 = icmp ult i32 %29, 256
   %isnotneg.i = icmp sgt i32 %29, -1
   %30 = sext i1 %isnotneg.i to i8
   %31 = trunc nuw i32 %29 to i8
   %.0.i3 = select i1 %.not.i2, i8 %31, i8 %30
-  store i8 %.0.i3, ptr %.0.i8, align 1, !tbaa !10
+  store i8 %.0.i3, ptr %.0.i8, align 1, !tbaa !11
   %32 = getelementptr inbounds i8, ptr %.0.i8, i64 %1
   %.not.i = icmp eq ptr %32, %5
-  br i1 %.not.i, label %vp3_h_loop_filter_c.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not.i, label %vp3_h_loop_filter_c.exit, label %.lr.ph, !llvm.loop !16
 
 vp3_h_loop_filter_c.exit:                         ; preds = %.lr.ph, %3
   ret void
@@ -1775,44 +1775,44 @@ define void @ff_vp3dsp_set_bounding_values(ptr noundef writeonly captures(none) 
   %8 = sub nsw i64 0, %indvars.iv
   %9 = getelementptr inbounds i32, ptr %3, i64 %8
   %10 = trunc nsw i64 %8 to i32
-  store i32 %10, ptr %9, align 4, !tbaa !12
+  store i32 %10, ptr %9, align 4, !tbaa !13
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %12, ptr %11, align 4, !tbaa !12
+  store i32 %12, ptr %11, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph33.preheader, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph33.preheader, label %.lr.ph, !llvm.loop !31
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv39 = phi i64 [ %7, %.lr.ph33.preheader ], [ %indvars.iv.next40, %.lr.ph33 ]
   %.032 = phi i32 [ %1, %.lr.ph33.preheader ], [ %17, %.lr.ph33 ]
   %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv39
-  store i32 %.032, ptr %13, align 4, !tbaa !12
+  store i32 %.032, ptr %13, align 4, !tbaa !13
   %14 = sub nsw i32 0, %.032
   %15 = sub nsw i64 0, %indvars.iv39
   %16 = getelementptr inbounds i32, ptr %3, i64 %15
-  store i32 %14, ptr %16, align 4, !tbaa !12
+  store i32 %14, ptr %16, align 4, !tbaa !13
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %17 = add nsw i32 %.032, -1
   %18 = icmp samesign ult i64 %indvars.iv39, 127
   %19 = icmp ne i32 %17, 0
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph33, label %._crit_edge, !llvm.loop !31
+  br i1 %20, label %.lr.ph33, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph33
   br i1 %19, label %21, label %._crit_edge.thread
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1020
-  store i32 %17, ptr %22, align 4, !tbaa !12
+  store i32 %17, ptr %22, align 4, !tbaa !13
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %21, %._crit_edge
   %23 = mul nuw i32 %1, 33686018
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1028
-  store i32 %23, ptr %24, align 4, !tbaa !12
+  store i32 %23, ptr %24, align 4, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  store i32 %23, ptr %25, align 4, !tbaa !12
+  store i32 %23, ptr %25, align 4, !tbaa !13
   ret void
 }
 
@@ -1840,27 +1840,28 @@ attributes #7 = { noreturn nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"VP3DSPContext", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!17, !18, i64 8}
-!20 = !{!17, !18, i64 16}
-!21 = !{!17, !18, i64 24}
-!22 = !{!17, !18, i64 48}
-!23 = !{!17, !18, i64 32}
-!24 = !{!17, !18, i64 56}
-!25 = !{!17, !18, i64 40}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"VP3DSPContext", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56}
+!19 = !{!"any pointer", !6, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!18, !19, i64 16}
+!22 = !{!18, !19, i64 24}
+!23 = !{!18, !19, i64 48}
+!24 = !{!18, !19, i64 32}
+!25 = !{!18, !19, i64 56}
+!26 = !{!18, !19, i64 40}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}

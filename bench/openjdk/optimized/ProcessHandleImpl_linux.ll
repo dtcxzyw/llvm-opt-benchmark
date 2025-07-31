@@ -241,7 +241,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   %55 = call i64 @read(i32 noundef %20, ptr noundef %51, i64 noundef %54) #13
   %56 = trunc i64 %55 to i32
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41
   %.067.lcssa = phi i32 [ 0, %41 ], [ %49, %.lr.ph ]
@@ -304,7 +304,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 84:                                               ; preds = %.lr.ph108, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %60
-  br i1 %exitcond.not, label %.loopexit102, label %.lr.ph108, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit102, label %.lr.ph108, !llvm.loop !10
 
 .loopexit102:                                     ; preds = %84, %74, %70
   %.173 = phi ptr [ null, %74 ], [ null, %70 ], [ %77, %84 ]
@@ -334,7 +334,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   %98 = icmp ne i8 %97, 0
   %99 = icmp ult ptr %95, %61
   %100 = and i1 %99, %98
-  br i1 %100, label %90, label %.loopexit, !llvm.loop !10
+  br i1 %100, label %90, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %90, %.preheader, %.loopexit102
   %.074 = phi ptr [ null, %.loopexit102 ], [ %61, %.preheader ], [ %61, %90 ]
@@ -428,8 +428,9 @@ attributes #15 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

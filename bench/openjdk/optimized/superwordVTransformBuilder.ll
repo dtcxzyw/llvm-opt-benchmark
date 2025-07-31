@@ -125,7 +125,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder5buildEv(ptr noundef nonnull 
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next18.i, %44
-  br i1 %45, label %10, label %_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv.exit, !llvm.loop !8
+  br i1 %45, label %10, label %_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv.exit, !llvm.loop !9
 
 _ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv.exit: ; preds = %._crit_edge.i, %1
   tail call void @_ZN26SuperWordVTransformBuilder41build_scalar_vtnodes_for_non_packed_nodesEv(ptr noundef nonnull align 8 dereferenceable(2088) %0)
@@ -204,7 +204,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_pa
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next18, %43
-  br i1 %44, label %9, label %._crit_edge15, !llvm.loop !8
+  br i1 %44, label %9, label %._crit_edge15, !llvm.loop !9
 
 ._crit_edge15:                                    ; preds = %._crit_edge, %1
   ret void
@@ -278,7 +278,7 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i: ; preds =
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %.not7.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not7.i.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i, label %49, !llvm.loop !9
+  br i1 %.not7.i.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i, label %49, !llvm.loop !10
 
 49:                                               ; preds = %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 44
@@ -413,7 +413,7 @@ _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %83, %.lr.ph.pre
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next, %126
-  br i1 %127, label %10, label %._crit_edge, !llvm.loop !10
+  br i1 %127, label %10, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %122, %1
   ret void
@@ -456,7 +456,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_vector_vtn
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %33, %10
   %.in = phi ptr [ %34, %33 ], [ %25, %10 ]
-  %26 = load ptr, ptr %.in, align 8, !nonnull !11, !noundef !11
+  %26 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %22
   br i1 %28, label %29, label %33
@@ -1110,7 +1110,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %437 = load i32, ptr %432, align 8
   %438 = zext i32 %437 to i64
   %439 = icmp samesign ult i64 %indvars.iv.next, %438
-  br i1 %439, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %439, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %431
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -1119,7 +1119,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %442 = load i32, ptr %441, align 4
   %443 = sext i32 %442 to i64
   %444 = icmp slt i64 %indvars.iv.next115, %443
-  br i1 %444, label %10, label %._crit_edge111, !llvm.loop !13
+  br i1 %444, label %10, label %._crit_edge111, !llvm.loop !14
 
 ._crit_edge111:                                   ; preds = %._crit_edge, %2
   ret void
@@ -1156,7 +1156,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_scalar_vtn
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %29, %9
   %.in = phi ptr [ %30, %29 ], [ %21, %9 ]
-  %22 = load ptr, ptr %.in, align 8, !nonnull !11, !noundef !11
+  %22 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %18
   br i1 %24, label %25, label %29
@@ -1459,7 +1459,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %211 = load i32, ptr %210, align 4
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %indvars.iv.next, %212
-  br i1 %213, label %9, label %._crit_edge, !llvm.loop !14
+  br i1 %213, label %9, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %208, %2
   ret void
@@ -1626,7 +1626,7 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %49, %
   %97 = add nuw i32 %.06.i, 1
   %98 = load i32, ptr %3, align 8
   %99 = icmp ult i32 %97, %98
-  br i1 %99, label %89, label %_ZN20VTransformVectorNode9set_nodesEPK9Node_List.exit, !llvm.loop !15
+  br i1 %99, label %89, label %_ZN20VTransformVectorNode9set_nodesEPK9Node_List.exit, !llvm.loop !16
 
 _ZN20VTransformVectorNode9set_nodesEPK9Node_List.exit: ; preds = %89, %86
   ret ptr %.0
@@ -1857,7 +1857,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %58 = phi i32 [ %15, %14 ], [ %.pre, %_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti.exit ]
   %59 = add nuw i32 %.011, 1
   %60 = icmp ult i32 %59, %58
-  br i1 %60, label %14, label %._crit_edge, !llvm.loop !16
+  br i1 %60, label %14, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %57, %4
   ret void
@@ -1932,7 +1932,7 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i: ; preds = %
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %.not7.i.i.i = icmp eq ptr %52, null
-  br i1 %.not7.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i, label %53, !llvm.loop !9
+  br i1 %.not7.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i, label %53, !llvm.loop !10
 
 53:                                               ; preds = %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 44
@@ -2001,7 +2001,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %19, %_ZNK14PhaseIde
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not.i.i.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 95:                                               ; preds = %88
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -2123,7 +2123,7 @@ _ZN14VTransformNode14add_dependencyEPS_.exit:     ; preds = %_ZN26GrowableArrayW
   call void @_ZN20VLoopDependencyGraph13PredsIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #8
   %164 = load ptr, ptr %8, align 8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %._crit_edge, label %19, !llvm.loop !18
+  br i1 %165, label %._crit_edge, label %19, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %163, %4
   ret void
@@ -2215,7 +2215,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %54 = phi i32 [ %11, %10 ], [ %.pre, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit ]
   %55 = add nuw i32 %.010, 1
   %56 = icmp ult i32 %55, %54
-  br i1 %56, label %10, label %._crit_edge, !llvm.loop !19
+  br i1 %56, label %10, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %53, %4
   ret void
@@ -2255,7 +2255,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_a
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 _ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit: ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2393,7 +2393,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2442,7 +2442,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i68 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i.i68, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i68, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !18
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -2487,7 +2487,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not.i.i.i.i.i72 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i.i.i72, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i71, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i72, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i71, !llvm.loop !18
 
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -3139,7 +3139,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !20
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3155,7 +3155,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !21
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !22
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3225,19 +3225,20 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

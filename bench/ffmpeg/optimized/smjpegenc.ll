@@ -70,12 +70,12 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
 
 28:                                               ; preds = %.lr.ph66, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %57 ]
-  %29 = load ptr, ptr %10, align 8, !tbaa !31
+  %29 = load ptr, ptr %10, align 8, !tbaa !32
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !34
-  %34 = load i32, ptr %33, align 8, !tbaa !41
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  %34 = load i32, ptr %33, align 8, !tbaa !42
   switch i32 %34, label %57 [
     i32 1, label %35
     i32 0, label %47
@@ -83,7 +83,7 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !44
+  %37 = load i32, ptr %36, align 4, !tbaa !45
   %38 = tail call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_smjpeg_audio_tags, i32 noundef %37) #4
   %.not63 = icmp eq i32 %38, 0
   br i1 %.not63, label %39, label %40
@@ -96,19 +96,19 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1145983839) #4
   tail call void @avio_wb32(ptr noundef %3, i32 noundef 8) #4
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 152
-  %42 = load i32, ptr %41, align 8, !tbaa !45
+  %42 = load i32, ptr %41, align 8, !tbaa !46
   tail call void @avio_wb16(ptr noundef %3, i32 noundef %42) #4
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  %44 = load i32, ptr %43, align 8, !tbaa !46
+  %44 = load i32, ptr %43, align 8, !tbaa !47
   tail call void @avio_w8(ptr noundef %3, i32 noundef %44) #4
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 132
-  %46 = load i32, ptr %45, align 4, !tbaa !47
+  %46 = load i32, ptr %45, align 4, !tbaa !48
   tail call void @avio_w8(ptr noundef %3, i32 noundef %46) #4
   br label %.sink.split
 
 47:                                               ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !44
+  %49 = load i32, ptr %48, align 4, !tbaa !45
   %50 = tail call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_smjpeg_video_tags, i32 noundef %49) #4
   %.not62 = icmp eq i32 %50, 0
   br i1 %.not62, label %51, label %52
@@ -122,10 +122,10 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
   tail call void @avio_wb32(ptr noundef %3, i32 noundef 12) #4
   tail call void @avio_wb32(ptr noundef %3, i32 noundef 0) #4
   %53 = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %54 = load i32, ptr %53, align 8, !tbaa !48
+  %54 = load i32, ptr %53, align 8, !tbaa !49
   tail call void @avio_wb16(ptr noundef %3, i32 noundef %54) #4
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 76
-  %56 = load i32, ptr %55, align 4, !tbaa !49
+  %56 = load i32, ptr %55, align 4, !tbaa !50
   tail call void @avio_wb16(ptr noundef %3, i32 noundef %56) #4
   br label %.sink.split
 
@@ -140,7 +140,7 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
   %58 = load i32, ptr %8, align 4, !tbaa !25
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %28, label %._crit_edge, !llvm.loop !50
+  br i1 %60, label %28, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %57, %.preheader
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1145980232) #4
@@ -154,19 +154,19 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @smjpeg_write_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !52
+  %10 = load i32, ptr %9, align 4, !tbaa !53
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
-  %16 = load i32, ptr %15, align 8, !tbaa !41
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %16 = load i32, ptr %15, align 8, !tbaa !42
   switch i32 %16, label %35 [
     i32 1, label %18
     i32 0, label %17
@@ -179,25 +179,25 @@ define internal noundef i32 @smjpeg_write_packet(ptr noundef readonly captures(n
   %.sink = phi i32 [ 1147431286, %17 ], [ 1147432563, %2 ]
   tail call void @avio_wl32(ptr noundef %6, i32 noundef %.sink) #4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !53
+  %20 = load i64, ptr %19, align 8, !tbaa !54
   %21 = trunc i64 %20 to i32
   tail call void @avio_wb32(ptr noundef %6, i32 noundef %21) #4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = load i32, ptr %22, align 8, !tbaa !54
+  %23 = load i32, ptr %22, align 8, !tbaa !55
   tail call void @avio_wb32(ptr noundef %6, i32 noundef %23) #4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !55
-  %26 = load i32, ptr %22, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
+  %26 = load i32, ptr %22, align 8, !tbaa !55
   tail call void @avio_write(ptr noundef %6, ptr noundef %25, i32 noundef %26) #4
-  %27 = load i32, ptr %4, align 4, !tbaa !56
+  %27 = load i32, ptr %4, align 4, !tbaa !57
   %28 = zext i32 %27 to i64
-  %29 = load i64, ptr %19, align 8, !tbaa !53
+  %29 = load i64, ptr %19, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = load i64, ptr %30, align 8, !tbaa !58
+  %31 = load i64, ptr %30, align 8, !tbaa !59
   %32 = add nsw i64 %31, %29
   %33 = tail call i64 @llvm.smax.i64(i64 %32, i64 %28)
   %34 = trunc i64 %33 to i32
-  store i32 %34, ptr %4, align 4, !tbaa !56
+  store i32 %34, ptr %4, align 4, !tbaa !57
   br label %35
 
 35:                                               ; preds = %2, %18
@@ -209,17 +209,17 @@ define internal noundef i32 @smjpeg_write_trailer(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %5 = load i32, ptr %4, align 8, !tbaa !59
+  %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = tail call i64 @avio_seek(ptr noundef nonnull %3, i64 noundef 0, i32 noundef 1) #4
   %11 = tail call i64 @avio_seek(ptr noundef nonnull %3, i64 noundef 12, i32 noundef 0) #4
-  %12 = load i32, ptr %9, align 4, !tbaa !56
+  %12 = load i32, ptr %9, align 4, !tbaa !57
   tail call void @avio_wb32(ptr noundef nonnull %3, i32 noundef %12) #4
   %13 = tail call i64 @avio_seek(ptr noundef nonnull %3, i64 noundef %10, i32 noundef 0) #4
   br label %14
@@ -295,35 +295,36 @@ attributes #5 = { nounwind willreturn memory(read) }
 !26 = !{!27, !18, i64 0}
 !27 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
 !28 = !{!27, !18, i64 8}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!5, !14, i64 48}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!34 = !{!35, !36, i64 16}
-!35 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !36, i64 16, !7, i64 24, !37, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !37, i64 72, !21, i64 80, !37, i64 88, !38, i64 96, !13, i64 200, !37, i64 204, !13, i64 212}
-!36 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!37 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!38 = !{!"AVPacket", !39, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !40, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !39, i64 88, !37, i64 96}
-!39 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!40 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!41 = !{!42, !13, i64 0}
-!42 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !40, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !37, i64 80, !37, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !43, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!43 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
-!44 = !{!42, !13, i64 4}
-!45 = !{!42, !13, i64 152}
-!46 = !{!42, !13, i64 56}
-!47 = !{!42, !13, i64 132}
-!48 = !{!42, !13, i64 72}
-!49 = !{!42, !13, i64 76}
-!50 = distinct !{!50, !30}
-!51 = !{!5, !7, i64 24}
-!52 = !{!38, !13, i64 36}
-!53 = !{!38, !19, i64 8}
-!54 = !{!38, !13, i64 32}
-!55 = !{!38, !18, i64 24}
-!56 = !{!57, !13, i64 0}
-!57 = !{!"SMJPEGMuxContext", !13, i64 0}
-!58 = !{!38, !19, i64 64}
-!59 = !{!60, !13, i64 144}
-!60 = !{!"AVIOContext", !6, i64 0, !18, i64 8, !13, i64 16, !18, i64 24, !18, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !19, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !19, i64 104, !18, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !13, i64 144, !13, i64 148, !18, i64 152, !18, i64 160, !7, i64 168, !13, i64 176, !18, i64 184, !19, i64 192, !19, i64 200}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!5, !14, i64 48}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!35 = !{!36, !37, i64 16}
+!36 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !37, i64 16, !7, i64 24, !38, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !38, i64 72, !21, i64 80, !38, i64 88, !39, i64 96, !13, i64 200, !38, i64 204, !13, i64 212}
+!37 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!38 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!39 = !{!"AVPacket", !40, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !41, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !40, i64 88, !38, i64 96}
+!40 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!41 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!42 = !{!43, !13, i64 0}
+!43 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !41, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !38, i64 80, !38, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !44, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!44 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
+!45 = !{!43, !13, i64 4}
+!46 = !{!43, !13, i64 152}
+!47 = !{!43, !13, i64 56}
+!48 = !{!43, !13, i64 132}
+!49 = !{!43, !13, i64 72}
+!50 = !{!43, !13, i64 76}
+!51 = distinct !{!51, !30, !31}
+!52 = !{!5, !7, i64 24}
+!53 = !{!39, !13, i64 36}
+!54 = !{!39, !19, i64 8}
+!55 = !{!39, !13, i64 32}
+!56 = !{!39, !18, i64 24}
+!57 = !{!58, !13, i64 0}
+!58 = !{!"SMJPEGMuxContext", !13, i64 0}
+!59 = !{!39, !19, i64 64}
+!60 = !{!61, !13, i64 144}
+!61 = !{!"AVIOContext", !6, i64 0, !18, i64 8, !13, i64 16, !18, i64 24, !18, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !19, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !19, i64 104, !18, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !13, i64 144, !13, i64 148, !18, i64 152, !18, i64 160, !7, i64 168, !13, i64 176, !18, i64 184, !19, i64 192, !19, i64 200}

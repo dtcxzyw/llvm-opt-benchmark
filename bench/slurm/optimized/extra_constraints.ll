@@ -128,7 +128,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @extra_constraints_enabled() local_unnamed_addr #2 {
-  %1 = load i8, ptr @extra_constraints_parsing, align 1, !range !11, !noundef !12
+  %1 = load i8, ptr @extra_constraints_parsing, align 1, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
@@ -201,7 +201,7 @@ _free_null_elem.exit14:                           ; preds = %.lr.ph, %22
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %_free_null_elem.exit12, !llvm.loop !13
+  br i1 %32, label %.lr.ph, label %_free_null_elem.exit12, !llvm.loop !14
 
 .sink.split:                                      ; preds = %_free_null_elem.exit, %_free_null_elem.exit12
   %.sink = phi ptr [ %0, %_free_null_elem.exit12 ], [ %11, %_free_null_elem.exit ]
@@ -230,7 +230,7 @@ define dso_local range(i32 0, 2172) i32 @extra_constraints_parse(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %.not = icmp ne ptr %0, null
-  %8 = load i8, ptr @extra_constraints_parsing, align 1, !range !11
+  %8 = load i8, ptr @extra_constraints_parsing, align 1, !range !12
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %.not, i1 %9, i1 false
   br i1 %or.cond, label %10, label %23
@@ -358,7 +358,7 @@ _add_child.exit:                                  ; preds = %24, %26, %29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %0, align 8
   tail call fastcc void @_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3)
-  br label %160, !llvm.loop !14
+  br label %160, !llvm.loop !15
 
 42:                                               ; preds = %12
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -408,7 +408,7 @@ _add_child.exit:                                  ; preds = %24, %26, %29
   %61 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 1
   %62 = load i8, ptr %61, align 1
   %.not.i78 = icmp eq i8 %62, 0
-  br i1 %.not.i78, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i78, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %60, %.lr.ph.._crit_edge.loopexit_crit_edge.i, %54
   %63 = phi i8 [ 0, %54 ], [ %.pre.pre.i, %.lr.ph.._crit_edge.loopexit_crit_edge.i ], [ 0, %60 ]
@@ -419,7 +419,7 @@ _add_child.exit:                                  ; preds = %24, %26, %29
 64:                                               ; preds = %65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_str2op.exit.thread, label %65, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_str2op.exit.thread, label %65, !llvm.loop !17
 
 _str2op.exit.thread:                              ; preds = %64
   store i8 %63, ptr %.021.lcssa.i, align 1
@@ -458,7 +458,7 @@ _str2op.exit.thread89:                            ; preds = %72, %_str2op.exit.t
 75:                                               ; preds = %_str2op.exit.thread89
   store i32 %73, ptr %2, align 8
   store ptr %.021.lcssa.i, ptr %0, align 8
-  br label %160, !llvm.loop !14
+  br label %160, !llvm.loop !15
 
 76:                                               ; preds = %49
   %77 = trunc nuw i8 %.059173 to i1
@@ -486,7 +486,7 @@ _str2op.exit.thread89:                            ; preds = %72, %_str2op.exit.t
   %87 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %88 = load i8, ptr %87, align 1
   %.not.i81 = icmp eq i8 %88, 0
-  br i1 %.not.i81, label %_find_leaf_end.exit, label %.lr.ph.i79, !llvm.loop !17
+  br i1 %.not.i81, label %_find_leaf_end.exit, label %.lr.ph.i79, !llvm.loop !18
 
 _find_leaf_end.exit:                              ; preds = %86, %.lr.ph.i79, %78
   %89 = phi i8 [ 0, %78 ], [ 0, %86 ], [ %84, %.lr.ph.i79 ]
@@ -521,7 +521,7 @@ _find_leaf_end.exit:                              ; preds = %86, %.lr.ph.i79, %7
   %101 = getelementptr inbounds nuw i8, ptr %.01539.i, i64 1
   %102 = load i8, ptr %101, align 1
   %.not19.i = icmp eq i8 %102, 0
-  br i1 %.not19.i, label %.loopexit101.sink.split, label %.lr.ph.i83, !llvm.loop !18
+  br i1 %.not19.i, label %.loopexit101.sink.split, label %.lr.ph.i83, !llvm.loop !19
 
 103:                                              ; preds = %.lr.ph.i83
   %.pr.i = load i8, ptr %.01539.i, align 1
@@ -544,7 +544,7 @@ _find_leaf_end.exit:                              ; preds = %86, %.lr.ph.i79, %7
   %109 = getelementptr inbounds nuw i8, ptr %.02126.i.i, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i.i = icmp eq i8 %110, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %108, %.lr.ph.._crit_edge.loopexit_crit_edge.i.i
   %111 = phi i8 [ %.pre.pre.i.i, %.lr.ph.._crit_edge.loopexit_crit_edge.i.i ], [ 0, %108 ]
@@ -555,7 +555,7 @@ _find_leaf_end.exit:                              ; preds = %86, %.lr.ph.i79, %7
 112:                                              ; preds = %113
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %_str2op.exit.thread.i, label %113, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %_str2op.exit.thread.i, label %113, !llvm.loop !17
 
 _str2op.exit.thread.i:                            ; preds = %112
   store i8 %111, ptr %.021.lcssa.i.i, align 1
@@ -607,7 +607,7 @@ _str2op.exit.thread31.i:                          ; preds = %_str2op.exit.thread
   %130 = getelementptr inbounds nuw i8, ptr %.0611.i.i, i64 1
   %.pr.i.i = load i8, ptr %130, align 1
   %.not9.i.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not9.i.i, label %_valid_key_value.exit.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not9.i.i, label %_valid_key_value.exit.i, label %.preheader.i.i, !llvm.loop !20
 
 _valid_key_value.exit.i:                          ; preds = %129
   %131 = load i8, ptr %.021.lcssa.i.i, align 1
@@ -626,7 +626,7 @@ _valid_key_value.exit.i:                          ; preds = %129
   %137 = getelementptr inbounds nuw i8, ptr %.0611.i24.i, i64 1
   %.pr.i27.i = load i8, ptr %137, align 1
   %.not9.i28.i = icmp eq i8 %.pr.i27.i, 0
-  br i1 %.not9.i28.i, label %138, label %.preheader.i23.i, !llvm.loop !19
+  br i1 %.not9.i28.i, label %138, label %.preheader.i23.i, !llvm.loop !20
 
 .loopexit101.sink.split:                          ; preds = %_str2op.exit.thread31.i, %123, %_valid_key_value.exit.i, %120, %94, %103, %100, %.preheader.i.i, %.preheader.i23.i, %_str2op.exit.thread.i
   call void @slurm_xfree(ptr noundef nonnull %5) #6
@@ -721,7 +721,7 @@ define dso_local void @extra_constraints_set_parsing(i1 noundef zeroext %0) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @extra_constraints_test(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr @extra_constraints_parsing, align 1, !range !11, !noundef !12
+  %3 = load i8, ptr @extra_constraints_parsing, align 1, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %.not = icmp ne ptr %0, null
   %or.cond.not = and i1 %.not, %4
@@ -923,7 +923,7 @@ _compare.exit:                                    ; preds = %52, %.sink.split.i
   %80 = load i32, ptr %4, align 8
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %70, label %_test.exit, !llvm.loop !20
+  br i1 %82, label %70, label %_test.exit, !llvm.loop !21
 
 _test.exit:                                       ; preds = %78, %77, %79, %.preheader, %68, %66, %64, %62, %60, %58, %56, %8, %_compare.exit, %2
   %.023 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_compare.exit ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ false, %68 ], [ false, %.preheader ], [ false, %78 ], [ true, %77 ], [ %74, %79 ]
@@ -981,16 +981,17 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10, !11}
 !15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

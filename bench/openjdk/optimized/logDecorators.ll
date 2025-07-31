@@ -154,7 +154,7 @@ _ZN13LogDecorators11from_stringEPKc.exit.thread:  ; preds = %_ZN13LogDecorators1
   %31 = shl nuw i32 1, %.0.i
   %32 = or i32 %31, %.024
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  br i1 %.not, label %34, label %14, !llvm.loop !8
+  br i1 %.not, label %34, label %14, !llvm.loop !9
 
 .thread:                                          ; preds = %29, %_ZN13LogDecorators11from_stringEPKc.exit.thread
   tail call void @_ZN2os4freeEPv(ptr noundef %13) #6
@@ -195,6 +195,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

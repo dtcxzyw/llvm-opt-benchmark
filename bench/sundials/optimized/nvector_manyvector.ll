@@ -122,12 +122,12 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr noundef readonly captures(none
   %60 = add nsw i64 %59, %.077
   %61 = add nuw nsw i64 %.276, 1
   %exitcond.not = icmp eq i64 %61, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph78, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %60, %.lr.ph78 ]
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 %.0.lcssa, ptr %62, align 8, !tbaa !66
+  store i64 %.0.lcssa, ptr %62, align 8, !tbaa !68
   ret ptr %4
 }
 
@@ -194,7 +194,7 @@ define void @N_VDestroy_ManyVector(ptr noundef captures(address_is_null) %0) #0 
   %21 = add nuw nsw i64 %.024, 1
   %22 = load i64, ptr %17, align 8, !tbaa !57
   %23 = icmp slt i64 %21, %22
-  br i1 %23, label %.lr.ph, label %.loopexit
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %.preheader, %11
   %24 = phi ptr [ %10, %.preheader ], [ null, %11 ], [ %10, %5 ], [ %19, %.lr.ph ]
@@ -228,8 +228,8 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %1, align 8, !tbaa !67
-  store i64 0, ptr %2, align 8, !tbaa !67
+  store i64 0, ptr %1, align 8, !tbaa !70
+  store i64 0, ptr %2, align 8, !tbaa !70
   %6 = load ptr, ptr %0, align 8, !tbaa !56
   %7 = load i64, ptr %6, align 8, !tbaa !57
   %8 = icmp sgt i64 %7, 0
@@ -252,14 +252,14 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
 
 19:                                               ; preds = %.lr.ph
   call void @N_VSpace(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
-  %20 = load i64, ptr %4, align 8, !tbaa !67
-  %21 = load i64, ptr %1, align 8, !tbaa !67
+  %20 = load i64, ptr %4, align 8, !tbaa !70
+  %21 = load i64, ptr %1, align 8, !tbaa !70
   %22 = add nsw i64 %21, %20
-  store i64 %22, ptr %1, align 8, !tbaa !67
-  %23 = load i64, ptr %5, align 8, !tbaa !67
-  %24 = load i64, ptr %2, align 8, !tbaa !67
+  store i64 %22, ptr %1, align 8, !tbaa !70
+  %23 = load i64, ptr %5, align 8, !tbaa !70
+  %24 = load i64, ptr %2, align 8, !tbaa !70
   %25 = add nsw i64 %24, %23
-  store i64 %25, ptr %2, align 8, !tbaa !67
+  store i64 %25, ptr %2, align 8, !tbaa !70
   %.pre = load ptr, ptr %0, align 8, !tbaa !56
   %.pre12 = load i64, ptr %.pre, align 8, !tbaa !57
   br label %26
@@ -269,7 +269,7 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
   %28 = phi ptr [ %10, %.lr.ph ], [ %.pre, %19 ]
   %29 = add nuw nsw i64 %.011, 1
   %30 = icmp slt i64 %29, %27
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %26, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -281,7 +281,7 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
 define i64 @N_VGetLength_ManyVector(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !56
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !66
+  %4 = load i64, ptr %3, align 8, !tbaa !68
   ret i64 %4
 }
 
@@ -314,7 +314,7 @@ define void @N_VLinearSum_ManyVector(double noundef %0, ptr noundef readonly cap
   %25 = load ptr, ptr %1, align 8, !tbaa !56
   %26 = load i64, ptr %25, align 8, !tbaa !57
   %27 = icmp slt i64 %24, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -339,7 +339,7 @@ define void @N_VConst_ManyVector(double noundef %0, ptr noundef readonly capture
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = load i64, ptr %12, align 8, !tbaa !57
   %14 = icmp slt i64 %11, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -374,7 +374,7 @@ define void @N_VProd_ManyVector(ptr noundef readonly captures(none) %0, ptr noun
   %23 = load ptr, ptr %0, align 8, !tbaa !56
   %24 = load i64, ptr %23, align 8, !tbaa !57
   %25 = icmp slt i64 %22, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -409,7 +409,7 @@ define void @N_VDiv_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %23 = load ptr, ptr %0, align 8, !tbaa !56
   %24 = load i64, ptr %23, align 8, !tbaa !57
   %25 = icmp slt i64 %22, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -439,7 +439,7 @@ define void @N_VScale_ManyVector(double noundef %0, ptr noundef readonly capture
   %18 = load ptr, ptr %1, align 8, !tbaa !56
   %19 = load i64, ptr %18, align 8, !tbaa !57
   %20 = icmp slt i64 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -469,7 +469,7 @@ define void @N_VAbs_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = load i64, ptr %17, align 8, !tbaa !57
   %19 = icmp slt i64 %16, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -499,7 +499,7 @@ define void @N_VInv_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = load i64, ptr %17, align 8, !tbaa !57
   %19 = icmp slt i64 %16, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -529,7 +529,7 @@ define void @N_VAddConst_ManyVector(ptr noundef readonly captures(none) %0, doub
   %18 = load ptr, ptr %0, align 8, !tbaa !56
   %19 = load i64, ptr %18, align 8, !tbaa !57
   %20 = icmp slt i64 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -561,7 +561,7 @@ define double @N_VDotProdLocal_ManyVector(ptr noundef readonly captures(none) %0
   %19 = load ptr, ptr %0, align 8, !tbaa !56
   %20 = load i64, ptr %19, align 8, !tbaa !57
   %21 = icmp slt i64 %18, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %17, %.lr.ph ]
@@ -606,7 +606,7 @@ define double @N_VMaxNormLocal_ManyVector(ptr noundef readonly captures(none) %0
   %22 = load ptr, ptr %0, align 8, !tbaa !56
   %23 = load i64, ptr %22, align 8, !tbaa !57
   %24 = icmp slt i64 %21, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %18, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %20, %18 ]
@@ -647,20 +647,20 @@ define double @N_VWrmsNorm_ManyVector(ptr noundef readonly captures(none) %0, pt
   %27 = load ptr, ptr %0, align 8, !tbaa !56
   %28 = load i64, ptr %27, align 8, !tbaa !57
   %29 = icmp slt i64 %26, %28
-  br i1 %29, label %.lr.ph.i, label %N_VWSqrSumLocal_ManyVector.exit
+  br i1 %29, label %.lr.ph.i, label %N_VWSqrSumLocal_ManyVector.exit, !llvm.loop !82
 
 N_VWSqrSumLocal_ManyVector.exit:                  ; preds = %.lr.ph.i, %2
   %30 = phi ptr [ %3, %2 ], [ %27, %.lr.ph.i ]
   %.014.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %25, %.lr.ph.i ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !66
+  %32 = load i64, ptr %31, align 8, !tbaa !68
   %33 = sitofp i64 %32 to double
   %34 = fdiv double %.014.lcssa.i, %33
   %35 = fcmp ugt double %34, 0.000000e+00
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %N_VWSqrSumLocal_ManyVector.exit
-  %37 = tail call double @sqrt(double noundef %34) #12, !tbaa !68
+  %37 = tail call double @sqrt(double noundef %34) #12, !tbaa !83
   br label %38
 
 38:                                               ; preds = %N_VWSqrSumLocal_ManyVector.exit, %36
@@ -707,20 +707,20 @@ define double @N_VWrmsNormMask_ManyVector(ptr noundef readonly captures(none) %0
   %33 = load ptr, ptr %0, align 8, !tbaa !56
   %34 = load i64, ptr %33, align 8, !tbaa !57
   %35 = icmp slt i64 %32, %34
-  br i1 %35, label %.lr.ph.i, label %N_VWSqrSumMaskLocal_ManyVector.exit
+  br i1 %35, label %.lr.ph.i, label %N_VWSqrSumMaskLocal_ManyVector.exit, !llvm.loop !84
 
 N_VWSqrSumMaskLocal_ManyVector.exit:              ; preds = %.lr.ph.i, %3
   %36 = phi ptr [ %4, %3 ], [ %33, %.lr.ph.i ]
   %.016.lcssa.i = phi double [ 0.000000e+00, %3 ], [ %31, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !66
+  %38 = load i64, ptr %37, align 8, !tbaa !68
   %39 = sitofp i64 %38 to double
   %40 = fdiv double %.016.lcssa.i, %39
   %41 = fcmp ugt double %40, 0.000000e+00
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %N_VWSqrSumMaskLocal_ManyVector.exit
-  %43 = tail call double @sqrt(double noundef %40) #12, !tbaa !68
+  %43 = tail call double @sqrt(double noundef %40) #12, !tbaa !83
   br label %44
 
 44:                                               ; preds = %N_VWSqrSumMaskLocal_ManyVector.exit, %42
@@ -766,7 +766,7 @@ define double @N_VMinLocal_ManyVector(ptr noundef readonly captures(none) %0) #0
   %22 = load ptr, ptr %0, align 8, !tbaa !56
   %23 = load i64, ptr %22, align 8, !tbaa !57
   %24 = icmp slt i64 %21, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %18, %1
   %.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %1 ], [ %20, %18 ]
@@ -807,14 +807,14 @@ define double @N_VWL2Norm_ManyVector(ptr noundef readonly captures(none) %0, ptr
   %27 = load ptr, ptr %0, align 8, !tbaa !56
   %28 = load i64, ptr %27, align 8, !tbaa !57
   %29 = icmp slt i64 %26, %28
-  br i1 %29, label %.lr.ph.i, label %N_VWSqrSumLocal_ManyVector.exit
+  br i1 %29, label %.lr.ph.i, label %N_VWSqrSumLocal_ManyVector.exit, !llvm.loop !82
 
 N_VWSqrSumLocal_ManyVector.exit:                  ; preds = %.lr.ph.i
   %30 = fcmp ugt double %25, 0.000000e+00
   br i1 %30, label %31, label %N_VWSqrSumLocal_ManyVector.exit.thread
 
 31:                                               ; preds = %N_VWSqrSumLocal_ManyVector.exit
-  %32 = tail call double @sqrt(double noundef %25) #12, !tbaa !68
+  %32 = tail call double @sqrt(double noundef %25) #12, !tbaa !83
   br label %N_VWSqrSumLocal_ManyVector.exit.thread
 
 N_VWSqrSumLocal_ManyVector.exit.thread:           ; preds = %2, %N_VWSqrSumLocal_ManyVector.exit, %31
@@ -843,7 +843,7 @@ define double @N_VL1NormLocal_ManyVector(ptr noundef readonly captures(none) %0)
   %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = load i64, ptr %13, align 8, !tbaa !57
   %15 = icmp slt i64 %12, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %11, %.lr.ph ]
@@ -874,7 +874,7 @@ define void @N_VCompare_ManyVector(double noundef %0, ptr noundef readonly captu
   %18 = load ptr, ptr %1, align 8, !tbaa !56
   %19 = load i64, ptr %18, align 8, !tbaa !57
   %20 = icmp slt i64 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -923,7 +923,7 @@ define range(i32 0, 2) i32 @N_VInvTestLocal_ManyVector(ptr noundef readonly capt
   %28 = load ptr, ptr %0, align 8, !tbaa !56
   %29 = load i64, ptr %28, align 8, !tbaa !57
   %30 = icmp slt i64 %27, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !88
 
 ._crit_edge.loopexit:                             ; preds = %24
   %.1 = zext i1 %26 to i32
@@ -982,7 +982,7 @@ define range(i32 0, 2) i32 @N_VConstrMaskLocal_ManyVector(ptr noundef readonly c
   %34 = load ptr, ptr %1, align 8, !tbaa !56
   %35 = load i64, ptr %34, align 8, !tbaa !57
   %36 = icmp slt i64 %33, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %30
   %.1 = zext i1 %32 to i32
@@ -1036,7 +1036,7 @@ define double @N_VMinQuotientLocal_ManyVector(ptr noundef readonly captures(none
   %28 = load ptr, ptr %0, align 8, !tbaa !56
   %29 = load i64, ptr %28, align 8, !tbaa !57
   %30 = icmp slt i64 %27, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %24, %2
   %.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %2 ], [ %26, %24 ]
@@ -1075,7 +1075,7 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
   store ptr %20, ptr %21, align 8, !tbaa !64
   %22 = add nuw nsw i64 %.019.us, 1
   %exitcond.not = icmp eq i64 %22, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %13
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1087,7 +1087,7 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
   %29 = load ptr, ptr %3, align 8, !tbaa !56
   %30 = load i64, ptr %29, align 8, !tbaa !57
   %31 = icmp slt i64 %28, %30
-  br i1 %31, label %.preheader.us, label %._crit_edge21, !llvm.loop !69
+  br i1 %31, label %.preheader.us, label %._crit_edge21, !llvm.loop !92
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %32 = phi ptr [ %39, %.preheader ], [ %8, %.preheader.lr.ph ]
@@ -1101,7 +1101,7 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
   %39 = load ptr, ptr %3, align 8, !tbaa !56
   %40 = load i64, ptr %39, align 8, !tbaa !57
   %41 = icmp slt i64 %38, %40
-  br i1 %41, label %.preheader, label %._crit_edge21
+  br i1 %41, label %.preheader, label %._crit_edge21, !llvm.loop !94
 
 ._crit_edge21:                                    ; preds = %.preheader, %._crit_edge.us, %4
   tail call void @free(ptr noundef %7) #12
@@ -1150,7 +1150,7 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
   store ptr %30, ptr %31, align 8, !tbaa !64
   %32 = add nuw nsw i64 %.027.us, 1
   %exitcond.not = icmp eq i64 %32, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %15
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1162,7 +1162,7 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
   %39 = load ptr, ptr %2, align 8, !tbaa !56
   %40 = load i64, ptr %39, align 8, !tbaa !57
   %41 = icmp slt i64 %38, %40
-  br i1 %41, label %.preheader.us, label %._crit_edge29, !llvm.loop !71
+  br i1 %41, label %.preheader.us, label %._crit_edge29, !llvm.loop !96
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %42 = phi ptr [ %49, %.preheader ], [ %10, %.preheader.lr.ph ]
@@ -1176,7 +1176,7 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
   %49 = load ptr, ptr %2, align 8, !tbaa !56
   %50 = load i64, ptr %49, align 8, !tbaa !57
   %51 = icmp slt i64 %48, %50
-  br i1 %51, label %.preheader, label %._crit_edge29
+  br i1 %51, label %.preheader, label %._crit_edge29, !llvm.loop !97
 
 ._crit_edge29:                                    ; preds = %.preheader, %._crit_edge.us, %5
   tail call void @free(ptr noundef %8) #12
@@ -1196,10 +1196,10 @@ define noundef i32 @N_VDotProdMulti_ManyVector(i32 noundef %0, ptr noundef %1, p
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   %9 = tail call double @N_VDotProdLocal(ptr noundef %1, ptr noundef %8) #12
   %10 = getelementptr inbounds nuw double, ptr %3, i64 %.08
-  store double %9, ptr %10, align 8, !tbaa !72
+  store double %9, ptr %10, align 8, !tbaa !98
   %11 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret i32 0
@@ -1219,35 +1219,35 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nounde
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = tail call double @N_VWSqrSumLocal(ptr noundef %8, ptr noundef %10) #12
   %12 = getelementptr inbounds nuw double, ptr %3, i64 %.024
-  store double %11, ptr %12, align 8, !tbaa !72
+  store double %11, ptr %12, align 8, !tbaa !98
   %13 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %13, %5
-  br i1 %exitcond.not, label %.lr.ph26, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph26, label %.lr.ph, !llvm.loop !101
 
 .lr.ph26:                                         ; preds = %.lr.ph, %26
   %.125 = phi i64 [ %28, %26 ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds nuw double, ptr %3, i64 %.125
-  %15 = load double, ptr %14, align 8, !tbaa !72
+  %15 = load double, ptr %14, align 8, !tbaa !98
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.125
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !66
+  %20 = load i64, ptr %19, align 8, !tbaa !68
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %15, %21
   %23 = fcmp ugt double %22, 0.000000e+00
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph26
-  %25 = tail call double @sqrt(double noundef %22) #12, !tbaa !68
+  %25 = tail call double @sqrt(double noundef %22) #12, !tbaa !83
   br label %26
 
 26:                                               ; preds = %.lr.ph26, %24
   %27 = phi double [ %25, %24 ], [ 0.000000e+00, %.lr.ph26 ]
-  store double %27, ptr %14, align 8, !tbaa !72
+  store double %27, ptr %14, align 8, !tbaa !98
   %28 = add nuw nsw i64 %.125, 1
   %exitcond27.not = icmp eq i64 %28, %5
-  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph26
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %26, %4
   ret i32 0
@@ -1267,35 +1267,35 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = tail call double @N_VWSqrSumMaskLocal(ptr noundef %9, ptr noundef %11, ptr noundef %3) #12
   %13 = getelementptr inbounds nuw double, ptr %4, i64 %.025
-  store double %12, ptr %13, align 8, !tbaa !72
+  store double %12, ptr %13, align 8, !tbaa !98
   %14 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %14, %6
-  br i1 %exitcond.not, label %.lr.ph27, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph27, label %.lr.ph, !llvm.loop !103
 
 .lr.ph27:                                         ; preds = %.lr.ph, %27
   %.126 = phi i64 [ %29, %27 ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds nuw double, ptr %4, i64 %.126
-  %16 = load double, ptr %15, align 8, !tbaa !72
+  %16 = load double, ptr %15, align 8, !tbaa !98
   %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %.126
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !66
+  %21 = load i64, ptr %20, align 8, !tbaa !68
   %22 = sitofp i64 %21 to double
   %23 = fdiv double %16, %22
   %24 = fcmp ugt double %23, 0.000000e+00
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph27
-  %26 = tail call double @sqrt(double noundef %23) #12, !tbaa !68
+  %26 = tail call double @sqrt(double noundef %23) #12, !tbaa !83
   br label %27
 
 27:                                               ; preds = %.lr.ph27, %25
   %28 = phi double [ %26, %25 ], [ 0.000000e+00, %.lr.ph27 ]
-  store double %28, ptr %15, align 8, !tbaa !72
+  store double %28, ptr %15, align 8, !tbaa !98
   %29 = add nuw nsw i64 %.126, 1
   %exitcond28.not = icmp eq i64 %29, %6
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph27
+  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph27, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %27, %5
   ret i32 0
@@ -1335,7 +1335,7 @@ define double @N_VWSqrSumLocal_ManyVector(ptr noundef readonly captures(none) %0
   %27 = load ptr, ptr %0, align 8, !tbaa !56
   %28 = load i64, ptr %27, align 8, !tbaa !57
   %29 = icmp slt i64 %26, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.014.lcssa = phi double [ 0.000000e+00, %2 ], [ %25, %.lr.ph ]
@@ -1381,7 +1381,7 @@ define double @N_VWSqrSumMaskLocal_ManyVector(ptr noundef readonly captures(none
   %33 = load ptr, ptr %0, align 8, !tbaa !56
   %34 = load i64, ptr %33, align 8, !tbaa !57
   %35 = icmp slt i64 %32, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.016.lcssa = phi double [ 0.000000e+00, %3 ], [ %31, %.lr.ph ]
@@ -1400,7 +1400,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 .preheader34:                                     ; preds = %4
   %10 = zext nneg i32 %0 to i64
   %11 = shl nuw nsw i64 %10, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %11, i1 false), !tbaa !72
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %11, i1 false), !tbaa !98
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = load i64, ptr %12, align 8, !tbaa !57
   %14 = icmp sgt i64 %13, 0
@@ -1426,19 +1426,19 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
   %20 = load ptr, ptr %1, align 8, !tbaa !56
   %21 = load i64, ptr %20, align 8, !tbaa !57
   %22 = icmp slt i64 %19, %21
-  br i1 %22, label %.preheader.us, label %._crit_edge43, !llvm.loop !74
+  br i1 %22, label %.preheader.us, label %._crit_edge43, !llvm.loop !105
 
 .lr.ph40.us:                                      ; preds = %.lr.ph40.us.preheader, %.lr.ph40.us
   %indvars.iv52 = phi i64 [ 0, %.lr.ph40.us.preheader ], [ %indvars.iv.next53, %.lr.ph40.us ]
   %23 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv52
-  %24 = load double, ptr %23, align 8, !tbaa !72
+  %24 = load double, ptr %23, align 8, !tbaa !98
   %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv52
-  %26 = load double, ptr %25, align 8, !tbaa !72
+  %26 = load double, ptr %25, align 8, !tbaa !98
   %27 = fadd double %24, %26
-  store double %27, ptr %25, align 8, !tbaa !72
+  store double %27, ptr %25, align 8, !tbaa !98
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge41.us, label %.lr.ph40.us
+  br i1 %exitcond56.not, label %._crit_edge41.us, label %.lr.ph40.us, !llvm.loop !106
 
 28:                                               ; preds = %.preheader.us, %28
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %28 ]
@@ -1453,7 +1453,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
   store ptr %35, ptr %36, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph40.us.preheader, label %28
+  br i1 %exitcond.not, label %.lr.ph40.us.preheader, label %28, !llvm.loop !107
 
 .lr.ph40.us.preheader:                            ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1475,7 +1475,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
   %49 = load ptr, ptr %1, align 8, !tbaa !56
   %50 = load i64, ptr %49, align 8, !tbaa !57
   %51 = icmp slt i64 %48, %50
-  br i1 %51, label %.preheader, label %._crit_edge43
+  br i1 %51, label %.preheader, label %._crit_edge43, !llvm.loop !108
 
 ._crit_edge43:                                    ; preds = %.preheader, %._crit_edge41.us, %.preheader34.thread, %.preheader34
   tail call void @free(ptr noundef %7) #12
@@ -1487,7 +1487,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 define noundef i32 @N_VBufSize_ManyVector(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store i64 0, ptr %1, align 8, !tbaa !67
+  store i64 0, ptr %1, align 8, !tbaa !70
   %4 = load ptr, ptr %0, align 8, !tbaa !56
   %5 = load i64, ptr %4, align 8, !tbaa !57
   %6 = icmp sgt i64 %5, 0
@@ -1501,15 +1501,15 @@ define noundef i32 @N_VBufSize_ManyVector(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.07
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = call i32 @N_VBufSize(ptr noundef %11, ptr noundef nonnull %3) #12
-  %13 = load i64, ptr %3, align 8, !tbaa !67
-  %14 = load i64, ptr %1, align 8, !tbaa !67
+  %13 = load i64, ptr %3, align 8, !tbaa !70
+  %14 = load i64, ptr %1, align 8, !tbaa !70
   %15 = add nsw i64 %14, %13
-  store i64 %15, ptr %1, align 8, !tbaa !67
+  store i64 %15, ptr %1, align 8, !tbaa !70
   %16 = add nuw nsw i64 %.07, 1
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = load i64, ptr %17, align 8, !tbaa !57
   %19 = icmp slt i64 %16, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -1540,13 +1540,13 @@ define noundef i32 @N_VBufPack_ManyVector(ptr noundef readonly captures(none) %0
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.012
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = call i32 @N_VBufSize(ptr noundef %17, ptr noundef nonnull %3) #12
-  %19 = load i64, ptr %3, align 8, !tbaa !67
+  %19 = load i64, ptr %3, align 8, !tbaa !70
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
   %21 = add nuw nsw i64 %.012, 1
   %22 = load ptr, ptr %0, align 8, !tbaa !56
   %23 = load i64, ptr %22, align 8, !tbaa !57
   %24 = icmp slt i64 %21, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -1577,13 +1577,13 @@ define noundef i32 @N_VBufUnpack_ManyVector(ptr noundef readonly captures(none) 
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.012
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = call i32 @N_VBufSize(ptr noundef %17, ptr noundef nonnull %3) #12
-  %19 = load i64, ptr %3, align 8, !tbaa !67
+  %19 = load i64, ptr %3, align 8, !tbaa !70
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
   %21 = add nuw nsw i64 %.012, 1
   %22 = load ptr, ptr %0, align 8, !tbaa !56
   %23 = load i64, ptr %22, align 8, !tbaa !57
   %24 = icmp slt i64 %21, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -1609,7 +1609,7 @@ define void @N_VPrint_ManyVector(ptr noundef readonly captures(none) %0) #0 {
   %11 = load ptr, ptr %0, align 8, !tbaa !56
   %12 = load i64, ptr %11, align 8, !tbaa !57
   %13 = icmp slt i64 %10, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1634,7 +1634,7 @@ define void @N_VPrintFile_ManyVector(ptr noundef readonly captures(none) %0, ptr
   %12 = load ptr, ptr %0, align 8, !tbaa !56
   %13 = load i64, ptr %12, align 8, !tbaa !57
   %14 = icmp slt i64 %11, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1668,7 +1668,7 @@ define ptr @N_VGetSubvectorArrayPointer_ManyVector(ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !114
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
 
@@ -1710,7 +1710,7 @@ declare void @N_VPrintFile(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = tail call ptr @N_VNewEmpty(ptr noundef %4) #12
   %6 = tail call i32 @N_VCopyOps(ptr noundef %0, ptr noundef %5) #12
   %7 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -1719,9 +1719,9 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   %9 = load i64, ptr %8, align 8, !tbaa !57
   store i64 %9, ptr %7, align 8, !tbaa !57
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !66
+  %11 = load i64, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %11, ptr %12, align 8, !tbaa !66
+  store i64 %11, ptr %12, align 8, !tbaa !68
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %13, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1750,7 +1750,7 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   %26 = add nuw nsw i64 %.132.us, 1
   %27 = load i64, ptr %7, align 8, !tbaa !57
   %28 = icmp slt i64 %26, %27
-  br i1 %28, label %.lr.ph33.split.us, label %._crit_edge, !llvm.loop !77
+  br i1 %28, label %.lr.ph33.split.us, label %._crit_edge, !llvm.loop !116
 
 .lr.ph33.split:                                   ; preds = %.lr.ph33, %.lr.ph33.split
   %.132 = phi i64 [ %37, %.lr.ph33.split ], [ 0, %.lr.ph33 ]
@@ -1766,7 +1766,7 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   %37 = add nuw nsw i64 %.132, 1
   %38 = load i64, ptr %7, align 8, !tbaa !57
   %39 = icmp slt i64 %37, %38
-  br i1 %39, label %.lr.ph33.split, label %._crit_edge
+  br i1 %39, label %.lr.ph33.split, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph33.split, %.lr.ph33.split.us, %2
   ret ptr %5
@@ -1904,7 +1904,7 @@ define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double no
   store ptr %40, ptr %41, align 8, !tbaa !64
   %42 = add nuw nsw i64 %.034.us, 1
   %exitcond.not = icmp eq i64 %42, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %17
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %17
   %43 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr noundef nonnull %9, double noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
@@ -1913,7 +1913,7 @@ define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double no
   %46 = load ptr, ptr %45, align 8, !tbaa !56
   %47 = load i64, ptr %46, align 8, !tbaa !57
   %48 = icmp slt i64 %44, %47
-  br i1 %48, label %.preheader.us, label %._crit_edge36, !llvm.loop !78
+  br i1 %48, label %.preheader.us, label %._crit_edge36, !llvm.loop !119
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.03335 = phi i64 [ %50, %.preheader ], [ 0, %.preheader.lr.ph ]
@@ -1923,7 +1923,7 @@ define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double no
   %52 = load ptr, ptr %51, align 8, !tbaa !56
   %53 = load i64, ptr %52, align 8, !tbaa !57
   %54 = icmp slt i64 %50, %53
-  br i1 %54, label %.preheader, label %._crit_edge36
+  br i1 %54, label %.preheader, label %._crit_edge36, !llvm.loop !120
 
 ._crit_edge36:                                    ; preds = %.preheader, %._crit_edge.us, %6
   tail call void @free(ptr noundef %9) #12
@@ -1976,7 +1976,7 @@ define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %
   store ptr %29, ptr %30, align 8, !tbaa !64
   %31 = add nuw nsw i64 %.025.us, 1
   %exitcond.not = icmp eq i64 %31, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %14
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !121
 
 ._crit_edge.us:                                   ; preds = %14
   %32 = tail call i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
@@ -1985,7 +1985,7 @@ define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %
   %35 = load ptr, ptr %34, align 8, !tbaa !56
   %36 = load i64, ptr %35, align 8, !tbaa !57
   %37 = icmp slt i64 %33, %36
-  br i1 %37, label %.preheader.us, label %._crit_edge27, !llvm.loop !79
+  br i1 %37, label %.preheader.us, label %._crit_edge27, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.02426 = phi i64 [ %39, %.preheader ], [ 0, %.preheader.lr.ph ]
@@ -1995,7 +1995,7 @@ define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %
   %41 = load ptr, ptr %40, align 8, !tbaa !56
   %42 = load i64, ptr %41, align 8, !tbaa !57
   %43 = icmp slt i64 %39, %42
-  br i1 %43, label %.preheader, label %._crit_edge27
+  br i1 %43, label %.preheader, label %._crit_edge27, !llvm.loop !123
 
 ._crit_edge27:                                    ; preds = %.preheader, %._crit_edge.us, %4
   tail call void @free(ptr noundef %7) #12
@@ -2037,7 +2037,7 @@ define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double nounde
   store ptr %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.017.us, 1
   %exitcond.not = icmp eq i64 %21, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %12
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !124
 
 ._crit_edge.us:                                   ; preds = %12
   %22 = tail call i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef nonnull %6) #12
@@ -2046,7 +2046,7 @@ define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double nounde
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = load i64, ptr %25, align 8, !tbaa !57
   %27 = icmp slt i64 %23, %26
-  br i1 %27, label %.preheader.us, label %._crit_edge19, !llvm.loop !80
+  br i1 %27, label %.preheader.us, label %._crit_edge19, !llvm.loop !125
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.01618 = phi i64 [ %29, %.preheader ], [ 0, %.preheader.lr.ph ]
@@ -2056,7 +2056,7 @@ define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double nounde
   %31 = load ptr, ptr %30, align 8, !tbaa !56
   %32 = load i64, ptr %31, align 8, !tbaa !57
   %33 = icmp slt i64 %29, %32
-  br i1 %33, label %.preheader, label %._crit_edge19
+  br i1 %33, label %.preheader, label %._crit_edge19, !llvm.loop !126
 
 ._crit_edge19:                                    ; preds = %.preheader, %._crit_edge.us, %3
   tail call void @free(ptr noundef %6) #12
@@ -2090,11 +2090,11 @@ define noundef i32 @N_VEnableFusedOps_ManyVector(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store ptr @N_VDotProdMulti_ManyVector, ptr %8, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store ptr @N_VLinearSumVectorArray_ManyVector, ptr %9, align 8, !tbaa !81
+  store ptr @N_VLinearSumVectorArray_ManyVector, ptr %9, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  store ptr @N_VScaleVectorArray_ManyVector, ptr %10, align 8, !tbaa !82
+  store ptr @N_VScaleVectorArray_ManyVector, ptr %10, align 8, !tbaa !128
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store ptr @N_VConstVectorArray_ManyVector, ptr %11, align 8, !tbaa !83
+  store ptr @N_VConstVectorArray_ManyVector, ptr %11, align 8, !tbaa !129
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store ptr @N_VWrmsNormVectorArray_ManyVector, ptr %12, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 296
@@ -2155,7 +2155,7 @@ define noundef i32 @N_VEnableLinearSumVectorArray_ManyVector(ptr noundef readonl
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %.N_VLinearSumVectorArray_ManyVector = select i1 %.not, ptr null, ptr @N_VLinearSumVectorArray_ManyVector
-  store ptr %.N_VLinearSumVectorArray_ManyVector, ptr %5, align 8, !tbaa !81
+  store ptr %.N_VLinearSumVectorArray_ManyVector, ptr %5, align 8, !tbaa !127
   ret i32 0
 }
 
@@ -2166,7 +2166,7 @@ define noundef i32 @N_VEnableScaleVectorArray_ManyVector(ptr noundef readonly ca
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %.N_VScaleVectorArray_ManyVector = select i1 %.not, ptr null, ptr @N_VScaleVectorArray_ManyVector
-  store ptr %.N_VScaleVectorArray_ManyVector, ptr %5, align 8, !tbaa !82
+  store ptr %.N_VScaleVectorArray_ManyVector, ptr %5, align 8, !tbaa !128
   ret i32 0
 }
 
@@ -2177,7 +2177,7 @@ define noundef i32 @N_VEnableConstVectorArray_ManyVector(ptr noundef readonly ca
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %.N_VConstVectorArray_ManyVector = select i1 %.not, ptr null, ptr @N_VConstVectorArray_ManyVector
-  store ptr %.N_VConstVectorArray_ManyVector, ptr %5, align 8, !tbaa !83
+  store ptr %.N_VConstVectorArray_ManyVector, ptr %5, align 8, !tbaa !129
   ret i32 0
 }
 
@@ -2309,21 +2309,67 @@ attributes #13 = { nounwind allocsize(0) }
 !63 = !{!58, !60, i64 16}
 !64 = !{!65, !65, i64 0}
 !65 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
-!66 = !{!58, !59, i64 8}
-!67 = !{!59, !59, i64 0}
-!68 = !{!61, !61, i64 0}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !70}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"double", !6, i64 0}
-!74 = distinct !{!74, !70}
-!75 = !{!11, !5, i64 40}
-!76 = !{!4, !9, i64 16}
-!77 = distinct !{!77, !70}
-!78 = distinct !{!78, !70}
-!79 = distinct !{!79, !70}
-!80 = distinct !{!80, !70}
-!81 = !{!11, !5, i64 264}
-!82 = !{!11, !5, i64 272}
-!83 = !{!11, !5, i64 280}
+!66 = distinct !{!66, !67}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!58, !59, i64 8}
+!69 = distinct !{!69, !67}
+!70 = !{!59, !59, i64 0}
+!71 = distinct !{!71, !67}
+!72 = distinct !{!72, !67}
+!73 = distinct !{!73, !67}
+!74 = distinct !{!74, !67}
+!75 = distinct !{!75, !67}
+!76 = distinct !{!76, !67}
+!77 = distinct !{!77, !67}
+!78 = distinct !{!78, !67}
+!79 = distinct !{!79, !67}
+!80 = distinct !{!80, !67}
+!81 = distinct !{!81, !67}
+!82 = distinct !{!82, !67}
+!83 = !{!61, !61, i64 0}
+!84 = distinct !{!84, !67}
+!85 = distinct !{!85, !67}
+!86 = distinct !{!86, !67}
+!87 = distinct !{!87, !67}
+!88 = distinct !{!88, !67}
+!89 = distinct !{!89, !67}
+!90 = distinct !{!90, !67}
+!91 = distinct !{!91, !67}
+!92 = distinct !{!92, !67, !93}
+!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!94 = distinct !{!94, !67}
+!95 = distinct !{!95, !67}
+!96 = distinct !{!96, !67, !93}
+!97 = distinct !{!97, !67}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"double", !6, i64 0}
+!100 = distinct !{!100, !67}
+!101 = distinct !{!101, !67}
+!102 = distinct !{!102, !67}
+!103 = distinct !{!103, !67}
+!104 = distinct !{!104, !67}
+!105 = distinct !{!105, !67, !93}
+!106 = distinct !{!106, !67}
+!107 = distinct !{!107, !67}
+!108 = distinct !{!108, !67}
+!109 = distinct !{!109, !67}
+!110 = distinct !{!110, !67}
+!111 = distinct !{!111, !67}
+!112 = distinct !{!112, !67}
+!113 = distinct !{!113, !67}
+!114 = !{!11, !5, i64 40}
+!115 = !{!4, !9, i64 16}
+!116 = distinct !{!116, !67, !93}
+!117 = distinct !{!117, !67}
+!118 = distinct !{!118, !67}
+!119 = distinct !{!119, !67, !93}
+!120 = distinct !{!120, !67}
+!121 = distinct !{!121, !67}
+!122 = distinct !{!122, !67, !93}
+!123 = distinct !{!123, !67}
+!124 = distinct !{!124, !67}
+!125 = distinct !{!125, !67, !93}
+!126 = distinct !{!126, !67}
+!127 = !{!11, !5, i64 264}
+!128 = !{!11, !5, i64 272}
+!129 = !{!11, !5, i64 280}

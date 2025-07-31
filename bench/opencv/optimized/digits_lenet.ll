@@ -1675,7 +1675,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %557, %555, %551, %5
   store i8 %580, ptr %583, align 1, !tbaa !15
   %584 = add i32 %.01819.i.i, -2
   %585 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %585, label %.lr.ph.i11.i, label %._crit_edge.i.i355, !llvm.loop !74
+  br i1 %585, label %.lr.ph.i11.i, label %._crit_edge.i.i355, !llvm.loop !75
 
 ._crit_edge.i.i355:                               ; preds = %.lr.ph.i11.i, %563
   %.0.lcssa.i.i = phi i32 [ %544, %563 ], [ %571, %.lr.ph.i11.i ]
@@ -1788,7 +1788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 .critedge192:                                     ; preds = %494, %508, %515, %.lr.ph, %609
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 620:                                              ; preds = %.noexc347
   %621 = icmp eq i64 %438, 0
@@ -1855,7 +1855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit365: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %45) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #20
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %36) #20
-  br label %426, !llvm.loop !76
+  br label %426, !llvm.loop !77
 
 634:                                              ; preds = %.noexc347, %._crit_edge
   %635 = landingpad { ptr, i32 }
@@ -2336,9 +2336,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 
 .noexc22:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
-  store i32 0, ptr %6, align 4, !tbaa !77
+  store i32 0, ptr %6, align 4, !tbaa !78
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %41, align 4, !tbaa !79
+  store i32 0, ptr %41, align 4, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %42, align 8, !tbaa !44
@@ -2365,7 +2365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 
 49:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
-  %50 = load i32, ptr %6, align 4, !tbaa !77
+  %50 = load i32, ptr %6, align 4, !tbaa !78
   store i32 %50, ptr %2, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
@@ -2670,11 +2670,12 @@ attributes #23 = { noreturn nounwind }
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !71 = distinct !{!71, !"_ZNSt7__cxx119to_stringEi"}
-!72 = distinct !{!72, !73}
+!72 = distinct !{!72, !73, !74}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = distinct !{!74, !73}
-!75 = distinct !{!75, !73}
-!76 = distinct !{!76, !73}
-!77 = !{!78, !18, i64 0}
-!78 = !{!"_ZTSN2cv6Point_IiEE", !18, i64 0, !18, i64 4}
-!79 = !{!78, !18, i64 4}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = distinct !{!75, !73, !74}
+!76 = distinct !{!76, !73, !74}
+!77 = distinct !{!77, !73, !74}
+!78 = !{!79, !18, i64 0}
+!79 = !{!"_ZTSN2cv6Point_IiEE", !18, i64 0, !18, i64 4}
+!80 = !{!79, !18, i64 4}

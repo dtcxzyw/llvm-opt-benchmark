@@ -360,7 +360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %sext.mask = and i32 %117, 255
   %119 = icmp eq i32 %sext.mask, 27
   %120 = add nuw nsw i32 %.017, 1
-  br i1 %119, label %.loopexit, label %99
+  br i1 %119, label %.loopexit, label %99, !llvm.loop !40
 
 121:                                              ; preds = %99
   %122 = landingpad { ptr, i32 }
@@ -565,3 +565,5 @@ attributes #13 = { builtin nounwind }
 !37 = !{!38, !20, i64 0}
 !38 = !{!"_ZTSN2cv11_InputArrayE", !20, i64 0, !7, i64 8, !35, i64 16}
 !39 = !{!38, !7, i64 8}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.estimated_trip_count"}

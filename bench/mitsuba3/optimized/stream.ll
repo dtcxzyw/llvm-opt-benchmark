@@ -954,7 +954,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.ex
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit.backedge unwind label %20
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit.backedge: ; preds = %44, %12
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit, !llvm.loop !6
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit, !llvm.loop !7
 
 45:                                               ; preds = %47, %28, %20
   %46 = landingpad { ptr, i32 }
@@ -1324,9 +1324,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit11.i: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit10.i
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %8, align 16, !alias.scope !7
+  store ptr null, ptr %8, align 16, !alias.scope !8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %9, align 16, !alias.scope !10
+  store ptr null, ptr %9, align 16, !alias.scope !11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.16, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit12.i unwind label %.thread28.i
 
@@ -1496,12 +1496,13 @@ attributes #22 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN7mitsuba6detail21get_construct_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
-!9 = distinct !{!9, !"_ZN7mitsuba6detail21get_construct_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN7mitsuba6detail23get_unserialize_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_PS2_EEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES6_EEEv: argument 0"}
-!12 = distinct !{!12, !"_ZN7mitsuba6detail23get_unserialize_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_PS2_EEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES6_EEEv"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN7mitsuba6detail21get_construct_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
+!10 = distinct !{!10, !"_ZN7mitsuba6detail21get_construct_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN7mitsuba6detail23get_unserialize_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_PS2_EEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES6_EEEv: argument 0"}
+!13 = distinct !{!13, !"_ZN7mitsuba6detail23get_unserialize_functorINS_6StreamETnNSt3__19enable_ifIXnt18is_constructible_vIT_PS2_EEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES6_EEEv"}

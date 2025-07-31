@@ -127,7 +127,7 @@ define hidden void @_ZN17FreeListAllocatorC2EPKcP14FreeListConfig(ptr noundef no
   store volatile i64 0, ptr %10, align 8
   %.add = add nuw nsw i64 %.idx, 24
   %11 = icmp eq i64 %.add, 568
-  br i1 %11, label %12, label %8
+  br i1 %11, label %12, label %8, !llvm.loop !8
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -154,7 +154,7 @@ define hidden void @_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE(ptr nound
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -168,15 +168,15 @@ define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 deref
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = zext i32 %3 to i64
   %6 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load volatile ptr, ptr %7, align 8, !noalias !10
+  %8 = load volatile ptr, ptr %7, align 8, !noalias !12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load volatile i64, ptr %9, align 8, !noalias !10
-  store ptr %8, ptr %.sroa.0, align 8, !alias.scope !10
-  store volatile ptr null, ptr %7, align 8, !noalias !10
-  store ptr null, ptr %6, align 8, !noalias !10
-  store volatile i64 0, ptr %9, align 8, !noalias !10
+  %10 = load volatile i64, ptr %9, align 8, !noalias !12
+  store ptr %8, ptr %.sroa.0, align 8, !alias.scope !12
+  store volatile ptr null, ptr %7, align 8, !noalias !12
+  store ptr null, ptr %6, align 8, !noalias !12
+  store volatile i64 0, ptr %9, align 8, !noalias !12
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load volatile ptr, ptr %.sroa.0, align 8
   %.not5.i = icmp eq ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., null
   br i1 %.not5.i, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit, label %.lr.ph.i
@@ -190,7 +190,7 @@ define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 deref
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %.06.i) #11
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit: ; preds = %.lr.ph.i, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -207,7 +207,7 @@ _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit: ; preds = %.lr.ph.i, %1
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %.06.i3) #11
   %.not.i4 = icmp eq ptr %18, null
-  br i1 %.not.i4, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5, label %.lr.ph.i2, !llvm.loop !8
+  br i1 %.not.i4, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5, label %.lr.ph.i2, !llvm.loop !10
 
 _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5: ; preds = %.lr.ph.i2, %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit
   ret void
@@ -221,12 +221,12 @@ define hidden void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 d
   %5 = zext i32 %3 to i64
   %6 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load volatile ptr, ptr %7, align 8, !noalias !13
+  %8 = load volatile ptr, ptr %7, align 8, !noalias !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load volatile i64, ptr %9, align 8, !noalias !13
-  store volatile ptr null, ptr %7, align 8, !noalias !13
-  store ptr null, ptr %6, align 8, !noalias !13
-  store volatile i64 0, ptr %9, align 8, !noalias !13
+  %10 = load volatile i64, ptr %9, align 8, !noalias !15
+  store volatile ptr null, ptr %7, align 8, !noalias !15
+  store ptr null, ptr %6, align 8, !noalias !15
+  store volatile i64 0, ptr %9, align 8, !noalias !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %11) #11, !srcloc !6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -276,7 +276,7 @@ define hidden noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull
 
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %4, %11
   %.0.i.i = phi i64 [ %13, %11 ], [ %8, %4 ]
-  %14 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %7) #11, !srcloc !16
+  %14 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %7) #11, !srcloc !18
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = load volatile ptr, ptr %15, align 8
   br label %.backedge.i
@@ -287,29 +287,29 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %4, %11
   br i1 %.not.i, label %17, label %.thread.i
 
 17:                                               ; preds = %.backedge.i
-  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %15) #11, !srcloc !17
+  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %15) #11, !srcloc !19
   %.not14.i = icmp eq ptr %18, null
   br i1 %.not14.i, label %22, label %.backedge.i.backedge
 
 .thread.i:                                        ; preds = %.backedge.i
   %19 = load volatile ptr, ptr %.011.i, align 8
-  %20 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %15) #11, !srcloc !17
+  %20 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %15) #11, !srcloc !19
   %.not1417.i = icmp eq ptr %20, %.011.i
   br i1 %.not1417.i, label %.thread8, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.thread.i, %17
   %.011.i.be = phi ptr [ %18, %17 ], [ %20, %.thread.i ]
-  br label %.backedge.i, !llvm.loop !18
+  br label %.backedge.i, !llvm.loop !20
 
 .thread8:                                         ; preds = %.thread.i
   store volatile ptr null, ptr %20, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i64 %8, ptr %7, align 8
   %21 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %2) #11, !srcloc !7
   br label %27
 
 22:                                               ; preds = %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i64 %8, ptr %7, align 8
   br label %.thread
 
@@ -343,10 +343,10 @@ define hidden void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 
 
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %2, %9
   %.0.i.i = phi i64 [ %11, %9 ], [ %6, %2 ]
-  %12 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %5) #11, !srcloc !16
+  %12 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %5) #11, !srcloc !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %14 = load volatile i32, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %16
@@ -371,7 +371,7 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.not = icmp ugt i64 %24, %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i64 %6, ptr %5, align 8
   br i1 %.not.not, label %28, label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit
 
@@ -382,7 +382,7 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   br i1 %31, label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %29) #11, !srcloc !20
+  %33 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %29) #11, !srcloc !22
   %34 = trunc i8 %33 to i1
   br i1 %34, label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit, label %35
 
@@ -390,19 +390,19 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   %36 = load volatile i32, ptr %13, align 8
   %37 = and i32 %36, 1
   %38 = xor i32 %37, 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i32 %38, ptr %13, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #11
   %39 = zext i32 %36 to i64
   %40 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load volatile ptr, ptr %41, align 8, !noalias !21
-  %43 = load ptr, ptr %40, align 8, !noalias !21
+  %42 = load volatile ptr, ptr %41, align 8, !noalias !23
+  %43 = load ptr, ptr %40, align 8, !noalias !23
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %45 = load volatile i64, ptr %44, align 8, !noalias !21
-  store volatile ptr null, ptr %41, align 8, !noalias !21
-  store ptr null, ptr %40, align 8, !noalias !21
-  store volatile i64 0, ptr %44, align 8, !noalias !21
+  %45 = load volatile i64, ptr %44, align 8, !noalias !23
+  store volatile ptr null, ptr %41, align 8, !noalias !23
+  store ptr null, ptr %40, align 8, !noalias !23
+  store volatile i64 0, ptr %44, align 8, !noalias !23
   %.not.i5 = icmp eq i64 %45, 0
   br i1 %.not.i5, label %56, label %46
 
@@ -416,9 +416,9 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
 51:                                               ; preds = %51, %46
   %.0.i.i.i = phi ptr [ %50, %46 ], [ %52, %51 ]
   store volatile ptr %.0.i.i.i, ptr %43, align 8
-  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %42, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %49) #11, !srcloc !17
+  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %42, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %49) #11, !srcloc !19
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %52
-  br i1 %.not.i.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i, label %51, !llvm.loop !24
+  br i1 %.not.i.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i, label %51, !llvm.loop !26
 
 _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i: ; preds = %51
   %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -431,7 +431,7 @@ _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7pre
   br label %56
 
 56:                                               ; preds = %54, %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i, %35
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i8 0, ptr %29, align 8
   br label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit
 
@@ -447,7 +447,7 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %2) #11, !srcloc !20
+  %6 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %2) #11, !srcloc !22
   %7 = trunc i8 %6 to i1
   br i1 %7, label %32, label %8
 
@@ -456,20 +456,20 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   %10 = load volatile i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = xor i32 %11, 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i32 %12, ptr %9, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %14 = zext i32 %10 to i64
   %15 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %13, i64 0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load volatile ptr, ptr %16, align 8, !noalias !25
-  %18 = load ptr, ptr %15, align 8, !noalias !25
+  %17 = load volatile ptr, ptr %16, align 8, !noalias !27
+  %18 = load ptr, ptr %15, align 8, !noalias !27
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load volatile i64, ptr %19, align 8, !noalias !25
-  store volatile ptr null, ptr %16, align 8, !noalias !25
-  store ptr null, ptr %15, align 8, !noalias !25
-  store volatile i64 0, ptr %19, align 8, !noalias !25
+  %20 = load volatile i64, ptr %19, align 8, !noalias !27
+  store volatile ptr null, ptr %16, align 8, !noalias !27
+  store ptr null, ptr %15, align 8, !noalias !27
+  store volatile i64 0, ptr %19, align 8, !noalias !27
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %31, label %21
 
@@ -483,9 +483,9 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
 26:                                               ; preds = %26, %21
   %.0.i.i = phi ptr [ %25, %21 ], [ %27, %26 ]
   store volatile ptr %.0.i.i, ptr %18, align 8
-  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %17, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %24) #11, !srcloc !17
+  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %17, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %24) #11, !srcloc !19
   %.not.i.i = icmp eq ptr %.0.i.i, %27
-  br i1 %.not.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit, label %26, !llvm.loop !24
+  br i1 %.not.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit, label %26, !llvm.loop !26
 
 _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit: ; preds = %26
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -498,7 +498,7 @@ _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7pre
   br label %31
 
 31:                                               ; preds = %29, %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit, %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile i8 0, ptr %2, align 8
   br label %32
 
@@ -584,22 +584,24 @@ attributes #11 = { nounwind }
 !6 = !{i64 2145412131}
 !7 = !{i64 2145411697}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
-!12 = distinct !{!12, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
-!15 = distinct !{!15, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
-!16 = !{i64 2145415582}
-!17 = !{i64 2145412694}
-!18 = distinct !{!18, !9}
-!19 = !{i64 2145392468}
-!20 = !{i64 2145410579}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
-!23 = distinct !{!23, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
-!24 = distinct !{!24, !9}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
-!27 = distinct !{!27, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
+!14 = distinct !{!14, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
+!17 = distinct !{!17, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
+!18 = !{i64 2145415582}
+!19 = !{i64 2145412694}
+!20 = distinct !{!20, !11, !9}
+!21 = !{i64 2145392468}
+!22 = !{i64 2145410579}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
+!25 = distinct !{!25, !"_ZN17FreeListAllocator11PendingList8take_allEv"}
+!26 = distinct !{!26, !11, !9}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN17FreeListAllocator11PendingList8take_allEv: argument 0"}
+!29 = distinct !{!29, !"_ZN17FreeListAllocator11PendingList8take_allEv"}

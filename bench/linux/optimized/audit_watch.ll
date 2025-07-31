@@ -772,7 +772,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @audit_exe_compare(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !26
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %23
@@ -867,9 +867,9 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   br i1 %11, label %13, label %12, !prof !7
 
 12:                                               ; preds = %6
-  tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #8, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 476, i32 2307, i64 12) #8, !srcloc !27
-  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #8, !srcloc !28
+  tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #8, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 476, i32 2307, i64 12) #8, !srcloc !28
+  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #8, !srcloc !29
   br label %111
 
 13:                                               ; preds = %6
@@ -931,7 +931,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   br i1 %48, label %62, label %49
 
 49:                                               ; preds = %43
-  %50 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
+  %50 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !26
   %51 = inttoptr i64 %50 to ptr
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1976
   %53 = load ptr, ptr %52, align 8
@@ -991,7 +991,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   %81 = getelementptr i8, ptr %44, i64 -352
   tail call void @call_rcu(ptr noundef %81, ptr noundef nonnull @audit_free_rule_rcu) #8
   %82 = icmp eq ptr %45, %38
-  br i1 %82, label %.loopexit.loopexit, label %43, !llvm.loop !29
+  br i1 %82, label %.loopexit.loopexit, label %43, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %67
   %.pre = load ptr, ptr %35, align 8
@@ -1062,7 +1062,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
 
 audit_put_watch.exit:                             ; preds = %95, %97, %106
   %109 = icmp eq ptr %37, %7
-  br i1 %109, label %.loopexit9, label %.preheader, !llvm.loop !30
+  br i1 %109, label %.loopexit9, label %.preheader, !llvm.loop !31
 
 .loopexit9:                                       ; preds = %audit_put_watch.exit, %32
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #8
@@ -1109,7 +1109,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @audit_compare_dname_path(ptr noundef %1, ptr noundef %13, i32 noundef -1) #8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %7, !llvm.loop !31
+  br i1 %15, label %16, label %7, !llvm.loop !32
 
 16:                                               ; preds = %10
   %17 = getelementptr i8, ptr %8, i64 -24
@@ -1118,7 +1118,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
+  %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !26
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1976
   %24 = load ptr, ptr %23, align 8
@@ -1329,7 +1329,7 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
   store ptr %126, ptr %84, align 8
   %127 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %71, ptr %127, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !33
   store volatile ptr %84, ptr %71, align 16
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %84, ptr %128, align 8
@@ -1360,7 +1360,7 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
   %142 = getelementptr i8, ptr %73, i64 -352
   tail call void @call_rcu(ptr noundef %142, ptr noundef nonnull @audit_free_rule_rcu) #8
   %143 = icmp eq ptr %74, %65
-  br i1 %143, label %.loopexit, label %72, !llvm.loop !33
+  br i1 %143, label %.loopexit, label %72, !llvm.loop !34
 
 .loopexit:                                        ; preds = %141, %62
   %144 = getelementptr i8, ptr %8, i64 8
@@ -1516,15 +1516,16 @@ attributes #10 = { nounwind memory(none) }
 !19 = !{i64 2155995353, i64 2155995164, i64 2155995214, i64 2155995260, i64 2155995288}
 !20 = !{i64 2156028727, i64 2156028536, i64 2156028588, i64 2156028634, i64 2156028662}
 !21 = !{i64 2156028801, i64 2156028830, i64 2156028876, i64 2156028934, i64 2156028988, i64 2156029042, i64 2156029097, i64 2156029128}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23, !24, !25}
 !23 = !{!"llvm.loop.mustprogress"}
 !24 = !{!"llvm.loop.unroll.disable"}
-!25 = !{i64 2148241473}
-!26 = !{i64 2156034603, i64 2156034412, i64 2156034464, i64 2156034510, i64 2156034538}
-!27 = !{i64 2156034677, i64 2156034706, i64 2156034752, i64 2156034810, i64 2156034864, i64 2156034918, i64 2156034973, i64 2156035004, i64 2156035312, i64 2156035318, i64 2156035365, i64 2156035388, i64 2156035414}
-!28 = !{i64 2156035867, i64 2156035678, i64 2156035728, i64 2156035774, i64 2156035802}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
-!31 = distinct !{!31, !23, !24}
-!32 = !{i64 2150128202}
-!33 = distinct !{!33, !23, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{i64 2148241473}
+!27 = !{i64 2156034603, i64 2156034412, i64 2156034464, i64 2156034510, i64 2156034538}
+!28 = !{i64 2156034677, i64 2156034706, i64 2156034752, i64 2156034810, i64 2156034864, i64 2156034918, i64 2156034973, i64 2156035004, i64 2156035312, i64 2156035318, i64 2156035365, i64 2156035388, i64 2156035414}
+!29 = !{i64 2156035867, i64 2156035678, i64 2156035728, i64 2156035774, i64 2156035802}
+!30 = distinct !{!30, !23, !24, !25}
+!31 = distinct !{!31, !23, !24, !25}
+!32 = distinct !{!32, !23, !24, !25}
+!33 = !{i64 2150128202}
+!34 = distinct !{!34, !23, !24, !25}

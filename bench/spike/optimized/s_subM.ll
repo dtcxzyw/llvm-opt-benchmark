@@ -38,7 +38,7 @@ define void @softfloat_subM(i8 noundef zeroext %0, ptr noundef readonly captures
   store i32 %20, ptr %21, align 4, !tbaa !3
   %22 = icmp eq i64 %indvars.iv.next, %11
   %23 = xor i1 %.in, true
-  br i1 %22, label %._crit_edge, label %.lr.ph
+  br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -55,3 +55,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

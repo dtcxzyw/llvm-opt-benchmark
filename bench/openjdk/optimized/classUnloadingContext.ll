@@ -132,7 +132,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EED2Ev.exit: ; preds = %11, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %5, label %._crit_edge, !llvm.loop !8
+  br i1 %21, label %5, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -176,7 +176,7 @@ define hidden void @_ZN21ClassUnloadingContext23purge_class_loader_dataEv(ptr no
   tail call void @_ZN15ClassLoaderDataD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %.06) #10
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06) #10
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -197,7 +197,7 @@ define hidden void @_ZN21ClassUnloadingContext20classes_unloading_doEPFvP5KlassE
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -287,7 +287,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP7nmetho
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !11
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -303,7 +303,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP7nmetho
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !12
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #10
@@ -369,7 +369,7 @@ define hidden void @_ZN21ClassUnloadingContext14purge_nmethodsEv(ptr noundef non
   tail call void @_ZN7nmethod5purgeEb(ptr noundef nonnull align 8 dereferenceable(214) %17, i1 noundef zeroext %23) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %.not, label %._crit_edge.loopexit, label %14
+  br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %14
   %.pre = load i32, ptr %2, align 8
@@ -381,7 +381,7 @@ define hidden void @_ZN21ClassUnloadingContext14purge_nmethodsEv(ptr noundef non
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next28, %25
-  br i1 %26, label %6, label %._crit_edge23, !llvm.loop !13
+  br i1 %26, label %6, label %._crit_edge23, !llvm.loop !15
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
@@ -415,7 +415,7 @@ define hidden void @_ZN21ClassUnloadingContext13free_nmethodsEv(ptr noundef nonn
   %11 = add nsw i32 %10, %.02152
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %12, label %7, !llvm.loop !14
+  br i1 %exitcond.not, label %12, label %7, !llvm.loop !16
 
 12:                                               ; preds = %7
   %13 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 5) #10
@@ -516,7 +516,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EEC2Ei.exit: ; preds = %_ZN18Growabl
   %55 = load i32, ptr %13, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i.i.i, %56
-  br i1 %57, label %.lr.ph.i.i.i, label %.preheader15.loopexit.i.i.i, !llvm.loop !11
+  br i1 %57, label %.lr.ph.i.i.i, label %.preheader15.loopexit.i.i.i, !llvm.loop !12
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.i.i.i, %.preheader15.i.i.i
   %58 = load ptr, ptr %23, align 8
@@ -531,7 +531,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EEC2Ei.exit: ; preds = %_ZN18Growabl
   %60 = load i32, ptr %22, align 4
   %61 = trunc nuw i64 %indvars.iv.next21.i.i.i to i32
   %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !12
+  br i1 %62, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !13
 
 63:                                               ; preds = %.preheader.i.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %58) #10
@@ -555,7 +555,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EEC2Ei.exit: ; preds = %_ZN18Growabl
   store ptr null, ptr %69, align 8
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE11at_put_growEiRKS1_S7_.exit, label %67, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE11at_put_growEiRKS1_S7_.exit, label %67, !llvm.loop !17
 
 _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE11at_put_growEiRKS1_S7_.exit: ; preds = %67, %32, %64
   store i32 %.pre72, ptr %13, align 8
@@ -568,7 +568,7 @@ _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE1
   %74 = load i32, ptr %28, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next.i, %75
-  br i1 %76, label %32, label %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9appendAllEPK17GrowableArrayViewIS1_E.exit.loopexit, !llvm.loop !16
+  br i1 %76, label %32, label %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9appendAllEPK17GrowableArrayViewIS1_E.exit.loopexit, !llvm.loop !18
 
 _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9appendAllEPK17GrowableArrayViewIS1_E.exit.loopexit: ; preds = %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE11at_put_growEiRKS1_S7_.exit
   %.pre = load i32, ptr %2, align 8
@@ -579,7 +579,7 @@ _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next64, %78
-  br i1 %79, label %24, label %.loopexit, !llvm.loop !17
+  br i1 %79, label %24, label %.loopexit, !llvm.loop !19
 
 80:                                               ; preds = %1
   %81 = load ptr, ptr %6, align 8
@@ -635,7 +635,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %.lr.
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %98
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %.not50 = icmp eq i64 %indvars.iv.next70, %93
-  br i1 %.not50, label %_ZN11MutexLockerD2Ev.exit34, label %.lr.ph60
+  br i1 %.not50, label %_ZN11MutexLockerD2Ev.exit34, label %.lr.ph60, !llvm.loop !20
 
 99:                                               ; preds = %_ZN17GrowableArrayViewIP7nmethodE4sortEPFiPS1_S3_E.exit
   %100 = load ptr, ptr @CodeCache_lock, align 8
@@ -663,7 +663,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit28: ; preds = %99, %101
   tail call void @_ZN9CodeCache4freeEP8CodeBlob(ptr noundef %106) #10
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %.not = icmp eq i64 %indvars.iv.next67, %103
-  br i1 %.not, label %._crit_edge, label %.lr.ph56
+  br i1 %.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph56, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit28
   br i1 %.not.i.i27, label %_ZN11MutexLockerD2Ev.exit34, label %107
@@ -854,15 +854,19 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

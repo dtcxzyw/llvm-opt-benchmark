@@ -183,7 +183,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !25
-  %5 = load i32, ptr %0, align 8, !tbaa !31
+  %5 = load i32, ptr %0, align 8, !tbaa !32
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_PtrGrow.exit11_crit_edge
 
@@ -213,7 +213,7 @@ define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noun
 Vec_PtrGrow.exit:                                 ; preds = %12, %14
   %16 = phi ptr [ %13, %12 ], [ %15, %14 ]
   store ptr %16, ptr %10, align 8, !tbaa !27
-  store i32 16, ptr %0, align 8, !tbaa !31
+  store i32 16, ptr %0, align 8, !tbaa !32
   br label %Vec_PtrGrow.exit11
 
 17:                                               ; preds = %7
@@ -236,7 +236,7 @@ Vec_PtrGrow.exit:                                 ; preds = %12, %14
 27:                                               ; preds = %25, %23
   %28 = phi ptr [ %24, %23 ], [ %26, %25 ]
   store ptr %28, ptr %19, align 8, !tbaa !27
-  store i32 %18, ptr %0, align 8, !tbaa !31
+  store i32 %18, ptr %0, align 8, !tbaa !32
   br label %Vec_PtrGrow.exit11
 
 Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge, %27, %Vec_PtrGrow.exit
@@ -290,7 +290,7 @@ define void @Cmd_HistoryWrite(ptr noundef readonly captures(none) %0, i32 nounde
   %.val = load i32, ptr %20, align 4, !tbaa !25
   %21 = trunc nuw i64 %indvars.iv.next to i32
   %22 = icmp sgt i32 %.val, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !32
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %6
   %23 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -321,7 +321,7 @@ define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = icmp eq ptr %14, %1
-  br i1 %15, label %16, label %7, !llvm.loop !33
+  br i1 %15, label %16, label %7, !llvm.loop !34
 
 16:                                               ; preds = %10, %7
   %.0.in.lcssa = phi i32 [ %8, %10 ], [ %smin, %7 ]
@@ -342,7 +342,7 @@ define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr no
   store ptr %22, ptr %23, align 8, !tbaa !28
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %19, %16
   %24 = add nsw i32 %4, -1
@@ -389,7 +389,7 @@ define void @Cmd_HistoryRead(ptr noundef readonly captures(none) %0) local_unnam
   %17 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #17
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !25
-  %20 = load i32, ptr %16, align 8, !tbaa !31
+  %20 = load i32, ptr %16, align 8, !tbaa !32
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -419,7 +419,7 @@ define void @Cmd_HistoryRead(ptr noundef readonly captures(none) %0) local_unnam
 Vec_PtrGrow.exit.i:                               ; preds = %29, %27
   %31 = phi ptr [ %28, %27 ], [ %30, %29 ]
   store ptr %31, ptr %25, align 8, !tbaa !27
-  store i32 16, ptr %16, align 8, !tbaa !31
+  store i32 16, ptr %16, align 8, !tbaa !32
   br label %Vec_PtrPush.exit
 
 32:                                               ; preds = %22
@@ -442,7 +442,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %29, %27
 42:                                               ; preds = %40, %38
   %43 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %43, ptr %34, align 8, !tbaa !27
-  store i32 %33, ptr %16, align 8, !tbaa !31
+  store i32 %33, ptr %16, align 8, !tbaa !32
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %42
@@ -455,7 +455,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %17, ptr %48, align 8, !tbaa !28
   %49 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 32768, ptr noundef nonnull %3)
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %.preheader
   %50 = call i32 @fclose(ptr noundef nonnull %3)
@@ -479,7 +479,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unnamed_addr #8 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !36
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !37
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %24, label %5
 
@@ -493,7 +493,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
   br label %12
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !38
   %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 9, ptr noundef nonnull @.str.18) #17
   br label %12
 
@@ -505,7 +505,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
 
 14:                                               ; preds = %12
   %15 = call ptr @vnsprintf(ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #17
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !38
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #18
   %18 = trunc i64 %17 to i32
   %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #17
@@ -513,7 +513,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
   br label %23
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !37, !noalias !38
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !38, !noalias !39
   %22 = call i32 @vfprintf(ptr noundef %21, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #17
   br label %23
 
@@ -562,7 +562,7 @@ define void @Cmd_HistoryPrint(ptr noundef readonly captures(none) %0, i32 nounde
   %.val = load i32, ptr %17, align 4, !tbaa !25
   %18 = trunc nuw i64 %indvars.iv.next to i32
   %19 = icmp sgt i32 %.val, %18
-  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !41
+  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %puts8 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -661,16 +661,17 @@ attributes #20 = { nounwind allocsize(0) }
 !26 = !{!"Vec_Ptr_t_", !12, i64 0, !12, i64 4, !6, i64 8}
 !27 = !{!26, !6, i64 8}
 !28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!26, !12, i64 0}
-!32 = distinct !{!32, !30}
-!33 = distinct !{!33, !30}
-!34 = distinct !{!34, !30}
-!35 = distinct !{!35, !30}
-!36 = !{!12, !12, i64 0}
-!37 = !{!14, !14, i64 0}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"vprintf: argument 0"}
-!40 = distinct !{!40, !"vprintf"}
-!41 = distinct !{!41, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!26, !12, i64 0}
+!33 = distinct !{!33, !30, !31}
+!34 = distinct !{!34, !30, !31}
+!35 = distinct !{!35, !30, !31}
+!36 = distinct !{!36, !30, !31}
+!37 = !{!12, !12, i64 0}
+!38 = !{!14, !14, i64 0}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"vprintf: argument 0"}
+!41 = distinct !{!41, !"vprintf"}
+!42 = distinct !{!42, !30, !31}

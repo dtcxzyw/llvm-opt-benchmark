@@ -289,7 +289,7 @@ ll_register.exit:                                 ; preds = %12, %14
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %ll_register.exit
-  %20 = load i8, ptr %2, align 1, !tbaa !10
+  %20 = load i8, ptr %2, align 1, !tbaa !11
   %.not44 = icmp eq i8 %20, 42
   %21 = select i1 %.not44, i32 258, i32 2
   %22 = tail call ptr @dlopen(ptr noundef nonnull %1, i32 noundef %21) #7
@@ -308,7 +308,7 @@ ll_register.exit:                                 ; preds = %12, %14
 
 .thread:                                          ; preds = %ll_register.exit, %25
   %26 = phi ptr [ %17, %ll_register.exit ], [ %22, %25 ]
-  %27 = load i8, ptr %2, align 1, !tbaa !10
+  %27 = load i8, ptr %2, align 1, !tbaa !11
   %28 = icmp eq i8 %27, 42
   br i1 %28, label %29, label %30
 
@@ -422,7 +422,7 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = alloca %struct.luaL_Buffer, align 8
   call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %6) #7
   call void @luaL_buffinit(ptr noundef %0, ptr noundef nonnull %6) #7
-  %7 = load i8, ptr %3, align 1, !tbaa !10
+  %7 = load i8, ptr %3, align 1, !tbaa !11
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -436,7 +436,7 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %.backedge, %10
   %.013.i = phi ptr [ %2, %10 ], [ %.013.i.be, %.backedge ]
-  %12 = load i8, ptr %.013.i, align 1, !tbaa !10
+  %12 = load i8, ptr %.013.i, align 1, !tbaa !11
   switch i8 %12, label %15 [
     i8 59, label %13
     i8 0, label %32
@@ -448,7 +448,7 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
 
 .backedge:                                        ; preds = %13, %30
   %.013.i.be = phi ptr [ %14, %13 ], [ %.0.i, %30 ]
-  br label %11, !llvm.loop !11
+  br label %11, !llvm.loop !12
 
 15:                                               ; preds = %11
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.013.i, i32 noundef 59) #8
@@ -683,9 +683,9 @@ define internal noundef i32 @lj_cf_package_module(ptr noundef %0) #0 {
   %2 = alloca %struct.lua_Debug, align 8
   %3 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void @luaL_pushmodule(ptr noundef %0, ptr noundef %3, i32 noundef 1) #7
   tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.45) #7
   %8 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #7
@@ -750,7 +750,7 @@ setfenv.exit:                                     ; preds = %28, %30
   call void @lua_call(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0) #7
   %33 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %.07.i, %22
-  br i1 %exitcond.not.i, label %dooptions.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %dooptions.exit, label %.lr.ph.i, !llvm.loop !21
 
 dooptions.exit:                                   ; preds = %.lr.ph.i, %setfenv.exit
   ret i32 0
@@ -768,9 +768,9 @@ define internal noundef i32 @lj_cf_package_require(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
-  %8 = load i64, ptr %7, align 8, !tbaa !10
+  %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = icmp eq i64 %8, -9223372036854775693
   br i1 %9, label %10, label %46
 
@@ -826,14 +826,14 @@ define internal noundef i32 @lj_cf_package_require(ptr noundef %0) #0 {
 
 31:                                               ; preds = %30, %29
   %32 = add nuw nsw i32 %.0, 1
-  br label %18
+  br label %18, !llvm.loop !22
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !12
+  %35 = load ptr, ptr %34, align 8, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %36, ptr %34, align 8, !tbaa !12
-  store i64 -9223372036854775693, ptr %35, align 8, !tbaa !10
+  store ptr %36, ptr %34, align 8, !tbaa !13
+  store i64 -9223372036854775693, ptr %35, align 8, !tbaa !11
   tail call void @lua_setfield(ptr noundef %0, i32 noundef 2, ptr noundef %2) #7
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %2) #7
   tail call void @lua_call(ptr noundef %0, i32 noundef 1, i32 noundef 1) #7
@@ -847,9 +847,9 @@ define internal noundef i32 @lj_cf_package_require(ptr noundef %0) #0 {
 
 40:                                               ; preds = %39, %33
   tail call void @lua_getfield(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %2) #7
-  %41 = load ptr, ptr %34, align 8, !tbaa !12
+  %41 = load ptr, ptr %34, align 8, !tbaa !13
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  %43 = load i64, ptr %42, align 8, !tbaa !10
+  %43 = load i64, ptr %42, align 8, !tbaa !11
   %44 = icmp eq i64 %43, -9223372036854775693
   br i1 %44, label %45, label %46
 
@@ -904,16 +904,18 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !17, i64 40}
-!13 = !{!"lua_State", !14, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !16, i64 16, !14, i64 24, !17, i64 32, !17, i64 40, !16, i64 48, !16, i64 56, !14, i64 64, !14, i64 72, !5, i64 80, !18, i64 88}
-!14 = !{!"GCRef", !15, i64 0}
-!15 = !{!"long", !6, i64 0}
-!16 = !{!"MRef", !15, i64 0}
-!17 = !{!"p1 _ZTS6TValue", !5, i64 0}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!13, !17, i64 32}
-!20 = distinct !{!20, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !18, i64 40}
+!14 = !{!"lua_State", !15, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !17, i64 16, !15, i64 24, !18, i64 32, !18, i64 40, !17, i64 48, !17, i64 56, !15, i64 64, !15, i64 72, !5, i64 80, !19, i64 88}
+!15 = !{!"GCRef", !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!"MRef", !16, i64 0}
+!18 = !{!"p1 _ZTS6TValue", !5, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!14, !18, i64 32}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !10}

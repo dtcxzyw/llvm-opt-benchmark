@@ -193,9 +193,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %67
   %120 = trunc i64 %53 to i32
   %121 = trunc i64 %82 to i32
-  %122 = load ptr, ptr %119, align 8, !tbaa !29
+  %122 = load ptr, ptr %119, align 8, !tbaa !30
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !29
+  %124 = load ptr, ptr %123, align 8, !tbaa !30
   %.not6.i.i162 = icmp eq ptr %122, %124
   br i1 %.not6.i.i162, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit166, label %.lr.ph.i.i163
 
@@ -218,9 +218,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %70
   %131 = trunc i64 %57 to i32
   %132 = trunc i64 %83 to i32
-  %133 = load ptr, ptr %130, align 8, !tbaa !29
+  %133 = load ptr, ptr %130, align 8, !tbaa !30
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !29
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
   %.not6.i.i167 = icmp eq ptr %133, %135
   br i1 %.not6.i.i167, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit171, label %.lr.ph.i.i168
 
@@ -243,9 +243,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %61
   %142 = trunc i64 %48 to i32
   %143 = trunc i64 %84 to i32
-  %144 = load ptr, ptr %141, align 8, !tbaa !29
+  %144 = load ptr, ptr %141, align 8, !tbaa !30
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !29
+  %146 = load ptr, ptr %145, align 8, !tbaa !30
   %.not6.i.i172 = icmp eq ptr %144, %146
   br i1 %.not6.i.i172, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit176, label %.lr.ph.i.i173
 
@@ -268,9 +268,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %64
   %153 = trunc i64 %49 to i32
   %154 = trunc i64 %81 to i32
-  %155 = load ptr, ptr %152, align 8, !tbaa !29
+  %155 = load ptr, ptr %152, align 8, !tbaa !30
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !29
+  %157 = load ptr, ptr %156, align 8, !tbaa !30
   %.not6.i.i177 = icmp eq ptr %155, %157
   br i1 %.not6.i.i177, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit181, label %.lr.ph.i.i178
 
@@ -475,9 +475,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %67
   %120 = trunc i64 %53 to i32
   %121 = trunc i64 %82 to i32
-  %122 = load ptr, ptr %119, align 8, !tbaa !29
+  %122 = load ptr, ptr %119, align 8, !tbaa !30
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !29
+  %124 = load ptr, ptr %123, align 8, !tbaa !30
   %.not6.i.i162 = icmp eq ptr %122, %124
   br i1 %.not6.i.i162, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit166, label %.lr.ph.i.i163
 
@@ -500,9 +500,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %70
   %131 = trunc i64 %57 to i32
   %132 = trunc i64 %83 to i32
-  %133 = load ptr, ptr %130, align 8, !tbaa !29
+  %133 = load ptr, ptr %130, align 8, !tbaa !30
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !29
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
   %.not6.i.i167 = icmp eq ptr %133, %135
   br i1 %.not6.i.i167, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit171, label %.lr.ph.i.i168
 
@@ -525,9 +525,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %61
   %142 = trunc i64 %48 to i32
   %143 = trunc i64 %84 to i32
-  %144 = load ptr, ptr %141, align 8, !tbaa !29
+  %144 = load ptr, ptr %141, align 8, !tbaa !30
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !29
+  %146 = load ptr, ptr %145, align 8, !tbaa !30
   %.not6.i.i172 = icmp eq ptr %144, %146
   br i1 %.not6.i.i172, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit176, label %.lr.ph.i.i173
 
@@ -550,9 +550,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %64
   %153 = trunc i64 %49 to i32
   %154 = trunc i64 %81 to i32
-  %155 = load ptr, ptr %152, align 8, !tbaa !29
+  %155 = load ptr, ptr %152, align 8, !tbaa !30
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !29
+  %157 = load ptr, ptr %156, align 8, !tbaa !30
   %.not6.i.i177 = icmp eq ptr %155, %157
   br i1 %.not6.i.i177, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit181, label %.lr.ph.i.i178
 
@@ -611,6 +611,7 @@ attributes #3 = { noreturn }
 !24 = !{!25, !12, i64 0}
 !25 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi2ELi0EEE", !12, i64 0, !18, i64 8}
 !26 = !{!25, !18, i64 8}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!12, !12, i64 0}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!12, !12, i64 0}

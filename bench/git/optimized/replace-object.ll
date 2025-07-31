@@ -162,7 +162,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !tbaa !47
+  %2 = load i8, ptr %0, align 1, !tbaa !48
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -194,14 +194,14 @@ define dso_local i32 @replace_refs_enabled(ptr noundef %0) local_unnamed_addr #0
   br i1 %.b, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !48
+  %3 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
   tail call void @prepare_repo_settings(ptr noundef nonnull %0) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %6 = load i32, ptr %5, align 4, !tbaa !49
+  %6 = load i32, ptr %5, align 4, !tbaa !50
   br label %7
 
 7:                                                ; preds = %2, %1, %4
@@ -289,8 +289,9 @@ attributes #11 = { noreturn nounwind }
 !42 = !{!16, !16, i64 0}
 !43 = !{!44, !16, i64 32}
 !44 = !{!"object_id", !8, i64 0, !16, i64 32}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!8, !8, i64 0}
-!48 = !{!5, !6, i64 0}
-!49 = !{!5, !16, i64 300}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!8, !8, i64 0}
+!49 = !{!5, !6, i64 0}
+!50 = !{!5, !16, i64 300}

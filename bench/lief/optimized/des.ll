@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_key_parity(ptr noundef 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !9
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -132,7 +132,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr noundef readon
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !10
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -165,106 +165,106 @@ define hidden void @mbedtls_des_setkey(ptr noundef writeonly captures(none) %0, 
   %15 = and i32 %9, 15
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = shl i32 %18, 3
   %20 = lshr i32 %9, 8
   %21 = and i32 %20, 15
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = shl i32 %24, 2
   %26 = or i32 %25, %19
   %27 = lshr i32 %9, 16
   %28 = and i32 %27, 15
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = shl i32 %31, 1
   %33 = or i32 %26, %32
   %34 = lshr i32 %9, 24
   %35 = and i32 %34, 15
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = or i32 %33, %38
   %40 = lshr i32 %9, 5
   %41 = and i32 %40, 15
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !11
   %45 = shl i32 %44, 7
   %46 = or i32 %39, %45
   %47 = lshr i32 %9, 13
   %48 = and i32 %47, 15
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = shl i32 %51, 6
   %53 = or i32 %46, %52
   %54 = lshr i32 %9, 21
   %55 = and i32 %54, 15
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = shl i32 %58, 5
   %60 = or i32 %53, %59
   %61 = lshr i32 %3, 29
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw [16 x i32], ptr @LHs, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %64 = load i32, ptr %63, align 4, !tbaa !11
   %65 = shl i32 %64, 4
   %66 = or i32 %60, %65
   %67 = lshr i32 %14, 1
   %68 = and i32 %67, 15
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %71 = load i32, ptr %70, align 4, !tbaa !11
   %72 = shl i32 %71, 3
   %73 = lshr i32 %14, 9
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = shl i32 %77, 2
   %79 = or i32 %78, %72
   %80 = lshr i32 %14, 17
   %81 = and i32 %80, 15
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !10
+  %84 = load i32, ptr %83, align 4, !tbaa !11
   %85 = shl i32 %84, 1
   %86 = or i32 %79, %85
   %87 = lshr i32 %14, 25
   %88 = and i32 %87, 15
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !10
+  %91 = load i32, ptr %90, align 4, !tbaa !11
   %92 = or i32 %86, %91
   %93 = lshr i32 %14, 4
   %94 = and i32 %93, 15
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !10
+  %97 = load i32, ptr %96, align 4, !tbaa !11
   %98 = shl i32 %97, 7
   %99 = or i32 %92, %98
   %100 = lshr i32 %14, 12
   %101 = and i32 %100, 15
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !10
+  %104 = load i32, ptr %103, align 4, !tbaa !11
   %105 = shl i32 %104, 6
   %106 = or i32 %99, %105
   %107 = lshr i32 %14, 20
   %108 = and i32 %107, 15
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !10
+  %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = shl i32 %111, 5
   %113 = or i32 %106, %112
   %114 = lshr i32 %14, 28
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw [16 x i32], ptr @RHs, i64 0, i64 %115
-  %117 = load i32, ptr %116, align 4, !tbaa !10
+  %117 = load i32, ptr %116, align 4, !tbaa !11
   %118 = shl i32 %117, 4
   %119 = or i32 %113, %118
   %120 = and i32 %66, 268435455
@@ -363,7 +363,7 @@ define hidden void @mbedtls_des_setkey(ptr noundef writeonly captures(none) %0, 
   %193 = or i32 %192, %180
   %194 = or i32 %193, %182
   %195 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
-  store i32 %194, ptr %.0104, align 4, !tbaa !10
+  store i32 %194, ptr %.0104, align 4, !tbaa !11
   %196 = shl i32 %127, 15
   %197 = and i32 %196, 536870912
   %198 = shl i32 %125, 17
@@ -425,10 +425,10 @@ define hidden void @mbedtls_des_setkey(ptr noundef writeonly captures(none) %0, 
   %254 = or i32 %253, %243
   %255 = or i32 %254, %245
   %256 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
-  store i32 %255, ptr %195, align 4, !tbaa !10
+  store i32 %255, ptr %195, align 4, !tbaa !11
   %257 = add nuw nsw i32 %.096101, 1
   %exitcond.not = icmp eq i32 %257, 16
-  br i1 %exitcond.not, label %258, label %122, !llvm.loop !12
+  br i1 %exitcond.not, label %258, label %122, !llvm.loop !13
 
 258:                                              ; preds = %124
   ret void
@@ -451,23 +451,23 @@ define hidden noundef i32 @mbedtls_des_setkey_dec(ptr noundef captures(none) %0,
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = sub nuw nsw i64 30, %indvars.iv
   %7 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4, !tbaa !10
-  store i32 %8, ptr %4, align 4, !tbaa !10
-  store i32 %5, ptr %7, align 4, !tbaa !10
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  store i32 %8, ptr %4, align 4, !tbaa !11
+  store i32 %5, ptr %7, align 4, !tbaa !11
   %9 = or disjoint i64 %indvars.iv, 1
   %10 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = sub nuw nsw i64 31, %indvars.iv
   %13 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !10
-  store i32 %14, ptr %10, align 4, !tbaa !10
-  store i32 %11, ptr %13, align 4, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !11
+  store i32 %14, ptr %10, align 4, !tbaa !11
+  store i32 %11, ptr %13, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %15 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %15, label %3, label %16, !llvm.loop !13
+  br i1 %15, label %3, label %16, !llvm.loop !14
 
 16:                                               ; preds = %3
   ret i32 0
@@ -487,42 +487,42 @@ define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr noundef captures(none) %
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %6 ]
   %7 = sub nuw nsw i64 30, %indvars.iv.i
   %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !10
+  %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
-  store i32 %9, ptr %10, align 8, !tbaa !10
+  store i32 %9, ptr %10, align 8, !tbaa !11
   %11 = sub nuw nsw i64 31, %indvars.iv.i
   %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = or disjoint i64 %indvars.iv.i, 1
   %15 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  store i32 %13, ptr %15, align 4, !tbaa !10
+  store i32 %13, ptr %15, align 4, !tbaa !11
   %16 = sub nuw nsw i64 62, %indvars.iv.i
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
-  %18 = load i32, ptr %17, align 8, !tbaa !10
+  %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  store i32 %18, ptr %20, align 4, !tbaa !10
+  store i32 %18, ptr %20, align 4, !tbaa !11
   %21 = sub nuw nsw i64 63, %indvars.iv.i
   %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 132
-  store i32 %23, ptr %24, align 4, !tbaa !10
-  %25 = load i32, ptr %19, align 4, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !11
+  %25 = load i32, ptr %19, align 4, !tbaa !11
   %26 = or disjoint i64 %indvars.iv.i, 64
   %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
-  store i32 %25, ptr %27, align 4, !tbaa !10
+  store i32 %25, ptr %27, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i32, ptr %0, i64 %14
-  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = or disjoint i64 %indvars.iv.i, 65
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
-  store i32 %29, ptr %31, align 4, !tbaa !10
+  store i32 %29, ptr %31, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i32, ptr %3, i64 %26
-  store i32 %9, ptr %32, align 8, !tbaa !10
+  store i32 %9, ptr %32, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i32, ptr %3, i64 %30
-  store i32 %13, ptr %33, align 4, !tbaa !10
+  store i32 %13, ptr %33, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %34 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %34, label %6, label %des3_set2key.exit, !llvm.loop !14
+  br i1 %34, label %6, label %des3_set2key.exit, !llvm.loop !15
 
 des3_set2key.exit:                                ; preds = %6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #13
@@ -544,42 +544,42 @@ define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr noundef captures(none) %
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %6 ]
   %7 = sub nuw nsw i64 30, %indvars.iv.i
   %8 = getelementptr inbounds nuw i32, ptr %3, i64 %7
-  %9 = load i32, ptr %8, align 8, !tbaa !10
+  %9 = load i32, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
-  store i32 %9, ptr %10, align 4, !tbaa !10
+  store i32 %9, ptr %10, align 4, !tbaa !11
   %11 = sub nuw nsw i64 31, %indvars.iv.i
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = or disjoint i64 %indvars.iv.i, 1
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
-  store i32 %13, ptr %15, align 4, !tbaa !10
+  store i32 %13, ptr %15, align 4, !tbaa !11
   %16 = sub nuw nsw i64 62, %indvars.iv.i
   %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  store i32 %18, ptr %20, align 8, !tbaa !10
+  store i32 %18, ptr %20, align 8, !tbaa !11
   %21 = sub nuw nsw i64 63, %indvars.iv.i
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 132
-  store i32 %23, ptr %24, align 4, !tbaa !10
-  %25 = load i32, ptr %19, align 8, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !11
+  %25 = load i32, ptr %19, align 8, !tbaa !11
   %26 = or disjoint i64 %indvars.iv.i, 64
   %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
-  store i32 %25, ptr %27, align 8, !tbaa !10
+  store i32 %25, ptr %27, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = or disjoint i64 %indvars.iv.i, 65
   %31 = getelementptr inbounds nuw i32, ptr %3, i64 %30
-  store i32 %29, ptr %31, align 4, !tbaa !10
+  store i32 %29, ptr %31, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i32, ptr %0, i64 %26
-  store i32 %9, ptr %32, align 4, !tbaa !10
+  store i32 %9, ptr %32, align 4, !tbaa !11
   %33 = getelementptr inbounds nuw i32, ptr %0, i64 %30
-  store i32 %13, ptr %33, align 4, !tbaa !10
+  store i32 %13, ptr %33, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %34 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %34, label %6, label %des3_set2key.exit, !llvm.loop !14
+  br i1 %34, label %6, label %des3_set2key.exit, !llvm.loop !15
 
 des3_set2key.exit:                                ; preds = %6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #13
@@ -604,38 +604,38 @@ define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr noundef captures(none) %
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
   %9 = sub nuw nsw i64 94, %indvars.iv.i
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
-  store i32 %11, ptr %12, align 8, !tbaa !10
+  store i32 %11, ptr %12, align 8, !tbaa !11
   %13 = sub nuw nsw i64 95, %indvars.iv.i
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !10
+  store i32 %15, ptr %16, align 4, !tbaa !11
   %17 = sub nuw nsw i64 62, %indvars.iv.i
   %18 = getelementptr inbounds nuw i32, ptr %3, i64 %17
-  %19 = load i32, ptr %18, align 8, !tbaa !10
+  %19 = load i32, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  store i32 %19, ptr %21, align 4, !tbaa !10
+  store i32 %19, ptr %21, align 4, !tbaa !11
   %22 = sub nuw nsw i64 63, %indvars.iv.i
   %23 = getelementptr inbounds nuw i32, ptr %3, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 132
-  store i32 %24, ptr %25, align 4, !tbaa !10
+  store i32 %24, ptr %25, align 4, !tbaa !11
   %26 = sub nuw nsw i64 30, %indvars.iv.i
   %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 256
-  store i32 %28, ptr %29, align 8, !tbaa !10
+  store i32 %28, ptr %29, align 8, !tbaa !11
   %30 = sub nuw nsw i64 31, %indvars.iv.i
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 260
-  store i32 %32, ptr %33, align 4, !tbaa !10
+  store i32 %32, ptr %33, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %34 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %34, label %8, label %des3_set3key.exit, !llvm.loop !15
+  br i1 %34, label %8, label %des3_set3key.exit, !llvm.loop !16
 
 des3_set3key.exit:                                ; preds = %8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #13
@@ -660,38 +660,38 @@ define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr noundef captures(none) %
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
   %9 = sub nuw nsw i64 94, %indvars.iv.i
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %9
-  %11 = load i32, ptr %10, align 8, !tbaa !10
+  %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
-  store i32 %11, ptr %12, align 4, !tbaa !10
+  store i32 %11, ptr %12, align 4, !tbaa !11
   %13 = sub nuw nsw i64 95, %indvars.iv.i
   %14 = getelementptr inbounds nuw i32, ptr %3, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !10
+  store i32 %15, ptr %16, align 4, !tbaa !11
   %17 = sub nuw nsw i64 62, %indvars.iv.i
   %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !10
+  %19 = load i32, ptr %18, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  store i32 %19, ptr %21, align 8, !tbaa !10
+  store i32 %19, ptr %21, align 8, !tbaa !11
   %22 = sub nuw nsw i64 63, %indvars.iv.i
   %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 132
-  store i32 %24, ptr %25, align 4, !tbaa !10
+  store i32 %24, ptr %25, align 4, !tbaa !11
   %26 = sub nuw nsw i64 30, %indvars.iv.i
   %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
-  %28 = load i32, ptr %27, align 8, !tbaa !10
+  %28 = load i32, ptr %27, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 256
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !11
   %30 = sub nuw nsw i64 31, %indvars.iv.i
   %31 = getelementptr inbounds nuw i32, ptr %3, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 260
-  store i32 %32, ptr %33, align 4, !tbaa !10
+  store i32 %32, ptr %33, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %34 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %34, label %8, label %des3_set3key.exit, !llvm.loop !15
+  br i1 %34, label %8, label %des3_set3key.exit, !llvm.loop !16
 
 des3_set3key.exit:                                ; preds = %8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #13
@@ -744,50 +744,50 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr noundef readonly captures(n
   %.0107112 = phi i32 [ %35, %3 ], [ %89, %36 ]
   %.0108111 = phi i32 [ 0, %3 ], [ %143, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
-  %38 = load i32, ptr %.0114, align 4, !tbaa !10
+  %38 = load i32, ptr %.0114, align 4, !tbaa !11
   %39 = xor i32 %38, %.0106113
   %40 = and i32 %39, 63
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = lshr i32 %39, 8
   %45 = and i32 %44, 63
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = lshr i32 %39, 16
   %50 = and i32 %49, 63
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = lshr i32 %39, 24
   %55 = and i32 %54, 63
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
-  %60 = load i32, ptr %37, align 4, !tbaa !10
+  %60 = load i32, ptr %37, align 4, !tbaa !11
   %61 = tail call i32 @llvm.fshl.i32(i32 %.0106113, i32 %.0106113, i32 28)
   %62 = xor i32 %60, %61
   %63 = and i32 %62, 63
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %66 = load i32, ptr %65, align 4, !tbaa !11
   %67 = lshr i32 %62, 8
   %68 = and i32 %67, 63
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %71 = load i32, ptr %70, align 4, !tbaa !11
   %72 = lshr i32 %62, 16
   %73 = and i32 %72, 63
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %76 = load i32, ptr %75, align 4, !tbaa !11
   %77 = lshr i32 %62, 24
   %78 = and i32 %77, 63
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %81 = load i32, ptr %80, align 4, !tbaa !11
   %82 = xor i32 %43, %.0107112
   %83 = xor i32 %82, %48
   %84 = xor i32 %83, %53
@@ -797,50 +797,50 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr noundef readonly captures(n
   %88 = xor i32 %87, %76
   %89 = xor i32 %88, %81
   %90 = getelementptr inbounds nuw i8, ptr %.0114, i64 12
-  %91 = load i32, ptr %59, align 4, !tbaa !10
+  %91 = load i32, ptr %59, align 4, !tbaa !11
   %92 = xor i32 %89, %91
   %93 = and i32 %92, 63
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !10
+  %96 = load i32, ptr %95, align 4, !tbaa !11
   %97 = lshr i32 %92, 8
   %98 = and i32 %97, 63
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = lshr i32 %92, 16
   %103 = and i32 %102, 63
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !10
+  %106 = load i32, ptr %105, align 4, !tbaa !11
   %107 = lshr i32 %92, 24
   %108 = and i32 %107, 63
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !10
+  %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %.0114, i64 16
-  %113 = load i32, ptr %90, align 4, !tbaa !10
+  %113 = load i32, ptr %90, align 4, !tbaa !11
   %114 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 28)
   %115 = xor i32 %113, %114
   %116 = and i32 %115, 63
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !10
+  %119 = load i32, ptr %118, align 4, !tbaa !11
   %120 = lshr i32 %115, 8
   %121 = and i32 %120, 63
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %124 = load i32, ptr %123, align 4, !tbaa !11
   %125 = lshr i32 %115, 16
   %126 = and i32 %125, 63
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !10
+  %129 = load i32, ptr %128, align 4, !tbaa !11
   %130 = lshr i32 %115, 24
   %131 = and i32 %130, 63
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %132
-  %134 = load i32, ptr %133, align 4, !tbaa !10
+  %134 = load i32, ptr %133, align 4, !tbaa !11
   %135 = xor i32 %96, %101
   %136 = xor i32 %135, %106
   %137 = xor i32 %136, %111
@@ -851,7 +851,7 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr noundef readonly captures(n
   %142 = xor i32 %141, %.0106113
   %143 = add nuw nsw i32 %.0108111, 1
   %exitcond.not = icmp eq i32 %143, 8
-  br i1 %exitcond.not, label %144, label %36, !llvm.loop !16
+  br i1 %exitcond.not, label %144, label %36, !llvm.loop !17
 
 144:                                              ; preds = %36
   %145 = tail call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 31)
@@ -928,7 +928,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr noundef readonly 
   %14 = getelementptr inbounds nuw i8, ptr %.03163, i64 8
   %15 = add i64 %.03461, -8
   %.not39 = icmp eq i64 %15, 0
-  br i1 %.not39, label %.loopexit, label %.preheader46, !llvm.loop !17
+  br i1 %.not39, label %.loopexit, label %.preheader46, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader49, %.lr.ph
   %.156 = phi ptr [ %19, %.lr.ph ], [ %5, %.preheader49 ]
@@ -945,7 +945,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr noundef readonly 
   %19 = getelementptr inbounds nuw i8, ptr %.156, i64 8
   %20 = add i64 %.13554, -8
   %.not38 = icmp eq i64 %20, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader46, %.preheader49, %.preheader47, %6
   %.0 = phi i32 [ -50, %6 ], [ 0, %.preheader47 ], [ 0, %.preheader49 ], [ 0, %.preheader46 ], [ 0, %.lr.ph ]
@@ -997,50 +997,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %.0173183 = phi i32 [ %35, %3 ], [ %89, %36 ]
   %.0176182 = phi i32 [ 0, %3 ], [ %143, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %.0185, i64 4
-  %38 = load i32, ptr %.0185, align 4, !tbaa !10
+  %38 = load i32, ptr %.0185, align 4, !tbaa !11
   %39 = xor i32 %38, %.0170184
   %40 = and i32 %39, 63
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = lshr i32 %39, 8
   %45 = and i32 %44, 63
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = lshr i32 %39, 16
   %50 = and i32 %49, 63
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = lshr i32 %39, 24
   %55 = and i32 %54, 63
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %60 = load i32, ptr %37, align 4, !tbaa !10
+  %60 = load i32, ptr %37, align 4, !tbaa !11
   %61 = tail call i32 @llvm.fshl.i32(i32 %.0170184, i32 %.0170184, i32 28)
   %62 = xor i32 %60, %61
   %63 = and i32 %62, 63
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %66 = load i32, ptr %65, align 4, !tbaa !11
   %67 = lshr i32 %62, 8
   %68 = and i32 %67, 63
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %71 = load i32, ptr %70, align 4, !tbaa !11
   %72 = lshr i32 %62, 16
   %73 = and i32 %72, 63
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %76 = load i32, ptr %75, align 4, !tbaa !11
   %77 = lshr i32 %62, 24
   %78 = and i32 %77, 63
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %81 = load i32, ptr %80, align 4, !tbaa !11
   %82 = xor i32 %43, %.0173183
   %83 = xor i32 %82, %48
   %84 = xor i32 %83, %53
@@ -1050,50 +1050,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %88 = xor i32 %87, %76
   %89 = xor i32 %88, %81
   %90 = getelementptr inbounds nuw i8, ptr %.0185, i64 12
-  %91 = load i32, ptr %59, align 4, !tbaa !10
+  %91 = load i32, ptr %59, align 4, !tbaa !11
   %92 = xor i32 %89, %91
   %93 = and i32 %92, 63
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !10
+  %96 = load i32, ptr %95, align 4, !tbaa !11
   %97 = lshr i32 %92, 8
   %98 = and i32 %97, 63
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = lshr i32 %92, 16
   %103 = and i32 %102, 63
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !10
+  %106 = load i32, ptr %105, align 4, !tbaa !11
   %107 = lshr i32 %92, 24
   %108 = and i32 %107, 63
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !10
+  %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %.0185, i64 16
-  %113 = load i32, ptr %90, align 4, !tbaa !10
+  %113 = load i32, ptr %90, align 4, !tbaa !11
   %114 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 28)
   %115 = xor i32 %113, %114
   %116 = and i32 %115, 63
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !10
+  %119 = load i32, ptr %118, align 4, !tbaa !11
   %120 = lshr i32 %115, 8
   %121 = and i32 %120, 63
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %124 = load i32, ptr %123, align 4, !tbaa !11
   %125 = lshr i32 %115, 16
   %126 = and i32 %125, 63
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !10
+  %129 = load i32, ptr %128, align 4, !tbaa !11
   %130 = lshr i32 %115, 24
   %131 = and i32 %130, 63
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %132
-  %134 = load i32, ptr %133, align 4, !tbaa !10
+  %134 = load i32, ptr %133, align 4, !tbaa !11
   %135 = xor i32 %96, %101
   %136 = xor i32 %135, %106
   %137 = xor i32 %136, %111
@@ -1104,7 +1104,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %142 = xor i32 %141, %.0170184
   %143 = add nuw nsw i32 %.0176182, 1
   %exitcond.not = icmp eq i32 %143, 8
-  br i1 %exitcond.not, label %.preheader181.preheader, label %36, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader181.preheader, label %36, !llvm.loop !20
 
 .preheader181.preheader:                          ; preds = %36
   %scevgep = getelementptr i8, ptr %0, i64 128
@@ -1116,50 +1116,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %.1174187 = phi i32 [ %249, %.preheader181 ], [ %89, %.preheader181.preheader ]
   %.1177186 = phi i32 [ %250, %.preheader181 ], [ 0, %.preheader181.preheader ]
   %144 = getelementptr inbounds nuw i8, ptr %.1189, i64 4
-  %145 = load i32, ptr %.1189, align 4, !tbaa !10
+  %145 = load i32, ptr %.1189, align 4, !tbaa !11
   %146 = xor i32 %145, %.1174187
   %147 = and i32 %146, 63
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %148
-  %150 = load i32, ptr %149, align 4, !tbaa !10
+  %150 = load i32, ptr %149, align 4, !tbaa !11
   %151 = lshr i32 %146, 8
   %152 = and i32 %151, 63
   %153 = zext nneg i32 %152 to i64
   %154 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !10
+  %155 = load i32, ptr %154, align 4, !tbaa !11
   %156 = lshr i32 %146, 16
   %157 = and i32 %156, 63
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !10
+  %160 = load i32, ptr %159, align 4, !tbaa !11
   %161 = lshr i32 %146, 24
   %162 = and i32 %161, 63
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4, !tbaa !10
+  %165 = load i32, ptr %164, align 4, !tbaa !11
   %166 = getelementptr inbounds nuw i8, ptr %.1189, i64 8
-  %167 = load i32, ptr %144, align 4, !tbaa !10
+  %167 = load i32, ptr %144, align 4, !tbaa !11
   %168 = tail call i32 @llvm.fshl.i32(i32 %.1174187, i32 %.1174187, i32 28)
   %169 = xor i32 %167, %168
   %170 = and i32 %169, 63
   %171 = zext nneg i32 %170 to i64
   %172 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %171
-  %173 = load i32, ptr %172, align 4, !tbaa !10
+  %173 = load i32, ptr %172, align 4, !tbaa !11
   %174 = lshr i32 %169, 8
   %175 = and i32 %174, 63
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %176
-  %178 = load i32, ptr %177, align 4, !tbaa !10
+  %178 = load i32, ptr %177, align 4, !tbaa !11
   %179 = lshr i32 %169, 16
   %180 = and i32 %179, 63
   %181 = zext nneg i32 %180 to i64
   %182 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4, !tbaa !10
+  %183 = load i32, ptr %182, align 4, !tbaa !11
   %184 = lshr i32 %169, 24
   %185 = and i32 %184, 63
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %186
-  %188 = load i32, ptr %187, align 4, !tbaa !10
+  %188 = load i32, ptr %187, align 4, !tbaa !11
   %189 = xor i32 %150, %.1171188
   %190 = xor i32 %189, %155
   %191 = xor i32 %190, %160
@@ -1169,50 +1169,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %195 = xor i32 %194, %183
   %196 = xor i32 %195, %188
   %197 = getelementptr inbounds nuw i8, ptr %.1189, i64 12
-  %198 = load i32, ptr %166, align 4, !tbaa !10
+  %198 = load i32, ptr %166, align 4, !tbaa !11
   %199 = xor i32 %196, %198
   %200 = and i32 %199, 63
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %201
-  %203 = load i32, ptr %202, align 4, !tbaa !10
+  %203 = load i32, ptr %202, align 4, !tbaa !11
   %204 = lshr i32 %199, 8
   %205 = and i32 %204, 63
   %206 = zext nneg i32 %205 to i64
   %207 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %206
-  %208 = load i32, ptr %207, align 4, !tbaa !10
+  %208 = load i32, ptr %207, align 4, !tbaa !11
   %209 = lshr i32 %199, 16
   %210 = and i32 %209, 63
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %211
-  %213 = load i32, ptr %212, align 4, !tbaa !10
+  %213 = load i32, ptr %212, align 4, !tbaa !11
   %214 = lshr i32 %199, 24
   %215 = and i32 %214, 63
   %216 = zext nneg i32 %215 to i64
   %217 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %216
-  %218 = load i32, ptr %217, align 4, !tbaa !10
+  %218 = load i32, ptr %217, align 4, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %.1189, i64 16
-  %220 = load i32, ptr %197, align 4, !tbaa !10
+  %220 = load i32, ptr %197, align 4, !tbaa !11
   %221 = tail call i32 @llvm.fshl.i32(i32 %196, i32 %196, i32 28)
   %222 = xor i32 %220, %221
   %223 = and i32 %222, 63
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %224
-  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %226 = load i32, ptr %225, align 4, !tbaa !11
   %227 = lshr i32 %222, 8
   %228 = and i32 %227, 63
   %229 = zext nneg i32 %228 to i64
   %230 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %229
-  %231 = load i32, ptr %230, align 4, !tbaa !10
+  %231 = load i32, ptr %230, align 4, !tbaa !11
   %232 = lshr i32 %222, 16
   %233 = and i32 %232, 63
   %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 4, !tbaa !10
+  %236 = load i32, ptr %235, align 4, !tbaa !11
   %237 = lshr i32 %222, 24
   %238 = and i32 %237, 63
   %239 = zext nneg i32 %238 to i64
   %240 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %239
-  %241 = load i32, ptr %240, align 4, !tbaa !10
+  %241 = load i32, ptr %240, align 4, !tbaa !11
   %242 = xor i32 %203, %208
   %243 = xor i32 %242, %213
   %244 = xor i32 %243, %218
@@ -1223,7 +1223,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %249 = xor i32 %248, %.1174187
   %250 = add nuw nsw i32 %.1177186, 1
   %exitcond202.not = icmp eq i32 %250, 8
-  br i1 %exitcond202.not, label %.preheader.preheader, label %.preheader181, !llvm.loop !20
+  br i1 %exitcond202.not, label %.preheader.preheader, label %.preheader181, !llvm.loop !21
 
 .preheader.preheader:                             ; preds = %.preheader181
   %scevgep201 = getelementptr i8, ptr %0, i64 256
@@ -1235,50 +1235,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %.2175191 = phi i32 [ %303, %.preheader ], [ %249, %.preheader.preheader ]
   %.2178190 = phi i32 [ %357, %.preheader ], [ 0, %.preheader.preheader ]
   %251 = getelementptr inbounds nuw i8, ptr %.2193, i64 4
-  %252 = load i32, ptr %.2193, align 4, !tbaa !10
+  %252 = load i32, ptr %.2193, align 4, !tbaa !11
   %253 = xor i32 %252, %.2172192
   %254 = and i32 %253, 63
   %255 = zext nneg i32 %254 to i64
   %256 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %255
-  %257 = load i32, ptr %256, align 4, !tbaa !10
+  %257 = load i32, ptr %256, align 4, !tbaa !11
   %258 = lshr i32 %253, 8
   %259 = and i32 %258, 63
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %260
-  %262 = load i32, ptr %261, align 4, !tbaa !10
+  %262 = load i32, ptr %261, align 4, !tbaa !11
   %263 = lshr i32 %253, 16
   %264 = and i32 %263, 63
   %265 = zext nneg i32 %264 to i64
   %266 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %265
-  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %267 = load i32, ptr %266, align 4, !tbaa !11
   %268 = lshr i32 %253, 24
   %269 = and i32 %268, 63
   %270 = zext nneg i32 %269 to i64
   %271 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %270
-  %272 = load i32, ptr %271, align 4, !tbaa !10
+  %272 = load i32, ptr %271, align 4, !tbaa !11
   %273 = getelementptr inbounds nuw i8, ptr %.2193, i64 8
-  %274 = load i32, ptr %251, align 4, !tbaa !10
+  %274 = load i32, ptr %251, align 4, !tbaa !11
   %275 = tail call i32 @llvm.fshl.i32(i32 %.2172192, i32 %.2172192, i32 28)
   %276 = xor i32 %274, %275
   %277 = and i32 %276, 63
   %278 = zext nneg i32 %277 to i64
   %279 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 4, !tbaa !10
+  %280 = load i32, ptr %279, align 4, !tbaa !11
   %281 = lshr i32 %276, 8
   %282 = and i32 %281, 63
   %283 = zext nneg i32 %282 to i64
   %284 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %283
-  %285 = load i32, ptr %284, align 4, !tbaa !10
+  %285 = load i32, ptr %284, align 4, !tbaa !11
   %286 = lshr i32 %276, 16
   %287 = and i32 %286, 63
   %288 = zext nneg i32 %287 to i64
   %289 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %288
-  %290 = load i32, ptr %289, align 4, !tbaa !10
+  %290 = load i32, ptr %289, align 4, !tbaa !11
   %291 = lshr i32 %276, 24
   %292 = and i32 %291, 63
   %293 = zext nneg i32 %292 to i64
   %294 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %293
-  %295 = load i32, ptr %294, align 4, !tbaa !10
+  %295 = load i32, ptr %294, align 4, !tbaa !11
   %296 = xor i32 %257, %.2175191
   %297 = xor i32 %296, %262
   %298 = xor i32 %297, %267
@@ -1288,50 +1288,50 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %302 = xor i32 %301, %290
   %303 = xor i32 %302, %295
   %304 = getelementptr inbounds nuw i8, ptr %.2193, i64 12
-  %305 = load i32, ptr %273, align 4, !tbaa !10
+  %305 = load i32, ptr %273, align 4, !tbaa !11
   %306 = xor i32 %303, %305
   %307 = and i32 %306, 63
   %308 = zext nneg i32 %307 to i64
   %309 = getelementptr inbounds nuw [64 x i32], ptr @SB8, i64 0, i64 %308
-  %310 = load i32, ptr %309, align 4, !tbaa !10
+  %310 = load i32, ptr %309, align 4, !tbaa !11
   %311 = lshr i32 %306, 8
   %312 = and i32 %311, 63
   %313 = zext nneg i32 %312 to i64
   %314 = getelementptr inbounds nuw [64 x i32], ptr @SB6, i64 0, i64 %313
-  %315 = load i32, ptr %314, align 4, !tbaa !10
+  %315 = load i32, ptr %314, align 4, !tbaa !11
   %316 = lshr i32 %306, 16
   %317 = and i32 %316, 63
   %318 = zext nneg i32 %317 to i64
   %319 = getelementptr inbounds nuw [64 x i32], ptr @SB4, i64 0, i64 %318
-  %320 = load i32, ptr %319, align 4, !tbaa !10
+  %320 = load i32, ptr %319, align 4, !tbaa !11
   %321 = lshr i32 %306, 24
   %322 = and i32 %321, 63
   %323 = zext nneg i32 %322 to i64
   %324 = getelementptr inbounds nuw [64 x i32], ptr @SB2, i64 0, i64 %323
-  %325 = load i32, ptr %324, align 4, !tbaa !10
+  %325 = load i32, ptr %324, align 4, !tbaa !11
   %326 = getelementptr inbounds nuw i8, ptr %.2193, i64 16
-  %327 = load i32, ptr %304, align 4, !tbaa !10
+  %327 = load i32, ptr %304, align 4, !tbaa !11
   %328 = tail call i32 @llvm.fshl.i32(i32 %303, i32 %303, i32 28)
   %329 = xor i32 %327, %328
   %330 = and i32 %329, 63
   %331 = zext nneg i32 %330 to i64
   %332 = getelementptr inbounds nuw [64 x i32], ptr @SB7, i64 0, i64 %331
-  %333 = load i32, ptr %332, align 4, !tbaa !10
+  %333 = load i32, ptr %332, align 4, !tbaa !11
   %334 = lshr i32 %329, 8
   %335 = and i32 %334, 63
   %336 = zext nneg i32 %335 to i64
   %337 = getelementptr inbounds nuw [64 x i32], ptr @SB5, i64 0, i64 %336
-  %338 = load i32, ptr %337, align 4, !tbaa !10
+  %338 = load i32, ptr %337, align 4, !tbaa !11
   %339 = lshr i32 %329, 16
   %340 = and i32 %339, 63
   %341 = zext nneg i32 %340 to i64
   %342 = getelementptr inbounds nuw [64 x i32], ptr @SB3, i64 0, i64 %341
-  %343 = load i32, ptr %342, align 4, !tbaa !10
+  %343 = load i32, ptr %342, align 4, !tbaa !11
   %344 = lshr i32 %329, 24
   %345 = and i32 %344, 63
   %346 = zext nneg i32 %345 to i64
   %347 = getelementptr inbounds nuw [64 x i32], ptr @SB1, i64 0, i64 %346
-  %348 = load i32, ptr %347, align 4, !tbaa !10
+  %348 = load i32, ptr %347, align 4, !tbaa !11
   %349 = xor i32 %310, %315
   %350 = xor i32 %349, %320
   %351 = xor i32 %350, %325
@@ -1342,7 +1342,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(
   %356 = xor i32 %355, %.2172192
   %357 = add nuw nsw i32 %.2178190, 1
   %exitcond203.not = icmp eq i32 %357, 8
-  br i1 %exitcond203.not, label %358, label %.preheader, !llvm.loop !21
+  br i1 %exitcond203.not, label %358, label %.preheader, !llvm.loop !22
 
 358:                                              ; preds = %.preheader
   %359 = tail call i32 @llvm.fshl.i32(i32 %356, i32 %356, i32 31)
@@ -1419,7 +1419,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr noundef readonly
   %14 = getelementptr inbounds nuw i8, ptr %.03163, i64 8
   %15 = add i64 %.03461, -8
   %.not39 = icmp eq i64 %15, 0
-  br i1 %.not39, label %.loopexit, label %.preheader46, !llvm.loop !22
+  br i1 %.not39, label %.loopexit, label %.preheader46, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.preheader49, %.lr.ph
   %.156 = phi ptr [ %19, %.lr.ph ], [ %5, %.preheader49 ]
@@ -1436,7 +1436,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %.156, i64 8
   %20 = add i64 %.13554, -8
   %.not38 = icmp eq i64 %20, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader46, %.preheader49, %.preheader47, %6
   %.0 = phi i32 [ -50, %6 ], [ 0, %.preheader47 ], [ 0, %.preheader49 ], [ 0, %.preheader46 ], [ 0, %.lr.ph ]
@@ -1503,23 +1503,23 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
 30:                                               ; preds = %30, %29
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %30 ]
   %31 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv.i
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !11
   %33 = sub nuw nsw i64 30, %indvars.iv.i
   %34 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !10
-  store i32 %35, ptr %31, align 4, !tbaa !10
-  store i32 %32, ptr %34, align 4, !tbaa !10
+  %35 = load i32, ptr %34, align 4, !tbaa !11
+  store i32 %35, ptr %31, align 4, !tbaa !11
+  store i32 %32, ptr %34, align 4, !tbaa !11
   %36 = or disjoint i64 %indvars.iv.i, 1
   %37 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = sub nuw nsw i64 31, %indvars.iv.i
   %40 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !10
-  store i32 %41, ptr %37, align 4, !tbaa !10
-  store i32 %38, ptr %40, align 4, !tbaa !10
+  %41 = load i32, ptr %40, align 4, !tbaa !11
+  store i32 %41, ptr %37, align 4, !tbaa !11
+  store i32 %38, ptr %40, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %42 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %42, label %30, label %mbedtls_des_setkey_dec.exit.split.us.preheader, !llvm.loop !13
+  br i1 %42, label %30, label %mbedtls_des_setkey_dec.exit.split.us.preheader, !llvm.loop !14
 
 43:                                               ; preds = %28
   call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull @des3_test_keys)
@@ -1538,42 +1538,42 @@ mbedtls_des_setkey_dec.exit.split.us.preheader:   ; preds = %30, %43
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.i, %45 ]
   %46 = sub nuw nsw i64 30, %indvars.iv.i.i
   %47 = getelementptr inbounds nuw i32, ptr %9, i64 %46
-  %48 = load i32, ptr %47, align 8, !tbaa !10
+  %48 = load i32, ptr %47, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i
-  store i32 %48, ptr %49, align 4, !tbaa !10
+  store i32 %48, ptr %49, align 4, !tbaa !11
   %50 = sub nuw nsw i64 31, %indvars.iv.i.i
   %51 = getelementptr inbounds nuw i32, ptr %9, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = or disjoint i64 %indvars.iv.i.i, 1
   %54 = getelementptr inbounds nuw i32, ptr %11, i64 %53
-  store i32 %52, ptr %54, align 4, !tbaa !10
+  store i32 %52, ptr %54, align 4, !tbaa !11
   %55 = sub nuw nsw i64 62, %indvars.iv.i.i
   %56 = getelementptr inbounds nuw i32, ptr %11, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !10
+  %57 = load i32, ptr %56, align 4, !tbaa !11
   %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 128
-  store i32 %57, ptr %59, align 8, !tbaa !10
+  store i32 %57, ptr %59, align 8, !tbaa !11
   %60 = sub nuw nsw i64 63, %indvars.iv.i.i
   %61 = getelementptr inbounds nuw i32, ptr %11, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %62 = load i32, ptr %61, align 4, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 132
-  store i32 %62, ptr %63, align 4, !tbaa !10
-  %64 = load i32, ptr %58, align 8, !tbaa !10
+  store i32 %62, ptr %63, align 4, !tbaa !11
+  %64 = load i32, ptr %58, align 8, !tbaa !11
   %65 = or disjoint i64 %indvars.iv.i.i, 64
   %66 = getelementptr inbounds nuw i32, ptr %9, i64 %65
-  store i32 %64, ptr %66, align 8, !tbaa !10
+  store i32 %64, ptr %66, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i32, ptr %9, i64 %53
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !11
   %69 = or disjoint i64 %indvars.iv.i.i, 65
   %70 = getelementptr inbounds nuw i32, ptr %9, i64 %69
-  store i32 %68, ptr %70, align 4, !tbaa !10
+  store i32 %68, ptr %70, align 4, !tbaa !11
   %71 = getelementptr inbounds nuw i32, ptr %11, i64 %65
-  store i32 %48, ptr %71, align 4, !tbaa !10
+  store i32 %48, ptr %71, align 4, !tbaa !11
   %72 = getelementptr inbounds nuw i32, ptr %11, i64 %69
-  store i32 %52, ptr %72, align 4, !tbaa !10
+  store i32 %52, ptr %72, align 4, !tbaa !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %73 = icmp samesign ult i64 %indvars.iv.i.i, 30
-  br i1 %73, label %45, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !14
+  br i1 %73, label %45, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !15
 
 mbedtls_des3_set2key_dec.exit:                    ; preds = %45
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 384) #13
@@ -1590,42 +1590,42 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %45
   %indvars.iv.i.i85 = phi i64 [ 0, %74 ], [ %indvars.iv.next.i.i86, %75 ]
   %76 = sub nuw nsw i64 30, %indvars.iv.i.i85
   %77 = getelementptr inbounds nuw i32, ptr %11, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %78 = load i32, ptr %77, align 4, !tbaa !11
   %79 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i85
-  store i32 %78, ptr %79, align 8, !tbaa !10
+  store i32 %78, ptr %79, align 8, !tbaa !11
   %80 = sub nuw nsw i64 31, %indvars.iv.i.i85
   %81 = getelementptr inbounds nuw i32, ptr %11, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %82 = load i32, ptr %81, align 4, !tbaa !11
   %83 = or disjoint i64 %indvars.iv.i.i85, 1
   %84 = getelementptr inbounds nuw i32, ptr %8, i64 %83
-  store i32 %82, ptr %84, align 4, !tbaa !10
+  store i32 %82, ptr %84, align 4, !tbaa !11
   %85 = sub nuw nsw i64 62, %indvars.iv.i.i85
   %86 = getelementptr inbounds nuw i32, ptr %8, i64 %85
-  %87 = load i32, ptr %86, align 8, !tbaa !10
+  %87 = load i32, ptr %86, align 8, !tbaa !11
   %88 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i85
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 128
-  store i32 %87, ptr %89, align 4, !tbaa !10
+  store i32 %87, ptr %89, align 4, !tbaa !11
   %90 = sub nuw nsw i64 63, %indvars.iv.i.i85
   %91 = getelementptr inbounds nuw i32, ptr %8, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !10
+  %92 = load i32, ptr %91, align 4, !tbaa !11
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 132
-  store i32 %92, ptr %93, align 4, !tbaa !10
-  %94 = load i32, ptr %88, align 4, !tbaa !10
+  store i32 %92, ptr %93, align 4, !tbaa !11
+  %94 = load i32, ptr %88, align 4, !tbaa !11
   %95 = or disjoint i64 %indvars.iv.i.i85, 64
   %96 = getelementptr inbounds nuw i32, ptr %11, i64 %95
-  store i32 %94, ptr %96, align 4, !tbaa !10
+  store i32 %94, ptr %96, align 4, !tbaa !11
   %97 = getelementptr inbounds nuw i32, ptr %11, i64 %83
-  %98 = load i32, ptr %97, align 4, !tbaa !10
+  %98 = load i32, ptr %97, align 4, !tbaa !11
   %99 = or disjoint i64 %indvars.iv.i.i85, 65
   %100 = getelementptr inbounds nuw i32, ptr %11, i64 %99
-  store i32 %98, ptr %100, align 4, !tbaa !10
+  store i32 %98, ptr %100, align 4, !tbaa !11
   %101 = getelementptr inbounds nuw i32, ptr %8, i64 %95
-  store i32 %78, ptr %101, align 8, !tbaa !10
+  store i32 %78, ptr %101, align 8, !tbaa !11
   %102 = getelementptr inbounds nuw i32, ptr %8, i64 %99
-  store i32 %82, ptr %102, align 4, !tbaa !10
+  store i32 %82, ptr %102, align 4, !tbaa !11
   %indvars.iv.next.i.i86 = add nuw nsw i64 %indvars.iv.i.i85, 2
   %103 = icmp samesign ult i64 %indvars.iv.i.i85, 30
-  br i1 %103, label %75, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !14
+  br i1 %103, label %75, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !15
 
 mbedtls_des3_set2key_enc.exit:                    ; preds = %75
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 384) #13
@@ -1643,38 +1643,38 @@ mbedtls_des3_set2key_enc.exit:                    ; preds = %75
   %indvars.iv.i.i87 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i.i88, %105 ]
   %106 = sub nuw nsw i64 94, %indvars.iv.i.i87
   %107 = getelementptr inbounds nuw i32, ptr %7, i64 %106
-  %108 = load i32, ptr %107, align 8, !tbaa !10
+  %108 = load i32, ptr %107, align 8, !tbaa !11
   %109 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i87
-  store i32 %108, ptr %109, align 4, !tbaa !10
+  store i32 %108, ptr %109, align 4, !tbaa !11
   %110 = sub nuw nsw i64 95, %indvars.iv.i.i87
   %111 = getelementptr inbounds nuw i32, ptr %7, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !10
+  %112 = load i32, ptr %111, align 4, !tbaa !11
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %112, ptr %113, align 4, !tbaa !10
+  store i32 %112, ptr %113, align 4, !tbaa !11
   %114 = sub nuw nsw i64 62, %indvars.iv.i.i87
   %115 = getelementptr inbounds nuw i32, ptr %11, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !10
+  %116 = load i32, ptr %115, align 4, !tbaa !11
   %117 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i87
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 128
-  store i32 %116, ptr %118, align 8, !tbaa !10
+  store i32 %116, ptr %118, align 8, !tbaa !11
   %119 = sub nuw nsw i64 63, %indvars.iv.i.i87
   %120 = getelementptr inbounds nuw i32, ptr %11, i64 %119
-  %121 = load i32, ptr %120, align 4, !tbaa !10
+  %121 = load i32, ptr %120, align 4, !tbaa !11
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 132
-  store i32 %121, ptr %122, align 4, !tbaa !10
+  store i32 %121, ptr %122, align 4, !tbaa !11
   %123 = sub nuw nsw i64 30, %indvars.iv.i.i87
   %124 = getelementptr inbounds nuw i32, ptr %7, i64 %123
-  %125 = load i32, ptr %124, align 8, !tbaa !10
+  %125 = load i32, ptr %124, align 8, !tbaa !11
   %126 = getelementptr inbounds nuw i8, ptr %109, i64 256
-  store i32 %125, ptr %126, align 4, !tbaa !10
+  store i32 %125, ptr %126, align 4, !tbaa !11
   %127 = sub nuw nsw i64 31, %indvars.iv.i.i87
   %128 = getelementptr inbounds nuw i32, ptr %7, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !10
+  %129 = load i32, ptr %128, align 4, !tbaa !11
   %130 = getelementptr inbounds nuw i8, ptr %109, i64 260
-  store i32 %129, ptr %130, align 4, !tbaa !10
+  store i32 %129, ptr %130, align 4, !tbaa !11
   %indvars.iv.next.i.i88 = add nuw nsw i64 %indvars.iv.i.i87, 2
   %131 = icmp samesign ult i64 %indvars.iv.i.i87, 30
-  br i1 %131, label %105, label %mbedtls_des3_set3key_dec.exit, !llvm.loop !15
+  br i1 %131, label %105, label %mbedtls_des3_set3key_dec.exit, !llvm.loop !16
 
 mbedtls_des3_set3key_dec.exit:                    ; preds = %105
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 384) #13
@@ -1692,38 +1692,38 @@ mbedtls_des3_set3key_dec.exit:                    ; preds = %105
   %indvars.iv.i.i89 = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i90, %133 ]
   %134 = sub nuw nsw i64 94, %indvars.iv.i.i89
   %135 = getelementptr inbounds nuw i32, ptr %11, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !10
+  %136 = load i32, ptr %135, align 4, !tbaa !11
   %137 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i89
-  store i32 %136, ptr %137, align 8, !tbaa !10
+  store i32 %136, ptr %137, align 8, !tbaa !11
   %138 = sub nuw nsw i64 95, %indvars.iv.i.i89
   %139 = getelementptr inbounds nuw i32, ptr %11, i64 %138
-  %140 = load i32, ptr %139, align 4, !tbaa !10
+  %140 = load i32, ptr %139, align 4, !tbaa !11
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  store i32 %140, ptr %141, align 4, !tbaa !10
+  store i32 %140, ptr %141, align 4, !tbaa !11
   %142 = sub nuw nsw i64 62, %indvars.iv.i.i89
   %143 = getelementptr inbounds nuw i32, ptr %6, i64 %142
-  %144 = load i32, ptr %143, align 8, !tbaa !10
+  %144 = load i32, ptr %143, align 8, !tbaa !11
   %145 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i89
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 128
-  store i32 %144, ptr %146, align 4, !tbaa !10
+  store i32 %144, ptr %146, align 4, !tbaa !11
   %147 = sub nuw nsw i64 63, %indvars.iv.i.i89
   %148 = getelementptr inbounds nuw i32, ptr %6, i64 %147
-  %149 = load i32, ptr %148, align 4, !tbaa !10
+  %149 = load i32, ptr %148, align 4, !tbaa !11
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 132
-  store i32 %149, ptr %150, align 4, !tbaa !10
+  store i32 %149, ptr %150, align 4, !tbaa !11
   %151 = sub nuw nsw i64 30, %indvars.iv.i.i89
   %152 = getelementptr inbounds nuw i32, ptr %11, i64 %151
-  %153 = load i32, ptr %152, align 4, !tbaa !10
+  %153 = load i32, ptr %152, align 4, !tbaa !11
   %154 = getelementptr inbounds nuw i8, ptr %137, i64 256
-  store i32 %153, ptr %154, align 8, !tbaa !10
+  store i32 %153, ptr %154, align 8, !tbaa !11
   %155 = sub nuw nsw i64 31, %indvars.iv.i.i89
   %156 = getelementptr inbounds nuw i32, ptr %11, i64 %155
-  %157 = load i32, ptr %156, align 4, !tbaa !10
+  %157 = load i32, ptr %156, align 4, !tbaa !11
   %158 = getelementptr inbounds nuw i8, ptr %137, i64 260
-  store i32 %157, ptr %158, align 4, !tbaa !10
+  store i32 %157, ptr %158, align 4, !tbaa !11
   %indvars.iv.next.i.i90 = add nuw nsw i64 %indvars.iv.i.i89, 2
   %159 = icmp samesign ult i64 %indvars.iv.i.i89, 30
-  br i1 %159, label %133, label %mbedtls_des3_set3key_enc.exit, !llvm.loop !15
+  br i1 %159, label %133, label %mbedtls_des3_set3key_enc.exit, !llvm.loop !16
 
 mbedtls_des3_set3key_enc.exit:                    ; preds = %133
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 384) #13
@@ -1738,14 +1738,14 @@ mbedtls_des_setkey_dec.exit.split.us:             ; preds = %mbedtls_des_setkey_
   %160 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %12)
   %161 = add nuw nsw i32 %.061133.us, 1
   %exitcond147.not = icmp eq i32 %161, 100
-  br i1 %exitcond147.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split.us, !llvm.loop !24
+  br i1 %exitcond147.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split.us, !llvm.loop !25
 
 mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_dec.exit.split.preheader, %mbedtls_des_setkey_dec.exit.split
   %.061133 = phi i32 [ %163, %mbedtls_des_setkey_dec.exit.split ], [ 0, %mbedtls_des_setkey_dec.exit.split.preheader ]
   %162 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %12)
   %163 = add nuw nsw i32 %.061133, 1
   %exitcond.not = icmp eq i32 %163, 100
-  br i1 %exitcond.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split, !llvm.loop !26
+  br i1 %exitcond.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split, !llvm.loop !27
 
 .split.us:                                        ; preds = %mbedtls_des_setkey_dec.exit.split, %mbedtls_des_setkey_dec.exit.split.us
   %cond = icmp eq i32 %19, 0
@@ -1782,7 +1782,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 
 .backedge168.backedge:                            ; preds = %172, %.thread158
   %.064134.be = phi i32 [ %173, %172 ], [ %174, %.thread158 ]
-  br label %.backedge168, !llvm.loop !27
+  br label %.backedge168, !llvm.loop !28
 
 .thread158:                                       ; preds = %171
   %puts82 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -1834,23 +1834,23 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 191:                                              ; preds = %191, %190
   %indvars.iv.i91 = phi i64 [ 0, %190 ], [ %indvars.iv.next.i92, %191 ]
   %192 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv.i91
-  %193 = load i32, ptr %192, align 4, !tbaa !10
+  %193 = load i32, ptr %192, align 4, !tbaa !11
   %194 = sub nuw nsw i64 30, %indvars.iv.i91
   %195 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %194
-  %196 = load i32, ptr %195, align 4, !tbaa !10
-  store i32 %196, ptr %192, align 4, !tbaa !10
-  store i32 %193, ptr %195, align 4, !tbaa !10
+  %196 = load i32, ptr %195, align 4, !tbaa !11
+  store i32 %196, ptr %192, align 4, !tbaa !11
+  store i32 %193, ptr %195, align 4, !tbaa !11
   %197 = or disjoint i64 %indvars.iv.i91, 1
   %198 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %197
-  %199 = load i32, ptr %198, align 4, !tbaa !10
+  %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sub nuw nsw i64 31, %indvars.iv.i91
   %201 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4, !tbaa !10
-  store i32 %202, ptr %198, align 4, !tbaa !10
-  store i32 %199, ptr %201, align 4, !tbaa !10
+  %202 = load i32, ptr %201, align 4, !tbaa !11
+  store i32 %202, ptr %198, align 4, !tbaa !11
+  store i32 %199, ptr %201, align 4, !tbaa !11
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 2
   %203 = icmp samesign ult i64 %indvars.iv.i91, 14
-  br i1 %203, label %191, label %.lr.ph.i.preheader.us, !llvm.loop !13
+  br i1 %203, label %191, label %.lr.ph.i.preheader.us, !llvm.loop !14
 
 204:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #13
@@ -1862,42 +1862,42 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %indvars.iv.i.i94 = phi i64 [ 0, %204 ], [ %indvars.iv.next.i.i95, %205 ]
   %206 = sub nuw nsw i64 30, %indvars.iv.i.i94
   %207 = getelementptr inbounds nuw i32, ptr %5, i64 %206
-  %208 = load i32, ptr %207, align 8, !tbaa !10
+  %208 = load i32, ptr %207, align 8, !tbaa !11
   %209 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i94
-  store i32 %208, ptr %209, align 4, !tbaa !10
+  store i32 %208, ptr %209, align 4, !tbaa !11
   %210 = sub nuw nsw i64 31, %indvars.iv.i.i94
   %211 = getelementptr inbounds nuw i32, ptr %5, i64 %210
-  %212 = load i32, ptr %211, align 4, !tbaa !10
+  %212 = load i32, ptr %211, align 4, !tbaa !11
   %213 = or disjoint i64 %indvars.iv.i.i94, 1
   %214 = getelementptr inbounds nuw i32, ptr %11, i64 %213
-  store i32 %212, ptr %214, align 4, !tbaa !10
+  store i32 %212, ptr %214, align 4, !tbaa !11
   %215 = sub nuw nsw i64 62, %indvars.iv.i.i94
   %216 = getelementptr inbounds nuw i32, ptr %11, i64 %215
-  %217 = load i32, ptr %216, align 4, !tbaa !10
+  %217 = load i32, ptr %216, align 4, !tbaa !11
   %218 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i94
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 128
-  store i32 %217, ptr %219, align 8, !tbaa !10
+  store i32 %217, ptr %219, align 8, !tbaa !11
   %220 = sub nuw nsw i64 63, %indvars.iv.i.i94
   %221 = getelementptr inbounds nuw i32, ptr %11, i64 %220
-  %222 = load i32, ptr %221, align 4, !tbaa !10
+  %222 = load i32, ptr %221, align 4, !tbaa !11
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 132
-  store i32 %222, ptr %223, align 4, !tbaa !10
-  %224 = load i32, ptr %218, align 8, !tbaa !10
+  store i32 %222, ptr %223, align 4, !tbaa !11
+  %224 = load i32, ptr %218, align 8, !tbaa !11
   %225 = or disjoint i64 %indvars.iv.i.i94, 64
   %226 = getelementptr inbounds nuw i32, ptr %5, i64 %225
-  store i32 %224, ptr %226, align 8, !tbaa !10
+  store i32 %224, ptr %226, align 8, !tbaa !11
   %227 = getelementptr inbounds nuw i32, ptr %5, i64 %213
-  %228 = load i32, ptr %227, align 4, !tbaa !10
+  %228 = load i32, ptr %227, align 4, !tbaa !11
   %229 = or disjoint i64 %indvars.iv.i.i94, 65
   %230 = getelementptr inbounds nuw i32, ptr %5, i64 %229
-  store i32 %228, ptr %230, align 4, !tbaa !10
+  store i32 %228, ptr %230, align 4, !tbaa !11
   %231 = getelementptr inbounds nuw i32, ptr %11, i64 %225
-  store i32 %208, ptr %231, align 4, !tbaa !10
+  store i32 %208, ptr %231, align 4, !tbaa !11
   %232 = getelementptr inbounds nuw i32, ptr %11, i64 %229
-  store i32 %212, ptr %232, align 4, !tbaa !10
+  store i32 %212, ptr %232, align 4, !tbaa !11
   %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i94, 2
   %233 = icmp samesign ult i64 %indvars.iv.i.i94, 30
-  br i1 %233, label %205, label %mbedtls_des3_set2key_dec.exit96, !llvm.loop !14
+  br i1 %233, label %205, label %mbedtls_des3_set2key_dec.exit96, !llvm.loop !15
 
 mbedtls_des3_set2key_dec.exit96:                  ; preds = %205
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 384) #13
@@ -1914,42 +1914,42 @@ mbedtls_des3_set2key_dec.exit96:                  ; preds = %205
   %indvars.iv.i.i97 = phi i64 [ 0, %234 ], [ %indvars.iv.next.i.i98, %235 ]
   %236 = sub nuw nsw i64 30, %indvars.iv.i.i97
   %237 = getelementptr inbounds nuw i32, ptr %11, i64 %236
-  %238 = load i32, ptr %237, align 4, !tbaa !10
+  %238 = load i32, ptr %237, align 4, !tbaa !11
   %239 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i97
-  store i32 %238, ptr %239, align 8, !tbaa !10
+  store i32 %238, ptr %239, align 8, !tbaa !11
   %240 = sub nuw nsw i64 31, %indvars.iv.i.i97
   %241 = getelementptr inbounds nuw i32, ptr %11, i64 %240
-  %242 = load i32, ptr %241, align 4, !tbaa !10
+  %242 = load i32, ptr %241, align 4, !tbaa !11
   %243 = or disjoint i64 %indvars.iv.i.i97, 1
   %244 = getelementptr inbounds nuw i32, ptr %4, i64 %243
-  store i32 %242, ptr %244, align 4, !tbaa !10
+  store i32 %242, ptr %244, align 4, !tbaa !11
   %245 = sub nuw nsw i64 62, %indvars.iv.i.i97
   %246 = getelementptr inbounds nuw i32, ptr %4, i64 %245
-  %247 = load i32, ptr %246, align 8, !tbaa !10
+  %247 = load i32, ptr %246, align 8, !tbaa !11
   %248 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i97
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 128
-  store i32 %247, ptr %249, align 4, !tbaa !10
+  store i32 %247, ptr %249, align 4, !tbaa !11
   %250 = sub nuw nsw i64 63, %indvars.iv.i.i97
   %251 = getelementptr inbounds nuw i32, ptr %4, i64 %250
-  %252 = load i32, ptr %251, align 4, !tbaa !10
+  %252 = load i32, ptr %251, align 4, !tbaa !11
   %253 = getelementptr inbounds nuw i8, ptr %248, i64 132
-  store i32 %252, ptr %253, align 4, !tbaa !10
-  %254 = load i32, ptr %248, align 4, !tbaa !10
+  store i32 %252, ptr %253, align 4, !tbaa !11
+  %254 = load i32, ptr %248, align 4, !tbaa !11
   %255 = or disjoint i64 %indvars.iv.i.i97, 64
   %256 = getelementptr inbounds nuw i32, ptr %11, i64 %255
-  store i32 %254, ptr %256, align 4, !tbaa !10
+  store i32 %254, ptr %256, align 4, !tbaa !11
   %257 = getelementptr inbounds nuw i32, ptr %11, i64 %243
-  %258 = load i32, ptr %257, align 4, !tbaa !10
+  %258 = load i32, ptr %257, align 4, !tbaa !11
   %259 = or disjoint i64 %indvars.iv.i.i97, 65
   %260 = getelementptr inbounds nuw i32, ptr %11, i64 %259
-  store i32 %258, ptr %260, align 4, !tbaa !10
+  store i32 %258, ptr %260, align 4, !tbaa !11
   %261 = getelementptr inbounds nuw i32, ptr %4, i64 %255
-  store i32 %238, ptr %261, align 8, !tbaa !10
+  store i32 %238, ptr %261, align 8, !tbaa !11
   %262 = getelementptr inbounds nuw i32, ptr %4, i64 %259
-  store i32 %242, ptr %262, align 4, !tbaa !10
+  store i32 %242, ptr %262, align 4, !tbaa !11
   %indvars.iv.next.i.i98 = add nuw nsw i64 %indvars.iv.i.i97, 2
   %263 = icmp samesign ult i64 %indvars.iv.i.i97, 30
-  br i1 %263, label %235, label %mbedtls_des3_set2key_enc.exit99, !llvm.loop !14
+  br i1 %263, label %235, label %mbedtls_des3_set2key_enc.exit99, !llvm.loop !15
 
 mbedtls_des3_set2key_enc.exit99:                  ; preds = %235
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 384) #13
@@ -1970,38 +1970,38 @@ mbedtls_des3_set2key_enc.exit99:                  ; preds = %235
   %indvars.iv.i.i100 = phi i64 [ 0, %264 ], [ %indvars.iv.next.i.i101, %265 ]
   %266 = sub nuw nsw i64 94, %indvars.iv.i.i100
   %267 = getelementptr inbounds nuw i32, ptr %3, i64 %266
-  %268 = load i32, ptr %267, align 8, !tbaa !10
+  %268 = load i32, ptr %267, align 8, !tbaa !11
   %269 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i100
-  store i32 %268, ptr %269, align 4, !tbaa !10
+  store i32 %268, ptr %269, align 4, !tbaa !11
   %270 = sub nuw nsw i64 95, %indvars.iv.i.i100
   %271 = getelementptr inbounds nuw i32, ptr %3, i64 %270
-  %272 = load i32, ptr %271, align 4, !tbaa !10
+  %272 = load i32, ptr %271, align 4, !tbaa !11
   %273 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  store i32 %272, ptr %273, align 4, !tbaa !10
+  store i32 %272, ptr %273, align 4, !tbaa !11
   %274 = sub nuw nsw i64 62, %indvars.iv.i.i100
   %275 = getelementptr inbounds nuw i32, ptr %11, i64 %274
-  %276 = load i32, ptr %275, align 4, !tbaa !10
+  %276 = load i32, ptr %275, align 4, !tbaa !11
   %277 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i100
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 128
-  store i32 %276, ptr %278, align 8, !tbaa !10
+  store i32 %276, ptr %278, align 8, !tbaa !11
   %279 = sub nuw nsw i64 63, %indvars.iv.i.i100
   %280 = getelementptr inbounds nuw i32, ptr %11, i64 %279
-  %281 = load i32, ptr %280, align 4, !tbaa !10
+  %281 = load i32, ptr %280, align 4, !tbaa !11
   %282 = getelementptr inbounds nuw i8, ptr %277, i64 132
-  store i32 %281, ptr %282, align 4, !tbaa !10
+  store i32 %281, ptr %282, align 4, !tbaa !11
   %283 = sub nuw nsw i64 30, %indvars.iv.i.i100
   %284 = getelementptr inbounds nuw i32, ptr %3, i64 %283
-  %285 = load i32, ptr %284, align 8, !tbaa !10
+  %285 = load i32, ptr %284, align 8, !tbaa !11
   %286 = getelementptr inbounds nuw i8, ptr %269, i64 256
-  store i32 %285, ptr %286, align 4, !tbaa !10
+  store i32 %285, ptr %286, align 4, !tbaa !11
   %287 = sub nuw nsw i64 31, %indvars.iv.i.i100
   %288 = getelementptr inbounds nuw i32, ptr %3, i64 %287
-  %289 = load i32, ptr %288, align 4, !tbaa !10
+  %289 = load i32, ptr %288, align 4, !tbaa !11
   %290 = getelementptr inbounds nuw i8, ptr %269, i64 260
-  store i32 %289, ptr %290, align 4, !tbaa !10
+  store i32 %289, ptr %290, align 4, !tbaa !11
   %indvars.iv.next.i.i101 = add nuw nsw i64 %indvars.iv.i.i100, 2
   %291 = icmp samesign ult i64 %indvars.iv.i.i100, 30
-  br i1 %291, label %265, label %mbedtls_des3_set3key_dec.exit102, !llvm.loop !15
+  br i1 %291, label %265, label %mbedtls_des3_set3key_dec.exit102, !llvm.loop !16
 
 mbedtls_des3_set3key_dec.exit102:                 ; preds = %265
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #13
@@ -2022,38 +2022,38 @@ mbedtls_des3_set3key_dec.exit102:                 ; preds = %265
   %indvars.iv.i.i103 = phi i64 [ 0, %292 ], [ %indvars.iv.next.i.i104, %293 ]
   %294 = sub nuw nsw i64 94, %indvars.iv.i.i103
   %295 = getelementptr inbounds nuw i32, ptr %11, i64 %294
-  %296 = load i32, ptr %295, align 4, !tbaa !10
+  %296 = load i32, ptr %295, align 4, !tbaa !11
   %297 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i103
-  store i32 %296, ptr %297, align 8, !tbaa !10
+  store i32 %296, ptr %297, align 8, !tbaa !11
   %298 = sub nuw nsw i64 95, %indvars.iv.i.i103
   %299 = getelementptr inbounds nuw i32, ptr %11, i64 %298
-  %300 = load i32, ptr %299, align 4, !tbaa !10
+  %300 = load i32, ptr %299, align 4, !tbaa !11
   %301 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  store i32 %300, ptr %301, align 4, !tbaa !10
+  store i32 %300, ptr %301, align 4, !tbaa !11
   %302 = sub nuw nsw i64 62, %indvars.iv.i.i103
   %303 = getelementptr inbounds nuw i32, ptr %2, i64 %302
-  %304 = load i32, ptr %303, align 8, !tbaa !10
+  %304 = load i32, ptr %303, align 8, !tbaa !11
   %305 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i103
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 128
-  store i32 %304, ptr %306, align 4, !tbaa !10
+  store i32 %304, ptr %306, align 4, !tbaa !11
   %307 = sub nuw nsw i64 63, %indvars.iv.i.i103
   %308 = getelementptr inbounds nuw i32, ptr %2, i64 %307
-  %309 = load i32, ptr %308, align 4, !tbaa !10
+  %309 = load i32, ptr %308, align 4, !tbaa !11
   %310 = getelementptr inbounds nuw i8, ptr %305, i64 132
-  store i32 %309, ptr %310, align 4, !tbaa !10
+  store i32 %309, ptr %310, align 4, !tbaa !11
   %311 = sub nuw nsw i64 30, %indvars.iv.i.i103
   %312 = getelementptr inbounds nuw i32, ptr %11, i64 %311
-  %313 = load i32, ptr %312, align 4, !tbaa !10
+  %313 = load i32, ptr %312, align 4, !tbaa !11
   %314 = getelementptr inbounds nuw i8, ptr %297, i64 256
-  store i32 %313, ptr %314, align 8, !tbaa !10
+  store i32 %313, ptr %314, align 8, !tbaa !11
   %315 = sub nuw nsw i64 31, %indvars.iv.i.i103
   %316 = getelementptr inbounds nuw i32, ptr %11, i64 %315
-  %317 = load i32, ptr %316, align 4, !tbaa !10
+  %317 = load i32, ptr %316, align 4, !tbaa !11
   %318 = getelementptr inbounds nuw i8, ptr %297, i64 260
-  store i32 %317, ptr %318, align 4, !tbaa !10
+  store i32 %317, ptr %318, align 4, !tbaa !11
   %indvars.iv.next.i.i104 = add nuw nsw i64 %indvars.iv.i.i103, 2
   %319 = icmp samesign ult i64 %indvars.iv.i.i103, 30
-  br i1 %319, label %293, label %mbedtls_des3_set3key_enc.exit105, !llvm.loop !15
+  br i1 %319, label %293, label %mbedtls_des3_set3key_enc.exit105, !llvm.loop !16
 
 mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 384) #13
@@ -2075,7 +2075,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %.sroa.02.0137.us, ptr %12, align 8
   %323 = add nuw nsw i32 %.263136.us, 1
   %exitcond150.not = icmp eq i32 %323, 100
-  br i1 %exitcond150.not, label %.loopexit129.thread, label %.preheader46.i.preheader.us, !llvm.loop !28
+  br i1 %exitcond150.not, label %.loopexit129.thread, label %.preheader46.i.preheader.us, !llvm.loop !29
 
 .lr.ph.i.preheader.us:                            ; preds = %191, %.lr.ph.i.preheader.us
   %.sroa.0.0.copyload.i.us = phi i64 [ %325, %.lr.ph.i.preheader.us ], [ 8367815003007840078, %191 ]
@@ -2087,7 +2087,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %325, ptr %12, align 8
   %326 = add nuw nsw i32 %.162141.us, 1
   %exitcond152.not = icmp eq i32 %326, 100
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph.i.preheader.us, !llvm.loop !29
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph.i.preheader.us, !llvm.loop !30
 
 .lr.ph.i106.preheader:                            ; preds = %.lr.ph.i106.preheader.preheader, %.lr.ph.i106.preheader
   %.sroa.0.0.copyload.i110 = phi i64 [ %328, %.lr.ph.i106.preheader ], [ 8367815003007840078, %.lr.ph.i106.preheader.preheader ]
@@ -2099,7 +2099,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %328, ptr %12, align 8
   %329 = add nuw nsw i32 %.162141, 1
   %exitcond151.not = icmp eq i32 %329, 100
-  br i1 %exitcond151.not, label %.critedge, label %.lr.ph.i106.preheader, !llvm.loop !30
+  br i1 %exitcond151.not, label %.critedge, label %.lr.ph.i106.preheader, !llvm.loop !31
 
 .preheader46.i115.preheader:                      ; preds = %.preheader46.i115.preheader.preheader, %.preheader46.i115.preheader
   %.0.copyload.i43.i120 = phi i64 [ %.sroa.02.0137, %.preheader46.i115.preheader ], [ 8367815003007840078, %.preheader46.i115.preheader.preheader ]
@@ -2112,7 +2112,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %.sroa.02.0137, ptr %12, align 8
   %333 = add nuw nsw i32 %.263136, 1
   %exitcond149.not = icmp eq i32 %333, 100
-  br i1 %exitcond149.not, label %.loopexit129.thread, label %.preheader46.i115.preheader, !llvm.loop !31
+  br i1 %exitcond149.not, label %.loopexit129.thread, label %.preheader46.i115.preheader, !llvm.loop !32
 
 .loopexit129.thread:                              ; preds = %.preheader46.i115.preheader, %.preheader46.i.preheader.us
   %.us-phi = phi i64 [ %322, %.preheader46.i.preheader.us ], [ %332, %.preheader46.i115.preheader ]
@@ -2148,7 +2148,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
 
 .backedge.backedge:                               ; preds = %340, %.thread161
   %.165142.be = phi i32 [ %341, %340 ], [ %342, %.thread161 ]
-  br label %.backedge, !llvm.loop !32
+  br label %.backedge, !llvm.loop !33
 
 .thread161:                                       ; preds = %.thread
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -2214,30 +2214,31 @@ attributes #13 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !25}
-!29 = distinct !{!29, !7, !25}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8, !26}
+!30 = distinct !{!30, !7, !8, !26}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}

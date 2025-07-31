@@ -1034,13 +1034,13 @@ define hidden ptr @X509_VERIFY_PARAM_get0_name(ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %3 = load ptr, ptr @param_table, align 8, !tbaa !38
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call ptr @sk_new(ptr noundef nonnull @param_cmp) #16
-  store ptr %5, ptr @param_table, align 8, !tbaa !37
+  store ptr %5, ptr @param_table, align 8, !tbaa !38
   %.not3 = icmp eq ptr %5, null
   br i1 %.not3, label %23, label %20
 
@@ -1051,7 +1051,7 @@ define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %0) 
   br i1 %.not4, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %9 = load ptr, ptr @param_table, align 8, !tbaa !38
   %10 = load i64, ptr %2, align 8, !tbaa !33
   %11 = call ptr @sk_value(ptr noundef %9, i64 noundef %10) #16
   %12 = icmp eq ptr %11, null
@@ -1066,14 +1066,14 @@ define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %0) 
   br label %X509_VERIFY_PARAM_free.exit
 
 X509_VERIFY_PARAM_free.exit:                      ; preds = %8, %13
-  %16 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %16 = load ptr, ptr @param_table, align 8, !tbaa !38
   %17 = load i64, ptr %2, align 8, !tbaa !33
   %18 = call ptr @sk_delete(ptr noundef %16, i64 noundef %17) #16
   br label %19
 
 19:                                               ; preds = %X509_VERIFY_PARAM_free.exit, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  %.pre = load ptr, ptr @param_table, align 8, !tbaa !37
+  %.pre = load ptr, ptr @param_table, align 8, !tbaa !38
   br label %20
 
 20:                                               ; preds = %4, %19
@@ -1092,9 +1092,9 @@ declare ptr @sk_new(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @param_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !39
+  %3 = load ptr, ptr %0, align 8, !tbaa !40
   %4 = load ptr, ptr %3, align 8, !tbaa !16
-  %5 = load ptr, ptr %1, align 8, !tbaa !39
+  %5 = load ptr, ptr %1, align 8, !tbaa !40
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #17
   ret i32 %7
@@ -1106,7 +1106,7 @@ declare ptr @sk_delete(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_VERIFY_PARAM_get_count() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !38
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
 
@@ -1132,7 +1132,7 @@ define hidden ptr @X509_VERIFY_PARAM_get0(i32 noundef %0) local_unnamed_addr #0 
   br label %11
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %7 = load ptr, ptr @param_table, align 8, !tbaa !38
   %8 = add nsw i32 %0, -5
   %9 = zext nneg i32 %8 to i64
   %10 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %9) #16
@@ -1149,7 +1149,7 @@ define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
   store ptr %0, ptr %2, align 8, !tbaa !16
-  %4 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %4 = load ptr, ptr @param_table, align 8, !tbaa !38
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1167,7 +1167,7 @@ define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #
   br label %.preheader
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %8 = load ptr, ptr @param_table, align 8, !tbaa !38
   %9 = load i64, ptr %3, align 8, !tbaa !33
   %10 = call ptr @sk_value(ptr noundef %8, i64 noundef %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
@@ -1176,7 +1176,7 @@ define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !42
 
 12:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
@@ -1197,7 +1197,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_VERIFY_PARAM_table_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !38
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -1206,7 +1206,7 @@ define hidden void @X509_VERIFY_PARAM_table_cleanup() local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %0
-  store ptr null, ptr @param_table, align 8, !tbaa !37
+  store ptr null, ptr @param_table, align 8, !tbaa !38
   ret void
 }
 
@@ -1283,10 +1283,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !32 = !{!8, !8, i64 0}
 !33 = !{!12, !12, i64 0}
 !34 = !{!20, !12, i64 48}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS26stack_st_X509_VERIFY_PARAM", !9, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
-!41 = distinct !{!41, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS26stack_st_X509_VERIFY_PARAM", !9, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!42 = distinct !{!42, !36, !37}

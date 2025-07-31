@@ -679,7 +679,7 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
   store ptr %10, ptr %12, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 4
-  br i1 %exitcond29.not, label %.preheader19, label %.preheader20, !llvm.loop !8
+  br i1 %exitcond29.not, label %.preheader19, label %.preheader20, !llvm.loop !9
 
 .preheader19:                                     ; preds = %.preheader20, %.preheader19
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.preheader19 ], [ 0, %.preheader20 ]
@@ -689,7 +689,7 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
   store ptr %13, ptr %15, align 8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 10
-  br i1 %exitcond33.not, label %.preheader, label %.preheader19, !llvm.loop !9
+  br i1 %exitcond33.not, label %.preheader, label %.preheader19, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader19, %.preheader
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader ], [ 0, %.preheader19 ]
@@ -699,7 +699,7 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
   store ptr %16, ptr %18, align 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %19, label %.preheader, !llvm.loop !10
+  br i1 %exitcond37.not, label %19, label %.preheader, !llvm.loop !11
 
 19:                                               ; preds = %.preheader
   %20 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.197)
@@ -901,7 +901,7 @@ dissect_ansi_637_tele_param.exit.i:               ; preds = %73, %71, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %.not.i = icmp eq i32 %45, %.1.i
-  br i1 %.not.i, label %dissect_ansi_637_tele_message.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %dissect_ansi_637_tele_message.exit, label %.lr.ph.i, !llvm.loop !12
 
 77:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -1031,7 +1031,7 @@ dissect_ansi_637_trans_param.exit:                ; preds = %38, %59, %61, %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %.not27 = icmp eq i32 %32, %.1
-  br i1 %.not27, label %.loopexit, label %34, !llvm.loop !12
+  br i1 %.not27, label %.loopexit, label %34, !llvm.loop !13
 
 67:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -1091,7 +1091,7 @@ define hidden void @proto_reg_handoff_ansi_637() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.201, i32 noundef %4, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !13
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !14
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @ansi_637_tele_handle, align 8
@@ -1387,7 +1387,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %.1 = phi i32 [ %51, %49 ], [ %125, %93 ], [ %165, %126 ], [ %.pre, %88 ], [ %.pre, %87 ]
   %166 = sub i32 %22, %.1
   %167 = icmp ugt i32 %166, 2
-  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %._crit_edge247, %14
   %.0229.lcssa = phi i32 [ %23, %14 ], [ %.1230, %._crit_edge247 ]
@@ -1530,7 +1530,7 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   %48 = add nuw nsw i16 %47, 8
   %49 = sub i16 %.083, %48
   store i8 0, ptr %9, align 1
-  %50 = load i8, ptr %5, align 1, !range !15, !noundef !16
+  %50 = load i8, ptr %5, align 1, !range !16, !noundef !17
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %94
 
@@ -2077,7 +2077,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %81, ptr %82, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %83 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %83, label %62, label %84, !llvm.loop !17
+  br i1 %83, label %62, label %84, !llvm.loop !18
 
 84:                                               ; preds = %71, %62
   %.1.lcssa = phi i32 [ %73, %71 ], [ %.1112, %62 ]
@@ -2212,7 +2212,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   %.159 = phi i32 [ %49, %31 ], [ %28, %23 ]
   %52 = and i32 %.161, 65535
   %53 = icmp samesign ugt i32 %52, 7
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %51
   %.not = icmp eq i32 %52, 0
@@ -2399,7 +2399,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %.1 = phi i32 [ %65, %47 ], [ %44, %.lr.ph ]
   %68 = and i32 %.185, 65535
   %69 = icmp samesign ugt i32 %68, 7
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %67
   %.not = icmp eq i32 %68, 0
@@ -2484,7 +2484,7 @@ define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr nound
   %.neg = sub i32 %4, %18
   %19 = add i32 %.neg, %3
   %20 = icmp ugt i32 %19, 2
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = add i32 %3, -3
@@ -3232,7 +3232,7 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   %137 = zext i32 %136 to i64
   %138 = load i64, ptr %8, align 8
   %139 = icmp ugt i64 %138, %137
-  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %124
   %.1.lcssa.ph = phi i32 [ %.1138, %.lr.ph ], [ %126, %124 ]
@@ -3559,19 +3559,20 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

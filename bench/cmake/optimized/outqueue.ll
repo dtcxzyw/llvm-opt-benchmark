@@ -84,7 +84,7 @@ define dso_local void @lzma_outq_clear_cache2(ptr noundef captures(none) %0, ptr
   %19 = load ptr, ptr %4, align 8, !tbaa !4
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %10, %.preheader
   %.lcssa10 = phi ptr [ %5, %.preheader ], [ %19, %10 ]
@@ -118,7 +118,7 @@ define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr noundef captures(none) 
 
 5:                                                ; preds = %3
   %6 = shl nuw nsw i32 %2, 1
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %.not17 = icmp eq ptr %7, null
   br i1 %.not17, label %.preheader, label %.lr.ph
 
@@ -145,12 +145,12 @@ define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr noundef captures(none) 
 19:                                               ; preds = %.lr.ph, %move_head_to_cache.exit
   %20 = phi ptr [ %7, %.lr.ph ], [ %47, %move_head_to_cache.exit ]
   %21 = load ptr, ptr %20, align 8, !tbaa !12
-  store ptr %21, ptr %0, align 8, !tbaa !19
+  store ptr %21, ptr %0, align 8, !tbaa !20
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  store ptr null, ptr %8, align 8, !tbaa !20
+  store ptr null, ptr %8, align 8, !tbaa !21
   br label %24
 
 24:                                               ; preds = %23, %19
@@ -188,18 +188,18 @@ move_head_to_cache.exit:                          ; preds = %.lr.ph.i.i, %24, %2
   %40 = phi ptr [ %25, %26 ], [ null, %24 ], [ null, %.lr.ph.i.i ]
   store ptr %40, ptr %20, align 8, !tbaa !12
   store ptr %20, ptr %9, align 8, !tbaa !4
-  %41 = load i32, ptr %12, align 8, !tbaa !21
+  %41 = load i32, ptr %12, align 8, !tbaa !22
   %42 = add i32 %41, -1
-  store i32 %42, ptr %12, align 8, !tbaa !21
+  store i32 %42, ptr %12, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !14
-  %45 = load i64, ptr %13, align 8, !tbaa !22
+  %45 = load i64, ptr %13, align 8, !tbaa !23
   %reass.sub19 = sub i64 %45, %44
   %46 = add i64 %reass.sub19, -64
-  store i64 %46, ptr %13, align 8, !tbaa !22
-  %47 = load ptr, ptr %0, align 8, !tbaa !19
+  store i64 %46, ptr %13, align 8, !tbaa !23
+  %47 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %.preheader, label %19, !llvm.loop !23
+  br i1 %.not, label %.preheader, label %19, !llvm.loop !24
 
 48:                                               ; preds = %.lr.ph18, %48
   %49 = phi i32 [ %15, %.lr.ph18 ], [ %57, %48 ]
@@ -217,13 +217,13 @@ move_head_to_cache.exit:                          ; preds = %.lr.ph.i.i, %24, %2
   tail call void @lzma_free(ptr noundef nonnull %50, ptr noundef %1) #6
   %57 = load i32, ptr %14, align 4, !tbaa !13
   %58 = icmp ult i32 %6, %57
-  br i1 %58, label %48, label %._crit_edge, !llvm.loop !24
+  br i1 %58, label %48, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %48, %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %6, ptr %59, align 8, !tbaa !25
+  store i32 %6, ptr %59, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %60, align 8, !tbaa !26
+  store i64 0, ptr %60, align 8, !tbaa !27
   br label %61
 
 61:                                               ; preds = %3, %._crit_edge
@@ -233,7 +233,7 @@ move_head_to_cache.exit:                          ; preds = %.lr.ph.i.i, %24, %2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lzma_outq_end(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %.not9 = icmp eq ptr %3, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -249,12 +249,12 @@ define dso_local void @lzma_outq_end(ptr noundef captures(none) %0, ptr noundef 
 10:                                               ; preds = %.lr.ph, %move_head_to_cache.exit
   %11 = phi ptr [ %3, %.lr.ph ], [ %38, %move_head_to_cache.exit ]
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  store ptr %12, ptr %0, align 8, !tbaa !19
+  store ptr %12, ptr %0, align 8, !tbaa !20
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  store ptr null, ptr %4, align 8, !tbaa !20
+  store ptr null, ptr %4, align 8, !tbaa !21
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -292,18 +292,18 @@ move_head_to_cache.exit:                          ; preds = %.lr.ph.i.i, %15, %1
   %31 = phi ptr [ %16, %17 ], [ null, %15 ], [ null, %.lr.ph.i.i ]
   store ptr %31, ptr %11, align 8, !tbaa !12
   store ptr %11, ptr %5, align 8, !tbaa !4
-  %32 = load i32, ptr %8, align 8, !tbaa !21
+  %32 = load i32, ptr %8, align 8, !tbaa !22
   %33 = add i32 %32, -1
-  store i32 %33, ptr %8, align 8, !tbaa !21
+  store i32 %33, ptr %8, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !14
-  %36 = load i64, ptr %9, align 8, !tbaa !22
+  %36 = load i64, ptr %9, align 8, !tbaa !23
   %reass.sub10 = sub i64 %36, %35
   %37 = add i64 %reass.sub10, -64
-  store i64 %37, ptr %9, align 8, !tbaa !22
-  %38 = load ptr, ptr %0, align 8, !tbaa !19
+  store i64 %37, ptr %9, align 8, !tbaa !23
+  %38 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.lr.ph.i, label %10, !llvm.loop !27
+  br i1 %.not, label %.lr.ph.i, label %10, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -421,44 +421,44 @@ define dso_local noundef ptr @lzma_outq_get_buf(ptr noundef captures(none) %0, p
   store ptr %5, ptr %3, align 8, !tbaa !4
   store ptr null, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   %.not = icmp eq ptr %7, null
   %. = select i1 %.not, ptr %0, ptr %7
   store ptr %4, ptr %., align 8, !tbaa !12
-  store ptr %4, ptr %6, align 8, !tbaa !20
+  store ptr %4, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !28
+  store ptr %1, ptr %8, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 0, ptr %9, align 8, !tbaa !29
+  store i8 0, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 1, ptr %10, align 4, !tbaa !31
+  store i32 1, ptr %10, align 4, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %14 = load i32, ptr %13, align 8, !tbaa !21
+  %14 = load i32, ptr %13, align 8, !tbaa !22
   %15 = add i32 %14, 1
-  store i32 %15, ptr %13, align 8, !tbaa !21
+  store i32 %15, ptr %13, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = add i64 %17, 64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !22
+  %20 = load i64, ptr %19, align 8, !tbaa !23
   %21 = add i64 %18, %20
-  store i64 %21, ptr %19, align 8, !tbaa !22
+  store i64 %21, ptr %19, align 8, !tbaa !23
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @lzma_outq_is_readable(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !19
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !26
+  %6 = load i64, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = icmp ult i64 %6, %8
@@ -466,7 +466,7 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr noundef readonly captures
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i8, ptr %11, align 8, !tbaa !29, !range !32, !noundef !33
+  %12 = load i8, ptr %11, align 8, !tbaa !30, !range !33, !noundef !34
   %13 = trunc nuw i8 %12 to i1
   br label %14
 
@@ -478,24 +478,24 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef writeonly captures(address_is_null) %5, ptr noalias noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !21
+  %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %69, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %16, ptr noundef %2, ptr noundef %3, i64 noundef %4) #6
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %19 = load i8, ptr %18, align 8, !tbaa !29, !range !32, !noundef !33
+  %19 = load i8, ptr %18, align 8, !tbaa !30, !range !33, !noundef !34
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %69
 
 21:                                               ; preds = %11
-  %22 = load i64, ptr %14, align 8, !tbaa !26
+  %22 = load i64, ptr %14, align 8, !tbaa !27
   %23 = load i64, ptr %15, align 8, !tbaa !14
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %69, label %25
@@ -522,16 +522,16 @@ define dso_local i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef
 
 33:                                               ; preds = %30, %29
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %35 = load i32, ptr %34, align 4, !tbaa !31
-  %36 = load ptr, ptr %0, align 8, !tbaa !19
+  %35 = load i32, ptr %34, align 4, !tbaa !32
+  %36 = load ptr, ptr %0, align 8, !tbaa !20
   %37 = load ptr, ptr %36, align 8, !tbaa !12
-  store ptr %37, ptr %0, align 8, !tbaa !19
+  store ptr %37, ptr %0, align 8, !tbaa !20
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %40, align 8, !tbaa !20
+  store ptr null, ptr %40, align 8, !tbaa !21
   br label %41
 
 41:                                               ; preds = %39, %33
@@ -575,17 +575,17 @@ move_head_to_cache.exit:                          ; preds = %51, %41, %44
   %61 = phi ptr [ %43, %44 ], [ null, %41 ], [ null, %51 ]
   store ptr %61, ptr %36, align 8, !tbaa !12
   store ptr %36, ptr %42, align 8, !tbaa !4
-  %62 = load i32, ptr %8, align 8, !tbaa !21
+  %62 = load i32, ptr %8, align 8, !tbaa !22
   %63 = add i32 %62, -1
-  store i32 %63, ptr %8, align 8, !tbaa !21
+  store i32 %63, ptr %8, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %65 = load i64, ptr %64, align 8, !tbaa !14
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %67 = load i64, ptr %66, align 8, !tbaa !22
+  %67 = load i64, ptr %66, align 8, !tbaa !23
   %reass.sub26 = sub i64 %67, %65
   %68 = add i64 %reass.sub26, -64
-  store i64 %68, ptr %66, align 8, !tbaa !22
-  store i64 0, ptr %14, align 8, !tbaa !26
+  store i64 %68, ptr %66, align 8, !tbaa !23
+  store i64 0, ptr %14, align 8, !tbaa !27
   br label %69
 
 69:                                               ; preds = %move_head_to_cache.exit, %21, %11, %7
@@ -597,27 +597,27 @@ declare i64 @lzma_bufcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lzma_outq_enable_partial_output(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %6 = load i8, ptr %5, align 8, !tbaa !29, !range !32, !noundef !33
+  %6 = load i8, ptr %5, align 8, !tbaa !30, !range !33, !noundef !34
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %14, label %11
 
 11:                                               ; preds = %8
   tail call void %1(ptr noundef nonnull %10) #6
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr null, ptr %13, align 8, !tbaa !28
+  store ptr null, ptr %13, align 8, !tbaa !29
   br label %14
 
 14:                                               ; preds = %11, %8, %4, %2
@@ -655,21 +655,22 @@ attributes #6 = { nounwind }
 !13 = !{!5, !11, i64 52}
 !14 = !{!10, !10, i64 0}
 !15 = !{!5, !10, i64 32}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!5, !6, i64 0}
-!20 = !{!5, !6, i64 8}
-!21 = !{!5, !11, i64 48}
-!22 = !{!5, !10, i64 40}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = !{!5, !11, i64 56}
-!26 = !{!5, !10, i64 16}
-!27 = distinct !{!27, !17}
-!28 = !{!7, !7, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"_Bool", !8, i64 0}
-!31 = !{!11, !11, i64 0}
-!32 = !{i8 0, i8 2}
-!33 = !{}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!5, !6, i64 0}
+!21 = !{!5, !6, i64 8}
+!22 = !{!5, !11, i64 48}
+!23 = !{!5, !10, i64 40}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}
+!26 = !{!5, !11, i64 56}
+!27 = !{!5, !10, i64 16}
+!28 = distinct !{!28, !17, !18}
+!29 = !{!7, !7, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"_Bool", !8, i64 0}
+!32 = !{!11, !11, i64 0}
+!33 = !{i8 0, i8 2}
+!34 = !{}

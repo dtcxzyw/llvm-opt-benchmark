@@ -161,7 +161,7 @@ mov_write_ttml_document_from_queue.exit:          ; preds = %._crit_edge.i
   %.030 = phi i64 [ 0, %36 ], [ %48, %mov_write_ttml_document_from_queue.exit ]
   %.029 = phi i64 [ 0, %36 ], [ %82, %mov_write_ttml_document_from_queue.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  store ptr null, ptr %7, align 8, !tbaa !67
+  store ptr null, ptr %7, align 8, !tbaa !68
   %85 = load ptr, ptr %4, align 8, !tbaa !4
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8, !tbaa !42
@@ -169,7 +169,7 @@ mov_write_ttml_document_from_queue.exit:          ; preds = %._crit_edge.i
   %89 = load ptr, ptr %4, align 8, !tbaa !4
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %90, align 8, !tbaa !42
-  %91 = load ptr, ptr %7, align 8, !tbaa !67
+  %91 = load ptr, ptr %7, align 8, !tbaa !68
   %92 = call i32 @av_packet_from_data(ptr noundef %2, ptr noundef %91, i32 noundef %88) #5
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %96
@@ -190,9 +190,9 @@ mov_write_ttml_document_from_queue.exit:          ; preds = %._crit_edge.i
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %.029, ptr %99, align 8, !tbaa !56
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %101 = load i32, ptr %100, align 8, !tbaa !68
+  %101 = load i32, ptr %100, align 8, !tbaa !69
   %102 = or i32 %101, 1
-  store i32 %102, ptr %100, align 8, !tbaa !68
+  store i32 %102, ptr %100, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   br label %103
 
@@ -337,7 +337,8 @@ attributes #5 = { nounwind }
 !62 = !{!39, !11, i64 36}
 !63 = !{!43, !46, i64 48}
 !64 = !{!13, !13, i64 0}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!15, !15, i64 0}
-!68 = !{!39, !11, i64 40}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!15, !15, i64 0}
+!69 = !{!39, !11, i64 40}

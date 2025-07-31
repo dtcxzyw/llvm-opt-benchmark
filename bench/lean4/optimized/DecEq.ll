@@ -60387,7 +60387,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %22
   %.027.be = phi ptr [ %.0, %22 ], [ %49, %lean_alloc_ctor.exit ]
-  br label %4
+  br label %4, !llvm.loop !21
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -71685,7 +71685,7 @@ lean_inc.exit26:                                  ; preds = %82, %81, %79, %lean
 lean_inc.exit:                                    ; preds = %89, %88, %86, %lean_inc.exit26
   %90 = tail call ptr @l_Lean_Expr_app___override(ptr noundef %1, ptr noundef %83) #5
   %91 = tail call ptr @l_Lean_Expr_app___override(ptr noundef %.023, ptr noundef %90) #5
-  br label %18
+  br label %18, !llvm.loop !23
 }
 
 declare ptr @l_Lean_Expr_app___override(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -97653,3 +97653,6 @@ attributes #6 = { noreturn nounwind }
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
 !19 = !{!"branch_weights", i32 4001, i32 4000000}
 !20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !22}

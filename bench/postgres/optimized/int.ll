@@ -296,7 +296,7 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %62 = load i8, ptr %60, align 1
   %.not84 = icmp eq i8 %62, 0
-  br i1 %.not84, label %._crit_edge, label %.lr.ph
+  br i1 %.not84, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %55, %19, %1
   %.055.lcssa = phi i32 [ 0, %1 ], [ %.05591, %19 ], [ %61, %55 ]
@@ -381,7 +381,7 @@ define dso_local i64 @int2vectorout(ptr noundef readonly captures(none) %0) loca
   %21 = getelementptr inbounds i8, ptr %.1, i64 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %16, %1
   %.013.lcssa = phi ptr [ %10, %1 ], [ %21, %16 ]
@@ -513,16 +513,16 @@ define dso_local i64 @int4send(ptr noundef readonly captures(none) %0) local_unn
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #13
   call void @pq_begintypsend(ptr noundef nonnull %2) #13
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
-  %7 = load ptr, ptr %2, align 8, !alias.scope !10
+  %7 = load ptr, ptr %2, align 8, !alias.scope !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i32, ptr %8, align 8, !alias.scope !10
+  %9 = load i32, ptr %8, align 8, !alias.scope !12
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  store i32 %6, ptr %11, align 1, !noalias !10
+  store i32 %6, ptr %11, align 1, !noalias !12
   %12 = add i32 %9, 4
-  store i32 %12, ptr %8, align 8, !alias.scope !10
+  store i32 %12, ptr %8, align 8, !alias.scope !12
   %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
@@ -545,7 +545,7 @@ define dso_local range(i64 -32768, 32768) i64 @i4toi2(ptr noundef readonly captu
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, -32768
   %or.cond = icmp ult i32 %5, -65536
-  br i1 %or.cond, label %6, label %10, !prof !13
+  br i1 %or.cond, label %6, label %10, !prof !15
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -950,7 +950,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int4(ptr noundef readonly ca
   %23 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %21, i32 %spec.select)
   %24 = extractvalue { i32, i1 } %23, 1
   %25 = extractvalue { i32, i1 } %23, 0
-  br i1 %24, label %26, label %27, !prof !14
+  br i1 %24, label %26, label %27, !prof !16
 
 26:                                               ; preds = %18
   %spec.select18 = xor i1 %.not, %12
@@ -1028,7 +1028,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int8(ptr noundef readonly ca
   %22 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %20, i64 range(i64 -9223372036854775807, -9223372036854775808) %spec.select)
   %23 = extractvalue { i64, i1 } %22, 1
   %24 = extractvalue { i64, i1 } %22, 0
-  br i1 %23, label %25, label %26, !prof !14
+  br i1 %23, label %25, label %26, !prof !16
 
 25:                                               ; preds = %17
   %spec.select18 = xor i1 %.not, %11
@@ -1089,7 +1089,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int2_int4(ptr noundef readonly ca
   %25 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %23, i32 %spec.select)
   %26 = extractvalue { i32, i1 } %25, 1
   %27 = extractvalue { i32, i1 } %25, 0
-  br i1 %26, label %28, label %29, !prof !14
+  br i1 %26, label %28, label %29, !prof !16
 
 28:                                               ; preds = %19
   %spec.select18 = xor i1 %.not, %13
@@ -1156,7 +1156,7 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4um(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = icmp eq i64 %4, 2147483648
-  br i1 %5, label %6, label %10, !prof !14
+  br i1 %5, label %6, label %10, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1191,7 +1191,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4pl(ptr noundef read
   %7 = trunc i64 %6 to i32
   %8 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 %7)
   %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1217,7 +1217,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4mi(ptr noundef read
   %7 = trunc i64 %6 to i32
   %8 = tail call { i32, i1 } @llvm.ssub.with.overflow.i32(i32 %4, i32 %7)
   %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1243,7 +1243,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4mul(ptr noundef rea
   %7 = trunc i64 %6 to i32
   %8 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %4, i32 %7)
   %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1282,7 +1282,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4div(ptr noundef rea
 
 12:                                               ; preds = %1
   %13 = icmp eq i32 %4, -2147483648
-  br i1 %13, label %14, label %18, !prof !14
+  br i1 %13, label %14, label %18, !prof !16
 
 14:                                               ; preds = %12
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1314,7 +1314,7 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4inc(ptr noundef rea
   %4 = trunc i64 %3 to i32
   %5 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 1)
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %7, label %11, !prof !14
+  br i1 %6, label %7, label %11, !prof !16
 
 7:                                                ; preds = %1
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1336,7 +1336,7 @@ define dso_local range(i64 -32767, 32768) i64 @int2um(ptr noundef readonly captu
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 65535
   %5 = icmp eq i64 %4, 32768
-  br i1 %5, label %6, label %10, !prof !14
+  br i1 %5, label %6, label %10, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1371,7 +1371,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2pl(ptr noundef readonly captu
   %7 = trunc i64 %6 to i16
   %8 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %4, i16 %7)
   %9 = extractvalue { i16, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1397,7 +1397,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2mi(ptr noundef readonly captu
   %7 = trunc i64 %6 to i16
   %8 = tail call { i16, i1 } @llvm.ssub.with.overflow.i16(i16 %4, i16 %7)
   %9 = extractvalue { i16, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1423,7 +1423,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2mul(ptr noundef readonly capt
   %7 = trunc i64 %6 to i16
   %8 = tail call { i16, i1 } @llvm.smul.with.overflow.i16(i16 %4, i16 %7)
   %9 = extractvalue { i16, i1 } %8, 1
-  br i1 %9, label %10, label %14, !prof !14
+  br i1 %9, label %10, label %14, !prof !16
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1462,7 +1462,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2div(ptr noundef readonly capt
 
 12:                                               ; preds = %1
   %13 = icmp eq i16 %4, -32768
-  br i1 %13, label %14, label %18, !prof !14
+  br i1 %13, label %14, label %18, !prof !16
 
 14:                                               ; preds = %12
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1502,7 +1502,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24pl(ptr noundef rea
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %8, i32 %7)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1530,7 +1530,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24mi(ptr noundef rea
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.ssub.with.overflow.i32(i32 %8, i32 %7)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1558,7 +1558,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24mul(ptr noundef re
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %8, i32 %7)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1580,7 +1580,7 @@ define dso_local range(i64 -32768, 32769) i64 @int24div(ptr noundef readonly cap
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %10, !prof !14
+  br i1 %5, label %6, label %10, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1613,7 +1613,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42pl(ptr noundef rea
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 %8)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1641,7 +1641,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42mi(ptr noundef rea
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.ssub.with.overflow.i32(i32 %4, i32 %8)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1669,7 +1669,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42mul(ptr noundef re
   %8 = ashr exact i32 %sext, 16
   %9 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %4, i32 %8)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %11, label %15, !prof !14
+  br i1 %10, label %11, label %15, !prof !16
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1696,7 +1696,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42div(ptr noundef re
   switch i16 %7, label %20 [
     i16 0, label %8
     i16 -1, label %12
-  ], !prof !15
+  ], !prof !17
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1708,7 +1708,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42div(ptr noundef re
 
 12:                                               ; preds = %1
   %13 = icmp eq i32 %4, -2147483648
-  br i1 %13, label %14, label %18, !prof !14
+  br i1 %13, label %14, label %18, !prof !16
 
 14:                                               ; preds = %12
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1742,7 +1742,7 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4mod(ptr noundef rea
   switch i32 %4, label %9 [
     i32 0, label %5
     i32 -1, label %15
-  ], !prof !15
+  ], !prof !17
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1773,7 +1773,7 @@ define dso_local range(i64 -32767, 32768) i64 @int2mod(ptr noundef readonly capt
   switch i16 %4, label %9 [
     i16 0, label %5
     i16 -1, label %18
-  ], !prof !15
+  ], !prof !17
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1807,7 +1807,7 @@ define dso_local range(i64 0, 2147483648) i64 @int4abs(ptr noundef readonly capt
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, -2147483648
-  br i1 %5, label %6, label %10, !prof !14
+  br i1 %5, label %6, label %10, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1829,7 +1829,7 @@ define dso_local range(i64 0, 32768) i64 @int2abs(ptr noundef readonly captures(
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i16
   %5 = icmp eq i16 %4, -32768
-  br i1 %5, label %6, label %10, !prof !14
+  br i1 %5, label %6, label %10, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1892,7 +1892,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4gcd(ptr noundef rea
   %.12731.i = phi i32 [ %22, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
   %22 = srem i32 %.132.i, %.12731.i
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %.1.lcssa.i = phi i32 [ %spec.select28.i, %21 ], [ %.12731.i, %.lr.ph.i ]
@@ -1954,7 +1954,7 @@ define dso_local range(i64 0, 2147483648) i64 @int4lcm(ptr noundef readonly capt
   %.12731.i = phi i32 [ %24, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
   %24 = srem i32 %.132.i, %.12731.i
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %spec.select29.i = tail call i32 @llvm.abs.i32(i32 %.12731.i, i1 false)
@@ -1966,7 +1966,7 @@ int4gcd_internal.exit:                            ; preds = %23, %._crit_edge.i
   %26 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %25, i32 %7)
   %27 = extractvalue { i32, i1 } %26, 1
   %28 = extractvalue { i32, i1 } %26, 0
-  br i1 %27, label %29, label %33, !prof !14
+  br i1 %27, label %29, label %33, !prof !16
 
 29:                                               ; preds = %int4gcd_internal.exit
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -1978,7 +1978,7 @@ int4gcd_internal.exit:                            ; preds = %23, %._crit_edge.i
 
 33:                                               ; preds = %int4gcd_internal.exit
   %34 = icmp eq i32 %28, -2147483648
-  br i1 %34, label %35, label %39, !prof !14
+  br i1 %34, label %35, label %39, !prof !16
 
 35:                                               ; preds = %33
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -2383,7 +2383,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %36 = load i8, ptr %35, align 8, !range !17, !noundef !18
+  %36 = load i8, ptr %35, align 8, !range !19, !noundef !20
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %is_funcclause.exit.thread.sink.split, label %38
 
@@ -2394,7 +2394,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %43 = load i8, ptr %42, align 8, !range !17, !noundef !18
+  %43 = load i8, ptr %42, align 8, !range !19, !noundef !20
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %is_funcclause.exit.thread.sink.split, label %45
 
@@ -2409,7 +2409,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %51 = load i8, ptr %50, align 8, !range !17, !noundef !18
+  %51 = load i8, ptr %50, align 8, !range !19, !noundef !20
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %is_funcclause.exit.thread.sink.split, label %53
 
@@ -2548,15 +2548,17 @@ attributes #15 = { cold nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"pq_writeint16: argument 0"}
 !6 = distinct !{!6, !"pq_writeint16"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"pq_writeint32: argument 0"}
-!12 = distinct !{!12, !"pq_writeint32"}
-!13 = !{!"branch_weights", i32 4001, i32 4000000}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!16 = distinct !{!16, !8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"pq_writeint32: argument 0"}
+!14 = distinct !{!14, !"pq_writeint32"}
+!15 = !{!"branch_weights", i32 4001, i32 4000000}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
+!18 = distinct !{!18, !8, !9}
+!19 = !{i8 0, i8 2}
+!20 = !{}

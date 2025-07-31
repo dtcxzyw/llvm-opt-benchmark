@@ -150,7 +150,7 @@ declare i64 @clock() local_unnamed_addr #2
 define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !25
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !26
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %5
 
@@ -180,12 +180,12 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !27
   %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.8) #11
   br label %19
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !27
   %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.9) #11
   br label %19
 
@@ -197,7 +197,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 
 21:                                               ; preds = %19
   %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !27
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #12
   %25 = trunc i64 %24 to i32
   %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #11
@@ -205,7 +205,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   br label %30
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !26, !noalias !28
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !27, !noalias !29
   %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %30
 
@@ -234,7 +234,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @Abc_TruthGetParams(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %9 = load i32, ptr %5, align 4, !tbaa !25
+  %9 = load i32, ptr %5, align 4, !tbaa !26
   %10 = add i32 %9, -2
   %or.cond.i = icmp ult i32 %10, 15
   %11 = load i32, ptr %6, align 4
@@ -250,7 +250,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %17 = shl nuw nsw i32 1, %16
   %18 = select i1 %15, i32 1, i32 %17
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %18, ptr %19, align 4, !tbaa !31
+  store i32 %18, ptr %19, align 4, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %11, ptr %20, align 8, !tbaa !3
   %21 = zext nneg i32 %18 to i64
@@ -284,7 +284,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   store ptr %35, ptr %34, align 8, !tbaa !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Abc_TruthStoreAlloc.exit.i, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %Abc_TruthStoreAlloc.exit.i, label %.lr.ph.i.i, !llvm.loop !33
 
 Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %36 = call ptr @Abc_FileRead(ptr noundef %0) #11
@@ -292,7 +292,7 @@ Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   br i1 %37, label %.critedge38.sink.split.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %Abc_TruthStoreAlloc.exit.i
-  %38 = load i8, ptr %36, align 1, !tbaa !33
+  %38 = load i8, ptr %36, align 1, !tbaa !34
   %.not17.i.i = icmp eq i8 %38, 10
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i39.i
 
@@ -316,7 +316,7 @@ Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
 
 48:                                               ; preds = %.lr.ph.split.us.i.i
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !33
+  %50 = load i8, ptr %49, align 1, !tbaa !34
   %51 = icmp eq i8 %50, 120
   %spec.select.idx.i.us.i.i = select i1 %51, i64 2, i64 0
   %spec.select.i.us.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %spec.select.idx.i.us.i.i
@@ -331,7 +331,7 @@ Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %indvars.iv.i.us.i.i = phi i64 [ 0, %.lr.ph.preheader.i.us.i.i ], [ %indvars.iv.next.i.us.i.i, %Abc_TruthReadHexDigit.exit.i.us.i.i ]
   %53 = xor i64 %indvars.iv.i.us.i.i, -1
   %54 = getelementptr i8, ptr %52, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !33
+  %55 = load i8, ptr %54, align 1, !tbaa !34
   %56 = sext i8 %55 to i32
   %57 = add i8 %55, -48
   %or.cond.i.i.us.i.i = icmp ult i8 %57, 10
@@ -366,12 +366,12 @@ Abc_TruthReadHexDigit.exit.i.us.i.i:              ; preds = %65, %63, %60
   %71 = lshr i64 %indvars.iv.i.us.i.i, 4
   %72 = and i64 %71, 268435455
   %73 = getelementptr inbounds nuw i64, ptr %46, i64 %72
-  %74 = load i64, ptr %73, align 8, !tbaa !34
+  %74 = load i64, ptr %73, align 8, !tbaa !35
   %75 = or i64 %70, %74
-  store i64 %75, ptr %73, align 8, !tbaa !34
+  store i64 %75, ptr %73, align 8, !tbaa !35
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, %42
-  br i1 %exitcond.not.i.us.i.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i.i, label %.lr.ph.i.us.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.us.i.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i.i, label %.lr.ph.i.us.i.i, !llvm.loop !37
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i.i:  ; preds = %Abc_TruthReadHexDigit.exit.i.us.i.i
   %sext31.i.i = shl i64 %.01418.us.i.i, 32
@@ -382,17 +382,17 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   %indvars.iv25.i.i = phi i64 [ %76, %Abc_TruthReadHex.exit.loopexit.us.preheader.i.i ], [ %indvars.iv.next26.i.i, %Abc_TruthReadHex.exit.loopexit.us.i.i ]
   %indvars.iv.next26.i.i = add nsw i64 %indvars.iv25.i.i, 1
   %77 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv25.i.i
-  %78 = load i8, ptr %77, align 1, !tbaa !33
+  %78 = load i8, ptr %77, align 1, !tbaa !34
   %.not16.us.i.i = icmp eq i8 %78, 10
-  br i1 %.not16.us.i.i, label %79, label %Abc_TruthReadHex.exit.loopexit.us.i.i, !llvm.loop !37
+  br i1 %.not16.us.i.i, label %79, label %Abc_TruthReadHex.exit.loopexit.us.i.i, !llvm.loop !38
 
 79:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i.i
   %sext32.i.i = shl i64 %indvars.iv.next26.i.i, 32
   %80 = ashr exact i64 %sext32.i.i, 32
   %81 = getelementptr inbounds i8, ptr %36, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !33
+  %82 = load i8, ptr %81, align 1, !tbaa !34
   %.not.us.i.i = icmp eq i8 %82, 10
-  br i1 %.not.us.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !38
+  br i1 %.not.us.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i.i:                         ; preds = %79
   %83 = trunc nuw i64 %indvars.iv.next29.i.i to i32
@@ -430,7 +430,7 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   %97 = shl nuw i32 1, %96
   %98 = select i1 %95, i32 1, i32 %97
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  store i32 %98, ptr %99, align 4, !tbaa !31
+  store i32 %98, ptr %99, align 4, !tbaa !32
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %88, ptr %100, align 8, !tbaa !3
   %101 = sext i32 %88 to i64
@@ -456,7 +456,7 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   store ptr %109, ptr %108, align 8, !tbaa !11
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i
-  br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !40
+  br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !41
 
 .critedge38.sink.split.i:                         ; preds = %._crit_edge.i.i, %Abc_TruthStoreAlloc.exit.i, %8
   %.1.ph.i = phi ptr [ %14, %Abc_TruthStoreAlloc.exit.i ], [ %14, %._crit_edge.i.i ], [ null, %8 ]
@@ -519,7 +519,7 @@ define noundef i32 @Abc_RpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .split:                                           ; preds = %4, %.split6
   %.sink = phi i32 [ %3, %.split6 ], [ 0, %4 ]
   tail call void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.sink)
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !27
   %7 = tail call i32 @fflush(ptr noundef %6)
   ret i32 0
 }
@@ -603,21 +603,22 @@ attributes #13 = { nounwind allocsize(0) }
 !20 = !{!"p1 omnipotent char", !9, i64 0}
 !21 = !{!15, !16, i64 8}
 !22 = !{!15, !16, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!5, !5, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"vprintf: argument 0"}
-!30 = distinct !{!30, !"vprintf"}
-!31 = !{!4, !5, i64 4}
-!32 = distinct !{!32, !24}
-!33 = !{!6, !6, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"long", !6, i64 0}
-!36 = distinct !{!36, !24}
-!37 = distinct !{!37, !24}
-!38 = distinct !{!38, !24, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!5, !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"vprintf: argument 0"}
+!31 = distinct !{!31, !"vprintf"}
+!32 = !{!4, !5, i64 4}
+!33 = distinct !{!33, !24, !25}
+!34 = !{!6, !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !6, i64 0}
+!37 = distinct !{!37, !24, !25}
+!38 = distinct !{!38, !24, !25}
+!39 = distinct !{!39, !24, !25, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !24, !25}

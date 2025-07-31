@@ -324,12 +324,12 @@ getSignificantBits.exit:                          ; preds = %getSampleSizeInByte
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %61, %75
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %95 = icmp sgt i64 %indvars.iv, 1
-  br i1 %95, label %getBitIndex.exit, label %.loopexit67, !llvm.loop !8
+  br i1 %95, label %getBitIndex.exit, label %.loopexit67, !llvm.loop !9
 
 .loopexit67:                                      ; preds = %.loopexit, %40, %.preheader68
   %96 = add nuw nsw i32 %.04372, 1
   %exitcond.not = icmp eq i32 %96, 53
-  br i1 %exitcond.not, label %97, label %.preheader68, !llvm.loop !9
+  br i1 %exitcond.not, label %97, label %.preheader68, !llvm.loop !10
 
 97:                                               ; preds = %.loopexit67
   %98 = load ptr, ptr %7, align 8
@@ -1005,7 +1005,7 @@ define hidden i32 @DAUDIO_Write(ptr noundef captures(none) %0, ptr noundef %1, i
 xrun_recovery.exit:                               ; preds = %27, %18
   %30 = add nsw i32 %.019, -1
   %31 = icmp eq i32 %.019, 0
-  br i1 %31, label %xrun_recovery.exit.thread, label %12
+  br i1 %31, label %xrun_recovery.exit.thread, label %12, !llvm.loop !11
 
 32:                                               ; preds = %12
   %.not = icmp eq i64 %14, 0
@@ -1101,7 +1101,7 @@ define hidden i32 @DAUDIO_Read(ptr noundef readonly captures(none) %0, ptr nound
 xrun_recovery.exit:                               ; preds = %33, %24
   %36 = add nsw i32 %.019, -1
   %37 = icmp eq i32 %.019, 0
-  br i1 %37, label %xrun_recovery.exit.thread, label %18
+  br i1 %37, label %xrun_recovery.exit.thread, label %18, !llvm.loop !12
 
 38:                                               ; preds = %18
   %39 = load i32, ptr %6, align 4
@@ -1317,7 +1317,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

@@ -1254,7 +1254,7 @@ define dso_local void @blake2s_compress_generic(ptr noundef captures(none) %0, p
   %1215 = getelementptr i8, ptr %28, i64 64
   %1216 = add i64 %29, -1
   %1217 = icmp eq i64 %1216, 0
-  br i1 %1217, label %.loopexit, label %27, !llvm.loop !8
+  br i1 %1217, label %.loopexit, label %27, !llvm.loop !9
 
 .loopexit:                                        ; preds = %1214, %4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #4
@@ -1286,7 +1286,8 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}

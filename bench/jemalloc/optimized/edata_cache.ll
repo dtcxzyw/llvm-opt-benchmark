@@ -562,7 +562,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %39, %.thread.i.i
   %41 = add i64 %.014.i, 1
   %.val.i = load ptr, ptr %1, align 8, !tbaa !22
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i, !llvm.loop !37
 
 edata_cache_fast_flush_all.exit:                  ; preds = %edata_list_inactive_remove.exit.i, %malloc_mutex_lock.exit.i
   %.0.lcssa.i = phi i64 [ 0, %malloc_mutex_lock.exit.i ], [ %41, %edata_list_inactive_remove.exit.i ]
@@ -633,6 +633,7 @@ attributes #4 = { nounwind }
 !31 = !{i8 0, i8 2}
 !32 = !{}
 !33 = !{!9, !9, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}

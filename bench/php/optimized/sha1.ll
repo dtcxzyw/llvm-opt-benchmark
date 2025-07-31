@@ -126,7 +126,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %20
   %43 = add i64 %.031.i, 64
   %44 = add i64 %.031.i, 127
   %45 = icmp ult i64 %44, %34
-  br i1 %45, label %.lr.ph.i, label %PHP_SHA1Update.exit
+  br i1 %45, label %.lr.ph.i, label %PHP_SHA1Update.exit, !llvm.loop !23
 
 PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.critedge, %39
   %.1.i = phi i64 [ 64, %39 ], [ 0, %.critedge ], [ %43, %.lr.ph.i ]
@@ -135,17 +135,17 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.critedg
   %48 = sub i64 %34, %.1.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr nonnull readonly align 1 %47, i64 %48, i1 false)
   call void @PHP_SHA1Final(ptr noundef nonnull %6, ptr noundef nonnull %5)
-  %49 = load i8, ptr %4, align 1, !tbaa !4, !range !23, !noundef !24
+  %49 = load i8, ptr %4, align 1, !tbaa !4, !range !25, !noundef !26
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %PHP_SHA1Update.exit
   %52 = call noalias ptr @_emalloc_48() #8
-  store i32 1, ptr %52, align 4, !tbaa !25
+  store i32 1, ptr %52, align 4, !tbaa !27
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 22, ptr %53, align 4, !tbaa !8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 0, ptr %54, align 8, !tbaa !26
+  store i64 0, ptr %54, align 8, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 20, ptr %55, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -159,11 +159,11 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.critedg
 
 59:                                               ; preds = %PHP_SHA1Update.exit
   %60 = call noalias ptr @_emalloc_80() #8
-  store i32 1, ptr %60, align 4, !tbaa !25
+  store i32 1, ptr %60, align 4, !tbaa !27
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 22, ptr %61, align 4, !tbaa !8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i64 0, ptr %62, align 8, !tbaa !26
+  store i64 0, ptr %62, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 40, ptr %63, align 8, !tbaa !19
   store ptr %60, ptr %1, align 8, !tbaa !8
@@ -252,7 +252,7 @@ define dso_local void @PHP_SHA1Update(ptr noundef captures(none) %0, ptr noundef
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %.loopexit
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %6 to i64
@@ -343,7 +343,7 @@ define dso_local void @PHP_SHA1Final(ptr noundef writeonly captures(none) %0, pt
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
-  br i1 %52, label %.lr.ph.i, label %PHP_SHA1Update.exit
+  br i1 %52, label %.lr.ph.i, label %PHP_SHA1Update.exit, !llvm.loop !23
 
 53:                                               ; preds = %2
   %54 = zext nneg i32 %30 to i64
@@ -418,7 +418,7 @@ PHP_SHA1Update.exit22:                            ; preds = %72, %67
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
-  br i1 %exitcond.not.i, label %SHA1Encode.exit, label %77
+  br i1 %exitcond.not.i, label %SHA1Encode.exit, label %77, !llvm.loop !29
 
 SHA1Encode.exit:                                  ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #8
@@ -592,7 +592,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   %70 = add i64 %.031.i, 64
   %71 = add i64 %.031.i, 127
   %72 = icmp ult i64 %71, %48
-  br i1 %72, label %.lr.ph.i, label %PHP_SHA1Update.exit
+  br i1 %72, label %.lr.ph.i, label %PHP_SHA1Update.exit, !llvm.loop !23
 
 PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
   %.028.i = phi i64 [ 0, %65 ], [ %64, %47 ], [ 0, %.lr.ph.i ]
@@ -603,22 +603,22 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %74, i64 %75, i1 false)
   %76 = call i64 @_php_stream_read(ptr noundef nonnull %34, ptr noundef nonnull %5, i64 noundef 1024) #8
   %77 = icmp sgt i64 %76, 0
-  br i1 %77, label %47, label %._crit_edge
+  br i1 %77, label %47, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %PHP_SHA1Update.exit, %37
   call void @PHP_SHA1Final(ptr noundef nonnull %6, ptr noundef nonnull %7)
   %78 = call i32 @_php_stream_free(ptr noundef nonnull %34, i32 noundef 3) #8
-  %79 = load i8, ptr %4, align 1, !tbaa !4, !range !23, !noundef !24
+  %79 = load i8, ptr %4, align 1, !tbaa !4, !range !25, !noundef !26
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %._crit_edge
   %82 = call noalias ptr @_emalloc_48() #8
-  store i32 1, ptr %82, align 4, !tbaa !25
+  store i32 1, ptr %82, align 4, !tbaa !27
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 22, ptr %83, align 4, !tbaa !8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i64 0, ptr %84, align 8, !tbaa !26
+  store i64 0, ptr %84, align 8, !tbaa !28
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 20, ptr %85, align 8, !tbaa !19
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 24
@@ -632,11 +632,11 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
 
 89:                                               ; preds = %._crit_edge
   %90 = call noalias ptr @_emalloc_80() #8
-  store i32 1, ptr %90, align 4, !tbaa !25
+  store i32 1, ptr %90, align 4, !tbaa !27
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 22, ptr %91, align 4, !tbaa !8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i64 0, ptr %92, align 8, !tbaa !26
+  store i64 0, ptr %92, align 8, !tbaa !28
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 40, ptr %93, align 8, !tbaa !19
   store ptr %90, ptr %1, align 8, !tbaa !8
@@ -704,7 +704,7 @@ define internal fastcc void @SHA1Transform(ptr noundef captures(none) %0, ptr no
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
-  br i1 %exitcond.not.i, label %SHA1Decode.exit, label %13
+  br i1 %exitcond.not.i, label %SHA1Decode.exit, label %13, !llvm.loop !31
 
 SHA1Decode.exit:                                  ; preds = %13
   %33 = xor i32 %10, %8
@@ -1778,7 +1778,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !20 = !{!"_zend_string", !21, i64 0, !22, i64 8, !22, i64 16, !6, i64 24}
 !21 = !{!"_zend_refcounted_h", !18, i64 0, !6, i64 4}
 !22 = !{!"long", !6, i64 0}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = !{!21, !18, i64 0}
-!26 = !{!20, !22, i64 8}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{!21, !18, i64 0}
+!28 = !{!20, !22, i64 8}
+!29 = distinct !{!29, !24}
+!30 = distinct !{!30, !24}
+!31 = distinct !{!31, !24}

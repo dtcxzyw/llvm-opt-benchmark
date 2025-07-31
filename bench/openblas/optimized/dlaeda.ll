@@ -74,7 +74,7 @@ define void @dlaeda_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %48 = select i1 %.not.i, i32 1, i32 %46
   %spec.select.i = mul nuw nsw i32 %48, %spec.select37.i
   %.not31.i = icmp samesign ult i64 %.036.i, 4
-  br i1 %.not31.i, label %50, label %.lr.ph.i
+  br i1 %.not31.i, label %50, label %.lr.ph.i, !llvm.loop !7
 
 pow_ii.exit.thread:                               ; preds = %33, %41
   %.1.i.ph = phi i32 [ %44, %41 ], [ %spec.select32.i, %33 ]
@@ -101,7 +101,7 @@ pow_ii.exit.thread:                               ; preds = %33, %41
   %57 = select i1 %.not.i190, i32 1, i32 %55
   %spec.select.i191 = mul nuw nsw i32 %57, %spec.select37.i187
   %.not31.i192 = icmp samesign ult i64 %.036.i188, 4
-  br i1 %.not31.i192, label %pow_ii.exit193, label %.lr.ph.i186
+  br i1 %.not31.i192, label %pow_ii.exit193, label %.lr.ph.i186, !llvm.loop !7
 
 pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_ii.exit.thread, %50
   %spec.select.i.pn = phi i32 [ %spec.select.i, %50 ], [ %.1.i.ph, %pow_ii.exit.thread ], [ %spec.select.i, %.lr.ph.i186 ]
@@ -137,7 +137,7 @@ pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_i
 .lr.ph.preheader:                                 ; preds = %pow_ii.exit193
   %81 = zext nneg i32 %80 to i64
   %82 = shl nuw nsw i64 %81, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %82, i1 false), !tbaa !7
+  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %82, i1 false), !tbaa !9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %pow_ii.exit193
@@ -173,7 +173,7 @@ pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_i
   %105 = zext i32 %104 to i64
   %106 = shl nuw nsw i64 %105, 3
   %107 = add nuw nsw i64 %106, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %107, i1 false), !tbaa !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %107, i1 false), !tbaa !9
   br label %._crit_edge250
 
 ._crit_edge250:                                   ; preds = %.lr.ph249.preheader, %._crit_edge
@@ -202,7 +202,7 @@ pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_i
   %118 = select i1 %.not.i202, i32 1, i32 %116
   %spec.select.i203 = mul nuw nsw i32 %118, %spec.select37.i199
   %.not31.i204 = icmp samesign ult i64 %.036.i200, 4
-  br i1 %.not31.i204, label %pow_ii.exit205, label %.lr.ph.i198
+  br i1 %.not31.i204, label %pow_ii.exit205, label %.lr.ph.i198, !llvm.loop !7
 
 pow_ii.exit205:                                   ; preds = %.lr.ph.i198, %._crit_edge250, %111
   %.1.i195 = phi i32 [ %spec.select32.i194, %._crit_edge250 ], [ %114, %111 ], [ %spec.select.i203, %.lr.ph.i198 ]
@@ -248,7 +248,7 @@ pow_ii.exit205:                                   ; preds = %.lr.ph.i198, %._cri
   %137 = select i1 %.not.i214, i32 1, i32 %135
   %spec.select.i215 = mul nuw nsw i32 %137, %spec.select37.i211
   %.not31.i216 = icmp samesign ult i64 %.036.i212, 4
-  br i1 %.not31.i216, label %pow_ii.exit217, label %.lr.ph.i210
+  br i1 %.not31.i216, label %pow_ii.exit217, label %.lr.ph.i210, !llvm.loop !7
 
 pow_ii.exit217:                                   ; preds = %.lr.ph.i210, %122, %130
   %.1.i207 = phi i32 [ %spec.select32.i206, %122 ], [ %133, %130 ], [ %spec.select.i215, %.lr.ph.i210 ]
@@ -278,7 +278,7 @@ pow_ii.exit217:                                   ; preds = %.lr.ph.i210, %122, 
   %149 = select i1 %.not.i226, i32 1, i32 %147
   %spec.select.i227 = mul nuw nsw i32 %149, %spec.select37.i223
   %.not31.i228 = icmp samesign ult i64 %.036.i224, 4
-  br i1 %.not31.i228, label %pow_ii.exit229, label %.lr.ph.i222
+  br i1 %.not31.i228, label %pow_ii.exit229, label %.lr.ph.i222, !llvm.loop !7
 
 pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_ii.exit217, %142
   %.1.i219 = phi i32 [ %spec.select32.i218, %pow_ii.exit217 ], [ %145, %142 ], [ %spec.select.i227, %.lr.ph.i222 ]
@@ -333,7 +333,7 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %184 = load i32, ptr %16, align 4, !tbaa !3
   %185 = sext i32 %184 to i64
   %.not178.not = icmp slt i64 %indvars.iv, %185
-  br i1 %.not178.not, label %.lr.ph255, label %._crit_edge256.loopexit, !llvm.loop !9
+  br i1 %.not178.not, label %.lr.ph255, label %._crit_edge256.loopexit, !llvm.loop !11
 
 ._crit_edge256.loopexit:                          ; preds = %.lr.ph255
   %.pre = load i32, ptr %162, align 4, !tbaa !3
@@ -377,7 +377,7 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %209 = load i32, ptr %16, align 4, !tbaa !3
   %210 = sext i32 %209 to i64
   %.not179.not = icmp slt i64 %indvars.iv289, %210
-  br i1 %.not179.not, label %.lr.ph260, label %._crit_edge261, !llvm.loop !11
+  br i1 %.not179.not, label %.lr.ph260, label %._crit_edge261, !llvm.loop !13
 
 ._crit_edge261:                                   ; preds = %.lr.ph260, %._crit_edge256
   %211 = load i32, ptr %153, align 4, !tbaa !3
@@ -401,12 +401,12 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %218 = add nsw i32 %217, %161
   %219 = sext i32 %218 to i64
   %gep263 = getelementptr double, ptr %invariant.gep, i64 %219
-  %220 = load double, ptr %gep263, align 8, !tbaa !7
+  %220 = load double, ptr %gep263, align 8, !tbaa !9
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %221 = getelementptr double, ptr %12, i64 %indvars.iv292
-  store double %220, ptr %221, align 8, !tbaa !7
+  store double %220, ptr %221, align 8, !tbaa !9
   %exitcond.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge268, label %.lr.ph267, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge268, label %.lr.ph267, !llvm.loop !14
 
 ._crit_edge268:                                   ; preds = %.lr.ph267, %._crit_edge261
   %222 = add nsw i32 %215, -1
@@ -429,12 +429,12 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %226 = add i32 %225, %34
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds double, ptr %19, i64 %227
-  %229 = load double, ptr %228, align 8, !tbaa !7
+  %229 = load double, ptr %228, align 8, !tbaa !9
   %gep307 = getelementptr double, ptr %invariant.gep306, i64 %indvars.iv295
-  store double %229, ptr %gep307, align 8, !tbaa !7
+  store double %229, ptr %gep307, align 8, !tbaa !9
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
-  br i1 %exitcond299.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !13
+  br i1 %exitcond299.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !15
 
 ._crit_edge275:                                   ; preds = %.lr.ph274, %._crit_edge268
   %230 = getelementptr inbounds i32, ptr %20, i64 %152
@@ -532,14 +532,14 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %288 = select i1 %.not.i238, i32 1, i32 %286
   %spec.select.i239 = mul nuw nsw i32 %288, %spec.select37.i235
   %.not31.i240 = icmp samesign ult i64 %.036.i236, 4
-  br i1 %.not31.i240, label %pow_ii.exit241, label %.lr.ph.i234
+  br i1 %.not31.i240, label %pow_ii.exit241, label %.lr.ph.i234, !llvm.loop !7
 
 pow_ii.exit241:                                   ; preds = %.lr.ph.i234, %269, %281
   %.1.i231 = phi i32 [ %spec.select32.i230, %269 ], [ %284, %281 ], [ %spec.select.i239, %.lr.ph.i234 ]
   %289 = add nsw i32 %.1.i231, %.0284
   %290 = add nuw nsw i32 %.2283, 1
   %.not177.not = icmp slt i32 %.2283, %120
-  br i1 %.not177.not, label %122, label %.loopexit, !llvm.loop !14
+  br i1 %.not177.not, label %122, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %pow_ii.exit241, %pow_ii.exit205, %30, %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
@@ -585,11 +585,13 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !5, i64 0}
+!11 = distinct !{!11, !12, !8}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !8}
+!14 = distinct !{!14, !12, !8}
+!15 = distinct !{!15, !12, !8}
+!16 = distinct !{!16, !12, !8}

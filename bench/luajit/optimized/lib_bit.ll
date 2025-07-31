@@ -186,14 +186,14 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !24
+  %17 = load i64, ptr %16, align 8, !tbaa !25
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  %20 = load i64, ptr %19, align 8, !tbaa !25
+  %20 = load i64, ptr %19, align 8, !tbaa !26
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %0, ptr %22, align 8, !tbaa !36
-  %23 = load ptr, ptr %21, align 8, !tbaa !45
+  store ptr %0, ptr %22, align 8, !tbaa !37
+  %23 = load ptr, ptr %21, align 8, !tbaa !46
   %24 = zext i32 %14 to i64
   %25 = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %24
   %26 = load ptr, ptr %4, align 8, !tbaa !8
@@ -216,7 +216,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %35 = and i64 %34, %.0.us
   %36 = getelementptr inbounds nuw i8, ptr %.125.us, i64 8
   %37 = icmp ult ptr %36, %7
-  br i1 %37, label %.split.us, label %.split31.us, !llvm.loop !46
+  br i1 %37, label %.split.us, label %.split31.us, !llvm.loop !47
 
 .split:                                           ; preds = %15
   %38 = icmp eq i8 %.fr38, 73
@@ -230,7 +230,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %40 = or i64 %39, %.0.us33
   %41 = getelementptr inbounds nuw i8, ptr %.125.us32, i64 8
   %42 = icmp ult ptr %41, %7
-  br i1 %42, label %.split.split.us, label %.split31.us, !llvm.loop !48
+  br i1 %42, label %.split.split.us, label %.split31.us, !llvm.loop !49
 
 .split.split:                                     ; preds = %.split, %.split.split
   %.125 = phi ptr [ %45, %.split.split ], [ %26, %.split ]
@@ -240,7 +240,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %44 = xor i64 %43, %.0
   %45 = getelementptr inbounds nuw i8, ptr %.125, i64 8
   %46 = icmp ult ptr %45, %7
-  br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !49
+  br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !50
 
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
@@ -298,15 +298,15 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
 16:                                               ; preds = %13, %10
   %17 = phi i32 [ %12, %10 ], [ %15, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !24
+  %19 = load i64, ptr %18, align 8, !tbaa !25
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 200
   %22 = ptrtoint ptr %0 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 224
-  store i64 %22, ptr %23, align 8, !tbaa !50
+  store i64 %22, ptr %23, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 216
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
-  store ptr %25, ptr %21, align 8, !tbaa !52
+  %25 = load ptr, ptr %24, align 8, !tbaa !52
+  store ptr %25, ptr %21, align 8, !tbaa !53
   %26 = icmp slt i32 %17, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %17, i1 false)
   %spec.select28 = select i1 %26, i32 8212, i32 20
@@ -325,8 +325,8 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %36 = load ptr, ptr %8, align 8, !tbaa !21
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !51
-  %40 = load ptr, ptr %35, align 8, !tbaa !52
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
+  %40 = load ptr, ptr %35, align 8, !tbaa !53
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %39 to i64
   %43 = sub i64 %41, %42
@@ -335,14 +335,14 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %46 = ptrtoint ptr %45 to i64
   %47 = or i64 %46, -703687441776640
   store i64 %47, ptr %37, align 8, !tbaa !15
-  %48 = load i64, ptr %18, align 8, !tbaa !24
+  %48 = load i64, ptr %18, align 8, !tbaa !25
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !53
+  %51 = load i64, ptr %50, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !54
+  %53 = load i64, ptr %52, align 8, !tbaa !55
   %.not27 = icmp ult i64 %51, %53
-  br i1 %.not27, label %56, label %54, !prof !55
+  br i1 %.not27, label %56, label %54, !prof !56
 
 54:                                               ; preds = %16
   %55 = call i32 @lj_gc_step(ptr noundef nonnull %0) #5
@@ -414,37 +414,38 @@ attributes #5 = { nounwind }
 !19 = !{!17, !18, i64 10}
 !20 = !{!11, !11, i64 0}
 !21 = !{!9, !13, i64 40}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!9, !11, i64 16}
-!25 = !{!26, !11, i64 384}
-!26 = !{!"global_State", !14, i64 0, !14, i64 8, !27, i64 16, !28, i64 120, !6, i64 144, !6, i64 145, !6, i64 146, !6, i64 147, !29, i64 152, !5, i64 184, !10, i64 192, !31, i64 200, !6, i64 232, !6, i64 240, !33, i64 248, !6, i64 272, !34, i64 280, !5, i64 328, !5, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !5, i64 360, !5, i64 364, !10, i64 368, !12, i64 376, !12, i64 384, !35, i64 392, !6, i64 424}
-!27 = !{!"GCState", !11, i64 0, !11, i64 8, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !5, i64 20, !10, i64 24, !12, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !11, i64 72, !11, i64 80, !5, i64 88, !5, i64 92, !12, i64 96}
-!28 = !{!"GCstr", !10, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !5, i64 12, !5, i64 16, !5, i64 20}
-!29 = !{!"StrInternState", !30, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20, !6, i64 21, !6, i64 22, !6, i64 23, !11, i64 24}
-!30 = !{!"p1 _ZTS5GCRef", !14, i64 0}
-!31 = !{!"SBuf", !32, i64 0, !32, i64 8, !32, i64 16, !12, i64 24}
-!32 = !{!"p1 omnipotent char", !14, i64 0}
-!33 = !{!"Node", !6, i64 0, !6, i64 8, !12, i64 16}
-!34 = !{!"GCupval", !10, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 16, !12, i64 32, !5, i64 40}
-!35 = !{!"PRNGState", !6, i64 0}
-!36 = !{!37, !39, i64 16}
-!37 = !{!"CTState", !38, i64 0, !5, i64 8, !5, i64 12, !39, i64 16, !40, i64 24, !41, i64 32, !42, i64 40, !6, i64 208}
-!38 = !{!"p1 _ZTS5CType", !14, i64 0}
-!39 = !{!"p1 _ZTS9lua_State", !14, i64 0}
-!40 = !{!"p1 _ZTS12global_State", !14, i64 0}
-!41 = !{!"p1 _ZTS5GCtab", !14, i64 0}
-!42 = !{!"CCallback", !6, i64 0, !6, i64 64, !43, i64 128, !14, i64 136, !44, i64 144, !5, i64 152, !5, i64 156, !5, i64 160}
-!43 = !{!"p1 long", !14, i64 0}
-!44 = !{!"p1 short", !14, i64 0}
-!45 = !{!37, !38, i64 0}
-!46 = distinct !{!46, !23, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !23, !47}
-!49 = distinct !{!49, !23}
-!50 = !{!31, !11, i64 24}
-!51 = !{!31, !32, i64 16}
-!52 = !{!31, !32, i64 0}
-!53 = !{!26, !11, i64 16}
-!54 = !{!26, !11, i64 24}
-!55 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!9, !11, i64 16}
+!26 = !{!27, !11, i64 384}
+!27 = !{!"global_State", !14, i64 0, !14, i64 8, !28, i64 16, !29, i64 120, !6, i64 144, !6, i64 145, !6, i64 146, !6, i64 147, !30, i64 152, !5, i64 184, !10, i64 192, !32, i64 200, !6, i64 232, !6, i64 240, !34, i64 248, !6, i64 272, !35, i64 280, !5, i64 328, !5, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !5, i64 360, !5, i64 364, !10, i64 368, !12, i64 376, !12, i64 384, !36, i64 392, !6, i64 424}
+!28 = !{!"GCState", !11, i64 0, !11, i64 8, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !5, i64 20, !10, i64 24, !12, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !11, i64 72, !11, i64 80, !5, i64 88, !5, i64 92, !12, i64 96}
+!29 = !{!"GCstr", !10, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !5, i64 12, !5, i64 16, !5, i64 20}
+!30 = !{!"StrInternState", !31, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20, !6, i64 21, !6, i64 22, !6, i64 23, !11, i64 24}
+!31 = !{!"p1 _ZTS5GCRef", !14, i64 0}
+!32 = !{!"SBuf", !33, i64 0, !33, i64 8, !33, i64 16, !12, i64 24}
+!33 = !{!"p1 omnipotent char", !14, i64 0}
+!34 = !{!"Node", !6, i64 0, !6, i64 8, !12, i64 16}
+!35 = !{!"GCupval", !10, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 16, !12, i64 32, !5, i64 40}
+!36 = !{!"PRNGState", !6, i64 0}
+!37 = !{!38, !40, i64 16}
+!38 = !{!"CTState", !39, i64 0, !5, i64 8, !5, i64 12, !40, i64 16, !41, i64 24, !42, i64 32, !43, i64 40, !6, i64 208}
+!39 = !{!"p1 _ZTS5CType", !14, i64 0}
+!40 = !{!"p1 _ZTS9lua_State", !14, i64 0}
+!41 = !{!"p1 _ZTS12global_State", !14, i64 0}
+!42 = !{!"p1 _ZTS5GCtab", !14, i64 0}
+!43 = !{!"CCallback", !6, i64 0, !6, i64 64, !44, i64 128, !14, i64 136, !45, i64 144, !5, i64 152, !5, i64 156, !5, i64 160}
+!44 = !{!"p1 long", !14, i64 0}
+!45 = !{!"p1 short", !14, i64 0}
+!46 = !{!38, !39, i64 0}
+!47 = distinct !{!47, !23, !24, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !23, !24, !48}
+!50 = distinct !{!50, !23, !24}
+!51 = !{!32, !11, i64 24}
+!52 = !{!32, !33, i64 16}
+!53 = !{!32, !33, i64 0}
+!54 = !{!27, !11, i64 16}
+!55 = !{!27, !11, i64 24}
+!56 = !{!"branch_weights", !"expected", i32 2000, i32 1}

@@ -106,7 +106,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   %59 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i15, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i14, i64 16
   %.not.i.i.i.i.i16 = icmp eq ptr %59, %40
-  br i1 %.not.i.i.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i.i.i13, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i.i.i13, !llvm.loop !7
 
 .loopexit:                                        ; preds = %58, %52
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -142,7 +142,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i19, i64 16
   %.not.i.i.i.i.i21 = icmp ne ptr %82, %64
   %or.cond.not = select i1 %81, i1 %.not.i.i.i.i.i21, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i18, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !6
+  br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i18, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !7
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i13, %.lr.ph.i.i.i.i.i18, %76, %.loopexit, %36, %6, %30, %.loopexit25, %2
   %84 = phi i1 [ false, %30 ], [ false, %.loopexit25 ], [ false, %2 ], [ false, %6 ], [ false, %36 ], [ false, %.loopexit ], [ true, %76 ], [ %81, %.lr.ph.i.i.i.i.i18 ], [ false, %.lr.ph.i.i.i.i.i13 ], [ false, %.lr.ph.i.i.i.i.i ]
@@ -180,7 +180,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_17HgiAttachmentDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(80) %.sroa.029.036)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.029.036, i64 80
   %.not = icmp eq ptr %12, %6
-  br i1 %.not, label %.preheader34, label %.lr.ph
+  br i1 %.not, label %.preheader34, label %.lr.ph, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph38, %.preheader34
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -211,7 +211,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 4
   %35 = icmp ult i64 %28, %34
-  br i1 %35, label %.lr.ph38, label %.preheader, !llvm.loop !7
+  br i1 %35, label %.lr.ph38, label %.preheader, !llvm.loop !9
 
 .lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
   %.039 = phi i64 [ %39, %.lr.ph40 ], [ 0, %.preheader ]
@@ -226,7 +226,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 4
   %46 = icmp ult i64 %39, %45
-  br i1 %46, label %.lr.ph40, label %._crit_edge, !llvm.loop !8
+  br i1 %46, label %.lr.ph40, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph40, %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -279,8 +279,10 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

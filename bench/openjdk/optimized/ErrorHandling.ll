@@ -667,40 +667,40 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   %.sroa.08.3.i.i = phi ptr [ %94, %99 ], [ %71, %.lr.ph.i.i.i17.preheader ]
   %.017.i.i.i = phi i64 [ %100, %99 ], [ %73, %.lr.ph.i.i.i17.preheader ]
   %76 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -1
-  %77 = load i8, ptr %76, align 1, !noalias !8
+  %77 = load i8, ptr %76, align 1, !noalias !9
   %78 = zext i8 %77 to i32
-  %79 = call i32 @isspace(i32 noundef %78) #8, !noalias !8
+  %79 = call i32 @isspace(i32 noundef %78) #8, !noalias !9
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.i.i, label %81
 
 81:                                               ; preds = %.lr.ph.i.i.i17
   %82 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -2
-  %83 = load i8, ptr %82, align 1, !noalias !8
+  %83 = load i8, ptr %82, align 1, !noalias !9
   %84 = zext i8 %83 to i32
-  %85 = call i32 @isspace(i32 noundef %84) #8, !noalias !8
+  %85 = call i32 @isspace(i32 noundef %84) #8, !noalias !9
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit23.i.i, label %87
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -3
-  %89 = load i8, ptr %88, align 1, !noalias !8
+  %89 = load i8, ptr %88, align 1, !noalias !9
   %90 = zext i8 %89 to i32
-  %91 = call i32 @isspace(i32 noundef %90) #8, !noalias !8
+  %91 = call i32 @isspace(i32 noundef %90) #8, !noalias !9
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit21.i.i, label %93
 
 93:                                               ; preds = %87
   %94 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -4
-  %95 = load i8, ptr %94, align 1, !noalias !8
+  %95 = load i8, ptr %94, align 1, !noalias !9
   %96 = zext i8 %95 to i32
-  %97 = call i32 @isspace(i32 noundef %96) #8, !noalias !8
+  %97 = call i32 @isspace(i32 noundef %96) #8, !noalias !9
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i, label %99
 
 99:                                               ; preds = %93
   %100 = add nsw i64 %.017.i.i.i, -1
   %101 = icmp sgt i64 %.017.i.i.i, 1
-  br i1 %101, label %.lr.ph.i.i.i17, label %._crit_edge.loopexit.i.i.i18, !llvm.loop !15
+  br i1 %101, label %.lr.ph.i.i.i17, label %._crit_edge.loopexit.i.i.i18, !llvm.loop !16
 
 ._crit_edge.loopexit.i.i.i18:                     ; preds = %99
   %102 = ptrtoint ptr %scevgep63 to i64
@@ -718,9 +718,9 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
 
 105:                                              ; preds = %._crit_edge.i.i.i16
   %106 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -1
-  %107 = load i8, ptr %106, align 1, !noalias !8
+  %107 = load i8, ptr %106, align 1, !noalias !9
   %108 = zext i8 %107 to i32
-  %109 = call i32 @isspace(i32 noundef %108) #8, !noalias !8
+  %109 = call i32 @isspace(i32 noundef %108) #8, !noalias !9
   %110 = icmp eq i32 %109, 0
   %111 = ptrtoint ptr %.sroa.08.0.i.i to i64
   br i1 %110, label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit, label %112
@@ -728,9 +728,9 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
 112:                                              ; preds = %105, %._crit_edge.i.i.i16
   %.ptr21.i.i.i = phi ptr [ %.sroa.08.0.i.i, %._crit_edge.i.i.i16 ], [ %106, %105 ]
   %113 = getelementptr inbounds i8, ptr %.ptr21.i.i.i, i64 -1
-  %114 = load i8, ptr %113, align 1, !noalias !8
+  %114 = load i8, ptr %113, align 1, !noalias !9
   %115 = zext i8 %114 to i32
-  %116 = call i32 @isspace(i32 noundef %115) #8, !noalias !8
+  %116 = call i32 @isspace(i32 noundef %115) #8, !noalias !9
   %117 = icmp eq i32 %116, 0
   %118 = ptrtoint ptr %.ptr21.i.i.i to i64
   br i1 %117, label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit, label %119
@@ -738,9 +738,9 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
 119:                                              ; preds = %112, %._crit_edge.i.i.i16
   %.ptr23.i.i.i = phi ptr [ %.sroa.08.0.i.i, %._crit_edge.i.i.i16 ], [ %113, %112 ]
   %120 = getelementptr inbounds i8, ptr %.ptr23.i.i.i, i64 -1
-  %121 = load i8, ptr %120, align 1, !noalias !8
+  %121 = load i8, ptr %120, align 1, !noalias !9
   %122 = zext i8 %121 to i32
-  %123 = call i32 @isspace(i32 noundef %122) #8, !noalias !8
+  %123 = call i32 @isspace(i32 noundef %122) #8, !noalias !9
   %124 = icmp eq i32 %123, 0
   %125 = ptrtoint ptr %.ptr23.i.i.i to i64
   %spec.select.i.i = select i1 %124, i64 %125, i64 %69
@@ -887,13 +887,14 @@ attributes #9 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11, !13}
-!9 = distinct !{!9, !10, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag: argument 0"}
-!10 = distinct !{!10, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag"}
-!11 = distinct !{!11, !12, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_: argument 0"}
-!12 = distinct !{!12, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_"}
-!13 = distinct !{!13, !14, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_: argument 0"}
-!14 = distinct !{!14, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_"}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12, !14}
+!10 = distinct !{!10, !11, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag: argument 0"}
+!11 = distinct !{!11, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag"}
+!12 = distinct !{!12, !13, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_: argument 0"}
+!13 = distinct !{!13, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_"}
+!14 = distinct !{!14, !15, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_: argument 0"}
+!15 = distinct !{!15, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_"}
+!16 = distinct !{!16, !7, !8}

@@ -109,12 +109,12 @@ define noundef i32 @_ZN11duckdb_zstd5XXH32EPKvmj(ptr noundef readonly captures(a
   %51 = mul i32 %50, 668265263
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %.not75.i = icmp ugt ptr %52, %4
-  br i1 %.not75.i, label %.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %.not75.i, label %.preheader, label %.lr.ph, !llvm.loop !6
 
 .lr.ph19:                                         ; preds = %.preheader, %.lr.ph19
   %.3.i18 = phi ptr [ %59, %.lr.ph19 ], [ %.2.i.lcssa, %.preheader ]
   %.272.i17 = phi i32 [ %58, %.lr.ph19 ], [ %.171.i.lcssa, %.preheader ]
-  %53 = load i8, ptr %.3.i18, align 1, !tbaa !6
+  %53 = load i8, ptr %.3.i18, align 1, !tbaa !7
   %54 = zext i8 %53 to i32
   %55 = mul i32 %54, 374761393
   %56 = add i32 %55, %.272.i17
@@ -122,7 +122,7 @@ define noundef i32 @_ZN11duckdb_zstd5XXH32EPKvmj(ptr noundef readonly captures(a
   %58 = mul i32 %57, -1640531535
   %59 = getelementptr inbounds nuw i8, ptr %.3.i18, i64 1
   %60 = icmp ult ptr %59, %4
-  br i1 %60, label %.lr.ph19, label %_ZN11duckdb_zstdL18XXH32_endian_alignEPKvmjNS_13XXH_endianessENS_13XXH_alignmentE.exit, !llvm.loop !9
+  br i1 %60, label %.lr.ph19, label %_ZN11duckdb_zstdL18XXH32_endian_alignEPKvmjNS_13XXH_endianessENS_13XXH_alignmentE.exit, !llvm.loop !10
 
 _ZN11duckdb_zstdL18XXH32_endian_alignEPKvmjNS_13XXH_endianessENS_13XXH_alignmentE.exit: ; preds = %.lr.ph19, %.preheader
   %.272.i.lcssa = phi i32 [ %.171.i.lcssa, %.preheader ], [ %58, %.lr.ph19 ]
@@ -181,7 +181,7 @@ define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly captures(a
   %30 = mul i64 %29, -7046029288634856825
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %.not.i = icmp ugt ptr %31, %7
-  br i1 %.not.i, label %32, label %11, !llvm.loop !10
+  br i1 %.not.i, label %32, label %11, !llvm.loop !11
 
 32:                                               ; preds = %11
   %33 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 1)
@@ -243,7 +243,7 @@ define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly captures(a
   %76 = add i64 %75, -8796714831421723037
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.not96.i = icmp ugt ptr %77, %4
-  br i1 %.not96.i, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not96.i, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %66
   %.189.i.lcssa = phi i64 [ %67, %66 ], [ %76, %.lr.ph ]
@@ -271,7 +271,7 @@ define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly captures(a
 .lr.ph25:                                         ; preds = %86, %.lr.ph25
   %.4.i23 = phi ptr [ %94, %.lr.ph25 ], [ %.3.i, %86 ]
   %.391.i22 = phi i64 [ %93, %.lr.ph25 ], [ %.290.i, %86 ]
-  %88 = load i8, ptr %.4.i23, align 1, !tbaa !6
+  %88 = load i8, ptr %.4.i23, align 1, !tbaa !7
   %89 = zext i8 %88 to i64
   %90 = mul i64 %89, 2870177450012600261
   %91 = xor i64 %90, %.391.i22
@@ -279,7 +279,7 @@ define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly captures(a
   %93 = mul i64 %92, -7046029288634856825
   %94 = getelementptr inbounds nuw i8, ptr %.4.i23, i64 1
   %95 = icmp ult ptr %94, %4
-  br i1 %95, label %.lr.ph25, label %_ZN11duckdb_zstdL18XXH64_endian_alignEPKvmmNS_13XXH_endianessENS_13XXH_alignmentE.exit, !llvm.loop !12
+  br i1 %95, label %.lr.ph25, label %_ZN11duckdb_zstdL18XXH64_endian_alignEPKvmmNS_13XXH_endianessENS_13XXH_alignmentE.exit, !llvm.loop !13
 
 _ZN11duckdb_zstdL18XXH64_endian_alignEPKvmmNS_13XXH_endianessENS_13XXH_alignmentE.exit: ; preds = %.lr.ph25, %86
   %.391.i.lcssa = phi i64 [ %.290.i, %86 ], [ %93, %.lr.ph25 ]
@@ -363,19 +363,19 @@ define noundef i32 @_ZN11duckdb_zstd11XXH64_resetEPNS_13XXH64_state_sEy(ptr noun
 define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = trunc i64 %2 to i32
-  %6 = load i32, ptr %0, align 4, !tbaa !13
+  %6 = load i32, ptr %0, align 4, !tbaa !14
   %7 = add i32 %6, %5
-  store i32 %7, ptr %0, align 4, !tbaa !13
+  store i32 %7, ptr %0, align 4, !tbaa !14
   %8 = icmp ugt i64 %2, 15
   %9 = icmp ugt i32 %7, 15
   %10 = or i1 %8, %9
   %11 = zext i1 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !16
+  %13 = load i32, ptr %12, align 4, !tbaa !17
   %14 = or i32 %13, %11
-  store i32 %14, ptr %12, align 4, !tbaa !16
+  store i32 %14, ptr %12, align 4, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i32, ptr %15, align 4, !tbaa !17
+  %16 = load i32, ptr %15, align 4, !tbaa !18
   %17 = zext i32 %16 to i64
   %18 = add i64 %2, %17
   %19 = icmp ult i64 %18, 16
@@ -385,7 +385,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %1, i64 %2, i1 false)
-  %23 = load i32, ptr %15, align 4, !tbaa !17
+  %23 = load i32, ptr %15, align 4, !tbaa !18
   %24 = add i32 %23, %5
   br label %_ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianessE.exit.sink.split
 
@@ -400,45 +400,45 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %30 = zext i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %1, i64 %30, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !18
+  %32 = load i32, ptr %31, align 4, !tbaa !19
   %.val = load i32, ptr %27, align 1
   %33 = mul i32 %.val, -2048144777
   %34 = add i32 %33, %32
   %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 13)
   %36 = mul i32 %35, -1640531535
-  store i32 %36, ptr %31, align 4, !tbaa !18
+  store i32 %36, ptr %31, align 4, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !19
+  %39 = load i32, ptr %38, align 4, !tbaa !20
   %.val7 = load i32, ptr %37, align 1
   %40 = mul i32 %.val7, -2048144777
   %41 = add i32 %40, %39
   %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 13)
   %43 = mul i32 %42, -1640531535
-  store i32 %43, ptr %38, align 4, !tbaa !19
+  store i32 %43, ptr %38, align 4, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i32, ptr %45, align 4, !tbaa !20
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %.val8 = load i32, ptr %44, align 1
   %47 = mul i32 %.val8, -2048144777
   %48 = add i32 %47, %46
   %49 = tail call i32 @llvm.fshl.i32(i32 %48, i32 %48, i32 13)
   %50 = mul i32 %49, -1640531535
-  store i32 %50, ptr %45, align 4, !tbaa !20
+  store i32 %50, ptr %45, align 4, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !21
+  %53 = load i32, ptr %52, align 4, !tbaa !22
   %.val9 = load i32, ptr %51, align 1
   %54 = mul i32 %.val9, -2048144777
   %55 = add i32 %54, %53
   %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 13)
   %57 = mul i32 %56, -1640531535
-  store i32 %57, ptr %52, align 4, !tbaa !21
-  %58 = load i32, ptr %15, align 4, !tbaa !17
+  store i32 %57, ptr %52, align 4, !tbaa !22
+  %58 = load i32, ptr %15, align 4, !tbaa !18
   %59 = sub i32 16, %58
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %60
-  store i32 0, ptr %15, align 4, !tbaa !17
+  store i32 0, ptr %15, align 4, !tbaa !18
   br label %62
 
 62:                                               ; preds = %26, %25
@@ -449,13 +449,13 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load i32, ptr %65, align 4, !tbaa !18
+  %66 = load i32, ptr %65, align 4, !tbaa !19
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !19
+  %68 = load i32, ptr %67, align 4, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load i32, ptr %69, align 4, !tbaa !20
+  %70 = load i32, ptr %69, align 4, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %72 = load i32, ptr %71, align 4, !tbaa !21
+  %72 = load i32, ptr %71, align 4, !tbaa !22
   br label %73
 
 73:                                               ; preds = %73, %64
@@ -489,13 +489,13 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %92 = mul i32 %91, -1640531535
   %93 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %.not97.i = icmp ugt ptr %93, %63
-  br i1 %.not97.i, label %94, label %73, !llvm.loop !22
+  br i1 %.not97.i, label %94, label %73, !llvm.loop !23
 
 94:                                               ; preds = %73
-  store i32 %77, ptr %65, align 4, !tbaa !18
-  store i32 %82, ptr %67, align 4, !tbaa !19
-  store i32 %87, ptr %69, align 4, !tbaa !20
-  store i32 %92, ptr %71, align 4, !tbaa !21
+  store i32 %77, ptr %65, align 4, !tbaa !19
+  store i32 %82, ptr %67, align 4, !tbaa !20
+  store i32 %87, ptr %69, align 4, !tbaa !21
+  store i32 %92, ptr %71, align 4, !tbaa !22
   br label %95
 
 95:                                               ; preds = %94, %62
@@ -514,7 +514,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
 
 _ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianessE.exit.sink.split: ; preds = %97, %20
   %.sink = phi i32 [ %24, %20 ], [ %102, %97 ]
-  store i32 %.sink, ptr %15, align 4, !tbaa !17
+  store i32 %.sink, ptr %15, align 4, !tbaa !18
   br label %_ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianessE.exit
 
 _ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianessE.exit: ; preds = %_ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianessE.exit.sink.split, %95
@@ -525,41 +525,41 @@ _ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianes
 define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !16
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %25, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !18
+  %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !19
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 7)
   %16 = add i32 %15, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !20
+  %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 12)
   %20 = add i32 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 18)
   %24 = add i32 %20, %23
   br label %29
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 4, !tbaa !20
+  %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = add i32 %27, 374761393
   br label %29
 
 29:                                               ; preds = %25, %9
   %.0.i = phi i32 [ %24, %9 ], [ %28, %25 ]
-  %30 = load i32, ptr %0, align 4, !tbaa !13
+  %30 = load i32, ptr %0, align 4, !tbaa !14
   %31 = add i32 %30, %.0.i
   %.not41.i3 = icmp ult i32 %4, 4
   br i1 %.not41.i3, label %.preheader, label %.lr.ph.preheader
@@ -585,12 +585,12 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr nou
   %38 = mul i32 %37, 668265263
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.not41.i = icmp ugt ptr %39, %6
-  br i1 %.not41.i, label %.preheader, label %.lr.ph, !llvm.loop !23
+  br i1 %.not41.i, label %.preheader, label %.lr.ph, !llvm.loop !24
 
 .lr.ph9:                                          ; preds = %.preheader, %.lr.ph9
   %.2.i8 = phi i32 [ %45, %.lr.ph9 ], [ %.1.i.lcssa, %.preheader ]
   %.139.i7 = phi ptr [ %46, %.lr.ph9 ], [ %.038.i.lcssa, %.preheader ]
-  %40 = load i8, ptr %.139.i7, align 1, !tbaa !6
+  %40 = load i8, ptr %.139.i7, align 1, !tbaa !7
   %41 = zext i8 %40 to i32
   %42 = mul i32 %41, 374761393
   %43 = add i32 %42, %.2.i8
@@ -598,7 +598,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr nou
   %45 = mul i32 %44, -1640531535
   %46 = getelementptr inbounds nuw i8, ptr %.139.i7, i64 1
   %47 = icmp ult ptr %46, %6
-  br i1 %47, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit, !llvm.loop !24
+  br i1 %47, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit, !llvm.loop !25
 
 _ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit: ; preds = %.lr.ph9, %.preheader
   %.2.i.lcssa = phi i32 [ %.1.i.lcssa, %.preheader ], [ %45, %.lr.ph9 ]
@@ -616,11 +616,11 @@ _ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %5 = load i64, ptr %0, align 8, !tbaa !25
+  %5 = load i64, ptr %0, align 8, !tbaa !26
   %6 = add i64 %5, %2
-  store i64 %6, ptr %0, align 8, !tbaa !25
+  store i64 %6, ptr %0, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = zext i32 %8 to i64
   %10 = add i64 %2, %9
   %11 = icmp ult i64 %10, 32
@@ -634,7 +634,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
-  %.pre = load i32, ptr %7, align 8, !tbaa !28
+  %.pre = load i32, ptr %7, align 8, !tbaa !29
   br label %16
 
 16:                                               ; preds = %13, %12
@@ -654,45 +654,45 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %25 = zext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr readonly align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !29
+  %27 = load i64, ptr %26, align 8, !tbaa !30
   %.val = load i64, ptr %22, align 1
   %28 = mul i64 %.val, -4417276706812531889
   %29 = add i64 %28, %27
   %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 31)
   %31 = mul i64 %30, -7046029288634856825
-  store i64 %31, ptr %26, align 8, !tbaa !29
+  store i64 %31, ptr %26, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !30
+  %33 = load i64, ptr %32, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val7 = load i64, ptr %34, align 1
   %35 = mul i64 %.val7, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
   %38 = mul i64 %37, -7046029288634856825
-  store i64 %38, ptr %32, align 8, !tbaa !30
+  store i64 %38, ptr %32, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i64, ptr %39, align 8, !tbaa !31
+  %40 = load i64, ptr %39, align 8, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val8 = load i64, ptr %41, align 1
   %42 = mul i64 %.val8, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
   %45 = mul i64 %44, -7046029288634856825
-  store i64 %45, ptr %39, align 8, !tbaa !31
+  store i64 %45, ptr %39, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load i64, ptr %46, align 8, !tbaa !32
+  %47 = load i64, ptr %46, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val9 = load i64, ptr %48, align 1
   %49 = mul i64 %.val9, -4417276706812531889
   %50 = add i64 %49, %47
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 31)
   %52 = mul i64 %51, -7046029288634856825
-  store i64 %52, ptr %46, align 8, !tbaa !32
-  %53 = load i32, ptr %7, align 8, !tbaa !28
+  store i64 %52, ptr %46, align 8, !tbaa !33
+  %53 = load i32, ptr %7, align 8, !tbaa !29
   %54 = sub i32 32, %53
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  store i32 0, ptr %7, align 8, !tbaa !28
+  store i32 0, ptr %7, align 8, !tbaa !29
   br label %57
 
 57:                                               ; preds = %21, %20
@@ -704,13 +704,13 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %4, i64 -32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !29
+  %62 = load i64, ptr %61, align 8, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %64 = load i64, ptr %63, align 8, !tbaa !30
+  %64 = load i64, ptr %63, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = load i64, ptr %65, align 8, !tbaa !31
+  %66 = load i64, ptr %65, align 8, !tbaa !32
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load i64, ptr %67, align 8, !tbaa !32
+  %68 = load i64, ptr %67, align 8, !tbaa !33
   br label %69
 
 69:                                               ; preds = %69, %59
@@ -744,13 +744,13 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %88 = mul i64 %87, -7046029288634856825
   %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 32
   %.not91.i = icmp ugt ptr %89, %60
-  br i1 %.not91.i, label %90, label %69, !llvm.loop !33
+  br i1 %.not91.i, label %90, label %69, !llvm.loop !34
 
 90:                                               ; preds = %69
-  store i64 %73, ptr %61, align 8, !tbaa !29
-  store i64 %78, ptr %63, align 8, !tbaa !30
-  store i64 %83, ptr %65, align 8, !tbaa !31
-  store i64 %88, ptr %67, align 8, !tbaa !32
+  store i64 %73, ptr %61, align 8, !tbaa !30
+  store i64 %78, ptr %63, align 8, !tbaa !31
+  store i64 %83, ptr %65, align 8, !tbaa !32
+  store i64 %88, ptr %67, align 8, !tbaa !33
   br label %91
 
 91:                                               ; preds = %90, %57
@@ -769,7 +769,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
 
 _ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianessE.exit.sink.split: ; preds = %93, %16
   %.sink = phi i32 [ %19, %16 ], [ %98, %93 ]
-  store i32 %.sink, ptr %7, align 8, !tbaa !28
+  store i32 %.sink, ptr %7, align 8, !tbaa !29
   br label %_ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianessE.exit
 
 _ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianessE.exit: ; preds = %_ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianessE.exit.sink.split, %91
@@ -780,22 +780,22 @@ _ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianes
 define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load i32, ptr %3, align 8, !tbaa !28
+  %4 = load i32, ptr %3, align 8, !tbaa !29
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
-  %7 = load i64, ptr %0, align 8, !tbaa !25
+  %7 = load i64, ptr %0, align 8, !tbaa !26
   %8 = icmp ugt i64 %7, 31
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %11 = load i64, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !31
+  %15 = load i64, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !32
+  %17 = load i64, ptr %16, align 8, !tbaa !33
   %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 1)
   %19 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 7)
   %20 = add i64 %19, %18
@@ -831,7 +831,7 @@ define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr nou
 
 49:                                               ; preds = %1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !31
+  %51 = load i64, ptr %50, align 8, !tbaa !32
   %52 = add i64 %51, 2870177450012600261
   br label %53
 
@@ -859,7 +859,7 @@ define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr nou
   %63 = add i64 %62, -8796714831421723037
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.not.i = icmp ugt ptr %64, %6
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.160.i.lcssa = phi i64 [ %54, %53 ], [ %63, %.lr.ph ]
@@ -887,7 +887,7 @@ define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr nou
 .lr.ph11:                                         ; preds = %73, %.lr.ph11
   %.2.i9 = phi ptr [ %81, %.lr.ph11 ], [ %.1.i, %73 ]
   %.3.i8 = phi i64 [ %80, %.lr.ph11 ], [ %.261.i, %73 ]
-  %75 = load i8, ptr %.2.i9, align 1, !tbaa !6
+  %75 = load i8, ptr %.2.i9, align 1, !tbaa !7
   %76 = zext i8 %75 to i64
   %77 = mul i64 %76, 2870177450012600261
   %78 = xor i64 %77, %.3.i8
@@ -895,7 +895,7 @@ define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr nou
   %80 = mul i64 %79, -7046029288634856825
   %81 = getelementptr inbounds nuw i8, ptr %.2.i9, i64 1
   %82 = icmp ult ptr %81, %6
-  br i1 %82, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit, !llvm.loop !35
+  br i1 %82, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit, !llvm.loop !36
 
 _ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit: ; preds = %.lr.ph11, %73
   %.3.i.lcssa = phi i64 [ %.261.i, %73 ], [ %80, %.lr.ph11 ]
@@ -976,36 +976,37 @@ attributes #13 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"_ZTSN11duckdb_zstd13XXH32_state_sE", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !7, i64 24, !15, i64 40, !15, i64 44}
-!15 = !{!"int", !7, i64 0}
-!16 = !{!14, !15, i64 4}
-!17 = !{!14, !15, i64 40}
-!18 = !{!14, !15, i64 8}
-!19 = !{!14, !15, i64 12}
-!20 = !{!14, !15, i64 16}
-!21 = !{!14, !15, i64 20}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSN11duckdb_zstd13XXH64_state_sE", !27, i64 0, !27, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !7, i64 40, !15, i64 72, !7, i64 76}
-!27 = !{!"long long", !7, i64 0}
-!28 = !{!26, !15, i64 72}
-!29 = !{!26, !27, i64 8}
-!30 = !{!26, !27, i64 16}
-!31 = !{!26, !27, i64 24}
-!32 = !{!26, !27, i64 32}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN11duckdb_zstd13XXH32_state_sE", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !8, i64 24, !16, i64 40, !16, i64 44}
+!16 = !{!"int", !8, i64 0}
+!17 = !{!15, !16, i64 4}
+!18 = !{!15, !16, i64 40}
+!19 = !{!15, !16, i64 8}
+!20 = !{!15, !16, i64 12}
+!21 = !{!15, !16, i64 16}
+!22 = !{!15, !16, i64 20}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSN11duckdb_zstd13XXH64_state_sE", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !8, i64 40, !16, i64 72, !8, i64 76}
+!28 = !{!"long long", !8, i64 0}
+!29 = !{!27, !16, i64 72}
+!30 = !{!27, !28, i64 8}
+!31 = !{!27, !28, i64 16}
+!32 = !{!27, !28, i64 24}
+!33 = !{!27, !28, i64 32}
+!34 = distinct !{!34, !4, !5}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5}

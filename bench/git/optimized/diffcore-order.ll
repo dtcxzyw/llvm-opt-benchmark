@@ -93,7 +93,7 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   %.129.us.i = phi i32 [ %.02839.us.i, %.critedge.us.i ], [ %27, %26 ], [ %.02839.us.i, %.critedge.us.i ], [ %.02839.us.i, %.preheader.us.i ]
   %spec.select.us.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.us53.i, i64 %.lcssa.us54.i
   %28 = icmp ult ptr %spec.select.us.i, %16
-  br i1 %28, label %.preheader.us.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %28, label %.preheader.us.i, label %._crit_edge.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %44
   %.02839.i = phi i32 [ %.129.i, %44 ], [ 0, %.preheader.lr.ph.i ]
@@ -127,7 +127,7 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   %40 = load ptr, ptr @order, align 8, !tbaa !4
   %41 = sext i32 %.02839.i to i64
   %42 = getelementptr inbounds ptr, ptr %40, i64 %41
-  store ptr %39, ptr %42, align 8, !tbaa !18
+  store ptr %39, ptr %42, align 8, !tbaa !19
   %43 = add nsw i32 %.02839.i, 1
   br label %44
 
@@ -136,7 +136,7 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   %spec.select.idx.i = zext i1 %.not35.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 %spec.select.idx.i
   %45 = icmp ult ptr %spec.select.i, %16
-  br i1 %45, label %.preheader.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %45, label %.preheader.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %44, %.critedge.us.thread.i
   %.028.lcssa.i = phi i32 [ %.129.us.i, %.critedge.us.thread.i ], [ %.129.i, %44 ]
@@ -146,11 +146,11 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   br i1 %19, label %.thread.i, label %53
 
 .thread.i:                                        ; preds = %._crit_edge.thread.i
-  store i32 0, ptr @order_cnt, align 4, !tbaa !20
+  store i32 0, ptr @order_cnt, align 4, !tbaa !21
   br label %49
 
 46:                                               ; preds = %._crit_edge.i
-  store i32 %.028.lcssa.i, ptr @order_cnt, align 4, !tbaa !20
+  store i32 %.028.lcssa.i, ptr @order_cnt, align 4, !tbaa !21
   %47 = sext i32 %.028.lcssa.i to i64
   %mul.ov.i.i = icmp slt i32 %.028.lcssa.i, 0
   br i1 %mul.ov.i.i, label %48, label %49
@@ -185,10 +185,10 @@ prepare_order.exit:                               ; preds = %6, %53
   %55 = getelementptr inbounds nuw %struct.obj_order, ptr %2, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %57, ptr %56, align 8, !tbaa !22
-  %58 = load ptr, ptr %55, align 8, !tbaa !24
+  store i32 %57, ptr %56, align 8, !tbaa !23
+  %58 = load ptr, ptr %55, align 8, !tbaa !25
   %59 = call ptr %1(ptr noundef %58) #12
-  %60 = load i32, ptr @order_cnt, align 4, !tbaa !20
+  %60 = load i32, ptr @order_cnt, align 4, !tbaa !21
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph25.preheader.i, label %match_order.exit
 
@@ -199,7 +199,7 @@ prepare_order.exit:                               ; preds = %6, %53
 .lr.ph25.i:                                       ; preds = %.thread16.i, %.lr.ph25.preheader.i
   %62 = phi ptr [ %.pre.i, %.lr.ph25.preheader.i ], [ %78, %.thread16.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next.i, %.thread16.i ]
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @match_order.p, i64 8), align 8, !tbaa !25
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @match_order.p, i64 8), align 8, !tbaa !26
   %.not9.i.i = icmp eq ptr %62, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %63
 
@@ -219,7 +219,7 @@ strbuf_setlen.exit.i:                             ; preds = %63, %.lr.ph25.i
   %67 = phi ptr [ %76, %75 ], [ %65, %strbuf_setlen.exit.i ]
   %68 = load ptr, ptr @order, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i
-  %70 = load ptr, ptr %69, align 8, !tbaa !18
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = call i32 @wildmatch(ptr noundef %70, ptr noundef nonnull %67, i32 noundef 0) #12
   %.not12.i = icmp eq i32 %71, 0
   br i1 %.not12.i, label %.thread.loopexit.i, label %72
@@ -240,10 +240,10 @@ strbuf_setlen.exit.i:                             ; preds = %63, %.lr.ph25.i
 .thread16.i:                                      ; preds = %75, %72, %strbuf_setlen.exit.i
   %78 = phi ptr [ %65, %strbuf_setlen.exit.i ], [ %73, %72 ], [ %76, %75 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %79 = load i32, ptr @order_cnt, align 4, !tbaa !20
+  %79 = load i32, ptr @order_cnt, align 4, !tbaa !21
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next.i, %80
-  br i1 %81, label %.lr.ph25.i, label %match_order.exit, !llvm.loop !26
+  br i1 %81, label %.lr.ph25.i, label %match_order.exit, !llvm.loop !27
 
 .thread.loopexit.i:                               ; preds = %.lr.ph.i16
   %82 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -252,10 +252,10 @@ strbuf_setlen.exit.i:                             ; preds = %63, %.lr.ph25.i
 match_order.exit:                                 ; preds = %.thread16.i, %.lr.ph, %.thread.loopexit.i
   %.3.i = phi i32 [ %60, %.lr.ph ], [ %82, %.thread.loopexit.i ], [ %79, %.thread16.i ]
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  store i32 %.3.i, ptr %83, align 4, !tbaa !27
+  store i32 %.3.i, ptr %83, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %match_order.exit
   %.not18 = icmp eq i32 %3, 1
@@ -276,9 +276,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_objs_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !27
+  %4 = load i32, ptr %3, align 4, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !27
+  %6 = load i32, ptr %5, align 4, !tbaa !28
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %9, label %7
 
@@ -288,9 +288,9 @@ define internal i32 @compare_objs_order(ptr noundef readonly captures(none) %0, 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !22
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !23
   %14 = sub nsw i32 %11, %13
   br label %15
 
@@ -304,7 +304,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @diffcore_order(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !29
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !30
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %22, label %3
 
@@ -320,45 +320,45 @@ define dso_local void @diffcore_order(ptr noundef %0) local_unnamed_addr #0 {
 st_mult.exit:                                     ; preds = %3
   %6 = shl nuw nsw i64 %4, 4
   %7 = tail call ptr @xmalloc(i64 noundef %6) #12
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !29
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !30
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %st_mult.exit
-  %10 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !32
+  %10 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !33
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw %struct.obj_order, ptr %7, i64 %indvars.iv
-  store ptr %13, ptr %14, align 8, !tbaa !24
+  store ptr %13, ptr %14, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %11, %st_mult.exit
   tail call void @order_objects(ptr noundef %0, ptr noundef nonnull @pair_pathtwo, ptr noundef %7, i32 noundef %8)
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !29
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !30
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph24, label %._crit_edge25
 
 .lr.ph24:                                         ; preds = %._crit_edge
-  %17 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !32
+  %17 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !33
   %wide.trip.count30 = zext nneg i32 %15 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph24, %18
   %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %18 ]
   %19 = getelementptr inbounds nuw %struct.obj_order, ptr %7, i64 %indvars.iv27
-  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv27
-  store ptr %20, ptr %21, align 8, !tbaa !33
+  store ptr %20, ptr %21, align 8, !tbaa !34
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %._crit_edge25, label %18, !llvm.loop !36
+  br i1 %exitcond31.not, label %._crit_edge25, label %18, !llvm.loop !37
 
 ._crit_edge25:                                    ; preds = %18, %._crit_edge
   tail call void @free(ptr noundef %7) #12
@@ -373,9 +373,9 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @pair_pathtwo(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   ret ptr %5
 }
 
@@ -392,7 +392,7 @@ declare void @die_errno(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #8 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !20
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -460,34 +460,35 @@ attributes #14 = { nounwind willreturn memory(read) }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!"p1 omnipotent char", !6, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!12, !12, i64 0}
-!19 = distinct !{!19, !15}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!23, !21, i64 8}
-!23 = !{!"obj_order", !6, i64 0, !21, i64 8, !21, i64 12}
-!24 = !{!23, !6, i64 0}
-!25 = !{!10, !11, i64 8}
-!26 = distinct !{!26, !15}
-!27 = !{!23, !21, i64 12}
-!28 = distinct !{!28, !15}
-!29 = !{!30, !21, i64 12}
-!30 = !{!"diff_queue_struct", !31, i64 0, !21, i64 8, !21, i64 12}
-!31 = !{!"p2 _ZTS13diff_filepair", !6, i64 0}
-!32 = !{!30, !31, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS13diff_filepair", !6, i64 0}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = !{!38, !39, i64 8}
-!38 = !{!"diff_filepair", !39, i64 0, !39, i64 8, !40, i64 16, !7, i64 18, !21, i64 19, !21, i64 19, !21, i64 19, !21, i64 19, !21, i64 19}
-!39 = !{!"p1 _ZTS13diff_filespec", !6, i64 0}
-!40 = !{!"short", !7, i64 0}
-!41 = !{!42, !12, i64 40}
-!42 = !{!"diff_filespec", !43, i64 0, !12, i64 40, !6, i64 48, !6, i64 56, !11, i64 64, !21, i64 72, !21, i64 76, !40, i64 80, !21, i64 82, !21, i64 82, !21, i64 82, !21, i64 82, !21, i64 82, !21, i64 82, !21, i64 82, !44, i64 88}
-!43 = !{!"object_id", !7, i64 0, !21, i64 32}
-!44 = !{!"p1 _ZTS15userdiff_driver", !6, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!12, !12, i64 0}
+!20 = distinct !{!20, !15, !16}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !7, i64 0}
+!23 = !{!24, !22, i64 8}
+!24 = !{!"obj_order", !6, i64 0, !22, i64 8, !22, i64 12}
+!25 = !{!24, !6, i64 0}
+!26 = !{!10, !11, i64 8}
+!27 = distinct !{!27, !15, !16}
+!28 = !{!24, !22, i64 12}
+!29 = distinct !{!29, !15, !16}
+!30 = !{!31, !22, i64 12}
+!31 = !{!"diff_queue_struct", !32, i64 0, !22, i64 8, !22, i64 12}
+!32 = !{!"p2 _ZTS13diff_filepair", !6, i64 0}
+!33 = !{!31, !32, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS13diff_filepair", !6, i64 0}
+!36 = distinct !{!36, !15, !16}
+!37 = distinct !{!37, !15, !16}
+!38 = !{!39, !40, i64 8}
+!39 = !{!"diff_filepair", !40, i64 0, !40, i64 8, !41, i64 16, !7, i64 18, !22, i64 19, !22, i64 19, !22, i64 19, !22, i64 19, !22, i64 19}
+!40 = !{!"p1 _ZTS13diff_filespec", !6, i64 0}
+!41 = !{!"short", !7, i64 0}
+!42 = !{!43, !12, i64 40}
+!43 = !{!"diff_filespec", !44, i64 0, !12, i64 40, !6, i64 48, !6, i64 56, !11, i64 64, !22, i64 72, !22, i64 76, !41, i64 80, !22, i64 82, !22, i64 82, !22, i64 82, !22, i64 82, !22, i64 82, !22, i64 82, !22, i64 82, !45, i64 88}
+!44 = !{!"object_id", !7, i64 0, !22, i64 32}
+!45 = !{!"p1 _ZTS15userdiff_driver", !6, i64 0}

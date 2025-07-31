@@ -1645,7 +1645,7 @@ reset_update_uds_data_cb.exit:                    ; preds = %0, %2
   %13 = load i32, ptr @uds_uat_data_id_num, align 4
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1826,7 +1826,7 @@ reset_update_uds_dtc_cb.exit:                     ; preds = %0, %2
   %13 = load i32, ptr @uds_uat_dtc_id_num, align 4
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1980,7 +1980,7 @@ reset_uds_address_cb.exit:                        ; preds = %0, %2
   %14 = load i32, ptr @uds_uat_addresses_num, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2159,7 +2159,7 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @col_set_str(ptr noundef %54, i32 noundef 35, ptr noundef nonnull @.str.332)
-  %55 = load i8, ptr @uds_clear_info_col, align 1, !range !11, !noundef !12
+  %55 = load i8, ptr @uds_clear_info_col, align 1, !range !12, !noundef !13
   %56 = trunc nuw i8 %55 to i1
   %57 = load ptr, ptr %53, align 8
   br i1 %56, label %58, label %59
@@ -2176,7 +2176,7 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %62 = and i8 %61, -65
   %63 = icmp ult i8 %62, 16
-  %64 = load i8, ptr @uds_dissect_small_sids_with_obd_ii, align 1, !range !11
+  %64 = load i8, ptr @uds_dissect_small_sids_with_obd_ii, align 1, !range !12
   %65 = trunc nuw i8 %64 to i1
   %or.cond = select i1 %63, i1 %65, i1 false
   %66 = load ptr, ptr @obd_ii_handle, align 8
@@ -2785,7 +2785,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   %310 = load i32, ptr %11, align 4
   %311 = call ptr @val_to_str(i32 noundef %310, ptr noundef nonnull @uds_dsc_types, ptr noundef nonnull @.str.747)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %309, i32 noundef 25, ptr noundef nonnull @.str.753, ptr noundef %311)
-  %312 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %312 = load i8, ptr %12, align 1, !range !12, !noundef !13
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %314, label %316
 
@@ -3008,7 +3008,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
   %416 = add i32 %.11061, 4
   %.not1106 = icmp ult i32 %52, %416
-  br i1 %.not1106, label %.loopexit, label %381, !llvm.loop !13
+  br i1 %.not1106, label %.loopexit, label %381, !llvm.loop !14
 
 417:                                              ; preds = %uds_proto_tree_add_address_name.exit
   br i1 %76, label %418, label %428
@@ -3093,7 +3093,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %466 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %465, ptr noundef %0, i32 noundef %.41228, i32 noundef 2, i32 noundef 0)
   %467 = add i32 %458, 2
   %.not1105 = icmp ugt i32 %467, %456
-  br i1 %.not1105, label %.loopexit1219, label %.lr.ph1230, !llvm.loop !14
+  br i1 %.not1105, label %.loopexit1219, label %.lr.ph1230, !llvm.loop !15
 
 468:                                              ; preds = %.preheader1220
   %469 = load i32, ptr @hf_uds_rsdbi_unit, align 4
@@ -3107,7 +3107,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   %473 = icmp ult i32 %.3, %52
-  br i1 %473, label %.preheader1220, label %.loopexit, !llvm.loop !15
+  br i1 %473, label %.preheader1220, label %.loopexit, !llvm.loop !16
 
 474:                                              ; preds = %uds_proto_tree_add_address_name.exit
   %475 = load i32, ptr @hf_uds_sa_subfunction, align 4
@@ -3614,7 +3614,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %795 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %794, ptr noundef %0, i32 noundef %.131226, i32 noundef 1, i32 noundef 0)
   %796 = add i32 %.131226, 1
   %exitcond.not = icmp eq i32 %796, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %792
   %.13.lcssa = phi i32 [ %.12, %792 ], [ %52, %.lr.ph ]
@@ -3675,7 +3675,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #14
   %825 = add i32 %.14, 8
   %.not1095 = icmp ugt i32 %825, %52
-  br i1 %.not1095, label %.loopexit, label %809, !llvm.loop !17
+  br i1 %.not1095, label %.loopexit, label %809, !llvm.loop !18
 
 826:                                              ; preds = %804
   %827 = load i32, ptr @hf_uds_dddi_dyn_defined_data_identifier, align 4
@@ -3707,7 +3707,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %845 = add i32 %843, %842
   %846 = add i32 %845, %844
   %.not1094 = icmp ugt i32 %846, %52
-  br i1 %.not1094, label %.loopexit, label %833, !llvm.loop !18
+  br i1 %.not1094, label %.loopexit, label %833, !llvm.loop !19
 
 847:                                              ; preds = %804
   %848 = icmp ugt i32 %52, 3
@@ -4455,7 +4455,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   %65 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0481, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %66 = add i32 %65, 4
   %.not437 = icmp ugt i32 %66, %5
-  br i1 %.not437, label %._crit_edge484, label %.lr.ph483, !llvm.loop !19
+  br i1 %.not437, label %._crit_edge484, label %.lr.ph483, !llvm.loop !20
 
 ._crit_edge484:                                   ; preds = %.lr.ph483, %58
   %.0.lcssa = phi i32 [ 3, %58 ], [ %65, %.lr.ph483 ]
@@ -4467,7 +4467,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   %67 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1477, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %68 = add i32 %67, 4
   %.not436 = icmp ugt i32 %68, %5
-  br i1 %.not436, label %.loopexit, label %.lr.ph478, !llvm.loop !20
+  br i1 %.not436, label %.loopexit, label %.lr.ph478, !llvm.loop !21
 
 69:                                               ; preds = %40
   %70 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -4569,7 +4569,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   %123 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.6472, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext true)
   %124 = add i32 %123, 6
   %.not434 = icmp ugt i32 %124, %5
-  br i1 %.not434, label %.loopexit, label %.lr.ph474, !llvm.loop !21
+  br i1 %.not434, label %.loopexit, label %.lr.ph474, !llvm.loop !22
 
 125:                                              ; preds = %.lr.ph469, %dissect_uds_dtc_and_fault_detection_counter_record.exit
   %126 = phi i32 [ 6, %.lr.ph469 ], [ %171, %dissect_uds_dtc_and_fault_detection_counter_record.exit ]
@@ -4679,7 +4679,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
   %171 = add i32 %126, 4
   %.not433 = icmp ugt i32 %171, %5
-  br i1 %.not433, label %.loopexit, label %125, !llvm.loop !22
+  br i1 %.not433, label %.loopexit, label %125, !llvm.loop !23
 
 172:                                              ; preds = %40
   %173 = load i32, ptr @hf_uds_rdtci_dtc_ext_data_rec_no, align 4
@@ -4706,7 +4706,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %185 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.8463, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %186 = add i32 %185, 4
   %.not432 = icmp ugt i32 %186, %5
-  br i1 %.not432, label %.loopexit, label %.lr.ph465, !llvm.loop !23
+  br i1 %.not432, label %.loopexit, label %.lr.ph465, !llvm.loop !24
 
 187:                                              ; preds = %40
   %188 = load i32, ptr @hf_uds_rdtci_memory_selection, align 4
@@ -4753,7 +4753,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %213 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9457, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %214 = add i32 %213, 4
   %.not431 = icmp ugt i32 %214, %5
-  br i1 %.not431, label %._crit_edge460, label %.lr.ph459, !llvm.loop !24
+  br i1 %.not431, label %._crit_edge460, label %.lr.ph459, !llvm.loop !25
 
 ._crit_edge460:                                   ; preds = %.lr.ph459, %205
   %.9.lcssa = phi i32 [ 4, %205 ], [ %213, %.lr.ph459 ]
@@ -4788,7 +4788,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %229 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.10451, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false)
   %230 = add i32 %229, 5
   %.not430 = icmp ugt i32 %230, %5
-  br i1 %.not430, label %._crit_edge454, label %.lr.ph453, !llvm.loop !25
+  br i1 %.not430, label %._crit_edge454, label %.lr.ph453, !llvm.loop !26
 
 ._crit_edge454:                                   ; preds = %.lr.ph453, %215
   %.10.lcssa = phi i32 [ 6, %215 ], [ %229, %.lr.ph453 ]
@@ -4821,7 +4821,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %242 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.11445, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %243 = add i32 %242, 4
   %.not429 = icmp ugt i32 %243, %5
-  br i1 %.not429, label %._crit_edge448, label %.lr.ph447, !llvm.loop !26
+  br i1 %.not429, label %._crit_edge448, label %.lr.ph447, !llvm.loop !27
 
 ._crit_edge448:                                   ; preds = %.lr.ph447, %231
   %.11.lcssa = phi i32 [ 5, %231 ], [ %242, %.lr.ph447 ]
@@ -4857,7 +4857,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %258 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.12443, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %259 = add i32 %258, 4
   %.not428 = icmp ugt i32 %259, %5
-  br i1 %.not428, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not428, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %244
   %.12.lcssa = phi i32 [ 6, %244 ], [ %258, %.lr.ph ]
@@ -5306,7 +5306,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
   %27 = load i32, ptr @hf_uds_suppress_pos_rsp_msg_ind, align 4
   %28 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %12, i32 noundef %27, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
-  %29 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %29 = load i8, ptr %8, align 1, !range !12, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %34
 
@@ -5752,25 +5752,26 @@ attributes #14 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}

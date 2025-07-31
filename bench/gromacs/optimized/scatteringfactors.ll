@@ -551,7 +551,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not4.i.i.i = icmp eq ptr %2, %4
@@ -580,10 +580,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyIN3gmx21AtomicStructureFactorEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN3gmx21AtomicStructureFactorEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !35
+  %.pr = load ptr, ptr %0, align 8, !tbaa !36
   br label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %1
@@ -636,7 +636,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE17_M
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -720,47 +720,47 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit: ;
 .lr.ph.i.i.i:                                     ; preds = %36, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %59, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %23, %36 ]
   %.0911.i.i.i = phi ptr [ %58, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %36 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %43, ptr %.012.i.i.i, align 8, !tbaa !20, !alias.scope !37, !noalias !40
-  %44 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !9, !alias.scope !40, !noalias !37
+  store ptr %43, ptr %.012.i.i.i, align 8, !tbaa !20, !alias.scope !38, !noalias !41
+  %44 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !9, !alias.scope !41, !noalias !38
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !14, !alias.scope !40, !noalias !37
+  %49 = load i64, ptr %48, align 8, !tbaa !14, !alias.scope !41, !noalias !38
   %50 = icmp ult i64 %49, 16
   call void @llvm.assume(i1 %50)
   %51 = add nuw nsw i64 %49, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %45, i64 %51, i1 false), !alias.scope !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %45, i64 %51, i1 false), !alias.scope !43
   br label %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %44, ptr %.012.i.i.i, align 8, !tbaa !9, !alias.scope !37, !noalias !40
-  %52 = load i64, ptr %45, align 8, !tbaa !15, !alias.scope !40, !noalias !37
-  store i64 %52, ptr %43, align 8, !tbaa !15, !alias.scope !37, !noalias !40
+  store ptr %44, ptr %.012.i.i.i, align 8, !tbaa !9, !alias.scope !38, !noalias !41
+  %52 = load i64, ptr %45, align 8, !tbaa !15, !alias.scope !41, !noalias !38
+  store i64 %52, ptr %43, align 8, !tbaa !15, !alias.scope !38, !noalias !41
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !40, !noalias !37
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !41, !noalias !38
   br label %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %47
   %53 = phi i64 [ %49, %47 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %53, ptr %55, align 8, !tbaa !14, !alias.scope !37, !noalias !40
-  store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !9, !alias.scope !40, !noalias !37
-  store i64 0, ptr %54, align 8, !tbaa !14, !alias.scope !40, !noalias !37
-  store i8 0, ptr %45, align 1, !tbaa !15, !alias.scope !40, !noalias !37
+  store i64 %53, ptr %55, align 8, !tbaa !14, !alias.scope !38, !noalias !41
+  store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !9, !alias.scope !41, !noalias !38
+  store i64 0, ptr %54, align 8, !tbaa !14, !alias.scope !41, !noalias !38
+  store i8 0, ptr %45, align 1, !tbaa !15, !alias.scope !41, !noalias !38
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull align 8 dereferenceable(88) %57, i64 88, i1 false), !alias.scope !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull align 8 dereferenceable(88) %57, i64 88, i1 false), !alias.scope !43
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 120
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %58, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !44
 
 _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %36
   %.0.lcssa.i.i.i = phi ptr [ %23, %36 ], [ %59, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -771,47 +771,47 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33
   %.012.i.i.i28 = phi ptr [ %77, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33 ], [ %60, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i29 = phi ptr [ %76, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33 ], [ %1, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
-  store ptr %61, ptr %.012.i.i.i28, align 8, !tbaa !20, !alias.scope !44, !noalias !47
-  %62 = load ptr, ptr %.0911.i.i.i29, align 8, !tbaa !9, !alias.scope !47, !noalias !44
+  store ptr %61, ptr %.012.i.i.i28, align 8, !tbaa !20, !alias.scope !45, !noalias !48
+  %62 = load ptr, ptr %.0911.i.i.i29, align 8, !tbaa !9, !alias.scope !48, !noalias !45
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30
 
 65:                                               ; preds = %.lr.ph.i.i.i27
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !14, !alias.scope !47, !noalias !44
+  %67 = load i64, ptr %66, align 8, !tbaa !14, !alias.scope !48, !noalias !45
   %68 = icmp ult i64 %67, 16
   call void @llvm.assume(i1 %68)
   %69 = add nuw nsw i64 %67, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(1) %63, i64 %69, i1 false), !alias.scope !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(1) %63, i64 %69, i1 false), !alias.scope !50
   br label %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i27
-  store ptr %62, ptr %.012.i.i.i28, align 8, !tbaa !9, !alias.scope !44, !noalias !47
-  %70 = load i64, ptr %63, align 8, !tbaa !15, !alias.scope !47, !noalias !44
-  store i64 %70, ptr %61, align 8, !tbaa !15, !alias.scope !44, !noalias !47
+  store ptr %62, ptr %.012.i.i.i28, align 8, !tbaa !9, !alias.scope !45, !noalias !48
+  %70 = load i64, ptr %63, align 8, !tbaa !15, !alias.scope !48, !noalias !45
+  store i64 %70, ptr %61, align 8, !tbaa !15, !alias.scope !45, !noalias !48
   %.phi.trans.insert.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
-  %.pre.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i31, align 8, !tbaa !14, !alias.scope !47, !noalias !44
+  %.pre.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i31, align 8, !tbaa !14, !alias.scope !48, !noalias !45
   br label %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33
 
 _ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30, %65
   %71 = phi i64 [ %67, %65 ], [ %.pre.i.i.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30 ]
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
-  store i64 %71, ptr %73, align 8, !tbaa !14, !alias.scope !44, !noalias !47
-  store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !9, !alias.scope !47, !noalias !44
-  store i64 0, ptr %72, align 8, !tbaa !14, !alias.scope !47, !noalias !44
-  store i8 0, ptr %63, align 1, !tbaa !15, !alias.scope !47, !noalias !44
+  store i64 %71, ptr %73, align 8, !tbaa !14, !alias.scope !45, !noalias !48
+  store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !9, !alias.scope !48, !noalias !45
+  store i64 0, ptr %72, align 8, !tbaa !14, !alias.scope !48, !noalias !45
+  store i8 0, ptr %63, align 1, !tbaa !15, !alias.scope !48, !noalias !45
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef nonnull align 8 dereferenceable(88) %75, i64 88, i1 false), !alias.scope !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef nonnull align 8 dereferenceable(88) %75, i64 88, i1 false), !alias.scope !50
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 120
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 120
   %.not.i.i.i34 = icmp eq ptr %76, %6
-  br i1 %.not.i.i.i34, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i27, !llvm.loop !43
+  br i1 %.not.i.i.i34, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i27, !llvm.loop !44
 
 _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ; preds = %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i35 = phi ptr [ %60, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %77, %_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33 ]
@@ -827,7 +827,7 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
   br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %79
-  store ptr %23, ptr %0, align 8, !tbaa !35
+  store ptr %23, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !29
   %83 = getelementptr inbounds nuw %"struct.gmx::AtomicStructureFactor", ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !32
@@ -949,20 +949,21 @@ attributes #21 = { builtin allocsize(0) }
 !30 = !{!"_ZTSNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
 !31 = !{!"p1 _ZTSN3gmx21AtomicStructureFactorE", !6, i64 0}
 !32 = !{!30, !31, i64 16}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!30, !31, i64 0}
-!36 = distinct !{!36, !34}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!42 = !{!38, !41}
-!43 = distinct !{!43, !34}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_"}
-!47 = !{!48}
-!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!49 = !{!45, !48}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!30, !31, i64 0}
+!37 = distinct !{!37, !34, !35}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!43 = !{!39, !42}
+!44 = distinct !{!44, !34, !35}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_"}
+!48 = !{!49}
+!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!50 = !{!46, !49}

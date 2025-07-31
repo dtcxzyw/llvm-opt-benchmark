@@ -764,7 +764,7 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
   %40 = sub i64 %9, %.pn
   %41 = getelementptr i8, ptr %10, i64 %.pn
   %42 = icmp ult i64 %40, 5
-  br i1 %42, label %.loopexit, label %7, !llvm.loop !8
+  br i1 %42, label %.loopexit, label %7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %38, %2
   %43 = phi i64 [ %1, %2 ], [ %40, %38 ]
@@ -845,7 +845,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
   %29 = sub i64 %1, %27
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !13
   %31 = call i64 @ZSTD_getcBlockSize(ptr noundef %28, i64 noundef %29, ptr noundef nonnull %4) #10
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %.lr.ph, label %.thread
@@ -875,7 +875,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
 
 45:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !13
   %46 = call i64 @ZSTD_getcBlockSize(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4) #10
   %47 = icmp ult i64 %46, -119
   br i1 %47, label %.lr.ph, label %.thread
@@ -945,7 +945,7 @@ define dso_local i64 @ZSTD_decompressBound(ptr noundef %0, i64 noundef %1) local
   %17 = sub i64 %5, %15
   %18 = select i1 %14, i64 %11, i64 0
   %19 = add i64 %18, %6
-  br i1 %14, label %3, label %20, !llvm.loop !12
+  br i1 %14, label %3, label %20, !llvm.loop !14
 
 20:                                               ; preds = %8, %3
   %21 = phi i64 [ -2, %8 ], [ %6, %3 ]
@@ -1202,7 +1202,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   %149 = sub i64 %62, %139
   %150 = ptrtoint ptr %110 to i64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !13
   %151 = call i64 @ZSTD_getcBlockSize(ptr noundef %148, i64 noundef %149, ptr noundef nonnull %9) #10
   %152 = icmp ult i64 %151, -119
   br i1 %152, label %.lr.ph64, label %.thread41
@@ -1304,7 +1304,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
 
 206:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !13
   %207 = call i64 @ZSTD_getcBlockSize(ptr noundef %202, i64 noundef %203, ptr noundef nonnull %9) #10
   %208 = icmp ult i64 %207, -119
   br i1 %208, label %.lr.ph64, label %.thread41
@@ -1365,7 +1365,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   %245 = icmp eq i32 %244, 0
   %246 = select i1 %245, i64 5, i64 1
   %247 = icmp ult i64 %234, %246
-  br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %241, %77, %14
   %.lcssa56 = phi ptr [ %1, %14 ], [ %57, %77 ], [ %242, %241 ]
@@ -1716,7 +1716,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 
 88:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !13
   %89 = call i64 @ZSTD_getcBlockSize(ptr noundef %3, i64 noundef 3, ptr noundef nonnull %6) #10
   %90 = icmp ult i64 %89, -119
   br i1 %90, label %91, label %120
@@ -2016,7 +2016,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
   %40 = or i1 %38, %39
   %41 = and i64 %33, %30
   %42 = add i64 %41, 1
-  br i1 %40, label %43, label %32
+  br i1 %40, label %43, label %32, !llvm.loop !16
 
 43:                                               ; preds = %32
   %44 = load ptr, ptr %18, align 8
@@ -2127,11 +2127,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 31, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !13
   %25 = add nuw i64 %20, 8
   %gepdiff = sub i64 %2, %25
   %26 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
@@ -2157,11 +2157,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %7) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %7, i8 0, i64 106, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %7, i8 0, i64 106, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   store i32 52, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
-  store i32 0, ptr %9, align 4, !annotation !11
+  store i32 0, ptr %9, align 4, !annotation !13
   %38 = add i64 %20, %26
   %gepdiff20 = sub i64 %19, %38
   %39 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %37, i64 noundef %gepdiff20) #10
@@ -2186,11 +2186,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %10, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %10, i8 0, i64 72, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
   store i32 35, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
-  store i32 0, ptr %12, align 4, !annotation !11
+  store i32 0, ptr %12, align 4, !annotation !13
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %18, %50
   %52 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %49, i64 noundef %51) #10
@@ -2239,7 +2239,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %78 = zext i32 %75 to i64
   %79 = icmp ult i64 %66, %78
   %80 = or i1 %77, %79
-  br i1 %80, label %87, label %.preheader, !llvm.loop !14
+  br i1 %80, label %87, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %.preheader.preheader, %74
   %81 = phi ptr [ %76, %74 ], [ %73, %.preheader.preheader ]
@@ -2249,7 +2249,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 %82, ptr %84, align 4
   %85 = add nuw nsw i64 %83, 1
   %86 = icmp eq i64 %85, 3
-  br i1 %86, label %.thread, label %74, !llvm.loop !14
+  br i1 %86, label %.thread, label %74, !llvm.loop !18
 
 87:                                               ; preds = %74
   %88 = icmp samesign ugt i64 %83, 1
@@ -2764,7 +2764,7 @@ define dso_local ptr @ZSTD_createDStream_advanced(ptr noundef readonly byval(%st
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i64 -64, 1) i64 @ZSTD_freeDStream(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i64 @ZSTD_freeDCtx(ptr noundef %0), !range !15
+  %2 = tail call i64 @ZSTD_freeDCtx(ptr noundef %0), !range !19
   ret i64 %2
 }
 
@@ -3250,7 +3250,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   %83 = getelementptr ptr, ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.loopexit16, label %.preheader15, !llvm.loop !16
+  br i1 %85, label %.loopexit16, label %.preheader15, !llvm.loop !20
 
 .loopexit16:                                      ; preds = %79, %66
   %86 = phi i64 [ %67, %66 ], [ %81, %79 ]
@@ -3265,7 +3265,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
 91:                                               ; preds = %.loopexit16, %76, %.preheader17
   %92 = add nuw i64 %55, 1
   %93 = icmp eq i64 %92, %50
-  br i1 %93, label %.loopexit18, label %.preheader17, !llvm.loop !17
+  br i1 %93, label %.loopexit18, label %.preheader17, !llvm.loop !21
 
 .thread12:                                        ; preds = %59, %46
   %.ph = phi i64 [ -64, %46 ], [ -1, %59 ]
@@ -3317,7 +3317,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   %118 = getelementptr ptr, ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %114, %101
   %121 = phi i64 [ %102, %101 ], [ %116, %114 ]
@@ -3514,7 +3514,7 @@ define dso_local noundef range(i64 -40, 1) i64 @ZSTD_DCtx_getParameter(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 30240
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !18
+  %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !23
   %9 = xor i32 %8, 31
   br label %22
 
@@ -3793,7 +3793,7 @@ select.unfold:                                    ; preds = %36, %22, %32
   %118 = or i1 %116, %117
   %119 = and i64 %111, %108
   %120 = add i64 %119, 1
-  br i1 %118, label %121, label %110
+  br i1 %118, label %121, label %110, !llvm.loop !16
 
 121:                                              ; preds = %110
   %122 = load ptr, ptr %98, align 8
@@ -4296,7 +4296,7 @@ select.unfold46:                                  ; preds = %323, %314, %311
 .thread52.outer.backedge:                         ; preds = %389, %153, %select.unfold46
   %.ph157.be = phi ptr [ %327, %select.unfold46 ], [ %155, %153 ], [ %356, %389 ]
   %.ph158.be = phi ptr [ %326, %select.unfold46 ], [ %88, %153 ], [ %391, %389 ]
-  br label %.thread52.outer, !llvm.loop !19
+  br label %.thread52.outer, !llvm.loop !24
 
 392:                                              ; preds = %.thread52
   %393 = load i64, ptr %43, align 8
@@ -4331,7 +4331,7 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br i1 %410, label %411, label %.thread52.backedge
 
 .thread52.backedge:                               ; preds = %407, %411, %416
-  br label %.thread52, !llvm.loop !19
+  br label %.thread52, !llvm.loop !24
 
 411:                                              ; preds = %407
   %412 = load i32, ptr %49, align 8
@@ -4535,12 +4535,17 @@ attributes #11 = { nounwind memory(none) }
 !8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{i64 -64, i64 1}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = !{i32 0, i32 33}
-!19 = distinct !{!19, !9, !10}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !9, !10, !12}
+!15 = distinct !{!15, !9, !10, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !9, !10, !12}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i64 -64, i64 1}
+!20 = distinct !{!20, !9, !10, !12}
+!21 = distinct !{!21, !9, !10, !12}
+!22 = distinct !{!22, !9, !10, !12}
+!23 = !{i32 0, i32 33}
+!24 = distinct !{!24, !9, !10, !12}

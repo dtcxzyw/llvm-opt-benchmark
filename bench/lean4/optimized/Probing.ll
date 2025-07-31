@@ -7732,7 +7732,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !10
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #4
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8892,7 +8892,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_Compiler_LCNF_Pro
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %.critedge.i, !prof !19
+  br i1 %or.cond, label %13, label %.critedge.i, !prof !21
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -10211,7 +10211,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_Probe_countUnique
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond.i = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !19
+  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !21
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -11408,7 +11408,7 @@ lean_inc.exit:                                    ; preds = %293, %292, %290, %l
 .backedge.backedge:                               ; preds = %lean_inc.exit, %299, %301, %302, %lean_inc.exit143, %108, %110, %111
   %.0118.be = phi ptr [ %94, %111 ], [ %94, %110 ], [ %94, %108 ], [ %94, %lean_inc.exit143 ], [ %285, %302 ], [ %285, %301 ], [ %285, %299 ], [ %285, %lean_inc.exit ]
   %.0117.be = phi ptr [ %28, %111 ], [ %28, %110 ], [ %28, %108 ], [ %28, %lean_inc.exit143 ], [ %250, %302 ], [ %250, %301 ], [ %250, %299 ], [ %250, %lean_inc.exit ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !22
 
 296:                                              ; preds = %lean_inc.exit
   %297 = load i32, ptr %283, align 4, !tbaa !4
@@ -13701,7 +13701,7 @@ lean_inc.exit161:                                 ; preds = %26, %25, %23, %16
   br label %lean_dec.exit147.backedge
 
 lean_dec.exit147.backedge:                        ; preds = %33, %32, %30, %lean_inc.exit161
-  br label %lean_dec.exit147
+  br label %lean_dec.exit147, !llvm.loop !23
 
 34:                                               ; preds = %lean_obj_tag.exit
   %35 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
@@ -14180,7 +14180,7 @@ lean_inc.exit149:                                 ; preds = %211, %210, %208, %l
 .outer.backedge:                                  ; preds = %lean_inc.exit149, %217, %219, %220, %lean_inc.exit157, %95, %97, %98
   %.0127.ph.be = phi ptr [ %81, %98 ], [ %81, %97 ], [ %81, %95 ], [ %81, %lean_inc.exit157 ], [ %203, %220 ], [ %203, %219 ], [ %203, %217 ], [ %203, %lean_inc.exit149 ]
   %.0126.ph.be = phi ptr [ %46, %98 ], [ %46, %97 ], [ %46, %95 ], [ %46, %lean_inc.exit157 ], [ %111, %220 ], [ %111, %219 ], [ %111, %217 ], [ %111, %lean_inc.exit149 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !23
 
 214:                                              ; preds = %lean_inc.exit149
   %215 = load i32, ptr %201, align 4, !tbaa !4
@@ -24410,7 +24410,7 @@ lean_inc.exit:                                    ; preds = %840, %839, %837, %8
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %847, %846, %844, %lean_inc.exit
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !24
 
 lean_dec.exit256:                                 ; preds = %279, %286, %288, %289, %lean_alloc_ctor.exit564, %lean_dec.exit276, %lean_dec.exit284, %lean_alloc_ctor.exit557, %lean_alloc_ctor.exit553, %lean_dec.exit293, %lean_alloc_ctor.exit, %lean_dec.exit257, %728, %730, %731, %lean_alloc_ctor.exit572, %lean_dec.exit268, %lean_alloc_ctor.exit565, %lean_alloc_ctor.exit575, %lean_alloc_ctor.exit574
   %.9 = phi ptr [ %775, %lean_alloc_ctor.exit574 ], [ %824, %lean_alloc_ctor.exit575 ], [ %.0226, %lean_dec.exit268 ], [ %634, %lean_alloc_ctor.exit565 ], [ %718, %lean_alloc_ctor.exit572 ], [ %724, %731 ], [ %724, %730 ], [ %724, %728 ], [ %724, %lean_dec.exit257 ], [ %185, %279 ], [ %185, %286 ], [ %185, %288 ], [ %185, %289 ], [ %90, %lean_dec.exit276 ], [ %558, %lean_alloc_ctor.exit564 ], [ %473, %lean_alloc_ctor.exit557 ], [ %90, %lean_dec.exit284 ], [ %185, %lean_dec.exit293 ], [ %386, %lean_alloc_ctor.exit553 ], [ %308, %lean_alloc_ctor.exit ]
@@ -26534,7 +26534,7 @@ lean_inc.exit432:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit393.backedge
 
 lean_dec.exit393.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit432
-  br label %lean_dec.exit393
+  br label %lean_dec.exit393, !llvm.loop !25
 
 44:                                               ; preds = %lean_obj_tag.exit
   %45 = getelementptr inbounds nuw i8, ptr %.0284, i64 8
@@ -31623,7 +31623,7 @@ lean_inc.exit338:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit312.backedge
 
 lean_dec.exit312.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit338
-  br label %lean_dec.exit312
+  br label %lean_dec.exit312, !llvm.loop !26
 
 44:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not622, label %45, label %lean_dec.exit311
@@ -36059,7 +36059,7 @@ lean_inc.exit375:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit348.backedge
 
 lean_dec.exit348.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit375
-  br label %lean_dec.exit348
+  br label %lean_dec.exit348, !llvm.loop !27
 
 44:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not698, label %45, label %lean_dec.exit347
@@ -40679,7 +40679,7 @@ lean_inc.exit218:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit201.backedge
 
 lean_dec.exit201.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit218
-  br label %lean_dec.exit201
+  br label %lean_dec.exit201, !llvm.loop !28
 
 44:                                               ; preds = %lean_obj_tag.exit
   %45 = getelementptr inbounds nuw i8, ptr %.0149, i64 8
@@ -44241,7 +44241,7 @@ lean_inc.exit229:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit213.backedge
 
 lean_dec.exit213.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit229
-  br label %lean_dec.exit213
+  br label %lean_dec.exit213, !llvm.loop !29
 
 44:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not419, label %45, label %lean_dec.exit212
@@ -47842,7 +47842,7 @@ lean_inc.exit229:                                 ; preds = %36, %35, %33, %26
   br label %lean_dec.exit213.backedge
 
 lean_dec.exit213.backedge:                        ; preds = %43, %42, %40, %lean_inc.exit229
-  br label %lean_dec.exit213
+  br label %lean_dec.exit213, !llvm.loop !30
 
 44:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not419, label %45, label %lean_dec.exit212
@@ -56182,7 +56182,7 @@ lean_dec.exit507:                                 ; preds = %161, %160, %158, %1
 
 164:                                              ; preds = %lean_dec.exit507
   %165 = load ptr, ptr %163, align 8, !tbaa !10
-  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %167 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -56204,9 +56204,9 @@ lean_alloc_ctor.exit644:                          ; preds = %164
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %167, ptr %174, align 8, !tbaa !10
   %175 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store double %166, ptr %175, align 8, !tbaa !20
+  store double %166, ptr %175, align 8, !tbaa !31
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store double %166, ptr %176, align 8, !tbaa !20
+  store double %166, ptr %176, align 8, !tbaa !31
   %177 = load ptr, ptr @l_Lean_Compiler_LCNF_Probe_filter___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -56409,7 +56409,7 @@ lean_inc.exit555:                                 ; preds = %245, %244, %242, %2
   br label %lean_dec.exit504
 
 lean_dec.exit504:                                 ; preds = %252, %251, %249, %lean_inc.exit555
-  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %254 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %255 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -56431,9 +56431,9 @@ lean_alloc_ctor.exit657:                          ; preds = %lean_dec.exit504
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %254, ptr %261, align 8, !tbaa !10
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 24
-  store double %253, ptr %262, align 8, !tbaa !20
+  store double %253, ptr %262, align 8, !tbaa !31
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 32
-  store double %253, ptr %263, align 8, !tbaa !20
+  store double %253, ptr %263, align 8, !tbaa !31
   %264 = load ptr, ptr @l_Lean_Compiler_LCNF_Probe_filter___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %265 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -56943,7 +56943,7 @@ lean_ctor_release.exit700:                        ; preds = %437, %444, %446, %4
 
 lean_dec_ref.exit608:                             ; preds = %453, %452, %450, %lean_ctor_release.exit700
   %.0487 = phi ptr [ %127, %lean_ctor_release.exit700 ], [ inttoptr (i64 1 to ptr), %450 ], [ inttoptr (i64 1 to ptr), %452 ], [ inttoptr (i64 1 to ptr), %453 ]
-  %454 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  %454 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %455 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %456 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -56965,9 +56965,9 @@ lean_alloc_ctor.exit702:                          ; preds = %lean_dec_ref.exit60
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 16
   store ptr %455, ptr %462, align 8, !tbaa !10
   %463 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  store double %454, ptr %463, align 8, !tbaa !20
+  store double %454, ptr %463, align 8, !tbaa !31
   %464 = getelementptr inbounds nuw i8, ptr %456, i64 32
-  store double %454, ptr %464, align 8, !tbaa !20
+  store double %454, ptr %464, align 8, !tbaa !31
   %465 = load ptr, ptr @l_Lean_Compiler_LCNF_Probe_filter___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %466 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -57804,7 +57804,7 @@ lean_ctor_release.exit778:                        ; preds = %763, %770, %772, %7
 
 lean_dec_ref.exit602:                             ; preds = %779, %778, %776, %lean_ctor_release.exit778
   %.0492 = phi ptr [ %127, %lean_ctor_release.exit778 ], [ inttoptr (i64 1 to ptr), %776 ], [ inttoptr (i64 1 to ptr), %778 ], [ inttoptr (i64 1 to ptr), %779 ]
-  %780 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  %780 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %781 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %782 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -57826,9 +57826,9 @@ lean_alloc_ctor.exit780:                          ; preds = %lean_dec_ref.exit60
   %788 = getelementptr inbounds nuw i8, ptr %782, i64 16
   store ptr %781, ptr %788, align 8, !tbaa !10
   %789 = getelementptr inbounds nuw i8, ptr %782, i64 24
-  store double %780, ptr %789, align 8, !tbaa !20
+  store double %780, ptr %789, align 8, !tbaa !31
   %790 = getelementptr inbounds nuw i8, ptr %782, i64 32
-  store double %780, ptr %790, align 8, !tbaa !20
+  store double %780, ptr %790, align 8, !tbaa !31
   %791 = load ptr, ptr @l_Lean_Compiler_LCNF_Probe_filter___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %792 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -59006,7 +59006,7 @@ lean_ctor_release.exit883:                        ; preds = %1217, %1224, %1226,
 
 lean_dec_ref.exit594:                             ; preds = %1233, %1232, %1230, %lean_ctor_release.exit883
   %.0493 = phi ptr [ %980, %lean_ctor_release.exit883 ], [ inttoptr (i64 1 to ptr), %1230 ], [ inttoptr (i64 1 to ptr), %1232 ], [ inttoptr (i64 1 to ptr), %1233 ]
-  %1234 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  %1234 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %1235 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %1236 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -59028,9 +59028,9 @@ lean_alloc_ctor.exit885:                          ; preds = %lean_dec_ref.exit59
   %1242 = getelementptr inbounds nuw i8, ptr %1236, i64 16
   store ptr %1235, ptr %1242, align 8, !tbaa !10
   %1243 = getelementptr inbounds nuw i8, ptr %1236, i64 24
-  store double %1234, ptr %1243, align 8, !tbaa !20
+  store double %1234, ptr %1243, align 8, !tbaa !31
   %1244 = getelementptr inbounds nuw i8, ptr %1236, i64 32
-  store double %1234, ptr %1244, align 8, !tbaa !20
+  store double %1234, ptr %1244, align 8, !tbaa !31
   %1245 = load ptr, ptr @l_Lean_Compiler_LCNF_Probe_filter___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #4
   %1246 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -60434,9 +60434,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   store ptr %13, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %4, ptr %21, align 8, !tbaa !10
-  store i8 %2, ptr %18, align 1, !tbaa !22
+  store i8 %2, ptr %18, align 1, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 %2, ptr %22, align 1, !tbaa !22
+  store i8 %2, ptr %22, align 1, !tbaa !33
   ret ptr %14
 }
 
@@ -60537,9 +60537,9 @@ l_Lean_Compiler_LCNF_Probe_toPass___rarg.exit:    ; preds = %lean_alloc_closure.
   store ptr %22, ptr %31, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %13, ptr %32, align 8, !tbaa !10
-  store i8 %27, ptr %29, align 1, !tbaa !22
+  store i8 %27, ptr %29, align 1, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 33
-  store i8 %27, ptr %33, align 1, !tbaa !22
+  store i8 %27, ptr %33, align 1, !tbaa !33
   ret ptr %23
 }
 
@@ -61321,7 +61321,7 @@ _init_l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__
   store ptr %134, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %134) #4
   %147 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
-  store double %147, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !20
+  store double %147, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__4, align 8, !tbaa !31
   %148 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #4
   store ptr %148, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Probe_toPass___elambda__1___spec__2___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %148) #4
@@ -61564,7 +61564,18 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!19 = !{!"branch_weights", i32 4000000, i32 4001}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !7, i64 0}
-!22 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !7, i64 0}
+!33 = !{!7, !7, i64 0}

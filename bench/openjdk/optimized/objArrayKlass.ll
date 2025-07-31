@@ -851,12 +851,12 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %12, %_ZN10Hand
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %48, ptr noundef %38) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %34, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit.thread, label %34, !llvm.loop !9
 
 50:                                               ; preds = %.lr.ph39
   %51 = add nuw nsw i32 %.038, 1
   %exitcond43.not = icmp eq i32 %.038, %33
-  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph39, !llvm.loop !9
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph39, !llvm.loop !10
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %50
   %.038 = phi i32 [ %51, %50 ], [ 0, %.lr.ph39.preheader ]
@@ -1516,7 +1516,7 @@ _ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit26: 
   store ptr %71, ptr %87, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit26, %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit22, %16
   %.0 = phi ptr [ null, %16 ], [ %20, %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit22 ], [ %20, %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit26 ]
@@ -1760,7 +1760,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %7, %17
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader ]
@@ -2204,7 +2204,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2383
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 769
   %11 = load volatile i8, ptr %10, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %12 = and i8 %11, 2
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %13
@@ -2262,7 +2262,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 769
   %53 = load volatile i8, ptr %52, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %54 = and i8 %53, 2
   %.not.i6 = icmp eq i8 %54, 0
   br i1 %.not.i6, label %_ZN20ShenandoahBarrierSet12satb_barrierILm2383974E9narrowOopEEvPT0_.exit, label %55
@@ -2436,7 +2436,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
 
 .preheader.i.i:                                   ; preds = %48, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %3, %48 ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !13
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -2446,7 +2446,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i = icmp eq i64 %64, 0
   %65 = icmp ne i64 %60, 0
   %66 = and i1 %65, %.not.i.i
-  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !14
+  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
 
 67:                                               ; preds = %2
   br i1 %.not.i.i24, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %68
@@ -2653,7 +2653,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2383
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 769
   %11 = load volatile i8, ptr %10, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %12 = and i8 %11, 2
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %13
@@ -2711,7 +2711,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 769
   %53 = load volatile i8, ptr %52, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %54 = and i8 %53, 2
   %.not.i6 = icmp eq i8 %54, 0
   br i1 %.not.i6, label %_ZN20ShenandoahBarrierSet12satb_barrierILm2383942EP7oopDescEEvPT0_.exit, label %55
@@ -2906,7 +2906,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %32 = lshr i64 %31, %26
   %33 = trunc i64 %32 to i32
   %34 = select i1 %29, i32 0, i32 %33
-  %35 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, i32 %28, ptr nonnull %5) #13, !srcloc !15
+  %35 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, i32 %28, ptr nonnull %5) #13, !srcloc !16
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
@@ -2942,7 +2942,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %22, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %20
-  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %17, ptr nonnull %5) #13, !srcloc !13
+  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %17, ptr nonnull %5) #13, !srcloc !14
   %24 = icmp eq i64 %23, %17
   br i1 %24, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -2954,9 +2954,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !13
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !14
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -2989,7 +2989,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -3024,7 +3024,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -3054,7 +3054,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #13
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -3207,7 +3207,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !13
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -3215,7 +3215,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -3265,7 +3265,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %6, ptr nonnull %5) #13, !srcloc !13
+  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %6, ptr nonnull %5) #13, !srcloc !14
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
@@ -3291,7 +3291,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %12, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %10
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %7, ptr nonnull %5) #13, !srcloc !13
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %7, ptr nonnull %5) #13, !srcloc !14
   %14 = icmp eq i64 %13, %7
   br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -3303,9 +3303,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !13
+  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !14
   %18 = icmp eq i64 %17, %phi.call9.i.i.i.i.i
-  br i1 %18, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
+  br i1 %18, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %10
   %19 = inttoptr i64 %11 to ptr
@@ -3585,7 +3585,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i: ; preds = %
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i: ; preds = %66, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i, %37, %34
   %67 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 4
   %68 = icmp ult ptr %67, %29
-  br i1 %68, label %34, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit, !llvm.loop !17
+  br i1 %68, label %34, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit, !llvm.loop !18
 
 69:                                               ; preds = %6
   %70 = and i8 %9, 4
@@ -3626,7 +3626,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %.0.i.i.i.i = phi ptr [ %90, %86 ], [ null, %74 ]
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 88
   %92 = load volatile ptr, ptr %91, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %93 = icmp ult ptr %1, %92
   br i1 %93, label %94, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
@@ -3682,13 +3682,13 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %129 = lshr i64 %128, %110
   %130 = trunc i64 %129 to i32
   %131 = select i1 %126, i32 0, i32 %130
-  %132 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %131, i32 %103, ptr nonnull %.017.i.i) #13, !srcloc !15
+  %132 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %131, i32 %103, ptr nonnull %.017.i.i) #13, !srcloc !16
   br label %133
 
 133:                                              ; preds = %119, %105, %102
   %134 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 4
   %135 = icmp ult ptr %134, %95
-  br i1 %135, label %102, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit, !llvm.loop !18
+  br i1 %135, label %102, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit, !llvm.loop !19
 
 _ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit: ; preds = %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i, %133, %94, %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i, %25, %11, %71, %72, %4
   ret void
@@ -3723,7 +3723,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
   %.0.i.i.i = phi ptr [ %20, %16 ], [ null, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   %22 = load volatile ptr, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %23 = icmp ult ptr %1, %22
   br i1 %23, label %24, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
@@ -3752,7 +3752,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
 38:                                               ; preds = %34
   %39 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull %26) #13
   %40 = load volatile i32, ptr %39, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %41 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %42 = and i32 %41, %40
   %.not.i.i.i = icmp eq i32 %42, 0
@@ -3832,13 +3832,13 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %33, %34, %38, %43
   %84 = lshr i64 %83, %.pre-phi28.i
   %85 = trunc i64 %84 to i32
   %86 = select i1 %81, i32 0, i32 %85
-  %87 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %86, i32 %53, ptr nonnull %.02124.i) #13, !srcloc !15
+  %87 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %86, i32 %53, ptr nonnull %.02124.i) #13, !srcloc !16
   br label %88
 
 88:                                               ; preds = %80, %55, %52
   %89 = getelementptr inbounds nuw i8, ptr %.02124.i, i64 4
   %90 = icmp ult ptr %89, %45
-  br i1 %90, label %52, label %_ZN20ShenandoahBarrierSet14arraycopy_workI9narrowOopLb1ELb1ELb0EEEvPT_m.exit, !llvm.loop !19
+  br i1 %90, label %52, label %_ZN20ShenandoahBarrierSet14arraycopy_workI9narrowOopLb1ELb1ELb0EEEvPT_m.exit, !llvm.loop !20
 
 _ZN20ShenandoahBarrierSet14arraycopy_workI9narrowOopLb1ELb1ELb0EEEvPT_m.exit: ; preds = %88, %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
   %91 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -3977,7 +3977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %17, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.split7.i.i.i.i.i.i
 
 .split7.i.i.i.i.i.i:                              ; preds = %15
-  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %12, ptr nonnull %.05.i.i) #13, !srcloc !13
+  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %12, ptr nonnull %.05.i.i) #13, !srcloc !14
   %19 = icmp eq i64 %18, %12
   br i1 %19, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -3989,14 +3989,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.split.i.i.i.i.i.i
 
 .split.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %phi.call9.i.i.i.i.i.i, ptr nonnull %.05.i.i) #13, !srcloc !13
+  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %phi.call9.i.i.i.i.i.i, ptr nonnull %.05.i.i) #13, !srcloc !14
   %23 = icmp eq i64 %22, %phi.call9.i.i.i.i.i.i
-  br i1 %23, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %23, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
 
 _ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i: ; preds = %.split.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.split7.i.i.i.i.i.i, %15, %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   %25 = icmp ult ptr %24, %9
-  br i1 %25, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm2383942ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !20
+  br i1 %25, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm2383942ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !21
 
 _ZN11XBarrierSet13AccessBarrierILm2383942ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit: ; preds = %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, %7
   %.not.i10.i = icmp eq ptr %3, null
@@ -4105,7 +4105,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i: ; preds = %
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i: ; preds = %59, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i, %37, %34
   %60 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %61 = icmp ult ptr %60, %29
-  br i1 %61, label %34, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit, !llvm.loop !21
+  br i1 %61, label %34, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit, !llvm.loop !22
 
 62:                                               ; preds = %6
   %63 = and i8 %9, 4
@@ -4146,7 +4146,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %.0.i.i.i.i = phi ptr [ %83, %79 ], [ null, %67 ]
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 88
   %85 = load volatile ptr, ptr %84, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %86 = icmp ult ptr %1, %85
   br i1 %86, label %87, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
@@ -4189,13 +4189,13 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %.not.i.i.i.i.i = icmp eq i64 %110, 0
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %96, ptr %111
   %.0.i.i.i.i.i = select i1 %109, ptr %spec.select.i.i.i.i.i, ptr %96
-  %112 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i.i.i, ptr nonnull %96, ptr nonnull %.017.i.i) #13, !srcloc !13
+  %112 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i.i.i, ptr nonnull %96, ptr nonnull %.017.i.i) #13, !srcloc !14
   br label %113
 
 113:                                              ; preds = %106, %98, %95
   %114 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %115 = icmp ult ptr %114, %88
-  br i1 %115, label %95, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit, !llvm.loop !22
+  br i1 %115, label %95, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit, !llvm.loop !23
 
 _ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit: ; preds = %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i, %113, %87, %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i, %25, %11, %64, %65, %4
   ret void
@@ -4228,7 +4228,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
   %.0.i.i.i = phi ptr [ %20, %16 ], [ null, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   %22 = load volatile ptr, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %23 = icmp ult ptr %1, %22
   br i1 %23, label %24, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
@@ -4257,7 +4257,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
 38:                                               ; preds = %34
   %39 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull %26) #13
   %40 = load volatile i32, ptr %39, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %41 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %42 = and i32 %41, %40
   %.not.i.i.i = icmp eq i32 %42, 0
@@ -4318,13 +4318,13 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %33, %34, %38, %43
 
 73:                                               ; preds = %70, %63
   %.0.i = phi ptr [ %72, %70 ], [ %.0.i.i.i.i, %63 ]
-  %74 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i, ptr nonnull %53, ptr nonnull %.02124.i) #13, !srcloc !13
+  %74 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i, ptr nonnull %53, ptr nonnull %.02124.i) #13, !srcloc !14
   br label %75
 
 75:                                               ; preds = %73, %55, %52
   %76 = getelementptr inbounds nuw i8, ptr %.02124.i, i64 8
   %77 = icmp ult ptr %76, %45
-  br i1 %77, label %52, label %_ZN20ShenandoahBarrierSet14arraycopy_workIP7oopDescLb1ELb1ELb0EEEvPT_m.exit, !llvm.loop !23
+  br i1 %77, label %52, label %_ZN20ShenandoahBarrierSet14arraycopy_workIP7oopDescLb1ELb1ELb0EEEvPT_m.exit, !llvm.loop !24
 
 _ZN20ShenandoahBarrierSet14arraycopy_workIP7oopDescLb1ELb1ELb0EEEvPT_m.exit: ; preds = %75, %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
   %78 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -4372,7 +4372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %18 = getelementptr inbounds nuw i8, ptr %.02433, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
   %20 = icmp ult ptr %18, %6
-  br i1 %20, label %.lr.ph35, label %.loopexit, !llvm.loop !24
+  br i1 %20, label %.lr.ph35, label %.loopexit, !llvm.loop !25
 
 21:                                               ; preds = %3
   %22 = icmp uge ptr %1, %0
@@ -4405,7 +4405,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %36 = getelementptr inbounds i8, ptr %.12531, i64 -8
   %37 = getelementptr inbounds i8, ptr %.132, i64 -8
   %.not = icmp ult ptr %36, %1
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph35, %5, %21
   ret i1 true
@@ -4676,7 +4676,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %17, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.split7.i.i.i.i.i.i
 
 .split7.i.i.i.i.i.i:                              ; preds = %15
-  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %12, ptr nonnull %.05.i.i) #13, !srcloc !13
+  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %12, ptr nonnull %.05.i.i) #13, !srcloc !14
   %19 = icmp eq i64 %18, %12
   br i1 %19, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -4688,14 +4688,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.split.i.i.i.i.i.i
 
 .split.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %phi.call9.i.i.i.i.i.i, ptr nonnull %.05.i.i) #13, !srcloc !13
+  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %phi.call9.i.i.i.i.i.i, ptr nonnull %.05.i.i) #13, !srcloc !14
   %23 = icmp eq i64 %22, %phi.call9.i.i.i.i.i.i
-  br i1 %23, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %23, label %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
 
 _ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i: ; preds = %.split.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.split7.i.i.i.i.i.i, %15, %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   %25 = icmp ult ptr %24, %9
-  br i1 %25, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !20
+  br i1 %25, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !21
 
 _ZN11XBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit: ; preds = %_ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit.i.i, %7
   %.not.i10.i = icmp eq ptr %3, null
@@ -4739,7 +4739,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %22 = getelementptr inbounds nuw i8, ptr %.078.i.i.i, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
   %24 = icmp ult ptr %22, %9
-  br i1 %24, label %.lr.ph.i.i.i, label %_ZN11ZBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapEP12arrayOopDescmPP7oopDescS3_mS6_m.exit, !llvm.loop !26
+  br i1 %24, label %.lr.ph.i.i.i, label %_ZN11ZBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapEP12arrayOopDescmPP7oopDescS3_mS6_m.exit, !llvm.loop !27
 
 _ZN11ZBarrierSet13AccessBarrierILm35938374ES_E21oop_arraycopy_in_heapEP12arrayOopDescmPP7oopDescS3_mS6_m.exit: ; preds = %.lr.ph.i.i.i, %7
   ret i1 true
@@ -4867,7 +4867,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i: ; preds = %_ZN7oopD
   %50 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 4
   %.not.i = icmp ult ptr %50, %10
-  br i1 %.not.i, label %14, label %_ZN10BarrierSet13AccessBarrierILm52715622E17EpsilonBarrierSetE21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !27
+  br i1 %.not.i, label %14, label %_ZN10BarrierSet13AccessBarrierILm52715622E17EpsilonBarrierSetE21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !28
 
 _ZN10BarrierSet13AccessBarrierILm52715622E17EpsilonBarrierSetE21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S6_mS8_m.exit: ; preds = %48, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i, %7
   %.lcssa.i = phi i1 [ true, %7 ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i ], [ false, %48 ]
@@ -4961,7 +4961,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i: ; preds = %_ZN7oo
   %51 = getelementptr inbounds nuw i8, ptr %.01824.i.i, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %.01923.i.i, i64 4
   %.not.i16.i = icmp ult ptr %51, %12
-  br i1 %.not.i16.i, label %15, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit, !llvm.loop !28
+  br i1 %.not.i16.i, label %15, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit, !llvm.loop !29
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit: ; preds = %49, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i, %7
   %.lcssa.i.i = phi i1 [ true, %7 ], [ false, %49 ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i ]
@@ -5035,7 +5035,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i: ; preds = %_ZN7oopD
   %40 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 4
   %.not.i = icmp ult ptr %40, %10
-  br i1 %.not.i, label %14, label %_ZN11XBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit, !llvm.loop !29
+  br i1 %.not.i, label %14, label %_ZN11XBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit, !llvm.loop !30
 
 _ZN11XBarrierSet13AccessBarrierILm52715622ES_E21oop_arraycopy_in_heapI9narrowOopEEbP12arrayOopDescmPT_S5_mS7_m.exit: ; preds = %38, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i, %7
   %.lcssa.i = phi i1 [ true, %7 ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i ], [ false, %38 ]
@@ -5130,7 +5130,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread: ; preds = %_ZNK7oopDe
   %51 = getelementptr inbounds nuw i8, ptr %.03139, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %.03040, i64 4
   %.not = icmp ult ptr %51, %12
-  br i1 %.not, label %15, label %._crit_edge, !llvm.loop !30
+  br i1 %.not, label %15, label %._crit_edge, !llvm.loop !31
 
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %49, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit
   %53 = load i32, ptr @heapOopSize, align 4
@@ -5278,7 +5278,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm52715622E9narrowOopEEvPT0_.exit: ; pred
   %71 = getelementptr inbounds nuw i8, ptr %.03139, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %.03040, i64 4
   %.not = icmp ult ptr %71, %12
-  br i1 %.not, label %16, label %._crit_edge, !llvm.loop !31
+  br i1 %.not, label %16, label %._crit_edge, !llvm.loop !32
 
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %50, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit
   %73 = load i32, ptr @heapOopSize, align 4
@@ -5388,7 +5388,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i: ; preds = %_ZN7oopD
   %41 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.03040.i, i64 8
   %.not.i = icmp ult ptr %41, %12
-  br i1 %.not.i, label %15, label %._crit_edge.i, !llvm.loop !32
+  br i1 %.not.i, label %15, label %._crit_edge.i, !llvm.loop !33
 
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i, %39
   %43 = load i32, ptr @heapOopSize, align 4
@@ -5493,7 +5493,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i: ; preds = %_ZN7oopD
   %40 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 8
   %.not.i = icmp ult ptr %40, %10
-  br i1 %.not.i, label %14, label %_ZN10BarrierSet13AccessBarrierILm52715590E17EpsilonBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit, !llvm.loop !33
+  br i1 %.not.i, label %14, label %_ZN10BarrierSet13AccessBarrierILm52715590E17EpsilonBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit, !llvm.loop !34
 
 _ZN10BarrierSet13AccessBarrierILm52715590E17EpsilonBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit: ; preds = %38, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i, %7
   %.lcssa.i = phi i1 [ true, %7 ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i ], [ false, %38 ]
@@ -5577,7 +5577,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i: ; preds = %_ZN7oo
   %41 = getelementptr inbounds nuw i8, ptr %.01824.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.01923.i.i, i64 8
   %.not.i16.i = icmp ult ptr %41, %12
-  br i1 %.not.i16.i, label %15, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm52715590ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !34
+  br i1 %.not.i16.i, label %15, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm52715590ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit, !llvm.loop !35
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm52715590ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit: ; preds = %39, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i, %7
   %.lcssa.i.i = phi i1 [ true, %7 ], [ false, %39 ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i.i ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i ]
@@ -5686,7 +5686,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm52715590EP7oopDescEEvPT0_.exit: ; preds
   %53 = getelementptr inbounds nuw i8, ptr %.03139, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.03040, i64 8
   %.not = icmp ult ptr %53, %12
-  br i1 %.not, label %16, label %._crit_edge, !llvm.loop !35
+  br i1 %.not, label %16, label %._crit_edge, !llvm.loop !36
 
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %40, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit
   %55 = load i32, ptr @heapOopSize, align 4
@@ -5756,7 +5756,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11XBarrierSet13AccessBarrierIL
   br i1 %21, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split7.i.i.i.i
 
 .split7.i.i.i.i:                                  ; preds = %19
-  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %16, ptr nonnull %.01824) #13, !srcloc !13
+  %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %16, ptr nonnull %.01824) #13, !srcloc !14
   %23 = icmp eq i64 %22, %16
   br i1 %23, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -5768,9 +5768,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11XBarrierSet13AccessBarrierIL
   br i1 %.not.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
-  %26 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %phi.call9.i.i.i.i, ptr nonnull %.01824) #13, !srcloc !13
+  %26 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %phi.call9.i.i.i.i, ptr nonnull %.01824) #13, !srcloc !14
   %27 = icmp eq i64 %26, %phi.call9.i.i.i.i
-  br i1 %27, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
+  br i1 %27, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i: ; preds = %.split.i.i.i.i, %.lr.ph.i.i.i.i, %.split7.i.i.i.i, %19
   %28 = inttoptr i64 %20 to ptr
@@ -5825,7 +5825,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread: ; preds = %_ZNK7oopDe
   %53 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.01923, i64 8
   %.not = icmp ult ptr %53, %10
-  br i1 %.not, label %14, label %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread22, !llvm.loop !36
+  br i1 %.not, label %14, label %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread22, !llvm.loop !37
 
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread22: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread, %51, %7
   %.lcssa = phi i1 [ true, %7 ], [ false, %51 ], [ true, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit ]
@@ -5910,7 +5910,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i: ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   %.not.i12 = icmp ult ptr %51, %10
-  br i1 %.not.i12, label %14, label %_ZN11ZBarrierSet13AccessBarrierILm52715590ES_E32oop_arraycopy_in_heap_check_castEP8zpointerS3_mP5Klass.exit, !llvm.loop !37
+  br i1 %.not.i12, label %14, label %_ZN11ZBarrierSet13AccessBarrierILm52715590ES_E32oop_arraycopy_in_heap_check_castEP8zpointerS3_mP5Klass.exit, !llvm.loop !38
 
 _ZN11ZBarrierSet13AccessBarrierILm52715590ES_E32oop_arraycopy_in_heap_check_castEP8zpointerS3_mP5Klass.exit: ; preds = %40, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i, %42, %7
   %.lcssa.i = phi i1 [ true, %7 ], [ true, %42 ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i.i ], [ false, %40 ]
@@ -5983,7 +5983,7 @@ _ZN13GrowableArrayIP5KlassE8allocateEv.exit:      ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !38
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !39
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5999,7 +5999,7 @@ _ZN13GrowableArrayIP5KlassE8allocateEv.exit:      ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !39
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !40
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -6139,37 +6139,38 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i64 2145392468}
-!13 = !{i64 2145412694}
-!14 = distinct !{!14, !7}
-!15 = !{i64 2145411161}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i64 2145392468}
+!14 = !{i64 2145412694}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i64 2145411161}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}

@@ -50595,7 +50595,7 @@ lean_inc.exit:                                    ; preds = %43, %42, %40, %lean
 lean_dec.exit:                                    ; preds = %50, %49, %47, %lean_inc.exit
   %51 = tail call ptr @l_Std_DTreeMap_Internal_Impl_foldlM___at_Lean_Meta_Grind_propagateBeta___spec__3(ptr noundef %.0, ptr noundef %25)
   %52 = tail call ptr @lean_array_push(ptr noundef %51, ptr noundef %15) #5
-  br label %3
+  br label %3, !llvm.loop !17
 
 53:                                               ; preds = %lean_obj_tag.exit
   ret ptr %.0
@@ -154745,9 +154745,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Core_0__Lean_Meta_Grind_checkOffsetEq___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !17
+  store i16 10, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -154791,9 +154791,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Core_0__Lean_Meta_Grind_addEqStep___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !17
+  store i16 10, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -154815,9 +154815,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Core_0__Lean_Meta_Grind_addEqStep___lambda__2___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !17
+  store i16 10, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -154839,9 +154839,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Core_0__Lean_Meta_Grind_addEqStep___lambda__9___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !17
+  store i16 10, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -154941,5 +154941,7 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!6, !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}

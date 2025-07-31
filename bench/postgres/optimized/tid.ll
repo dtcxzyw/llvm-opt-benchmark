@@ -252,28 +252,28 @@ define dso_local i64 @tidsend(ptr noundef readonly captures(none) %0) local_unna
   %9 = zext i16 %.val3 to i32
   %10 = or disjoint i32 %8, %9
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %11 = call i32 @llvm.bswap.i32(i32 %10)
-  %12 = load ptr, ptr %2, align 8, !alias.scope !6
+  %12 = load ptr, ptr %2, align 8, !alias.scope !7
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i32, ptr %13, align 8, !alias.scope !6
+  %14 = load i32, ptr %13, align 8, !alias.scope !7
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  store i32 %11, ptr %16, align 1, !noalias !6
+  store i32 %11, ptr %16, align 1, !noalias !7
   %17 = add i32 %14, 4
-  store i32 %17, ptr %13, align 8, !alias.scope !6
+  store i32 %17, ptr %13, align 8, !alias.scope !7
   %18 = getelementptr i8, ptr %5, i64 4
   %.val4 = load i16, ptr %18, align 2
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %19 = call i16 @llvm.bswap.i16(i16 %.val4)
-  %20 = load ptr, ptr %2, align 8, !alias.scope !9
-  %21 = load i32, ptr %13, align 8, !alias.scope !9
+  %20 = load ptr, ptr %2, align 8, !alias.scope !10
+  %21 = load i32, ptr %13, align 8, !alias.scope !10
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  store i16 %19, ptr %23, align 1, !noalias !9
+  store i16 %19, ptr %23, align 1, !noalias !10
   %24 = add i32 %21, 2
-  store i32 %24, ptr %13, align 8, !alias.scope !9
+  store i32 %24, ptr %13, align 8, !alias.scope !10
   %25 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #11
   %26 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
@@ -532,7 +532,7 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
 40:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %.thread31, label %28, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread31, label %28, !llvm.loop !13
 
 .thread31:                                        ; preds = %40, %21
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -570,7 +570,7 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
 55:                                               ; preds = %56
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %.critedge.i, label %56, !llvm.loop !13
+  br i1 %exitcond48.not, label %.critedge.i, label %56, !llvm.loop !14
 
 56:                                               ; preds = %.lr.ph38, %55
   %indvars.iv44 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next45, %55 ]
@@ -778,13 +778,14 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"pq_writeint32: argument 0"}
-!8 = distinct !{!8, !"pq_writeint32"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"pq_writeint16: argument 0"}
-!11 = distinct !{!11, !"pq_writeint16"}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"pq_writeint32: argument 0"}
+!9 = distinct !{!9, !"pq_writeint32"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"pq_writeint16: argument 0"}
+!12 = distinct !{!12, !"pq_writeint16"}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

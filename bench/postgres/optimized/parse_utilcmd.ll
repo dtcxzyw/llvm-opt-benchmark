@@ -698,7 +698,7 @@ transformOfType.exit:                             ; preds = %._crit_edge.i, %113
   %294 = sext i16 %293 to i32
   %295 = load i32, ptr %202, align 8
   %.not100.i = icmp slt i32 %295, %294
-  br i1 %.not100.i, label %._crit_edge.i95, label %205, !llvm.loop !8
+  br i1 %.not100.i, label %._crit_edge.i95, label %205, !llvm.loop !9
 
 ._crit_edge.i95:                                  ; preds = %292, %200
   %296 = getelementptr inbounds nuw i8, ptr %202, i64 16
@@ -821,7 +821,7 @@ transformTableLikeClause.exit:                    ; preds = %308, %312
   %355 = load i32, ptr %344, align 4
   %356 = sext i32 %355 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i98, %356
-  br i1 %.not.i, label %347, label %transformCheckConstraints.exit, !llvm.loop !9
+  br i1 %.not.i, label %347, label %transformCheckConstraints.exit, !llvm.loop !10
 
 transformCheckConstraints.exit:                   ; preds = %347, %.critedge, %.preheader.i
   %357 = load ptr, ptr %56, align 8
@@ -2841,7 +2841,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %312 = load i16, ptr %224, align 4
   %313 = sext i16 %312 to i64
   %314 = icmp slt i64 %indvars.iv.next.pre-phi.i, %313
-  br i1 %314, label %237, label %._crit_edge.i, !llvm.loop !10
+  br i1 %314, label %237, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %311, %220
   tail call void @relation_close(ptr noundef nonnull %115, i32 noundef 0) #8
@@ -3117,7 +3117,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
 455:                                              ; preds = %440, %435
   %indvars.iv.next666.i = add nuw nsw i64 %indvars.iv665.i, 1
   %exitcond669.not.i = icmp eq i64 %indvars.iv.next666.i, %433
-  br i1 %exitcond669.not.i, label %._crit_edge579.i, label %435, !llvm.loop !11
+  br i1 %exitcond669.not.i, label %._crit_edge579.i, label %435, !llvm.loop !12
 
 ._crit_edge579.i:                                 ; preds = %455, %428
   tail call void @table_close(ptr noundef nonnull %417, i32 noundef 0) #8
@@ -3125,7 +3125,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %456 = load i32, ptr %410, align 4
   %457 = sext i32 %456 to i64
   %.not442.i = icmp slt i64 %indvars.iv.next671.i, %457
-  br i1 %.not442.i, label %413, label %.critedge473.thread515.i, !llvm.loop !12
+  br i1 %.not442.i, label %413, label %.critedge473.thread515.i, !llvm.loop !13
 
 .critedge473.thread515.i:                         ; preds = %._crit_edge579.i, %.preheader540.i, %408
   %458 = load i8, ptr %9, align 1, !range !4, !noundef !5
@@ -3252,7 +3252,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
 522:                                              ; preds = %528
   %indvars.iv.next679.i = add nuw nsw i64 %indvars.iv678.i, 1
   %exitcond682.not.i = icmp eq i64 %indvars.iv.next679.i, %520
-  br i1 %exitcond682.not.i, label %.thread523.i, label %523, !llvm.loop !13
+  br i1 %exitcond682.not.i, label %.thread523.i, label %523, !llvm.loop !14
 
 523:                                              ; preds = %522, %.lr.ph595.i
   %indvars.iv678.i = phi i64 [ 0, %.lr.ph595.i ], [ %indvars.iv.next679.i, %522 ]
@@ -3428,7 +3428,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %602 = load i32, ptr %599, align 4
   %603 = sext i32 %602 to i64
   %.not461.i = icmp slt i64 %indvars.iv.next699.i, %603
-  br i1 %.not461.i, label %604, label %.critedge481.i, !llvm.loop !14
+  br i1 %.not461.i, label %604, label %.critedge481.i, !llvm.loop !15
 
 604:                                              ; preds = %._crit_edge621.thread.i, %.lr.ph626.i
   %indvars.iv698.i = phi i64 [ 0, %.lr.ph626.i ], [ %indvars.iv.next699.i, %._crit_edge621.thread.i ]
@@ -3487,7 +3487,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
 .thread529.i:                                     ; preds = %631, %626
   %indvars.iv.next695.i = add nuw nsw i64 %indvars.iv694.i, 1
   %exitcond697.not.i = icmp eq i64 %indvars.iv.next695.i, %624
-  br i1 %exitcond697.not.i, label %._crit_edge621.thread.i, label %626, !llvm.loop !15
+  br i1 %exitcond697.not.i, label %._crit_edge621.thread.i, label %626, !llvm.loop !16
 
 ._crit_edge621.i:                                 ; preds = %631
   tail call void @table_close(ptr noundef nonnull %608, i32 noundef 0) #8
@@ -3729,7 +3729,7 @@ define internal fastcc void @transformFKConstraints(ptr noundef nonnull captures
   %17 = load i32, ptr %8, align 4
   %18 = sext i32 %17 to i64
   %.not = icmp slt i64 %indvars.iv.next, %18
-  br i1 %.not, label %11, label %.critedge, !llvm.loop !16
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %11, %.preheader, %7
   br i1 %2, label %46, label %19
@@ -3930,7 +3930,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly
   %83 = add i16 %.0150200, 1
   %84 = sext i16 %83 to i32
   %.not161 = icmp slt i32 %82, %84
-  br i1 %.not161, label %.loopexit179.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not161, label %.loopexit179.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit179.loopexit:                            ; preds = %81
   %.pre250 = load i32, ptr %22, align 8
@@ -4060,7 +4060,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly
   %156 = load i16, ptr %88, align 2
   %157 = zext i16 %156 to i64
   %158 = icmp samesign ult i64 %indvars.iv.next, %157
-  br i1 %158, label %94, label %.loopexit, !llvm.loop !18
+  br i1 %158, label %94, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %155, %.preheader, %.loopexit179
   %.4148 = phi ptr [ %.0144, %.loopexit179 ], [ %.0144, %.preheader ], [ %134, %155 ]
@@ -4272,7 +4272,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %259 = sext i32 %258 to i64
   %260 = icmp slt i64 %indvars.iv.next.i, %259
-  br i1 %260, label %.lr.ph.i, label %.preheader.i, !llvm.loop !19
+  br i1 %260, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
 
 261:                                              ; preds = %261, %.lr.ph90.i
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next109.i, %261 ]
@@ -4291,7 +4291,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly
   %269 = load i32, ptr %240, align 4
   %270 = sext i32 %269 to i64
   %271 = icmp slt i64 %indvars.iv.next109.i, %270
-  br i1 %271, label %261, label %._crit_edge.i, !llvm.loop !20
+  br i1 %271, label %261, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %261, %.preheader.i
   %.069.lcssa.i = phi ptr [ null, %.preheader.i ], [ %268, %261 ]
@@ -4670,7 +4670,7 @@ define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nounde
   %150 = load i32, ptr %7, align 4
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next, %151
-  br i1 %152, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %152, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %134, %119
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
@@ -4965,7 +4965,7 @@ get_opclass.exit:                                 ; preds = %272, %281
   %311 = load i16, ptr %174, align 2
   %312 = sext i16 %311 to i64
   %313 = icmp slt i64 %indvars.iv.next239, %312
-  br i1 %313, label %191, label %.preheader, !llvm.loop !22
+  br i1 %313, label %191, label %.preheader, !llvm.loop !23
 
 314:                                              ; preds = %.lr.ph227, %320
   %indvars.iv241 = phi i64 [ %190, %.lr.ph227 ], [ %indvars.iv.next242, %320 ]
@@ -5000,7 +5000,7 @@ get_opclass.exit:                                 ; preds = %272, %281
   %333 = load i16, ptr %185, align 4
   %334 = sext i16 %333 to i64
   %335 = icmp slt i64 %indvars.iv.next242, %334
-  br i1 %335, label %314, label %._crit_edge228, !llvm.loop !23
+  br i1 %335, label %314, label %._crit_edge228, !llvm.loop !24
 
 336:                                              ; preds = %314
   %337 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -5636,7 +5636,7 @@ list_length.exit.thread:                          ; preds = %32, %list_length.ex
   %176 = load i32, ptr %47, align 4
   %177 = sext i32 %176 to i64
   %.not91 = icmp slt i64 %indvars.iv.next, %177
-  br i1 %.not91, label %61, label %.critedge, !llvm.loop !24
+  br i1 %.not91, label %61, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %174, %.preheader, %50
   %storemerge = phi ptr [ %60, %50 ], [ null, %.preheader ], [ %175, %174 ]
@@ -5781,7 +5781,7 @@ define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr nounde
   %60 = load i32, ptr %51, align 4
   %61 = sext i32 %60 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %.not.i, label %54, label %transformFKConstraints.exit, !llvm.loop !16
+  br i1 %.not.i, label %54, label %transformFKConstraints.exit, !llvm.loop !17
 
 transformFKConstraints.exit:                      ; preds = %54, %.critedge226, %.preheader.i
   %62 = load ptr, ptr %31, align 8
@@ -6388,7 +6388,7 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   %.1 = phi ptr [ %.0145, %30 ], [ %37, %.sink.split ]
   %39 = add i32 %.sroa.8.1, 1
   %.not = icmp eq ptr %.sroa.012.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !26
 
 40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %.0101.lcssa, i64 24
@@ -7560,23 +7560,24 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}

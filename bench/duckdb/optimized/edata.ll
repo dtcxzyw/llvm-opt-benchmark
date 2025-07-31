@@ -189,7 +189,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %69, %66
   %73 = getelementptr inbounds nuw i8, ptr %.078.i24, i64 48
   store ptr %.0.i7, ptr %73, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %47, null
-  br i1 %.not88.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %72, %.thread, %phn_merge.exit16
   %.078.i.lcssa = phi ptr [ %.0.i13, %phn_merge.exit16 ], [ %.077.i25, %.thread ], [ %.0.i7, %72 ]
@@ -267,7 +267,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %103, align 8, !tbaa !10
   %104 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -458,7 +458,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   store ptr %6, ptr %65, align 8, !tbaa !12
   %68 = add nuw nsw i32 %.0.i7, 1
   %.not = icmp samesign ult i32 %68, %34
-  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !15
+  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !18
 
 ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread10, %28, %8, %20
   ret void
@@ -637,7 +637,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %69, %66
   %73 = getelementptr inbounds nuw i8, ptr %.078.i36, i64 48
   store ptr %.0.i7, ptr %73, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %47, null
-  br i1 %.not88.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %72, %.thread, %phn_merge.exit16
   %.078.i.lcssa = phi ptr [ %.0.i13, %phn_merge.exit16 ], [ %.077.i37, %.thread ], [ %.0.i7, %72 ]
@@ -715,7 +715,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %103, align 8, !tbaa !10
   %104 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !10
-  br label %.preheader34
+  br label %.preheader34, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -900,7 +900,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %174, %171
   %178 = getelementptr inbounds nuw i8, ptr %.078.i.i39, i64 48
   store ptr %.0.i10.i, ptr %178, align 8, !tbaa !10
   %.not88.i.i = icmp eq ptr %152, null
-  br i1 %.not88.i.i, label %._crit_edge42, label %.lr.ph41
+  br i1 %.not88.i.i, label %._crit_edge42, label %.lr.ph41, !llvm.loop !15
 
 ._crit_edge42:                                    ; preds = %177, %.thread48, %phn_merge.exit19.i
   %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i40, %.thread48 ], [ %.0.i10.i, %177 ]
@@ -978,7 +978,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %208, align 8, !tbaa !10
   %209 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %210 = load ptr, ptr %209, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %113, %._crit_edge42, %ph_merge_aux.exit
   %.0.i18 = phi ptr [ null, %ph_merge_aux.exit ], [ %114, %113 ], [ %.0.i16.i, %._crit_edge42 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -1162,7 +1162,7 @@ phn_merge_ordered.exit.i8:                        ; preds = %70, %67
   %74 = getelementptr inbounds nuw i8, ptr %.078.i94, i64 48
   store ptr %.0.i9, ptr %74, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %48, null
-  br i1 %.not88.i, label %._crit_edge97, label %.lr.ph96
+  br i1 %.not88.i, label %._crit_edge97, label %.lr.ph96, !llvm.loop !15
 
 ._crit_edge97:                                    ; preds = %73, %.thread, %phn_merge.exit18
   %.078.i.lcssa = phi ptr [ %.0.i15, %phn_merge.exit18 ], [ %.077.i95, %.thread ], [ %.0.i9, %73 ]
@@ -1240,7 +1240,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i6, ptr %104, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !10
-  br label %.preheader88
+  br label %.preheader88, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %9, %._crit_edge97
   %.081.i = phi ptr [ %8, %9 ], [ %.0.i15, %._crit_edge97 ], [ %.0.i6, %phn_merge.exit ]
@@ -1424,7 +1424,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %176, %173
   %180 = getelementptr inbounds nuw i8, ptr %.078.i.i100, i64 48
   store ptr %.0.i10.i, ptr %180, align 8, !tbaa !10
   %.not88.i.i = icmp eq ptr %154, null
-  br i1 %.not88.i.i, label %._crit_edge103, label %.lr.ph102
+  br i1 %.not88.i.i, label %._crit_edge103, label %.lr.ph102, !llvm.loop !15
 
 ._crit_edge103:                                   ; preds = %179, %.thread109, %phn_merge.exit19.i
   %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i101, %.thread109 ], [ %.0.i10.i, %179 ]
@@ -1502,7 +1502,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %210, align 8, !tbaa !10
   %211 = getelementptr inbounds nuw i8, ptr %184, i64 48
   %212 = load ptr, ptr %211, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %116, %._crit_edge103, %ph_merge_aux.exit
   %.0.i20 = phi ptr [ null, %ph_merge_aux.exit ], [ %114, %116 ], [ %.0.i16.i, %._crit_edge103 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -1675,7 +1675,7 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %281, %278
   %285 = getelementptr inbounds nuw i8, ptr %.078.i.i2691, i64 48
   store ptr %.0.i10.i34, ptr %285, align 8, !tbaa !10
   %.not88.i.i28 = icmp eq ptr %259, null
-  br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %284, %.thread114, %phn_merge.exit19.i24
   %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2792, %.thread114 ], [ %.0.i10.i34, %284 ]
@@ -1753,7 +1753,7 @@ phn_merge.exit.i45:                               ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i46, ptr %315, align 8, !tbaa !10
   %316 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %317 = load ptr, ptr %316, align 8, !tbaa !10
-  br label %.preheader89
+  br label %.preheader89, !llvm.loop !17
 
 .loopexit:                                        ; preds = %phn_merge.exit.i45, %221, %._crit_edge
   %.0.i49.ph = phi ptr [ %.0.i16.i25, %._crit_edge ], [ %219, %221 ], [ %.0.i7.i46, %phn_merge.exit.i45 ]
@@ -1869,13 +1869,13 @@ define ptr @duckdb_je_edata_heap_first(ptr noundef captures(none) %0) local_unna
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = getelementptr i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %.val = load ptr, ptr %21, align 8, !tbaa !17
+  %.val = load ptr, ptr %21, align 8, !tbaa !20
   %22 = getelementptr i8, ptr %7, i64 32
-  %.val17 = load i64, ptr %22, align 8, !tbaa !20
+  %.val17 = load i64, ptr %22, align 8, !tbaa !23
   %23 = getelementptr i8, ptr %12, i64 8
-  %.val18 = load ptr, ptr %23, align 8, !tbaa !17
+  %.val18 = load ptr, ptr %23, align 8, !tbaa !20
   %24 = getelementptr i8, ptr %12, i64 32
-  %.val19 = load i64, ptr %24, align 8, !tbaa !20
+  %.val19 = load i64, ptr %24, align 8, !tbaa !23
   %25 = ptrtoint ptr %.val to i64
   %26 = ptrtoint ptr %.val18 to i64
   %27 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val17, i64 %.val19)
@@ -1948,13 +1948,13 @@ phn_merge.exit16:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %52 = getelementptr i8, ptr %.077.i27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %52, align 8, !tbaa !17
+  %.077.i.val = load ptr, ptr %52, align 8, !tbaa !20
   %53 = getelementptr i8, ptr %.077.i27, i64 32
-  %.077.i.val20 = load i64, ptr %53, align 8, !tbaa !20
+  %.077.i.val20 = load i64, ptr %53, align 8, !tbaa !23
   %54 = getelementptr i8, ptr %44, i64 8
-  %.val21 = load ptr, ptr %54, align 8, !tbaa !17
+  %.val21 = load ptr, ptr %54, align 8, !tbaa !20
   %55 = getelementptr i8, ptr %44, i64 32
-  %.val22 = load i64, ptr %55, align 8, !tbaa !20
+  %.val22 = load i64, ptr %55, align 8, !tbaa !23
   %56 = ptrtoint ptr %.077.i.val to i64
   %57 = ptrtoint ptr %.val21 to i64
   %58 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.val20, i64 %.val22)
@@ -2008,7 +2008,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %71, %68
   %75 = getelementptr inbounds nuw i8, ptr %.078.i26, i64 48
   store ptr %.0.i7, ptr %75, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %48, null
-  br i1 %.not88.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %74, %.thread, %phn_merge.exit16
   %.078.i.lcssa = phi ptr [ %.0.i13, %phn_merge.exit16 ], [ %.077.i27, %.thread ], [ %.0.i7, %74 ]
@@ -2027,13 +2027,13 @@ phn_merge_ordered.exit.i6:                        ; preds = %71, %68
   store ptr null, ptr %80, align 8, !tbaa !10
   store ptr null, ptr %78, align 8, !tbaa !10
   %81 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %81, align 8, !tbaa !17
+  %.3.i.val = load ptr, ptr %81, align 8, !tbaa !20
   %82 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val23 = load i64, ptr %82, align 8, !tbaa !20
+  %.3.i.val23 = load i64, ptr %82, align 8, !tbaa !23
   %83 = getelementptr i8, ptr %.0.i2, i64 8
-  %.0.i2.val = load ptr, ptr %83, align 8, !tbaa !17
+  %.0.i2.val = load ptr, ptr %83, align 8, !tbaa !20
   %84 = getelementptr i8, ptr %.0.i2, i64 32
-  %.0.i2.val24 = load i64, ptr %84, align 8, !tbaa !20
+  %.0.i2.val24 = load i64, ptr %84, align 8, !tbaa !23
   %85 = ptrtoint ptr %.3.i.val to i64
   %86 = ptrtoint ptr %.0.i2.val to i64
   %87 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.val23, i64 %.0.i2.val24)
@@ -2089,7 +2089,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %106, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %108 = load ptr, ptr %107, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -2149,13 +2149,13 @@ define void @duckdb_je_edata_heap_insert(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %10, align 8, !tbaa !17
+  %.val = load ptr, ptr %10, align 8, !tbaa !20
   %11 = getelementptr i8, ptr %1, i64 32
-  %.val4 = load i64, ptr %11, align 8, !tbaa !20
+  %.val4 = load i64, ptr %11, align 8, !tbaa !23
   %12 = getelementptr i8, ptr %6, i64 8
-  %.val5 = load ptr, ptr %12, align 8, !tbaa !17
+  %.val5 = load ptr, ptr %12, align 8, !tbaa !20
   %13 = getelementptr i8, ptr %6, i64 32
-  %.val6 = load i64, ptr %13, align 8, !tbaa !20
+  %.val6 = load i64, ptr %13, align 8, !tbaa !23
   %14 = ptrtoint ptr %.val to i64
   %15 = ptrtoint ptr %.val5 to i64
   %16 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val4, i64 %.val6)
@@ -2216,13 +2216,13 @@ define void @duckdb_je_edata_heap_insert(ptr noundef captures(none) %0, ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %46 = getelementptr i8, ptr %37, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %.val7 = load ptr, ptr %46, align 8, !tbaa !17
+  %.val7 = load ptr, ptr %46, align 8, !tbaa !20
   %47 = getelementptr i8, ptr %37, i64 32
-  %.val8 = load i64, ptr %47, align 8, !tbaa !20
+  %.val8 = load i64, ptr %47, align 8, !tbaa !23
   %48 = getelementptr i8, ptr %40, i64 8
-  %.val9 = load ptr, ptr %48, align 8, !tbaa !17
+  %.val9 = load ptr, ptr %48, align 8, !tbaa !20
   %49 = getelementptr i8, ptr %40, i64 32
-  %.val10 = load i64, ptr %49, align 8, !tbaa !20
+  %.val10 = load i64, ptr %49, align 8, !tbaa !23
   %50 = ptrtoint ptr %.val7 to i64
   %51 = ptrtoint ptr %.val9 to i64
   %52 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val8, i64 %.val10)
@@ -2286,7 +2286,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   store ptr %6, ptr %67, align 8, !tbaa !12
   %70 = add nuw nsw i32 %.0.i11, 1
   %.not = icmp samesign ult i32 %70, %35
-  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !21
+  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !24
 
 ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread14, %29, %8, %21
   ret void
@@ -2332,13 +2332,13 @@ define ptr @duckdb_je_edata_heap_remove_first(ptr noundef captures(none) %0) loc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = getelementptr i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %.val27 = load ptr, ptr %21, align 8, !tbaa !17
+  %.val27 = load ptr, ptr %21, align 8, !tbaa !20
   %22 = getelementptr i8, ptr %7, i64 32
-  %.val28 = load i64, ptr %22, align 8, !tbaa !20
+  %.val28 = load i64, ptr %22, align 8, !tbaa !23
   %23 = getelementptr i8, ptr %12, i64 8
-  %.val29 = load ptr, ptr %23, align 8, !tbaa !17
+  %.val29 = load ptr, ptr %23, align 8, !tbaa !20
   %24 = getelementptr i8, ptr %12, i64 32
-  %.val30 = load i64, ptr %24, align 8, !tbaa !20
+  %.val30 = load i64, ptr %24, align 8, !tbaa !23
   %25 = ptrtoint ptr %.val27 to i64
   %26 = ptrtoint ptr %.val29 to i64
   %27 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val28, i64 %.val30)
@@ -2411,13 +2411,13 @@ phn_merge.exit16:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %52 = getelementptr i8, ptr %.077.i39, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %52, align 8, !tbaa !17
+  %.077.i.val = load ptr, ptr %52, align 8, !tbaa !20
   %53 = getelementptr i8, ptr %.077.i39, i64 32
-  %.077.i.val31 = load i64, ptr %53, align 8, !tbaa !20
+  %.077.i.val31 = load i64, ptr %53, align 8, !tbaa !23
   %54 = getelementptr i8, ptr %44, i64 8
-  %.val32 = load ptr, ptr %54, align 8, !tbaa !17
+  %.val32 = load ptr, ptr %54, align 8, !tbaa !20
   %55 = getelementptr i8, ptr %44, i64 32
-  %.val33 = load i64, ptr %55, align 8, !tbaa !20
+  %.val33 = load i64, ptr %55, align 8, !tbaa !23
   %56 = ptrtoint ptr %.077.i.val to i64
   %57 = ptrtoint ptr %.val32 to i64
   %58 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.val31, i64 %.val33)
@@ -2471,7 +2471,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %71, %68
   %75 = getelementptr inbounds nuw i8, ptr %.078.i38, i64 48
   store ptr %.0.i7, ptr %75, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %48, null
-  br i1 %.not88.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %74, %.thread, %phn_merge.exit16
   %.078.i.lcssa = phi ptr [ %.0.i13, %phn_merge.exit16 ], [ %.077.i39, %.thread ], [ %.0.i7, %74 ]
@@ -2490,13 +2490,13 @@ phn_merge_ordered.exit.i6:                        ; preds = %71, %68
   store ptr null, ptr %80, align 8, !tbaa !10
   store ptr null, ptr %78, align 8, !tbaa !10
   %81 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %81, align 8, !tbaa !17
+  %.3.i.val = load ptr, ptr %81, align 8, !tbaa !20
   %82 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val34 = load i64, ptr %82, align 8, !tbaa !20
+  %.3.i.val34 = load i64, ptr %82, align 8, !tbaa !23
   %83 = getelementptr i8, ptr %.0.i2, i64 8
-  %.0.i2.val = load ptr, ptr %83, align 8, !tbaa !17
+  %.0.i2.val = load ptr, ptr %83, align 8, !tbaa !20
   %84 = getelementptr i8, ptr %.0.i2, i64 32
-  %.0.i2.val35 = load i64, ptr %84, align 8, !tbaa !20
+  %.0.i2.val35 = load i64, ptr %84, align 8, !tbaa !23
   %85 = ptrtoint ptr %.3.i.val to i64
   %86 = ptrtoint ptr %.0.i2.val to i64
   %87 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.val34, i64 %.0.i2.val35)
@@ -2552,7 +2552,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %106, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %108 = load ptr, ptr %107, align 8, !tbaa !10
-  br label %.preheader36
+  br label %.preheader36, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -2604,13 +2604,13 @@ ph_merge_aux.exit:                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   %129 = getelementptr i8, ptr %117, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
-  %.val23 = load ptr, ptr %129, align 8, !tbaa !17
+  %.val23 = load ptr, ptr %129, align 8, !tbaa !20
   %130 = getelementptr i8, ptr %117, i64 32
-  %.val24 = load i64, ptr %130, align 8, !tbaa !20
+  %.val24 = load i64, ptr %130, align 8, !tbaa !23
   %131 = getelementptr i8, ptr %120, i64 8
-  %.val25 = load ptr, ptr %131, align 8, !tbaa !17
+  %.val25 = load ptr, ptr %131, align 8, !tbaa !20
   %132 = getelementptr i8, ptr %120, i64 32
-  %.val26 = load i64, ptr %132, align 8, !tbaa !20
+  %.val26 = load i64, ptr %132, align 8, !tbaa !23
   %133 = ptrtoint ptr %.val23 to i64
   %134 = ptrtoint ptr %.val25 to i64
   %135 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val24, i64 %.val26)
@@ -2683,13 +2683,13 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   %160 = getelementptr i8, ptr %.077.i.i42, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
-  %.077.i.i.val = load ptr, ptr %160, align 8, !tbaa !17
+  %.077.i.i.val = load ptr, ptr %160, align 8, !tbaa !20
   %161 = getelementptr i8, ptr %.077.i.i42, i64 32
-  %.077.i.i.val21 = load i64, ptr %161, align 8, !tbaa !20
+  %.077.i.i.val21 = load i64, ptr %161, align 8, !tbaa !23
   %162 = getelementptr i8, ptr %152, i64 8
-  %.val = load ptr, ptr %162, align 8, !tbaa !17
+  %.val = load ptr, ptr %162, align 8, !tbaa !20
   %163 = getelementptr i8, ptr %152, i64 32
-  %.val22 = load i64, ptr %163, align 8, !tbaa !20
+  %.val22 = load i64, ptr %163, align 8, !tbaa !23
   %164 = ptrtoint ptr %.077.i.i.val to i64
   %165 = ptrtoint ptr %.val to i64
   %166 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.i.val21, i64 %.val22)
@@ -2743,7 +2743,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %179, %176
   %183 = getelementptr inbounds nuw i8, ptr %.078.i.i41, i64 48
   store ptr %.0.i10.i, ptr %183, align 8, !tbaa !10
   %.not88.i.i = icmp eq ptr %156, null
-  br i1 %.not88.i.i, label %._crit_edge44, label %.lr.ph43
+  br i1 %.not88.i.i, label %._crit_edge44, label %.lr.ph43, !llvm.loop !15
 
 ._crit_edge44:                                    ; preds = %182, %.thread50, %phn_merge.exit19.i
   %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i42, %.thread50 ], [ %.0.i10.i, %182 ]
@@ -2762,13 +2762,13 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %179, %176
   store ptr null, ptr %188, align 8, !tbaa !10
   store ptr null, ptr %186, align 8, !tbaa !10
   %189 = getelementptr i8, ptr %.3.i.i, i64 8
-  %.3.i.i.val = load ptr, ptr %189, align 8, !tbaa !17
+  %.3.i.i.val = load ptr, ptr %189, align 8, !tbaa !20
   %190 = getelementptr i8, ptr %.3.i.i, i64 32
-  %.3.i.i.val19 = load i64, ptr %190, align 8, !tbaa !20
+  %.3.i.i.val19 = load i64, ptr %190, align 8, !tbaa !23
   %191 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.i.i.val = load ptr, ptr %191, align 8, !tbaa !17
+  %.0.i.i.val = load ptr, ptr %191, align 8, !tbaa !20
   %192 = getelementptr i8, ptr %.0.i.i, i64 32
-  %.0.i.i.val20 = load i64, ptr %192, align 8, !tbaa !20
+  %.0.i.i.val20 = load i64, ptr %192, align 8, !tbaa !23
   %193 = ptrtoint ptr %.3.i.i.val to i64
   %194 = ptrtoint ptr %.0.i.i.val to i64
   %195 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.i.val19, i64 %.0.i.i.val20)
@@ -2824,7 +2824,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %214, align 8, !tbaa !10
   %215 = getelementptr inbounds nuw i8, ptr %187, i64 48
   %216 = load ptr, ptr %215, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %116, %._crit_edge44, %ph_merge_aux.exit
   %.0.i18 = phi ptr [ null, %ph_merge_aux.exit ], [ %117, %116 ], [ %.0.i16.i, %._crit_edge44 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -2875,13 +2875,13 @@ define void @duckdb_je_edata_heap_remove(ptr noundef captures(none) %0, ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %22 = getelementptr i8, ptr %8, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %.val72 = load ptr, ptr %22, align 8, !tbaa !17
+  %.val72 = load ptr, ptr %22, align 8, !tbaa !20
   %23 = getelementptr i8, ptr %8, i64 32
-  %.val73 = load i64, ptr %23, align 8, !tbaa !20
+  %.val73 = load i64, ptr %23, align 8, !tbaa !23
   %24 = getelementptr i8, ptr %13, i64 8
-  %.val74 = load ptr, ptr %24, align 8, !tbaa !17
+  %.val74 = load ptr, ptr %24, align 8, !tbaa !20
   %25 = getelementptr i8, ptr %13, i64 32
-  %.val75 = load i64, ptr %25, align 8, !tbaa !20
+  %.val75 = load i64, ptr %25, align 8, !tbaa !23
   %26 = ptrtoint ptr %.val72 to i64
   %27 = ptrtoint ptr %.val74 to i64
   %28 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val73, i64 %.val75)
@@ -2954,13 +2954,13 @@ phn_merge.exit18:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   %53 = getelementptr i8, ptr %.077.i97, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %53, align 8, !tbaa !17
+  %.077.i.val = load ptr, ptr %53, align 8, !tbaa !20
   %54 = getelementptr i8, ptr %.077.i97, i64 32
-  %.077.i.val76 = load i64, ptr %54, align 8, !tbaa !20
+  %.077.i.val76 = load i64, ptr %54, align 8, !tbaa !23
   %55 = getelementptr i8, ptr %45, i64 8
-  %.val77 = load ptr, ptr %55, align 8, !tbaa !17
+  %.val77 = load ptr, ptr %55, align 8, !tbaa !20
   %56 = getelementptr i8, ptr %45, i64 32
-  %.val78 = load i64, ptr %56, align 8, !tbaa !20
+  %.val78 = load i64, ptr %56, align 8, !tbaa !23
   %57 = ptrtoint ptr %.077.i.val to i64
   %58 = ptrtoint ptr %.val77 to i64
   %59 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.val76, i64 %.val78)
@@ -3014,7 +3014,7 @@ phn_merge_ordered.exit.i8:                        ; preds = %72, %69
   %76 = getelementptr inbounds nuw i8, ptr %.078.i96, i64 48
   store ptr %.0.i9, ptr %76, align 8, !tbaa !10
   %.not88.i = icmp eq ptr %49, null
-  br i1 %.not88.i, label %._crit_edge99, label %.lr.ph98
+  br i1 %.not88.i, label %._crit_edge99, label %.lr.ph98, !llvm.loop !15
 
 ._crit_edge99:                                    ; preds = %75, %.thread, %phn_merge.exit18
   %.078.i.lcssa = phi ptr [ %.0.i15, %phn_merge.exit18 ], [ %.077.i97, %.thread ], [ %.0.i9, %75 ]
@@ -3033,13 +3033,13 @@ phn_merge_ordered.exit.i8:                        ; preds = %72, %69
   store ptr null, ptr %81, align 8, !tbaa !10
   store ptr null, ptr %79, align 8, !tbaa !10
   %82 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %82, align 8, !tbaa !17
+  %.3.i.val = load ptr, ptr %82, align 8, !tbaa !20
   %83 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val79 = load i64, ptr %83, align 8, !tbaa !20
+  %.3.i.val79 = load i64, ptr %83, align 8, !tbaa !23
   %84 = getelementptr i8, ptr %.0.i4, i64 8
-  %.0.i4.val = load ptr, ptr %84, align 8, !tbaa !17
+  %.0.i4.val = load ptr, ptr %84, align 8, !tbaa !20
   %85 = getelementptr i8, ptr %.0.i4, i64 32
-  %.0.i4.val80 = load i64, ptr %85, align 8, !tbaa !20
+  %.0.i4.val80 = load i64, ptr %85, align 8, !tbaa !23
   %86 = ptrtoint ptr %.3.i.val to i64
   %87 = ptrtoint ptr %.0.i4.val to i64
   %88 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.val79, i64 %.0.i4.val80)
@@ -3095,7 +3095,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i6, ptr %107, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %109 = load ptr, ptr %108, align 8, !tbaa !10
-  br label %.preheader90
+  br label %.preheader90, !llvm.loop !17
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %9, %._crit_edge99
   %.081.i = phi ptr [ %8, %9 ], [ %.0.i15, %._crit_edge99 ], [ %.0.i6, %phn_merge.exit ]
@@ -3146,13 +3146,13 @@ ph_merge_aux.exit:                                ; preds = %5, %phn_merge_order
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
   %131 = getelementptr i8, ptr %117, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
-  %.val68 = load ptr, ptr %131, align 8, !tbaa !17
+  %.val68 = load ptr, ptr %131, align 8, !tbaa !20
   %132 = getelementptr i8, ptr %117, i64 32
-  %.val69 = load i64, ptr %132, align 8, !tbaa !20
+  %.val69 = load i64, ptr %132, align 8, !tbaa !23
   %133 = getelementptr i8, ptr %122, i64 8
-  %.val70 = load ptr, ptr %133, align 8, !tbaa !17
+  %.val70 = load ptr, ptr %133, align 8, !tbaa !20
   %134 = getelementptr i8, ptr %122, i64 32
-  %.val71 = load i64, ptr %134, align 8, !tbaa !20
+  %.val71 = load i64, ptr %134, align 8, !tbaa !23
   %135 = ptrtoint ptr %.val68 to i64
   %136 = ptrtoint ptr %.val70 to i64
   %137 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val69, i64 %.val71)
@@ -3225,13 +3225,13 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, i8 0, i64 16, i1 false)
   %162 = getelementptr i8, ptr %.077.i.i103, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  %.077.i.i.val = load ptr, ptr %162, align 8, !tbaa !17
+  %.077.i.i.val = load ptr, ptr %162, align 8, !tbaa !20
   %163 = getelementptr i8, ptr %.077.i.i103, i64 32
-  %.077.i.i.val65 = load i64, ptr %163, align 8, !tbaa !20
+  %.077.i.i.val65 = load i64, ptr %163, align 8, !tbaa !23
   %164 = getelementptr i8, ptr %154, i64 8
-  %.val66 = load ptr, ptr %164, align 8, !tbaa !17
+  %.val66 = load ptr, ptr %164, align 8, !tbaa !20
   %165 = getelementptr i8, ptr %154, i64 32
-  %.val67 = load i64, ptr %165, align 8, !tbaa !20
+  %.val67 = load i64, ptr %165, align 8, !tbaa !23
   %166 = ptrtoint ptr %.077.i.i.val to i64
   %167 = ptrtoint ptr %.val66 to i64
   %168 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.i.val65, i64 %.val67)
@@ -3285,7 +3285,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %181, %178
   %185 = getelementptr inbounds nuw i8, ptr %.078.i.i102, i64 48
   store ptr %.0.i10.i, ptr %185, align 8, !tbaa !10
   %.not88.i.i = icmp eq ptr %158, null
-  br i1 %.not88.i.i, label %._crit_edge105, label %.lr.ph104
+  br i1 %.not88.i.i, label %._crit_edge105, label %.lr.ph104, !llvm.loop !15
 
 ._crit_edge105:                                   ; preds = %184, %.thread111, %phn_merge.exit19.i
   %.078.i.i.lcssa = phi ptr [ %.0.i16.i, %phn_merge.exit19.i ], [ %.077.i.i103, %.thread111 ], [ %.0.i10.i, %184 ]
@@ -3304,13 +3304,13 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %181, %178
   store ptr null, ptr %190, align 8, !tbaa !10
   store ptr null, ptr %188, align 8, !tbaa !10
   %191 = getelementptr i8, ptr %.3.i.i, i64 8
-  %.3.i.i.val = load ptr, ptr %191, align 8, !tbaa !17
+  %.3.i.i.val = load ptr, ptr %191, align 8, !tbaa !20
   %192 = getelementptr i8, ptr %.3.i.i, i64 32
-  %.3.i.i.val63 = load i64, ptr %192, align 8, !tbaa !20
+  %.3.i.i.val63 = load i64, ptr %192, align 8, !tbaa !23
   %193 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.i.i.val = load ptr, ptr %193, align 8, !tbaa !17
+  %.0.i.i.val = load ptr, ptr %193, align 8, !tbaa !20
   %194 = getelementptr i8, ptr %.0.i.i, i64 32
-  %.0.i.i.val64 = load i64, ptr %194, align 8, !tbaa !20
+  %.0.i.i.val64 = load i64, ptr %194, align 8, !tbaa !23
   %195 = ptrtoint ptr %.3.i.i.val to i64
   %196 = ptrtoint ptr %.0.i.i.val to i64
   %197 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.i.val63, i64 %.0.i.i.val64)
@@ -3366,7 +3366,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %216, align 8, !tbaa !10
   %217 = getelementptr inbounds nuw i8, ptr %189, i64 48
   %218 = load ptr, ptr %217, align 8, !tbaa !10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %119, %._crit_edge105, %ph_merge_aux.exit
   %.0.i20 = phi ptr [ null, %ph_merge_aux.exit ], [ %117, %119 ], [ %.0.i16.i, %._crit_edge105 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -3406,13 +3406,13 @@ ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, i8 0, i64 16, i1 false)
   %239 = getelementptr i8, ptr %225, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, i8 0, i64 16, i1 false)
-  %.val59 = load ptr, ptr %239, align 8, !tbaa !17
+  %.val59 = load ptr, ptr %239, align 8, !tbaa !20
   %240 = getelementptr i8, ptr %225, i64 32
-  %.val60 = load i64, ptr %240, align 8, !tbaa !20
+  %.val60 = load i64, ptr %240, align 8, !tbaa !23
   %241 = getelementptr i8, ptr %230, i64 8
-  %.val61 = load ptr, ptr %241, align 8, !tbaa !17
+  %.val61 = load ptr, ptr %241, align 8, !tbaa !20
   %242 = getelementptr i8, ptr %230, i64 32
-  %.val62 = load i64, ptr %242, align 8, !tbaa !20
+  %.val62 = load i64, ptr %242, align 8, !tbaa !23
   %243 = ptrtoint ptr %.val59 to i64
   %244 = ptrtoint ptr %.val61 to i64
   %245 = tail call i32 @llvm.ucmp.i32.i64(i64 %.val60, i64 %.val62)
@@ -3485,13 +3485,13 @@ phn_merge.exit19.i24:                             ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, i8 0, i64 16, i1 false)
   %270 = getelementptr i8, ptr %.077.i.i2794, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, i8 0, i64 16, i1 false)
-  %.077.i.i27.val = load ptr, ptr %270, align 8, !tbaa !17
+  %.077.i.i27.val = load ptr, ptr %270, align 8, !tbaa !20
   %271 = getelementptr i8, ptr %.077.i.i2794, i64 32
-  %.077.i.i27.val57 = load i64, ptr %271, align 8, !tbaa !20
+  %.077.i.i27.val57 = load i64, ptr %271, align 8, !tbaa !23
   %272 = getelementptr i8, ptr %262, i64 8
-  %.val = load ptr, ptr %272, align 8, !tbaa !17
+  %.val = load ptr, ptr %272, align 8, !tbaa !20
   %273 = getelementptr i8, ptr %262, i64 32
-  %.val58 = load i64, ptr %273, align 8, !tbaa !20
+  %.val58 = load i64, ptr %273, align 8, !tbaa !23
   %274 = ptrtoint ptr %.077.i.i27.val to i64
   %275 = ptrtoint ptr %.val to i64
   %276 = tail call i32 @llvm.ucmp.i32.i64(i64 %.077.i.i27.val57, i64 %.val58)
@@ -3545,7 +3545,7 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %289, %286
   %293 = getelementptr inbounds nuw i8, ptr %.078.i.i2693, i64 48
   store ptr %.0.i10.i34, ptr %293, align 8, !tbaa !10
   %.not88.i.i28 = icmp eq ptr %266, null
-  br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph
+  br i1 %.not88.i.i28, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %292, %.thread116, %phn_merge.exit19.i24
   %.078.i.i26.lcssa = phi ptr [ %.0.i16.i25, %phn_merge.exit19.i24 ], [ %.077.i.i2794, %.thread116 ], [ %.0.i10.i34, %292 ]
@@ -3564,13 +3564,13 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %289, %286
   store ptr null, ptr %298, align 8, !tbaa !10
   store ptr null, ptr %296, align 8, !tbaa !10
   %299 = getelementptr i8, ptr %.3.i.i41, i64 8
-  %.3.i.i41.val = load ptr, ptr %299, align 8, !tbaa !17
+  %.3.i.i41.val = load ptr, ptr %299, align 8, !tbaa !20
   %300 = getelementptr i8, ptr %.3.i.i41, i64 32
-  %.3.i.i41.val55 = load i64, ptr %300, align 8, !tbaa !20
+  %.3.i.i41.val55 = load i64, ptr %300, align 8, !tbaa !23
   %301 = getelementptr i8, ptr %.0.i.i42, i64 8
-  %.0.i.i42.val = load ptr, ptr %301, align 8, !tbaa !17
+  %.0.i.i42.val = load ptr, ptr %301, align 8, !tbaa !20
   %302 = getelementptr i8, ptr %.0.i.i42, i64 32
-  %.0.i.i42.val56 = load i64, ptr %302, align 8, !tbaa !20
+  %.0.i.i42.val56 = load i64, ptr %302, align 8, !tbaa !23
   %303 = ptrtoint ptr %.3.i.i41.val to i64
   %304 = ptrtoint ptr %.0.i.i42.val to i64
   %305 = tail call i32 @llvm.ucmp.i32.i64(i64 %.3.i.i41.val55, i64 %.0.i.i42.val56)
@@ -3626,7 +3626,7 @@ phn_merge.exit.i45:                               ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i46, ptr %324, align 8, !tbaa !10
   %325 = getelementptr inbounds nuw i8, ptr %297, i64 48
   %326 = load ptr, ptr %325, align 8, !tbaa !10
-  br label %.preheader91
+  br label %.preheader91, !llvm.loop !17
 
 .loopexit:                                        ; preds = %phn_merge.exit.i45, %227, %._crit_edge
   %.0.i49.ph = phi ptr [ %.0.i16.i25, %._crit_edge ], [ %225, %227 ], [ %.0.i7.i46, %phn_merge.exit.i45 ]
@@ -3729,9 +3729,12 @@ attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !13 = !{!6, !6, i64 0}
 !14 = !{!11, !5, i64 16}
 !15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
-!17 = !{!18, !5, i64 8}
-!18 = !{!"edata_s", !8, i64 0, !5, i64 8, !6, i64 16, !19, i64 24, !8, i64 32, !6, i64 40, !6, i64 64}
-!19 = !{!"p1 _ZTS8hpdata_s", !5, i64 0}
-!20 = !{!18, !8, i64 32}
-!21 = distinct !{!21, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = !{!21, !5, i64 8}
+!21 = !{!"edata_s", !8, i64 0, !5, i64 8, !6, i64 16, !22, i64 24, !8, i64 32, !6, i64 40, !6, i64 64}
+!22 = !{!"p1 _ZTS8hpdata_s", !5, i64 0}
+!23 = !{!21, !8, i64 32}
+!24 = distinct !{!24, !16, !19}

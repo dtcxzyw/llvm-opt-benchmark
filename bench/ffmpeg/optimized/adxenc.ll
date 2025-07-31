@@ -292,7 +292,7 @@ put_sbits.exit.i:                                 ; preds = %129, %123, %118
   %139 = add nuw nsw i32 %.174105.i, 1
   %.sroa.19.0.ptr.i = getelementptr inbounds nuw i8, ptr %.164, i64 %.sroa.19.1.idx.i
   %exitcond115.not.i = icmp eq i32 %139, 32
-  br i1 %exitcond115.not.i, label %140, label %100, !llvm.loop !46
+  br i1 %exitcond115.not.i, label %140, label %100, !llvm.loop !47
 
 140:                                              ; preds = %put_sbits.exit.i
   store i32 %138, ptr %67, align 4, !tbaa !38
@@ -325,13 +325,13 @@ put_sbits.exit.i:                                 ; preds = %129, %123, %118
   %149 = shl i32 %.sroa.0.1.i, 8
   %150 = add nsw i32 %.sroa.11.1.i, 8
   %151 = icmp slt i32 %.sroa.11.1.i, 24
-  br i1 %151, label %143, label %adx_encode.exit, !llvm.loop !47
+  br i1 %151, label %143, label %adx_encode.exit, !llvm.loop !48
 
 adx_encode.exit:                                  ; preds = %146, %87, %140
   %152 = getelementptr inbounds nuw i8, ptr %.164, i64 18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %64
-  br i1 %exitcond.not, label %.sink.split, label %65, !llvm.loop !48
+  br i1 %exitcond.not, label %.sink.split, label %65, !llvm.loop !49
 
 .sink.split:                                      ; preds = %adx_encode.exit, %59, %16
   store i32 1, ptr %3, align 4, !tbaa !41
@@ -428,8 +428,9 @@ attributes #8 = { noreturn nounwind }
 !41 = !{!10, !10, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"short", !8, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = distinct !{!48, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = distinct !{!49, !45, !46}

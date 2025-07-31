@@ -281,7 +281,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   call void @cmsPipelineFree(ptr noundef nonnull %.2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %89, label %18, !llvm.loop !8
+  br i1 %exitcond.not, label %89, label %18, !llvm.loop !9
 
 89:                                               ; preds = %88
   %90 = and i32 %6, 32768
@@ -371,7 +371,7 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
 24:                                               ; preds = %15, %22, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %24
   %25 = load i32, ptr %2, align 4
@@ -390,7 +390,7 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
   %30 = getelementptr inbounds nuw i8, ptr %.018.i, i64 272
   %.0.i = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .preheader.i.preheader:                           ; preds = %29, %._crit_edge
   br label %.preheader.i
@@ -405,7 +405,7 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %.119.i, i64 272
   %35 = load ptr, ptr %34, align 8
   %.not13.i = icmp eq ptr %35, null
-  br i1 %.not13.i, label %SearchIntent.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %.not13.i, label %SearchIntent.exit, label %.preheader.i, !llvm.loop !12
 
 SearchIntent.exit:                                ; preds = %33
   %36 = load i32, ptr %2, align 4
@@ -454,7 +454,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %.02839.us, i64 272
   %14 = load ptr, ptr %13, align 8
   %.not.us = icmp eq ptr %14, null
-  br i1 %.not.us, label %.preheader, label %.split.us, !llvm.loop !12
+  br i1 %.not.us, label %.preheader, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %4
   br i1 %.not38, label %.split.split.us, label %.split.split
@@ -477,7 +477,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %22 = getelementptr inbounds nuw i8, ptr %.02839.us42, i64 272
   %23 = load ptr, ptr %22, align 8
   %.not.us43 = icmp eq ptr %23, null
-  br i1 %.not.us43, label %.preheader, label %.split.split.us, !llvm.loop !14
+  br i1 %.not.us43, label %.preheader, label %.split.split.us, !llvm.loop !15
 
 .preheader:                                       ; preds = %47, %20, %11
   %.us-phi = phi i32 [ %12, %11 ], [ %21, %20 ], [ %48, %47 ]
@@ -507,7 +507,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %31 = getelementptr inbounds nuw i8, ptr %.12949.us, i64 272
   %.129.us = load ptr, ptr %31, align 8
   %.not34.us = icmp eq ptr %.129.us, null
-  br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not38, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -530,7 +530,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %39 = getelementptr inbounds nuw i8, ptr %.12949.us51, i64 272
   %.129.us53 = load ptr, ptr %39, align 8
   %.not34.us54 = icmp eq ptr %.129.us53, null
-  br i1 %.not34.us54, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
+  br i1 %.not34.us54, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
 .split.split:                                     ; preds = %.split, %47
   %.040 = phi i32 [ %48, %47 ], [ 0, %.split ]
@@ -553,7 +553,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %49 = getelementptr inbounds nuw i8, ptr %.02839, i64 272
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.preheader, label %.split.split, !llvm.loop !17
+  br i1 %.not, label %.preheader, label %.split.split, !llvm.loop !18
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %58
   %.12949 = phi ptr [ %.129, %58 ], [ %.12946, %.lr.ph.split ]
@@ -576,7 +576,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %60 = getelementptr inbounds nuw i8, ptr %.12949, i64 272
   %.129 = load ptr, ptr %60, align 8
   %.not34 = icmp eq ptr %.129, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
+  br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %58, %37, %29, %.preheader
   %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %30, %29 ], [ %38, %37 ], [ %59, %58 ]
@@ -937,7 +937,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   store double %184, ptr %182, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !20
 
 .loopexit:                                        ; preds = %181, %ComputeAbsoluteIntent.exit, %37, %32, %29, %23
   %.026 = phi i32 [ 0, %23 ], [ 0, %29 ], [ 0, %32 ], [ 0, %37 ], [ 0, %ComputeAbsoluteIntent.exit ], [ 1, %181 ]
@@ -982,7 +982,7 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
   %19 = fadd double %.01922.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %12, %.preheader.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader.i ], [ 0, %12 ]
@@ -993,7 +993,7 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
   %23 = fadd double %.12024.i, %22
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next29.i, 3
-  br i1 %exitcond31.not.i, label %IsEmptyLayer.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond31.not.i, label %IsEmptyLayer.exit, label %.preheader.i, !llvm.loop !22
 
 IsEmptyLayer.exit:                                ; preds = %.preheader.i
   %24 = fcmp uge double %23, 2.000000e-03
@@ -1025,7 +1025,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
   %38 = fadd double %.01922.i52, %37
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 9
-  br i1 %exitcond.not.i54, label %.preheader.i55, label %31, !llvm.loop !20
+  br i1 %exitcond.not.i54, label %.preheader.i55, label %31, !llvm.loop !21
 
 .preheader.i55:                                   ; preds = %31, %.preheader.i55
   %indvars.iv28.i56 = phi i64 [ %indvars.iv.next29.i58, %.preheader.i55 ], [ 0, %31 ]
@@ -1036,7 +1036,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
   %42 = fadd double %.12024.i57, %41
   %indvars.iv.next29.i58 = add nuw nsw i64 %indvars.iv28.i56, 1
   %exitcond31.not.i59 = icmp eq i64 %indvars.iv.next29.i58, 3
-  br i1 %exitcond31.not.i59, label %IsEmptyLayer.exit60, label %.preheader.i55, !llvm.loop !21
+  br i1 %exitcond31.not.i59, label %IsEmptyLayer.exit60, label %.preheader.i55, !llvm.loop !22
 
 IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %43 = fcmp uge double %42, 2.000000e-03
@@ -1090,7 +1090,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %68 = fadd double %.01922.i62, %67
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 9
-  br i1 %exitcond.not.i64, label %.preheader.i65, label %61, !llvm.loop !20
+  br i1 %exitcond.not.i64, label %.preheader.i65, label %61, !llvm.loop !21
 
 .preheader.i65:                                   ; preds = %61, %.preheader.i65
   %indvars.iv28.i66 = phi i64 [ %indvars.iv.next29.i68, %.preheader.i65 ], [ 0, %61 ]
@@ -1101,7 +1101,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %72 = fadd double %.12024.i67, %71
   %indvars.iv.next29.i68 = add nuw nsw i64 %indvars.iv28.i66, 1
   %exitcond31.not.i69 = icmp eq i64 %indvars.iv.next29.i68, 3
-  br i1 %exitcond31.not.i69, label %IsEmptyLayer.exit70, label %.preheader.i65, !llvm.loop !21
+  br i1 %exitcond31.not.i69, label %IsEmptyLayer.exit70, label %.preheader.i65, !llvm.loop !22
 
 IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
   %73 = fcmp uge double %72, 2.000000e-03
@@ -1132,7 +1132,7 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
   %86 = fadd double %.01922.i72, %85
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 9
-  br i1 %exitcond.not.i74, label %.preheader.i75, label %79, !llvm.loop !20
+  br i1 %exitcond.not.i74, label %.preheader.i75, label %79, !llvm.loop !21
 
 .preheader.i75:                                   ; preds = %79, %.preheader.i75
   %indvars.iv28.i76 = phi i64 [ %indvars.iv.next29.i78, %.preheader.i75 ], [ 0, %79 ]
@@ -1143,7 +1143,7 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
   %90 = fadd double %.12024.i77, %89
   %indvars.iv.next29.i78 = add nuw nsw i64 %indvars.iv28.i76, 1
   %exitcond31.not.i79 = icmp eq i64 %indvars.iv.next29.i78, 3
-  br i1 %exitcond31.not.i79, label %IsEmptyLayer.exit80, label %.preheader.i75, !llvm.loop !21
+  br i1 %exitcond31.not.i79, label %IsEmptyLayer.exit80, label %.preheader.i75, !llvm.loop !22
 
 IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
   %91 = fcmp uge double %90, 2.000000e-03
@@ -1326,7 +1326,7 @@ TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.loo
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader78, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader78, label %.lr.ph, !llvm.loop !23
 
 .preheader78:                                     ; preds = %TranslateNonICCIntents.exit, %is_cmyk_devicelink.exit
   %.064.in = phi i32 [ %.064, %is_cmyk_devicelink.exit ], [ %1, %TranslateNonICCIntents.exit ]
@@ -1348,7 +1348,7 @@ is_cmyk_devicelink.exit:                          ; preds = %18
   %22 = icmp ne i32 %21, 1129142603
   %23 = icmp ult i32 %.064, 2
   %or.cond3 = or i1 %23, %22
-  br i1 %or.cond3, label %is_cmyk_devicelink.exit.thread, label %.preheader78, !llvm.loop !23
+  br i1 %or.cond3, label %is_cmyk_devicelink.exit.thread, label %.preheader78, !llvm.loop !24
 
 is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, %is_cmyk_devicelink.exit
   %24 = load ptr, ptr %3, align 8
@@ -1418,7 +1418,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next87 to i32
   %exitcond89.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !24
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !25
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %55
   %indvars.iv86 = phi i64 [ %54, %.lr.ph82.preheader ], [ %indvars.iv.next87, %55 ]
@@ -1502,7 +1502,7 @@ TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.loo
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !26
 
 .preheader:                                       ; preds = %TranslateNonICCIntents.exit, %is_cmyk_devicelink.exit
   %.072.in = phi i32 [ %.072, %is_cmyk_devicelink.exit ], [ %1, %TranslateNonICCIntents.exit ]
@@ -1524,7 +1524,7 @@ is_cmyk_devicelink.exit:                          ; preds = %18
   %22 = icmp ne i32 %21, 1129142603
   %23 = icmp ult i32 %.072, 2
   %or.cond3 = or i1 %23, %22
-  br i1 %or.cond3, label %is_cmyk_devicelink.exit.thread, label %.preheader, !llvm.loop !26
+  br i1 %or.cond3, label %is_cmyk_devicelink.exit.thread, label %.preheader, !llvm.loop !27
 
 is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %is_cmyk_devicelink.exit
   %24 = load ptr, ptr %3, align 8
@@ -1635,7 +1635,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   %lftr.wideiv = trunc i64 %indvars.iv.next101 to i32
   %exitcond103.not = icmp eq i32 %1, %lftr.wideiv
   %or.cond104 = select i1 %.not83, i1 true, i1 %exitcond103.not
-  br i1 %or.cond104, label %.loopexitthread-pre-split, label %.lr.ph94, !llvm.loop !27
+  br i1 %or.cond104, label %.loopexitthread-pre-split, label %.lr.ph94, !llvm.loop !28
 
 .loopexitthread-pre-split:                        ; preds = %80, %.lr.ph94, %41, %49, %53, %58, %62, %68, %70
   %.pr.pr = load ptr, ptr %8, align 8
@@ -1780,7 +1780,7 @@ define internal noundef i32 @BlackPreservingSampler(ptr noundef readonly capture
   store float %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %16, label %9, !llvm.loop !28
+  br i1 %exitcond.not, label %16, label %9, !llvm.loop !29
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1869,7 +1869,7 @@ _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   store i16 %.0.i49, ptr %66, align 2
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %67, label %51, !llvm.loop !29
+  br i1 %exitcond65.not, label %67, label %51, !llvm.loop !30
 
 67:                                               ; preds = %_cmsQuickSaturateWord.exit50
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2068,27 +2068,28 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !13}
-!15 = distinct !{!15, !7, !13}
-!16 = distinct !{!16, !7, !13}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8, !14}
+!16 = distinct !{!16, !7, !8, !14}
+!17 = distinct !{!17, !7, !8, !14}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

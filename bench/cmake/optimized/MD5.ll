@@ -167,10 +167,10 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !11
+  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !12
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %0, align 4, !tbaa !4
@@ -318,10 +318,10 @@ md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thr
   %84 = lshr i32 %81, %83
   %85 = trunc i32 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv42.i
-  store i8 %85, ptr %86, align 1, !tbaa !10
+  store i8 %85, ptr %86, align 1, !tbaa !11
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 16
-  br i1 %exitcond45.not.i, label %md5_finish.exit, label %77, !llvm.loop !12
+  br i1 %exitcond45.not.i, label %md5_finish.exit, label %77, !llvm.loop !13
 
 md5_finish.exit:                                  ; preds = %77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
@@ -339,22 +339,22 @@ define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonl
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.089.i = phi ptr [ %1, %2 ], [ %16, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
-  %6 = load i8, ptr %5, align 1, !tbaa !10
+  %6 = load i8, ptr %5, align 1, !tbaa !11
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
   %9 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !10
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
-  store i8 %10, ptr %.089.i, align 1, !tbaa !10
+  store i8 %10, ptr %.089.i, align 1, !tbaa !11
   %12 = and i8 %6, 15
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
-  store i8 %15, ptr %11, align 1, !tbaa !10
+  store i8 %15, ptr %11, align 1, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %cmsysMD5_DigestToHex.exit, label %4, !llvm.loop !13
+  br i1 %exitcond.not.i, label %cmsysMD5_DigestToHex.exit, label %4, !llvm.loop !14
 
 cmsysMD5_DigestToHex.exit:                        ; preds = %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
@@ -369,23 +369,23 @@ define dso_local void @cmsysMD5_DigestToHex(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.089 = phi ptr [ %1, %2 ], [ %16, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %5 = load i8, ptr %4, align 1, !tbaa !10
+  %5 = load i8, ptr %4, align 1, !tbaa !11
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i64
   %8 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !10
+  %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %.089, i64 1
-  store i8 %9, ptr %.089, align 1, !tbaa !10
-  %11 = load i8, ptr %4, align 1, !tbaa !10
+  store i8 %9, ptr %.089, align 1, !tbaa !11
+  %11 = load i8, ptr %4, align 1, !tbaa !11
   %12 = and i8 %11, 15
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %.089, i64 2
-  store i8 %15, ptr %10, align 1, !tbaa !10
+  store i8 %15, ptr %10, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %17, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %3, !llvm.loop !14
 
 17:                                               ; preds = %3
   ret void
@@ -1001,9 +1001,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

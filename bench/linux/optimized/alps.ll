@@ -1165,7 +1165,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %116, ptr noundef nonnull align 4 dereferenceable(3) %4, i64 3, i1 false)
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %117, ptr noundef nonnull align 4 dereferenceable(3) %5, i64 3, i1 false)
-  %118 = call fastcc i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %113), !range !14
+  %118 = call fastcc i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %113), !range !15
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %alps_rpt_cmd.exit.thread
 
@@ -1346,7 +1346,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr nound
   store ptr @alps_v3_nibble_commands, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i32 236, ptr %43, align 8
-  %44 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %44 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %alps_command_mode_read_reg.exit.thread
 
@@ -1362,7 +1362,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr nound
 53:                                               ; preds = %.preheader.i
   %54 = add nsw i32 %56, -4
   %55 = icmp eq i32 %56, 0
-  br i1 %55, label %70, label %.preheader.i, !llvm.loop !16
+  br i1 %55, label %70, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %46, %53
   %56 = phi i32 [ %54, %53 ], [ 12, %46 ]
@@ -1440,7 +1440,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %46, 
   store i32 236, ptr %97, align 8
   store i32 16, ptr %26, align 4
   store i32 12, ptr %27, align 8
-  %98 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %98 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %alps_command_mode_read_reg.exit4.thread
 
@@ -1456,7 +1456,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %46, 
 107:                                              ; preds = %.preheader.i3
   %108 = add nsw i32 %110, -4
   %109 = icmp eq i32 %110, 0
-  br i1 %109, label %125, label %.preheader.i3, !llvm.loop !16
+  br i1 %109, label %125, label %.preheader.i3, !llvm.loop !17
 
 .preheader.i3:                                    ; preds = %100, %107
   %110 = phi i32 [ %108, %107 ], [ 12, %100 ]
@@ -1551,7 +1551,7 @@ alps_command_mode_read_reg.exit4.thread:          ; preds = %.preheader.i3, %100
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   store i32 10, ptr %11, align 4
-  %160 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %160 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %402
 
@@ -1644,7 +1644,7 @@ alps_command_mode_read_reg.exit4.thread:          ; preds = %.preheader.i3, %100
   br label %210
 
 210:                                              ; preds = %208, %198
-  %211 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %211 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %alps_command_mode_read_reg.exit6.thread
 
@@ -1660,7 +1660,7 @@ alps_command_mode_read_reg.exit4.thread:          ; preds = %.preheader.i3, %100
 220:                                              ; preds = %.preheader.i5
   %221 = add nsw i32 %223, -4
   %222 = icmp eq i32 %223, 0
-  br i1 %222, label %238, label %.preheader.i5, !llvm.loop !16
+  br i1 %222, label %238, label %.preheader.i5, !llvm.loop !17
 
 .preheader.i5:                                    ; preds = %213, %220
   %223 = phi i32 [ %221, %220 ], [ 12, %213 ]
@@ -1923,7 +1923,7 @@ alps_command_mode_read_reg.exit6.thread:          ; preds = %.preheader.i5, %213
   br i1 %389, label %390, label %.thread
 
 390:                                              ; preds = %387
-  %391 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %391 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %392 = icmp eq i32 %391, 0
   br i1 %392, label %395, label %.thread
 
@@ -1933,7 +1933,7 @@ alps_command_mode_read_reg.exit6.thread:          ; preds = %.preheader.i5, %213
   br label %.thread14
 
 395:                                              ; preds = %390
-  %396 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 215), !range !17
+  %396 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 215), !range !18
   %397 = call i32 @ps2_command(ptr noundef nonnull %267, ptr noundef null, i32 noundef 234) #14
   %398 = call i32 @ps2_command(ptr noundef nonnull %267, ptr noundef null, i32 noundef 244) #14
   switch i32 %396, label %.thread14 [
@@ -2509,12 +2509,12 @@ define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v3(ptr noundef %0) #0
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %1
-  %24 = tail call fastcc i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef 0), !range !18
+  %24 = tail call fastcc i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef 0), !range !19
   %25 = icmp eq i32 %24, -5
   br i1 %25, label %alps_command_mode_read_reg.exit4.thread, label %26
 
 26:                                               ; preds = %23, %1
-  %27 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %27 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %alps_command_mode_read_reg.exit.thread
 
@@ -2529,7 +2529,7 @@ define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v3(ptr noundef %0) #0
 35:                                               ; preds = %.preheader.i
   %36 = add nsw i32 %38, -4
   %37 = icmp eq i32 %38, 0
-  br i1 %37, label %52, label %.preheader.i, !llvm.loop !16
+  br i1 %37, label %52, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %29, %35
   %38 = phi i32 [ %36, %35 ], [ 12, %29 ]
@@ -2633,7 +2633,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %29, 
 103:                                              ; preds = %.preheader.i3
   %104 = add nsw i32 %106, -4
   %105 = icmp eq i32 %106, 0
-  br i1 %105, label %120, label %.preheader.i3, !llvm.loop !16
+  br i1 %105, label %120, label %.preheader.i3, !llvm.loop !17
 
 .preheader.i3:                                    ; preds = %97, %103
   %106 = phi i32 [ %104, %103 ], [ 12, %97 ]
@@ -2731,7 +2731,7 @@ alps_command_mode_read_reg.exit4:                 ; preds = %123
 169:                                              ; preds = %.preheader.i5
   %170 = add nsw i32 %172, -4
   %171 = icmp eq i32 %172, 0
-  br i1 %171, label %186, label %.preheader.i5, !llvm.loop !16
+  br i1 %171, label %186, label %.preheader.i5, !llvm.loop !17
 
 .preheader.i5:                                    ; preds = %163, %169
   %172 = phi i32 [ %170, %169 ], [ 12, %163 ]
@@ -2819,7 +2819,7 @@ alps_command_mode_read_reg.exit6:                 ; preds = %189
   br i1 %228, label %229, label %alps_command_mode_read_reg.exit4.thread
 
 229:                                              ; preds = %214
-  %230 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 324), !range !17
+  %230 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 324), !range !18
   %231 = icmp eq i32 %230, -1
   br i1 %231, label %alps_command_mode_read_reg.exit4.thread, label %232
 
@@ -2857,32 +2857,32 @@ alps_command_mode_read_reg.exit6:                 ; preds = %189
   br i1 %254, label %255, label %alps_command_mode_read_reg.exit4.thread
 
 255:                                              ; preds = %243
-  %256 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 345), !range !17
+  %256 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 345), !range !18
   %257 = icmp eq i32 %256, -1
   br i1 %257, label %alps_command_mode_read_reg.exit4.thread, label %258
 
 258:                                              ; preds = %255
-  %259 = call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext 3), !range !15
+  %259 = call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext 3), !range !16
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %alps_command_mode_read_reg.exit4.thread
 
 261:                                              ; preds = %258
-  %262 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 355), !range !17
+  %262 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 355), !range !18
   %263 = icmp eq i32 %262, -1
   br i1 %263, label %alps_command_mode_read_reg.exit4.thread, label %264
 
 264:                                              ; preds = %261
-  %265 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 355, i8 noundef zeroext 3), !range !15
+  %265 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 355, i8 noundef zeroext 3), !range !16
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %alps_command_mode_read_reg.exit4.thread
 
 267:                                              ; preds = %264
-  %268 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 354), !range !17
+  %268 = call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 354), !range !18
   %269 = icmp eq i32 %268, -1
   br i1 %269, label %alps_command_mode_read_reg.exit4.thread, label %270
 
 270:                                              ; preds = %267
-  %271 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 354, i8 noundef zeroext 4), !range !15
+  %271 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 354, i8 noundef zeroext 4), !range !16
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %alps_command_mode_read_reg.exit4.thread
 
@@ -3194,12 +3194,12 @@ define internal i32 @alps_hw_init_rushmore_v3(ptr noundef %0) #0 align 16 {
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %1
-  %17 = tail call fastcc i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef 49856), !range !18
+  %17 = tail call fastcc i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef 49856), !range !19
   %18 = icmp eq i32 %17, -5
   br i1 %18, label %alps_command_mode_read_reg.exit.thread, label %19
 
 19:                                               ; preds = %16, %1
-  %20 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %20 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %alps_command_mode_read_reg.exit.thread
 
@@ -3214,7 +3214,7 @@ define internal i32 @alps_hw_init_rushmore_v3(ptr noundef %0) #0 align 16 {
 28:                                               ; preds = %.preheader.i
   %29 = add nsw i32 %31, -4
   %30 = icmp eq i32 %31, 0
-  br i1 %30, label %46, label %.preheader.i, !llvm.loop !16
+  br i1 %30, label %46, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %22, %28
   %31 = phi i32 [ %29, %28 ], [ 12, %22 ]
@@ -3261,7 +3261,7 @@ alps_command_mode_read_reg.exit.thread11:         ; preds = %46, %49
 
 alps_command_mode_read_reg.exit:                  ; preds = %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
-  %58 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49867, i8 noundef zeroext 0), !range !15
+  %58 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49867, i8 noundef zeroext 0), !range !16
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %alps_command_mode_read_reg.exit.thread
 
@@ -3276,7 +3276,7 @@ alps_command_mode_read_reg.exit:                  ; preds = %49
 66:                                               ; preds = %.preheader.i4
   %67 = add nsw i32 %69, -4
   %68 = icmp eq i32 %69, 0
-  br i1 %68, label %84, label %.preheader.i4, !llvm.loop !16
+  br i1 %68, label %84, label %.preheader.i4, !llvm.loop !17
 
 .preheader.i4:                                    ; preds = %60, %66
   %69 = phi i32 [ %67, %66 ], [ 12, %60 ]
@@ -3336,7 +3336,7 @@ alps_command_mode_read_reg.exit5:                 ; preds = %87
 104:                                              ; preds = %.preheader.i6
   %105 = add nsw i32 %107, -4
   %106 = icmp eq i32 %107, 0
-  br i1 %106, label %122, label %.preheader.i6, !llvm.loop !16
+  br i1 %106, label %122, label %.preheader.i6, !llvm.loop !17
 
 .preheader.i6:                                    ; preds = %alps_command_mode_read_reg.exit5, %104
   %107 = phi i32 [ %105, %104 ], [ 12, %alps_command_mode_read_reg.exit5 ]
@@ -3423,7 +3423,7 @@ alps_command_mode_read_reg.exit7:                 ; preds = %125
 167:                                              ; preds = %.preheader.i8
   %168 = add nsw i32 %170, -4
   %169 = icmp eq i32 %170, 0
-  br i1 %169, label %185, label %.preheader.i8, !llvm.loop !16
+  br i1 %169, label %185, label %.preheader.i8, !llvm.loop !17
 
 .preheader.i8:                                    ; preds = %alps_command_mode_read_reg.exit7, %167
   %170 = phi i32 [ %168, %167 ], [ 12, %alps_command_mode_read_reg.exit7 ]
@@ -3473,24 +3473,24 @@ alps_command_mode_read_reg.exit9:                 ; preds = %188
   %198 = load i8, ptr %197, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   %199 = and i8 %198, -3
-  %200 = tail call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %199), !range !15
+  %200 = tail call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %199), !range !16
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %alps_command_mode_read_reg.exit.thread
 
 202:                                              ; preds = %alps_command_mode_read_reg.exit9
-  %203 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49865, i8 noundef zeroext 100), !range !15
+  %203 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49865, i8 noundef zeroext 100), !range !16
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %alps_command_mode_read_reg.exit.thread
 
 205:                                              ; preds = %202
-  %206 = tail call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 49860), !range !17
+  %206 = tail call fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef 49860), !range !18
   %207 = icmp eq i32 %206, -1
   br i1 %207, label %alps_command_mode_read_reg.exit.thread, label %208
 
 208:                                              ; preds = %205
   %209 = trunc nuw i32 %206 to i8
   %210 = or i8 %209, 2
-  %211 = tail call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %210), !range !15
+  %211 = tail call fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %210), !range !16
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %alps_command_mode_read_reg.exit.thread
 
@@ -3671,7 +3671,7 @@ define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v4(ptr noundef %0) #0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 0, ptr %6, align 4, !annotation !10
-  %8 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %8 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %126
 
@@ -3686,7 +3686,7 @@ define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v4(ptr noundef %0) #0
 16:                                               ; preds = %.preheader.i
   %17 = add nsw i32 %19, -4
   %18 = icmp eq i32 %19, 0
-  br i1 %18, label %33, label %.preheader.i, !llvm.loop !16
+  br i1 %18, label %33, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %10, %16
   %19 = phi i32 [ %17, %16 ], [ 12, %10 ]
@@ -3780,42 +3780,42 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %10, 
   br label %126
 
 78:                                               ; preds = %61
-  %79 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 7, i8 noundef zeroext -116), !range !15
+  %79 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 7, i8 noundef zeroext -116), !range !16
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %126
 
 81:                                               ; preds = %78
-  %82 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 329, i8 noundef zeroext 3), !range !15
+  %82 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 329, i8 noundef zeroext 3), !range !16
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %126
 
 84:                                               ; preds = %81
-  %85 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 352, i8 noundef zeroext 3), !range !15
+  %85 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 352, i8 noundef zeroext 3), !range !16
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %126
 
 87:                                               ; preds = %84
-  %88 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 383, i8 noundef zeroext 21), !range !15
+  %88 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 383, i8 noundef zeroext 21), !range !16
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %126
 
 90:                                               ; preds = %87
-  %91 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 337, i8 noundef zeroext 1), !range !15
+  %91 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 337, i8 noundef zeroext 1), !range !16
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %126
 
 93:                                               ; preds = %90
-  %94 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 360, i8 noundef zeroext 3), !range !15
+  %94 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 360, i8 noundef zeroext 3), !range !16
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %126
 
 96:                                               ; preds = %93
-  %97 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 330, i8 noundef zeroext 3), !range !15
+  %97 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 330, i8 noundef zeroext 3), !range !16
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %126
 
 99:                                               ; preds = %96
-  %100 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 353, i8 noundef zeroext 3), !range !15
+  %100 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 353, i8 noundef zeroext 3), !range !16
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %126
 
@@ -3892,12 +3892,12 @@ define internal void @alps_process_packet_v4(ptr noundef readonly captures(none)
 10:                                               ; preds = %1
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %11 = icmp sgt i32 %.pre, 2
-  br i1 %11, label %12, label %13, !prof !19
+  br i1 %11, label %12, label %13, !prof !20
 
 12:                                               ; preds = %10
-  tail call void asm sideeffect "319: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 319b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 319) #14, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 906, i32 2307, i64 12) #14, !srcloc !21
-  tail call void asm sideeffect "320: nop\0A\09.pushsection .discard.instr_end\0A\09.long 320b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 320) #14, !srcloc !22
+  tail call void asm sideeffect "319: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 319b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 319) #14, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 906, i32 2307, i64 12) #14, !srcloc !22
+  tail call void asm sideeffect "320: nop\0A\09.pushsection .discard.instr_end\0A\09.long 320b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 320) #14, !srcloc !23
   br label %113
 
 13:                                               ; preds = %.thread, %10
@@ -4377,7 +4377,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
 
 17:                                               ; preds = %14
   tail call void @ps2_drain(ptr noundef nonnull %5, i64 noundef 3, i32 noundef 100) #14
-  %18 = tail call fastcc i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0), !range !15
+  %18 = tail call fastcc i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0), !range !16
   %19 = tail call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef null, i32 noundef 230) #14
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %alps_passthrough_mode_v2.exit.thread
@@ -4469,7 +4469,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %74 = add nuw nsw i32 %59, 4
   %75 = icmp samesign ult i32 %59, 5
   %76 = and i1 %75, %73
-  br i1 %76, label %.preheader3, label %77, !llvm.loop !23
+  br i1 %76, label %.preheader3, label %77, !llvm.loop !24
 
 77:                                               ; preds = %.preheader3
   br i1 %73, label %.preheader2, label %.thread
@@ -4492,7 +4492,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %89 = add nuw nsw i32 %78, 4
   %90 = icmp samesign ult i32 %78, 5
   %91 = select i1 %88, i1 %90, i1 false
-  br i1 %91, label %.preheader2, label %92, !llvm.loop !23
+  br i1 %91, label %.preheader2, label %92, !llvm.loop !25
 
 92:                                               ; preds = %.preheader2
   br i1 %88, label %.preheader, label %.thread
@@ -4519,7 +4519,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %108 = add nuw nsw i32 %93, 4
   %109 = icmp samesign ult i32 %93, 5
   %110 = and i1 %109, %107
-  br i1 %110, label %.preheader, label %111, !llvm.loop !23
+  br i1 %110, label %.preheader, label %111, !llvm.loop !26
 
 111:                                              ; preds = %.preheader
   br i1 %107, label %113, label %.thread
@@ -4680,7 +4680,7 @@ define internal i32 @alps_hw_init_v7(ptr noundef %0) #0 align 16 {
   %10 = alloca [4 x i8], align 4
   %11 = alloca [4 x i8], align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %13 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %alps_command_mode_read_reg.exit.thread
 
@@ -4695,7 +4695,7 @@ define internal i32 @alps_hw_init_v7(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %.preheader.i
   %22 = add nsw i32 %24, -4
   %23 = icmp eq i32 %24, 0
-  br i1 %23, label %39, label %.preheader.i, !llvm.loop !16
+  br i1 %23, label %39, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %15, %21
   %24 = phi i32 [ %22, %21 ], [ 12, %15 ]
@@ -4752,7 +4752,7 @@ alps_command_mode_read_reg.exit:                  ; preds = %42
 56:                                               ; preds = %.preheader.i3
   %57 = add nsw i32 %59, -4
   %58 = icmp eq i32 %59, 0
-  br i1 %58, label %74, label %.preheader.i3, !llvm.loop !16
+  br i1 %58, label %74, label %.preheader.i3, !llvm.loop !17
 
 .preheader.i3:                                    ; preds = %alps_command_mode_read_reg.exit, %56
   %59 = phi i32 [ %57, %56 ], [ 12, %alps_command_mode_read_reg.exit ]
@@ -4812,7 +4812,7 @@ alps_command_mode_read_reg.exit4:                 ; preds = %77
 94:                                               ; preds = %.preheader.i5
   %95 = add nsw i32 %97, -4
   %96 = icmp eq i32 %97, 0
-  br i1 %96, label %112, label %.preheader.i5, !llvm.loop !16
+  br i1 %96, label %112, label %.preheader.i5, !llvm.loop !17
 
 .preheader.i5:                                    ; preds = %alps_command_mode_read_reg.exit4, %94
   %97 = phi i32 [ %95, %94 ], [ 12, %alps_command_mode_read_reg.exit4 ]
@@ -4889,7 +4889,7 @@ alps_command_mode_read_reg.exit6:                 ; preds = %115
   %150 = sdiv i32 %149, %141
   %151 = getelementptr inbounds nuw i8, ptr %51, i64 224
   store i32 %150, ptr %151, align 8
-  %152 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49865, i8 noundef zeroext 100), !range !15
+  %152 = tail call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 49865, i8 noundef zeroext 100), !range !16
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %alps_command_mode_read_reg.exit.thread
 
@@ -4904,7 +4904,7 @@ alps_command_mode_read_reg.exit6:                 ; preds = %115
 160:                                              ; preds = %.preheader.i7
   %161 = add nsw i32 %163, -4
   %162 = icmp eq i32 %163, 0
-  br i1 %162, label %178, label %.preheader.i7, !llvm.loop !16
+  br i1 %162, label %178, label %.preheader.i7, !llvm.loop !17
 
 .preheader.i7:                                    ; preds = %154, %160
   %163 = phi i32 [ %161, %160 ], [ 12, %154 ]
@@ -5109,7 +5109,7 @@ define internal void @alps_process_packet_v7(ptr noundef %0) #0 align 16 {
   %73 = phi i32 [ %71, %70 ], [ %62, %66 ]
   %74 = add nuw nsw i64 %61, 1
   %75 = icmp eq i64 %74, 4
-  br i1 %75, label %76, label %60, !llvm.loop !24
+  br i1 %75, label %76, label %60, !llvm.loop !27
 
 76:                                               ; preds = %72
   %.val = load ptr, ptr %0, align 8
@@ -5294,7 +5294,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr noundef 
   %111 = phi i32 [ %109, %108 ], [ %100, %104 ]
   %112 = add nuw nsw i64 %99, 1
   %113 = icmp eq i64 %112, 4
-  br i1 %113, label %.loopexit, label %98, !llvm.loop !24
+  br i1 %113, label %.loopexit, label %98, !llvm.loop !28
 
 .loopexit:                                        ; preds = %110, %.thread3
   %114 = phi i16 [ %85, %.thread3 ], [ %spec.select6, %110 ]
@@ -5418,12 +5418,12 @@ define internal i32 @alps_hw_init_ss4_v2(ptr noundef %0) #0 align 16 {
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %16
-  %20 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %20 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  %23 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 29, i8 noundef zeroext 32), !range !15
+  %23 = call fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef 29, i8 noundef zeroext 32), !range !16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %28
 
@@ -6238,7 +6238,7 @@ define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr nound
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
-  %8 = tail call fastcc i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true), !range !15
+  %8 = tail call fastcc i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true), !range !16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %117
 
@@ -6276,7 +6276,7 @@ define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr nound
   br label %34
 
 28:                                               ; preds = %20
-  %29 = call fastcc i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0), !range !15
+  %29 = call fastcc i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0), !range !16
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
@@ -6289,14 +6289,14 @@ define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr nound
 34:                                               ; preds = %31, %28, %25
   %35 = phi i1 [ true, %25 ], [ true, %31 ], [ false, %28 ]
   %36 = phi i32 [ -19, %25 ], [ -5, %31 ], [ 0, %28 ]
-  %37 = call fastcc i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false), !range !15
+  %37 = call fastcc i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false), !range !16
   %38 = icmp ne i32 %37, 0
   %39 = or i1 %35, %38
   %40 = select i1 %38, i32 -5, i32 %36
   br i1 %39, label %117, label %41
 
 41:                                               ; preds = %34
-  %42 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %42 = call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %117
 
@@ -6312,7 +6312,7 @@ define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr nound
 51:                                               ; preds = %.preheader.i
   %52 = add nsw i32 %54, -4
   %53 = icmp eq i32 %54, 0
-  br i1 %53, label %69, label %.preheader.i, !llvm.loop !16
+  br i1 %53, label %69, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %44, %51
   %54 = phi i32 [ %52, %51 ], [ 12, %44 ]
@@ -6493,7 +6493,7 @@ define internal fastcc range(i32 -1, 256) i32 @alps_command_mode_read_reg(ptr no
 11:                                               ; preds = %.preheader
   %12 = add nsw i32 %14, -4
   %13 = icmp eq i32 %14, 0
-  br i1 %13, label %29, label %.preheader, !llvm.loop !16
+  br i1 %13, label %29, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %2, %11
   %14 = phi i32 [ %12, %11 ], [ 12, %2 ]
@@ -6615,7 +6615,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_command_mode_write_reg(ptr nou
 13:                                               ; preds = %.preheader
   %14 = add nsw i32 %16, -4
   %15 = icmp eq i32 %16, 0
-  br i1 %15, label %31, label %.preheader, !llvm.loop !16
+  br i1 %15, label %31, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %3, %13
   %16 = phi i32 [ %14, %13 ], [ 12, %3 ]
@@ -6689,7 +6689,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_passthrough_mode_v3(ptr nounde
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4
-  %8 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !15
+  %8 = tail call fastcc i32 @alps_enter_command_mode(ptr noundef %0), !range !16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %85
 
@@ -6706,7 +6706,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_passthrough_mode_v3(ptr nounde
 18:                                               ; preds = %.preheader.i
   %19 = add nsw i32 %21, -4
   %20 = icmp eq i32 %21, 0
-  br i1 %20, label %36, label %.preheader.i, !llvm.loop !16
+  br i1 %20, label %36, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %10, %18
   %21 = phi i32 [ %19, %18 ], [ 12, %10 ]
@@ -6966,7 +6966,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   %35 = add nuw nsw i32 %16, 1
   %36 = lshr i32 %18, 1
   %37 = icmp ult i32 %18, 2
-  br i1 %37, label %38, label %.preheader8, !llvm.loop !25
+  br i1 %37, label %38, label %.preheader8, !llvm.loop !30
 
 38:                                               ; preds = %32
   %39 = load i32, ptr %11, align 4
@@ -7015,7 +7015,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   %62 = add nuw nsw i32 %43, 1
   %63 = lshr i32 %45, 1
   %64 = icmp ult i32 %45, 2
-  br i1 %64, label %.loopexit7, label %.preheader, !llvm.loop !25
+  br i1 %64, label %.loopexit7, label %.preheader, !llvm.loop !31
 
 .loopexit7:                                       ; preds = %59, %38
   %65 = phi i32 [ 0, %38 ], [ %60, %59 ]
@@ -7140,7 +7140,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   store i16 %149, ptr %147, align 4
   %150 = add nuw nsw i64 %146, 1
   %151 = icmp eq i64 %150, 4
-  br i1 %151, label %.loopexit, label %145, !llvm.loop !26
+  br i1 %151, label %.loopexit, label %145, !llvm.loop !32
 
 152:                                              ; preds = %88, %88
   %153 = trunc i32 %108 to i16
@@ -7154,7 +7154,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   store i16 %158, ptr %156, align 2
   %159 = add nuw nsw i64 %155, 1
   %160 = icmp eq i64 %159, 4
-  br i1 %160, label %.loopexit, label %154, !llvm.loop !27
+  br i1 %160, label %.loopexit, label %154, !llvm.loop !33
 
 .loopexit:                                        ; preds = %154, %145, %88
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -7199,7 +7199,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   %191 = phi i32 [ %185, %187 ], [ %170, %167 ]
   %192 = add nuw nsw i64 %169, 1
   %193 = icmp eq i64 %192, 4
-  br i1 %193, label %194, label %167, !llvm.loop !28
+  br i1 %193, label %194, label %167, !llvm.loop !34
 
 194:                                              ; preds = %189
   %195 = add i32 %190, 2
@@ -7353,7 +7353,7 @@ define internal fastcc void @alps_report_mt_data(ptr %.0.val, ptr %.8.val, i32 n
   call void @input_event(ptr noundef %.8.val, i32 noundef 3, i32 noundef 54, i32 noundef %17) #14
   %19 = add nuw nsw i64 %9, 1
   %20 = icmp eq i64 %19, %7
-  br i1 %20, label %.loopexit, label %8, !llvm.loop !29
+  br i1 %20, label %.loopexit, label %8, !llvm.loop !35
 
 .loopexit:                                        ; preds = %8, %1
   call void @input_mt_sync_frame(ptr noundef %.8.val) #14
@@ -7410,22 +7410,28 @@ attributes #16 = { nounwind allocsize(2) }
 !8 = !{i64 2148471778}
 !9 = !{!"branch_weights", i32 1, i32 2000}
 !10 = !{!"auto-init"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{i32 -5, i32 1}
-!15 = !{i32 -1, i32 1}
-!16 = distinct !{!16, !12, !13}
-!17 = !{i32 -1, i32 256}
-!18 = !{i32 -19, i32 1}
-!19 = !{!"branch_weights", i32 2146410, i32 2145337238}
-!20 = !{i64 2154378526, i64 2154378335, i64 2154378387, i64 2154378433, i64 2154378461}
-!21 = !{i64 2154378600, i64 2154378629, i64 2154378675, i64 2154378733, i64 2154378787, i64 2154378841, i64 2154378896, i64 2154378927, i64 2154379235, i64 2154379241, i64 2154379288, i64 2154379311, i64 2154379337}
-!22 = !{i64 2154379796, i64 2154379607, i64 2154379657, i64 2154379703, i64 2154379731}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
-!26 = distinct !{!26, !12, !13}
-!27 = distinct !{!27, !12, !13}
-!28 = distinct !{!28, !12, !13}
-!29 = distinct !{!29, !12, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{i32 -5, i32 1}
+!16 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !12, !13, !14}
+!18 = !{i32 -1, i32 256}
+!19 = !{i32 -19, i32 1}
+!20 = !{!"branch_weights", i32 2146410, i32 2145337238}
+!21 = !{i64 2154378526, i64 2154378335, i64 2154378387, i64 2154378433, i64 2154378461}
+!22 = !{i64 2154378600, i64 2154378629, i64 2154378675, i64 2154378733, i64 2154378787, i64 2154378841, i64 2154378896, i64 2154378927, i64 2154379235, i64 2154379241, i64 2154379288, i64 2154379311, i64 2154379337}
+!23 = !{i64 2154379796, i64 2154379607, i64 2154379657, i64 2154379703, i64 2154379731}
+!24 = distinct !{!24, !12, !13, !14}
+!25 = distinct !{!25, !12, !13, !14}
+!26 = distinct !{!26, !12, !13, !14}
+!27 = distinct !{!27, !12, !13, !14}
+!28 = distinct !{!28, !12, !13, !14}
+!29 = distinct !{!29, !12, !13, !14}
+!30 = distinct !{!30, !12, !13, !14}
+!31 = distinct !{!31, !12, !13, !14}
+!32 = distinct !{!32, !12, !13, !14}
+!33 = distinct !{!33, !12, !13, !14}
+!34 = distinct !{!34, !12, !13, !14}
+!35 = distinct !{!35, !12, !13, !14}

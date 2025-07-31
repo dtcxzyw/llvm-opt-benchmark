@@ -313,32 +313,32 @@ apv_decode.exit:                                  ; preds = %114, %98
   %143 = load ptr, ptr %5, align 8, !tbaa !91
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %145 = getelementptr inbounds nuw i8, ptr %124, i64 20
-  %146 = load i16, ptr %145, align 4, !tbaa !96
+  %146 = load i16, ptr %145, align 4, !tbaa !97
   %.sroa.0.0.insert.ext.i.i = zext i16 %146 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i, 281474976710656
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %144, align 4
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 56
   %148 = getelementptr inbounds nuw i8, ptr %124, i64 22
-  %149 = load i16, ptr %148, align 2, !tbaa !98
+  %149 = load i16, ptr %148, align 2, !tbaa !99
   %.sroa.0.0.insert.ext.i53.i = zext i16 %149 to i64
   %.sroa.0.0.insert.insert.i54.i = or disjoint i64 %.sroa.0.0.insert.ext.i53.i, 281474976710656
   store i64 %.sroa.0.0.insert.insert.i54.i, ptr %147, align 4
   %150 = getelementptr inbounds nuw i8, ptr %143, i64 72
   %151 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %152 = load i32, ptr %151, align 4, !tbaa !99
+  %152 = load i32, ptr %151, align 4, !tbaa !100
   %.sroa.0.0.insert.ext.i55.i = zext i32 %152 to i64
   %.sroa.0.0.insert.insert.i56.i = or disjoint i64 %.sroa.0.0.insert.ext.i55.i, 1099511627776
   store i64 %.sroa.0.0.insert.insert.i56.i, ptr %150, align 4
   %153 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %154 = getelementptr inbounds nuw i8, ptr %124, i64 28
-  %155 = load i32, ptr %154, align 4, !tbaa !100
+  %155 = load i32, ptr %154, align 4, !tbaa !101
   %.sroa.0.0.insert.ext.i57.i = zext i32 %155 to i64
   %.sroa.0.0.insert.insert.i58.i = or disjoint i64 %.sroa.0.0.insert.ext.i57.i, 70368744177664
   store i64 %.sroa.0.0.insert.insert.i58.i, ptr %153, align 4
   %156 = getelementptr inbounds nuw i8, ptr %143, i64 80
-  store i32 1, ptr %156, align 4, !tbaa !101
+  store i32 1, ptr %156, align 4, !tbaa !102
   %157 = getelementptr inbounds nuw i8, ptr %143, i64 84
-  store i32 1, ptr %157, align 4, !tbaa !103
+  store i32 1, ptr %157, align 4, !tbaa !104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %172
 
@@ -350,19 +350,19 @@ apv_decode.exit:                                  ; preds = %114, %98
   br i1 %161, label %162, label %171
 
 162:                                              ; preds = %158
-  %163 = load ptr, ptr %6, align 8, !tbaa !104
+  %163 = load ptr, ptr %6, align 8, !tbaa !105
   %.not.i45 = icmp eq ptr %163, null
   br i1 %.not.i45, label %.thread66.i, label %164
 
 164:                                              ; preds = %162
-  %165 = load i16, ptr %159, align 2, !tbaa !106
+  %165 = load i16, ptr %159, align 2, !tbaa !107
   %166 = zext i16 %165 to i32
-  store i32 %166, ptr %163, align 4, !tbaa !108
+  store i32 %166, ptr %163, align 4, !tbaa !109
   %167 = getelementptr inbounds nuw i8, ptr %124, i64 10
-  %168 = load i16, ptr %167, align 2, !tbaa !110
+  %168 = load i16, ptr %167, align 2, !tbaa !111
   %169 = zext i16 %168 to i32
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store i32 %169, ptr %170, align 4, !tbaa !111
+  store i32 %169, ptr %170, align 4, !tbaa !112
   br label %.thread66.i
 
 .thread66.i:                                      ; preds = %164, %162
@@ -378,38 +378,38 @@ apv_decode.exit:                                  ; preds = %114, %98
   %173 = load i32, ptr %120, align 4, !tbaa !85
   %174 = zext i32 %173 to i64
   %.not52.i = icmp samesign ult i64 %indvars.iv.next79.i, %174
-  br i1 %.not52.i, label %123, label %.loopexit, !llvm.loop !112
+  br i1 %.not52.i, label %123, label %.loopexit, !llvm.loop !113
 
 175:                                              ; preds = %37, %37, %37, %37
-  %176 = load ptr, ptr %17, align 8, !tbaa !113
-  %177 = load i32, ptr %176, align 8, !tbaa !114
+  %176 = load ptr, ptr %17, align 8, !tbaa !114
+  %177 = load i32, ptr %176, align 8, !tbaa !115
   %.not = icmp eq i32 %177, 0
   br i1 %.not, label %178, label %.loopexit
 
 178:                                              ; preds = %175
-  %179 = load i8, ptr %18, align 4, !tbaa !120
+  %179 = load i8, ptr %18, align 4, !tbaa !121
   %.not42 = icmp eq i8 %179, 0
   br i1 %.not42, label %180, label %.loopexit
 
 180:                                              ; preds = %178
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3) #6
-  store i8 1, ptr %18, align 4, !tbaa !120
+  store i8 1, ptr %18, align 4, !tbaa !121
   br label %.loopexit
 
 181:                                              ; preds = %37
-  %182 = load ptr, ptr %17, align 8, !tbaa !113
-  %183 = load i32, ptr %182, align 8, !tbaa !114
+  %182 = load ptr, ptr %17, align 8, !tbaa !114
+  %183 = load i32, ptr %182, align 8, !tbaa !115
   %.not43 = icmp eq i32 %183, 0
   br i1 %.not43, label %184, label %.loopexit
 
 184:                                              ; preds = %181
-  %185 = load i8, ptr %35, align 1, !tbaa !121
+  %185 = load i8, ptr %35, align 1, !tbaa !122
   %.not44 = icmp eq i8 %185, 0
   br i1 %.not44, label %186, label %.loopexit
 
 186:                                              ; preds = %184
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4) #6
-  store i8 1, ptr %35, align 1, !tbaa !121
+  store i8 1, ptr %35, align 1, !tbaa !122
   br label %.loopexit
 
 .loopexit:                                        ; preds = %172, %181, %184, %186, %37, %37, %175, %178, %180, %apv_decode.exit, %117, %.thread64.i, %171
@@ -417,11 +417,11 @@ apv_decode.exit:                                  ; preds = %114, %98
   %187 = load i32, ptr %13, align 8, !tbaa !41
   %188 = sext i32 %187 to i64
   %189 = icmp slt i64 %indvars.iv.next, %188
-  br i1 %189, label %37, label %apv_decode_metadata.exit, !llvm.loop !122
+  br i1 %189, label %37, label %apv_decode_metadata.exit, !llvm.loop !123
 
 apv_decode_metadata.exit:                         ; preds = %.loopexit, %.preheader
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %191 = load i32, ptr %190, align 8, !tbaa !123
+  %191 = load i32, ptr %190, align 8, !tbaa !124
   br label %apv_decode_metadata.exit.thread52
 
 apv_decode_metadata.exit.thread52:                ; preds = %111, %81, %.loopexit55, %36, %apv_decode_metadata.exit
@@ -492,10 +492,10 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 9
-  %25 = load i8, ptr %24, align 1, !tbaa !125
+  %25 = load i8, ptr %24, align 1, !tbaa !126
   %26 = zext i8 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 10
-  %28 = load i8, ptr %27, align 2, !tbaa !127
+  %28 = load i8, ptr %27, align 2, !tbaa !128
   %29 = zext i8 %28 to i32
   br label %.thread
 
@@ -505,7 +505,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 3504
   %33 = sext i32 %17 to i64
   %34 = getelementptr inbounds [400 x %struct.APVRawTile], ptr %32, i64 0, i64 %33
-  %35 = load i8, ptr %14, align 2, !tbaa !128
+  %35 = load i8, ptr %14, align 2, !tbaa !129
   %36 = zext i8 %35 to i32
   %37 = sdiv i32 %17, %36
   %38 = srem i32 %17, %36
@@ -538,21 +538,21 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
-  store ptr %0, ptr %8, align 8, !tbaa !129
+  store ptr %0, ptr %8, align 8, !tbaa !130
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @decode_lut, ptr %65, align 8, !tbaa !132
+  store ptr @decode_lut, ptr %65, align 8, !tbaa !133
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 0, ptr %66, align 8, !tbaa !133
+  store i16 0, ptr %66, align 8, !tbaa !134
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i8 5, ptr %67, align 2, !tbaa !134
+  store i8 5, ptr %67, align 2, !tbaa !135
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 19
-  store i8 0, ptr %68, align 1, !tbaa !135
+  store i8 0, ptr %68, align 1, !tbaa !136
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %71 = sext i32 %18 to i64
   %72 = getelementptr inbounds [4 x ptr], ptr %70, i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !136
+  %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %75 = getelementptr inbounds [4 x i32], ptr %74, i64 0, i64 %71
   %76 = load i32, ptr %75, align 4, !tbaa !57
@@ -565,18 +565,18 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %.018.i.i = select i1 %or.cond3.i.i.not, i32 0, i32 %78
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %73
   %80 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %7, align 8, !tbaa !137
+  store ptr %.017.i.i, ptr %7, align 8, !tbaa !138
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %.018.i.i, ptr %81, align 4, !tbaa !139
+  store i32 %.018.i.i, ptr %81, align 4, !tbaa !140
   %82 = add nuw nsw i32 %.018.i.i, 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %82, ptr %83, align 8, !tbaa !140
+  store i32 %82, ptr %83, align 8, !tbaa !141
   %84 = zext nneg i32 %80 to i64
   %85 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %85, ptr %86, align 8, !tbaa !141
+  store ptr %85, ptr %86, align 8, !tbaa !142
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %87, align 8, !tbaa !142
+  store i32 0, ptr %87, align 8, !tbaa !143
   br i1 %or.cond3.i.i.not, label %142, label %88
 
 88:                                               ; preds = %.thread
@@ -589,7 +589,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %95 = getelementptr inbounds nuw [6 x i8], ptr @apv_decode_tile_component.apv_level_scale, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !40
   %97 = zext i8 %96 to i16
-  %98 = load i32, ptr %13, align 4, !tbaa !143
+  %98 = load i32, ptr %13, align 4, !tbaa !144
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %100 = getelementptr inbounds [4 x [8 x [8 x i8]]], ptr %99, i64 0, i64 %71
   br label %.preheader154
@@ -627,7 +627,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
 ._crit_edge.us:                                   ; preds = %._crit_edge159.us.us, %.preheader152.us
   %106 = add nuw nsw i32 %.0119165.us, 1
   %exitcond185.not = icmp eq i32 %106, %62
-  br i1 %exitcond185.not, label %._crit_edge166, label %.preheader152.us, !llvm.loop !144
+  br i1 %exitcond185.not, label %._crit_edge166, label %.preheader152.us, !llvm.loop !145
 
 .preheader151.us.us:                              ; preds = %.preheader152.us, %._crit_edge159.us.us
   %.0122160.us.us = phi i32 [ %109, %._crit_edge159.us.us ], [ 0, %.preheader152.us ]
@@ -638,7 +638,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
 ._crit_edge159.us.us:                             ; preds = %._crit_edge.us.us.us, %.preheader151.us.us
   %109 = add nuw nsw i32 %.0122160.us.us, 1
   %exitcond184.not = icmp eq i32 %109, %61
-  br i1 %exitcond184.not, label %._crit_edge.us, label %.preheader151.us.us, !llvm.loop !146
+  br i1 %exitcond184.not, label %._crit_edge.us, label %.preheader151.us.us, !llvm.loop !147
 
 .preheader.us.us.us:                              ; preds = %.preheader151.us.us, %._crit_edge.us.us.us
   %.0121158.us.us.us = phi i32 [ %136, %._crit_edge.us.us.us ], [ 0, %.preheader151.us.us ]
@@ -655,7 +655,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %117 = getelementptr inbounds [8 x i32], ptr %116, i64 0, i64 %71
   %118 = load i32, ptr %117, align 4, !tbaa !57
   %119 = getelementptr inbounds [8 x ptr], ptr %115, i64 0, i64 %71
-  %120 = load ptr, ptr %119, align 8, !tbaa !136
+  %120 = load ptr, ptr %119, align 8, !tbaa !137
   %.val.us.us.us = load ptr, ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
@@ -674,22 +674,22 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %.val.us.us.us, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !147
+  %134 = load ptr, ptr %133, align 8, !tbaa !148
   call void %134(ptr noundef %132, i64 noundef range(i64 -2147483648, 2147483648) %124, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %98, i32 noundef range(i32 0, 43) %.zext150) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
   %135 = add nuw nsw i32 %.0120157.us.us.us, 1
   %exitcond181.not = icmp eq i32 %135, %umax
-  br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %114, !llvm.loop !148
+  br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %114, !llvm.loop !149
 
 ._crit_edge.us.us.us:                             ; preds = %123
   %136 = add nuw nsw i32 %.0121158.us.us.us, 1
   %exitcond183.not = icmp eq i32 %136, %umax182
-  br i1 %exitcond183.not, label %._crit_edge159.us.us, label %.preheader.us.us.us, !llvm.loop !149
+  br i1 %exitcond183.not, label %._crit_edge159.us.us, label %.preheader.us.us.us, !llvm.loop !150
 
 137:                                              ; preds = %138
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 8
-  br i1 %exitcond180.not, label %.preheader153, label %.preheader154, !llvm.loop !150
+  br i1 %exitcond180.not, label %.preheader153, label %.preheader154, !llvm.loop !151
 
 138:                                              ; preds = %.preheader154, %138
   %indvars.iv = phi i64 [ 0, %.preheader154 ], [ %indvars.iv.next, %138 ]
@@ -701,7 +701,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   store i16 %141, ptr %gep188, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %137, label %138, !llvm.loop !151
+  br i1 %exitcond.not, label %137, label %138, !llvm.loop !152
 
 .split.us:                                        ; preds = %114
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
@@ -852,61 +852,62 @@ attributes #6 = { nounwind }
 !91 = !{!92, !92, i64 0}
 !92 = !{!"p1 _ZTS26AVMasteringDisplayMetadata", !7, i64 0}
 !93 = !{!34, !34, i64 0}
-!94 = distinct !{!94, !95}
+!94 = distinct !{!94, !95, !96}
 !95 = !{!"llvm.loop.mustprogress"}
-!96 = !{!97, !34, i64 12}
-!97 = !{!"APVRawMetadataMDCV", !8, i64 0, !8, i64 6, !34, i64 12, !34, i64 14, !10, i64 16, !10, i64 20}
-!98 = !{!97, !34, i64 14}
-!99 = !{!97, !10, i64 16}
-!100 = !{!97, !10, i64 20}
-!101 = !{!102, !10, i64 80}
-!102 = !{!"AVMasteringDisplayMetadata", !8, i64 0, !8, i64 48, !15, i64 64, !15, i64 72, !10, i64 80, !10, i64 84}
-!103 = !{!102, !10, i64 84}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"p1 _ZTS22AVContentLightMetadata", !7, i64 0}
-!106 = !{!107, !34, i64 0}
-!107 = !{!"APVRawMetadataCLL", !34, i64 0, !34, i64 2}
-!108 = !{!109, !10, i64 0}
-!109 = !{!"AVContentLightMetadata", !10, i64 0, !10, i64 4}
-!110 = !{!107, !34, i64 2}
-!111 = !{!109, !10, i64 4}
-!112 = distinct !{!112, !95}
-!113 = !{!5, !12, i64 40}
-!114 = !{!115, !10, i64 0}
-!115 = !{!"AVCodecInternal", !10, i64 0, !10, i64 4, !10, i64 8, !116, i64 16, !117, i64 24, !7, i64 32, !118, i64 40, !119, i64 48, !118, i64 56, !14, i64 64, !10, i64 72, !7, i64 80, !35, i64 88, !35, i64 96, !10, i64 104, !10, i64 108, !7, i64 112, !10, i64 120, !118, i64 128, !35, i64 136, !10, i64 144, !10, i64 148}
-!116 = !{!"p1 _ZTS9FramePool", !7, i64 0}
-!117 = !{!"p1 _ZTS15AVRefStructPool", !7, i64 0}
-!118 = !{!"p1 _ZTS8AVPacket", !7, i64 0}
-!119 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!120 = !{!28, !8, i64 164}
-!121 = !{!28, !8, i64 165}
-!122 = distinct !{!122, !95}
-!123 = !{!124, !10, i64 32}
-!124 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!125 = !{!126, !8, i64 9}
-!126 = !{!"AVPixFmtDescriptor", !14, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !13, i64 16, !8, i64 24, !14, i64 104}
-!127 = !{!126, !8, i64 10}
-!128 = !{!33, !8, i64 0}
-!129 = !{!130, !7, i64 0}
-!130 = !{!"APVEntropyState", !7, i64 0, !131, i64 8, !34, i64 16, !8, i64 18, !8, i64 19}
-!131 = !{!"p1 _ZTS9APVVLCLUT", !7, i64 0}
-!132 = !{!130, !131, i64 8}
-!133 = !{!130, !34, i64 16}
-!134 = !{!130, !8, i64 18}
-!135 = !{!130, !8, i64 19}
-!136 = !{!14, !14, i64 0}
-!137 = !{!138, !14, i64 0}
-!138 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!139 = !{!138, !10, i64 20}
-!140 = !{!138, !10, i64 24}
-!141 = !{!138, !14, i64 8}
-!142 = !{!138, !10, i64 16}
-!143 = !{!77, !10, i64 0}
-!144 = distinct !{!144, !95, !145}
-!145 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!146 = distinct !{!146, !95, !145}
-!147 = !{!28, !7, i64 8}
-!148 = distinct !{!148, !95}
-!149 = distinct !{!149, !95, !145}
-!150 = distinct !{!150, !95}
-!151 = distinct !{!151, !95}
+!96 = !{!"llvm.loop.estimated_trip_count"}
+!97 = !{!98, !34, i64 12}
+!98 = !{!"APVRawMetadataMDCV", !8, i64 0, !8, i64 6, !34, i64 12, !34, i64 14, !10, i64 16, !10, i64 20}
+!99 = !{!98, !34, i64 14}
+!100 = !{!98, !10, i64 16}
+!101 = !{!98, !10, i64 20}
+!102 = !{!103, !10, i64 80}
+!103 = !{!"AVMasteringDisplayMetadata", !8, i64 0, !8, i64 48, !15, i64 64, !15, i64 72, !10, i64 80, !10, i64 84}
+!104 = !{!103, !10, i64 84}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS22AVContentLightMetadata", !7, i64 0}
+!107 = !{!108, !34, i64 0}
+!108 = !{!"APVRawMetadataCLL", !34, i64 0, !34, i64 2}
+!109 = !{!110, !10, i64 0}
+!110 = !{!"AVContentLightMetadata", !10, i64 0, !10, i64 4}
+!111 = !{!108, !34, i64 2}
+!112 = !{!110, !10, i64 4}
+!113 = distinct !{!113, !95, !96}
+!114 = !{!5, !12, i64 40}
+!115 = !{!116, !10, i64 0}
+!116 = !{!"AVCodecInternal", !10, i64 0, !10, i64 4, !10, i64 8, !117, i64 16, !118, i64 24, !7, i64 32, !119, i64 40, !120, i64 48, !119, i64 56, !14, i64 64, !10, i64 72, !7, i64 80, !35, i64 88, !35, i64 96, !10, i64 104, !10, i64 108, !7, i64 112, !10, i64 120, !119, i64 128, !35, i64 136, !10, i64 144, !10, i64 148}
+!117 = !{!"p1 _ZTS9FramePool", !7, i64 0}
+!118 = !{!"p1 _ZTS15AVRefStructPool", !7, i64 0}
+!119 = !{!"p1 _ZTS8AVPacket", !7, i64 0}
+!120 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!121 = !{!28, !8, i64 164}
+!122 = !{!28, !8, i64 165}
+!123 = distinct !{!123, !95, !96}
+!124 = !{!125, !10, i64 32}
+!125 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!126 = !{!127, !8, i64 9}
+!127 = !{!"AVPixFmtDescriptor", !14, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !13, i64 16, !8, i64 24, !14, i64 104}
+!128 = !{!127, !8, i64 10}
+!129 = !{!33, !8, i64 0}
+!130 = !{!131, !7, i64 0}
+!131 = !{!"APVEntropyState", !7, i64 0, !132, i64 8, !34, i64 16, !8, i64 18, !8, i64 19}
+!132 = !{!"p1 _ZTS9APVVLCLUT", !7, i64 0}
+!133 = !{!131, !132, i64 8}
+!134 = !{!131, !34, i64 16}
+!135 = !{!131, !8, i64 18}
+!136 = !{!131, !8, i64 19}
+!137 = !{!14, !14, i64 0}
+!138 = !{!139, !14, i64 0}
+!139 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
+!140 = !{!139, !10, i64 20}
+!141 = !{!139, !10, i64 24}
+!142 = !{!139, !14, i64 8}
+!143 = !{!139, !10, i64 16}
+!144 = !{!77, !10, i64 0}
+!145 = distinct !{!145, !95, !96, !146}
+!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!147 = distinct !{!147, !95, !96, !146}
+!148 = !{!28, !7, i64 8}
+!149 = distinct !{!149, !95, !96}
+!150 = distinct !{!150, !95, !96, !146}
+!151 = distinct !{!151, !95, !96}
+!152 = distinct !{!152, !95, !96}

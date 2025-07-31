@@ -473,7 +473,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
   %136 = load i32, ptr %84, align 8, !tbaa !33
   %137 = tail call i32 @llvm.umax.i32(i32 %136, i32 8)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %139 = load i32, ptr %138, align 4, !tbaa !38
+  %139 = load i32, ptr %138, align 4, !tbaa !39
   %140 = load i32, ptr %85, align 4, !tbaa !34
   %141 = load ptr, ptr %90, align 8, !tbaa !28
   %142 = zext i32 %137 to i64
@@ -489,7 +489,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
 
 .loopexit.i:                                      ; preds = %155, %148
   %exitcond.not.i = icmp eq i64 %150, %135
-  br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL26FASTCOVER_computeFrequencyEPjPKNS_15FASTCOVER_ctx_tE.exit, label %148, !llvm.loop !39
+  br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL26FASTCOVER_computeFrequencyEPjPKNS_15FASTCOVER_ctx_tE.exit, label %148, !llvm.loop !40
 
 148:                                              ; preds = %.loopexit.i, %.lr.ph26.i
   %149 = phi i64 [ %.pre.i, %.lr.ph26.i ], [ %152, %.loopexit.i ]
@@ -518,7 +518,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
   %162 = add i64 %.02224.i, %147
   %.reass.i = add i64 %invariant.op.i, %.02224.i
   %.not.i = icmp ugt i64 %.reass.i, %152
-  br i1 %.not.i, label %.loopexit.i, label %155, !llvm.loop !40
+  br i1 %.not.i, label %.loopexit.i, label %155, !llvm.loop !41
 
 _ZN11duckdb_zstdL26FASTCOVER_computeFrequencyEPjPKNS_15FASTCOVER_ctx_tE.exit: ; preds = %.loopexit.i, %129, %51, %54, %41, %44, %29, %32, %124, %100
   %.074 = phi i64 [ -64, %100 ], [ -64, %124 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %129 ], [ 0, %.loopexit.i ]
@@ -539,7 +539,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = trunc i64 %9 to i32
-  %11 = load i32, ptr %4, align 8, !tbaa !41
+  %11 = load i32, ptr %4, align 8, !tbaa !42
   %12 = tail call i64 @_ZN11duckdb_zstd19COVER_computeEpochsEjjjj(i32 noundef %7, i32 noundef %10, i32 noundef %11, i32 noundef 1)
   %.sroa.5.0.extract.shift = lshr i64 %12, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -623,7 +623,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %46 = mul i64 %.val.i.i, %..i.i
   %47 = lshr i64 %46, %36
   %48 = getelementptr inbounds nuw i16, ptr %5, i64 %47
-  %49 = load i16, ptr %48, align 2, !tbaa !43
+  %49 = load i16, ptr %48, align 2, !tbaa !44
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %51, label %55
 
@@ -638,7 +638,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %56 = add i16 %49, 1
-  store i16 %56, ptr %48, align 2, !tbaa !43
+  store i16 %56, ptr %48, align 2, !tbaa !44
   %57 = sub i32 %indvars.i, %.sroa.011.02.i
   %58 = icmp eq i32 %57, %24
   br i1 %58, label %59, label %74
@@ -650,9 +650,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %62 = mul i64 %.val.i54.i, %..i.i
   %63 = lshr i64 %62, %36
   %64 = getelementptr inbounds nuw i16, ptr %5, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !43
+  %65 = load i16, ptr %64, align 2, !tbaa !44
   %66 = add i16 %65, -1
-  store i16 %66, ptr %64, align 2, !tbaa !43
+  store i16 %66, ptr %64, align 2, !tbaa !44
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %68, label %72
 
@@ -675,7 +675,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %.sroa.049.sroa.4.1.i = select i1 %75, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
   %.sroa.049.sroa.0.1.i = select i1 %75, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i.loopexit, label %44, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.preheader1.i.loopexit, label %44, !llvm.loop !46
 
 .preheader.i:                                     ; preds = %79, %.preheader1.i
   %.not13.i = icmp eq i32 %.sroa.049.sroa.0.0.lcssa.i, %.sroa.049.sroa.4.0.lcssa.i
@@ -694,12 +694,12 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %81 = mul i64 %.val.i56.i, %..i.i
   %82 = lshr i64 %81, %42
   %83 = getelementptr inbounds nuw i16, ptr %5, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !43
+  %84 = load i16, ptr %83, align 2, !tbaa !44
   %85 = add i16 %84, -1
-  store i16 %85, ptr %83, align 2, !tbaa !43
+  store i16 %85, ptr %83, align 2, !tbaa !44
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count21.i
-  br i1 %exitcond22.not.i, label %.preheader.i, label %79, !llvm.loop !46
+  br i1 %exitcond22.not.i, label %.preheader.i, label %79, !llvm.loop !47
 
 86:                                               ; preds = %86, %.lr.ph15.i
   %.014.i = phi i32 [ %.sroa.049.sroa.0.0.lcssa.i, %.lr.ph15.i ], [ %92, %86 ]
@@ -712,7 +712,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   store i32 0, ptr %91, align 4, !tbaa !10
   %92 = add i32 %.014.i, 1
   %.not.i = icmp eq i32 %92, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not.i, label %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit, label %86, !llvm.loop !47
+  br i1 %.not.i, label %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit, label %86, !llvm.loop !48
 
 _ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit: ; preds = %86, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
@@ -770,7 +770,7 @@ _ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT
   %125 = add nsw i64 %.04363, 1
   %126 = urem i64 %125, %27
   %.not = icmp eq i64 %.255, 0
-  br i1 %.not, label %.thread56, label %28, !llvm.loop !48
+  br i1 %.not, label %.thread56, label %28, !llvm.loop !49
 
 .thread56:                                        ; preds = %.thread, %122, %93, %20
   %.040.lcssa = phi i64 [ 0, %20 ], [ %.04065, %93 ], [ %.04065, %122 ], [ 0, %.thread ]
@@ -801,22 +801,22 @@ define noundef i64 @_ZN11duckdb_zstd39ZDICT_optimizeTrainFromBuffer_fastCoverEPv
   %8 = alloca %"struct.duckdb_zstd::FASTCOVER_ctx_t", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.10.sroa.4)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !49
+  %10 = load i32, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = load double, ptr %11, align 8, !tbaa !50
+  %12 = load double, ptr %11, align 8, !tbaa !51
   %13 = fcmp ugt double %12, 0.000000e+00
   %14 = select i1 %13, double %12, double 7.500000e-01
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !51
+  %16 = load i32, ptr %15, align 4, !tbaa !52
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 6, i32 %16
   %19 = select i1 %17, i32 8, i32 %16
-  %20 = load i32, ptr %5, align 8, !tbaa !52
+  %20 = load i32, ptr %5, align 8, !tbaa !53
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i32 50, i32 %20
   %23 = select i1 %21, i32 2000, i32 %20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !53
+  %25 = load i32, ptr %24, align 4, !tbaa !54
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 40, i32 %25
   %28 = select i1 %21, i32 1950, i32 0
@@ -1036,11 +1036,11 @@ define noundef i64 @_ZN11duckdb_zstd39ZDICT_optimizeTrainFromBuffer_fastCoverEPv
   br label %185
 
 146:                                              ; preds = %138
-  store ptr %8, ptr %132, align 8, !tbaa !54
+  store ptr %8, ptr %132, align 8, !tbaa !55
   %147 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %7, ptr %147, align 8, !tbaa !57
+  store ptr %7, ptr %147, align 8, !tbaa !58
   %148 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store i64 %1, ptr %148, align 8, !tbaa !58
+  store i64 %1, ptr %148, align 8, !tbaa !59
   %149 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 28
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 32
@@ -1054,14 +1054,14 @@ define noundef i64 @_ZN11duckdb_zstd39ZDICT_optimizeTrainFromBuffer_fastCoverEPv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, i64 12, i1 false), !tbaa.struct !25
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 68
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 4
-  store i32 %.0136230, ptr %149, align 8, !tbaa !59
-  store i32 %.0135235, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !60
-  store double %14, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !61
-  store i32 %27, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !62
-  store i32 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !63
+  store i32 %.0136230, ptr %149, align 8, !tbaa !60
+  store i32 %.0135235, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !61
+  store double %14, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !62
+  store i32 %27, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !63
+  store i32 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !64
   %150 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
   %151 = getelementptr inbounds nuw i8, ptr %132, i64 60
-  store i32 %150, ptr %151, align 4, !tbaa !64
+  store i32 %150, ptr %151, align 4, !tbaa !65
   %152 = load i32, ptr %108, align 4, !tbaa !34
   %153 = icmp eq i32 %.0136230, 0
   %or.cond.i = or i1 %153, %130
@@ -1150,7 +1150,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit:
   %.3134.ph = phi i32 [ %.2133232, %166 ], [ %184, %183 ]
   %189 = add i32 %.0136230, %30
   %.not168 = icmp ugt i32 %189, %23
-  br i1 %.not168, label %._crit_edge, label %131, !llvm.loop !65
+  br i1 %.not168, label %._crit_edge, label %131, !llvm.loop !66
 
 .thread221:                                       ; preds = %185, %126
   %.3.ph = phi i64 [ %118, %126 ], [ -64, %185 ]
@@ -1168,7 +1168,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit:
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #12
   %192 = add i32 %.0135235, 2
   %.not164 = icmp ugt i32 %192, %19
-  br i1 %.not164, label %._crit_edge239, label %.lr.ph238.split, !llvm.loop !66
+  br i1 %.not164, label %._crit_edge239, label %.lr.ph238.split, !llvm.loop !67
 
 ._crit_edge239:                                   ; preds = %._crit_edge, %105
   br i1 %99, label %193, label %198
@@ -1182,7 +1182,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit:
 
 198:                                              ; preds = %193, %._crit_edge239
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %200 = load i64, ptr %199, align 8, !tbaa !67
+  %200 = load i64, ptr %199, align 8, !tbaa !68
   %201 = icmp ult i64 %200, -119
   br i1 %201, label %203, label %202
 
@@ -1193,7 +1193,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit:
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %205 = load i64, ptr %204, align 8, !tbaa !69
+  %205 = load i64, ptr %204, align 8, !tbaa !70
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.0202.0.copyload = load i32, ptr %206, align 8, !tbaa !10
   %.sroa.2203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -1206,19 +1206,19 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit:
   %.sroa.5206.0.copyload = load double, ptr %.sroa.5206.0..sroa_idx, align 8, !tbaa !24
   %.sroa.6207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.sroa.6207.0.copyload = load i32, ptr %.sroa.6207.0..sroa_idx, align 8, !tbaa !10
-  store i32 %.sroa.0202.0.copyload, ptr %5, align 8, !tbaa !52
-  store i32 %.sroa.2203.0.copyload, ptr %15, align 4, !tbaa !51
-  store i32 %.sroa.3204.0.copyload, ptr %24, align 4, !tbaa !53
-  store i32 %.sroa.4205.0.copyload, ptr %9, align 8, !tbaa !49
-  store double %.sroa.5206.0.copyload, ptr %11, align 8, !tbaa !50
+  store i32 %.sroa.0202.0.copyload, ptr %5, align 8, !tbaa !53
+  store i32 %.sroa.2203.0.copyload, ptr %15, align 4, !tbaa !52
+  store i32 %.sroa.3204.0.copyload, ptr %24, align 4, !tbaa !54
+  store i32 %.sroa.4205.0.copyload, ptr %9, align 8, !tbaa !50
+  store double %.sroa.5206.0.copyload, ptr %11, align 8, !tbaa !51
   store i32 %38, ptr %35, align 8, !tbaa !11
   store i32 %41, ptr %39, align 8, !tbaa !12
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %207, ptr noundef nonnull align 8 dereferenceable(12) %208, i64 12, i1 false)
-  store i32 %.sroa.6207.0.copyload, ptr %.sroa.9192.0..sroa_idx, align 4, !tbaa !70
+  store i32 %.sroa.6207.0.copyload, ptr %.sroa.9192.0..sroa_idx, align 4, !tbaa !71
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !71
+  %210 = load ptr, ptr %209, align 8, !tbaa !72
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %210, i64 %205, i1 false)
   call void @_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE(ptr noundef nonnull %7)
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0137)
@@ -1251,11 +1251,11 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
   %2 = alloca %"struct.duckdb_zstd::ZDICT_cover_params_t", align 8
   %3 = alloca %"struct.duckdb_zstd::COVER_dictSelection", align 8
   %4 = alloca %"struct.duckdb_zstd::COVER_dictSelection", align 8
-  %5 = load ptr, ptr %0, align 8, !tbaa !54
+  %5 = load ptr, ptr %0, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !58
+  %8 = load i64, ptr %7, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !34
   %11 = zext nneg i32 %10 to i64
@@ -1309,7 +1309,7 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !28
   call void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %4, ptr noundef nonnull %40, i64 noundef %8, i64 noundef %41, ptr noundef %42, ptr noundef %44, i32 noundef %39, i64 noundef %33, i64 noundef %46, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef %48, i64 noundef -1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %49 = call noundef i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsErrorENS_19COVER_dictSelectionE(ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
   %.not = icmp ne i32 %49, 0
@@ -1331,7 +1331,7 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
 57:                                               ; preds = %.sink.split, %28, %22
   call void @free(ptr noundef %14) #12
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !57
+  %59 = load ptr, ptr %58, align 8, !tbaa !58
   call void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE(ptr noundef %59, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
   call void @free(ptr noundef nonnull %0) #12
   call void @free(ptr noundef %13) #12
@@ -1428,41 +1428,42 @@ attributes #16 = { nounwind allocsize(0) }
 !33 = !{!17, !5, i64 64}
 !34 = !{!17, !5, i64 68}
 !35 = !{!20, !20, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!17, !5, i64 76}
-!39 = distinct !{!39, !37}
-!40 = distinct !{!40, !37}
-!41 = !{!42, !5, i64 0}
-!42 = !{!"_ZTSN11duckdb_zstd20ZDICT_cover_params_tE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !8, i64 16, !5, i64 24, !5, i64 28, !9, i64 32}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"short", !6, i64 0}
-!45 = distinct !{!45, !37}
-!46 = distinct !{!46, !37}
-!47 = distinct !{!47, !37}
-!48 = distinct !{!48, !37}
-!49 = !{!4, !5, i64 16}
-!50 = !{!4, !8, i64 24}
-!51 = !{!4, !5, i64 4}
-!52 = !{!4, !5, i64 0}
-!53 = !{!4, !5, i64 12}
-!54 = !{!55, !15, i64 0}
-!55 = !{!"_ZTSN11duckdb_zstd30FASTCOVER_tryParameters_data_sE", !15, i64 0, !56, i64 8, !20, i64 16, !42, i64 24}
-!56 = !{!"p1 _ZTSN11duckdb_zstd12COVER_best_sE", !15, i64 0}
-!57 = !{!55, !56, i64 8}
-!58 = !{!55, !20, i64 16}
-!59 = !{!55, !5, i64 24}
-!60 = !{!55, !5, i64 28}
-!61 = !{!55, !8, i64 40}
-!62 = !{!55, !5, i64 32}
-!63 = !{!55, !5, i64 48}
-!64 = !{!55, !5, i64 60}
-!65 = distinct !{!65, !37}
-!66 = distinct !{!66, !37}
-!67 = !{!68, !20, i64 80}
-!68 = !{!"_ZTSN11duckdb_zstd12COVER_best_sE", !5, i64 0, !5, i64 4, !20, i64 8, !15, i64 16, !20, i64 24, !42, i64 32, !20, i64 80}
-!69 = !{!68, !20, i64 24}
-!70 = !{!4, !5, i64 36}
-!71 = !{!68, !15, i64 16}
-!72 = !{i64 0, i64 8, !73, i64 8, i64 8, !35, i64 16, i64 8, !35}
-!73 = !{!18, !18, i64 0}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!17, !5, i64 76}
+!40 = distinct !{!40, !37, !38}
+!41 = distinct !{!41, !37, !38}
+!42 = !{!43, !5, i64 0}
+!43 = !{!"_ZTSN11duckdb_zstd20ZDICT_cover_params_tE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !8, i64 16, !5, i64 24, !5, i64 28, !9, i64 32}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"short", !6, i64 0}
+!46 = distinct !{!46, !37, !38}
+!47 = distinct !{!47, !37, !38}
+!48 = distinct !{!48, !37, !38}
+!49 = distinct !{!49, !37, !38}
+!50 = !{!4, !5, i64 16}
+!51 = !{!4, !8, i64 24}
+!52 = !{!4, !5, i64 4}
+!53 = !{!4, !5, i64 0}
+!54 = !{!4, !5, i64 12}
+!55 = !{!56, !15, i64 0}
+!56 = !{!"_ZTSN11duckdb_zstd30FASTCOVER_tryParameters_data_sE", !15, i64 0, !57, i64 8, !20, i64 16, !43, i64 24}
+!57 = !{!"p1 _ZTSN11duckdb_zstd12COVER_best_sE", !15, i64 0}
+!58 = !{!56, !57, i64 8}
+!59 = !{!56, !20, i64 16}
+!60 = !{!56, !5, i64 24}
+!61 = !{!56, !5, i64 28}
+!62 = !{!56, !8, i64 40}
+!63 = !{!56, !5, i64 32}
+!64 = !{!56, !5, i64 48}
+!65 = !{!56, !5, i64 60}
+!66 = distinct !{!66, !37, !38}
+!67 = distinct !{!67, !37, !38}
+!68 = !{!69, !20, i64 80}
+!69 = !{!"_ZTSN11duckdb_zstd12COVER_best_sE", !5, i64 0, !5, i64 4, !20, i64 8, !15, i64 16, !20, i64 24, !43, i64 32, !20, i64 80}
+!70 = !{!69, !20, i64 24}
+!71 = !{!4, !5, i64 36}
+!72 = !{!69, !15, i64 16}
+!73 = !{i64 0, i64 8, !74, i64 8, i64 8, !35, i64 16, i64 8, !35}
+!74 = !{!18, !18, i64 0}

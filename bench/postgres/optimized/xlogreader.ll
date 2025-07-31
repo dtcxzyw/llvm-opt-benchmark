@@ -275,7 +275,7 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr noundef captures(none) %0) l
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %.preheader, !prof !8
+  br i1 %17, label %18, label %.preheader, !prof !9
 
 .preheader:                                       ; preds = %14
   %.02328 = load ptr, ptr %7, align 8
@@ -291,13 +291,13 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr noundef captures(none) %0) l
   %19 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
   %20 = load i8, ptr %19, align 8, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %.critedge, !prof !8
+  br i1 %21, label %22, label %.critedge, !prof !9
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.02330, i64 16
   %.023 = load ptr, ptr %23, align 8
   %.not25 = icmp eq ptr %.023, null
-  br i1 %.not25, label %.critedge26, label %.lr.ph, !llvm.loop !9
+  br i1 %.not25, label %.critedge26, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -344,7 +344,7 @@ define dso_local ptr @XLogNextRecord(ptr noundef captures(none) %0, ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %.preheader.i, !prof !8
+  br i1 %16, label %17, label %.preheader.i, !prof !9
 
 .preheader.i:                                     ; preds = %13
   %.02328.i = load ptr, ptr %6, align 8
@@ -360,13 +360,13 @@ define dso_local ptr @XLogNextRecord(ptr noundef captures(none) %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 8
   %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %.critedge.i, !prof !8
+  br i1 %20, label %21, label %.critedge.i, !prof !9
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 16
   %.023.i = load ptr, ptr %22, align 8
   %.not25.i = icmp eq ptr %.023.i, null
-  br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -455,7 +455,7 @@ define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr noundef writeonly captu
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %.preheader.i, !prof !8
+  br i1 %16, label %17, label %.preheader.i, !prof !9
 
 .preheader.i:                                     ; preds = %13
   %.02328.i = load ptr, ptr %6, align 8
@@ -471,13 +471,13 @@ define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr noundef writeonly captu
   %18 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 8
   %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %.critedge.i, !prof !8
+  br i1 %20, label %21, label %.critedge.i, !prof !9
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 16
   %.023.i = load ptr, ptr %22, align 8
   %.not25.i = icmp eq ptr %.023.i, null
-  br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -532,7 +532,7 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %XLogReleasePrevious
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %.preheader.i.i, !prof !8
+  br i1 %46, label %47, label %.preheader.i.i, !prof !9
 
 .preheader.i.i:                                   ; preds = %43
   %.02328.i.i = load ptr, ptr %37, align 8
@@ -548,13 +548,13 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %XLogReleasePrevious
   %48 = getelementptr inbounds nuw i8, ptr %.02330.i.i, i64 8
   %49 = load i8, ptr %48, align 8, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %.critedge.i.i, !prof !8
+  br i1 %50, label %51, label %.critedge.i.i, !prof !9
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i.i, i64 16
   %.023.i.i = load ptr, ptr %52, align 8
   %.not25.i.i = icmp eq ptr %.023.i.i, null
-  br i1 %.not25.i.i, label %.critedge26.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not25.i.i, label %.critedge26.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -746,7 +746,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   %78 = add nuw nsw i64 %77, 2445
   %79 = load ptr, ptr %28, align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %87, !prof !8
+  br i1 %80, label %81, label %87, !prof !9
 
 81:                                               ; preds = %76
   %82 = load i64, ptr %29, align 8
@@ -957,7 +957,7 @@ allocate_recordbuf.exit.i:                        ; preds = %183, %180
 187:                                              ; preds = %allocate_recordbuf.exit.i, %177
   %.1213.i = phi ptr [ %186, %allocate_recordbuf.exit.i ], [ %171, %177 ]
   %188 = icmp ult i32 %172, %65
-  br i1 %188, label %122, label %189, !llvm.loop !10
+  br i1 %188, label %122, label %189, !llvm.loop !11
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr %31, align 8
@@ -1086,7 +1086,7 @@ ValidXLogRecord.exit265.i:                        ; preds = %231
 270:                                              ; preds = %269
   %271 = load ptr, ptr %28, align 8
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %273, label %279, !prof !8
+  br i1 %272, label %273, label %279, !prof !9
 
 273:                                              ; preds = %270
   %274 = load i64, ptr %29, align 8
@@ -1587,7 +1587,7 @@ XLogBeginRead.exit:                               ; preds = %52, %42
 68:                                               ; preds = %66
   %69 = load i64, ptr %64, align 8
   %.not42 = icmp ugt i64 %1, %69
-  br i1 %.not42, label %66, label %70, !llvm.loop !11
+  br i1 %.not42, label %66, label %70, !llvm.loop !12
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %43, align 8
@@ -1856,7 +1856,7 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr noundef capture
   %56 = sub i64 %.05571, %54
   %57 = getelementptr inbounds nuw i8, ptr %.05074, i64 %54
   %.not = icmp eq i64 %56, 0
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !13
 
 .loopexit:                                        ; preds = %53, %6, %.thread60
   %.not66 = phi i1 [ false, %.thread60 ], [ true, %6 ], [ true, %53 ]
@@ -1989,7 +1989,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 51:                                               ; preds = %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2282,7 +2282,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %.8252 = phi i32 [ %38, %35 ], [ %44, %41 ], [ %200, %196 ]
   %.8 = phi ptr [ %37, %35 ], [ %43, %41 ], [ %199, %196 ]
   %209 = icmp ugt i32 %.8252, %.6259
-  br i1 %209, label %.lr.ph434, label %.loopexit, !llvm.loop !14
+  br i1 %209, label %.lr.ph434, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %207, %.thread306, %.thread
   %210 = phi i32 [ %26, %.thread ], [ %.0.copyload69, %.thread306 ], [ 0, %207 ]
@@ -2363,7 +2363,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %254 = zext i8 %253 to i32
   %255 = load i32, ptr %13, align 4
   %.not299 = icmp slt i32 %255, %254
-  br i1 %.not299, label %._crit_edge443.loopexit, label %.lr.ph442, !llvm.loop !15
+  br i1 %.not299, label %._crit_edge443.loopexit, label %.lr.ph442, !llvm.loop !16
 
 ._crit_edge443.loopexit:                          ; preds = %252
   %.pre = load i32, ptr %12, align 8
@@ -2903,13 +2903,14 @@ attributes #17 = { cold noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

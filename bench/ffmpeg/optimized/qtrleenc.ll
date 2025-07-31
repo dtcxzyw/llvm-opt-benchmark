@@ -286,7 +286,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %81 = getelementptr inbounds i8, ptr %76, i64 %80
   %bcmp46.i = tail call i32 @bcmp(ptr %74, ptr %81, i64 %.pre-phi.i)
   %.not47.i = icmp eq i32 %bcmp46.i, 0
-  br i1 %.not47.i, label %66, label %82, !llvm.loop !52
+  br i1 %.not47.i, label %66, label %82, !llvm.loop !53
 
 82:                                               ; preds = %68, %66
   %.144.lcssa.i = phi i32 [ %smin.i, %66 ], [ %.144.i, %68 ]
@@ -560,7 +560,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %222 = add nsw i32 %220, %.3170.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %223 = icmp sgt i64 %indvars.iv.i.i, 0
-  br i1 %223, label %157, label %._crit_edge.loopexit.i.i, !llvm.loop !53
+  br i1 %223, label %157, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %217
   %.pre227.i.i = load ptr, ptr %2, align 8, !tbaa !43
@@ -658,7 +658,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %280 = mul nsw i32 %279, %247
   %281 = sext i32 %280 to i64
   %282 = icmp slt i64 %indvars.iv.next225.i.i, %281
-  br i1 %282, label %.lr.ph213.i.i, label %.loopexit.i.i, !llvm.loop !54
+  br i1 %282, label %.lr.ph213.i.i, label %.loopexit.i.i, !llvm.loop !55
 
 283:                                              ; preds = %268
   %284 = mul nsw i32 %267, %.2214.i.i
@@ -698,7 +698,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %301 = load i32, ptr %121, align 8, !tbaa !35
   %302 = sext i32 %301 to i64
   %303 = icmp slt i64 %indvars.iv.next222.i.i, %302
-  br i1 %303, label %.lr.ph211.i.i, label %.loopexit199.i.i, !llvm.loop !55
+  br i1 %303, label %.lr.ph211.i.i, label %.loopexit199.i.i, !llvm.loop !56
 
 304:                                              ; preds = %291
   %305 = mul nsw i32 %267, %.2214.i.i
@@ -718,7 +718,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %312 = phi ptr [ %255, %250 ], [ %.7.i, %.loopexit.i.i ], [ %.4.i, %.loopexit199.i.i ]
   %.3.i.i = phi i32 [ %260, %250 ], [ %290, %.loopexit.i.i ], [ %310, %.loopexit199.i.i ]
   %313 = icmp slt i32 %.3.i.i, %127
-  br i1 %313, label %.lr.ph218.i.i, label %qtrle_encode_line.exit.i, !llvm.loop !56
+  br i1 %313, label %.lr.ph218.i.i, label %qtrle_encode_line.exit.i, !llvm.loop !57
 
 qtrle_encode_line.exit.i:                         ; preds = %311, %240
   %.9.i = phi ptr [ %.2.i, %240 ], [ %312, %311 ]
@@ -726,7 +726,7 @@ qtrle_encode_line.exit.i:                         ; preds = %311, %240
   %314 = getelementptr inbounds nuw i8, ptr %.9.i, i64 1
   %315 = add nuw nsw i32 %.094.i, 1
   %exitcond103.not.i = icmp eq i32 %315, %.04381.i
-  br i1 %exitcond103.not.i, label %encode_frame.exit, label %126, !llvm.loop !57
+  br i1 %exitcond103.not.i, label %encode_frame.exit, label %126, !llvm.loop !58
 
 encode_frame.exit:                                ; preds = %qtrle_encode_line.exit.i, %115
   %.177.lcssa.i = phi ptr [ %.076.i, %115 ], [ %314, %qtrle_encode_line.exit.i ]
@@ -739,7 +739,7 @@ encode_frame.exit:                                ; preds = %qtrle_encode_line.e
   %321 = tail call i32 @llvm.bswap.i32(i32 %320)
   store i32 %321, ptr %117, align 1, !tbaa !48
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %320, ptr %322, align 8, !tbaa !58
+  store i32 %320, ptr %322, align 8, !tbaa !59
   %323 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %324 = load ptr, ptr %323, align 8, !tbaa !40
   %325 = tail call i32 @av_frame_replace(ptr noundef %324, ptr noundef %2) #6
@@ -757,9 +757,9 @@ encode_frame.exit:                                ; preds = %qtrle_encode_line.e
 
 330:                                              ; preds = %328
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %332 = load i32, ptr %331, align 8, !tbaa !59
+  %332 = load i32, ptr %331, align 8, !tbaa !60
   %333 = or i32 %332, 1
-  store i32 %333, ptr %331, align 8, !tbaa !59
+  store i32 %333, ptr %331, align 8, !tbaa !60
   br label %334
 
 334:                                              ; preds = %330, %328
@@ -885,13 +885,14 @@ attributes #6 = { nounwind }
 !47 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !48 = !{!8, !8, i64 0}
 !49 = !{!10, !10, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51}
-!53 = distinct !{!53, !51}
-!54 = distinct !{!54, !51}
-!55 = distinct !{!55, !51}
-!56 = distinct !{!56, !51}
-!57 = distinct !{!57, !51}
-!58 = !{!47, !10, i64 32}
-!59 = !{!47, !10, i64 40}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !51, !52}
+!54 = distinct !{!54, !51, !52}
+!55 = distinct !{!55, !51, !52}
+!56 = distinct !{!56, !51, !52}
+!57 = distinct !{!57, !51, !52}
+!58 = distinct !{!58, !51, !52}
+!59 = !{!47, !10, i64 32}
+!60 = !{!47, !10, i64 40}

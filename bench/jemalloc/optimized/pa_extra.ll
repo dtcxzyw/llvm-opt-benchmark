@@ -423,25 +423,25 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %3
 
 9:                                                ; preds = %8, %malloc_mutex_trylock_final.exit.i.i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 68248
-  %11 = load i64, ptr %10, align 8, !tbaa !70
+  %11 = load i64, ptr %10, align 8, !tbaa !71
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !70
+  store i64 %12, ptr %10, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 68240
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %14, %0
   br i1 %.not.i.i.i, label %pa_shard_mtx_stats_read_single.exit, label %15
 
 15:                                               ; preds = %9
-  store ptr %0, ptr %13, align 8, !tbaa !74
+  store ptr %0, ptr %13, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 68232
-  %17 = load i64, ptr %16, align 8, !tbaa !75
+  %17 = load i64, ptr %16, align 8, !tbaa !76
   %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8, !tbaa !75
+  store i64 %18, ptr %16, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit
 
 pa_shard_mtx_stats_read_single.exit:              ; preds = %9, %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull readonly align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull readonly align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !77
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store atomic i32 0, ptr %20 monotonic, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 68256
@@ -464,25 +464,25 @@ malloc_mutex_trylock_final.exit.i.i30:            ; preds = %pa_shard_mtx_stats_
 
 28:                                               ; preds = %27, %malloc_mutex_trylock_final.exit.i.i30
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %30 = load i64, ptr %29, align 8, !tbaa !70
+  %30 = load i64, ptr %29, align 8, !tbaa !71
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !70
+  store i64 %31, ptr %29, align 8, !tbaa !71
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %33 = load ptr, ptr %32, align 8, !tbaa !74
+  %33 = load ptr, ptr %32, align 8, !tbaa !75
   %.not.i.i.i29 = icmp eq ptr %33, %0
   br i1 %.not.i.i.i29, label %pa_shard_mtx_stats_read_single.exit31, label %34
 
 34:                                               ; preds = %28
-  store ptr %0, ptr %32, align 8, !tbaa !74
+  store ptr %0, ptr %32, align 8, !tbaa !75
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %36 = load i64, ptr %35, align 8, !tbaa !75
+  %36 = load i64, ptr %35, align 8, !tbaa !76
   %37 = add i64 %36, 1
-  store i64 %37, ptr %35, align 8, !tbaa !75
+  store i64 %37, ptr %35, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit31
 
 pa_shard_mtx_stats_read_single.exit31:            ; preds = %28, %34
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false), !tbaa.struct !77
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store atomic i32 0, ptr %39 monotonic, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -505,25 +505,25 @@ malloc_mutex_trylock_final.exit.i.i34:            ; preds = %pa_shard_mtx_stats_
 
 47:                                               ; preds = %46, %malloc_mutex_trylock_final.exit.i.i34
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 19576
-  %49 = load i64, ptr %48, align 8, !tbaa !70
+  %49 = load i64, ptr %48, align 8, !tbaa !71
   %50 = add i64 %49, 1
-  store i64 %50, ptr %48, align 8, !tbaa !70
+  store i64 %50, ptr %48, align 8, !tbaa !71
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 19568
-  %52 = load ptr, ptr %51, align 8, !tbaa !74
+  %52 = load ptr, ptr %51, align 8, !tbaa !75
   %.not.i.i.i33 = icmp eq ptr %52, %0
   br i1 %.not.i.i.i33, label %pa_shard_mtx_stats_read_single.exit35, label %53
 
 53:                                               ; preds = %47
-  store ptr %0, ptr %51, align 8, !tbaa !74
+  store ptr %0, ptr %51, align 8, !tbaa !75
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 19560
-  %55 = load i64, ptr %54, align 8, !tbaa !75
+  %55 = load i64, ptr %54, align 8, !tbaa !76
   %56 = add i64 %55, 1
-  store i64 %56, ptr %54, align 8, !tbaa !75
+  store i64 %56, ptr %54, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit35
 
 pa_shard_mtx_stats_read_single.exit35:            ; preds = %47, %53
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull readonly align 8 dereferenceable(64) %42, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull readonly align 8 dereferenceable(64) %42, i64 64, i1 false), !tbaa.struct !77
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 228
   store atomic i32 0, ptr %58 monotonic, align 4
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 19584
@@ -546,25 +546,25 @@ malloc_mutex_trylock_final.exit.i.i38:            ; preds = %pa_shard_mtx_stats_
 
 66:                                               ; preds = %65, %malloc_mutex_trylock_final.exit.i.i38
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 39016
-  %68 = load i64, ptr %67, align 8, !tbaa !70
+  %68 = load i64, ptr %67, align 8, !tbaa !71
   %69 = add i64 %68, 1
-  store i64 %69, ptr %67, align 8, !tbaa !70
+  store i64 %69, ptr %67, align 8, !tbaa !71
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 39008
-  %71 = load ptr, ptr %70, align 8, !tbaa !74
+  %71 = load ptr, ptr %70, align 8, !tbaa !75
   %.not.i.i.i37 = icmp eq ptr %71, %0
   br i1 %.not.i.i.i37, label %pa_shard_mtx_stats_read_single.exit39, label %72
 
 72:                                               ; preds = %66
-  store ptr %0, ptr %70, align 8, !tbaa !74
+  store ptr %0, ptr %70, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 39000
-  %74 = load i64, ptr %73, align 8, !tbaa !75
+  %74 = load i64, ptr %73, align 8, !tbaa !76
   %75 = add i64 %74, 1
-  store i64 %75, ptr %73, align 8, !tbaa !75
+  store i64 %75, ptr %73, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit39
 
 pa_shard_mtx_stats_read_single.exit39:            ; preds = %66, %72
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull readonly align 8 dereferenceable(64) %61, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull readonly align 8 dereferenceable(64) %61, i64 64, i1 false), !tbaa.struct !77
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 292
   store atomic i32 0, ptr %77 monotonic, align 4
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 39024
@@ -587,25 +587,25 @@ malloc_mutex_trylock_final.exit.i.i42:            ; preds = %pa_shard_mtx_stats_
 
 85:                                               ; preds = %84, %malloc_mutex_trylock_final.exit.i.i42
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 58728
-  %87 = load i64, ptr %86, align 8, !tbaa !70
+  %87 = load i64, ptr %86, align 8, !tbaa !71
   %88 = add i64 %87, 1
-  store i64 %88, ptr %86, align 8, !tbaa !70
+  store i64 %88, ptr %86, align 8, !tbaa !71
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 58720
-  %90 = load ptr, ptr %89, align 8, !tbaa !74
+  %90 = load ptr, ptr %89, align 8, !tbaa !75
   %.not.i.i.i41 = icmp eq ptr %90, %0
   br i1 %.not.i.i.i41, label %pa_shard_mtx_stats_read_single.exit43, label %91
 
 91:                                               ; preds = %85
-  store ptr %0, ptr %89, align 8, !tbaa !74
+  store ptr %0, ptr %89, align 8, !tbaa !75
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 58712
-  %93 = load i64, ptr %92, align 8, !tbaa !75
+  %93 = load i64, ptr %92, align 8, !tbaa !76
   %94 = add i64 %93, 1
-  store i64 %94, ptr %92, align 8, !tbaa !75
+  store i64 %94, ptr %92, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit43
 
 pa_shard_mtx_stats_read_single.exit43:            ; preds = %85, %91
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull readonly align 8 dereferenceable(64) %80, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull readonly align 8 dereferenceable(64) %80, i64 64, i1 false), !tbaa.struct !77
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 356
   store atomic i32 0, ptr %96 monotonic, align 4
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 58736
@@ -628,25 +628,25 @@ malloc_mutex_trylock_final.exit.i.i46:            ; preds = %pa_shard_mtx_stats_
 
 104:                                              ; preds = %103, %malloc_mutex_trylock_final.exit.i.i46
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 60512
-  %106 = load i64, ptr %105, align 8, !tbaa !70
+  %106 = load i64, ptr %105, align 8, !tbaa !71
   %107 = add i64 %106, 1
-  store i64 %107, ptr %105, align 8, !tbaa !70
+  store i64 %107, ptr %105, align 8, !tbaa !71
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 60504
-  %109 = load ptr, ptr %108, align 8, !tbaa !74
+  %109 = load ptr, ptr %108, align 8, !tbaa !75
   %.not.i.i.i45 = icmp eq ptr %109, %0
   br i1 %.not.i.i.i45, label %pa_shard_mtx_stats_read_single.exit47, label %110
 
 110:                                              ; preds = %104
-  store ptr %0, ptr %108, align 8, !tbaa !74
+  store ptr %0, ptr %108, align 8, !tbaa !75
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 60496
-  %112 = load i64, ptr %111, align 8, !tbaa !75
+  %112 = load i64, ptr %111, align 8, !tbaa !76
   %113 = add i64 %112, 1
-  store i64 %113, ptr %111, align 8, !tbaa !75
+  store i64 %113, ptr %111, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit47
 
 pa_shard_mtx_stats_read_single.exit47:            ; preds = %104, %110
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull readonly align 8 dereferenceable(64) %99, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull readonly align 8 dereferenceable(64) %99, i64 64, i1 false), !tbaa.struct !77
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 420
   store atomic i32 0, ptr %115 monotonic, align 4
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 60520
@@ -675,25 +675,25 @@ malloc_mutex_trylock_final.exit.i.i50:            ; preds = %121
 
 127:                                              ; preds = %126, %malloc_mutex_trylock_final.exit.i.i50
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 62504
-  %129 = load i64, ptr %128, align 8, !tbaa !70
+  %129 = load i64, ptr %128, align 8, !tbaa !71
   %130 = add i64 %129, 1
-  store i64 %130, ptr %128, align 8, !tbaa !70
+  store i64 %130, ptr %128, align 8, !tbaa !71
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 62496
-  %132 = load ptr, ptr %131, align 8, !tbaa !74
+  %132 = load ptr, ptr %131, align 8, !tbaa !75
   %.not.i.i.i49 = icmp eq ptr %132, %0
   br i1 %.not.i.i.i49, label %pa_shard_mtx_stats_read_single.exit51, label %133
 
 133:                                              ; preds = %127
-  store ptr %0, ptr %131, align 8, !tbaa !74
+  store ptr %0, ptr %131, align 8, !tbaa !75
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 62488
-  %135 = load i64, ptr %134, align 8, !tbaa !75
+  %135 = load i64, ptr %134, align 8, !tbaa !76
   %136 = add i64 %135, 1
-  store i64 %136, ptr %134, align 8, !tbaa !75
+  store i64 %136, ptr %134, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit51
 
 pa_shard_mtx_stats_read_single.exit51:            ; preds = %127, %133
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef nonnull readonly align 8 dereferenceable(64) %122, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef nonnull readonly align 8 dereferenceable(64) %122, i64 64, i1 false), !tbaa.struct !77
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 612
   store atomic i32 0, ptr %138 monotonic, align 4
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 62512
@@ -716,25 +716,25 @@ malloc_mutex_trylock_final.exit.i.i54:            ; preds = %pa_shard_mtx_stats_
 
 146:                                              ; preds = %145, %malloc_mutex_trylock_final.exit.i.i54
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 62616
-  %148 = load i64, ptr %147, align 8, !tbaa !70
+  %148 = load i64, ptr %147, align 8, !tbaa !71
   %149 = add i64 %148, 1
-  store i64 %149, ptr %147, align 8, !tbaa !70
+  store i64 %149, ptr %147, align 8, !tbaa !71
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 62608
-  %151 = load ptr, ptr %150, align 8, !tbaa !74
+  %151 = load ptr, ptr %150, align 8, !tbaa !75
   %.not.i.i.i53 = icmp eq ptr %151, %0
   br i1 %.not.i.i.i53, label %pa_shard_mtx_stats_read_single.exit55, label %152
 
 152:                                              ; preds = %146
-  store ptr %0, ptr %150, align 8, !tbaa !74
+  store ptr %0, ptr %150, align 8, !tbaa !75
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 62600
-  %154 = load i64, ptr %153, align 8, !tbaa !75
+  %154 = load i64, ptr %153, align 8, !tbaa !76
   %155 = add i64 %154, 1
-  store i64 %155, ptr %153, align 8, !tbaa !75
+  store i64 %155, ptr %153, align 8, !tbaa !76
   br label %pa_shard_mtx_stats_read_single.exit55
 
 pa_shard_mtx_stats_read_single.exit55:            ; preds = %146, %152
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %156, ptr noundef nonnull readonly align 8 dereferenceable(64) %141, i64 64, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %156, ptr noundef nonnull readonly align 8 dereferenceable(64) %141, i64 64, i1 false), !tbaa.struct !77
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 676
   store atomic i32 0, ptr %157 monotonic, align 4
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 62624
@@ -845,14 +845,15 @@ attributes #5 = { nounwind }
 !65 = !{!62, !11, i64 8}
 !66 = !{!62, !11, i64 24}
 !67 = !{!62, !11, i64 40}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!71, !11, i64 56}
-!71 = !{!"", !10, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !22, i64 32, !72, i64 36, !11, i64 40, !73, i64 48, !11, i64 56}
-!72 = !{!"", !22, i64 0}
-!73 = !{!"p1 _ZTS6tsdn_s", !7, i64 0}
-!74 = !{!71, !73, i64 48}
-!75 = !{!71, !11, i64 40}
-!76 = !{i64 0, i64 8, !53, i64 8, i64 8, !53, i64 16, i64 8, !53, i64 24, i64 8, !53, i64 32, i64 4, !77, i64 36, i64 4, !77, i64 40, i64 8, !53, i64 48, i64 8, !78, i64 56, i64 8, !53}
-!77 = !{!22, !22, i64 0}
-!78 = !{!73, !73, i64 0}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!72, !11, i64 56}
+!72 = !{!"", !10, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !22, i64 32, !73, i64 36, !11, i64 40, !74, i64 48, !11, i64 56}
+!73 = !{!"", !22, i64 0}
+!74 = !{!"p1 _ZTS6tsdn_s", !7, i64 0}
+!75 = !{!72, !74, i64 48}
+!76 = !{!72, !11, i64 40}
+!77 = !{i64 0, i64 8, !53, i64 8, i64 8, !53, i64 16, i64 8, !53, i64 24, i64 8, !53, i64 32, i64 4, !78, i64 36, i64 4, !78, i64 40, i64 8, !53, i64 48, i64 8, !79, i64 56, i64 8, !53}
+!78 = !{!22, !22, i64 0}
+!79 = !{!74, !74, i64 0}

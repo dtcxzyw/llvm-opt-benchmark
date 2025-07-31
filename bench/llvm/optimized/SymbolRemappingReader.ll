@@ -875,9 +875,9 @@ define linkonce_odr hidden void @_ZNK4llvm25SymbolRemappingParseError3logERNS_11
   %6 = load i64, ptr %5, align 8, !tbaa !51
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %4, i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !144
+  %9 = load ptr, ptr %8, align 8, !tbaa !145
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !148
+  %11 = load ptr, ptr %10, align 8, !tbaa !149
   %.not.i = icmp ult ptr %9, %11
   br i1 %.not.i, label %14, label %12
 
@@ -887,7 +887,7 @@ define linkonce_odr hidden void @_ZNK4llvm25SymbolRemappingParseError3logERNS_11
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %15, ptr %8, align 8, !tbaa !144
+  store ptr %15, ptr %8, align 8, !tbaa !145
   store i8 58, ptr %9, align 1, !tbaa !30
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
@@ -897,9 +897,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %12, %14
   %17 = load i64, ptr %16, align 8, !tbaa !52
   %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i64 noundef %17) #15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !148
+  %20 = load ptr, ptr %19, align 8, !tbaa !149
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !144
+  %22 = load ptr, ptr %21, align 8, !tbaa !145
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -912,9 +912,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %12, %14
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   store i16 8250, ptr %22, align 1
-  %30 = load ptr, ptr %21, align 8, !tbaa !144
+  %30 = load ptr, ptr %21, align 8, !tbaa !145
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  store ptr %31, ptr %21, align 8, !tbaa !144
+  store ptr %31, ptr %21, align 8, !tbaa !145
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %27, %29
@@ -937,16 +937,16 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i8 0, ptr %4, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %6, align 8, !tbaa !149
+  store i32 0, ptr %6, align 8, !tbaa !150
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 0, ptr %7, align 8, !tbaa !150
+  store i8 0, ptr %7, align 8, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 1, ptr %8, align 4, !tbaa !151
+  store i32 1, ptr %8, align 4, !tbaa !152
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %0, ptr %10, align 8, !tbaa !152
+  store ptr %0, ptr %10, align 8, !tbaa !153
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %11 = load ptr, ptr %1, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1183,15 +1183,16 @@ attributes #18 = { builtin nounwind }
 !139 = distinct !{!139, !140, !"_ZSt11make_uniqueIN4llvm25SymbolRemappingParseErrorEJNS0_9StringRefElRNS0_5TwineEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !140 = distinct !{!140, !"_ZSt11make_uniqueIN4llvm25SymbolRemappingParseErrorEJNS0_9StringRefElRNS0_5TwineEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !141 = !{!136, !133}
-!142 = distinct !{!142, !143}
+!142 = distinct !{!142, !143, !144}
 !143 = !{!"llvm.loop.mustprogress"}
-!144 = !{!145, !11, i64 32}
-!145 = !{!"_ZTSN4llvm11raw_ostreamE", !146, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40, !147, i64 44}
-!146 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !5, i64 0}
-!147 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !5, i64 0}
-!148 = !{!145, !11, i64 24}
-!149 = !{!145, !146, i64 8}
-!150 = !{!145, !7, i64 40}
-!151 = !{!145, !147, i64 44}
-!152 = !{!153, !153, i64 0}
-!153 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !12, i64 0}
+!144 = !{!"llvm.loop.estimated_trip_count"}
+!145 = !{!146, !11, i64 32}
+!146 = !{!"_ZTSN4llvm11raw_ostreamE", !147, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40, !148, i64 44}
+!147 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !5, i64 0}
+!148 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !5, i64 0}
+!149 = !{!146, !11, i64 24}
+!150 = !{!146, !147, i64 8}
+!151 = !{!146, !7, i64 40}
+!152 = !{!146, !148, i64 44}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !12, i64 0}
