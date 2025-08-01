@@ -25111,10 +25111,11 @@ define internal fastcc void @"_ZN3exr5block6writer33ParallelBlocksCompressor$LT$
   %.sroa.0.0.copyload.i.i = load ptr, ptr %72, align 8, !noalias !5184, !nonnull !4, !noundef !4
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.42.0.copyload.i.i = load i64, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !5184
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 96
-  %74 = getelementptr inbounds { [13 x i64] }, ptr %73, i64 %.sroa.42.0.copyload.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %74, i64 104, i1 false), !noalias !5192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %74, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false), !noalias !5191
+  %73 = getelementptr { [13 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.42.0.copyload.i.i, i32 0, i64 12
+  %74 = icmp ne ptr %73, null
+  call void @llvm.assume(i1 %74)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %73, i64 104, i1 false), !noalias !5192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %73, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false), !noalias !5191
   %.phi.trans.insert102.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre103.i = load i64, ptr %.phi.trans.insert102.i, align 8, !range !4966, !alias.scope !5193, !noalias !5182
   %75 = icmp eq i64 %.pre103.i, -9223372036854775805
@@ -36241,8 +36242,8 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   %40 = add i64 %.sroa.0.021.i.i.us, %39
   %41 = and i64 %40, %.val4.i
   %42 = sub nsw i64 0, %41
-  %gep = getelementptr { { i16, i16 }, [2 x i16], { i64, [8 x i8], i8, [7 x i8] } }, ptr %invariant.gep, i64 %42
-  %.val4.i.i.us.us = load i16, ptr %gep, align 2, !range !5756, !alias.scope !6926, !noalias !6931, !noundef !4
+  %gep45 = getelementptr { { i16, i16 }, [2 x i16], { i64, [8 x i8], i8, [7 x i8] } }, ptr %invariant.gep, i64 %42
+  %.val4.i.i.us.us = load i16, ptr %gep45, align 2, !range !5756, !alias.scope !6926, !noalias !6931, !noundef !4
   %43 = icmp eq i16 %.fr21, %.val4.i.i.us.us
   br i1 %43, label %.split.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h5c9f91bad1dc9e91E.exit.backedge.i.us.us"
 

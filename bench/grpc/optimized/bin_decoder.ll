@@ -69,16 +69,19 @@ define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_in
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 255
   %9 = select i1 %.not, i64 %8, i64 %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %13 = select i1 %.not, ptr %12, ptr %11
-  %invariant.gep = getelementptr i8, ptr %13, i64 -1
   %.not2731 = icmp eq i64 %9, 0
-  br i1 %.not2731, label %.critedge, label %.lr.ph
+  br i1 %.not2731, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %1, %16
-  %.02232 = phi i64 [ %17, %16 ], [ %9, %1 ]
+.lr.ph.preheader:                                 ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = select i1 %.not, ptr %10, ptr %12
+  %invariant.gep = getelementptr i8, ptr %13, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
+  %.02232 = phi i64 [ %17, %16 ], [ %9, %.lr.ph.preheader ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.02232
   %14 = load i8, ptr %gep, align 1, !tbaa !9
   %15 = icmp eq i8 %14, 61

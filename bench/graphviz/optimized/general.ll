@@ -44,9 +44,12 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
   unreachable
 
 .preheader:                                       ; preds = %gv_calloc.exit
-  %invariant.gep = getelementptr i8, ptr %5, i64 -4
   %.not = icmp eq i32 %0, 1
-  br i1 %.not, label %.loopexit, label %.lr.ph28
+  br i1 %.not, label %.loopexit, label %.lr.ph28.preheader
+
+.lr.ph28.preheader:                               ; preds = %.preheader
+  %invariant.gep = getelementptr i8, ptr %5, i64 -4
+  br label %.lr.ph28
 
 gv_calloc.exit:                                   ; preds = %3, %gv_calloc.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %gv_calloc.exit ], [ 0, %3 ]
@@ -57,8 +60,8 @@ gv_calloc.exit:                                   ; preds = %3, %gv_calloc.exit
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %exitcond.not, label %.preheader, label %gv_calloc.exit, !llvm.loop !10
 
-.lr.ph28:                                         ; preds = %.preheader, %.lr.ph28
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph28 ], [ %4, %.preheader ]
+.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %.lr.ph28
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph28 ], [ %4, %.lr.ph28.preheader ]
   %13 = tail call i32 @rand() #18
   %14 = trunc nuw i64 %indvars.iv31 to i32
   %15 = srem i32 %13, %14
@@ -348,15 +351,15 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = zext nneg i32 %0 to i64
   tail call void @qsort(ptr noundef nonnull %28, i64 noundef %42, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %28, i64 8
   %43 = load ptr, ptr %2, align 8, !tbaa !25
   %wide.trip.count38 = zext nneg i32 %0 to i64
+  %invariant.gep = getelementptr i8, ptr %28, i64 8
   br label %44
 
 44:                                               ; preds = %._crit_edge, %44
   %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
-  %gep.idx = shl nuw nsw i64 %indvars.iv35, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
+  %.idx40 = shl i64 %indvars.iv35, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx40
   %45 = load double, ptr %gep, align 8, !tbaa !14
   %46 = fptosi double %45 to i32
   %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35

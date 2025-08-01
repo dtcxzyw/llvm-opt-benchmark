@@ -1608,24 +1608,23 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE8Splitte
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12EncodeNumberEij(ptr noundef nonnull align 8 dereferenceable(2080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph.preheader.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit
+  %4 = icmp sgt i32 %1, 0
+  br i1 %4, label %.lr.ph.preheader.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %6 = add nsw i32 %1, -1
-  %7 = shl nuw i32 1, %6
+  %5 = add nsw i32 %1, -1
+  %6 = shl nuw i32 1, %5
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %8 = and i32 %.011.i, %2
-  %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %4, i64 0, i64 %indvars.iv.i
-  tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %10, i1 noundef zeroext %9)
-  %11 = lshr i32 %.011.i, 1
+  %.011.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
+  %7 = and i32 %.011.i, %2
+  %8 = icmp ne i32 %7, 0
+  %9 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 0, i32 0, i32 0, i32 0, i32 2
+  tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %9, i1 noundef zeroext %8)
+  %10 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !59
@@ -2088,24 +2087,23 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8Splitte
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12EncodeNumberEij(ptr noundef nonnull align 8 dereferenceable(2080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph.preheader.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit
+  %4 = icmp sgt i32 %1, 0
+  br i1 %4, label %.lr.ph.preheader.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %6 = add nsw i32 %1, -1
-  %7 = shl nuw i32 1, %6
+  %5 = add nsw i32 %1, -1
+  %6 = shl nuw i32 1, %5
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %8 = and i32 %.011.i, %2
-  %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %4, i64 0, i64 %indvars.iv.i
-  tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %10, i1 noundef zeroext %9)
-  %11 = lshr i32 %.011.i, 1
+  %.011.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
+  %7 = and i32 %.011.i, %2
+  %8 = icmp ne i32 %7, 0
+  %9 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 0, i32 0, i32 0, i32 0, i32 2
+  tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %9, i1 noundef zeroext %8)
+  %10 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !59

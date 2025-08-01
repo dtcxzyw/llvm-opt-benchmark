@@ -242,18 +242,18 @@ declare i32 @__gxx_personality_v0(...)
 define noundef zeroext i1 @_ZN3g2o11EdgePointXY4readERSi(ptr noundef nonnull align 16 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix", align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
-  %indvars.iv.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %invariant.gep = getelementptr i8, ptr %1, i64 32
   br label %4
 
 4:                                                ; preds = %11, %2
   %5 = phi i1 [ true, %2 ], [ false, %11 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv.i.sroa.gep7, %11 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv.i.sroa.gep6, %11 ]
   %6 = load ptr, ptr %1, align 8, !tbaa !35
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i32, ptr %gep.i, align 8, !tbaa !51
+  %gep15 = getelementptr i8, ptr %invariant.gep, i64 %8
+  %9 = load i32, ptr %gep15, align 8, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
@@ -270,6 +270,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 16 dereferenceable(328) %0, ptr noundef nonnull align 16 dereferenceable(16) %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %invariant.gep18 = getelementptr i8, ptr %1, i64 32
+  %invariant.gep16 = getelementptr i8, ptr %1, i64 32
   br label %17
 
 17:                                               ; preds = %.critedge2.i, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
@@ -278,8 +280,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %19 = load ptr, ptr %1, align 8, !tbaa !35
   %20 = getelementptr i8, ptr %19, i64 -24
   %21 = load i64, ptr %20, align 8
-  %gep30.i = getelementptr i8, ptr %invariant.gep.i, i64 %21
-  %22 = load i32, ptr %gep30.i, align 8, !tbaa !51
+  %gep = getelementptr i8, ptr %invariant.gep18, i64 %21
+  %22 = load i32, ptr %gep, align 8, !tbaa !51
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
 
@@ -294,8 +296,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %26 = load ptr, ptr %1, align 8, !tbaa !35
   %27 = getelementptr i8, ptr %26, i64 -24
   %28 = load i64, ptr %27, align 8
-  %gep.i4 = getelementptr i8, ptr %invariant.gep.i, i64 %28
-  %29 = load i32, ptr %gep.i4, align 8, !tbaa !51
+  %gep17 = getelementptr i8, ptr %invariant.gep16, i64 %28
+  %29 = load i32, ptr %gep17, align 8, !tbaa !51
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.critedge2.i
 
@@ -344,37 +346,37 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_
   %7 = load double, ptr %6, align 8, !tbaa !49
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %7)
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.5, i64 noundef 1)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %invariant.gep8 = getelementptr i8, ptr %0, i64 192
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %13, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge
-  %11 = phi i1 [ true, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ false, %13 ]
-  %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ 1, %13 ]
-  %12 = getelementptr double, ptr %10, i64 %indvars.iv.i3
-  br label %14
+.preheader.i:                                     ; preds = %11, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge
+  %10 = phi i1 [ true, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ false, %11 ]
+  %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ 1, %11 ]
+  %gep9 = getelementptr double, ptr %invariant.gep8, i64 %indvars.iv.i3
+  br label %12
 
-13:                                               ; preds = %14
-  br i1 %11, label %.preheader.i, label %_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22writeInformationMatrixERSo.exit, !llvm.loop !66
+11:                                               ; preds = %12
+  br i1 %10, label %.preheader.i, label %_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22writeInformationMatrixERSo.exit, !llvm.loop !66
 
-14:                                               ; preds = %14, %.preheader.i
-  %indvars.iv14.i = phi i64 [ %indvars.iv.i3, %.preheader.i ], [ 1, %14 ]
-  %15 = shl nuw nsw i64 %indvars.iv14.i, 4
-  %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = load double, ptr %16, align 8, !tbaa !49
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %17)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.5, i64 noundef 1)
-  %20 = icmp eq i64 %indvars.iv14.i, 0
-  br i1 %20, label %14, label %13, !llvm.loop !67
+12:                                               ; preds = %12, %.preheader.i
+  %indvars.iv16.i = phi i64 [ %indvars.iv.i3, %.preheader.i ], [ 1, %12 ]
+  %13 = shl nuw nsw i64 %indvars.iv16.i, 4
+  %gep = getelementptr i8, ptr %gep9, i64 %13
+  %14 = load double, ptr %gep, align 8, !tbaa !49
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %14)
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.5, i64 noundef 1)
+  %17 = icmp eq i64 %indvars.iv16.i, 0
+  br i1 %17, label %12, label %11, !llvm.loop !67
 
-_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22writeInformationMatrixERSo.exit: ; preds = %13
-  %21 = load ptr, ptr %1, align 8, !tbaa !35
-  %22 = getelementptr i8, ptr %21, i64 -24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !51
-  %27 = icmp eq i32 %26, 0
-  ret i1 %27
+_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22writeInformationMatrixERSo.exit: ; preds = %11
+  %18 = load ptr, ptr %1, align 8, !tbaa !35
+  %19 = getelementptr i8, ptr %18, i64 -24
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %23 = load i32, ptr %22, align 8, !tbaa !51
+  %24 = icmp eq i32 %23, 0
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -645,9 +647,9 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %8 = mul nsw i32 %7, %3
   %9 = sdiv i32 %8, 2
   %10 = add nsw i32 %9, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %11, i64 0, i64 %12
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [1 x i8], ptr %0, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store i8 %6, ptr %13, align 1, !tbaa !134
   %14 = icmp eq i32 %10, 0
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit

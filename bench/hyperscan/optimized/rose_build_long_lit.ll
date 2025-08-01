@@ -12204,32 +12204,30 @@ _ZN3ue214RoseEngineBlob3padEm.exit:               ; preds = %4, %20, %22, %24, %
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %35, %37, %39
   %40 = phi ptr [ %.pre8, %34 ], [ %28, %35 ], [ %28, %37 ], [ %38, %39 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 -1
-  %42 = sub i64 0, %2
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %1, i64 %2, i1 false)
+  %41 = sub i64 0, %2
+  %42 = getelementptr i8, ptr %40, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %1, i64 %2, i1 false)
   %.not.i.i6 = icmp ult i64 %31, 4294967296
-  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %45
+  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %43
 
-45:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #31
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %46)
-          to label %47 unwind label %48
+43:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
+  %44 = tail call ptr @__cxa_allocate_exception(i64 48) #31
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %44)
+          to label %45 unwind label %46
 
-47:                                               ; preds = %45
-  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #33
+45:                                               ; preds = %43
+  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #33
   unreachable
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %46) #31
-  resume { ptr, i32 } %49
+  tail call void @__cxa_free_exception(ptr nonnull %44) #31
+  resume { ptr, i32 } %47
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %50 = trunc nuw i64 %31 to i32
-  ret i32 %50
+  %48 = trunc nuw i64 %31 to i32
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress uwtable

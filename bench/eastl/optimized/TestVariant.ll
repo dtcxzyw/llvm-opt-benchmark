@@ -7044,16 +7044,19 @@ if.end:                                           ; preds = %_ZN5eastl7variantIJ
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16adjust_heap_implIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElOS5_S5_EEvT_T0_S9_S9_T1_(ptr noundef %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr noundef nonnull align 8 dereferenceable(40) %value) local_unnamed_addr #1 comdat {
 entry:
-  %invariant.gep = getelementptr i8, ptr %first, i64 40
   %childPosition.0.in42 = shl nsw i64 %position, 1
   %childPosition.043 = add nsw i64 %childPosition.0.in42, 2
   %cmp44 = icmp slt i64 %childPosition.043, %heapSize
-  br i1 %cmp44, label %for.body, label %for.end
+  br i1 %cmp44, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %entry, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
-  %childPosition.047 = phi i64 [ %childPosition.0, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.043, %entry ]
-  %childPosition.0.in46 = phi i64 [ %childPosition.0.in, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.0.in42, %entry ]
-  %position.addr.045 = phi i64 [ %3, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %invariant.gep = getelementptr i8, ptr %first, i64 40
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
+  %childPosition.047 = phi i64 [ %childPosition.0, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.043, %for.body.preheader ]
+  %childPosition.0.in46 = phi i64 [ %childPosition.0.in, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.0.in42, %for.body.preheader ]
+  %position.addr.045 = phi i64 [ %3, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %for.body.preheader ]
   %add.ptr = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %childPosition.047
   %gep = getelementptr %"class.eastl::variant.30", ptr %invariant.gep, i64 %childPosition.0.in46
   %0 = load i64, ptr %add.ptr, align 8

@@ -692,15 +692,14 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17had9be0b88484d1c3E"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %0, align 8, !noundef !3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw { [3 x i64] }, ptr %2, i64 %3
-  %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
-  ret { ptr, i64 } %9
+  %2 = load i64, ptr %0, align 8, !noundef !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !3
+  %5 = sub nuw i64 %4, %2
+  %6 = getelementptr inbounds nuw { [3 x i64] }, ptr %0, i64 %2, i32 0, i64 2
+  %7 = insertvalue { ptr, i64 } poison, ptr %6, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
+  ret { ptr, i64 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2222,19 +2221,18 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 
 6:                                                ; preds = %2
   store i8 11, ptr %0, align 8
-  br label %12
+  br label %11
 
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %5, 1
   store i64 %8, ptr %1, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = icmp ult i64 %5, 3
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { [3 x i64] }, ptr %9, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  br label %12
+  %9 = icmp ult i64 %5, 3
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw { [3 x i64] }, ptr %1, i64 %5, i32 0, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  br label %11
 
-12:                                               ; preds = %7, %6
+11:                                               ; preds = %7, %6
   ret void
 }
 

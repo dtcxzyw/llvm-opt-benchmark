@@ -2355,12 +2355,15 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; 
   %68 = sub i64 %.sroa.11.1, %67
   %69 = ashr exact i64 %68, 3
   %70 = add nsw i64 %69, -1
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not = icmp eq i64 %70, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit, %85
-  %.058 = phi i64 [ %86, %85 ], [ 0, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit ]
+.lr.ph.preheader:                                 ; preds = %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit
+  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %85
+  %.058 = phi i64 [ %86, %85 ], [ 0, %.lr.ph.preheader ]
   %71 = getelementptr inbounds nuw ptr, ptr %.sroa.0.3, i64 %.058
   %72 = load ptr, ptr %71, align 8, !tbaa !93
   %73 = load ptr, ptr %72, align 8, !tbaa !4
@@ -2531,10 +2534,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11: ; preds = %32, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !49
   %.not = icmp eq i64 %39, 1
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11
+  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11
   %.sroa.0.0.lcssa = phi ptr [ %37, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11 ], [ %69, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17 ]
@@ -2568,9 +2574,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit14: ; preds = %52, %54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 
-.lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17
-  %.021 = phi i64 [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11 ]
-  %.sroa.0.020 = phi ptr [ %69, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17 ], [ %37, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit11 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17
+  %.021 = phi i64 [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.0.020 = phi ptr [ %69, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit17 ], [ %37, %.lr.ph.preheader ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !39
   %58 = load ptr, ptr %57, align 8, !tbaa !4
@@ -7382,14 +7388,14 @@ define dso_local noundef zeroext i1 @_ZN13Probabilities19parse_configurationERNS
   br i1 %.not, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %15
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %invariant.gep26 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %invariant.gep = getelementptr i8, ptr %4, i64 240
+  %invariant.gep29 = getelementptr i8, ptr %4, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
   %25 = phi i64 [ %57, %.backedge ], [ %20, %.lr.ph.preheader ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %25
-  %26 = load ptr, ptr %gep, align 8, !tbaa !139
+  %gep28 = getelementptr i8, ptr %invariant.gep, i64 %25
+  %26 = load ptr, ptr %gep28, align 8, !tbaa !139
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %27, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -7497,8 +7503,8 @@ _ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %55 = load ptr, ptr %4, align 8, !tbaa !4
   %56 = getelementptr i8, ptr %55, i64 -24
   %57 = load i64, ptr %56, align 8
-  %gep27 = getelementptr i8, ptr %invariant.gep26, i64 %57
-  %58 = load i32, ptr %gep27, align 8, !tbaa !138
+  %gep = getelementptr i8, ptr %invariant.gep29, i64 %57
+  %58 = load i32, ptr %gep, align 8, !tbaa !138
   %59 = and i32 %58, 2
   %.not25 = icmp eq i32 %59, 0
   br i1 %.not25, label %.lr.ph, label %._crit_edge, !llvm.loop !151
@@ -8746,12 +8752,15 @@ define dso_local void @_ZN13Probabilities26dump_default_probabilitiesERKNSt7__cx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 240
   %.not22 = icmp eq ptr %6, %7
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %2, %_ZNSolsEPFRSoS_E.exit3
-  %.sroa.019.023 = phi ptr [ %48, %_ZNSolsEPFRSoS_E.exit3 ], [ %6, %2 ]
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %3, i64 240
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSolsEPFRSoS_E.exit3
+  %.sroa.019.023 = phi ptr [ %48, %_ZNSolsEPFRSoS_E.exit3 ], [ %6, %.lr.ph.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.019.023, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = load ptr, ptr %9, align 8, !tbaa !4
@@ -8997,12 +9006,15 @@ _ZNSolsEPFRSoS_E.exit6:                           ; preds = %.noexc21
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %45 = load ptr, ptr %44, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 240
   %.not49 = icmp eq ptr %45, %46
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZNSolsEPFRSoS_E.exit6, %_ZNSolsEPFRSoS_E.exit8
-  %.sroa.046.050 = phi ptr [ %87, %_ZNSolsEPFRSoS_E.exit8 ], [ %45, %_ZNSolsEPFRSoS_E.exit6 ]
+.lr.ph.preheader:                                 ; preds = %_ZNSolsEPFRSoS_E.exit6
+  %invariant.gep = getelementptr i8, ptr %4, i64 240
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSolsEPFRSoS_E.exit8
+  %.sroa.046.050 = phi ptr [ %87, %_ZNSolsEPFRSoS_E.exit8 ], [ %45, %.lr.ph.preheader ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.046.050, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !53
   %49 = load ptr, ptr %48, align 8, !tbaa !4
@@ -9018,13 +9030,13 @@ _ZNSolsEPFRSoS_E.exit6:                           ; preds = %.noexc21
   %gep = getelementptr i8, ptr %invariant.gep, i64 %55
   %56 = load ptr, ptr %gep, align 8, !tbaa !139
   %.not.i.i.i24 = icmp eq ptr %56, null
-  br i1 %.not.i.i.i24, label %.invoke51, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i25
+  br i1 %.not.i.i.i24, label %.invoke52, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i25
 
-.invoke51:                                        ; preds = %_ZNSolsEPFRSoS_E.exit7, %52
+.invoke52:                                        ; preds = %_ZNSolsEPFRSoS_E.exit7, %52
   invoke void @_ZSt16__throw_bad_castv() #32
-          to label %.cont52 unwind label %.loopexit.split-lp
+          to label %.cont53 unwind label %.loopexit.split-lp
 
-.cont52:                                          ; preds = %.invoke51
+.cont53:                                          ; preds = %.invoke52
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i25: ; preds = %52
@@ -9066,7 +9078,7 @@ _ZNSolsEPFRSoS_E.exit7:                           ; preds = %.noexc32
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 240
   %74 = load ptr, ptr %73, align 8, !tbaa !139
   %.not.i.i.i35 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i35, label %.invoke51, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i36
+  br i1 %.not.i.i.i35, label %.invoke52, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i36
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i36: ; preds = %_ZNSolsEPFRSoS_E.exit7
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
@@ -9114,7 +9126,7 @@ _ZNSolsEPFRSoS_E.exit8:                           ; preds = %.noexc43
           cleanup
   br label %97
 
-.loopexit.split-lp:                               ; preds = %.invoke51
+.loopexit.split-lp:                               ; preds = %.invoke52
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %97

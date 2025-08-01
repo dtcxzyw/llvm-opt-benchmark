@@ -3223,11 +3223,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %364 = load ptr, ptr %363, align 8, !tbaa !34
   %365 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %366 = load ptr, ptr %365, align 8, !tbaa !55
-  %invariant.gep = getelementptr i8, ptr %366, i64 4
-  %invariant.gep282 = getelementptr i8, ptr %366, i64 8
-  %invariant.gep284 = getelementptr i8, ptr %366, i64 12
-  %invariant.gep286 = getelementptr i8, ptr %366, i64 16
-  %invariant.gep288 = getelementptr i8, ptr %366, i64 20
   %wide.trip.count316 = zext nneg i32 %359 to i64
   br label %400
 
@@ -3274,8 +3269,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %397 = load ptr, ptr %396, align 8, !tbaa !34
   %398 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %399 = load ptr, ptr %398, align 8, !tbaa !55
-  %invariant.gep292 = getelementptr i8, ptr %399, i64 4
-  %invariant.gep294 = getelementptr i8, ptr %399, i64 8
   %wide.trip.count321 = zext nneg i32 %392 to i64
   br label %421
 
@@ -3290,27 +3283,27 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %407 = getelementptr inbounds nuw i8, ptr %404, i64 536
   %408 = load i32, ptr %407, align 8, !tbaa !90
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds float, ptr %366, i64 %409
+  %410 = getelementptr float, ptr %366, i64 %409
   store float %406, ptr %410, align 4, !tbaa !62
   %411 = getelementptr inbounds nuw i8, ptr %404, i64 120
   %412 = load float, ptr %411, align 4, !tbaa !62
-  %gep = getelementptr float, ptr %invariant.gep, i64 %409
+  %gep = getelementptr i8, ptr %410, i64 4
   store float %412, ptr %gep, align 4, !tbaa !62
   %413 = getelementptr inbounds nuw i8, ptr %404, i64 124
   %414 = load float, ptr %413, align 4, !tbaa !62
-  %gep283 = getelementptr float, ptr %invariant.gep282, i64 %409
+  %gep283 = getelementptr i8, ptr %410, i64 8
   store float %414, ptr %gep283, align 4, !tbaa !62
   %415 = getelementptr inbounds nuw i8, ptr %404, i64 100
   %416 = load float, ptr %415, align 4, !tbaa !62
-  %gep285 = getelementptr float, ptr %invariant.gep284, i64 %409
+  %gep285 = getelementptr i8, ptr %410, i64 12
   store float %416, ptr %gep285, align 4, !tbaa !62
   %417 = getelementptr inbounds nuw i8, ptr %404, i64 104
   %418 = load float, ptr %417, align 4, !tbaa !62
-  %gep287 = getelementptr float, ptr %invariant.gep286, i64 %409
+  %gep287 = getelementptr i8, ptr %410, i64 16
   store float %418, ptr %gep287, align 4, !tbaa !62
   %419 = getelementptr inbounds nuw i8, ptr %404, i64 108
   %420 = load float, ptr %419, align 4, !tbaa !62
-  %gep289 = getelementptr float, ptr %invariant.gep288, i64 %409
+  %gep289 = getelementptr i8, ptr %410, i64 20
   store float %420, ptr %gep289, align 4, !tbaa !62
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
@@ -3327,15 +3320,15 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %428 = getelementptr inbounds nuw i8, ptr %425, i64 536
   %429 = load i32, ptr %428, align 8, !tbaa !90
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds float, ptr %399, i64 %430
+  %431 = getelementptr float, ptr %399, i64 %430
   store float %427, ptr %431, align 4, !tbaa !62
   %432 = getelementptr inbounds nuw i8, ptr %425, i64 120
   %433 = load float, ptr %432, align 4, !tbaa !62
-  %gep293 = getelementptr float, ptr %invariant.gep292, i64 %430
+  %gep293 = getelementptr i8, ptr %431, i64 4
   store float %433, ptr %gep293, align 4, !tbaa !62
   %434 = getelementptr inbounds nuw i8, ptr %425, i64 124
   %435 = load float, ptr %434, align 4, !tbaa !62
-  %gep295 = getelementptr float, ptr %invariant.gep294, i64 %430
+  %gep295 = getelementptr i8, ptr %431, i64 8
   store float %435, ptr %gep295, align 4, !tbaa !62
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321

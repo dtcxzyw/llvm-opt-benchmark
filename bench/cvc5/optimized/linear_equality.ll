@@ -12917,7 +12917,6 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 
 .lr.ph:                                           ; preds = %5
   %11 = icmp sgt i32 %4, 0
-  %invariant.gep46 = getelementptr i8, ptr %0, i64 8
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us
@@ -12925,8 +12924,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %12 = shl i64 %.043.us, 1
   %13 = add i64 %12, 2
   %14 = or disjoint i64 %12, 1
-  %gep47 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %14
-  %gep49 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %13
+  %gep47 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %14, i32 1
+  %gep49 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %13, i32 1
   %15 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %gep49, ptr noundef nonnull align 8 dereferenceable(64) %gep47) #31
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us, label %17
@@ -12976,8 +12975,8 @@ _ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us: ; preds = %28, %_ZN
   %36 = shl i64 %.043, 1
   %37 = add i64 %36, 2
   %38 = or disjoint i64 %36, 1
-  %gep = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %37
-  %gep45 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %38
+  %gep = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %37, i32 1
+  %gep45 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %38, i32 1
   %39 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %gep45, ptr noundef nonnull align 8 dereferenceable(64) %gep) #31
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40, label %41

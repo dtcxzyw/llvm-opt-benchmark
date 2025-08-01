@@ -161,22 +161,18 @@ _ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %54
   %.not.i = icmp eq i64 %48, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %invariant.gep.i = getelementptr i8, ptr %49, i64 -1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
-  %.val33.i = phi i8 [ %.val31.i, %64 ], [ %.val35.i, %.lr.ph.preheader.i ]
-  %.16.i = phi i64 [ %65, %64 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %64
+  %.val33.i = phi i8 [ %.val31.i, %64 ], [ %.val35.i, %.preheader.i ]
+  %.16.i = phi i64 [ %65, %64 ], [ 2, %.preheader.i ]
   %59 = getelementptr inbounds { i8, i8 }, ptr %49, i64 %.16.i
   %.val31.i = load i8, ptr %59, align 1, !alias.scope !22, !noundef !14
   %60 = icmp ult i8 %.val31.i, %.val33.i
   br i1 %60, label %.thread, label %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit41.i
 
 _ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit41.i: ; preds = %.lr.ph.i
-  %gep.i = getelementptr { i8, i8 }, ptr %invariant.gep.i, i64 %.16.i
+  %gep.i = getelementptr i8, ptr %59, i64 -1
   %.val34.i = load i8, ptr %gep.i, align 1, !alias.scope !22
   %61 = getelementptr i8, ptr %59, i64 1
   %.val32.i = load i8, ptr %61, align 1, !alias.scope !22
@@ -924,22 +920,18 @@ _ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %54
   %.not.i = icmp eq i64 %48, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %invariant.gep.i = getelementptr i8, ptr %49, i64 -4
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
-  %.val33.i = phi i32 [ %.val31.i, %64 ], [ %.val35.i, %.lr.ph.preheader.i ]
-  %.16.i = phi i64 [ %65, %64 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %64
+  %.val33.i = phi i32 [ %.val31.i, %64 ], [ %.val35.i, %.preheader.i ]
+  %.16.i = phi i64 [ %65, %64 ], [ 2, %.preheader.i ]
   %59 = getelementptr inbounds { i32, i32 }, ptr %49, i64 %.16.i
   %.val31.i = load i32, ptr %59, align 4, !range !95, !alias.scope !96, !noundef !14
   %60 = icmp samesign ult i32 %.val31.i, %.val33.i
   br i1 %60, label %.thread, label %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit41.i
 
 _ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit41.i: ; preds = %.lr.ph.i
-  %gep.i = getelementptr { i32, i32 }, ptr %invariant.gep.i, i64 %.16.i
+  %gep.i = getelementptr i8, ptr %59, i64 -4
   %.val34.i = load i32, ptr %gep.i, align 4, !alias.scope !96
   %61 = getelementptr i8, ptr %59, i64 4
   %.val32.i = load i32, ptr %61, align 4, !alias.scope !96

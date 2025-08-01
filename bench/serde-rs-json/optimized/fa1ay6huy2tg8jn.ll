@@ -188,9 +188,12 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17h18609f4dcea3b590E(ptr
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167"(i64 noundef %0, ptr noalias noundef align 1 dereferenceable(20) %1) unnamed_addr #4 {
   %3 = icmp sgt i64 %0, -1
   %.0 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %4 = icmp ugt i64 %.0, 9999
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %1, i64 -2
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.026.lcssa = phi i64 [ 20, %2 ], [ %14, %.lr.ph ]
@@ -198,9 +201,9 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %5 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %5, label %21, label %30
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.137 = phi i64 [ %7, %.lr.ph ], [ %.0, %2 ]
-  %.02636 = phi i64 [ %14, %.lr.ph ], [ 20, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.137 = phi i64 [ %7, %.lr.ph ], [ %.0, %.lr.ph.preheader ]
+  %.02636 = phi i64 [ %14, %.lr.ph ], [ 20, %.lr.ph.preheader ]
   %6 = urem i64 %.137, 10000
   %7 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %6 to i16
@@ -280,9 +283,12 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167"(i64 noundef %0, ptr noalias noundef align 1 dereferenceable(20) %1) unnamed_addr #4 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %3 = icmp ugt i64 %0, 9999
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %1, i64 -2
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
@@ -290,9 +296,9 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
-  %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %.lr.ph.preheader ]
   %5 = urem i64 %.137, 10000
   %6 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %5 to i16
@@ -736,22 +742,25 @@ define noundef zeroext i1 @"_ZN65_$LT$serde_json..number..Number$u20$as$u20$core
   %5 = alloca { [40 x i8] }, align 1
   %6 = load i64, ptr %0, align 8, !range !35, !noundef !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %6, label %default.unreachable22 [
+  switch i64 %6, label %default.unreachable24 [
     i64 0, label %8
     i64 1, label %52
     i64 2, label %101
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %7, align 8, !noundef !12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %invariant.gep.i = getelementptr i8, ptr %5, i64 -2
   %10 = icmp ugt i64 %9, 9999
-  br i1 %10, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %10, label %.lr.ph.i.preheader, label %._crit_edge.i
+
+.lr.ph.i.preheader:                               ; preds = %8
+  %invariant.gep40 = getelementptr i8, ptr %5, i64 -2
+  br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
   %.028.lcssa.i = phi i64 [ 20, %8 ], [ %20, %.lr.ph.i ]
@@ -759,9 +768,9 @@ default.unreachable22:                            ; preds = %2
   %11 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
-.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.137.i = phi i64 [ %13, %.lr.ph.i ], [ %9, %8 ]
-  %.02836.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %8 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.137.i = phi i64 [ %13, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.02836.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %.lr.ph.i.preheader ]
   %12 = urem i64 %.137.i, 10000
   %13 = udiv i64 %.137.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %12 to i16
@@ -777,9 +786,9 @@ default.unreachable22:                            ; preds = %2
   %23 = load i16, ptr %21, align 1, !noalias !36
   store i16 %23, ptr %22, align 1, !alias.scope !36
   %24 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %19
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.02836.i
+  %gep41 = getelementptr i8, ptr %invariant.gep40, i64 %.02836.i
   %25 = load i16, ptr %24, align 1, !noalias !36
-  store i16 %25, ptr %gep.i, align 1, !alias.scope !36
+  store i16 %25, ptr %gep41, align 1, !alias.scope !36
   %26 = icmp ugt i64 %.137.i, 99999999
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
@@ -834,19 +843,22 @@ default.unreachable22:                            ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %54 = icmp sgt i64 %53, -1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %53, i1 false)
-  %invariant.gep.i6 = getelementptr i8, ptr %4, i64 -2
   %55 = icmp ugt i64 %.0.i, 9999
-  br i1 %55, label %.lr.ph.i12, label %._crit_edge.i7
+  br i1 %55, label %.lr.ph.i12.preheader, label %._crit_edge.i6
 
-._crit_edge.i7:                                   ; preds = %.lr.ph.i12, %52
+.lr.ph.i12.preheader:                             ; preds = %52
+  %invariant.gep = getelementptr i8, ptr %4, i64 -2
+  br label %.lr.ph.i12
+
+._crit_edge.i6:                                   ; preds = %.lr.ph.i12, %52
   %.026.lcssa.i = phi i64 [ 20, %52 ], [ %65, %.lr.ph.i12 ]
-  %.1.lcssa.i8 = phi i64 [ %.0.i, %52 ], [ %58, %.lr.ph.i12 ]
-  %56 = icmp samesign ugt i64 %.1.lcssa.i8, 99
+  %.1.lcssa.i7 = phi i64 [ %.0.i, %52 ], [ %58, %.lr.ph.i12 ]
+  %56 = icmp samesign ugt i64 %.1.lcssa.i7, 99
   br i1 %56, label %72, label %81
 
-.lr.ph.i12:                                       ; preds = %52, %.lr.ph.i12
-  %.137.i13 = phi i64 [ %58, %.lr.ph.i12 ], [ %.0.i, %52 ]
-  %.02636.i = phi i64 [ %65, %.lr.ph.i12 ], [ 20, %52 ]
+.lr.ph.i12:                                       ; preds = %.lr.ph.i12.preheader, %.lr.ph.i12
+  %.137.i13 = phi i64 [ %58, %.lr.ph.i12 ], [ %.0.i, %.lr.ph.i12.preheader ]
+  %.02636.i = phi i64 [ %65, %.lr.ph.i12 ], [ 20, %.lr.ph.i12.preheader ]
   %57 = urem i64 %.137.i13, 10000
   %58 = udiv i64 %.137.i13, 10000
   %.lhs.trunc.i14 = trunc nuw nsw i64 %57 to i16
@@ -862,19 +874,19 @@ default.unreachable22:                            ; preds = %2
   %68 = load i16, ptr %66, align 1, !noalias !39
   store i16 %68, ptr %67, align 1, !alias.scope !39
   %69 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %64
-  %gep.i15 = getelementptr i8, ptr %invariant.gep.i6, i64 %.02636.i
+  %gep39 = getelementptr i8, ptr %invariant.gep, i64 %.02636.i
   %70 = load i16, ptr %69, align 1, !noalias !39
-  store i16 %70, ptr %gep.i15, align 1, !alias.scope !39
+  store i16 %70, ptr %gep39, align 1, !alias.scope !39
   %71 = icmp ugt i64 %.137.i13, 99999999
-  br i1 %71, label %.lr.ph.i12, label %._crit_edge.i7, !llvm.loop !10
+  br i1 %71, label %.lr.ph.i12, label %._crit_edge.i6, !llvm.loop !10
 
-72:                                               ; preds = %._crit_edge.i7
-  %.lhs.trunc32.i10 = trunc nuw i64 %.1.lcssa.i8 to i16
-  %73 = urem i16 %.lhs.trunc32.i10, 100
+72:                                               ; preds = %._crit_edge.i6
+  %.lhs.trunc32.i9 = trunc nuw i64 %.1.lcssa.i7 to i16
+  %73 = urem i16 %.lhs.trunc32.i9, 100
   %74 = shl nuw nsw i16 %73, 1
   %75 = zext nneg i16 %74 to i64
-  %76 = udiv i16 %.lhs.trunc32.i10, 100
-  %.zext35.i11 = zext nneg i16 %76 to i64
+  %76 = udiv i16 %.lhs.trunc32.i9, 100
+  %.zext35.i10 = zext nneg i16 %76 to i64
   %77 = add i64 %.026.lcssa.i, -2
   %78 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %75
   %79 = getelementptr inbounds i8, ptr %4, i64 %77
@@ -882,9 +894,9 @@ default.unreachable22:                            ; preds = %2
   store i16 %80, ptr %79, align 1, !alias.scope !39
   br label %81
 
-81:                                               ; preds = %72, %._crit_edge.i7
-  %.127.i = phi i64 [ %77, %72 ], [ %.026.lcssa.i, %._crit_edge.i7 ]
-  %.025.i = phi i64 [ %.zext35.i11, %72 ], [ %.1.lcssa.i8, %._crit_edge.i7 ]
+81:                                               ; preds = %72, %._crit_edge.i6
+  %.127.i = phi i64 [ %77, %72 ], [ %.026.lcssa.i, %._crit_edge.i6 ]
+  %.025.i = phi i64 [ %.zext35.i10, %72 ], [ %.1.lcssa.i7, %._crit_edge.i6 ]
   %82 = icmp samesign ult i64 %.025.i, 10
   br i1 %82, label %89, label %83
 
@@ -906,17 +918,17 @@ default.unreachable22:                            ; preds = %2
   br label %94
 
 94:                                               ; preds = %89, %83
-  %.2.i9 = phi i64 [ %90, %89 ], [ %85, %83 ]
+  %.2.i8 = phi i64 [ %90, %89 ], [ %85, %83 ]
   br i1 %54, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", label %95
 
 95:                                               ; preds = %94
-  %96 = add i64 %.2.i9, -1
+  %96 = add i64 %.2.i8, -1
   %97 = getelementptr inbounds i8, ptr %4, i64 %96
   store i8 45, ptr %97, align 1, !alias.scope !39
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit": ; preds = %94, %95
-  %.3.i = phi i64 [ %.2.i9, %94 ], [ %96, %95 ]
+  %.3.i = phi i64 [ %.2.i8, %94 ], [ %96, %95 ]
   %98 = sub i64 20, %.3.i
   %99 = getelementptr inbounds i8, ptr %4, i64 %.3.i
   %100 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %99, i64 noundef %98)

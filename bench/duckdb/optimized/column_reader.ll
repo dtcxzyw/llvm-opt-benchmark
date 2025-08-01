@@ -1679,12 +1679,16 @@ define void @_ZN6duckdb12ColumnReaderC2ERNS_13ParquetReaderERKNS_19ParquetColumn
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = icmp eq i64 %.idx, 448
-  br i1 %47, label %.loopexit, label %.preheader
+  br i1 %47, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %45, %.preheader
-  %.idx14 = phi i64 [ %.add15, %.preheader ], [ %.idx, %45 ]
+.preheader.preheader:                             ; preds = %45
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.idx14 = phi i64 [ %.add15, %.preheader ], [ %.idx, %.preheader.preheader ]
   %.add15 = add nsw i64 %.idx14, -48
-  %gep = getelementptr i8, ptr %5, i64 %.add15
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.add15
   tail call void @_ZN6duckdb13AllocatedDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %gep) #28
   %48 = icmp eq i64 %.add15, 448
   br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !93
@@ -2020,7 +2024,7 @@ _ZNSt12__shared_ptrIN6duckdb16ResizeableBufferELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb12ColumnReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN6duckdb12ColumnReaderE, i64 16), ptr %0, align 8, !tbaa !3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %2
 
 2:                                                ; preds = %2, %1

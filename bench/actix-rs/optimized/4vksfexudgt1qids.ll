@@ -5543,9 +5543,12 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17heb2f
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.11658830040512789610"(i64 noundef %0, ptr noalias noundef align 1 dereferenceable(20) %1) unnamed_addr #9 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %3 = icmp ugt i64 %0, 9999
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %1, i64 -2
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
@@ -5553,9 +5556,9 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
-  %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %.lr.ph.preheader ]
   %5 = urem i64 %.137, 10000
   %6 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %5 to i16
@@ -5626,9 +5629,12 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noalias noundef align 1 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #10 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !754)
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 -2
   %3 = icmp ugt i64 %1, 9999
-  br i1 %3, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %3, label %.lr.ph.i.preheader, label %._crit_edge.i
+
+.lr.ph.i.preheader:                               ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %0, i64 -2
+  br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.028.lcssa.i = phi i64 [ 20, %2 ], [ %13, %.lr.ph.i ]
@@ -5636,9 +5642,9 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
   %4 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %4, label %20, label %29
 
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.137.i = phi i64 [ %6, %.lr.ph.i ], [ %1, %2 ]
-  %.02836.i = phi i64 [ %13, %.lr.ph.i ], [ 20, %2 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.137.i = phi i64 [ %6, %.lr.ph.i ], [ %1, %.lr.ph.i.preheader ]
+  %.02836.i = phi i64 [ %13, %.lr.ph.i ], [ 20, %.lr.ph.i.preheader ]
   %5 = urem i64 %.137.i, 10000
   %6 = udiv i64 %.137.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %5 to i16
@@ -5654,9 +5660,9 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
   %16 = load i16, ptr %14, align 1, !noalias !754
   store i16 %16, ptr %15, align 1, !alias.scope !754
   %17 = getelementptr inbounds nuw i8, ptr @anon.482ed1b30c21c136eed064537d11186c.74, i64 %12
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.02836.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02836.i
   %18 = load i16, ptr %17, align 1, !noalias !754
-  store i16 %18, ptr %gep.i, align 1, !alias.scope !754
+  store i16 %18, ptr %gep, align 1, !alias.scope !754
   %19 = icmp ugt i64 %.137.i, 99999999
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !753
 

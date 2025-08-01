@@ -1722,22 +1722,18 @@ _ZN4core3ops8function5FnMut8call_mut17h7865bcd7792e40a6E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %49
   %.not.i = icmp eq i64 %43, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %invariant.gep.i = getelementptr i8, ptr %44, i64 -8
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %59, %.lr.ph.preheader.i
-  %.val33.i = phi i64 [ %.val31.i, %59 ], [ %.val35.i, %.lr.ph.preheader.i ]
-  %.17.i = phi i64 [ %60, %59 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %59
+  %.val33.i = phi i64 [ %.val31.i, %59 ], [ %.val35.i, %.preheader.i ]
+  %.17.i = phi i64 [ %60, %59 ], [ 2, %.preheader.i ]
   %54 = getelementptr inbounds { i64, i64 }, ptr %44, i64 %.17.i
   %.val31.i = load i64, ptr %54, align 8, !alias.scope !199, !noundef !10
   %55 = icmp ult i64 %.val31.i, %.val33.i
   br i1 %55, label %.thread, label %_ZN4core3ops8function5FnMut8call_mut17h7865bcd7792e40a6E.exit41.i
 
 _ZN4core3ops8function5FnMut8call_mut17h7865bcd7792e40a6E.exit41.i: ; preds = %.lr.ph.i
-  %gep.i = getelementptr { i64, i64 }, ptr %invariant.gep.i, i64 %.17.i
+  %gep.i = getelementptr i8, ptr %54, i64 -8
   %.val34.i = load i64, ptr %gep.i, align 8, !alias.scope !199
   %56 = getelementptr i8, ptr %54, i64 8
   %.val32.i = load i64, ptr %56, align 8, !alias.scope !199
@@ -2459,31 +2455,23 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h466c677a07f4c654E.exit: ; preds
   br i1 %50, label %.preheader.i, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %.noexc45
-  br i1 %.not11.i, label %.thread85, label %.lr.ph.preheader.i
+  br i1 %.not11.i, label %.thread85, label %.lr.ph.i
 
 .thread85:                                        ; preds = %.preheader1.i
   %51 = add i64 %.0155, 2
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h16cc9dc568ed5b9eE.exit"
 
-.lr.ph.preheader.i:                               ; preds = %.preheader1.i
-  %invariant.gep.i = getelementptr i8, ptr %45, i64 -152
-  br label %.lr.ph.i
-
 .preheader.i:                                     ; preds = %.noexc45
-  br i1 %.not11.i, label %.thread82, label %.lr.ph7.preheader.i
+  br i1 %.not11.i, label %.thread82, label %.lr.ph7.i
 
 .thread82:                                        ; preds = %.preheader.i
   %52 = add i64 %.0155, 2
   br label %91
 
-.lr.ph7.preheader.i:                              ; preds = %.preheader.i
-  %invariant.gep17.i = getelementptr i8, ptr %45, i64 -152
-  br label %.lr.ph7.i
-
-.lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
-  %.13.i = phi i64 [ %57, %56 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader1.i, %56
+  %.13.i = phi i64 [ %57, %56 ], [ 2, %.preheader1.i ]
   %53 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %45, i64 %.13.i
-  %gep.i = getelementptr { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %invariant.gep.i, i64 %.13.i
+  %gep.i = getelementptr i8, ptr %53, i64 -152
   %54 = invoke noundef i8 @"_ZN68_$LT$rustfmt_nightly..imports..UseTree$u20$as$u20$core..cmp..Ord$GT$3cmp17h9a1223cdb5e41d40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %gep.i)
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2496,10 +2484,10 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h466c677a07f4c654E.exit: ; preds
   %exitcond.not.i = icmp eq i64 %57, %44
   br i1 %exitcond.not.i, label %.loopexit96, label %.lr.ph.i, !llvm.loop !278
 
-.lr.ph7.i:                                        ; preds = %61, %.lr.ph7.preheader.i
-  %.06.i = phi i64 [ %62, %61 ], [ 2, %.lr.ph7.preheader.i ]
+.lr.ph7.i:                                        ; preds = %.preheader.i, %61
+  %.06.i = phi i64 [ %62, %61 ], [ 2, %.preheader.i ]
   %58 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %45, i64 %.06.i
-  %gep18.i = getelementptr { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %invariant.gep17.i, i64 %.06.i
+  %gep18.i = getelementptr i8, ptr %58, i64 -152
   %59 = invoke noundef i8 @"_ZN68_$LT$rustfmt_nightly..imports..UseTree$u20$as$u20$core..cmp..Ord$GT$3cmp17h9a1223cdb5e41d40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %gep18.i)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit
 

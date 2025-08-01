@@ -2596,8 +2596,11 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %234, %226
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %242
+  br i1 %.not.i.i.i.i.i.i.i.i.i82180, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
   %invariant.gep = getelementptr i8, ptr %207, i64 -8
-  br i1 %.not.i.i.i.i.i.i.i.i.i82180, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 246:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %3, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit42
   %247 = landingpad { ptr, i32 }
@@ -2692,8 +2695,8 @@ _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit104: ; preds = %268, %273
   invoke void @_ZN5Ipopt11DenseVector9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(248) %278, ptr noundef %207)
           to label %303 unwind label %291
 
-.lr.ph:                                           ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit, %289
-  %.0166 = phi i64 [ %290, %289 ], [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %289
+  %.0166 = phi i64 [ %290, %289 ], [ 0, %.lr.ph.preheader ]
   %279 = getelementptr inbounds nuw i32, ptr %76, i64 %.0166
   %280 = load i32, ptr %279, align 4, !tbaa !181
   %281 = icmp sgt i32 %280, 0

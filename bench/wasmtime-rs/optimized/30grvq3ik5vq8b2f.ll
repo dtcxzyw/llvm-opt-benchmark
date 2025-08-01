@@ -448,7 +448,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   %11 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h7ceae7a3cee8aaddE.llvm.7332213574936156402"()
-          to label %.noexc unwind label %37
+          to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %9
   %12 = icmp eq ptr %11, null
@@ -456,7 +456,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 320) #19
-          to label %.noexc12 unwind label %37
+          to label %.noexc12 unwind label %36
 
 .noexc12:                                         ; preds = %13
   unreachable
@@ -467,9 +467,9 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !noundef !15
   store i16 1, ptr %15, align 2, !noalias !133
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 272
+  %18 = getelementptr i8, ptr %11, i64 272
   store i32 %17, ptr %18, align 8, !noalias !133
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %19 = getelementptr i8, ptr %11, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store ptr %11, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -479,7 +479,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   br label %22
 
 22:                                               ; preds = %23, %14
-  %.0 = phi ptr [ %19, %14 ], [ %30, %23 ]
+  %.0 = phi ptr [ %19, %14 ], [ %29, %23 ]
   ret ptr %.0
 
 23:                                               ; preds = %2
@@ -491,31 +491,30 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17hf86f11f4dcc8028eE"(ptr noalias noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i32 noundef %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %26 = load ptr, ptr %4, align 8, !alias.scope !138, !nonnull !15, !noundef !15
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !alias.scope !138, !noundef !15
-  %30 = getelementptr inbounds { [3 x i64] }, ptr %27, i64 %29
-  %31 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i64, ptr %32, align 8, !noundef !15
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %32, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = load i64, ptr %27, align 8, !alias.scope !138, !noundef !15
+  %29 = getelementptr { [3 x i64] }, ptr %26, i64 %28, i32 0, i64 1
+  %30 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !15
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %31, align 8
   br label %22
 
-35:                                               ; preds = %37
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %36
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-37:                                               ; preds = %13, %9
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %13, %9
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
-          to label %39 unwind label %35
+          to label %38 unwind label %34
 
-39:                                               ; preds = %37
-  resume { ptr, i32 } %38
+38:                                               ; preds = %36
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

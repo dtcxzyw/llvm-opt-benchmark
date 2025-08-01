@@ -735,22 +735,18 @@ _ZN4core3ops8function5FnMut8call_mut17h5b7786a8b9a6a191E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %54
   %.not.i = icmp eq i64 %48, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %invariant.gep.i = getelementptr i8, ptr %49, i64 -8
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
-  %.val33.i = phi i64 [ %.val31.i, %64 ], [ %.val35.i, %.lr.ph.preheader.i ]
-  %.16.i = phi i64 [ %65, %64 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %64
+  %.val33.i = phi i64 [ %.val31.i, %64 ], [ %.val35.i, %.preheader.i ]
+  %.16.i = phi i64 [ %65, %64 ], [ 2, %.preheader.i ]
   %59 = getelementptr inbounds { i64, i64 }, ptr %49, i64 %.16.i
   %.val31.i = load i64, ptr %59, align 8, !alias.scope !80, !noundef !4
   %60 = icmp ult i64 %.val31.i, %.val33.i
   br i1 %60, label %.thread, label %_ZN4core3ops8function5FnMut8call_mut17h5b7786a8b9a6a191E.exit41.i
 
 _ZN4core3ops8function5FnMut8call_mut17h5b7786a8b9a6a191E.exit41.i: ; preds = %.lr.ph.i
-  %gep.i = getelementptr { i64, i64 }, ptr %invariant.gep.i, i64 %.16.i
+  %gep.i = getelementptr i8, ptr %59, i64 -8
   %.val34.i = load i64, ptr %gep.i, align 8, !alias.scope !80
   %61 = getelementptr i8, ptr %59, i64 8
   %.val32.i = load i64, ptr %61, align 8, !alias.scope !80
@@ -2985,8 +2981,6 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.sroa.617.i.i.sroa.6.0..sroa.617.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 0, ptr %.sroa.617.i.i.sroa.6.0..sroa.617.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !341
   %70 = load i64, ptr %11, align 8, !alias.scope !356, !noalias !359, !noundef !4
-  %invariant.gep = getelementptr i8, ptr %69, i64 16
-  %invariant.gep101 = getelementptr i8, ptr %69, i64 -24
   %.not103 = icmp eq i64 %70, 0
   br i1 %.not103, label %.thread71, label %.preheader.lr.ph
 
@@ -3013,6 +3007,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %invariant.gep = getelementptr i8, ptr %69, i64 16
+  %invariant.gep60 = getelementptr i8, ptr %69, i64 -24
   br label %.preheader
 
 87:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h6c422ddb83977dc8E.exit.thread.i.i, %43
@@ -3218,15 +3214,15 @@ _ZN4core3ptr19swap_nonoverlapping17h477761ca7d38017bE.exit: ; preds = %115
   %172 = add i64 %.0.i.i.i8, -16
   %173 = and i64 %172, %65
   store i8 %171, ptr %169, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %173
-  store i8 %171, ptr %gep, align 1
+  %gep59 = getelementptr i8, ptr %invariant.gep, i64 %173
+  store i8 %171, ptr %gep59, align 1
   %174 = load ptr, ptr %0, align 8, !alias.scope !410, !noalias !411, !nonnull !4, !noundef !4
   %.neg.i.i = mul i64 %100, -24
   %175 = getelementptr i8, ptr %174, i64 %.neg.i.i
   %176 = getelementptr i8, ptr %175, i64 -24
   %.neg27.i.i = mul i64 %.0.i.i.i8, -24
-  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %.neg27.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %gep102, ptr noundef nonnull align 1 dereferenceable(24) %176, i64 24, i1 false)
+  %gep61 = getelementptr i8, ptr %invariant.gep60, i64 %.neg27.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %gep61, ptr noundef nonnull align 1 dereferenceable(24) %176, i64 24, i1 false)
   %.not = icmp eq i64 %101, 0
   br i1 %.not, label %.thread71.loopexit, label %.preheader, !llvm.loop !432
 

@@ -408,9 +408,6 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   store ptr %149, ptr %150, align 8, !tbaa !54
   %151 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %147, ptr %151, align 8, !tbaa !55
-  %invariant.gep910 = getelementptr i8, ptr %2, i64 1
-  %invariant.gep912 = getelementptr i8, ptr %2, i64 2
-  %invariant.gep914 = getelementptr i8, ptr %2, i64 3
   %.not922 = icmp eq i32 %145, 0
   br i1 %.not922, label %.preheader.preheader, label %.lr.ph918
 
@@ -422,8 +419,6 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   %152 = icmp eq i8 %.0446, 1
   %153 = and i8 %.0446, -2
   %or.cond8 = icmp eq i8 %153, 2
-  %invariant.gep = getelementptr i8, ptr %2, i64 5
-  %invariant.gep879 = getelementptr i8, ptr %2, i64 9
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -462,19 +457,19 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 168
   %173 = trunc nuw i64 %indvars.iv1030 to i32
   store i32 %173, ptr %172, align 8, !tbaa !61
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 %.4916
+  %174 = getelementptr i8, ptr %2, i64 %.4916
   %.0.copyload.i543 = load i8, ptr %174, align 1
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 6
   store i8 %.0.copyload.i543, ptr %175, align 2, !tbaa !62
-  %gep911 = getelementptr i8, ptr %invariant.gep910, i64 %.4916
+  %gep911 = getelementptr i8, ptr %174, i64 1
   %.0.copyload.i544 = load i8, ptr %gep911, align 1
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i8 %.0.copyload.i544, ptr %176, align 4, !tbaa !63
-  %gep913 = getelementptr i8, ptr %invariant.gep912, i64 %.4916
+  %gep913 = getelementptr i8, ptr %174, i64 2
   %.0.copyload.i545 = load i8, ptr %gep913, align 1
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 3
   store i8 %.0.copyload.i545, ptr %177, align 1, !tbaa !64
-  %gep915 = getelementptr i8, ptr %invariant.gep914, i64 %.4916
+  %gep915 = getelementptr i8, ptr %174, i64 3
   %.0.copyload.i546 = load i8, ptr %gep915, align 1
   %178 = add i64 %.4916, 4
   %179 = getelementptr inbounds nuw i8, ptr %169, i64 5
@@ -939,7 +934,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %345
 .lr.ph883:                                        ; preds = %.lr.ph874, %510
   %indvars.iv1002 = phi i64 [ %indvars.iv.next1003, %510 ], [ 0, %.lr.ph874 ]
   %.7881 = phi i64 [ %.9, %510 ], [ %348, %.lr.ph874 ]
-  %380 = getelementptr inbounds nuw i8, ptr %2, i64 %.7881
+  %380 = getelementptr i8, ptr %2, i64 %.7881
   %.0.copyload.i585 = load i8, ptr %380, align 1
   %381 = add i64 %.7881, 1
   switch i8 %.0.copyload.i585, label %510 [
@@ -978,9 +973,9 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %345
 395:                                              ; preds = %.lr.ph883
   %396 = getelementptr inbounds nuw i8, ptr %2, i64 %381
   %.0.copyload.i588 = load float, ptr %396, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.7881
+  %gep = getelementptr i8, ptr %380, i64 5
   %.0.copyload.i589 = load float, ptr %gep, align 1
-  %gep880 = getelementptr i8, ptr %invariant.gep879, i64 %.7881
+  %gep880 = getelementptr i8, ptr %380, i64 9
   %.0.copyload.i590 = load float, ptr %gep880, align 1
   %397 = add i64 %.7881, 17
   %398 = load ptr, ptr %369, align 8, !tbaa !78

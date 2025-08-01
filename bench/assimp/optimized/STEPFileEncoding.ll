@@ -249,33 +249,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKcm.exit: ; preds
 
 102:                                              ; preds = %98
   %103 = add i64 %11, -3
-  %invariant.gep = getelementptr i8, ptr %12, i64 1
-  %invariant.gep401 = getelementptr i8, ptr %12, i64 2
-  %invariant.gep403 = getelementptr i8, ptr %12, i64 3
   %104 = icmp ult i64 %9, %103
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %102, %117
   %.0153405 = phi i64 [ %118, %117 ], [ %9, %102 ]
-  %105 = getelementptr inbounds nuw i8, ptr %12, i64 %.0153405
+  %105 = getelementptr i8, ptr %12, i64 %.0153405
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 92
   br i1 %107, label %108, label %117
 
 108:                                              ; preds = %.lr.ph
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0153405
+  %gep = getelementptr i8, ptr %105, i64 1
   %109 = load i8, ptr %gep, align 1
   %110 = icmp eq i8 %109, 88
   br i1 %110, label %111, label %117
 
 111:                                              ; preds = %108
-  %gep402 = getelementptr i8, ptr %invariant.gep401, i64 %.0153405
+  %gep402 = getelementptr i8, ptr %105, i64 2
   %112 = load i8, ptr %gep402, align 1
   %113 = icmp eq i8 %112, 48
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %111
-  %gep404 = getelementptr i8, ptr %invariant.gep403, i64 %.0153405
+  %gep404 = getelementptr i8, ptr %105, i64 3
   %115 = load i8, ptr %gep404, align 1
   %116 = icmp eq i8 %115, 92
   br i1 %116, label %._crit_edge, label %117

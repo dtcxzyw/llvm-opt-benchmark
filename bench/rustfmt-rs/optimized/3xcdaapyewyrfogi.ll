@@ -1379,9 +1379,12 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %4 = alloca { [40 x i8] }, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %invariant.gep.i = getelementptr i8, ptr %4, i64 -2
   %5 = icmp ugt i32 %2, 9999
-  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %5, label %.lr.ph.i.preheader, label %._crit_edge.i
+
+.lr.ph.i.preheader:                               ; preds = %3
+  %invariant.gep = getelementptr i8, ptr %4, i64 -2
+  br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %.028.lcssa.i = phi i64 [ 10, %3 ], [ %16, %.lr.ph.i ]
@@ -1390,9 +1393,9 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %7 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %7, label %23, label %32
 
-.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.139.i = phi i32 [ %9, %.lr.ph.i ], [ %2, %3 ]
-  %.02838.i = phi i64 [ %16, %.lr.ph.i ], [ 10, %3 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.139.i = phi i32 [ %9, %.lr.ph.i ], [ %2, %.lr.ph.i.preheader ]
+  %.02838.i = phi i64 [ %16, %.lr.ph.i ], [ 10, %.lr.ph.i.preheader ]
   %8 = urem i32 %.139.i, 10000
   %9 = udiv i32 %.139.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i32 %8 to i16
@@ -1408,9 +1411,9 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %19 = load i16, ptr %17, align 1, !noalias !242
   store i16 %19, ptr %18, align 1, !alias.scope !242
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.02838.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i
   %21 = load i16, ptr %20, align 1, !noalias !242
-  store i16 %21, ptr %gep.i, align 1, !alias.scope !242
+  store i16 %21, ptr %gep, align 1, !alias.scope !242
   %22 = icmp ugt i32 %.139.i, 99999999
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !245
 
@@ -4407,9 +4410,12 @@ define hidden noundef align 8 ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801"(i32 noundef %0, ptr noalias noundef align 1 dereferenceable(10) %1) unnamed_addr #17 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %3 = icmp ugt i32 %0, 9999
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %1, i64 -2
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 10, %2 ], [ %14, %.lr.ph ]
@@ -4418,9 +4424,9 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %5 = icmp samesign ugt i32 %.1.lcssa, 99
   br i1 %5, label %21, label %30
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.139 = phi i32 [ %7, %.lr.ph ], [ %0, %2 ]
-  %.02838 = phi i64 [ %14, %.lr.ph ], [ 10, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.139 = phi i32 [ %7, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.02838 = phi i64 [ %14, %.lr.ph ], [ 10, %.lr.ph.preheader ]
   %6 = urem i32 %.139, 10000
   %7 = udiv i32 %.139, 10000
   %.lhs.trunc = trunc nuw nsw i32 %6 to i16
@@ -6816,9 +6822,12 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !1431
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1432)
-  %invariant.gep.i.i.i = getelementptr i8, ptr %3, i64 -2
   %5 = icmp ugt i32 %4, 9999
-  br i1 %5, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  br i1 %5, label %.lr.ph.i.i.i.preheader, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i.preheader:                           ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %3, i64 -2
+  br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %2
   %.028.lcssa.i.i.i = phi i64 [ 10, %2 ], [ %16, %.lr.ph.i.i.i ]
@@ -6827,9 +6836,9 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %7 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %7, label %23, label %32
 
-.lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
-  %.139.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i ], [ %4, %2 ]
-  %.02838.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ 10, %2 ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
+  %.139.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i ], [ %4, %.lr.ph.i.i.i.preheader ]
+  %.02838.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ 10, %.lr.ph.i.i.i.preheader ]
   %8 = urem i32 %.139.i.i.i, 10000
   %9 = udiv i32 %.139.i.i.i, 10000
   %.lhs.trunc.i.i.i = trunc nuw nsw i32 %8 to i16
@@ -6845,9 +6854,9 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %19 = load i16, ptr %17, align 1, !noalias !1435
   store i16 %19, ptr %18, align 1, !alias.scope !1432, !noalias !1431
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
-  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %.02838.i.i.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i
   %21 = load i16, ptr %20, align 1, !noalias !1435
-  store i16 %21, ptr %gep.i.i.i, align 1, !alias.scope !1432, !noalias !1431
+  store i16 %21, ptr %gep, align 1, !alias.scope !1432, !noalias !1431
   %22 = icmp ugt i32 %.139.i.i.i, 99999999
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !245
 
@@ -8137,9 +8146,12 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1800)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !1803
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1804)
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %3, i64 -2
   %19 = icmp ugt i32 %18, 9999
-  br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  br i1 %19, label %.lr.ph.i.i.i.i.preheader, label %._crit_edge.i.i.i.i
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %11
+  %invariant.gep = getelementptr i8, ptr %3, i64 -2
+  br label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %11
   %.028.lcssa.i.i.i.i = phi i64 [ 10, %11 ], [ %30, %.lr.ph.i.i.i.i ]
@@ -8148,9 +8160,9 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %21 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i, 99
   br i1 %21, label %37, label %46
 
-.lr.ph.i.i.i.i:                                   ; preds = %11, %.lr.ph.i.i.i.i
-  %.139.i.i.i.i = phi i32 [ %23, %.lr.ph.i.i.i.i ], [ %18, %11 ]
-  %.02838.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i ], [ 10, %11 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
+  %.139.i.i.i.i = phi i32 [ %23, %.lr.ph.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.preheader ]
+  %.02838.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i ], [ 10, %.lr.ph.i.i.i.i.preheader ]
   %22 = urem i32 %.139.i.i.i.i, 10000
   %23 = udiv i32 %.139.i.i.i.i, 10000
   %.lhs.trunc.i.i.i.i = trunc nuw nsw i32 %22 to i16
@@ -8166,9 +8178,9 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %33 = load i16, ptr %31, align 1, !noalias !1807
   store i16 %33, ptr %32, align 1, !alias.scope !1804, !noalias !1803
   %34 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %29
-  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i, i64 %.02838.i.i.i.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i.i
   %35 = load i16, ptr %34, align 1, !noalias !1807
-  store i16 %35, ptr %gep.i.i.i.i, align 1, !alias.scope !1804, !noalias !1803
+  store i16 %35, ptr %gep, align 1, !alias.scope !1804, !noalias !1803
   %36 = icmp ugt i32 %.139.i.i.i.i, 99999999
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !245
 
@@ -13170,7 +13182,7 @@ define hidden void @"_ZN91_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter.
   br label %8
 
 8:                                                ; preds = %.lr.ph, %"_ZN8thin_vec16ThinVec$LT$T$GT$4push17h91daced1f5635e1dE.exit"
-  %9 = phi ptr [ %6, %.lr.ph ], [ %54, %"_ZN8thin_vec16ThinVec$LT$T$GT$4push17h91daced1f5635e1dE.exit" ]
+  %9 = phi ptr [ %6, %.lr.ph ], [ %53, %"_ZN8thin_vec16ThinVec$LT$T$GT$4push17h91daced1f5635e1dE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2368)
   call void @llvm.experimental.noalias.scope.decl(metadata !2371)
   call void @llvm.experimental.noalias.scope.decl(metadata !2374)
@@ -13328,14 +13340,13 @@ common.resume:                                    ; preds = %46, %47, %17
 "_ZN8thin_vec16ThinVec$LT$T$GT$4push17h91daced1f5635e1dE.exit": ; preds = %._crit_edge3.i, %42, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre4.i, %._crit_edge3.i ], [ %39, %._crit_edge.i ], [ %39, %42 ]
   %50 = phi ptr [ %32, %._crit_edge3.i ], [ %.pre.i, %._crit_edge.i ], [ %32, %42 ]
-  %51 = getelementptr i8, ptr %50, i64 16
-  %52 = getelementptr inbounds { { i8, [15 x i8] }, { i32, i16, i16 }, i32, i8, [3 x i8] }, ptr %51, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  %53 = load ptr, ptr %0, align 8, !alias.scope !2389, !noalias !2392, !nonnull !10, !noundef !10
-  store i64 %.pre-phi.i, ptr %53, align 8, !noalias !2392
-  %54 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17haba8af3f1d2d312cE.llvm.5923418642108526555"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.0.sroa.3.0..sroa_idx), !noalias !2365
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %._crit_edge, label %8, !llvm.loop !2398
+  %51 = getelementptr { { i8, [15 x i8] }, { i32, i16, i16 }, i32, i8, [3 x i8] }, ptr %50, i64 %33, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  %52 = load ptr, ptr %0, align 8, !alias.scope !2389, !noalias !2392, !nonnull !10, !noundef !10
+  store i64 %.pre-phi.i, ptr %52, align 8, !noalias !2392
+  %53 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17haba8af3f1d2d312cE.llvm.5923418642108526555"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.0.sroa.3.0..sroa_idx), !noalias !2365
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %._crit_edge, label %8, !llvm.loop !2398
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -13356,9 +13367,12 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2399)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !2399
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2402)
-  %invariant.gep.i.i = getelementptr i8, ptr %3, i64 -2
   %4 = icmp ugt i32 %1, 9999
-  br i1 %4, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %4, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
+
+.lr.ph.i.i.preheader:                             ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %3, i64 -2
+  br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
   %.028.lcssa.i.i = phi i64 [ 10, %2 ], [ %15, %.lr.ph.i.i ]
@@ -13367,9 +13381,9 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %6 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %6, label %22, label %31
 
-.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %.139.i.i = phi i32 [ %8, %.lr.ph.i.i ], [ %1, %2 ]
-  %.02838.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ 10, %2 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.139.i.i = phi i32 [ %8, %.lr.ph.i.i ], [ %1, %.lr.ph.i.i.preheader ]
+  %.02838.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ 10, %.lr.ph.i.i.preheader ]
   %7 = urem i32 %.139.i.i, 10000
   %8 = udiv i32 %.139.i.i, 10000
   %.lhs.trunc.i.i = trunc nuw nsw i32 %7 to i16
@@ -13385,9 +13399,9 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %18 = load i16, ptr %16, align 1, !noalias !2405
   store i16 %18, ptr %17, align 1, !alias.scope !2402, !noalias !2399
   %19 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %14
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.02838.i.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i
   %20 = load i16, ptr %19, align 1, !noalias !2405
-  store i16 %20, ptr %gep.i.i, align 1, !alias.scope !2402, !noalias !2399
+  store i16 %20, ptr %gep, align 1, !alias.scope !2402, !noalias !2399
   %21 = icmp ugt i32 %.139.i.i, 99999999
   br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !245
 

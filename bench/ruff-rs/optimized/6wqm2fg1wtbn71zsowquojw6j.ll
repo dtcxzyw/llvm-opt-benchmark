@@ -338,23 +338,15 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hfb852c094d7f21d8E(pt
   br i1 %30, label %.preheader.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %27
-  br i1 %.not24.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4faae71a0df3ca8eE.exit.i", label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader13.i
-  %invariant.gep.i = getelementptr i8, ptr %23, i64 -24
-  br label %.lr.ph.i
+  br i1 %.not24.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4faae71a0df3ca8eE.exit.i", label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %27
-  br i1 %.not24.i, label %.lr.ph.preheader.i.i.i, label %.lr.ph19.preheader.i
+  br i1 %.not24.i, label %.lr.ph.preheader.i.i.i, label %.lr.ph19.i
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader.i
-  %invariant.gep43.i = getelementptr i8, ptr %23, i64 -24
-  br label %.lr.ph19.i
-
-.lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
-  %.sroa.01.1.i15.i = phi i64 [ %35, %34 ], [ 2, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader13.i, %34
+  %.sroa.01.1.i15.i = phi i64 [ %35, %34 ], [ 2, %.preheader13.i ]
   %31 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.01.1.i15.i
-  %gep.i = getelementptr { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %invariant.gep.i, i64 %.sroa.01.1.i15.i
+  %gep.i = getelementptr i8, ptr %31, i64 -24
   %32 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h96d04ab661f7a1c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %gep.i), !noalias !46
   %33 = icmp slt i8 %32, 0
   br i1 %33, label %_ZN4core5slice4sort6shared17find_existing_run17h61b8a947f474cf16E.exit.i, label %34
@@ -364,10 +356,10 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hfb852c094d7f21d8E(pt
   %exitcond.not.i = icmp eq i64 %35, %22
   br i1 %exitcond.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h61b8a947f474cf16E.exit.i, label %.lr.ph.i, !llvm.loop !50
 
-.lr.ph19.i:                                       ; preds = %39, %.lr.ph19.preheader.i
-  %.sroa.01.0.i18.i = phi i64 [ %40, %39 ], [ 2, %.lr.ph19.preheader.i ]
+.lr.ph19.i:                                       ; preds = %.preheader.i, %39
+  %.sroa.01.0.i18.i = phi i64 [ %40, %39 ], [ 2, %.preheader.i ]
   %36 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %23, i64 %.sroa.01.0.i18.i
-  %gep44.i = getelementptr { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %invariant.gep43.i, i64 %.sroa.01.0.i18.i
+  %gep44.i = getelementptr i8, ptr %36, i64 -24
   %37 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h96d04ab661f7a1c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %gep44.i), !noalias !46
   %38 = icmp slt i8 %37, 0
   br i1 %38, label %39, label %_ZN4core5slice4sort6shared17find_existing_run17h61b8a947f474cf16E.exit.i

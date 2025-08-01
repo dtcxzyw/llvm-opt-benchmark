@@ -506,8 +506,6 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %115 = sext i32 %114 to i64
   %116 = load i64, ptr %78, align 8, !tbaa !51
   %factor.op.mul285 = mul i64 %116, %115
-  %invariant.gep291 = getelementptr i8, ptr %invariant.gep, i64 4
-  %invariant.gep295 = getelementptr i8, ptr %113, i64 4
   %wide.trip.count = zext nneg i32 %102 to i64
   br label %.noexc106
 
@@ -537,8 +535,6 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %129 = sext i32 %128 to i64
   %130 = load i64, ptr %78, align 8, !tbaa !51
   %factor.op.mul303 = mul i64 %130, %129
-  %invariant.gep309 = getelementptr i8, ptr %invariant.gep301, i64 4
-  %invariant.gep313 = getelementptr i8, ptr %127, i64 4
   %131 = add nsw i32 %117, 1
   %wide.trip.count353 = zext i32 %131 to i64
   br label %.noexc
@@ -565,8 +561,6 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %144 = sext i32 %143 to i64
   %145 = load i64, ptr %78, align 8, !tbaa !51
   %factor.op.mul321 = mul i64 %145, %144
-  %invariant.gep327 = getelementptr i8, ptr %invariant.gep319, i64 4
-  %invariant.gep331 = getelementptr i8, ptr %142, i64 4
   %narrow = add nsw i32 %117, 1
   %146 = sext i32 %narrow to i64
   %147 = sext i32 %102 to i64
@@ -587,11 +581,11 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %gep302 = getelementptr i8, ptr %invariant.gep301, i64 %.reass300
   %151 = load float, ptr %gep302, align 4, !tbaa !40
   %.reass304 = mul i64 %factor.op.mul303, %indvars.iv350
-  %152 = getelementptr inbounds nuw i8, ptr %127, i64 %.reass304
+  %152 = getelementptr i8, ptr %127, i64 %.reass304
   store float %151, ptr %152, align 4, !tbaa !40
-  %gep310 = getelementptr i8, ptr %invariant.gep309, i64 %.reass300
+  %gep310 = getelementptr i8, ptr %gep302, i64 4
   %153 = load float, ptr %gep310, align 4, !tbaa !40
-  %gep314 = getelementptr i8, ptr %invariant.gep313, i64 %.reass304
+  %gep314 = getelementptr i8, ptr %152, i64 4
   store float %153, ptr %gep314, align 4, !tbaa !40
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
@@ -604,12 +598,12 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %gep320 = getelementptr i8, ptr %invariant.gep319, i64 %.reass318
   %155 = load float, ptr %gep320, align 4, !tbaa !40
   %.reass322 = mul i64 %factor.op.mul321, %indvars.iv355
-  %156 = getelementptr inbounds nuw i8, ptr %142, i64 %.reass322
+  %156 = getelementptr i8, ptr %142, i64 %.reass322
   store float %155, ptr %156, align 4, !tbaa !40
-  %gep328 = getelementptr i8, ptr %invariant.gep327, i64 %.reass318
+  %gep328 = getelementptr i8, ptr %gep320, i64 4
   %157 = load float, ptr %gep328, align 4, !tbaa !40
   %158 = fneg fast float %157
-  %gep332 = getelementptr i8, ptr %invariant.gep331, i64 %.reass322
+  %gep332 = getelementptr i8, ptr %156, i64 4
   store float %158, ptr %gep332, align 4, !tbaa !40
   %indvars.iv.next356 = add nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %147
@@ -621,11 +615,11 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.reass
   %159 = load float, ptr %gep, align 4, !tbaa !40
   %.reass286 = mul i64 %factor.op.mul285, %indvars.iv
-  %160 = getelementptr inbounds nuw i8, ptr %113, i64 %.reass286
+  %160 = getelementptr i8, ptr %113, i64 %.reass286
   store float %159, ptr %160, align 4, !tbaa !40
-  %gep292 = getelementptr i8, ptr %invariant.gep291, i64 %.reass
+  %gep292 = getelementptr i8, ptr %gep, i64 4
   %161 = load float, ptr %gep292, align 4, !tbaa !40
-  %gep296 = getelementptr i8, ptr %invariant.gep295, i64 %.reass286
+  %gep296 = getelementptr i8, ptr %160, i64 4
   store float %161, ptr %gep296, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

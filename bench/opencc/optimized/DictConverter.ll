@@ -3523,7 +3523,6 @@ _ZNSt16allocator_traitsISaISt6vectorIPN5TCLAP3ArgESaIS3_EEEE8allocateERS6_m.exit
 _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %89, ptr %93, align 8, !tbaa !88
-  %invariant.gep = getelementptr i8, ptr %2, i64 240
   %.not236 = icmp eq ptr %89, %.pr.i
   br i1 %.not236, label %.preheader, label %.lr.ph
 
@@ -3542,6 +3541,7 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %105 = ptrtoint ptr %.pr.i to i64
   %106 = sub i64 %104, %105
   %107 = sdiv exact i64 %106, 24
+  %invariant.gep = getelementptr i8, ptr %2, i64 240
   br label %122
 
 .preheader:                                       ; preds = %_ZNSolsEPFRSoS_E.exit93, %_ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit
@@ -3558,6 +3558,7 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %114 = sdiv exact i64 %82, 24
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 19
+  %invariant.gep244 = getelementptr i8, ptr %2, i64 240
   br label %253
 
 116:                                              ; preds = %.noexc.i54, %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EEC2ERKS5_.exit
@@ -3588,8 +3589,8 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %127 = load ptr, ptr %2, align 8, !tbaa !22
   %128 = getelementptr i8, ptr %127, i64 -24
   %129 = load i64, ptr %128, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %129
-  %130 = load ptr, ptr %gep, align 8, !tbaa !54
+  %gep243 = getelementptr i8, ptr %invariant.gep, i64 %129
+  %130 = load ptr, ptr %gep243, align 8, !tbaa !54
   %.not.i.i.i138 = icmp eq ptr %130, null
   br i1 %.not.i.i.i138, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -4071,8 +4072,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_Z
   %290 = load ptr, ptr %2, align 8, !tbaa !22
   %291 = getelementptr i8, ptr %290, i64 -24
   %292 = load i64, ptr %291, align 8
-  %gep230 = getelementptr i8, ptr %invariant.gep, i64 %292
-  %293 = load ptr, ptr %gep230, align 8, !tbaa !54
+  %gep245 = getelementptr i8, ptr %invariant.gep244, i64 %292
+  %293 = load ptr, ptr %gep245, align 8, !tbaa !54
   %.not.i.i.i166 = icmp eq ptr %293, null
   br i1 %.not.i.i.i166, label %294, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i167
 

@@ -1132,16 +1132,15 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
   %47 = ptrtoint ptr %.val to i64
   %48 = sub i64 %46, %47
   %49 = sdiv exact i64 %48, 40
-  %invariant.gep.i = getelementptr i8, ptr %.val, i64 -4
   %50 = icmp ugt i64 %49, 1
   br i1 %50, label %.lr.ph.i, label %_ZN5ceres8internal12_GLOBAL__N_133ComputeCumulativeNumberOfNonZerosERSt6vectorINS0_14CompressedListESaIS3_EE.exit
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %42 ]
-  %51 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
+  %51 = getelementptr %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !77
-  %gep.i = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %51, i64 -4
   %54 = load i32, ptr %gep.i, align 4, !tbaa !80
   %55 = add nsw i32 %54, %53
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 36
@@ -9499,16 +9498,15 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %_ZN5ceres8internal1
   %284 = ptrtoint ptr %.val to i64
   %285 = sub i64 %283, %284
   %286 = sdiv exact i64 %285, 40
-  %invariant.gep.i = getelementptr i8, ptr %.val, i64 -4
   %287 = icmp ugt i64 %286, 1
   br i1 %287, label %.lr.ph.i, label %_ZN5ceres8internal12_GLOBAL__N_133ComputeCumulativeNumberOfNonZerosERSt6vectorINS0_14CompressedListESaIS3_EE.exit
 
 .lr.ph.i:                                         ; preds = %279, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %279 ]
-  %288 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
+  %288 = getelementptr %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %290 = load i32, ptr %289, align 8, !tbaa !77
-  %gep.i = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %288, i64 -4
   %291 = load i32, ptr %gep.i, align 4, !tbaa !80
   %292 = add nsw i32 %291, %290
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 36
@@ -9883,16 +9881,15 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
   %125 = ptrtoint ptr %.val to i64
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 40
-  %invariant.gep.i = getelementptr i8, ptr %.val, i64 -4
   %128 = icmp ugt i64 %127, 1
   br i1 %128, label %.lr.ph.i, label %_ZN5ceres8internal12_GLOBAL__N_133ComputeCumulativeNumberOfNonZerosERSt6vectorINS0_14CompressedListESaIS3_EE.exit
 
 .lr.ph.i:                                         ; preds = %120, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %120 ]
-  %129 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
+  %129 = getelementptr %"struct.ceres::internal::CompressedList", ptr %.val, i64 %indvars.iv.i
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %131 = load i32, ptr %130, align 8, !tbaa !77
-  %gep.i = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr %129, i64 -4
   %132 = load i32, ptr %gep.i, align 4, !tbaa !80
   %133 = add nsw i32 %132, %131
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 36

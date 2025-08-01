@@ -14726,19 +14726,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
   call void @_ZNK4i18n12phonenumbers11UnicodeText5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   call void @_ZNK4i18n12phonenumbers11UnicodeText3endEv(ptr dead_on_unwind nonnull writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %9, ptr noundef nonnull align 8 dereferenceable(36) %0)
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
   %20 = load ptr, ptr %8, align 8, !tbaa !192
   %21 = load ptr, ptr %9, align 8, !tbaa !192
   %.not3539 = icmp eq ptr %20, %21
-  br i1 %.not3539, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not3539, label %._crit_edge.thread, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
+  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep45 = getelementptr i8, ptr %1, i64 16
+  br label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %61
 
-.lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %43
-  %.040 = phi i64 [ %45, %43 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %.040 = phi i64 [ %45, %43 ], [ 0, %.lr.ph.preheader ]
   %22 = call noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %.not = icmp eq i64 %.040, 0
   br i1 %.not, label %33, label %23
@@ -14749,8 +14753,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
   %24 = load ptr, ptr %1, align 8, !tbaa !26
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %26
-  %27 = load i64, ptr %gep, align 8, !tbaa !191
+  %gep44 = getelementptr i8, ptr %invariant.gep, i64 %26
+  %27 = load i64, ptr %gep44, align 8, !tbaa !191
   %.not.i17 = icmp eq i64 %27, 0
   br i1 %.not.i17, label %30, label %28
 
@@ -14773,8 +14777,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %28, %30
   %34 = load ptr, ptr %1, align 8, !tbaa !26
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
-  %gep38 = getelementptr i8, ptr %invariant.gep, i64 %36
-  %37 = load i64, ptr %gep38, align 8, !tbaa !191
+  %gep46 = getelementptr i8, ptr %invariant.gep45, i64 %36
+  %37 = load i64, ptr %gep46, align 8, !tbaa !191
   %.not.i20 = icmp eq i64 %37, 0
   br i1 %.not.i20, label %40, label %38
 

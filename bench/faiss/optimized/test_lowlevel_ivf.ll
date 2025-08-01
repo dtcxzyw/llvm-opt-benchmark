@@ -759,7 +759,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit164.i:          ; preds = %.noexc163.i, %_ZNSt
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %invariant.gep.i = getelementptr i8, ptr %.sroa.065.0.i, i64 -4
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %133 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -768,6 +767,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit164.i:          ; preds = %.noexc163.i, %_ZNSt
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %139 = and i64 %96, 4294967295
+  %invariant.gep = getelementptr i8, ptr %.sroa.065.0.i, i64 -4
+  %invariant.gep1356 = getelementptr i8, ptr %.sroa.065.0.i, i64 -4
   br label %179
 
 _ZNSt10unique_ptrIN5faiss25BinaryInvertedListScannerESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit207.i
@@ -1555,9 +1556,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit207.i:               ; preds = %441, %_ZNSt6vectorI
   %447 = getelementptr inbounds nuw i32, ptr %.sroa.013.1.i, i64 %indvars.iv642.i
   %448 = mul i32 %446, %271
   %449 = sext i32 %448 to i64
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %449
+  %gep1355 = getelementptr i32, ptr %invariant.gep, i64 %449
   %450 = load i32, ptr %447, align 4, !tbaa !56, !noalias !96
-  %451 = load i32, ptr %gep.i, align 4, !tbaa !56, !noalias !96
+  %451 = load i32, ptr %gep1355, align 4, !tbaa !56, !noalias !96
   %.not.i208.i = icmp sgt i32 %450, %451
   br i1 %.not.i208.i, label %453, label %452
 
@@ -1566,7 +1567,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit207.i:               ; preds = %441, %_ZNSt6vectorI
           to label %_ZN7testing8internal11CmpHelperLEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit.i unwind label %456
 
 453:                                              ; preds = %445
-  invoke void @_ZN7testing8internal18CmpHelperOpFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_S4_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %447, ptr noundef nonnull align 4 dereferenceable(4) %gep.i, ptr noundef nonnull @.str.46)
+  invoke void @_ZN7testing8internal18CmpHelperOpFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_S4_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %447, ptr noundef nonnull align 4 dereferenceable(4) %gep1355, ptr noundef nonnull @.str.46)
           to label %_ZN7testing8internal11CmpHelperLEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit.i unwind label %456
 
 _ZN7testing8internal11CmpHelperLEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit.i: ; preds = %453, %452
@@ -1691,8 +1692,8 @@ _ZN7testing15AssertionResultD2Ev.exit223.i:       ; preds = %_ZNKSt14default_del
   %493 = load i32, ptr @_ZN12_GLOBAL__N_11kE, align 4, !tbaa !56
   %494 = mul i32 %493, %271
   %495 = sext i32 %494 to i64
-  %gep401.i = getelementptr i32, ptr %invariant.gep.i, i64 %495
-  %496 = load i32, ptr %gep401.i, align 4, !tbaa !56
+  %gep1357 = getelementptr i32, ptr %invariant.gep1356, i64 %495
+  %496 = load i32, ptr %gep1357, align 4, !tbaa !56
   %497 = icmp slt i32 %492, %496
   br i1 %497, label %498, label %631
 
@@ -1706,13 +1707,13 @@ _ZN7testing15AssertionResultD2Ev.exit223.i:       ; preds = %_ZNKSt14default_del
   %501 = load i64, ptr %500, align 8, !tbaa !57
   %502 = zext nneg i32 %493 to i64
   %503 = mul nuw nsw i64 %indvars.iv645.i, %502
-  %invariant.gep875.i = getelementptr inbounds nuw i64, ptr %.sroa.078.0120.i, i64 %503
+  %invariant.gep.i = getelementptr inbounds nuw i64, ptr %.sroa.078.0120.i, i64 %503
   br label %504
 
 504:                                              ; preds = %507, %.lr.ph398.i
   %indvars.iv637.i = phi i64 [ 0, %.lr.ph398.i ], [ %indvars.iv.next638.i, %507 ]
-  %gep876.i = getelementptr inbounds nuw i64, ptr %invariant.gep875.i, i64 %indvars.iv637.i
-  %505 = load i64, ptr %gep876.i, align 8, !tbaa !57
+  %gep875.i = getelementptr inbounds nuw i64, ptr %invariant.gep.i, i64 %indvars.iv637.i
+  %505 = load i64, ptr %gep875.i, align 8, !tbaa !57
   %506 = icmp eq i64 %501, %505
   br i1 %506, label %508, label %507
 

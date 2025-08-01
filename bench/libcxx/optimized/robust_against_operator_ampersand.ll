@@ -1291,11 +1291,11 @@ define void @_ZN6libcpp33robust_against_operator_ampersand5checkERKN5clang12ast_
   %12 = lshr i32 %11, 24
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = lshr i32 %11, 19
-  %17 = and i32 %16, 1
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %15 = lshr i32 %11, 19
+  %16 = and i32 %15, 1
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !110
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !112
@@ -3282,11 +3282,11 @@ _ZN5clang12ast_matchers8internal10getSubExprINS_19CXXOperatorCallExprEEEPKNS_4Ex
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = lshr i32 %8, 19
-  %14 = and i32 %13, 1
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %12 = lshr i32 %8, 19
+  %13 = and i32 %12, 1
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !110
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %_ZN5clang12ast_matchers8internal10getSubExprINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread, label %18
@@ -3878,38 +3878,37 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
   br i1 %7, label %.preheader, label %.split.loop.exit11
 
 .preheader:                                       ; preds = %4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %10
-  %11 = lshr i32 %8, 19
-  %12 = and i32 %11, 1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %gep, i64 %13
-  %15 = zext i32 %6 to i64
-  br label %16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %12 = lshr i32 %8, 19
+  %13 = and i32 %12, 1
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %16 = zext i32 %6 to i64
+  br label %17
 
-16:                                               ; preds = %.preheader, %17
-  %indvars.iv = phi i64 [ %15, %.preheader ], [ %18, %17 ]
+17:                                               ; preds = %.preheader, %18
+  %indvars.iv = phi i64 [ %16, %.preheader ], [ %19, %18 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split.loop.exit11, label %17
+  br i1 %.not, label %.split.loop.exit11, label %18
 
-17:                                               ; preds = %16
-  %18 = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !110
+18:                                               ; preds = %17
+  %19 = add nsw i64 %indvars.iv, -1
+  %gep13 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %20 = load ptr, ptr %gep13, align 8, !tbaa !110
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 511
   %23 = icmp eq i16 %22, 113
-  br i1 %23, label %16, label %.split.loop.exit, !llvm.loop !240
+  br i1 %23, label %17, label %.split.loop.exit, !llvm.loop !240
 
-.split.loop.exit:                                 ; preds = %17
+.split.loop.exit:                                 ; preds = %18
   %24 = trunc nuw i64 %indvars.iv to i32
   br label %.split.loop.exit11
 
-.split.loop.exit11:                               ; preds = %16, %.split.loop.exit, %4
-  %.0.lcssa.sink = phi i32 [ %6, %4 ], [ %24, %.split.loop.exit ], [ 0, %16 ]
+.split.loop.exit11:                               ; preds = %17, %.split.loop.exit, %4
+  %.0.lcssa.sink = phi i32 [ %6, %4 ], [ %24, %.split.loop.exit ], [ 0, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !221
   %27 = icmp eq i32 %.0.lcssa.sink, %26
@@ -4070,11 +4069,11 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %18
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit
 
 30:                                               ; preds = %10
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 14848
-  %32 = add i32 %14, -1
-  store i32 %32, ptr %13, align 8, !tbaa !157
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [16 x ptr], ptr %31, i64 0, i64 %33
+  %31 = add i32 %14, -1
+  store i32 %31, ptr %13, align 8, !tbaa !157
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 14848
   %35 = load ptr, ptr %34, align 8, !tbaa !159
   store i8 0, ptr %35, align 8, !tbaa !244
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 424

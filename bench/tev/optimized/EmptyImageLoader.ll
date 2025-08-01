@@ -993,20 +993,20 @@ define dso_local void @_ZNK3tev16EmptyImageLoader4loadERNSt3__113basic_istreamIc
   store ptr %42, ptr %10, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 176
   store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %42, i8 0, i64 152, i1 false)
-  br label %46
+  br label %45
 
-46:                                               ; preds = %46, %.lr.ph.i.i
-  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw [4 x [4 x float]], ptr %45, i64 0, i64 %.05.i.i.i.i.i.i.i
-  %48 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %.05.i.i.i.i.i.i.i
+45:                                               ; preds = %45, %.lr.ph.i.i
+  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %49, %45 ]
+  %46 = getelementptr inbounds nuw [4 x [4 x float]], ptr %42, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds nuw [4 x float], ptr %46, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store float 1.000000e+00, ptr %48, align 4
   %49 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %49, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %50, label %46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %50, label %45, !llvm.loop !18
 
-50:                                               ; preds = %46
+50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 116
   store i32 2147483647, ptr %51, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 120
@@ -1704,10 +1704,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000E
 
 .lr.ph:                                           ; preds = %23
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
-  %invariant.gep = getelementptr i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = call i64 @llvm.smax.i64(i64 %21, i64 1)
   %smax = select i1 %22, i64 9223372036854775807, i64 %26
+  %invariant.gep = getelementptr i8, ptr %0, i64 40
+  %invariant.gep67 = getelementptr i8, ptr %0, i64 40
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcB8ne190000Ev.exit
@@ -1715,8 +1716,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000E
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %30
-  %31 = load ptr, ptr %gep, align 8
+  %gep66 = getelementptr i8, ptr %invariant.gep, i64 %30
+  %31 = load ptr, ptr %gep66, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -1806,8 +1807,8 @@ _ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.thread:  ; preds = %64, %_ZNKSt3__15cty
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8
-  %gep46 = getelementptr i8, ptr %invariant.gep, i64 %75
-  %76 = load ptr, ptr %gep46, align 8
+  %gep68 = getelementptr i8, ptr %invariant.gep67, i64 %75
+  %76 = load ptr, ptr %gep68, align 8
   %77 = add i64 %.03447, 1
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %79 = load ptr, ptr %78, align 8
@@ -38560,14 +38561,14 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread259
   %198 = add i8 %197, 1
   store i8 %198, ptr %196, align 1
   %.not = icmp eq i32 %142, 0
-  br i1 %.not, label %.critedge.i, label %.lr.ph.preheader.i
+  br i1 %.not, label %.critedge.i, label %.lr.ph.i138.preheader
 
-.lr.ph.preheader.i:                               ; preds = %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
-  %invariant.gep = getelementptr i8, ptr %92, i64 -2
+.lr.ph.i138.preheader:                            ; preds = %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
+  %invariant.gep430 = getelementptr i8, ptr %92, i64 -2
   br label %.lr.ph.i138
 
-.lr.ph.i138:                                      ; preds = %202, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %194, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %202 ]
+.lr.ph.i138:                                      ; preds = %.lr.ph.i138.preheader, %202
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %202 ], [ %194, %.lr.ph.i138.preheader ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %199 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv.next.i
   %200 = load i8, ptr %199, align 1
@@ -38576,10 +38577,10 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread259
 
 202:                                              ; preds = %.lr.ph.i138
   store i8 48, ptr %199, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.i
-  %203 = load i8, ptr %gep, align 1
+  %gep431 = getelementptr i8, ptr %invariant.gep430, i64 %indvars.iv.i
+  %203 = load i8, ptr %gep431, align 1
   %204 = add i8 %203, 1
-  store i8 %204, ptr %gep, align 1
+  store i8 %204, ptr %gep431, align 1
   %205 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %205, label %.lr.ph.i138, label %.critedge.i, !llvm.loop !469
 
@@ -38662,7 +38663,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i146: ; preds = %235
   %241 = load i8, ptr %240, align 1
   %242 = add i8 %241, 1
   store i8 %242, ptr %240, align 1
-  %invariant.gep326 = getelementptr i8, ptr %92, i64 -2
+  %invariant.gep = getelementptr i8, ptr %92, i64 -2
   br label %.lr.ph.i149
 
 .lr.ph.i149:                                      ; preds = %246, %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i146
@@ -38675,10 +38676,10 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i146: ; preds = %235
 
 246:                                              ; preds = %.lr.ph.i149
   store i8 48, ptr %243, align 1
-  %gep327 = getelementptr i8, ptr %invariant.gep326, i64 %indvars.iv.i150
-  %247 = load i8, ptr %gep327, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.i150
+  %247 = load i8, ptr %gep, align 1
   %248 = add i8 %247, 1
-  store i8 %248, ptr %gep327, align 1
+  store i8 %248, ptr %gep, align 1
   %249 = icmp samesign ugt i64 %indvars.iv.i150, 2
   br i1 %249, label %.lr.ph.i149, label %.critedge.i147, !llvm.loop !469
 
@@ -40847,20 +40848,20 @@ define internal fastcc void @_ZNK3tev16EmptyImageLoader4loadERNSt3__113basic_ist
   store ptr %19, ptr %12, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 176
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, i8 0, i64 152, i1 false)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %23, %.lr.ph.i.i
-  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %23 ]
-  %24 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %.05.i.i.i.i.i.i.i
-  %25 = getelementptr inbounds nuw [4 x float], ptr %24, i64 0, i64 %.05.i.i.i.i.i.i.i
+22:                                               ; preds = %22, %.lr.ph.i.i
+  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %22 ]
+  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %19, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store float 1.000000e+00, ptr %25, align 4
   %26 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %26, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %27, label %23, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %27, label %22, !llvm.loop !18
 
-27:                                               ; preds = %23
+27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 116
   store i32 2147483647, ptr %28, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 120

@@ -190,17 +190,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62: ; preds = %_ZStl
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader unwind label %46
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
   %char0 = load i8, ptr %spec.store.select1, align 1
   %.not174 = icmp eq i8 %char0, 0
-  br i1 %.not174, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63._crit_edge, label %.lr.ph
+  br i1 %.not174, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader
+  %invariant.gep = getelementptr i8, ptr %11, i64 32
+  %invariant.gep181 = getelementptr i8, ptr %11, i64 32
+  br label %.lr.ph
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63._crit_edge: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.7, i64 noundef 3)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64 unwind label %46
 
-.lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63
-  %.046167 = phi i64 [ %85, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63
+  %.046167 = phi i64 [ %85, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63 ], [ 0, %.lr.ph.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %spec.store.select1, i64 %.046167
   %51 = load i8, ptr %50, align 1, !tbaa !46
   %52 = icmp eq i8 %51, 34
@@ -212,8 +216,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63._crit_edge: ; pre
   %54 = load ptr, ptr %27, align 8, !tbaa !33
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8
-  %gep166 = getelementptr i8, ptr %invariant.gep, i64 %56
-  %57 = load i64, ptr %gep166, align 8, !tbaa !47
+  %gep182 = getelementptr i8, ptr %invariant.gep181, i64 %56
+  %57 = load i64, ptr %gep182, align 8, !tbaa !47
   %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %60, label %58
 
@@ -263,8 +267,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit70: ; preds = %72, %70
   %77 = load ptr, ptr %27, align 8, !tbaa !33
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %79
-  %80 = load i64, ptr %gep, align 8, !tbaa !47
+  %gep180 = getelementptr i8, ptr %invariant.gep, i64 %79
+  %80 = load i64, ptr %gep180, align 8, !tbaa !47
   %.not.i71 = icmp eq i64 %80, 0
   br i1 %.not.i71, label %83, label %81
 
@@ -535,24 +539,27 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %_ZStl
   %168 = load ptr, ptr %4, align 8, !tbaa !77
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !77
-  %invariant.gep170 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %171 = icmp eq ptr %168, %170
-  br i1 %171, label %._crit_edge, label %.lr.ph173
+  br i1 %171, label %._crit_edge, label %.lr.ph173.preheader
+
+.lr.ph173.preheader:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83
+  %invariant.gep183 = getelementptr i8, ptr %11, i64 40
+  br label %.lr.ph173
 
 ._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83
   %172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.26, i64 noundef 125)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit129 unwind label %46
 
-.lr.ph173:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153
-  %.sroa.0158.0172 = phi ptr [ %210, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ], [ %168, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ]
+.lr.ph173:                                        ; preds = %.lr.ph173.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153
+  %.sroa.0158.0172 = phi ptr [ %210, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ], [ %168, %.lr.ph173.preheader ]
   %173 = load ptr, ptr %27, align 8, !tbaa !33
   %174 = getelementptr i8, ptr %173, i64 -24
   %175 = load i64, ptr %174, align 8
-  %gep171 = getelementptr i8, ptr %invariant.gep170, i64 %175
-  %176 = load i32, ptr %gep171, align 8, !tbaa !35
+  %gep = getelementptr i8, ptr %invariant.gep183, i64 %175
+  %176 = load i32, ptr %gep, align 8, !tbaa !35
   %177 = and i32 %176, -75
   %178 = or disjoint i32 %177, 8
-  store i32 %178, ptr %gep171, align 4, !tbaa !45
+  store i32 %178, ptr %gep, align 4, !tbaa !45
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.22, i64 noundef 9)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133 unwind label %212
 

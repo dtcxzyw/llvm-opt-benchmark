@@ -6439,14 +6439,13 @@ define dso_local i64 @getAllKeySpecsFlags(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !194
   %.not = icmp eq i32 %1, 0
-  %invariant.gep12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %wide.trip.count20 = zext nneg i32 %4 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.011.us = phi i64 [ %9, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %gep13 = getelementptr inbounds nuw %struct.keySpec, ptr %invariant.gep12, i64 %indvars.iv17
+  %gep13 = getelementptr %struct.keySpec, ptr %7, i64 %indvars.iv17, i32 1
   %8 = load i64, ptr %gep13, align 8, !tbaa !195
   %9 = or i64 %8, %.011.us
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -6460,7 +6459,7 @@ define dso_local i64 @getAllKeySpecsFlags(ptr noundef readonly captures(none) %0
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.011 = phi i64 [ %12, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %gep = getelementptr inbounds nuw %struct.keySpec, ptr %invariant.gep12, i64 %indvars.iv
+  %gep = getelementptr %struct.keySpec, ptr %7, i64 %indvars.iv, i32 1
   %10 = load i64, ptr %gep, align 8, !tbaa !195
   %11 = xor i64 %10, -1
   %12 = or i64 %.011, %11
@@ -6861,19 +6860,18 @@ define dso_local i32 @getKeysFromCommandWithSpecs(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8, !tbaa !193
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph.i, label %getAllKeySpecsFlags.exit31.thread
+  br i1 %8, label %.lr.ph.i, label %getAllKeySpecsFlags.exit30.thread
 
 .lr.ph.i:                                         ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8, !tbaa !194
-  %invariant.gep12.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %wide.trip.count20.i = zext nneg i32 %7 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.011.i = phi i64 [ %13, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw %struct.keySpec, ptr %invariant.gep12.i, i64 %indvars.iv.i
+  %gep.i = getelementptr %struct.keySpec, ptr %10, i64 %indvars.iv.i, i32 1
   %11 = load i64, ptr %gep.i, align 8, !tbaa !195
   %12 = xor i64 %11, -1
   %13 = or i64 %.011.i, %12
@@ -6884,38 +6882,38 @@ define dso_local i32 @getKeysFromCommandWithSpecs(ptr noundef %0, ptr noundef %1
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.i ]
   %.011.us.i = phi i64 [ %15, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.i ]
-  %gep13.i = getelementptr inbounds nuw %struct.keySpec, ptr %invariant.gep12.i, i64 %indvars.iv17.i
+  %gep13.i = getelementptr %struct.keySpec, ptr %10, i64 %indvars.iv17.i, i32 1
   %14 = load i64, ptr %gep13.i, align 8, !tbaa !195
   %15 = or i64 %14, %.011.us.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %getAllKeySpecsFlags.exit31, label %.lr.ph.split.us.i, !llvm.loop !196
+  br i1 %exitcond21.not.i, label %getAllKeySpecsFlags.exit30, label %.lr.ph.split.us.i, !llvm.loop !196
 
-getAllKeySpecsFlags.exit31:                       ; preds = %.lr.ph.split.us.i
+getAllKeySpecsFlags.exit30:                       ; preds = %.lr.ph.split.us.i
   %16 = and i64 %13, 256
   %17 = icmp eq i64 %16, 0
   %18 = and i64 %15, 1024
   %19 = icmp ne i64 %18, 0
   %or.cond = select i1 %17, i1 true, i1 %19
-  br i1 %or.cond, label %getAllKeySpecsFlags.exit31.thread, label %20
+  br i1 %or.cond, label %getAllKeySpecsFlags.exit30.thread, label %20
 
-20:                                               ; preds = %getAllKeySpecsFlags.exit31
+20:                                               ; preds = %getAllKeySpecsFlags.exit30
   %21 = tail call i32 @getKeysUsingKeySpecs(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4)
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %getAllKeySpecsFlags.exit31.thread, label %33
+  br i1 %22, label %getAllKeySpecsFlags.exit30.thread, label %33
 
-getAllKeySpecsFlags.exit31.thread:                ; preds = %5, %20, %getAllKeySpecsFlags.exit31
+getAllKeySpecsFlags.exit30.thread:                ; preds = %5, %20, %getAllKeySpecsFlags.exit30
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load i64, ptr %23, align 8, !tbaa !201
   %25 = and i64 %24, 2097152
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %28, label %26
 
-26:                                               ; preds = %getAllKeySpecsFlags.exit31.thread
+26:                                               ; preds = %getAllKeySpecsFlags.exit30.thread
   %27 = tail call i32 @moduleGetCommandKeysViaAPI(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4) #20
   br label %33
 
-28:                                               ; preds = %getAllKeySpecsFlags.exit31.thread
+28:                                               ; preds = %getAllKeySpecsFlags.exit30.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !208
   %.not26 = icmp eq ptr %30, null
@@ -6955,14 +6953,13 @@ define dso_local range(i32 0, 2) i32 @doesCommandHaveKeys(ptr noundef readonly c
 .lr.ph.i:                                         ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !194
-  %invariant.gep12.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %wide.trip.count20.i = zext nneg i32 %10 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.011.i = phi i64 [ %16, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw %struct.keySpec, ptr %invariant.gep12.i, i64 %indvars.iv.i
+  %gep.i = getelementptr %struct.keySpec, ptr %13, i64 %indvars.iv.i, i32 1
   %14 = load i64, ptr %gep.i, align 8, !tbaa !195
   %15 = xor i64 %14, -1
   %16 = or i64 %.011.i, %15

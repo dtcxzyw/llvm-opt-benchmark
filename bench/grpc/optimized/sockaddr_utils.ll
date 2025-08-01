@@ -204,58 +204,62 @@ define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolv
   %.sroa.2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.2)
   %2 = load i16, ptr %0, align 2, !tbaa !4
-  %.not.sroa.gep37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not.sroa.gep41 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.not.sroa.gep34 = getelementptr inbounds nuw i8, ptr %0, i64 2
   switch i16 %2, label %.loopexit [
     i16 10, label %3
     i16 2, label %thread-pre-split
   ]
 
 3:                                                ; preds = %.critedge.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %.not.sroa.gep37, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %4, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %.not24.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not24.i, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread, label %.preheader
+  br i1 %.not24.i, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %3
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
+  br label %.preheader
 
 _Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread: ; preds = %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4
-  %6 = load i16, ptr %.not.sroa.gep41, align 2, !tbaa !13
-  store i16 %6, ptr %.sroa.2, align 2, !tbaa !16
-  br label %7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %6 = load i32, ptr %5, align 4
+  %7 = load i16, ptr %.not.sroa.gep34, align 2, !tbaa !13
+  store i16 %7, ptr %.sroa.2, align 2, !tbaa !16
+  br label %8
 
 thread-pre-split:                                 ; preds = %.critedge.i
-  %.not.sroa.gep33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pr = load i32, ptr %.not.sroa.gep33, align 4, !tbaa !20
-  br label %7
+  %.not.sroa.gep30 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.pr = load i32, ptr %.not.sroa.gep30, align 4, !tbaa !20
+  br label %8
 
-7:                                                ; preds = %thread-pre-split, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread
-  %8 = phi i32 [ %.pr, %thread-pre-split ], [ %5, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
-  %.not.sroa.phi3951 = phi ptr [ %.not.sroa.gep41, %thread-pre-split ], [ %.sroa.2, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
-  %.not20 = icmp eq i32 %8, 0
+8:                                                ; preds = %thread-pre-split, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread
+  %9 = phi i32 [ %.pr, %thread-pre-split ], [ %6, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
+  %.not.sroa.phi3244 = phi ptr [ %.not.sroa.gep34, %thread-pre-split ], [ %.sroa.2, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
+  %.not20 = icmp eq i32 %9, 0
   br i1 %.not20, label %.loopexit.sink.split, label %.loopexit
 
-9:                                                ; preds = %.preheader
+10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.preheader, !llvm.loop !21
 
-.preheader:                                       ; preds = %3, %9
-  %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw [16 x i8], ptr %.not.sroa.gep37, i64 0, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !tbaa !24
+.preheader:                                       ; preds = %.preheader.preheader, %10
+  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader.preheader ]
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %11 = load i8, ptr %gep, align 1, !tbaa !24
   %.not19 = icmp eq i8 %11, 0
-  br i1 %.not19, label %9, label %.loopexit
+  br i1 %.not19, label %10, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %9, %7
-  %.sink.in = phi ptr [ %.not.sroa.phi3951, %7 ], [ %.not.sroa.gep41, %9 ]
+.loopexit.sink.split:                             ; preds = %10, %8
+  %.sink.in = phi ptr [ %.not.sroa.phi3244, %8 ], [ %.not.sroa.gep34, %10 ]
   %.sink = load i16, ptr %.sink.in, align 2, !tbaa !25
   %12 = tail call noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %.sink)
   %13 = zext i16 %12 to i32
   store i32 %13, ptr %1, align 4, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %.critedge.i, %7
-  %.1 = phi i32 [ 0, %7 ], [ 0, %.critedge.i ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %.critedge.i, %8
+  %.1 = phi i32 [ 0, %8 ], [ 0, %.critedge.i ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.2)
   ret i32 %.1
 }

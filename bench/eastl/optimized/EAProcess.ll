@@ -90,12 +90,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv1 = trunc i64 %call to i32
-  %invariant.gep = getelementptr i8, ptr %pDirectory, i64 -1
   %cmp29 = icmp sgt i32 %conv1, 0
-  br i1 %cmp29, label %for.body, label %for.end
+  br i1 %cmp29, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %if.then, %if.then5
-  %pos.010 = phi i32 [ %dec, %if.then5 ], [ %conv1, %if.then ]
+for.body.preheader:                               ; preds = %if.then
+  %invariant.gep = getelementptr i8, ptr %pDirectory, i64 -1
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %if.then5
+  %pos.010 = phi i32 [ %dec, %if.then5 ], [ %conv1, %for.body.preheader ]
   %1 = zext nneg i32 %pos.010 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %1
   %2 = load i8, ptr %gep, align 1
@@ -134,20 +137,23 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
-  %invariant.gep.i = getelementptr i8, ptr %path8, i64 -1
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i.preheader, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.i:                                       ; preds = %if.then.i, %if.then5.i
-  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %if.then.i ]
+for.body.i.preheader:                             ; preds = %if.then.i
+  %invariant.gep = getelementptr i8, ptr %path8, i64 -1
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %if.then5.i
+  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %for.body.i.preheader ]
   %0 = zext nneg i32 %pos.010.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %0
-  %1 = load i8, ptr %gep.i, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %gep.i, align 1
+  store i8 0, ptr %gep, align 1
   %dec.i = add nsw i32 %pos.010.i, -1
   %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5
@@ -228,20 +234,23 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
-  %invariant.gep.i = getelementptr i8, ptr %path8, i64 -1
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i.preheader, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.i:                                       ; preds = %if.then.i, %if.then5.i
-  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %if.then.i ]
+for.body.i.preheader:                             ; preds = %if.then.i
+  %invariant.gep = getelementptr i8, ptr %path8, i64 -1
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %if.then5.i
+  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %for.body.i.preheader ]
   %0 = zext nneg i32 %pos.010.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %0
-  %1 = load i8, ptr %gep.i, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %gep.i, align 1
+  store i8 0, ptr %gep, align 1
   %dec.i = add nsw i32 %pos.010.i, -1
   %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5

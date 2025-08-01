@@ -4812,7 +4812,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit77: ; preds = 
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit77
   %149 = load ptr, ptr %8, align 8
-  %invariant.gep = getelementptr i8, ptr %149, i64 -1
   br label %150
 
 150:                                              ; preds = %.lr.ph, %161
@@ -4822,7 +4821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit77: ; preds = 
   br i1 %.not, label %161, label %151
 
 151:                                              ; preds = %150
-  %152 = getelementptr inbounds nuw i8, ptr %149, i64 %.0139
+  %152 = getelementptr i8, ptr %149, i64 %.0139
   %153 = load i8, ptr %152, align 1, !tbaa !13
   switch i8 %153, label %161 [
     i8 47, label %.thread
@@ -4832,7 +4831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit77: ; preds = 
   ]
 
 .thread:                                          ; preds = %151
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0139
+  %gep = getelementptr i8, ptr %152, i64 -1
   %154 = load i8, ptr %gep, align 1, !tbaa !13
   %.not45 = icmp eq i8 %154, 92
   %spec.select = select i1 %.not45, i64 %.029138, i64 %.0139
@@ -4849,7 +4848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit77: ; preds = 
   br label %296
 
 159:                                              ; preds = %151, %151, %151
-  %gep145 = getelementptr i8, ptr %invariant.gep, i64 %.0139
+  %gep145 = getelementptr i8, ptr %152, i64 -1
   %160 = load i8, ptr %gep145, align 1, !tbaa !13
   %.not46 = icmp eq i8 %160, 92
   br i1 %.not46, label %161, label %._crit_edge

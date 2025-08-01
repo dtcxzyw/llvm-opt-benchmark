@@ -4095,32 +4095,39 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 37:                                               ; preds = %33, %35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.086.093 = load ptr, ptr %38, align 8, !tbaa !16
   %.not9094 = icmp eq ptr %.sroa.086.093, null
-  br i1 %.not9094, label %._crit_edge, label %.lr.ph
+  br i1 %.not9094, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %37
+  %invariant.gep = getelementptr i8, ptr %11, i64 16
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %71, %37
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.sroa.082.098 = load ptr, ptr %39, align 8, !tbaa !16
   %.not9199 = icmp eq ptr %.sroa.082.098, null
-  br i1 %.not9199, label %._crit_edge103, label %.lr.ph102
+  br i1 %.not9199, label %._crit_edge103, label %.lr.ph102.preheader
+
+.lr.ph102.preheader:                              ; preds = %._crit_edge
+  %invariant.gep117 = getelementptr i8, ptr %11, i64 16
+  br label %.lr.ph102
 
 40:                                               ; preds = %35, %33, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %22
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.lr.ph:                                           ; preds = %37, %71
-  %.sroa.086.095 = phi ptr [ %.sroa.086.0, %71 ], [ %.sroa.086.093, %37 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %.sroa.086.095 = phi ptr [ %.sroa.086.0, %71 ], [ %.sroa.086.093, %.lr.ph.preheader ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.086.095, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 9, ptr %8, align 1, !tbaa !44
   %43 = load ptr, ptr %11, align 8, !tbaa !65
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %45
-  %46 = load i64, ptr %gep, align 8, !tbaa !146
+  %gep116 = getelementptr i8, ptr %invariant.gep, i64 %45
+  %46 = load i64, ptr %gep116, align 8, !tbaa !146
   %.not.i30 = icmp eq i64 %46, 0
   br i1 %.not.i30, label %49, label %47
 
@@ -4192,18 +4199,19 @@ _ZNSolsEf.exit:                                   ; preds = %_ZStlsISt11char_tra
 .lr.ph110:                                        ; preds = %._crit_edge103
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %invariant.gep119 = getelementptr i8, ptr %11, i64 16
   br label %135
 
-.lr.ph102:                                        ; preds = %._crit_edge, %106
-  %.sroa.082.0100 = phi ptr [ %.sroa.082.0, %106 ], [ %.sroa.082.098, %._crit_edge ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %106
+  %.sroa.082.0100 = phi ptr [ %.sroa.082.0, %106 ], [ %.sroa.082.098, %.lr.ph102.preheader ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.082.0100, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 9, ptr %6, align 1, !tbaa !44
   %78 = load ptr, ptr %11, align 8, !tbaa !65
   %79 = getelementptr i8, ptr %78, i64 -24
   %80 = load i64, ptr %79, align 8
-  %gep97 = getelementptr i8, ptr %invariant.gep, i64 %80
-  %81 = load i64, ptr %gep97, align 8, !tbaa !146
+  %gep118 = getelementptr i8, ptr %invariant.gep117, i64 %80
+  %81 = load i64, ptr %gep118, align 8, !tbaa !146
   %.not.i45 = icmp eq i64 %81, 0
   br i1 %.not.i45, label %84, label %82
 
@@ -4333,8 +4341,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %137 = load ptr, ptr %11, align 8, !tbaa !65
   %138 = getelementptr i8, ptr %137, i64 -24
   %139 = load i64, ptr %138, align 8
-  %gep105 = getelementptr i8, ptr %invariant.gep, i64 %139
-  %140 = load i64, ptr %gep105, align 8, !tbaa !146
+  %gep = getelementptr i8, ptr %invariant.gep119, i64 %139
+  %140 = load i64, ptr %gep, align 8, !tbaa !146
   %.not.i59 = icmp eq i64 %140, 0
   br i1 %.not.i59, label %143, label %141
 
@@ -5282,8 +5290,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %_ZSt13__check
   %195 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %194)
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %.split
 
 .split.us.preheader:                              ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit

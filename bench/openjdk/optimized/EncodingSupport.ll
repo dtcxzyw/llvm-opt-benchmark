@@ -122,8 +122,6 @@ define hidden i32 @modifiedUtf8LengthOfUtf8(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 1
-  %invariant.gep67 = getelementptr i8, ptr %0, i64 2
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -131,7 +129,7 @@ define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none
   %.072 = phi i32 [ %87, %86 ], [ 0, %4 ]
   %.06571 = phi i32 [ %.166, %86 ], [ 0, %4 ]
   %6 = sext i32 %.072 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp sgt i8 %8, -1
@@ -184,7 +182,7 @@ define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none
   %38 = sext i32 %.06571 to i64
   %39 = getelementptr inbounds i8, ptr %2, i64 %38
   store i8 %8, ptr %39, align 1
-  %gep70 = getelementptr i8, ptr %invariant.gep, i64 %6
+  %gep70 = getelementptr i8, ptr %7, i64 1
   %40 = load i8, ptr %gep70, align 1
   %41 = getelementptr i8, ptr %39, i64 1
   store i8 %40, ptr %41, align 1
@@ -203,9 +201,9 @@ define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none
   br i1 %50, label %51, label %86
 
 51:                                               ; preds = %48
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %6
+  %gep = getelementptr i8, ptr %7, i64 1
   %52 = load i8, ptr %gep, align 1
-  %gep68 = getelementptr i8, ptr %invariant.gep67, i64 %6
+  %gep68 = getelementptr i8, ptr %7, i64 2
   %53 = load i8, ptr %gep68, align 1
   %54 = add nsw i32 %.072, 3
   %55 = sext i32 %54 to i64

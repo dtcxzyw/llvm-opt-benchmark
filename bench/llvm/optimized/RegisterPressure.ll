@@ -8284,7 +8284,6 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt12_Vector_base
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %60, align 2
   %61 = trunc i64 %5 to i32
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 2
   %62 = and i64 %56, 4294967295
   %.not28.i = icmp eq i64 %62, 0
   br i1 %.not28.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph25.i
@@ -8334,7 +8333,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt12_Vector_base
   br i1 %84, label %85, label %.critedge42.i
 
 85:                                               ; preds = %.critedge.i
-  %gep.i = getelementptr inbounds nuw %"class.llvm::PressureChange", ptr %invariant.gep.i, i64 %75
+  %gep.i = getelementptr %"class.llvm::PressureChange", ptr %4, i64 %75, i32 1
   %86 = load i16, ptr %gep.i, align 2, !tbaa !494
   %87 = sext i16 %86 to i32
   %88 = sub nsw i32 %72, %87
@@ -8560,7 +8559,6 @@ select.unfold:                                    ; preds = %52, %50
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm18RegPressureTracker22getUpwardPressureDeltaEPKNS_12MachineInstrERNS_12PressureDiffERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS8_IjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 2 captures(none) dereferenceable(12) %3, ptr readonly captures(none) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.270") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = trunc i64 %5 to i32
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -8691,7 +8689,7 @@ select.unfold:                                    ; preds = %62, %59
   br i1 %76, label %77, label %.critedge81
 
 77:                                               ; preds = %.critedge2
-  %gep = getelementptr inbounds nuw %"class.llvm::PressureChange", ptr %invariant.gep, i64 %68
+  %gep = getelementptr %"class.llvm::PressureChange", ptr %4, i64 %68, i32 1
   %78 = load i16, ptr %gep, align 2, !tbaa !494
   %79 = sext i16 %78 to i32
   %80 = sub nsw i32 %spec.select, %79
@@ -9902,7 +9900,6 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt12_Vector_base
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %59, align 2
   %60 = trunc i64 %4 to i32
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   %61 = and i64 %55, 4294967295
   %.not28.i = icmp eq i64 %61, 0
   br i1 %.not28.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph25.i
@@ -9952,7 +9949,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt12_Vector_base
   br i1 %83, label %84, label %.critedge42.i
 
 84:                                               ; preds = %.critedge.i
-  %gep.i = getelementptr inbounds nuw %"class.llvm::PressureChange", ptr %invariant.gep.i, i64 %74
+  %gep.i = getelementptr %"class.llvm::PressureChange", ptr %3, i64 %74, i32 1
   %85 = load i16, ptr %gep.i, align 2, !tbaa !494
   %86 = sext i16 %85 to i32
   %87 = sub nsw i32 %71, %86

@@ -1930,11 +1930,14 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %19, 
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.8, i64 noundef 84)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 664
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %32, %33
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+  %invariant.gep = getelementptr i8, ptr %0, i64 664
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.15, i64 noundef 16)
@@ -1993,9 +1996,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %44
   invoke void @_ZN6Assimp4D3MF12D3MFExporter10zipRelInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1224) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %125 unwind label %139
 
-.lr.ph:                                           ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
-  %60 = phi ptr [ %119, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ %33, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
-  %.01138 = phi i64 [ %117, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
+  %60 = phi ptr [ %119, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ %33, %.lr.ph.preheader ]
+  %.01138 = phi i64 [ %117, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ 0, %.lr.ph.preheader ]
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %.01138
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
@@ -2672,7 +2675,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter13writeMetaDataEv(ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %invariant.gep = getelementptr i8, ptr %0, i64 288
   br label %20
 
 20:                                               ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4500,10 +4503,11 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter12writeObjectsEv(ptr noundef no
 .lr.ph25:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1112
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %invariant.gep = getelementptr i8, ptr %0, i64 288
+  %invariant.gep37 = getelementptr i8, ptr %0, i64 288
   br label %14
 
 14:                                               ; preds = %.lr.ph25, %111
@@ -4527,8 +4531,8 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter12writeObjectsEv(ptr noundef no
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %31
-  %32 = load ptr, ptr %gep, align 8
+  %gep36 = getelementptr i8, ptr %invariant.gep, i64 %31
+  %32 = load ptr, ptr %gep36, align 8
   %.not.i.i.i14 = icmp eq ptr %32, null
   br i1 %.not.i.i.i14, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -4636,8 +4640,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %51, %_ZNSt6vectorIj
   %77 = load ptr, ptr %10, align 8
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %gep27 = getelementptr i8, ptr %invariant.gep, i64 %79
-  %80 = load ptr, ptr %gep27, align 8
+  %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %79
+  %80 = load ptr, ptr %gep38, align 8
   %.not.i.i.i15 = icmp eq ptr %80, null
   br i1 %.not.i.i.i15, label %81, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i16
 

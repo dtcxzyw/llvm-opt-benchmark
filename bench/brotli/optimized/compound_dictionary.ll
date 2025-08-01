@@ -281,7 +281,7 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
   %4 = icmp eq i64 %3, 15
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %4
-  br i1 %or.cond, label %40, label %5
+  br i1 %or.cond, label %39, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -291,28 +291,28 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
   %10 = load i64, ptr %9, align 8, !tbaa !30
   %11 = add i64 %10, %8
   store i64 %11, ptr %9, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %3
+  %12 = getelementptr inbounds nuw [16 x ptr], ptr %0, i64 0, i64 %3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %1, ptr %13, align 8, !tbaa !31
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %15 = add i64 %3, 1
-  %16 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %15
+  %14 = add i64 %3, 1
+  %15 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
   store i64 %11, ptr %16, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !23
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw i64 1, %20
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !22
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw i64 1, %25
-  %27 = getelementptr inbounds nuw i16, ptr %22, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !19
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !23
+  %19 = zext nneg i32 %18 to i64
+  %20 = shl nuw i64 1, %19
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load i32, ptr %22, align 4, !tbaa !22
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw i64 1, %24
+  %26 = getelementptr inbounds nuw i16, ptr %21, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !19
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %1, align 4, !tbaa !17
   %33 = icmp eq i32 %32, -558043680
   br i1 %33, label %35, label %34
@@ -323,15 +323,14 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
 
 35:                                               ; preds = %5, %34
   %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %34 ], [ %31, %5 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %37 = getelementptr inbounds nuw [16 x ptr], ptr %36, i64 0, i64 %3
-  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !35
-  %38 = load i64, ptr %0, align 8, !tbaa !27
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %0, align 8, !tbaa !27
-  br label %40
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  store ptr %.0.copyload.i.sink, ptr %36, align 8, !tbaa !35
+  %37 = load i64, ptr %0, align 8, !tbaa !27
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %0, align 8, !tbaa !27
+  br label %39
 
-40:                                               ; preds = %2, %35
+39:                                               ; preds = %2, %35
   %.0 = phi i32 [ 1, %35 ], [ 0, %2 ]
   ret i32 %.0
 }

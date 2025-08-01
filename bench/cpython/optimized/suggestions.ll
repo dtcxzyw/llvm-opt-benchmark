@@ -169,20 +169,23 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %.0106.lcssa = phi ptr [ %2, %.preheader119 ], [ %16, %13 ], [ %.0106122, %.lr.ph ]
   %.095.lcssa = phi i64 [ %1, %.preheader119 ], [ %15, %13 ], [ %.095123, %.lr.ph ]
   %.089.lcssa = phi ptr [ %0, %.preheader119 ], [ %14, %13 ], [ %.089124, %.lr.ph ]
-  %invariant.gep = getelementptr i8, ptr %.089.lcssa, i64 -1
-  %invariant.gep133 = getelementptr i8, ptr %.0106.lcssa, i64 -1
   %20 = icmp ne i64 %.095.lcssa, 0
   %21 = icmp ne i64 %.0108.lcssa, 0
   %or.cond4135 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond4135, label %.lr.ph138, label %.critedge6
+  br i1 %or.cond4135, label %.lr.ph138.preheader, label %.critedge6
 
-.lr.ph138:                                        ; preds = %.critedge, %25
-  %.196137 = phi i64 [ %26, %25 ], [ %.095.lcssa, %.critedge ]
-  %.1109136 = phi i64 [ %27, %25 ], [ %.0108.lcssa, %.critedge ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.196137
-  %22 = load i8, ptr %gep, align 1, !tbaa !21
-  %gep134 = getelementptr i8, ptr %invariant.gep133, i64 %.1109136
-  %23 = load i8, ptr %gep134, align 1, !tbaa !21
+.lr.ph138.preheader:                              ; preds = %.critedge
+  %invariant.gep = getelementptr i8, ptr %.089.lcssa, i64 -1
+  %invariant.gep168 = getelementptr i8, ptr %.0106.lcssa, i64 -1
+  br label %.lr.ph138
+
+.lr.ph138:                                        ; preds = %.lr.ph138.preheader, %25
+  %.196137 = phi i64 [ %26, %25 ], [ %.095.lcssa, %.lr.ph138.preheader ]
+  %.1109136 = phi i64 [ %27, %25 ], [ %.0108.lcssa, %.lr.ph138.preheader ]
+  %gep167 = getelementptr i8, ptr %invariant.gep, i64 %.196137
+  %22 = load i8, ptr %gep167, align 1, !tbaa !21
+  %gep169 = getelementptr i8, ptr %invariant.gep168, i64 %.1109136
+  %23 = load i8, ptr %gep169, align 1, !tbaa !21
   %24 = icmp eq i8 %22, %23
   br i1 %24, label %25, label %.critedge6
 

@@ -490,7 +490,6 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
 
 .lr.ph.preheader:                                 ; preds = %20
   %wide.trip.count = zext i32 %8 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %20
@@ -499,7 +498,7 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr inbounds nuw %struct.DdCache, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr %struct.DdCache, ptr %25, i64 %indvars.iv, i32 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)

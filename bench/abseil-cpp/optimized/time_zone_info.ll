@@ -2007,7 +2007,6 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz12TimeZoneInfo4
 
 .lr.ph:                                           ; preds = %.preheader244
   %96 = load ptr, ptr %93, align 8, !tbaa !62
-  %invariant.gep = getelementptr i8, ptr %96, i64 -48
   br label %100
 
 .lr.ph261:                                        ; preds = %119
@@ -2058,14 +2057,14 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit: ; preds = %.prehea
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.preheader243, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit
   %113 = phi i64 [ %.0.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit ], [ %111, %.preheader243 ]
-  %114 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %96, i64 %.0133255
+  %114 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %96, i64 %.0133255
   store i64 %113, ptr %114, align 8, !tbaa !63
   %115 = getelementptr inbounds nuw i8, ptr %.0127256, i64 %.0114
   %.not161 = icmp eq i64 %.0133255, 0
   br i1 %.not161, label %119, label %116
 
 116:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit
-  %gep = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %invariant.gep, i64 %.0133255
+  %gep = getelementptr i8, ptr %114, i64 -48
   %117 = load i64, ptr %gep, align 8, !tbaa !63
   %118 = icmp slt i64 %117, %113
   br i1 %118, label %119, label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE13shrink_to_fitEv.exit

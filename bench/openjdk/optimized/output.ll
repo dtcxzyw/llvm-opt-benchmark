@@ -6737,11 +6737,12 @@ _ZN9Node_ListC2EP5Arenaj.exit34:                  ; preds = %67, %69
   store i32 0, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 0, ptr %78, align 4
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %79
 
 79:                                               ; preds = %79, %_ZN9Node_ListC2EP5Arenaj.exit34
   %.idx = phi i64 [ 224, %_ZN9Node_ListC2EP5Arenaj.exit34 ], [ %.add, %79 ]
-  %gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   store i32 0, ptr %gep, align 4
   %.add = add nuw nsw i64 %.idx, 20
   %80 = icmp eq i64 %.add, 444

@@ -101,17 +101,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #6
-  %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph164, label %.loopexit130
+  br i1 %6, label %.lr.ph164.preheader, label %.loopexit130
 
-.lr.ph164:                                        ; preds = %4, %80
-  %.097162 = phi i32 [ %.1, %80 ], [ 0, %4 ]
-  %.098160 = phi i32 [ %45, %80 ], [ 0, %4 ]
-  %.0102159 = phi ptr [ %.2, %80 ], [ null, %4 ]
-  %.0104158 = phi i32 [ %81, %80 ], [ %5, %4 ]
+.lr.ph164.preheader:                              ; preds = %4
+  %invariant.gep261 = getelementptr i8, ptr %2, i64 -1
+  br label %.lr.ph164
+
+.lr.ph164:                                        ; preds = %.lr.ph164.preheader, %80
+  %.097162 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph164.preheader ]
+  %.098160 = phi i32 [ %45, %80 ], [ 0, %.lr.ph164.preheader ]
+  %.0102159 = phi ptr [ %.2, %80 ], [ null, %.lr.ph164.preheader ]
+  %.0104158 = phi i32 [ %81, %80 ], [ %5, %.lr.ph164.preheader ]
   %7 = zext nneg i32 %.0104158 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
+  %gep = getelementptr i8, ptr %invariant.gep261, i64 %7
   %8 = load i8, ptr %gep, align 1, !tbaa !15
   %9 = icmp eq i8 %8, 10
   br i1 %9, label %10, label %.thread
@@ -125,13 +128,13 @@ define hidden range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef w
   br i1 %14, label %.loopexit, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %10
-  %gep157.phi.trans.insert = getelementptr i8, ptr %invariant.gep, i64 %12
+  %gep157.phi.trans.insert = getelementptr i8, ptr %13, i64 -1
   %.pre = load i8, ptr %gep157.phi.trans.insert, align 1, !tbaa !15
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.lr.ph164
-  %15 = phi i8 [ %8, %.lr.ph164 ], [ %.pre, %..thread_crit_edge ]
-  %.0105124 = phi i32 [ %.0104158, %.lr.ph164 ], [ %11, %..thread_crit_edge ]
+  %15 = phi i8 [ %.pre, %..thread_crit_edge ], [ %8, %.lr.ph164 ]
+  %.0105124 = phi i32 [ %11, %..thread_crit_edge ], [ %.0104158, %.lr.ph164 ]
   %16 = icmp eq i8 %15, 13
   br i1 %16, label %17, label %.thread125
 
@@ -254,21 +257,21 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
 .preheader.preheader:                             ; preds = %60
   %61 = zext nneg i32 %.098160 to i64
   %wide.trip.count = zext nneg i32 %44 to i64
-  %invariant.gep215 = getelementptr inbounds nuw i8, ptr %.2, i64 %61
+  %invariant.gep214 = getelementptr inbounds nuw i8, ptr %.2, i64 %61
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %79
   %indvars.iv187 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next188, %79 ]
   %indvars.iv185 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next186, %79 ]
-  %gep216 = getelementptr inbounds nuw i8, ptr %invariant.gep215, i64 %indvars.iv187
-  %invariant.gep213 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv185
+  %gep215 = getelementptr inbounds nuw i8, ptr %invariant.gep214, i64 %indvars.iv187
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv185
   br label %62
 
 62:                                               ; preds = %.preheader, %75
   %63 = phi i1 [ true, %.preheader ], [ false, %75 ]
   %indvars.iv182 = phi i64 [ 0, %.preheader ], [ 1, %75 ]
-  %gep214 = getelementptr inbounds nuw i8, ptr %invariant.gep213, i64 %indvars.iv182
-  %64 = load i8, ptr %gep214, align 1, !tbaa !15
+  %gep213 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv182
+  %64 = load i8, ptr %gep213, align 1, !tbaa !15
   %65 = add i8 %64, -48
   %or.cond = icmp ult i8 %65, 10
   br i1 %or.cond, label %75, label %66
@@ -297,10 +300,10 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
 
 75:                                               ; preds = %62, %68, %72
   %.0109 = phi i8 [ %69, %68 ], [ %73, %72 ], [ %65, %62 ]
-  %76 = load i8, ptr %gep216, align 1, !tbaa !15
+  %76 = load i8, ptr %gep215, align 1, !tbaa !15
   %77 = shl i8 %76, 4
   %78 = or i8 %77, %.0109
-  store i8 %78, ptr %gep216, align 1, !tbaa !15
+  store i8 %78, ptr %gep215, align 1, !tbaa !15
   br i1 %63, label %62, label %79, !llvm.loop !20
 
 79:                                               ; preds = %75

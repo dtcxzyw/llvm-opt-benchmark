@@ -26,7 +26,7 @@ define void @jpeg_CreateCompress(ptr noundef initializes((8, 16)) %0, i32 nounde
 
 13:                                               ; preds = %5, %3
   %.not46 = icmp eq i64 %2, 520
-  br i1 %.not46, label %.preheader, label %14
+  br i1 %.not46, label %.preheader.preheader, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr %0, align 8, !tbaa !24
@@ -41,9 +41,9 @@ define void @jpeg_CreateCompress(ptr noundef initializes((8, 16)) %0, i32 nounde
   %21 = load ptr, ptr %0, align 8, !tbaa !24
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void %22(ptr noundef nonnull %0) #4
-  br label %.preheader
+  br label %.preheader.preheader
 
-.preheader:                                       ; preds = %14, %13
+.preheader.preheader:                             ; preds = %14, %13
   %23 = load ptr, ptr %0, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !31
@@ -98,60 +98,56 @@ declare void @jpeg_abort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %6
+  %invariant.gep = getelementptr i8, ptr %0, i64 96
+  br label %3
 
-.preheader:                                       ; preds = %11
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %12
+3:                                                ; preds = %2, %7
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
+  %gep = getelementptr [4 x ptr], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %4 = load ptr, ptr %gep, align 8, !tbaa !41
+  %.not19 = icmp eq ptr %4, null
+  br i1 %.not19, label %7, label %5
 
-6:                                                ; preds = %2, %11
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %7 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  %.not19 = icmp eq ptr %8, null
-  br i1 %.not19, label %11, label %9
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  store i32 %1, ptr %6, align 4, !tbaa !42
+  br label %7
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 %1, ptr %10, align 4, !tbaa !42
-  br label %11
-
-11:                                               ; preds = %6, %9
+7:                                                ; preds = %3, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !44
+  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !44
 
-12:                                               ; preds = %.preheader, %22
-  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %22 ]
-  %13 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv23
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %17, label %15
+.preheader:                                       ; preds = %7, %18
+  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %18 ], [ 0, %7 ]
+  %8 = getelementptr [4 x ptr], ptr %0, i64 0, i64 %indvars.iv23
+  %9 = getelementptr i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %13, label %11
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 276
-  store i32 %1, ptr %16, align 4, !tbaa !47
-  br label %17
+11:                                               ; preds = %.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 276
+  store i32 %1, ptr %12, align 4, !tbaa !47
+  br label %13
 
-17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv23
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
-  %.not18 = icmp eq ptr %19, null
-  br i1 %.not18, label %22, label %20
+13:                                               ; preds = %11, %.preheader
+  %14 = getelementptr i8, ptr %8, i64 160
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %18, label %16
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 276
-  store i32 %1, ptr %21, align 4, !tbaa !47
-  br label %22
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 276
+  store i32 %1, ptr %17, align 4, !tbaa !47
+  br label %18
 
-22:                                               ; preds = %17, %20
+18:                                               ; preds = %13, %16
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !49
+  br i1 %exitcond26.not, label %19, label %.preheader, !llvm.loop !49
 
-23:                                               ; preds = %22
+19:                                               ; preds = %18
   ret void
 }
 

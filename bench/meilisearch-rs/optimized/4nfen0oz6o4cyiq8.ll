@@ -121,24 +121,27 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc96caca815ee9806E.llvm.17336248082
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h45d28ec7dce0f449E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !54, !noalias !57, !noundef !29
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !54, !noalias !57, !noundef !29
   %.promoted.i.i = load i64, ptr %0, align 8, !alias.scope !54, !noalias !57
-  %.not.i8.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i
+  %.not.i8.i.i = icmp eq i64 %4, %.promoted.i.i
+  br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %6 = phi i64 [ %7, %.lr.ph.i.i ], [ %.promoted.i.i, %2 ]
-  %7 = add nuw nsw i64 %6, 1
-  %8 = icmp ult i64 %6, 3
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %6
-  %10 = load i8, ptr %9, align 1, !range !60, !alias.scope !61, !noalias !62, !noundef !29
-  %11 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i8 noundef range(i8 0, 34) %10), !noalias !46
-  %.not.i.i.i = icmp eq i64 %5, %7
+.lr.ph.i.i.preheader:                             ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %5 = phi i64 [ %6, %.lr.ph.i.i ], [ %.promoted.i.i, %.lr.ph.i.i.preheader ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = icmp ult i64 %5, 3
+  tail call void @llvm.assume(i1 %7)
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
+  %8 = load i8, ptr %gep, align 1, !range !60, !alias.scope !61, !noalias !62, !noundef !29
+  %9 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i8 noundef range(i8 0, 34) %8), !noalias !46
+  %.not.i.i.i = icmp eq i64 %4, %6
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i, !llvm.loop !63
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit": ; preds = %.lr.ph.i.i, %2
@@ -1727,25 +1730,28 @@ define hidden void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !437, !noalias !440, !noundef !29
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !437, !noalias !440, !noundef !29
   %.promoted.i = load i64, ptr %0, align 8, !alias.scope !437, !noalias !440
-  %.not.i8.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i
+  %.not.i8.i = icmp eq i64 %4, %.promoted.i
+  br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %6 = phi i64 [ %7, %.lr.ph.i ], [ %.promoted.i, %2 ]
-  %7 = add nuw nsw i64 %6, 1
-  store i64 %7, ptr %0, align 8, !alias.scope !437, !noalias !440
-  %8 = icmp ult i64 %6, 3
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %6
-  %10 = load i8, ptr %9, align 1, !range !60, !alias.scope !435, !noalias !442, !noundef !29
-  %11 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i8 noundef range(i8 0, 34) %10)
-  %.not.i.i = icmp eq i64 %5, %7
+.lr.ph.i.preheader:                               ; preds = %2
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %5 = phi i64 [ %6, %.lr.ph.i ], [ %.promoted.i, %.lr.ph.i.preheader ]
+  %6 = add nuw nsw i64 %5, 1
+  store i64 %6, ptr %0, align 8, !alias.scope !437, !noalias !440
+  %7 = icmp ult i64 %5, 3
+  tail call void @llvm.assume(i1 %7)
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
+  %8 = load i8, ptr %gep, align 1, !range !60, !alias.scope !435, !noalias !442, !noundef !29
+  %9 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i8 noundef range(i8 0, 34) %8)
+  %.not.i.i = icmp eq i64 %4, %6
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i, !llvm.loop !63
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit: ; preds = %.lr.ph.i, %2

@@ -25042,16 +25042,19 @@ for.end:                                          ; preds = %_ZN5eastl8pop_heapI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_S4_EEvT_T0_S8_S8_T1_(ptr noundef %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep = getelementptr i8, ptr %first, i64 8
   %childPosition.0.in26 = shl nsw i64 %position, 1
   %childPosition.027 = add nsw i64 %childPosition.0.in26, 2
   %cmp28 = icmp slt i64 %childPosition.027, %heapSize
-  br i1 %cmp28, label %for.body, label %for.end
+  br i1 %cmp28, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %entry, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit
-  %childPosition.031 = phi i64 [ %childPosition.0, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %childPosition.027, %entry ]
-  %childPosition.0.in30 = phi i64 [ %childPosition.0.in, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %childPosition.0.in26, %entry ]
-  %position.addr.029 = phi i64 [ %spec.select, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %position, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %invariant.gep = getelementptr i8, ptr %first, i64 8
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit
+  %childPosition.031 = phi i64 [ %childPosition.0, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %childPosition.027, %for.body.preheader ]
+  %childPosition.0.in30 = phi i64 [ %childPosition.0.in, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %childPosition.0.in26, %for.body.preheader ]
+  %position.addr.029 = phi i64 [ %spec.select, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %position, %for.body.preheader ]
   %add.ptr = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.031
   %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in30
   %0 = load ptr, ptr %add.ptr, align 8
@@ -25354,20 +25357,23 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_44EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
-  br i1 %cmp27.i, label %for.body.i, label %for.end.i
+  br i1 %cmp27.i, label %for.body.i.preheader, label %for.end.i
 
-for.body.i:                                       ; preds = %entry, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
-  %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %entry ]
-  %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
-  %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
+for.body.i.preheader:                             ; preds = %entry
+  %invariant.gep = getelementptr i8, ptr %first, i64 8
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
+  %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %for.body.i.preheader ]
+  %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %for.body.i.preheader ]
+  %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %for.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
+  %add.ptr1.val.i = load ptr, ptr %gep, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
@@ -25670,20 +25676,23 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_45EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
-  br i1 %cmp27.i, label %for.body.i, label %for.end.i
+  br i1 %cmp27.i, label %for.body.i.preheader, label %for.end.i
 
-for.body.i:                                       ; preds = %entry, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
-  %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %entry ]
-  %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
-  %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
+for.body.i.preheader:                             ; preds = %entry
+  %invariant.gep = getelementptr i8, ptr %first, i64 8
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
+  %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %for.body.i.preheader ]
+  %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %for.body.i.preheader ]
+  %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %for.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
+  %add.ptr1.val.i = load ptr, ptr %gep, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i

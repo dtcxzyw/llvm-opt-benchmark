@@ -109,10 +109,10 @@ define noundef i64 @_Z15fast_rv64i_clzwP11processor_t6insn_tm(ptr noundef captur
   br i1 %.0.i.not, label %11, label %.preheader, !prof !15
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %7 = lshr i64 %1, 15
-  %8 = and i64 %7, 31
-  %9 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %8
+  %6 = lshr i64 %1, 15
+  %7 = and i64 %6, 31
+  %8 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load i64, ptr %9, align 8, !tbaa !14
   br label %16
 
@@ -153,13 +153,14 @@ define noundef i64 @_Z15fast_rv64i_clzwP11processor_t6insn_tm(ptr noundef captur
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %25
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %24
-  store i64 %.0, ptr %26, align 8, !tbaa !14
+  %26 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 256
+  store i64 %.0, ptr %27, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %25
-  %27 = add i64 %2, 4
-  ret i64 %27
+  %28 = add i64 %2, 4
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -189,10 +190,10 @@ define noundef i64 @_Z17logged_rv64i_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.0.i.not, label %12, label %.preheader, !prof !15
 
 .preheader:                                       ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %8 = lshr i64 %1, 15
-  %9 = and i64 %8, 31
-  %10 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %9
+  %7 = lshr i64 %1, 15
+  %8 = and i64 %7, 31
+  %9 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %11 = load i64, ptr %10, align 8, !tbaa !14
   br label %17
 
@@ -242,13 +243,14 @@ define noundef i64 @_Z17logged_rv64i_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %29
 
 29:                                               ; preds = %.loopexit
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %26
-  store i64 %.0, ptr %30, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %26
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 256
+  store i64 %.0, ptr %31, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %29
-  %31 = add i64 %2, 4
-  ret i64 %31
+  %32 = add i64 %2, 4
+  ret i64 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -366,8 +368,8 @@ define noundef i64 @_Z15fast_rv64e_clzwP11processor_t6insn_tm(ptr noundef captur
   br i1 %8, label %21, label %.preheader.split, !prof !15
 
 .preheader.split:                                 ; preds = %.preheader
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %11 = load i64, ptr %10, align 8, !tbaa !14
   br label %17
 
@@ -436,13 +438,14 @@ define noundef i64 @_Z15fast_rv64e_clzwP11processor_t6insn_tm(ptr noundef captur
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %30
-  store i64 %.021, ptr %39, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %30
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 256
+  store i64 %.021, ptr %40, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %37, %38
-  %40 = add i64 %2, 4
-  ret i64 %40
+  %41 = add i64 %2, 4
+  ret i64 %41
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
@@ -475,8 +478,8 @@ define noundef i64 @_Z17logged_rv64e_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %9, label %22, label %.preheader.split, !prof !15
 
 .preheader.split:                                 ; preds = %.preheader
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %11 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %12 = load i64, ptr %11, align 8, !tbaa !14
   br label %18
 
@@ -554,13 +557,14 @@ define noundef i64 @_Z17logged_rv64e_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %31
-  store i64 %.024, ptr %43, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw [32 x i64], ptr %0, i64 0, i64 %31
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 256
+  store i64 %.024, ptr %44, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %38, %42
-  %44 = add i64 %2, 4
-  ret i64 %44
+  %45 = add i64 %2, 4
+  ret i64 %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

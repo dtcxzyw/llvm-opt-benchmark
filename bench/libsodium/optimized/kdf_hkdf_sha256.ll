@@ -73,18 +73,21 @@ define dso_local range(i32 -1, 1) i32 @crypto_kdf_hkdf_sha256_expand(ptr noundef
   br i1 %9, label %10, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %invariant.gep = getelementptr i8, ptr %0, i64 -32
   %.not29 = icmp samesign ult i64 %1, 32
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %invariant.gep = getelementptr i8, ptr %0, i64 -32
+  br label %.lr.ph
 
 10:                                               ; preds = %5
   %11 = tail call ptr @__errno_location() #7
   store i32 22, ptr %11, align 4
   br label %37
 
-.lr.ph:                                           ; preds = %.preheader, %16
-  %12 = phi i64 [ %23, %16 ], [ 32, %.preheader ]
-  %.02230 = phi i64 [ %12, %16 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
+  %12 = phi i64 [ %23, %16 ], [ 32, %.lr.ph.preheader ]
+  %.02230 = phi i64 [ %12, %16 ], [ 0, %.lr.ph.preheader ]
   %13 = call i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %6, ptr noundef %4, i64 noundef 32) #6
   %.not28 = icmp eq i64 %.02230, 0
   br i1 %.not28, label %16, label %14

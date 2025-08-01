@@ -101,6 +101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i: ; preds
 
 _ZNSt13random_deviceC2Ev.exit.i.i.i:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #3
+  %invariant.gep = getelementptr i8, ptr %9, i64 8
   br label %34
 
 30:                                               ; preds = %_ZNSt13random_deviceclEv.exit.i.i.i
@@ -120,8 +121,8 @@ _ZNSt13random_deviceC2Ev.exit.i.i.i:              ; preds = %_ZNKSt7__cxx1112bas
           to label %_ZNSt13random_deviceclEv.exit.i.i.i unwind label %36
 
 _ZNSt13random_deviceclEv.exit.i.i.i:              ; preds = %34
-  %.0.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.idx1.i.i.i
-  store i32 %35, ptr %.0.ptr2.i.i.i, align 4, !tbaa !23
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.idx1.i.i.i
+  store i32 %35, ptr %gep, align 4, !tbaa !23
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 24
   br i1 %.not.i.i.i, label %30, label %34, !llvm.loop !25

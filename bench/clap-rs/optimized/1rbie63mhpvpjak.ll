@@ -3921,19 +3921,18 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 7, ptr %7, align 8
-  br label %13
+  br label %12
 
 8:                                                ; preds = %2
   %9 = add nuw nsw i64 %5, 1
   store i64 %9, ptr %1, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = icmp ult i64 %5, 3
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { [5 x i64] }, ptr %10, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
-  br label %13
+  %10 = icmp ult i64 %5, 3
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw { [5 x i64] }, ptr %1, i64 %5, i32 0, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
+  br label %12
 
-13:                                               ; preds = %8, %6
+12:                                               ; preds = %8, %6
   ret void
 }
 

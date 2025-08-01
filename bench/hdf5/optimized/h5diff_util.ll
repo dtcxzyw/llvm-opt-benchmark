@@ -482,26 +482,33 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not18 = icmp eq i64 %4, 0
-  br i1 %.not18, label %.critedge2, label %.lr.ph
+  br i1 %.not18, label %.critedge2, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %3, %7
-  %.019 = phi i64 [ %8, %7 ], [ %4, %3 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.019
-  %5 = load i8, ptr %gep, align 1, !tbaa !10
+.lr.ph.preheader:                                 ; preds = %3
+  %invariant.gep = getelementptr i8, ptr %0, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+  %.019 = phi i64 [ %8, %7 ], [ %4, %.lr.ph.preheader ]
+  %gep41 = getelementptr i8, ptr %invariant.gep, i64 %.019
+  %5 = load i8, ptr %gep41, align 1, !tbaa !10
   %6 = icmp eq i8 %5, 47
-  br i1 %6, label %7, label %.lr.ph26
+  br i1 %6, label %7, label %.lr.ph26.preheader
+
+.lr.ph26.preheader:                               ; preds = %.lr.ph
+  %invariant.gep42 = getelementptr i8, ptr %0, i64 -1
+  br label %.lr.ph26
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.019, -1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !11
 
-.lr.ph26:                                         ; preds = %.lr.ph, %10
-  %.125 = phi i64 [ %11, %10 ], [ %.019, %.lr.ph ]
-  %gep23 = getelementptr i8, ptr %invariant.gep, i64 %.125
-  %9 = load i8, ptr %gep23, align 1, !tbaa !10
+.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %10
+  %.125 = phi i64 [ %11, %10 ], [ %.019, %.lr.ph26.preheader ]
+  %gep43 = getelementptr i8, ptr %invariant.gep42, i64 %.125
+  %9 = load i8, ptr %gep43, align 1, !tbaa !10
   %.not17 = icmp eq i8 %9, 47
   br i1 %.not17, label %.critedge2, label %10
 

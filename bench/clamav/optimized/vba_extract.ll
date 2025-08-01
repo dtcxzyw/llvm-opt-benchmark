@@ -324,7 +324,6 @@ define i32 @cli_vba_readdir_new(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not772, label %.preheader1101, label %79
 
 .preheader1101:                                   ; preds = %62
-  %invariant.gep = getelementptr i8, ptr %52, i64 2
   %66 = load i64, ptr %10, align 8, !tbaa !8
   %.not1636 = icmp eq i64 %66, 0
   br i1 %.not1636, label %.thread1055, label %.lr.ph1634
@@ -1287,7 +1286,7 @@ define i32 @cli_vba_readdir_new(ptr noundef readonly captures(none) %0, ptr noun
   br label %.thread1055
 
 448:                                              ; preds = %443
-  %449 = getelementptr inbounds nuw i8, ptr %52, i64 %444
+  %449 = getelementptr i8, ptr %52, i64 %444
   %.0.copyload233 = load i16, ptr %449, align 1
   %.not777 = icmp eq i16 %.0.copyload233, 71
   br i1 %.not777, label %452, label %450
@@ -1308,7 +1307,7 @@ define i32 @cli_vba_readdir_new(ptr noundef readonly captures(none) %0, ptr noun
   br label %.thread1055
 
 456:                                              ; preds = %452
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %444
+  %gep = getelementptr i8, ptr %449, i64 2
   %.0.copyload116 = load i32, ptr %gep, align 1
   %457 = add i64 %444, 6
   %458 = zext i32 %.0.copyload116 to i64
@@ -1420,7 +1419,7 @@ thread-pre-split.thread:                          ; preds = %487, %thread-pre-sp
   br label %.thread1055
 
 501:                                              ; preds = %497
-  %502 = getelementptr inbounds nuw i8, ptr %52, i64 %479
+  %502 = getelementptr i8, ptr %52, i64 %479
   %.0.copyload235 = load i16, ptr %502, align 1
   %.not787 = icmp eq i16 %.0.copyload235, 26
   br i1 %.not787, label %505, label %503
@@ -1441,7 +1440,7 @@ thread-pre-split.thread:                          ; preds = %487, %thread-pre-sp
   br label %.thread1055
 
 509:                                              ; preds = %505
-  %gep1625 = getelementptr i8, ptr %invariant.gep, i64 %479
+  %gep1625 = getelementptr i8, ptr %502, i64 2
   %.0.copyload118 = load i32, ptr %gep1625, align 1
   %510 = add i64 %479, 6
   %511 = zext i32 %.0.copyload118 to i64
@@ -1500,7 +1499,7 @@ thread-pre-split.thread:                          ; preds = %487, %thread-pre-sp
   br label %.thread1055
 
 537:                                              ; preds = %532
-  %538 = getelementptr inbounds nuw i8, ptr %52, i64 %533
+  %538 = getelementptr i8, ptr %52, i64 %533
   %.0.copyload237 = load i16, ptr %538, align 1
   %.not792 = icmp eq i16 %.0.copyload237, 50
   br i1 %.not792, label %541, label %539
@@ -1521,7 +1520,7 @@ thread-pre-split.thread:                          ; preds = %487, %thread-pre-sp
   br label %.thread1055
 
 545:                                              ; preds = %541
-  %gep1627 = getelementptr i8, ptr %invariant.gep, i64 %533
+  %gep1627 = getelementptr i8, ptr %538, i64 2
   %.0.copyload120 = load i32, ptr %gep1627, align 1
   %546 = add i64 %533, 6
   %547 = zext i32 %.0.copyload120 to i64
@@ -1633,7 +1632,7 @@ thread-pre-split998.thread:                       ; preds = %576, %thread-pre-sp
   br label %.thread1055
 
 590:                                              ; preds = %586
-  %591 = getelementptr inbounds nuw i8, ptr %52, i64 %568
+  %591 = getelementptr i8, ptr %52, i64 %568
   %.0.copyload239 = load i16, ptr %591, align 1
   %.not803 = icmp eq i16 %.0.copyload239, 28
   br i1 %.not803, label %594, label %592
@@ -1654,7 +1653,7 @@ thread-pre-split998.thread:                       ; preds = %576, %thread-pre-sp
   br label %.thread1055
 
 598:                                              ; preds = %594
-  %gep1629 = getelementptr i8, ptr %invariant.gep, i64 %568
+  %gep1629 = getelementptr i8, ptr %591, i64 2
   %.0.copyload122 = load i32, ptr %gep1629, align 1
   %599 = add i64 %568, 6
   %600 = zext i32 %.0.copyload122 to i64
@@ -1713,7 +1712,7 @@ thread-pre-split998.thread:                       ; preds = %576, %thread-pre-sp
   br label %.thread1055
 
 626:                                              ; preds = %621
-  %627 = getelementptr inbounds nuw i8, ptr %52, i64 %622
+  %627 = getelementptr i8, ptr %52, i64 %622
   %.0.copyload241 = load i16, ptr %627, align 1
   %.not808 = icmp eq i16 %.0.copyload241, 72
   br i1 %.not808, label %630, label %628
@@ -1734,7 +1733,7 @@ thread-pre-split998.thread:                       ; preds = %576, %thread-pre-sp
   br label %.thread1055
 
 634:                                              ; preds = %630
-  %gep1631 = getelementptr i8, ptr %invariant.gep, i64 %622
+  %gep1631 = getelementptr i8, ptr %627, i64 2
   %.0.copyload124 = load i32, ptr %gep1631, align 1
   %635 = add i64 %622, 6
   %636 = zext i32 %.0.copyload124 to i64

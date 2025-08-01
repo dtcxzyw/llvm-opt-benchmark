@@ -151,11 +151,9 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   br i1 %26, label %.lr.ph255.preheader, label %.critedge4
 
 .lr.ph255.preheader:                              ; preds = %.critedge2
-  %scevgep307 = getelementptr i8, ptr %.193274, i64 1
-  %27 = getelementptr i8, ptr %scevgep307, i64 %24
+  %27 = getelementptr i8, ptr %.193274, i64 %24
   %28 = zext nneg i32 %.2104.lcssa to i64
   %29 = getelementptr i8, ptr %27, i64 %28
-  %scevgep308 = getelementptr i8, ptr %29, i64 -1
   br label %.lr.ph255
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %35
@@ -177,7 +175,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
 
 .critedge4:                                       ; preds = %.lr.ph255, %35, %.critedge2
   %.3105.lcssa = phi i32 [ %.2104.lcssa, %.critedge2 ], [ 0, %35 ], [ %.3105253, %.lr.ph255 ]
-  %.294.lcssa = phi ptr [ %25, %.critedge2 ], [ %scevgep308, %35 ], [ %.294254, %.lr.ph255 ]
+  %.294.lcssa = phi ptr [ %25, %.critedge2 ], [ %29, %35 ], [ %.294254, %.lr.ph255 ]
   %39 = tail call i32 @strncasecmp(ptr noundef readonly %.193274, ptr noundef nonnull @.str.13, i64 noundef %24) #14
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %match_word.exit, label %match_word.exit.thread

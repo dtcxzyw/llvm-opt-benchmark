@@ -6636,8 +6636,8 @@ default.unreachable34:                            ; preds = %27
   %176 = load i32, ptr %175, align 4, !alias.scope !775, !noalias !778, !noundef !8
   %177 = zext i32 %176 to i64
   %.idx33 = mul nuw nsw i64 %173, 24
-  %178 = getelementptr i8, ptr %165, i64 24
-  %179 = getelementptr i8, ptr %178, i64 %.idx33
+  %178 = getelementptr i8, ptr %165, i64 %.idx33
+  %179 = getelementptr i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8, !alias.scope !780, !noalias !775, !noundef !8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h6431ec06b2d8869bE.exit
@@ -6684,8 +6684,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h6431ec06b2d8869
   %205 = load i32, ptr %204, align 4, !alias.scope !783, !noalias !786, !noundef !8
   %206 = zext i32 %205 to i64
   %.idx = mul nuw nsw i64 %202, 24
-  %207 = getelementptr i8, ptr %194, i64 24
-  %208 = getelementptr i8, ptr %207, i64 %.idx
+  %207 = getelementptr i8, ptr %194, i64 %.idx
+  %208 = getelementptr i8, ptr %207, i64 24
   %209 = load ptr, ptr %208, align 8, !alias.scope !788, !noalias !783, !noundef !8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %206
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h6431ec06b2d8869bE.exit61
@@ -27723,8 +27723,8 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %128 = load i32, ptr %127, align 4, !alias.scope !3045, !noalias !3050, !noundef !8
   %129 = zext i32 %128 to i64
   %.idx.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %125, 24
-  %130 = getelementptr i8, ptr %118, i64 24
-  %131 = getelementptr i8, ptr %130, i64 %.idx.i.i.i.i.i.i.i.i.i
+  %130 = getelementptr i8, ptr %118, i64 %.idx.i.i.i.i.i.i.i.i.i
+  %131 = getelementptr i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8, !alias.scope !3051, !noalias !3054, !noundef !8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %129
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h7ca40acf4e14086eE.exit.i.i.i.i.i.i.i"
@@ -27830,8 +27830,8 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %176 = load i32, ptr %175, align 4, !alias.scope !3062, !noalias !3067, !noundef !8
   %177 = zext i32 %176 to i64
   %.idx.i.i.i.i.i.i.i.i = mul nuw nsw i64 %173, 24
-  %178 = getelementptr i8, ptr %165, i64 24
-  %179 = getelementptr i8, ptr %178, i64 %.idx.i.i.i.i.i.i.i.i
+  %178 = getelementptr i8, ptr %165, i64 %.idx.i.i.i.i.i.i.i.i
+  %179 = getelementptr i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8, !alias.scope !3068, !noalias !3071, !noundef !8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
   %.not1.i.i.i.i.i = icmp eq ptr %180, null
@@ -27888,7 +27888,6 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %.sroa.01.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %200, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %204 = icmp eq ptr %.sroa.7.117.i.i.i.fr.i, null
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %197, i64 23
   br i1 %204, label %.split159.us.i, label %.split159.i
 
 .split159.us.i:                                   ; preds = %185, %211
@@ -27934,7 +27933,7 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %225 = zext i32 %.val3.i.i.i.us.us.i to i64
   %226 = icmp ugt i64 %198, %225
   call void @llvm.assume(i1 %226), !noalias !3094
-  %gep.us.i = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %invariant.gep.i, i64 %225
+  %gep.us.i = getelementptr { [23 x i8], i8 }, ptr %197, i64 %225, i32 1
   %227 = load i8, ptr %gep.us.i, align 1, !range !791, !noalias !3095, !noundef !8
   %.not.i.i.i.i.i88.us.us.i = icmp eq i8 %227, -38
   br i1 %.not.i.i.i.i.i88.us.us.i, label %.split.us.split.us.i, label %.critedge.backedge.i.i.us.us.i
@@ -28341,8 +28340,8 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %378 = load i32, ptr %377, align 4, !alias.scope !3138, !noalias !3143, !noundef !8
   %379 = zext i32 %378 to i64
   %.idx.i.i.i.i.i.i.i.i86 = mul nuw nsw i64 %375, 24
-  %380 = getelementptr i8, ptr %368, i64 24
-  %381 = getelementptr i8, ptr %380, i64 %.idx.i.i.i.i.i.i.i.i86
+  %380 = getelementptr i8, ptr %368, i64 %.idx.i.i.i.i.i.i.i.i86
+  %381 = getelementptr i8, ptr %380, i64 24
   %382 = load ptr, ptr %381, align 8, !alias.scope !3144, !noalias !3147, !noundef !8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 %379
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h7ca40acf4e14086eE.exit.i.i.i.i.i.i"
@@ -28448,8 +28447,8 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %426 = load i32, ptr %425, align 4, !alias.scope !3155, !noalias !3160, !noundef !8
   %427 = zext i32 %426 to i64
   %.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %423, 24
-  %428 = getelementptr i8, ptr %415, i64 24
-  %429 = getelementptr i8, ptr %428, i64 %.idx.i.i.i.i.i.i.i
+  %428 = getelementptr i8, ptr %415, i64 %.idx.i.i.i.i.i.i.i
+  %429 = getelementptr i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8, !alias.scope !3161, !noalias !3164, !noundef !8
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 %427
   %.not1.i.i.i.i = icmp eq ptr %430, null
@@ -28507,7 +28506,6 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %.sroa.01.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %451, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %455 = icmp eq ptr %.sroa.7.117.i.i.i.fr, null
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %448, i64 23
   br i1 %455, label %.split229.us, label %.split229
 
 .split229.us:                                     ; preds = %435, %462
@@ -28553,7 +28551,7 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
   %476 = zext i32 %.val3.i.i.i.us.us to i64
   %477 = icmp ugt i64 %449, %476
   call void @llvm.assume(i1 %477), !noalias !3185
-  %gep.us = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %invariant.gep, i64 %476
+  %gep.us = getelementptr { [23 x i8], i8 }, ptr %448, i64 %476, i32 1
   %478 = load i8, ptr %gep.us, align 1, !range !791, !noalias !3186, !noundef !8
   %.not.i.i.i.i.i89.us.us = icmp eq i8 %478, -38
   br i1 %.not.i.i.i.i.i89.us.us, label %.split.us.split.us, label %.critedge.backedge.i.i.us.us

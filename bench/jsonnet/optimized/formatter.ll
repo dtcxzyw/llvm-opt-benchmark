@@ -916,7 +916,6 @@ define void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElemen
   %15 = load ptr, ptr %1, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !15
-  %invariant.gep160 = getelementptr i8, ptr %0, i64 16
   %.not124164 = icmp eq ptr %15, %17
   br i1 %.not124164, label %._crit_edge171, label %.lr.ph170
 
@@ -932,6 +931,9 @@ define void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElemen
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
+  %invariant.gep177 = getelementptr i8, ptr %0, i64 16
+  %invariant.gep179 = getelementptr i8, ptr %0, i64 16
   br label %30
 
 ._crit_edge171.loopexit:                          ; preds = %222
@@ -993,8 +995,8 @@ define void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElemen
   %56 = load ptr, ptr %0, align 8, !tbaa !37
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
-  %gep163 = getelementptr i8, ptr %invariant.gep160, i64 %58
-  %59 = load i64, ptr %gep163, align 8, !tbaa !39
+  %gep = getelementptr i8, ptr %invariant.gep179, i64 %58
+  %59 = load i64, ptr %gep, align 8, !tbaa !39
   %.not.i = icmp eq i64 %59, 0
   br i1 %.not.i, label %62, label %60
 
@@ -1152,8 +1154,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %115 = load ptr, ptr %0, align 8, !tbaa !37
   %116 = getelementptr i8, ptr %115, i64 -24
   %117 = load i64, ptr %116, align 8
-  %gep161 = getelementptr i8, ptr %invariant.gep160, i64 %117
-  %118 = load i64, ptr %gep161, align 8, !tbaa !39
+  %gep178 = getelementptr i8, ptr %invariant.gep177, i64 %117
+  %118 = load i64, ptr %gep178, align 8, !tbaa !39
   %.not.i79 = icmp eq i64 %118, 0
   br i1 %.not.i79, label %121, label %119
 
@@ -1279,8 +1281,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   %165 = load ptr, ptr %0, align 8, !tbaa !37
   %166 = getelementptr i8, ptr %165, i64 -24
   %167 = load i64, ptr %166, align 8
-  %gep = getelementptr i8, ptr %invariant.gep160, i64 %167
-  %168 = load i64, ptr %gep, align 8, !tbaa !39
+  %gep176 = getelementptr i8, ptr %invariant.gep, i64 %167
+  %168 = load i64, ptr %gep176, align 8, !tbaa !39
   %.not.i90 = icmp eq i64 %168, 0
   br i1 %.not.i90, label %171, label %169
 

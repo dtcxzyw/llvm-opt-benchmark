@@ -4588,7 +4588,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %186, %_ZNSt6vectorI
 
 .lr.ph150:                                        ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %191 = load ptr, ptr %103, align 8, !tbaa !60
-  %invariant.gep = getelementptr i8, ptr %191, i64 4
   br label %194
 
 ._crit_edge151:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -4610,11 +4609,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %186, %_ZNSt6vectorI
   %196 = getelementptr inbounds nuw i32, ptr %.sroa.093.0.lcssa, i64 %indvars.iv155
   %197 = load i32, ptr %196, align 4, !tbaa !59
   %198 = sext i32 %197 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %198
-  %199 = load i32, ptr %gep, align 4, !tbaa !59
-  %200 = getelementptr inbounds nuw i32, ptr %191, i64 %198
-  %201 = load i32, ptr %200, align 4, !tbaa !59
-  %202 = sub i32 %199, %201
+  %199 = getelementptr i32, ptr %191, i64 %198
+  %gep = getelementptr i8, ptr %199, i64 4
+  %200 = load i32, ptr %gep, align 4, !tbaa !59
+  %201 = load i32, ptr %199, align 4, !tbaa !59
+  %202 = sub i32 %200, %201
   %203 = add nsw i32 %202, %195
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %204 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.next156
@@ -6237,7 +6236,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %294, %_ZNSt6vectorI
   %296 = trunc i64 %281 to i32
   store i32 %296, ptr %213, align 8, !tbaa !42
   store i32 0, ptr %295, align 4, !tbaa !59
-  %invariant.gep = getelementptr i8, ptr %277, i64 4
   %297 = load i32, ptr %213, align 8, !tbaa !42
   %298 = icmp sgt i32 %297, 0
   br i1 %298, label %.lr.ph228, label %_ZNSt6vectorIiSaIiEE5clearEv.exit128
@@ -6279,11 +6277,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit130:                 ; preds = %_ZNSt6vectorIiSaIiE
   %306 = getelementptr inbounds nuw i32, ptr %.sroa.0182.0.lcssa, i64 %indvars.iv232
   %307 = load i32, ptr %306, align 4, !tbaa !59
   %308 = sext i32 %307 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %308
-  %309 = load i32, ptr %gep, align 4, !tbaa !59
-  %310 = getelementptr inbounds nuw i32, ptr %277, i64 %308
-  %311 = load i32, ptr %310, align 4, !tbaa !59
-  %312 = sub i32 %309, %311
+  %309 = getelementptr i32, ptr %277, i64 %308
+  %gep = getelementptr i8, ptr %309, i64 4
+  %310 = load i32, ptr %gep, align 4, !tbaa !59
+  %311 = load i32, ptr %309, align 4, !tbaa !59
+  %312 = sub i32 %310, %311
   %313 = add nsw i32 %312, %305
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %314 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv.next233

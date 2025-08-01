@@ -481,7 +481,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %.lr.ph, %mi_debug_show_bitmap.exit
-  %.016 = phi i64 [ 0, %.lr.ph ], [ %26, %mi_debug_show_bitmap.exit ]
+  %.016 = phi i64 [ 0, %.lr.ph ], [ %24, %mi_debug_show_bitmap.exit ]
   %5 = getelementptr inbounds nuw [64 x ptr], ptr @mi_arenas, i64 0, i64 %.016
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.not = icmp eq i64 %6, 0
@@ -494,48 +494,51 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !25
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.7, i64 noundef %.016, i64 noundef %10, i64 noundef %12) #6
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %14 = load i64, ptr %11, align 8, !tbaa !25
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %mi_debug_show_bitmap.exit, label %.lr.ph.i
+  %13 = load i64, ptr %11, align 8, !tbaa !25
+  %.not5.i = icmp eq i64 %13, 0
+  br i1 %.not5.i, label %mi_debug_show_bitmap.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %7, %17
-  %.04.i = phi i64 [ %spec.select17.i, %17 ], [ 0, %7 ]
-  %.0163.i = phi i64 [ %18, %17 ], [ 0, %7 ]
+.lr.ph.i.preheader:                               ; preds = %7
+  %invariant.gep = getelementptr i8, ptr %8, i64 56
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %15
+  %.04.i = phi i64 [ %spec.select17.i, %15 ], [ 0, %.lr.ph.i.preheader ]
+  %.0163.i = phi i64 [ %16, %15 ], [ 0, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %1) #6
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %.0163.i
-  %16 = load atomic i64, ptr %15 monotonic, align 8
-  br label %19
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %.0163.i
+  %14 = load atomic i64, ptr %gep monotonic, align 8
+  br label %17
 
-17:                                               ; preds = %19
+15:                                               ; preds = %17
   store i8 0, ptr %3, align 16, !tbaa !33
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #6
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %1) #6
-  %18 = add nuw i64 %.0163.i, 1
-  %exitcond6.not.i = icmp eq i64 %18, %14
+  %16 = add nuw i64 %.0163.i, 1
+  %exitcond6.not.i = icmp eq i64 %16, %13
   br i1 %exitcond6.not.i, label %mi_debug_show_bitmap.exit, label %.lr.ph.i, !llvm.loop !34
 
-19:                                               ; preds = %19, %.lr.ph.i
-  %.12.i = phi i64 [ %.04.i, %.lr.ph.i ], [ %spec.select17.i, %19 ]
-  %.0151.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %19 ]
-  %20 = shl nuw i64 1, %.0151.i
-  %21 = and i64 %20, %16
-  %.not.i = icmp ne i64 %21, 0
+17:                                               ; preds = %17, %.lr.ph.i
+  %.12.i = phi i64 [ %.04.i, %.lr.ph.i ], [ %spec.select17.i, %17 ]
+  %.0151.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %17 ]
+  %18 = shl nuw i64 1, %.0151.i
+  %19 = and i64 %18, %14
+  %.not.i = icmp ne i64 %19, 0
   %spec.select.i = select i1 %.not.i, i8 120, i8 46
-  %22 = zext i1 %.not.i to i64
-  %spec.select17.i = add i64 %.12.i, %22
-  %23 = sub nuw nsw i64 63, %.0151.i
-  %24 = getelementptr inbounds nuw [65 x i8], ptr %1, i64 0, i64 %23
-  store i8 %spec.select.i, ptr %24, align 1, !tbaa !33
-  %25 = add nuw nsw i64 %.0151.i, 1
-  %exitcond.not.i = icmp eq i64 %25, 64
-  br i1 %exitcond.not.i, label %17, label %19, !llvm.loop !35
+  %20 = zext i1 %.not.i to i64
+  %spec.select17.i = add i64 %.12.i, %20
+  %21 = sub nuw nsw i64 63, %.0151.i
+  %22 = getelementptr inbounds nuw [65 x i8], ptr %1, i64 0, i64 %21
+  store i8 %spec.select.i, ptr %22, align 1, !tbaa !33
+  %23 = add nuw nsw i64 %.0151.i, 1
+  %exitcond.not.i = icmp eq i64 %23, 64
+  br i1 %exitcond.not.i, label %15, label %17, !llvm.loop !35
 
-mi_debug_show_bitmap.exit:                        ; preds = %17, %7
-  %.0.lcssa.i = phi i64 [ 0, %7 ], [ %spec.select17.i, %17 ]
+mi_debug_show_bitmap.exit:                        ; preds = %15, %7
+  %.0.lcssa.i = phi i64 [ 0, %7 ], [ %spec.select17.i, %15 ]
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.9, i64 noundef %.0.lcssa.i) #6
-  %26 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %26, %2
+  %24 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %24, %2
   br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !36
 
 .critedge:                                        ; preds = %mi_debug_show_bitmap.exit, %4, %0

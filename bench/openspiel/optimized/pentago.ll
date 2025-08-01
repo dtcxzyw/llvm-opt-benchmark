@@ -2363,6 +2363,7 @@ define void @_ZNK10open_spiel7pentago12PentagoState17ObservationTensorEiN4absl7d
   store i32 %1, ptr %9, align 4
   store i32 0, ptr %10, align 4
   %18 = icmp sgt i32 %1, -1
+  %indvars.iv.i.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %17, i64 4
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %4
@@ -2484,7 +2485,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %.not2.i = icmp eq i64 %56, 0
   %57 = select i1 %.not2.i, i32 2, i32 1
   %58 = select i1 %.not.i, i32 %57, i32 0
-  switch i32 %58, label %default.unreachable21 [
+  switch i32 %58, label %default.unreachable22 [
     i32 0, label %59
     i32 1, label %60
     i32 2, label %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit
@@ -2496,7 +2497,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 60:                                               ; preds = %50
   br label %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit
 
-default.unreachable21:                            ; preds = %50
+default.unreachable22:                            ; preds = %50
   unreachable
 
 _ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit: ; preds = %50, %59, %60
@@ -2507,31 +2508,31 @@ _ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit: ; preds = %5
 62:                                               ; preds = %62, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit
   %63 = phi i1 [ true, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ false, %62 ]
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %.06.i, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ %61, %62 ]
-  %indvars.iv.i.i = phi i64 [ 0, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ 1, %62 ]
-  %.078.i.i = phi i32 [ 0, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ %67, %62 ]
-  %64 = getelementptr inbounds nuw [2 x i32], ptr %33, i64 0, i64 %indvars.iv.i.i
-  %65 = load i32, ptr %64, align 4
-  %66 = mul nsw i32 %65, %.078.i.i
-  %67 = add nsw i32 %66, %indvars.iv.i.i.sroa.phi.sroa.speculated
+  %indvars.iv.i.i.sroa.phi = phi ptr [ %17, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ %indvars.iv.i.i.sroa.gep17, %62 ]
+  %.078.i.i = phi i32 [ 0, %_ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit ], [ %66, %62 ]
+  %gep2.i = getelementptr i8, ptr %indvars.iv.i.i.sroa.phi, i64 16
+  %64 = load i32, ptr %gep2.i, align 4
+  %65 = mul nsw i32 %64, %.078.i.i
+  %66 = add nsw i32 %65, %indvars.iv.i.i.sroa.phi.sroa.speculated
   br i1 %63, label %62, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i, !llvm.loop !27
 
 _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %62
-  %68 = sext i32 %67 to i64
-  %69 = icmp ugt i64 %3, %68
-  br i1 %69, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %70
+  %67 = sext i32 %66 to i64
+  %68 = icmp ugt i64 %3, %67
+  br i1 %68, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %69
 
-70:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
+69:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
   tail call void @llvm.trap()
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
-  %71 = getelementptr inbounds float, ptr %2, i64 %68
-  store float 1.000000e+00, ptr %71, align 4
+  %70 = getelementptr inbounds float, ptr %2, i64 %67
+  store float 1.000000e+00, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %72, label %50, !llvm.loop !28
+  br i1 %exitcond.not, label %71, label %50, !llvm.loop !28
 
-72:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
+71:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   ret void
 }
 

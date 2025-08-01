@@ -433,14 +433,10 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
 .lr.ph.i:                                         ; preds = %172
   %174 = icmp eq i32 %80, 2
   %spec.store.select.i = select i1 %174, i64 64, i64 16
-  br i1 %174, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
+  br i1 %174, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
-  %invariant.gep.i = getelementptr i8, ptr %2, i64 1
-  br label %.lr.ph.split.us.i
-
-.lr.ph.split.us.i:                                ; preds = %.critedge.us.i, %.lr.ph.split.us.preheader.i
-  %.068101.us.i = phi i64 [ %177, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.critedge.us.i
+  %.068101.us.i = phi i64 [ %177, %.critedge.us.i ], [ 0, %.lr.ph.i ]
   %175 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.23, i64 noundef %.068101.us.i) #5
   br label %179
 
@@ -484,7 +480,7 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
   br i1 %197, label %198, label %205
 
 198:                                              ; preds = %._crit_edge119.i
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %180
+  %gep.i = getelementptr i8, ptr %185, i64 1
   %199 = load i8, ptr %gep.i, align 1, !tbaa !35
   %200 = icmp eq i8 %199, 13
   br i1 %200, label %201, label %205

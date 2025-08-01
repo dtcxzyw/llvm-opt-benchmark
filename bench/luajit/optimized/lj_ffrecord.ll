@@ -372,8 +372,8 @@ define internal void @recff_type(ptr noundef %0, ptr noundef readonly captures(n
   %.0 = xor i64 %6, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = getelementptr inbounds nuw [1 x %union.TValue], ptr %9, i64 0, i64 %.0
+  %9 = getelementptr inbounds nuw [1 x %union.TValue], ptr %8, i64 0, i64 %.0
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !4
   %12 = and i64 %11, 140737488355327
   %13 = inttoptr i64 %12 to ptr
@@ -2762,9 +2762,9 @@ argv2int.exit:                                    ; preds = %59, %lj_strscan_num
   %109 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %110 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %109) #9
   %111 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef 26, ptr noundef null) #9
-  %112 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %113 = zext i32 %87 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 %113
+  %112 = zext i32 %87 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 24
   %116 = load i32, ptr %77, align 4, !tbaa !62
   %117 = sub i32 %116, %87
@@ -3331,73 +3331,71 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = load i32, ptr %4, align 4, !tbaa !39
   %6 = and i32 %5, 520093696
-  switch i32 %6, label %8 [
+  %7 = load ptr, ptr %1, align 8, !tbaa !36
+  %8 = load i64, ptr %7, align 8, !tbaa !4
+  switch i32 %6, label %10 [
     i32 184549376, label %23
-    i32 201326592, label %7
+    i32 201326592, label %9
   ]
 
-7:                                                ; preds = %2
+9:                                                ; preds = %2
   br label %23
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 -312
-  %10 = load ptr, ptr %1, align 8, !tbaa !36
-  %11 = load i64, ptr %10, align 8, !tbaa !4
-  %12 = ashr i64 %11, 47
-  %13 = icmp ult i64 %12, -13
-  %14 = sub nsw i64 21, %12
-  %spec.select = select i1 %13, i64 35, i64 %14
-  %15 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %9, i64 0, i64 %spec.select
+10:                                               ; preds = %2
+  %11 = ashr i64 %8, 47
+  %12 = icmp ult i64 %11, -13
+  %13 = sub nsw i64 21, %11
+  %spec.select = select i1 %12, i64 35, i64 %13
+  %14 = getelementptr [39 x %struct.GCRef], ptr %0, i64 0, i64 %spec.select
+  %15 = getelementptr i8, ptr %14, i64 -312
   %16 = load i64, ptr %15, align 8, !tbaa !68
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %20, label %17
 
-17:                                               ; preds = %8
+17:                                               ; preds = %10
   %18 = inttoptr i64 %16 to ptr
   %19 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 11) #9
   %.pre = load ptr, ptr %3, align 8, !tbaa !37
   br label %20
 
-20:                                               ; preds = %8, %17
-  %21 = phi ptr [ %.pre, %17 ], [ %4, %8 ]
-  %22 = phi i32 [ %19, %17 ], [ 32767, %8 ]
+20:                                               ; preds = %10, %17
+  %21 = phi ptr [ %.pre, %17 ], [ %4, %10 ]
+  %22 = phi i32 [ %19, %17 ], [ 32767, %10 ]
   store i32 %22, ptr %21, align 4, !tbaa !39
-  br label %45
+  br label %43
 
-23:                                               ; preds = %2, %7
-  %.sink = phi i16 [ 11, %7 ], [ 5, %2 ]
-  %24 = load ptr, ptr %1, align 8, !tbaa !36
-  %25 = load i64, ptr %24, align 8, !tbaa !4
-  %26 = and i64 %25, 140737488355327
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load i64, ptr %28, align 8, !tbaa !4
-  %30 = trunc i32 %5 to i16
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 17675, ptr %32, align 4, !tbaa !4
-  store i16 %30, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  store i16 %.sink, ptr %33, align 2, !tbaa !4
-  %34 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  %.not29 = icmp eq i64 %29, 0
-  %35 = select i1 %.not29, i16 2187, i16 2443
-  %36 = trunc i32 %34 to i16
-  %37 = tail call i32 @lj_ir_knull(ptr noundef nonnull %0, i32 noundef 11) #9
-  %38 = trunc i32 %37 to i16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 %35, ptr %40, align 4, !tbaa !4
-  store i16 %36, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  store i16 %38, ptr %41, align 2, !tbaa !4
-  %42 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  %43 = select i1 %.not29, i32 32767, i32 %34
-  %44 = load ptr, ptr %3, align 8, !tbaa !37
-  store i32 %43, ptr %44, align 4, !tbaa !39
-  br label %45
+23:                                               ; preds = %2, %9
+  %.sink = phi i16 [ 11, %9 ], [ 5, %2 ]
+  %24 = and i64 %8, 140737488355327
+  %25 = inttoptr i64 %24 to ptr
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load i64, ptr %26, align 8, !tbaa !4
+  %28 = trunc i32 %5 to i16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i16 17675, ptr %30, align 4, !tbaa !4
+  store i16 %28, ptr %29, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  store i16 %.sink, ptr %31, align 2, !tbaa !4
+  %32 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
+  %.not29 = icmp eq i64 %27, 0
+  %33 = select i1 %.not29, i16 2187, i16 2443
+  %34 = trunc i32 %32 to i16
+  %35 = tail call i32 @lj_ir_knull(ptr noundef nonnull %0, i32 noundef 11) #9
+  %36 = trunc i32 %35 to i16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i16 %33, ptr %38, align 4, !tbaa !4
+  store i16 %34, ptr %37, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  store i16 %36, ptr %39, align 2, !tbaa !4
+  %40 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
+  %41 = select i1 %.not29, i32 32767, i32 %32
+  %42 = load ptr, ptr %3, align 8, !tbaa !37
+  store i32 %41, ptr %42, align 4, !tbaa !39
+  br label %43
 
-45:                                               ; preds = %23, %20
+43:                                               ; preds = %23, %20
   ret void
 }
 

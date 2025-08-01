@@ -14519,13 +14519,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not3842 = icmp samesign eq i64 %21, 0
-  br i1 %.not3842, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not3842, label %._crit_edge.thread, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %43
-  %.044 = phi i64 [ %45, %43 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
-  %.sroa.029.043 = phi ptr [ %46, %43 ], [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
+.lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
+  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep48 = getelementptr i8, ptr %1, i64 16
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %.044 = phi i64 [ %45, %43 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.029.043 = phi ptr [ %46, %43 ], [ %19, %.lr.ph.preheader ]
   %.not = icmp eq i64 %.044, 0
   br i1 %.not, label %33, label %23
 
@@ -14535,8 +14539,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %24 = load ptr, ptr %1, align 8, !tbaa !4
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %26
-  %27 = load i64, ptr %gep, align 8, !tbaa !281
+  %gep47 = getelementptr i8, ptr %invariant.gep, i64 %26
+  %27 = load i64, ptr %gep47, align 8, !tbaa !281
   %.not.i17 = icmp eq i64 %27, 0
   br i1 %.not.i17, label %30, label %28
 
@@ -14559,8 +14563,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %28, %30
   %34 = load ptr, ptr %1, align 8, !tbaa !4
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
-  %gep41 = getelementptr i8, ptr %invariant.gep, i64 %36
-  %37 = load i64, ptr %gep41, align 8, !tbaa !281
+  %gep49 = getelementptr i8, ptr %invariant.gep48, i64 %36
+  %37 = load i64, ptr %gep49, align 8, !tbaa !281
   %.not.i20 = icmp eq i64 %37, 0
   br i1 %.not.i20, label %40, label %38
 

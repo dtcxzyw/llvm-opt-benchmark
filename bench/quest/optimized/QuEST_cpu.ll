@@ -13037,12 +13037,13 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph239:                                        ; preds = %24
   %29 = load i64, ptr %2, align 8, !tbaa !16
   %30 = load ptr, ptr %12, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %invariant.gep218 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %10, align 8
   %33 = load ptr, ptr %14, align 8, !tbaa !45
   %34 = load ptr, ptr %15, align 8, !tbaa !45
+  %invariant.gep358 = getelementptr i8, ptr %30, i64 24
+  %invariant.gep360 = getelementptr i8, ptr %30, i64 16
+  %invariant.gep362 = getelementptr i8, ptr %30, i64 16
   br label %35
 
 35:                                               ; preds = %.lr.ph239, %220
@@ -13081,7 +13082,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %57
   %indvars.iv278 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next279, %57 ]
   %51 = mul nuw nsw i64 %indvars.iv278, %50
-  %invariant.gep324 = getelementptr inbounds nuw i64, ptr %49, i64 %51
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %49, i64 %51
   br label %53
 
 52:                                               ; preds = %53
@@ -13093,8 +13094,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv273 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next274, %52 ]
   %54 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv273
   %55 = load i64, ptr %54, align 8, !tbaa !16
-  %gep325 = getelementptr inbounds nuw i64, ptr %invariant.gep324, i64 %indvars.iv273
-  %56 = load i64, ptr %gep325, align 8, !tbaa !16
+  %gep324 = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv273
+  %56 = load i64, ptr %gep324, align 8, !tbaa !16
   %.not165.us = icmp eq i64 %55, %56
   br i1 %.not165.us, label %52, label %57
 
@@ -13288,8 +13289,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %116 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv297
   %117 = load i64, ptr %116, align 8, !tbaa !16
   %118 = sitofp i64 %117 to double
-  %gep231 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %indvars.iv297
-  %119 = load double, ptr %gep231, align 8, !tbaa !4
+  %gep = getelementptr double, ptr %invariant.gep362, i64 %indvars.iv297
+  %119 = load double, ptr %gep, align 8, !tbaa !4
   %120 = fsub double %118, %119
   %121 = call double @llvm.fmuladd.f64(double %120, double %120, double %.0145226)
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
@@ -13418,8 +13419,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %171 = sub nsw i64 %167, %170
   %172 = sitofp i64 %171 to double
   %173 = lshr exact i64 %indvars.iv289, 1
-  %gep219 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %173
-  %174 = load double, ptr %gep219, align 8, !tbaa !4
+  %gep361 = getelementptr double, ptr %invariant.gep360, i64 %173
+  %174 = load double, ptr %gep361, align 8, !tbaa !4
   %175 = fsub double %172, %174
   %176 = call double @llvm.fmuladd.f64(double %175, double %175, double %.0149214)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 2
@@ -13439,8 +13440,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %184 = load i64, ptr %183, align 8, !tbaa !16
   %185 = sub nsw i64 %181, %184
   %186 = sitofp i64 %185 to double
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv286
-  %187 = load double, ptr %gep, align 8, !tbaa !4
+  %gep359 = getelementptr double, ptr %invariant.gep358, i64 %indvars.iv286
+  %187 = load double, ptr %gep359, align 8, !tbaa !4
   %188 = fsub double %186, %187
   %189 = fmul double %179, %188
   %190 = call double @llvm.fmuladd.f64(double %189, double %188, double %.2151210)

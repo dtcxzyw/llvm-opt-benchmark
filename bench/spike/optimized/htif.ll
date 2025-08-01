@@ -4986,15 +4986,16 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %48 = and i32 %47, -75
   %49 = or disjoint i32 %48, 8
   store i32 %49, ptr %46, align 4, !tbaa !134
-  %invariant.gep56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = load i64, ptr %9, align 8, !tbaa !141
   %.not61 = icmp eq i64 %50, 0
   br i1 %.not61, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %invariant.gep50 = getelementptr i8, ptr %13, i64 -1
   %.pre62 = load i32, ptr %51, align 8, !tbaa !102
+  %invariant.gep = getelementptr i8, ptr %3, i64 16
+  %invariant.gep71 = getelementptr i8, ptr %13, i64 -1
+  %invariant.gep73 = getelementptr i8, ptr %3, i64 16
   br label %68
 
 ._crit_edge60:                                    ; preds = %92, %_ZNSolsEPFRSt8ios_baseS0_E.exit
@@ -5048,8 +5049,8 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %71 = load ptr, ptr %3, align 8, !tbaa !3
   %72 = getelementptr i8, ptr %71, i64 -24
   %73 = load i64, ptr %72, align 8
-  %gep57 = getelementptr i8, ptr %invariant.gep56, i64 %73
-  %74 = load i64, ptr %gep57, align 8, !tbaa !170
+  %gep = getelementptr i8, ptr %invariant.gep73, i64 %73
+  %74 = load i64, ptr %gep, align 8, !tbaa !170
   %.not.i34 = icmp eq i64 %74, 0
   br i1 %.not.i34, label %77, label %75
 
@@ -5069,13 +5070,13 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %81 = load ptr, ptr %3, align 8, !tbaa !3
   %82 = getelementptr i8, ptr %81, i64 -24
   %83 = load i64, ptr %82, align 8
-  %gep53 = getelementptr i8, ptr %invariant.gep56, i64 %83
-  store i64 2, ptr %gep53, align 8, !tbaa !170
+  %gep70 = getelementptr i8, ptr %invariant.gep, i64 %83
+  store i64 2, ptr %gep70, align 8, !tbaa !170
   br i1 %.not21, label %.invoke, label %84
 
 84:                                               ; preds = %.lr.ph
-  %gep51 = getelementptr i8, ptr %invariant.gep50, i64 %79
-  %85 = load i8, ptr %gep51, align 1, !tbaa !82
+  %gep72 = getelementptr i8, ptr %invariant.gep71, i64 %79
+  %85 = load i8, ptr %gep72, align 1, !tbaa !82
   %86 = zext i8 %85 to i64
   br label %.invoke
 

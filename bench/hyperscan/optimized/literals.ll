@@ -1303,10 +1303,13 @@ define linkonce_odr hidden void @_ZN20HyperscanLiteralTest10random_litB5cxx11Ejj
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %13, align 8
   store i8 0, ptr %12, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %invariant.gep34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %4
+  %invariant.gep = getelementptr i8, ptr %6, i64 24
+  %invariant.gep40 = getelementptr i8, ptr %6, i64 16
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %81, %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
@@ -1359,8 +1362,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %28
 
-.lr.ph:                                           ; preds = %4, %81
-  %.036 = phi i64 [ %86, %81 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
+  %.036 = phi i64 [ %86, %81 ], [ 0, %.lr.ph.preheader ]
   %36 = invoke noundef i32 @_ZN5boost6random6detail20generate_uniform_intINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEiEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(2504) %9, i32 noundef 97, i32 noundef 122)
           to label %_ZNK5boost6random24uniform_int_distributionIiEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEiRT_.exit unwind label %.loopexit
 
@@ -1373,16 +1376,16 @@ _ZNK5boost6random24uniform_int_distributionIiEclINS0_23mersenne_twister_engineIj
   %40 = load ptr, ptr %6, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %42
-  %43 = load i32, ptr %gep, align 8
+  %gep39 = getelementptr i8, ptr %invariant.gep, i64 %42
+  %43 = load i32, ptr %gep39, align 8
   %44 = and i32 %43, -75
   %45 = or disjoint i32 %44, 8
-  store i32 %45, ptr %gep, align 4
+  store i32 %45, ptr %gep39, align 4
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr i8, ptr %46, i64 -24
   %48 = load i64, ptr %47, align 8
-  %gep35 = getelementptr i8, ptr %invariant.gep34, i64 %48
-  store i64 2, ptr %gep35, align 8
+  %gep41 = getelementptr i8, ptr %invariant.gep40, i64 %48
+  store i64 2, ptr %gep41, align 8
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8

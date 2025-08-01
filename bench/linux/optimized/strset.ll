@@ -887,31 +887,30 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @strset_cleanup_data(ptr noundef captures(none) %0) #0 align 16 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %3
+  br label %2
 
-3:                                                ; preds = %12, %1
-  %4 = phi i64 [ 0, %1 ], [ %13, %12 ]
-  %5 = getelementptr [21 x %struct.strset_info], ptr %2, i64 0, i64 %4
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %7 = load i8, ptr %6, align 1, !range !16, !noundef !17
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %12, label %9
+2:                                                ; preds = %11, %1
+  %3 = phi i64 [ 0, %1 ], [ %12, %11 ]
+  %4 = getelementptr [21 x %struct.strset_info], ptr %0, i64 0, i64 %3, i32 3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %6 = load i8, ptr %5, align 1, !range !16, !noundef !17
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %11, label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @kfree(ptr noundef %11) #8
-  store ptr null, ptr %10, align 8
-  store i8 0, ptr %6, align 1
-  br label %12
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @kfree(ptr noundef %10) #8
+  store ptr null, ptr %9, align 8
+  store i8 0, ptr %5, align 1
+  br label %11
 
-12:                                               ; preds = %9, %3
-  %13 = add nuw nsw i64 %4, 1
-  %14 = icmp eq i64 %13, 21
-  br i1 %14, label %15, label %3, !llvm.loop !31
+11:                                               ; preds = %8, %2
+  %12 = add nuw nsw i64 %3, 1
+  %13 = icmp eq i64 %12, 21
+  br i1 %13, label %14, label %2, !llvm.loop !31
 
-15:                                               ; preds = %12
+14:                                               ; preds = %11
   ret void
 }
 
