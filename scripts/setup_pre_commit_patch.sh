@@ -2,7 +2,7 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
+export GITHUB_PATCH_ID=nikic/llvm-project/commit/70b5276cb2e35da728e879bbad8ccd782c3a8091
 export COMPTIME_MODE=0
 
 # Please rebase manually
