@@ -1328,13 +1328,13 @@ define linkonce_odr void @_ZN5boost11multi_arrayIdLm3ESaIdEEC2ERKNS_6detail11mul
 entry:
   %extents.i.i.i = alloca %"class.boost::array.5", align 8
   store ptr null, ptr %this, align 8, !tbaa !38
-  %storage_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %i.04.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.body.i.i.i ]
   %sub.i.i.i = sub nuw nsw i64 2, %i.04.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [3 x i64], ptr %storage_.i.i, i64 0, i64 %i.04.i.i.i
+  %0 = getelementptr inbounds nuw [3 x i64], ptr %this, i64 0, i64 %i.04.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %sub.i.i.i, ptr %arrayidx.i.i.i.i, align 8, !tbaa !7
   %inc.i.i.i = add nuw nsw i64 %i.04.i.i.i, 1
   %cmp.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
@@ -1350,8 +1350,8 @@ for.body.us.i.i.i.i:                              ; preds = %for.body.us.i.i.i.i
   %__result.addr.07.us.i.i.i.i = phi ptr [ %incdec.ptr1.us.i.i.i.i, %for.body.us.i.i.i.i ], [ %index_base_list_.i.i.i, %invoke.cont.i.i ]
   %__first.addr.06.us.i.idx.i.i.i = phi i64 [ %__first.addr.06.us.i.add.i.i.i, %for.body.us.i.i.i.i ], [ 0, %invoke.cont.i.i ]
   %__first.addr.06.us.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ranges, i64 %__first.addr.06.us.i.idx.i.i.i
-  %0 = load i64, ptr %__first.addr.06.us.i.ptr.i.i.i, align 8, !tbaa !27
-  store i64 %0, ptr %__result.addr.07.us.i.i.i.i, align 8, !tbaa !7
+  %1 = load i64, ptr %__first.addr.06.us.i.ptr.i.i.i, align 8, !tbaa !27
+  store i64 %1, ptr %__result.addr.07.us.i.i.i.i, align 8, !tbaa !7
   %__first.addr.06.us.i.add.i.i.i = add nuw nsw i64 %__first.addr.06.us.i.idx.i.i.i, 16
   %incdec.ptr1.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.us.i.i.i.i, i64 8
   %cmp.not.us.i.i.i.i = icmp eq i64 %__first.addr.06.us.i.add.i.i.i, 48
@@ -1366,9 +1366,9 @@ for.body.us.i17.i.i.i:                            ; preds = %for.body.us.i17.i.i
   %__first.addr.06.us.i19.idx.i.i.i = phi i64 [ %__first.addr.06.us.i19.add.i.i.i, %for.body.us.i17.i.i.i ], [ 0, %_ZSt9transformIPKN5boost6detail11multi_array12extent_rangeIlmEEPlNS0_19const_mem_fun_ref_tIlS4_EEET0_T_SB_SA_T1_.exit.i.i.i ]
   %__first.addr.06.us.i19.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ranges, i64 %__first.addr.06.us.i19.idx.i.i.i
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.us.i19.ptr.i.i.i, i64 8
-  %1 = load i64, ptr %second.i.i.i.i, align 8, !tbaa !32
-  %2 = load i64, ptr %__first.addr.06.us.i19.ptr.i.i.i, align 8, !tbaa !27
-  %sub.i.i.i.i = sub nsw i64 %1, %2
+  %2 = load i64, ptr %second.i.i.i.i, align 8, !tbaa !32
+  %3 = load i64, ptr %__first.addr.06.us.i19.ptr.i.i.i, align 8, !tbaa !27
+  %sub.i.i.i.i = sub nsw i64 %2, %3
   store i64 %sub.i.i.i.i, ptr %__result.addr.07.us.i18.i.i.i, align 8, !tbaa !7
   %__first.addr.06.us.i19.add.i.i.i = add nuw nsw i64 %__first.addr.06.us.i19.idx.i.i.i, 16
   %incdec.ptr1.us.i22.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.us.i18.i.i.i, i64 8
@@ -1379,12 +1379,12 @@ _ZN5boost15multi_array_refIdLm3EEC2EPdRKNS_6detail11multi_array10extent_genILm3E
   call void @_ZN5boost21const_multi_array_refIdLm3EPdE20init_multi_array_refIPlEEvT_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull %extents.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %extents.i.i.i) #20
   %num_elements_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %3 = load i64, ptr %num_elements_.i.i, align 8, !tbaa !86
-  %cmp.i.i = icmp ugt i64 %3, 1152921504606846975
+  %4 = load i64, ptr %num_elements_.i.i, align 8, !tbaa !86
+  %cmp.i.i = icmp ugt i64 %4, 1152921504606846975
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt15__new_allocatorIdE8allocateEmPKv.exit.i, !prof !87
 
 if.then.i.i:                                      ; preds = %_ZN5boost15multi_array_refIdLm3EEC2EPdRKNS_6detail11multi_array10extent_genILm3EEE.exit
-  %cmp2.i.i = icmp ugt i64 %3, 2305843009213693951
+  %cmp2.i.i = icmp ugt i64 %4, 2305843009213693951
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
@@ -1396,14 +1396,14 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   unreachable
 
 _ZNSt15__new_allocatorIdE8allocateEmPKv.exit.i:   ; preds = %_ZN5boost15multi_array_refIdLm3EEC2EPdRKNS_6detail11multi_array10extent_genILm3EEE.exit
-  %mul.i.i = shl nuw nsw i64 %3, 3
+  %mul.i.i = shl nuw nsw i64 %4, 3
   %call5.i.i2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #22
   %base_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %call5.i.i2, ptr %base_.i, align 8, !tbaa !64
   store ptr %call5.i.i2, ptr %this, align 8, !tbaa !38
   %allocated_elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i64 %3, ptr %allocated_elements_.i, align 8, !tbaa !68
-  %cmp8.not.i.i.i = icmp eq i64 %3, 0
+  store i64 %4, ptr %allocated_elements_.i, align 8, !tbaa !68
+  %cmp8.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp8.not.i.i.i, label %invoke.cont3, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %_ZNSt15__new_allocatorIdE8allocateEmPKv.exit.i
@@ -1469,7 +1469,6 @@ _ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit: ; preds = %for.body.i
   store i64 %mul.i.i, ptr %num_elements_, align 8, !tbaa !86
   %stride_list_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %storage_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %ascending_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %for.body.i4, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit
@@ -1477,51 +1476,52 @@ for.body.i4:                                      ; preds = %for.body.i4, %_ZSt1
   %stride.013.i = phi i64 [ 1, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %mul7.i, %for.body.i4 ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i64], ptr %storage_, i64 0, i64 %n.014.i
   %2 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !7
-  %arrayidx.i.i9.i = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %2
-  %3 = load i8, ptr %arrayidx.i.i9.i, align 1, !tbaa !81, !range !90, !noundef !91
-  %loadedv.i.i = trunc nuw i8 %3 to i1
-  %4 = sub nsw i64 0, %stride.013.i
-  %mul.i = select i1 %loadedv.i.i, i64 %stride.013.i, i64 %4
+  %3 = getelementptr inbounds nuw [3 x i8], ptr %storage_, i64 0, i64 %2
+  %arrayidx.i.i9.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %4 = load i8, ptr %arrayidx.i.i9.i, align 1, !tbaa !81, !range !90, !noundef !91
+  %loadedv.i.i = trunc nuw i8 %4 to i1
+  %5 = sub nsw i64 0, %stride.013.i
+  %mul.i = select i1 %loadedv.i.i, i64 %stride.013.i, i64 %5
   %arrayidx.i.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %2
   store i64 %mul.i, ptr %arrayidx.i.i, align 8, !tbaa !7
-  %5 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !7
-  %arrayidx.i12.i = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx.i12.i, align 8, !tbaa !7
-  %mul7.i = mul i64 %6, %stride.013.i
+  %6 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !7
+  %arrayidx.i12.i = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %6
+  %7 = load i64, ptr %arrayidx.i12.i, align 8, !tbaa !7
+  %mul7.i = mul i64 %7, %stride.013.i
   %inc.i = add nuw nsw i64 %n.014.i, 1
   %cmp.not.i5 = icmp eq i64 %inc.i, 3
   br i1 %cmp.not.i5, label %for.body.i.i.i.i, label %for.body.i4, !llvm.loop !92
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i4, %for.body.i.i.i.i
   %__first.addr.06.i.idx.i.i.i = phi i64 [ %__first.addr.06.i.add.i.i.i, %for.body.i.i.i.i ], [ 24, %for.body.i4 ]
-  %__init.addr.0.in5.i.i.i.i = phi i1 [ %8, %for.body.i.i.i.i ], [ true, %for.body.i4 ]
+  %__init.addr.0.in5.i.i.i.i = phi i1 [ %9, %for.body.i.i.i.i ], [ true, %for.body.i4 ]
   %__first.addr.06.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i.i
-  %7 = load i8, ptr %__first.addr.06.i.ptr.i.i.i, align 1, !range !90
-  %loadedv2.i.i.i.i.i = trunc nuw i8 %7 to i1
-  %8 = select i1 %__init.addr.0.in5.i.i.i.i, i1 %loadedv2.i.i.i.i.i, i1 false
+  %8 = load i8, ptr %__first.addr.06.i.ptr.i.i.i, align 1, !range !90
+  %loadedv2.i.i.i.i.i = trunc nuw i8 %8 to i1
+  %9 = select i1 %__init.addr.0.in5.i.i.i.i, i1 %loadedv2.i.i.i.i.i, i1 false
   %__first.addr.06.i.add.i.i.i = add nuw nsw i64 %__first.addr.06.i.idx.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %__first.addr.06.i.add.i.i.i, 27
   br i1 %cmp.not.i.i.i.i, label %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !93
 
 _ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i: ; preds = %for.body.i.i.i.i
-  %index_base_list_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  br i1 %8, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i, label %for.body.i.i
+  br i1 %9, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i, %for.inc.i.i
   %n.09.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i ]
   %offset.18.i.i = phi i64 [ %offset.2.i.i, %for.inc.i.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %n.09.i.i
-  %9 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !81, !range !90, !noundef !91
-  %loadedv.i.i.i = trunc nuw i8 %9 to i1
+  %10 = getelementptr inbounds nuw [3 x i8], ptr %storage_, i64 0, i64 %n.09.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %11 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !81, !range !90, !noundef !91
+  %loadedv.i.i.i = trunc nuw i8 %11 to i1
   br i1 %loadedv.i.i.i, label %for.inc.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %for.body.i.i
   %arrayidx.i.i.i6 = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %n.09.i.i
-  %10 = load i64, ptr %arrayidx.i.i.i6, align 8, !tbaa !7
-  %sub.i.i = add i64 %10, -1
+  %12 = load i64, ptr %arrayidx.i.i.i6, align 8, !tbaa !7
+  %sub.i.i = add i64 %12, -1
   %arrayidx.i7.i.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.09.i.i
-  %11 = load i64, ptr %arrayidx.i7.i.i, align 8, !tbaa !7
-  %mul.i.i7 = mul i64 %sub.i.i, %11
+  %13 = load i64, ptr %arrayidx.i7.i.i, align 8, !tbaa !7
+  %mul.i.i7 = mul i64 %sub.i.i, %13
   %sub6.i.i = sub i64 %offset.18.i.i, %mul.i.i7
   br label %for.inc.i.i
 
@@ -1539,10 +1539,11 @@ for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZN
   %n.07.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i ], [ %inc.i6.i, %for.body.i2.i ]
   %offset.06.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i ], [ %sub.i5.i, %for.body.i2.i ]
   %arrayidx.i.i3.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.07.i.i
-  %12 = load i64, ptr %arrayidx.i.i3.i, align 8, !tbaa !7
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [3 x i64], ptr %index_base_list_, i64 0, i64 %n.07.i.i
-  %13 = load i64, ptr %arrayidx.i5.i.i, align 8, !tbaa !7
-  %mul.i4.i = mul nsw i64 %13, %12
+  %14 = load i64, ptr %arrayidx.i.i3.i, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw [3 x i64], ptr %this, i64 0, i64 %n.07.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %16 = load i64, ptr %arrayidx.i5.i.i, align 8, !tbaa !7
+  %mul.i4.i = mul nsw i64 %16, %14
   %sub.i5.i = sub nsw i64 %offset.06.i.i, %mul.i4.i
   %inc.i6.i = add nuw nsw i64 %n.07.i.i, 1
   %cmp.not.i7.i = icmp eq i64 %inc.i6.i, 3
@@ -1556,41 +1557,42 @@ _ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_of
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit
   %__first.addr.06.i.idx.i.i = phi i64 [ %__first.addr.06.i.add.i.i, %for.body.i.i.i ], [ 24, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit ]
-  %__init.addr.0.in5.i.i.i = phi i1 [ %15, %for.body.i.i.i ], [ true, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit ]
+  %__init.addr.0.in5.i.i.i = phi i1 [ %18, %for.body.i.i.i ], [ true, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit ]
   %__first.addr.06.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i
-  %14 = load i8, ptr %__first.addr.06.i.ptr.i.i, align 1, !range !90
-  %loadedv2.i.i.i.i = trunc nuw i8 %14 to i1
-  %15 = select i1 %__init.addr.0.in5.i.i.i, i1 %loadedv2.i.i.i.i, i1 false
+  %17 = load i8, ptr %__first.addr.06.i.ptr.i.i, align 1, !range !90
+  %loadedv2.i.i.i.i = trunc nuw i8 %17 to i1
+  %18 = select i1 %__init.addr.0.in5.i.i.i, i1 %loadedv2.i.i.i.i, i1 false
   %__first.addr.06.i.add.i.i = add nuw nsw i64 %__first.addr.06.i.idx.i.i, 1
   %cmp.not.i.i.i = icmp eq i64 %__first.addr.06.i.add.i.i, 27
   br i1 %cmp.not.i.i.i, label %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i, label %for.body.i.i.i, !llvm.loop !93
 
 _ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i: ; preds = %for.body.i.i.i
-  br i1 %15, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i9
+  br i1 %18, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i8
 
-for.body.i9:                                      ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i, %for.inc.i
-  %n.09.i = phi i64 [ %inc.i14, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
+for.body.i8:                                      ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i, %for.inc.i
+  %n.09.i = phi i64 [ %inc.i13, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
   %offset.18.i = phi i64 [ %offset.2.i, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %n.09.i
-  %16 = load i8, ptr %arrayidx.i.i.i10, align 1, !tbaa !81, !range !90, !noundef !91
-  %loadedv.i.i11 = trunc nuw i8 %16 to i1
-  br i1 %loadedv.i.i11, label %for.inc.i, label %if.then3.i
+  %19 = getelementptr inbounds nuw [3 x i8], ptr %storage_, i64 0, i64 %n.09.i
+  %arrayidx.i.i.i9 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %20 = load i8, ptr %arrayidx.i.i.i9, align 1, !tbaa !81, !range !90, !noundef !91
+  %loadedv.i.i10 = trunc nuw i8 %20 to i1
+  br i1 %loadedv.i.i10, label %for.inc.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %for.body.i9
-  %arrayidx.i.i12 = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %n.09.i
-  %17 = load i64, ptr %arrayidx.i.i12, align 8, !tbaa !7
-  %sub.i = add i64 %17, -1
+if.then3.i:                                       ; preds = %for.body.i8
+  %arrayidx.i.i11 = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %n.09.i
+  %21 = load i64, ptr %arrayidx.i.i11, align 8, !tbaa !7
+  %sub.i = add i64 %21, -1
   %arrayidx.i7.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.09.i
-  %18 = load i64, ptr %arrayidx.i7.i, align 8, !tbaa !7
-  %mul.i13 = mul i64 %sub.i, %18
-  %sub6.i = sub i64 %offset.18.i, %mul.i13
+  %22 = load i64, ptr %arrayidx.i7.i, align 8, !tbaa !7
+  %mul.i12 = mul i64 %sub.i, %22
+  %sub6.i = sub i64 %offset.18.i, %mul.i12
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then3.i, %for.body.i9
-  %offset.2.i = phi i64 [ %offset.18.i, %for.body.i9 ], [ %sub6.i, %if.then3.i ]
-  %inc.i14 = add nuw nsw i64 %n.09.i, 1
-  %cmp.not.i15 = icmp eq i64 %inc.i14, 3
-  br i1 %cmp.not.i15, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i9, !llvm.loop !94
+for.inc.i:                                        ; preds = %if.then3.i, %for.body.i8
+  %offset.2.i = phi i64 [ %offset.18.i, %for.body.i8 ], [ %sub6.i, %if.then3.i ]
+  %inc.i13 = add nuw nsw i64 %n.09.i, 1
+  %cmp.not.i14 = icmp eq i64 %inc.i13, 3
+  br i1 %cmp.not.i14, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i8, !llvm.loop !94
 
 _ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit: ; preds = %for.inc.i, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i
   %offset.0.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ], [ %offset.2.i, %for.inc.i ]

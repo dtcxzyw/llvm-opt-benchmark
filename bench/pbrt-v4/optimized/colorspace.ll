@@ -712,62 +712,59 @@ _ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread:     ; preds = %3, %10, %19, %28, %
 .preheader.i.i:                                   ; preds = %49, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread
   %indvars.iv12.i.i = phi i64 [ 0, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread ], [ %indvars.iv.next13.i.i, %49 ]
   %48 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv12.i.i
-  br label %52
+  br label %50
 
-49:                                               ; preds = %52
+49:                                               ; preds = %50
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 3
-  br i1 %exitcond15.not.i.i, label %.preheader.i4.preheader, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond15.not.i.i, label %.preheader.i4, label %.preheader.i.i, !llvm.loop !9
 
-.preheader.i4.preheader:                          ; preds = %49
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %.preheader.i4
-
-52:                                               ; preds = %52, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %52 ]
-  %53 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
-  %54 = uitofp i1 %53 to float
-  %55 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.i
-  store float %54, ptr %55, align 4, !tbaa !11, !alias.scope !61
+50:                                               ; preds = %50, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %50 ]
+  %51 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
+  %52 = uitofp i1 %51 to float
+  %53 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.i
+  store float %52, ptr %53, align 4, !tbaa !11, !alias.scope !61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %49, label %52, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %49, label %50, !llvm.loop !13
 
-.preheader.i4:                                    ; preds = %.preheader.i4.preheader, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i ], [ 0, %.preheader.i4.preheader ]
-  %56 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv43.i
-  %57 = getelementptr inbounds nuw [3 x [3 x float]], ptr %50, i64 0, i64 %indvars.iv43.i
-  br label %58
+.preheader.i4:                                    ; preds = %49, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i ], [ 0, %49 ]
+  %54 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv43.i
+  %55 = getelementptr inbounds nuw [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv43.i
+  br label %56
 
-_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i:          ; preds = %59
+_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i:          ; preds = %58
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 3
   br i1 %exitcond46.not.i, label %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit, label %.preheader.i4, !llvm.loop !48
 
-58:                                               ; preds = %59, %.preheader.i4
-  %indvars.iv39.i = phi i64 [ 0, %.preheader.i4 ], [ %indvars.iv.next40.i, %59 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv39.i
-  br label %61
+56:                                               ; preds = %58, %.preheader.i4
+  %indvars.iv39.i = phi i64 [ 0, %.preheader.i4 ], [ %indvars.iv.next40.i, %58 ]
+  %57 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv39.i
+  br label %60
 
-59:                                               ; preds = %61
-  %60 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv39.i
-  store float %66, ptr %60, align 4, !tbaa !11, !alias.scope !61
+58:                                               ; preds = %60
+  %59 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv39.i
+  store float %67, ptr %59, align 4, !tbaa !11, !alias.scope !61
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, 3
-  br i1 %exitcond42.not.i, label %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i, label %58, !llvm.loop !49
+  br i1 %exitcond42.not.i, label %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i, label %56, !llvm.loop !49
 
-61:                                               ; preds = %61, %58
-  %indvars.iv.i5 = phi i64 [ 0, %58 ], [ %indvars.iv.next.i6, %61 ]
-  %62 = phi float [ 0.000000e+00, %58 ], [ %66, %61 ]
-  %63 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i5
+60:                                               ; preds = %60, %56
+  %indvars.iv.i5 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i6, %60 ]
+  %61 = phi float [ 0.000000e+00, %56 ], [ %67, %60 ]
+  %62 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i5
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 108
   %64 = load float, ptr %63, align 4, !tbaa !11, !noalias !61
-  %gep.i = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i5
-  %65 = load float, ptr %gep.i, align 4, !tbaa !11, !noalias !61
-  %66 = tail call noundef float @llvm.fma.f32(float %64, float %65, float %62)
+  %65 = getelementptr inbounds nuw [3 x [3 x float]], ptr %57, i64 0, i64 %indvars.iv.i5
+  %gep.i = getelementptr inbounds nuw i8, ptr %65, i64 72
+  %66 = load float, ptr %gep.i, align 4, !tbaa !11, !noalias !61
+  %67 = tail call noundef float @llvm.fma.f32(float %64, float %66, float %61)
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 3
-  br i1 %exitcond.not.i7, label %59, label %61, !llvm.loop !50
+  br i1 %exitcond.not.i7, label %58, label %60, !llvm.loop !50
 
 _ZN4pbrt12SquareMatrixILi3EEC2Ev.exit:            ; preds = %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i, %43
   ret void

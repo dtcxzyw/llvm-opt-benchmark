@@ -3066,7 +3066,7 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %21 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, ptr noundef %3, ptr noundef %.08.i)
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %93, label %23
+  br i1 %22, label %94, label %23
 
 23:                                               ; preds = %get_serial_from_interface.exit
   %24 = tail call fastcc i32 @adb_send(i32 noundef %21, ptr noundef nonnull @.str.195)
@@ -3190,23 +3190,24 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
 85:                                               ; preds = %84
   %86 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #25, !srcloc !52
   %87 = sext i32 %86 to i64
-  %88 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28), i64 %87
-  %89 = tail call ptr @__memmove_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr noundef %88, i64 noundef %82, i64 noundef 65531) #20
-  %90 = icmp samesign ugt i64 %82, 23
-  br i1 %90, label %.lr.ph, label %.backedge, !llvm.loop !53
+  %88 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 28
+  %90 = tail call ptr @__memmove_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr noundef %89, i64 noundef %82, i64 noundef 65531) #20
+  %91 = icmp samesign ugt i64 %82, 23
+  br i1 %91, label %.lr.ph, label %.backedge, !llvm.loop !53
 
 .backedge:                                        ; preds = %84, %85, %.lr.ph, %49, %37
   %.1130.be = phi i64 [ %.1130161, %37 ], [ %50, %49 ], [ 0, %84 ], [ %82, %85 ], [ %.2131157, %.lr.ph ]
-  %91 = load i32, ptr @endless_loop, align 4
-  %.not145 = icmp eq i32 %91, 0
+  %92 = load i32, ptr @endless_loop, align 4
+  %.not145 = icmp eq i32 %92, 0
   br i1 %.not145, label %.sink.split, label %37, !llvm.loop !54
 
 .sink.split:                                      ; preds = %.backedge, %.preheader, %25, %36, %44, %48, %.thread
   %.0.ph = phi i32 [ -1, %.thread ], [ -1, %48 ], [ -1, %44 ], [ -1, %36 ], [ 29, %25 ], [ 0, %.preheader ], [ 0, %.backedge ]
-  %92 = tail call i32 @close(i32 noundef %21)
-  br label %93
+  %93 = tail call i32 @close(i32 noundef %21)
+  br label %94
 
-93:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
+94:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
   %.0 = phi i32 [ 41, %get_serial_from_interface.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

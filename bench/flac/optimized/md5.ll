@@ -1524,44 +1524,48 @@ format_input_.exit:                               ; preds = %394, %375, %362, %3
   %464 = and i32 %456, 63
   %465 = sub nuw nsw i32 64, %464
   %466 = icmp ugt i32 %465, %454
-  %467 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br i1 %466, label %467, label %473
+
+467:                                              ; preds = %463
   %468 = zext nneg i32 %465 to i64
   %469 = sub nsw i64 0, %468
-  %470 = getelementptr inbounds i8, ptr %467, i64 %469
-  br i1 %466, label %471, label %473
-
-471:                                              ; preds = %463
+  %470 = getelementptr i8, ptr %0, i64 %469
+  %471 = getelementptr i8, ptr %470, i64 64
   %472 = and i64 %10, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %470, ptr noundef nonnull readonly align 1 %453, i64 noundef range(i64 0, 65) %472, i1 noundef false) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %471, ptr noundef nonnull readonly align 1 %453, i64 noundef range(i64 0, 65) %472, i1 noundef false) #9
   br label %FLAC__MD5Update.exit
 
 473:                                              ; preds = %463
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %470, ptr noundef nonnull readonly align 1 dereferenceable(1) %453, i64 noundef range(i64 0, 65) %468, i1 noundef false) #9
-  tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %467, ptr noundef nonnull %0)
-  %474 = getelementptr inbounds nuw i8, ptr %453, i64 %468
-  %475 = sub nuw i32 %454, %465
-  %476 = icmp ugt i32 %475, 63
-  br i1 %476, label %.lr.ph.i29, label %._crit_edge.i
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %475 = zext nneg i32 %465 to i64
+  %476 = sub nsw i64 0, %475
+  %477 = getelementptr inbounds i8, ptr %474, i64 %476
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %477, ptr noundef nonnull readonly align 1 dereferenceable(1) %453, i64 noundef range(i64 0, 65) %475, i1 noundef false) #9
+  tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %474, ptr noundef nonnull %0)
+  %478 = getelementptr inbounds nuw i8, ptr %453, i64 %475
+  %479 = sub nuw i32 %454, %465
+  %480 = icmp ugt i32 %479, 63
+  br i1 %480, label %.lr.ph.i29, label %._crit_edge.i
 
 .lr.ph.i29:                                       ; preds = %473, %.lr.ph.i29
-  %.037.i = phi i32 [ %478, %.lr.ph.i29 ], [ %475, %473 ]
-  %.03236.i = phi ptr [ %477, %.lr.ph.i29 ], [ %474, %473 ]
+  %.037.i = phi i32 [ %482, %.lr.ph.i29 ], [ %479, %473 ]
+  %.03236.i = phi ptr [ %481, %.lr.ph.i29 ], [ %478, %473 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %.03236.i, i64 noundef 64, i1 noundef false) #9
-  tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %467, ptr noundef nonnull %0)
-  %477 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 64
-  %478 = add i32 %.037.i, -64
-  %479 = icmp ugt i32 %478, 63
-  br i1 %479, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !43
+  tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %474, ptr noundef nonnull %0)
+  %481 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 64
+  %482 = add i32 %.037.i, -64
+  %483 = icmp ugt i32 %482, 63
+  br i1 %483, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i29, %473
-  %.032.lcssa.i = phi ptr [ %474, %473 ], [ %477, %.lr.ph.i29 ]
-  %.0.lcssa.i = phi i32 [ %475, %473 ], [ %478, %.lr.ph.i29 ]
-  %480 = zext nneg i32 %.0.lcssa.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %.032.lcssa.i, i64 noundef range(i64 0, 65) %480, i1 noundef false) #9
+  %.032.lcssa.i = phi ptr [ %478, %473 ], [ %481, %.lr.ph.i29 ]
+  %.0.lcssa.i = phi i32 [ %479, %473 ], [ %482, %.lr.ph.i29 ]
+  %484 = zext nneg i32 %.0.lcssa.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %.032.lcssa.i, i64 noundef range(i64 0, 65) %484, i1 noundef false) #9
   br label %FLAC__MD5Update.exit
 
-FLAC__MD5Update.exit:                             ; preds = %._crit_edge.i, %471, %5, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 1, %471 ], [ 1, %._crit_edge.i ]
+FLAC__MD5Update.exit:                             ; preds = %._crit_edge.i, %467, %5, %23
+  %.0 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 1, %467 ], [ 1, %._crit_edge.i ]
   ret i32 %.0
 }
 

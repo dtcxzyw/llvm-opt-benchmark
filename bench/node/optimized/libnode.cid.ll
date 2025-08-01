@@ -343,23 +343,20 @@ entry:
   %0 = load ptr, ptr %ptr_.i, align 8
   %1 = load i64, ptr %0, align 8
   %cmp7.not = icmp eq i64 %1, 0
-  br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
+  br i1 %cmp7.not, label %for.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %entry
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %n.09 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %hash.08 = phi i64 [ 0, %for.body.lr.ph ], [ %xor, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %data, i64 0, i64 %n.09
-  %2 = load i8, ptr %arrayidx, align 1
+for.body:                                         ; preds = %entry, %for.body
+  %n.09 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
+  %hash.08 = phi i64 [ %xor, %for.body ], [ 0, %entry ]
+  %2 = getelementptr [20 x i8], ptr %0, i64 0, i64 %n.09
+  %arrayidx = getelementptr i8, ptr %2, i64 8
+  %3 = load i8, ptr %arrayidx, align 1
   %shl = shl nuw nsw i64 %hash.08, 6
   %shr = lshr i64 %hash.08, 2
   %add = add nuw nsw i64 %shl, 185
   %add3 = add nuw nsw i64 %add, %shr
   %add3.tr = trunc i64 %add3 to i8
-  %add4.narrow = add i8 %2, %add3.tr
+  %add4.narrow = add i8 %3, %add3.tr
   %conv.i = zext i8 %add4.narrow to i64
   %xor = xor i64 %hash.08, %conv.i
   %inc = add nuw i64 %n.09, 1
@@ -504,18 +501,18 @@ do.body7.i:                                       ; preds = %do.body.i
 
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
   %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
-  %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %pool_, i64 %idx.ext
-  %2 = trunc i64 %length_hint to i32
-  %conv3 = add i32 %1, %2
+  %2 = getelementptr i8, ptr %this, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %2, i64 12
+  %3 = trunc i64 %length_hint to i32
+  %conv3 = add i32 %1, %3
   store i32 %conv3, ptr %pos_.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %agg.result, align 8
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %cid_2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %cid_2.i.i, ptr %ptr_.i.i, align 8
   store i64 0, ptr %cid_2.i.i, align 8
-  tail call void @ngtcp2_cid_init(ptr noundef nonnull %cid_2.i.i, ptr noundef nonnull %add.ptr, i64 noundef %length_hint) #12
+  tail call void @ngtcp2_cid_init(ptr noundef nonnull %cid_2.i.i, ptr noundef %add.ptr, i64 noundef %length_hint) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #12
   ret void
 }
@@ -545,13 +542,13 @@ do.body7.i:                                       ; preds = %do.body.i
 
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
   %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
-  %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %pool_, i64 %idx.ext
-  %2 = trunc i64 %length_hint to i32
-  %conv3 = add i32 %1, %2
+  %2 = getelementptr i8, ptr %this, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %2, i64 12
+  %3 = trunc i64 %length_hint to i32
+  %conv3 = add i32 %1, %3
   store i32 %conv3, ptr %pos_.i, align 8
-  tail call void @ngtcp2_cid_init(ptr noundef %cid, ptr noundef nonnull %add.ptr, i64 noundef %length_hint) #12
+  tail call void @ngtcp2_cid_init(ptr noundef %cid, ptr noundef %add.ptr, i64 noundef %length_hint) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #12
   ret void
 }

@@ -11489,8 +11489,8 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %.lr.ph, %RSTRING_PTR.exit
-  %storemerge33 = phi i32 [ 0, %.lr.ph ], [ %53, %RSTRING_PTR.exit ]
-  %27 = sext i32 %storemerge33 to i64
+  %storemerge32 = phi i32 [ 0, %.lr.ph ], [ %53, %RSTRING_PTR.exit ]
+  %27 = sext i32 %storemerge32 to i64
   %28 = getelementptr i64, ptr %2, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
@@ -11547,8 +11547,8 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   %49 = sext i32 %48 to i64
   %50 = getelementptr [0 x %struct.apply_filename], ptr %25, i64 0, i64 %49
   store ptr %.sroa.2.0.i, ptr %50, align 8, !tbaa !339
-  %.idx32 = shl nsw i64 %49, 4
-  %51 = getelementptr i8, ptr %25, i64 %.idx32
+  %.idx = shl nsw i64 %49, 4
+  %51 = getelementptr i8, ptr %25, i64 %.idx
   %52 = getelementptr i8, ptr %51, i64 8
   store i64 %42, ptr %52, align 8, !tbaa !341
   %53 = add i32 %48, 1
@@ -11567,9 +11567,8 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
 59:                                               ; preds = %._crit_edge
   %60 = load i32, ptr %56, align 8, !tbaa !26
   %61 = sext i32 %60 to i64
-  %.idx = shl nsw i64 %61, 4
-  %62 = getelementptr i8, ptr %56, i64 40
-  %63 = getelementptr i8, ptr %62, i64 %.idx
+  %62 = getelementptr [0 x %struct.apply_filename], ptr %56, i64 0, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 40
   %64 = load i64, ptr %63, align 8, !tbaa !341
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %58, i64 noundef %64) #24
   unreachable
@@ -11689,35 +11688,35 @@ define internal noalias noundef ptr @no_gvl_apply2files(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %20
+7:                                                ; preds = %.lr.ph, %20
   %storemerge10 = phi i32 [ 0, %.lr.ph ], [ %22, %20 ]
-  %9 = load ptr, ptr %5, align 8, !tbaa !335
-  %10 = sext i32 %storemerge10 to i64
-  %11 = getelementptr [0 x %struct.apply_filename], ptr %6, i64 0, i64 %10
+  %8 = load ptr, ptr %5, align 8, !tbaa !335
+  %9 = sext i32 %storemerge10 to i64
+  %10 = getelementptr [0 x %struct.apply_filename], ptr %0, i64 0, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !339
-  %13 = load ptr, ptr %7, align 8, !tbaa !335
-  %14 = tail call i32 %9(ptr noundef %12, ptr noundef %13) #22
+  %13 = load ptr, ptr %6, align 8, !tbaa !335
+  %14 = tail call i32 %8(ptr noundef %12, ptr noundef %13) #22
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
-16:                                               ; preds = %8
+16:                                               ; preds = %7
   %17 = tail call ptr @rb_errno_ptr() #22
   %18 = load i32, ptr %17, align 4, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %19, align 8, !tbaa !26
   br label %.loopexit
 
-20:                                               ; preds = %8
+20:                                               ; preds = %7
   %21 = load i32, ptr %0, align 8, !tbaa !26
   %22 = add i32 %21, 1
   store i32 %22, ptr %0, align 8, !tbaa !26
   %23 = load i32, ptr %2, align 4, !tbaa !26
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %8, label %.loopexit, !llvm.loop !348
+  br i1 %24, label %7, label %.loopexit, !llvm.loop !348
 
 .loopexit:                                        ; preds = %20, %1, %16
   ret ptr null

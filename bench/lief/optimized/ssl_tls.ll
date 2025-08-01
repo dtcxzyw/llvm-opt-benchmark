@@ -6558,9 +6558,9 @@ mbedtls_ssl_sig_alg_is_offered.exit:              ; preds = %31, %.lr.ph.i
 
 64:                                               ; preds = %mbedtls_ssl_sig_alg_is_offered.exit
   %65 = load ptr, ptr %14, align 8, !tbaa !70
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %67 = zext nneg i32 %.0.ph77 to i64
-  %68 = getelementptr inbounds nuw [20 x i16], ptr %66, i64 0, i64 %67
+  %66 = zext nneg i32 %.0.ph77 to i64
+  %67 = getelementptr inbounds nuw [20 x i16], ptr %65, i64 0, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store i16 %32, ptr %68, align 2, !tbaa !101
   br label %.outer
 
@@ -6594,9 +6594,9 @@ mbedtls_ssl_sig_alg_is_offered.exit:              ; preds = %31, %.lr.ph.i
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %14, align 8, !tbaa !70
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  %76 = zext i32 %.0.ph.lcssa71 to i64
-  %77 = getelementptr inbounds nuw [20 x i16], ptr %75, i64 0, i64 %76
+  %75 = zext i32 %.0.ph.lcssa71 to i64
+  %76 = getelementptr inbounds nuw [20 x i16], ptr %74, i64 0, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store i16 0, ptr %77, align 2, !tbaa !101
   br label %78
 
@@ -8858,17 +8858,17 @@ declare i32 @mbedtls_md_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_sig_alg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !70
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = icmp eq i32 %1, 0
-  br i1 %6, label %.loopexit, label %.preheader
+  %5 = icmp eq i32 %1, 0
+  br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %7 = load i16, ptr %5, align 2, !tbaa !101
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %7 = load i16, ptr %6, align 2, !tbaa !101
   %.not25 = icmp eq i16 %7, 0
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %mbedtls_ssl_md_alg_from_hash.exit.thread
-  %8 = phi i16 [ %16, %mbedtls_ssl_md_alg_from_hash.exit.thread ], [ %7, %.preheader ]
+  %8 = phi i16 [ %17, %mbedtls_ssl_md_alg_from_hash.exit.thread ], [ %7, %.preheader ]
   %.01526 = phi i32 [ %13, %mbedtls_ssl_md_alg_from_hash.exit.thread ], [ 0, %.preheader ]
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, 8
@@ -8883,9 +8883,10 @@ define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_si
 mbedtls_ssl_md_alg_from_hash.exit.thread:         ; preds = %.lr.ph
   %13 = add i32 %.01526, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %5, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !101
-  %.not = icmp eq i16 %16, 0
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load i16, ptr %16, align 2, !tbaa !101
+  %.not = icmp eq i16 %17, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !288
 
 .loopexit:                                        ; preds = %mbedtls_ssl_md_alg_from_hash.exit.thread, %.lr.ph, %.preheader, %2

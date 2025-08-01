@@ -659,24 +659,25 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br label %79
 
 79:                                               ; preds = %77, %59
-  br i1 %.not35, label %88, label %80
+  br i1 %.not35, label %89, label %80
 
 80:                                               ; preds = %79
   %81 = load i32, ptr %17, align 4
   %82 = lshr i32 %81, 29
   %83 = and i32 %82, 3
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @__const.Ifd_ObjPrint_rec.Symb, i64 4), i64 0, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !44
-  %87 = sext i8 %86 to i32
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @__const.Ifd_ObjPrint_rec.Symb, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %87 = load i8, ptr %86, align 1, !tbaa !44
+  %88 = sext i8 %87 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %80
-  %.sink = phi i32 [ %87, %80 ], [ %13, %10 ]
+  %.sink = phi i32 [ %88, %80 ], [ %13, %10 ]
   %putchar41 = tail call i32 @putchar(i32 %.sink)
-  br label %88
+  br label %89
 
-88:                                               ; preds = %.sink.split, %79
+89:                                               ; preds = %.sink.split, %79
   ret void
 }
 

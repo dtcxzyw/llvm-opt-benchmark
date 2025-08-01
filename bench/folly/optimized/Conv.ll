@@ -1064,29 +1064,27 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float6detail12parse_infnanIfcEENS_19
 
 51:                                               ; preds = %44
   %52 = icmp sgt i64 %15, 7
-  br i1 %52, label %53, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
+  br i1 %52, label %.lr.ph.i52, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %.035, i64 3
-  br label %.lr.ph.i52
-
-55:                                               ; preds = %.lr.ph.i52
-  %56 = add nuw nsw i64 %.01415.i53, 1
-  %exitcond.not.i56 = icmp eq i64 %56, 5
+53:                                               ; preds = %.lr.ph.i52
+  %54 = add nuw nsw i64 %.01415.i53, 1
+  %exitcond.not.i56 = icmp eq i64 %54, 5
   br i1 %exitcond.not.i56, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57, label %.lr.ph.i52, !llvm.loop !38
 
-.lr.ph.i52:                                       ; preds = %55, %53
-  %.01415.i53 = phi i64 [ %56, %55 ], [ 0, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.01415.i53
-  %58 = load i8, ptr %57, align 1, !tbaa !14
-  %59 = or i8 %58, 32
-  %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.1, i64 3), i64 %.01415.i53
+.lr.ph.i52:                                       ; preds = %51, %53
+  %.01415.i53 = phi i64 [ %54, %53 ], [ 0, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.035, i64 %.01415.i53
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 3
+  %57 = load i8, ptr %56, align 1, !tbaa !14
+  %58 = or i8 %57, 32
+  %59 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.01415.i53
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
-  %.not.i54 = icmp eq i8 %59, %61
-  br i1 %.not.i54, label %55, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
+  %.not.i54 = icmp eq i8 %58, %61
+  br i1 %.not.i54, label %53, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
 
-_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i52, %55, %51
-  %.sink = phi i64 [ 3, %51 ], [ 8, %55 ], [ 3, %.lr.ph.i52 ]
+_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i52, %53, %51
+  %.sink = phi i64 [ 3, %51 ], [ 8, %53 ], [ 3, %.lr.ph.i52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.035, i64 %.sink
   %63 = select i1 %6, float 0xFFF0000000000000, float 0x7FF0000000000000
   store float %63, ptr %2, align 4, !tbaa !18
@@ -4236,29 +4234,27 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float6detail12parse_infnanIdcEENS_19
 
 51:                                               ; preds = %44
   %52 = icmp sgt i64 %15, 7
-  br i1 %52, label %53, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
+  br i1 %52, label %.lr.ph.i52, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %.035, i64 3
-  br label %.lr.ph.i52
-
-55:                                               ; preds = %.lr.ph.i52
-  %56 = add nuw nsw i64 %.01415.i53, 1
-  %exitcond.not.i56 = icmp eq i64 %56, 5
+53:                                               ; preds = %.lr.ph.i52
+  %54 = add nuw nsw i64 %.01415.i53, 1
+  %exitcond.not.i56 = icmp eq i64 %54, 5
   br i1 %exitcond.not.i56, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57, label %.lr.ph.i52, !llvm.loop !38
 
-.lr.ph.i52:                                       ; preds = %55, %53
-  %.01415.i53 = phi i64 [ %56, %55 ], [ 0, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.01415.i53
-  %58 = load i8, ptr %57, align 1, !tbaa !14
-  %59 = or i8 %58, 32
-  %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.1, i64 3), i64 %.01415.i53
+.lr.ph.i52:                                       ; preds = %51, %53
+  %.01415.i53 = phi i64 [ %54, %53 ], [ 0, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.035, i64 %.01415.i53
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 3
+  %57 = load i8, ptr %56, align 1, !tbaa !14
+  %58 = or i8 %57, 32
+  %59 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.01415.i53
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
-  %.not.i54 = icmp eq i8 %59, %61
-  br i1 %.not.i54, label %55, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
+  %.not.i54 = icmp eq i8 %58, %61
+  br i1 %.not.i54, label %53, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
 
-_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i52, %55, %51
-  %.sink = phi i64 [ 3, %51 ], [ 8, %55 ], [ 3, %.lr.ph.i52 ]
+_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i52, %53, %51
+  %.sink = phi i64 [ 3, %51 ], [ 8, %53 ], [ 3, %.lr.ph.i52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.035, i64 %.sink
   %63 = select i1 %6, double 0xFFF0000000000000, double 0x7FF0000000000000
   store double %63, ptr %2, align 8, !tbaa !82

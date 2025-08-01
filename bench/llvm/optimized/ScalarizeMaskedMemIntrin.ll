@@ -1074,14 +1074,13 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i: ; preds = %581, %_ZNK4llvm8Cal
   %605 = sub i32 %604, %596
   %606 = zext i32 %605 to i64
   %607 = shl nuw nsw i64 %606, 5
-  %608 = sub nuw nsw i64 -56, %607
+  %608 = sub nuw nsw i64 -32, %607
   br label %_ZN4llvm8CallBase7arg_endEv.exit
 
 _ZN4llvm8CallBase7arg_endEv.exit:                 ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i, %590
-  %.0.i.i379.neg = phi i64 [ %608, %590 ], [ -56, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i ]
-  %609 = getelementptr inbounds i8, ptr %.sroa.028.0.i459, i64 %.0.i.i379.neg
-  %.neg = or disjoint i64 %575, 24
-  %gepdiff = add nsw i64 %.0.i.i379.neg, %.neg
+  %.0.i.i379.neg = phi i64 [ %608, %590 ], [ -32, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i ]
+  %609 = getelementptr i8, ptr %550, i64 %.0.i.i379.neg
+  %gepdiff = add nsw i64 %.0.i.i379.neg, %575
   %610 = ashr i64 %gepdiff, 7
   %611 = icmp sgt i64 %610, 0
   br i1 %611, label %.lr.ph.preheader.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
@@ -1143,9 +1142,7 @@ _ZN4llvm8CallBase7arg_endEv.exit:                 ; preds = %_ZNK4llvm8CallBase1
   br i1 %638, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !126
 
 ._crit_edge.loopexit.i.i.i.i.i.i.i.i:             ; preds = %635
-  %reass.sub.neg = sub nsw i64 %575, %612
-  %.neg396 = add nuw nsw i64 %.0.i.i379.neg, 24
-  %gepdiff395 = add i64 %.neg396, %reass.sub.neg
+  %gepdiff395 = and i64 %gepdiff, 127
   br label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i, %_ZN4llvm8CallBase7arg_endEv.exit

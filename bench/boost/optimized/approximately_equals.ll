@@ -165633,14 +165633,13 @@ _ZN5boost14multiprecision8backends13eval_bit_testILm668ELm668ELNS0_16cpp_integer
 .lr.ph.i.i92:                                     ; preds = %159, %163
   %.039.i.i167 = phi i64 [ %148, %163 ], [ %160, %159 ]
   %165 = add i64 %148, -1
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %166
 
 166:                                              ; preds = %166, %.lr.ph.i.i92
   %.057.i.i = phi i64 [ 0, %.lr.ph.i.i92 ], [ %171, %166 ]
   %167 = getelementptr i64, ptr %1, i64 %.057.i.i
   %168 = load i64, ptr %167, align 8, !tbaa !1551
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.057.i.i
+  %gep.i = getelementptr i8, ptr %167, i64 8
   %169 = load i64, ptr %gep.i, align 8, !tbaa !1551
   %170 = tail call i64 @llvm.fshl.i64(i64 %169, i64 %168, i64 63)
   store i64 %170, ptr %167, align 8, !tbaa !1551

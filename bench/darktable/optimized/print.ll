@@ -319,15 +319,14 @@ define void @mouse_moved(ptr noundef readonly captures(none) %0, double noundef 
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %9, align 8, !tbaa !80
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds [20 x %struct._image_box], ptr %26, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 8, !tbaa !99
-  %.not16 = icmp eq i32 %8, %29
+  %26 = sext i32 %22 to i64
+  %27 = getelementptr [20 x %struct._image_box], ptr %25, i64 0, i64 %26, i32 4
+  %28 = load i32, ptr %27, align 8, !tbaa !99
+  %.not16 = icmp eq i32 %8, %28
   br i1 %.not16, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %24, %19, %14
-  %.sink = phi i32 [ %16, %14 ], [ 0, %19 ], [ %29, %24 ]
+  %.sink = phi i32 [ %16, %14 ], [ 0, %19 ], [ %28, %24 ]
   tail call void @dt_control_set_mouse_over_id(i32 noundef %.sink) #10
   br label %.thread
 

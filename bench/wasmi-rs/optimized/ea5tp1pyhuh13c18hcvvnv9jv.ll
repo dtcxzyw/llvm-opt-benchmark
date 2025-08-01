@@ -7081,9 +7081,9 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   store i16 %11, ptr %.sroa.6.0..sroa_idx, align 2
   br label %12
 
-12:                                               ; preds = %29, %3
+12:                                               ; preds = %30, %3
   %13 = invoke { i16, i16 } @"_ZN86_$LT$wasmi_ir..span..RegSpanIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a877a5ee41f9a10E"(ptr noalias noundef nonnull align 2 dereferenceable(4) %.sroa.5.0..sroa_idx)
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %12
   %14 = extractvalue { i16, i16 } %13, 0
@@ -7102,38 +7102,39 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   store i64 %21, ptr %4, align 8, !alias.scope !550
   %22 = icmp ult i64 %19, 2
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw i16, ptr %.sroa.3.0..sroa_idx, i64 %19
-  %24 = load i16, ptr %23, align 2, !alias.scope !550, !noundef !3
-  %25 = invoke { i64, i64 } @_ZN5wasmi6engine8executor6instrs8Executor12get_register17h3e780d2c5e6ac256E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, i16 noundef %24)
-          to label %29 unwind label %26
+  %23 = getelementptr inbounds nuw i16, ptr %4, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i16, ptr %24, align 2, !alias.scope !550, !noundef !3
+  %26 = invoke { i64, i64 } @_ZN5wasmi6engine8executor6instrs8Executor12get_register17h3e780d2c5e6ac256E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, i16 noundef %25)
+          to label %30 unwind label %27
 
-26:                                               ; preds = %12, %29, %20
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %12, %30, %20
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmi_ir..span..RegSpanIter$C$core..array..iter..IntoIter$LT$wasmi_ir..index..Reg$C$2_usize$GT$$GT$$GT$17hab7d88da622e0d6eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4) #20
-          to label %34 unwind label %32
+          to label %35 unwind label %33
 
 .critedge:                                        ; preds = %.noexc, %17
   call void @"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmi_ir..span..RegSpanIter$C$core..array..iter..IntoIter$LT$wasmi_ir..index..Reg$C$2_usize$GT$$GT$$GT$17hab7d88da622e0d6eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %28 = call noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$11return_impl17h8b5e94e6a50d0c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
+  %29 = call noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$11return_impl17h8b5e94e6a50d0c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret i1 %28
+  ret i1 %29
 
-29:                                               ; preds = %20
-  %30 = extractvalue { i64, i64 } %25, 0
-  %31 = extractvalue { i64, i64 } %25, 1
-  invoke void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %15, i64 noundef %30, i64 noundef %31)
-          to label %12 unwind label %26
+30:                                               ; preds = %20
+  %31 = extractvalue { i64, i64 } %26, 0
+  %32 = extractvalue { i64, i64 } %26, 1
+  invoke void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %15, i64 noundef %31, i64 noundef %32)
+          to label %12 unwind label %27
 
-32:                                               ; preds = %26
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-34:                                               ; preds = %26
-  resume { ptr, i32 } %27
+35:                                               ; preds = %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7165,9 +7166,9 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   store i16 %11, ptr %.sroa.6.0..sroa_idx, align 2
   br label %12
 
-12:                                               ; preds = %29, %3
+12:                                               ; preds = %30, %3
   %13 = invoke { i16, i16 } @"_ZN86_$LT$wasmi_ir..span..RegSpanIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a877a5ee41f9a10E"(ptr noalias noundef nonnull align 2 dereferenceable(4) %.sroa.5.0..sroa_idx)
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %12
   %14 = extractvalue { i16, i16 } %13, 0
@@ -7186,38 +7187,39 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   store i64 %21, ptr %4, align 8, !alias.scope !564
   %22 = icmp ult i64 %19, 3
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw i16, ptr %.sroa.3.0..sroa_idx, i64 %19
-  %24 = load i16, ptr %23, align 2, !alias.scope !564, !noundef !3
-  %25 = invoke { i64, i64 } @_ZN5wasmi6engine8executor6instrs8Executor12get_register17h3e780d2c5e6ac256E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, i16 noundef %24)
-          to label %29 unwind label %26
+  %23 = getelementptr inbounds nuw i16, ptr %4, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i16, ptr %24, align 2, !alias.scope !564, !noundef !3
+  %26 = invoke { i64, i64 } @_ZN5wasmi6engine8executor6instrs8Executor12get_register17h3e780d2c5e6ac256E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, i16 noundef %25)
+          to label %30 unwind label %27
 
-26:                                               ; preds = %12, %29, %20
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %12, %30, %20
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmi_ir..span..RegSpanIter$C$core..array..iter..IntoIter$LT$wasmi_ir..index..Reg$C$3_usize$GT$$GT$$GT$17h3a645b67e0c77023E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4) #20
-          to label %34 unwind label %32
+          to label %35 unwind label %33
 
 .critedge:                                        ; preds = %.noexc, %17
   call void @"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmi_ir..span..RegSpanIter$C$core..array..iter..IntoIter$LT$wasmi_ir..index..Reg$C$3_usize$GT$$GT$$GT$17h3a645b67e0c77023E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %28 = call noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$11return_impl17h8b5e94e6a50d0c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
+  %29 = call noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$11return_impl17h8b5e94e6a50d0c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret i1 %28
+  ret i1 %29
 
-29:                                               ; preds = %20
-  %30 = extractvalue { i64, i64 } %25, 0
-  %31 = extractvalue { i64, i64 } %25, 1
-  invoke void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %15, i64 noundef %30, i64 noundef %31)
-          to label %12 unwind label %26
+30:                                               ; preds = %20
+  %31 = extractvalue { i64, i64 } %26, 0
+  %32 = extractvalue { i64, i64 } %26, 1
+  invoke void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %15, i64 noundef %31, i64 noundef %32)
+          to label %12 unwind label %27
 
-32:                                               ; preds = %26
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-34:                                               ; preds = %26
-  resume { ptr, i32 } %27
+35:                                               ; preds = %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

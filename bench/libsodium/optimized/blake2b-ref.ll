@@ -236,51 +236,53 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   %.pre = load i64, ptr %4, align 1
   br label %9
 
-9:                                                ; preds = %.lr.ph, %16
-  %10 = phi i64 [ %.pre, %.lr.ph ], [ %32, %16 ]
-  %.035 = phi ptr [ %1, %.lr.ph ], [ %.1, %16 ]
-  %.03034 = phi i64 [ %2, %.lr.ph ], [ %33, %16 ]
+9:                                                ; preds = %.lr.ph, %17
+  %10 = phi i64 [ %.pre, %.lr.ph ], [ %34, %17 ]
+  %.035 = phi ptr [ %1, %.lr.ph ], [ %.1, %17 ]
+  %.03034 = phi i64 [ %2, %.lr.ph ], [ %35, %17 ]
   %11 = sub i64 256, %10
   %12 = icmp ugt i64 %.03034, %11
-  %13 = getelementptr i8, ptr %5, i64 %10
-  br i1 %12, label %16, label %.thread
+  br i1 %12, label %17, label %.thread
 
 .thread:                                          ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %13, ptr noundef nonnull align 1 %.035, i64 noundef %.03034, i1 noundef false) #8
-  %14 = load i64, ptr %4, align 1
-  %15 = add i64 %14, %.03034
-  store i64 %15, ptr %4, align 1
+  %13 = getelementptr i8, ptr %0, i64 %10
+  %14 = getelementptr i8, ptr %13, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %.035, i64 noundef %.03034, i1 noundef false) #8
+  %15 = load i64, ptr %4, align 1
+  %16 = add i64 %15, %.03034
+  store i64 %16, ptr %4, align 1
   br label %._crit_edge
 
-16:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %13, ptr noundef nonnull align 1 %.035, i64 noundef %11, i1 noundef false) #8
-  %17 = load i64, ptr %4, align 1
-  %18 = add i64 %17, %11
-  store i64 %18, ptr %4, align 1
-  %19 = load i64, ptr %7, align 1
-  %20 = zext i64 %19 to i128
-  %21 = shl nuw i128 %20, 64
-  %22 = load i64, ptr %6, align 1
-  %23 = zext i64 %22 to i128
-  %24 = or disjoint i128 %21, %23
-  %25 = add i128 %24, 128
-  %26 = trunc i128 %25 to i64
-  store i64 %26, ptr %6, align 1
-  %27 = lshr i128 %25, 64
-  %28 = trunc nuw i128 %27 to i64
-  store i64 %28, ptr %7, align 1
-  %29 = load ptr, ptr @blake2b_compress, align 8
-  %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %5) #8, !callees !10
+17:                                               ; preds = %9
+  %18 = getelementptr i8, ptr %5, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull align 1 %.035, i64 noundef %11, i1 noundef false) #8
+  %19 = load i64, ptr %4, align 1
+  %20 = add i64 %19, %11
+  store i64 %20, ptr %4, align 1
+  %21 = load i64, ptr %7, align 1
+  %22 = zext i64 %21 to i128
+  %23 = shl nuw i128 %22, 64
+  %24 = load i64, ptr %6, align 1
+  %25 = zext i64 %24 to i128
+  %26 = or disjoint i128 %23, %25
+  %27 = add i128 %26, 128
+  %28 = trunc i128 %27 to i64
+  store i64 %28, ptr %6, align 1
+  %29 = lshr i128 %27, 64
+  %30 = trunc nuw i128 %29 to i64
+  store i64 %30, ptr %7, align 1
+  %31 = load ptr, ptr @blake2b_compress, align 8
+  %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %5) #8, !callees !10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, ptr noundef nonnull align 1 dereferenceable(128) %8, i64 noundef 128, i1 noundef false) #8
-  %31 = load i64, ptr %4, align 1
-  %32 = add i64 %31, -128
-  %33 = sub nuw i64 %.03034, %11
-  store i64 %32, ptr %4, align 1
+  %33 = load i64, ptr %4, align 1
+  %34 = add i64 %33, -128
+  %35 = sub nuw i64 %.03034, %11
+  store i64 %34, ptr %4, align 1
   %.1 = getelementptr i8, ptr %.035, i64 %11
-  %.not = icmp eq i64 %33, 0
+  %.not = icmp eq i64 %35, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %16, %.thread, %3
+._crit_edge:                                      ; preds = %17, %.thread, %3
   ret i32 0
 }
 

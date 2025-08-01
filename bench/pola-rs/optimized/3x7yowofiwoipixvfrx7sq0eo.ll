@@ -8876,8 +8876,8 @@ default.unreachable34:                            ; preds = %27
   %176 = load i32, ptr %175, align 4, !alias.scope !814, !noalias !817, !noundef !3
   %177 = zext i32 %176 to i64
   %.idx33 = mul nuw nsw i64 %173, 24
-  %178 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx33
+  %178 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx33
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8, !alias.scope !819, !noalias !814, !noundef !3
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit
@@ -8924,8 +8924,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
   %205 = load i32, ptr %204, align 4, !alias.scope !822, !noalias !825, !noundef !3
   %206 = zext i32 %205 to i64
   %.idx = mul nuw nsw i64 %202, 24
-  %207 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx
+  %207 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load ptr, ptr %208, align 8, !alias.scope !827, !noalias !822, !noundef !3
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %206
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit61
@@ -49347,8 +49347,8 @@ define internal fastcc void @"_ZN97_$LT$polars_expr..groups..binview..BinviewHas
   %44 = load i32, ptr %43, align 4, !alias.scope !5511, !noalias !5516, !noundef !3
   %45 = zext i32 %44 to i64
   %.idx = mul nuw nsw i64 %41, 24
-  %46 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8, !alias.scope !5518, !noalias !5521, !noundef !3
   %49 = zext i32 %36 to i64
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 %45
@@ -59410,8 +59410,8 @@ define hidden void @_ZN11polars_expr9hash_keys23for_each_hash_prehashed17h64dab1
   %113 = load i32, ptr %112, align 4, !alias.scope !6799, !noalias !6804, !noundef !3
   %114 = zext i32 %113 to i64
   %.idx.i = mul nuw nsw i64 %110, 24
-  %115 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i
+  %115 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load ptr, ptr %116, align 8, !alias.scope !6806, !noalias !6809, !noundef !3
   %118 = zext i32 %105 to i64
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 %114
@@ -59494,8 +59494,8 @@ define hidden void @_ZN11polars_expr9hash_keys23for_each_hash_prehashed17h64dab1
   %162 = load i32, ptr %161, align 4, !alias.scope !6817, !noalias !6822, !noundef !3
   %163 = zext i32 %162 to i64
   %.idx.i26 = mul nuw nsw i64 %159, 24
-  %164 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i26
+  %164 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i26
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %166 = load ptr, ptr %165, align 8, !alias.scope !6824, !noalias !6827, !noundef !3
   %167 = zext i32 %154 to i64
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 %163
@@ -71868,15 +71868,14 @@ define internal fastcc void @"_ZN111_$LT$polars_expr..hot_groups..binview..Binvi
   %38 = zext i32 %37 to i64
   %39 = icmp ugt i64 %35, %38
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %41 = load i32, ptr %40, align 4, !alias.scope !7734, !noalias !7741, !noundef !3
-  %42 = zext i32 %41 to i64
-  %.idx.i = mul nuw nsw i64 %38, 24
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
+  %40 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %33, i64 %38, i32 2
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %42 = load i32, ptr %41, align 4, !alias.scope !7734, !noalias !7741, !noundef !3
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %45 = load ptr, ptr %44, align 8, !noalias !7743, !noundef !3
   %46 = zext i32 %30 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %43
   store ptr %47, ptr %7, align 8, !noalias !7739
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %46, ptr %48, align 8, !noalias !7739
@@ -72111,15 +72110,14 @@ define internal fastcc void @"_ZN111_$LT$polars_expr..hot_groups..binview..Binvi
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %34, %37
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %40 = load i32, ptr %39, align 4, !alias.scope !7755, !noalias !7762, !noundef !3
-  %41 = zext i32 %40 to i64
-  %.idx.i = mul nuw nsw i64 %37, 24
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
+  %39 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %32, i64 %37, i32 2
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %41 = load i32, ptr %40, align 4, !alias.scope !7755, !noalias !7762, !noundef !3
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !7764, !noundef !3
   %45 = zext i32 %29 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %41
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store ptr %46, ptr %7, align 8, !noalias !7760
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %45, ptr %47, align 8, !noalias !7760

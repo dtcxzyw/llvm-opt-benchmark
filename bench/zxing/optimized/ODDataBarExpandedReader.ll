@@ -3840,7 +3840,7 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = call noundef zeroext i1 @_ZN5ZXing4OneD7DataBar20ReadDataCharacterRawERKNS_11PatternViewEibRSt5arrayIiLm4EES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 17, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %52
 
 7:                                                ; preds = %3
   %8 = call i32 @llvm.abs.i32(i32 %1, i1 true)
@@ -3871,61 +3871,58 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   %.not.i.i = icmp eq i64 %.09.add.i.i, 16
   br i1 %.not.i.i, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit", label %18
 
-"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit": ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  br label %25
-
-25:                                               ; preds = %25, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit"
-  %indvars.iv.i.i19 = phi i64 [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ %indvars.iv.next.i.i23, %25 ]
-  %.012.i.i20 = phi i32 [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ %30, %25 ]
-  %.09.idx11.i.i21 = phi i64 [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ %.09.add.i.i25, %25 ]
+"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit": ; preds = %18, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit"
+  %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i23, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ 0, %18 ]
+  %.012.i.i20 = phi i32 [ %29, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ 0, %18 ]
+  %.09.idx11.i.i21 = phi i64 [ %.09.add.i.i25, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ], [ 0, %18 ]
   %.09.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %5, i64 %.09.idx11.i.i21
-  %26 = load i32, ptr %.09.ptr.i.i22, align 4, !tbaa !24
+  %24 = load i32, ptr %.09.ptr.i.i22, align 4, !tbaa !24
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i19, 1
   %.idx.i.i24 = shl nuw nsw i64 %indvars.iv.i.i19, 3
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i24
-  %28 = load i32, ptr %27, align 4, !tbaa !24
-  %29 = mul nsw i32 %28, %26
-  %30 = add nsw i32 %29, %.012.i.i20
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !24
+  %28 = mul nsw i32 %27, %24
+  %29 = add nsw i32 %28, %.012.i.i20
   %.09.add.i.i25 = add nuw nsw i64 %.09.idx11.i.i21, 4
   %.not.i.i26 = icmp eq i64 %.09.add.i.i25, 16
-  br i1 %.not.i.i26, label %.lr.ph.i.i.i, label %25
+  br i1 %.not.i.i26, label %.lr.ph.i.i.i, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit"
 
-.lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
-  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %25 ]
-  %.057.i.i.i = phi i32 [ %32, %.lr.ph.i.i.i ], [ 0, %25 ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit", %.lr.ph.i.i.i
+  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ]
+  %.057.i.i.i = phi i32 [ %31, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEb.exit" ]
   %.08.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.idx.i
-  %31 = load i32, ptr %.08.i.i.ptr.i, align 4, !tbaa !24
-  %32 = add nsw i32 %31, %.057.i.i.i
+  %30 = load i32, ptr %.08.i.i.ptr.i, align 4, !tbaa !24
+  %31 = add nsw i32 %30, %.057.i.i.i
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.08.i.i.add.i, 16
   br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !194
 
 _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
-  %33 = add nsw i32 %30, %23
-  %34 = sub nsw i32 13, %32
-  %35 = sdiv i32 %34, 2
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.SYMBOL_WIDEST, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !24
-  %39 = sub nsw i32 9, %38
-  %40 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr nonnull %4, i64 4, i32 noundef %38, i1 noundef zeroext true)
-  %41 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr nonnull %5, i64 4, i32 noundef %39, i1 noundef zeroext false)
-  %42 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.EVEN_TOTAL_SUBSET, i64 0, i64 %36
-  %43 = load i32, ptr %42, align 4, !tbaa !24
-  %44 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.GSUM, i64 0, i64 %36
-  %45 = load i32, ptr %44, align 4, !tbaa !24
-  %46 = mul nsw i32 %43, %40
-  %47 = add nsw i32 %46, %41
-  %48 = add nsw i32 %47, %45
-  %49 = zext i32 %33 to i64
-  %50 = shl nuw i64 %49, 32
-  %51 = zext i32 %48 to i64
-  %52 = or disjoint i64 %50, %51
-  br label %53
+  %32 = add nsw i32 %29, %23
+  %33 = sub nsw i32 13, %31
+  %34 = sdiv i32 %33, 2
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.SYMBOL_WIDEST, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !24
+  %38 = sub nsw i32 9, %37
+  %39 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr nonnull %4, i64 4, i32 noundef %37, i1 noundef zeroext true)
+  %40 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr nonnull %5, i64 4, i32 noundef %38, i1 noundef zeroext false)
+  %41 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.EVEN_TOTAL_SUBSET, i64 0, i64 %35
+  %42 = load i32, ptr %41, align 4, !tbaa !24
+  %43 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.GSUM, i64 0, i64 %35
+  %44 = load i32, ptr %43, align 4, !tbaa !24
+  %45 = mul nsw i32 %42, %39
+  %46 = add nsw i32 %45, %40
+  %47 = add nsw i32 %46, %44
+  %48 = zext i32 %32 to i64
+  %49 = shl nuw i64 %48, 32
+  %50 = zext i32 %47 to i64
+  %51 = or disjoint i64 %49, %50
+  br label %52
 
-53:                                               ; preds = %3, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit
-  %.sroa.0.0.insert.insert = phi i64 [ %52, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ 4294967295, %3 ]
+52:                                               ; preds = %3, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit
+  %.sroa.0.0.insert.insert = phi i64 [ %51, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ 4294967295, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   ret i64 %.sroa.0.0.insert.insert

@@ -678,8 +678,9 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   br i1 %244, label %246, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %242
-  %.phi.trans.insert1.i.i.i = zext nneg i32 %243 to i64
-  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %82, i64 0, i64 %.phi.trans.insert1.i.i.i
+  %.phi.trans.insert.i.i.i = zext nneg i32 %243 to i64
+  %.phi.trans.insert1.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert1.i.i.i, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !22
   %245 = add nuw nsw i32 %243, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i

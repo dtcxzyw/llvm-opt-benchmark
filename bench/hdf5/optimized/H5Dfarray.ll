@@ -2164,30 +2164,27 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 432
-  br label %43
+.lr.ph:                                           ; preds = %36, %49
+  %.031 = phi i32 [ %50, %49 ], [ %40, %36 ]
+  %42 = zext nneg i32 %.031 to i64
+  %43 = getelementptr inbounds nuw [33 x i64], ptr %24, i64 0, i64 %42
+  %44 = load i64, ptr %43, align 8, !tbaa !39
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8, !tbaa !39
+  %46 = getelementptr [33 x i64], ptr %37, i64 0, i64 %42
+  %47 = getelementptr i8, ptr %46, i64 432
+  %48 = load i64, ptr %47, align 8, !tbaa !39
+  %.not30 = icmp ult i64 %45, %48
+  br i1 %.not30, label %.loopexit, label %49
 
-43:                                               ; preds = %.lr.ph, %50
-  %.031 = phi i32 [ %40, %.lr.ph ], [ %51, %50 ]
-  %44 = zext nneg i32 %.031 to i64
-  %45 = getelementptr inbounds nuw [33 x i64], ptr %24, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !39
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8, !tbaa !39
-  %48 = getelementptr inbounds nuw [33 x i64], ptr %42, i64 0, i64 %44
-  %49 = load i64, ptr %48, align 8, !tbaa !39
-  %.not30 = icmp ult i64 %47, %49
-  br i1 %.not30, label %.loopexit, label %50
+49:                                               ; preds = %.lr.ph
+  store i64 0, ptr %43, align 8, !tbaa !39
+  %50 = add nsw i32 %.031, -1
+  %51 = icmp sgt i32 %.031, 0
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
-50:                                               ; preds = %43
-  store i64 0, ptr %45, align 8, !tbaa !39
-  %51 = add nsw i32 %.031, -1
-  %52 = icmp sgt i32 %.031, 0
-  br i1 %52, label %43, label %.loopexit, !llvm.loop !89
-
-.loopexit:                                        ; preds = %43, %50, %36, %3
-  %.027 = phi i32 [ 0, %3 ], [ %.1, %36 ], [ %.1, %50 ], [ %.1, %43 ]
+.loopexit:                                        ; preds = %.lr.ph, %49, %36, %3
+  %.027 = phi i32 [ 0, %3 ], [ %.1, %36 ], [ %.1, %49 ], [ %.1, %.lr.ph ]
   ret i32 %.027
 }
 

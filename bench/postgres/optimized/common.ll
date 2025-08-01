@@ -2824,15 +2824,16 @@ ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %5
 
 577:                                              ; preds = %576, %577
   %indvars.iv = phi i64 [ 0, %576 ], [ %indvars.iv.next, %577 ]
-  %578 = getelementptr inbounds nuw [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 0, i64 %indvars.iv
-  %579 = load ptr, ptr %578, align 8
-  call void @pg_free(ptr noundef %579) #16
-  store ptr null, ptr %578, align 8
+  %578 = getelementptr inbounds nuw [4 x ptr], ptr @pset, i64 0, i64 %indvars.iv
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 280
+  %580 = load ptr, ptr %579, align 8
+  call void @pg_free(ptr noundef %580) #16
+  store ptr null, ptr %579, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %580, label %577, !llvm.loop !23
+  br i1 %exitcond.not, label %581, label %577, !llvm.loop !23
 
-580:                                              ; preds = %577
+581:                                              ; preds = %577
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   ret i1 %.049.shrunk

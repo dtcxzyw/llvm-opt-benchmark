@@ -327,27 +327,24 @@ define dso_local ptr @pci_dev_driver(ptr noundef readonly captures(none) %0) #3 
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %1
-  %5 = getelementptr i8, ptr %0, i64 944
-  br label %9
+5:                                                ; preds = %.preheader
+  %6 = add nuw nsw i64 %8, 1
+  %7 = icmp eq i64 %6, 7
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !9
 
-6:                                                ; preds = %9
-  %7 = add nuw nsw i64 %10, 1
-  %8 = icmp eq i64 %7, 7
-  br i1 %8, label %.loopexit, label %9, !llvm.loop !9
+.preheader:                                       ; preds = %1, %5
+  %8 = phi i64 [ %6, %5 ], [ 0, %1 ]
+  %.idx = shl i64 %8, 6
+  %9 = getelementptr i8, ptr %0, i64 %.idx
+  %10 = getelementptr i8, ptr %9, i64 944
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 2147483648
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %5, label %.loopexit
 
-9:                                                ; preds = %.preheader, %6
-  %10 = phi i64 [ %7, %6 ], [ 0, %.preheader ]
-  %.idx = shl i64 %10, 6
-  %11 = getelementptr i8, ptr %5, i64 %.idx
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 2147483648
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %6, label %.loopexit
-
-.loopexit:                                        ; preds = %9, %6, %1
-  %15 = phi ptr [ %3, %1 ], [ null, %6 ], [ @pci_compat_driver, %9 ]
-  ret ptr %15
+.loopexit:                                        ; preds = %.preheader, %5, %1
+  %14 = phi ptr [ %3, %1 ], [ null, %5 ], [ @pci_compat_driver, %.preheader ]
+  ret ptr %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

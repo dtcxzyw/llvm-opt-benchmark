@@ -7620,22 +7620,22 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   br i1 %366, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196.invoke, label %367
 
 367:                                              ; preds = %359
-  %368 = getelementptr inbounds nuw i8, ptr %363, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1155)
-  %369 = icmp eq i64 %365, 1
-  br i1 %369, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread, label %370
+  %368 = icmp eq i64 %365, 1
+  br i1 %368, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread, label %369
 
-370:                                              ; preds = %367
-  %371 = add i64 %365, 2305843009213693951
-  %372 = and i64 %371, 2305843009213693951
+369:                                              ; preds = %367
+  %370 = add i64 %365, 2305843009213693951
+  %371 = and i64 %370, 2305843009213693951
   %.pre.i.i.i151 = load i64, ptr %363, align 8, !alias.scope !1158, !noalias !1165
-  br label %373
+  br label %372
 
-373:                                              ; preds = %373, %370
-  %374 = phi i64 [ %.pre.i.i.i151, %370 ], [ %377, %373 ]
-  %.018.i.i.i = phi ptr [ %363, %370 ], [ %.0.sroa.speculated.i.i.i.i.i152, %373 ]
-  %.017.i.i.i = phi i64 [ 0, %370 ], [ %378, %373 ]
-  %375 = getelementptr inbounds i64, ptr %368, i64 %.017.i.i.i
+372:                                              ; preds = %372, %369
+  %373 = phi i64 [ %.pre.i.i.i151, %369 ], [ %377, %372 ]
+  %.018.i.i.i = phi ptr [ %363, %369 ], [ %.0.sroa.speculated.i.i.i.i.i152, %372 ]
+  %.017.i.i.i = phi i64 [ 0, %369 ], [ %378, %372 ]
+  %374 = getelementptr i64, ptr %363, i64 %.017.i.i.i
+  %375 = getelementptr i8, ptr %374, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1178)
   call void @llvm.experimental.noalias.scope.decl(metadata !1179)
   call void @llvm.experimental.noalias.scope.decl(metadata !1180)
@@ -7643,15 +7643,19 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !1182)
   call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   %376 = load i64, ptr %375, align 8, !alias.scope !1184, !noalias !1185, !noundef !4
-  %switch.i.i.i.i.i = icmp ugt i64 %374, %376
-  %377 = call i64 @llvm.umin.i64(i64 %374, i64 %376)
+  %switch.i.i.i.i.i = icmp ugt i64 %373, %376
+  %377 = call i64 @llvm.umin.i64(i64 %373, i64 %376)
   %.0.sroa.speculated.i.i.i.i.i152 = select i1 %switch.i.i.i.i.i, ptr %375, ptr %.018.i.i.i
   %378 = add nuw i64 %.017.i.i.i, 1
-  %379 = icmp eq i64 %378, %372
-  br i1 %379, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread, label %373
+  %379 = icmp eq i64 %378, %371
+  br i1 %379, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit, label %372
 
-_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196.invoke: ; preds = %359, %81
-  %380 = phi ptr [ @anon.b77e373fc5d99dd1308bd865c87f7d91.41, %81 ], [ @anon.b77e373fc5d99dd1308bd865c87f7d91.117, %359 ]
+_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit: ; preds = %372
+  %.not202 = icmp eq ptr %.0.sroa.speculated.i.i.i.i.i152, null
+  br i1 %.not202, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196.invoke, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread
+
+_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196.invoke: ; preds = %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit, %359, %81
+  %380 = phi ptr [ @anon.b77e373fc5d99dd1308bd865c87f7d91.41, %81 ], [ @anon.b77e373fc5d99dd1308bd865c87f7d91.117, %359 ], [ @anon.b77e373fc5d99dd1308bd865c87f7d91.117, %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.40, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) %380) #28
           to label %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196.cont unwind label %.loopexit.split-lp
 
@@ -7661,8 +7665,8 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread196
 381:                                              ; preds = %.split291.us
   unreachable
 
-_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread: ; preds = %373, %367
-  %.0.i.i195 = phi ptr [ %363, %367 ], [ %.0.sroa.speculated.i.i.i.i.i152, %373 ]
+_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread: ; preds = %367, %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit
+  %.0.i.i195 = phi ptr [ %.0.sroa.speculated.i.i.i.i.i152, %_ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit ], [ %363, %367 ]
   %382 = load i64, ptr %.0.i.i195, align 8, !noundef !4
   store i64 %382, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)

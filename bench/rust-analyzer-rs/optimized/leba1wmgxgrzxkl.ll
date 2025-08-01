@@ -301,12 +301,13 @@ define hidden void @"_ZN108_$LT$itertools..ziptuple..Zip$LT$$LP$A$C$B$C$C$RP$$GT
   br i1 %8, label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread", label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit"
 
 "_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit": ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = add i64 %4, 1
-  store i64 %10, ptr %3, align 8, !alias.scope !8, !noalias !5
-  %11 = getelementptr inbounds { i8, [19 x i8] }, ptr %9, i64 %4
+  %9 = add i64 %4, 1
+  store i64 %9, ptr %3, align 8, !alias.scope !8, !noalias !5
+  %.idx = mul i64 %4, 20
+  %10 = getelementptr i8, ptr %3, i64 %.idx
+  %11 = getelementptr i8, ptr %10, i64 8
   %.sroa.0.0.copyload11 = load i8, ptr %11, align 4, !alias.scope !10
-  %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %.sroa.7.0..sroa_idx12 = getelementptr i8, ptr %10, i64 9
   %12 = icmp eq i8 %.sroa.0.0.copyload11, 21
   br i1 %12, label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7360ea4b97e212eE.exit.thread", label %13
 

@@ -9651,18 +9651,19 @@ define noundef zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u2
 
 46:                                               ; preds = %.lr.ph
   %47 = add nuw nsw i64 %.01934, 1
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0..sroa_idx, i64 0, i64 %indvars.iv
-  %49 = load i8, ptr %48, align 1, !range !1725, !alias.scope !1712, !noalias !1713, !noundef !20
-  %50 = icmp samesign ugt i64 %.01934, 1
-  %51 = add nsw i8 %49, -97
-  %52 = icmp ult i8 %51, 6
-  %or.cond3 = and i1 %50, %52
-  %53 = add nsw i8 %49, -32
-  %spec.select = select i1 %or.cond3, i8 %53, i8 %49
-  %54 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.01934
-  store i8 %spec.select, ptr %54, align 1
-  %55 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %55, label %.lr.ph, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit"
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i8, ptr %49, align 1, !range !1725, !alias.scope !1712, !noalias !1713, !noundef !20
+  %51 = icmp samesign ugt i64 %.01934, 1
+  %52 = add nsw i8 %50, -97
+  %53 = icmp ult i8 %52, 6
+  %or.cond3 = and i1 %51, %53
+  %54 = add nsw i8 %50, -32
+  %spec.select = select i1 %or.cond3, i8 %54, i8 %50
+  %55 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.01934
+  store i8 %spec.select, ptr %55, align 1
+  %56 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %56, label %.lr.ph, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

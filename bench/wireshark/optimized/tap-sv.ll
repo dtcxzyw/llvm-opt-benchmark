@@ -53,23 +53,19 @@ define internal noundef i32 @sv_packet(ptr readnone captures(none) %0, ptr nound
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %14
-
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr [20 x %struct._sv_phs_meas], ptr %13, i64 0, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4
-  %17 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %16)
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
+  %13 = getelementptr [20 x %struct._sv_phs_meas], ptr %3, i64 0, i64 %indvars.iv, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i8, ptr %11, align 1
-  %19 = zext i8 %18 to i64
-  %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %14, label %._crit_edge, !llvm.loop !7
+  %16 = load i8, ptr %11, align 1
+  %17 = zext i8 %16 to i64
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %14, %5
-  %21 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
+._crit_edge:                                      ; preds = %.lr.ph, %5
+  %19 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   ret i32 0
 }
 

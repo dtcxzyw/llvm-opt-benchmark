@@ -31,8 +31,8 @@ define hidden noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %0, i64 noundef
   %14 = add nsw i64 %2, -1
   %15 = add nuw nsw i64 %1, 7
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = getelementptr inbounds nuw [129 x ptr], ptr %17, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !11
@@ -109,8 +109,8 @@ define hidden noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %0, i64 noundef
   %14 = add nsw i64 %2, -1
   %15 = add nuw nsw i64 %1, 7
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = getelementptr inbounds nuw [129 x ptr], ptr %17, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !11
@@ -158,8 +158,8 @@ define hidden noalias ptr @mi_heap_zalloc_aligned(ptr noundef %0, i64 noundef %1
   %13 = add nsw i64 %2, -1
   %14 = add nuw nsw i64 %1, 7
   %15 = lshr i64 %14, 3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw [129 x ptr], ptr %16, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !11
@@ -221,8 +221,8 @@ mi_count_size_overflow.exit:                      ; preds = %6
   %20 = add nsw i64 %3, -1
   %21 = add nuw nsw i64 %.05.ph, 7
   %22 = lshr i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = getelementptr inbounds nuw [129 x ptr], ptr %23, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !11
@@ -278,8 +278,8 @@ define hidden noalias ptr @mi_malloc_aligned_at(i64 noundef %0, i64 noundef %1, 
   %15 = add nsw i64 %1, -1
   %16 = add nuw nsw i64 %0, 7
   %17 = lshr i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw [129 x ptr], ptr %18, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [129 x ptr], ptr %5, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !11
@@ -358,8 +358,8 @@ define hidden noalias ptr @mi_zalloc_aligned_at(i64 noundef %0, i64 noundef %1, 
   %15 = add nsw i64 %1, -1
   %16 = add nuw nsw i64 %0, 7
   %17 = lshr i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw [129 x ptr], ptr %18, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [129 x ptr], ptr %5, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !11
@@ -409,8 +409,8 @@ define hidden noalias ptr @mi_zalloc_aligned(i64 noundef %0, i64 noundef %1) loc
   %14 = add nsw i64 %1, -1
   %15 = add nuw nsw i64 %0, 7
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = getelementptr inbounds nuw [129 x ptr], ptr %17, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [129 x ptr], ptr %4, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !11
@@ -487,8 +487,8 @@ define internal fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr 
   %20 = add nsw i64 %3, -1
   %21 = add nuw nsw i64 %2, 7
   %22 = lshr i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = getelementptr inbounds nuw [129 x ptr], ptr %23, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !11
@@ -547,8 +547,8 @@ define internal fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr 
   %56 = add nsw i64 %3, -1
   %57 = add nuw nsw i64 %2, 7
   %58 = lshr i64 %57, 3
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = getelementptr inbounds nuw [129 x ptr], ptr %59, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [129 x ptr], ptr %0, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !11
@@ -575,7 +575,7 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %69, %71
 
 73:                                               ; preds = %mi_heap_malloc_aligned_at.exit
   %or.cond = and i1 %5, %.not
-  br i1 %or.cond, label %74, label %94
+  br i1 %or.cond, label %74, label %93
 
 74:                                               ; preds = %73
   %75 = ptrtoint ptr %.028.i.i to i64
@@ -583,36 +583,35 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %69, %71
   %77 = inttoptr i64 %76 to ptr
   %78 = lshr i64 %75, 16
   %79 = and i64 %78, 1023
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 368
-  %81 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %80, i64 0, i64 %79
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !19
-  %84 = zext i32 %83 to i64
-  %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i8, ptr %81, i64 %85
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 15
-  %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not54 = icmp eq i8 %89, 0
-  br i1 %.not54, label %90, label %94
+  %80 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %77, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 372
+  %82 = load i32, ptr %81, align 4, !tbaa !19
+  %83 = zext i32 %82 to i64
+  %84 = sub nsw i64 0, %83
+  %85 = getelementptr i8, ptr %80, i64 %84
+  %86 = getelementptr i8, ptr %85, i64 383
+  %87 = load i8, ptr %86, align 1
+  %88 = and i8 %87, 1
+  %.not54 = icmp eq i8 %88, 0
+  br i1 %.not54, label %89, label %93
 
-90:                                               ; preds = %74
-  %91 = tail call i64 @llvm.usub.sat.i64(i64 %39, i64 8)
-  %92 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 %91
-  %93 = sub i64 %2, %91
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %92, i8 0, i64 %93, i1 false)
-  br label %94
+89:                                               ; preds = %74
+  %90 = tail call i64 @llvm.usub.sat.i64(i64 %39, i64 8)
+  %91 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 %90
+  %92 = sub i64 %2, %90
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %91, i8 0, i64 %92, i1 false)
+  br label %93
 
-94:                                               ; preds = %90, %74, %73
-  %95 = tail call i64 @llvm.umin.i64(i64 %2, i64 %39)
+93:                                               ; preds = %89, %74, %73
+  %94 = tail call i64 @llvm.umin.i64(i64 %2, i64 %39)
   call void @llvm.assume(i1 true) [ "align"(ptr %.028.i.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.028.i.i, ptr nonnull readonly align 8 %1, i64 %95, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.028.i.i, ptr nonnull readonly align 8 %1, i64 %94, i1 false)
   tail call void @mi_free(ptr noundef nonnull %1) #8
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-mi_heap_malloc_zero_aligned_at.exit:              ; preds = %48, %36, %35, %33, %12, %43, %94, %mi_heap_malloc_aligned_at.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ %1, %43 ], [ %.028.i.i, %94 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ null, %12 ], [ %37, %36 ], [ %34, %33 ], [ %34, %35 ], [ null, %48 ]
+mi_heap_malloc_zero_aligned_at.exit:              ; preds = %48, %36, %35, %33, %12, %43, %93, %mi_heap_malloc_aligned_at.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ %1, %43 ], [ %.028.i.i, %93 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ null, %12 ], [ %37, %36 ], [ %34, %33 ], [ %34, %35 ], [ null, %48 ]
   ret ptr %.0
 }
 
@@ -867,13 +866,13 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_fallback(ptr noundef 
 
 13:                                               ; preds = %8
   %14 = tail call ptr @_mi_heap_malloc_zero(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %4) #8
-  br label %43
+  br label %42
 
 15:                                               ; preds = %8, %5
   %16 = add i64 %6, %1
   %17 = tail call ptr @_mi_heap_malloc_zero(ptr noundef %0, i64 noundef %16, i1 noundef zeroext %4) #8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %43, label %19
+  br i1 %18, label %42, label %19
 
 19:                                               ; preds = %15
   %20 = ptrtoint ptr %17 to i64
@@ -885,27 +884,26 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_fallback(ptr noundef 
   %26 = inttoptr i64 %25 to ptr
   %27 = select i1 %23, ptr %17, ptr %26
   %.not = icmp eq ptr %27, %17
-  br i1 %.not, label %43, label %28
+  br i1 %.not, label %42, label %28
 
 28:                                               ; preds = %19
   %29 = and i64 %20, -67108864
   %30 = inttoptr i64 %29 to ptr
   %31 = lshr i64 %20, 16
   %32 = and i64 %31, 1023
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 368
-  %34 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %33, i64 0, i64 %32
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !19
-  %37 = zext i32 %36 to i64
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %34, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 14
-  %41 = load i8, ptr %40, align 2
-  %42 = or i8 %41, 2
-  store i8 %42, ptr %40, align 2
-  br label %43
+  %33 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 372
+  %35 = load i32, ptr %34, align 4, !tbaa !19
+  %36 = zext i32 %35 to i64
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr i8, ptr %33, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 382
+  %40 = load i8, ptr %39, align 2
+  %41 = or i8 %40, 2
+  store i8 %41, ptr %39, align 2
+  br label %42
 
-43:                                               ; preds = %15, %28, %19, %13
+42:                                               ; preds = %15, %28, %19, %13
   %.0 = phi ptr [ %14, %13 ], [ null, %15 ], [ %27, %28 ], [ %27, %19 ]
   ret ptr %.0
 }

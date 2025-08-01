@@ -1191,7 +1191,7 @@ cond.false.i.i:                                   ; preds = %if.else.i.i
   %7 = inttoptr i64 %sub.i.i.i to ptr
   %8 = load ptr, ptr %7, align 8, !noalias !4
   %9 = load ptr, ptr %8, align 8, !noalias !4
-  %second.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %second.i.i = getelementptr i8, ptr %9, i64 32
   %10 = load ptr, ptr %second.i.i, align 8, !noalias !4
   br label %cond.end.i.i
 
@@ -1285,7 +1285,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %10 = inttoptr i64 %sub.i.i.i to ptr
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %second.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %second.i.i = getelementptr i8, ptr %12, i64 32
   %13 = load ptr, ptr %second.i.i, align 8
   store ptr %13, ptr %map_iter, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit
@@ -2035,7 +2035,7 @@ cond.false.i.i:                                   ; preds = %if.else.i.i
   %19 = inttoptr i64 %sub.i.i.i75 to ptr
   %20 = load ptr, ptr %19, align 8, !noalias !10
   %21 = load ptr, ptr %20, align 8, !noalias !10
-  %second.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %second.i.i = getelementptr i8, ptr %21, i64 32
   %22 = load ptr, ptr %second.i.i, align 8, !noalias !10
   br label %cond.end.i.i
 
@@ -2434,7 +2434,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   %59 = inttoptr i64 %sub.i.i.i.i to ptr
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %second.i.i.i = getelementptr i8, ptr %61, i64 32
   %62 = load ptr, ptr %second.i.i.i, align 8
   store ptr %62, ptr %it, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit.i
@@ -3709,8 +3709,8 @@ if.end:                                           ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %sub.i.i.i.i.i = add i64 %6, -1
   %7 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %cond-lvalue.i, ptr %elements.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %7, i64 8
+  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %cond-lvalue.i, ptr %arrayidx.i.i.i.i
   %8 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
@@ -5538,7 +5538,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
   %9 = inttoptr i64 %sub.i.i.i.i to ptr
   %10 = load ptr, ptr %9, align 8, !noalias !27
   %11 = load ptr, ptr %10, align 8, !noalias !27
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %second.i.i.i = getelementptr i8, ptr %11, i64 32
   %12 = load ptr, ptr %second.i.i.i, align 8, !noalias !27
   br label %for.body.lr.ph
 
@@ -5592,7 +5592,7 @@ if.else.i.i.i12:                                  ; preds = %if.end.i.i.i
   %20 = inttoptr i64 %sub.i.i.i.i13 to ptr
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %second.i.i.i14 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %second.i.i.i14 = getelementptr i8, ptr %22, i64 32
   %23 = load ptr, ptr %second.i.i.i14, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8iteratorppEv.exit
 
@@ -5675,7 +5675,7 @@ cond.false.i.i.i17:                               ; preds = %if.else.i.i.i
   %8 = inttoptr i64 %sub.i.i.i.i to ptr
   %9 = load ptr, ptr %8, align 8, !noalias !30
   %10 = load ptr, ptr %9, align 8, !noalias !30
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %second.i.i.i = getelementptr i8, ptr %10, i64 32
   %11 = load ptr, ptr %second.i.i.i, align 8, !noalias !30
   br label %for.body.lr.ph
 
@@ -5867,7 +5867,7 @@ if.else.i.i.i42:                                  ; preds = %if.end.i.i.i
   %31 = inttoptr i64 %sub.i.i.i.i43 to ptr
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %second.i.i.i44 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %second.i.i.i44 = getelementptr i8, ptr %33, i64 32
   %34 = load ptr, ptr %second.i.i.i44, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
 
@@ -6006,7 +6006,7 @@ cond.false.i.i.i33:                               ; preds = %if.else.i.i.i
   %15 = inttoptr i64 %sub.i.i.i.i to ptr
   %16 = load ptr, ptr %15, align 8, !noalias !38
   %17 = load ptr, ptr %16, align 8, !noalias !38
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %second.i.i.i = getelementptr i8, ptr %17, i64 32
   %18 = load ptr, ptr %second.i.i.i, align 8, !noalias !38
   br label %cond.end.i.i.i
 
@@ -6198,7 +6198,7 @@ if.else.i.i.i52:                                  ; preds = %if.end.i.i.i
   %33 = inttoptr i64 %sub.i.i.i.i53 to ptr
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %second.i.i.i54 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %second.i.i.i54 = getelementptr i8, ptr %35, i64 32
   %36 = load ptr, ptr %second.i.i.i54, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
 
@@ -6256,7 +6256,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
   %6 = inttoptr i64 %sub.i.i.i.i to ptr
   %7 = load ptr, ptr %6, align 8, !noalias !42
   %8 = load ptr, ptr %7, align 8, !noalias !42
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %second.i.i.i = getelementptr i8, ptr %8, i64 32
   %9 = load ptr, ptr %second.i.i.i, align 8, !noalias !42
   br label %for.body.lr.ph
 
@@ -6310,7 +6310,7 @@ if.else.i.i.i9:                                   ; preds = %if.end.i.i.i
   %17 = inttoptr i64 %sub.i.i.i.i10 to ptr
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %second.i.i.i11 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %second.i.i.i11 = getelementptr i8, ptr %19, i64 32
   %20 = load ptr, ptr %second.i.i.i11, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8iteratorppEv.exit
 
@@ -7478,44 +7478,45 @@ if.then6:                                         ; preds = %cond.true.i, %_ZNK6
 if.end.i.i:                                       ; preds = %if.then6
   %sub.i.i = add i64 %7, -1
   %11 = inttoptr i64 %sub.i.i to ptr
-  %elements.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i, i64 0, i64 %idxprom.i
+  %12 = getelementptr [268435454 x ptr], ptr %11, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr i8, ptr %12, i64 8
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i
-  %12 = load ptr, ptr %retval.0.i, align 8
-  tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %12)
+  %13 = load ptr, ptr %retval.0.i, align 8
+  tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %13)
   br label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i
   %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, label %if.end27
+  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
-  %cmp46 = icmp slt i32 %0, %9
-  br i1 %cmp46, label %cond.false.i20, label %if.then21
+  %cmp43 = icmp slt i32 %0, %9
+  br i1 %cmp43, label %cond.false.i19, label %if.then21
 
-cond.false.i20:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
-  %elements.i1448 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %idxprom.i1549 = sext i32 %0 to i64
-  %arrayidx.i1650 = getelementptr inbounds [268435454 x ptr], ptr %elements.i1448, i64 0, i64 %idxprom.i1549
-  %13 = sext i32 %9 to i64
-  %.pre = load ptr, ptr %arrayidx.i1650, align 8
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
+cond.false.i19:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
+  %idxprom.i1445 = sext i32 %0 to i64
+  %14 = getelementptr [268435454 x ptr], ptr %8, i64 0, i64 %idxprom.i1445
+  %arrayidx.i1546 = getelementptr i8, ptr %14, i64 8
+  %15 = sext i32 %9 to i64
+  %.pre = load ptr, ptr %arrayidx.i1546, align 8
+  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25
 
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i20
-  %14 = phi ptr [ %.pre, %cond.false.i20 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %elements.i1452 = phi ptr [ %elements.i1448, %cond.false.i20 ], [ inttoptr (i64 7 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %cond3.i22 = phi i64 [ %13, %cond.false.i20 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %arrayidx.i32 = getelementptr inbounds [268435454 x ptr], ptr %elements.i1452, i64 0, i64 %cond3.i22
-  %retval.0.i33 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i32
-  store ptr %14, ptr %retval.0.i33, align 8
-  %15 = load ptr, ptr %this, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %sub.i34 = add i64 %16, -1
-  %17 = inttoptr i64 %sub.i34 to ptr
-  %18 = load i32, ptr %17, align 8
-  %inc18 = add nsw i32 %18, 1
-  store i32 %inc18, ptr %17, align 8
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i19
+  %16 = phi ptr [ %.pre, %cond.false.i19 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %17 = phi ptr [ %8, %cond.false.i19 ], [ inttoptr (i64 -1 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %cond3.i21 = phi i64 [ %15, %cond.false.i19 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %18 = getelementptr [268435454 x ptr], ptr %17, i64 0, i64 %cond3.i21
+  %arrayidx.i30 = getelementptr i8, ptr %18, i64 8
+  %retval.0.i31 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i30
+  store ptr %16, ptr %retval.0.i31, align 8
+  %19 = load ptr, ptr %this, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %sub.i32 = add i64 %20, -1
+  %21 = inttoptr i64 %sub.i32 to ptr
+  %22 = load i32, ptr %21, align 8
+  %inc18 = add nsw i32 %22, 1
+  store i32 %inc18, ptr %21, align 8
   br label %if.end27
 
 if.then21:                                        ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
@@ -7523,21 +7524,21 @@ if.then21:                                        ; preds = %_ZNK6google8protobu
   store i32 %inc24, ptr %8, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, %if.then
-  %19 = load i32, ptr %current_size_.i, align 8
-  %add = add nsw i32 %19, 1
+if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, %if.then
+  %23 = load i32, ptr %current_size_.i, align 8
+  %add = add nsw i32 %23, 1
   store i32 %add, ptr %current_size_.i, align 8
-  %20 = load ptr, ptr %this, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %and.i.i38 = and i64 %21, 1
-  %cmp.i.i39 = icmp eq i64 %and.i.i38, 0
-  %sub.i.i40 = add i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i40 to ptr
-  %elements.i41 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %idxprom.i42 = sext i32 %19 to i64
-  %arrayidx.i43 = getelementptr inbounds [268435454 x ptr], ptr %elements.i41, i64 0, i64 %idxprom.i42
-  %retval.0.i44 = select i1 %cmp.i.i39, ptr %this, ptr %arrayidx.i43
-  store ptr %value, ptr %retval.0.i44, align 8
+  %24 = load ptr, ptr %this, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %and.i.i36 = and i64 %25, 1
+  %cmp.i.i37 = icmp eq i64 %and.i.i36, 0
+  %sub.i.i38 = add i64 %25, -1
+  %26 = inttoptr i64 %sub.i.i38 to ptr
+  %idxprom.i39 = sext i32 %23 to i64
+  %27 = getelementptr [268435454 x ptr], ptr %26, i64 0, i64 %idxprom.i39
+  %arrayidx.i40 = getelementptr i8, ptr %27, i64 8
+  %retval.0.i41 = select i1 %cmp.i.i37, ptr %this, ptr %arrayidx.i40
+  store ptr %value, ptr %retval.0.i41, align 8
   ret void
 }
 
@@ -8313,7 +8314,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i
   %18 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
   %19 = load ptr, ptr %18, align 8, !noalias !49
   %20 = load ptr, ptr %19, align 8, !noalias !49
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %second.i.i.i.i.i = getelementptr i8, ptr %20, i64 32
   %21 = load ptr, ptr %second.i.i.i.i.i, align 8, !noalias !49
   br label %for.body.lr.ph.i.i.i
 
@@ -8368,7 +8369,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %30 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %second.i.i.i.i.i.i = getelementptr i8, ptr %32, i64 32
   %33 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i
 
@@ -8430,7 +8431,7 @@ cond.false.i.i.i.i:                               ; preds = %if.else.i.i.i.i
   %41 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %42 = load ptr, ptr %41, align 8, !noalias !53
   %43 = load ptr, ptr %42, align 8, !noalias !53
-  %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %second.i.i.i.i = getelementptr i8, ptr %43, i64 32
   %44 = load ptr, ptr %second.i.i.i.i, align 8, !noalias !53
   br label %for.body.lr.ph.i.i
 
@@ -8488,7 +8489,7 @@ if.else.i.i.i.i.i12:                              ; preds = %if.end.i.i.i.i.i
   %53 = inttoptr i64 %sub.i.i.i.i.i.i13 to ptr
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
-  %second.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %second.i.i.i.i.i14 = getelementptr i8, ptr %55, i64 32
   %56 = load ptr, ptr %second.i.i.i.i.i14, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i
 
@@ -8590,7 +8591,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
   %6 = inttoptr i64 %sub.i.i.i.i to ptr
   %7 = load ptr, ptr %6, align 8, !noalias !56
   %8 = load ptr, ptr %7, align 8, !noalias !56
-  %second.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %second.i.i.i = getelementptr i8, ptr %8, i64 32
   %9 = load ptr, ptr %second.i.i.i, align 8, !noalias !56
   br label %for.body.lr.ph.i
 
@@ -8645,7 +8646,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %18 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %second.i.i.i.i = getelementptr i8, ptr %20, i64 32
   %21 = load ptr, ptr %second.i.i.i.i, align 8
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i
 

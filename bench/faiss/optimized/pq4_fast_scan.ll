@@ -100,8 +100,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %45 = getelementptr inbounds nuw i8, ptr %.019, i64 %44
   %46 = and i8 %27, -16
   %47 = getelementptr i8, ptr %45, i64 %34
-  %48 = getelementptr i8, ptr %47, i64 16
-  %49 = getelementptr i8, ptr %48, i64 %.0.i.i
+  %48 = getelementptr i8, ptr %47, i64 %.0.i.i
+  %49 = getelementptr i8, ptr %48, i64 16
   %50 = load i8, ptr %49, align 1, !tbaa !11
   %51 = and i8 %50, 15
   %52 = or disjoint i8 %51, %46
@@ -139,8 +139,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %75 = mul i64 %19, %74
   %76 = getelementptr inbounds nuw i8, ptr %.019, i64 %75
   %77 = getelementptr i8, ptr %76, i64 %65
-  %78 = getelementptr i8, ptr %77, i64 16
-  %79 = getelementptr i8, ptr %78, i64 %.0.i.i
+  %78 = getelementptr i8, ptr %77, i64 %.0.i.i
+  %79 = getelementptr i8, ptr %78, i64 16
   %80 = load i8, ptr %79, align 1, !tbaa !11
   %81 = and i8 %80, -16
   %82 = or disjoint i8 %81, %71
@@ -189,7 +189,7 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr noundef nonnull reado
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01924.us = phi i64 [ %42, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.01924.us = phi i64 [ %41, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %25 = load i64, ptr %17, align 8, !tbaa !12
   %26 = and i64 %.01924.us, 9223372036854775807
   %27 = add i64 %25, 1
@@ -201,45 +201,43 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr noundef nonnull reado
   %33 = getelementptr i8, ptr %32, i64 %.0.i.i
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = lshr i8 %34, 4
-  %36 = getelementptr i8, ptr %32, i64 16
-  %37 = getelementptr i8, ptr %36, i64 %.0.i.i
-  %38 = load i8, ptr %37, align 1, !tbaa !11
-  %39 = and i8 %38, -16
-  %40 = or disjoint i8 %39, %35
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %.01924.us
-  store i8 %40, ptr %41, align 1, !tbaa !11
-  %42 = add nuw i64 %.01924.us, 1
-  %43 = load i64, ptr %15, align 8, !tbaa !10
-  %44 = icmp ult i64 %42, %43
-  br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
+  %36 = getelementptr i8, ptr %33, i64 16
+  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %38 = and i8 %37, -16
+  %39 = or disjoint i8 %38, %35
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.01924.us
+  store i8 %39, ptr %40, align 1, !tbaa !11
+  %41 = add nuw i64 %.01924.us, 1
+  %42 = load i64, ptr %15, align 8, !tbaa !10
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %14
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.01924 = phi i64 [ %62, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %45 = load i64, ptr %17, align 8, !tbaa !12
-  %46 = and i64 %.01924, 9223372036854775807
-  %47 = add i64 %45, 1
-  %48 = lshr i64 %47, 1
-  %49 = mul i64 %19, %48
-  %50 = getelementptr inbounds nuw i8, ptr %.0, i64 %49
-  %51 = mul i64 %46, %.fr26
-  %52 = getelementptr i8, ptr %50, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 %.0.i.i
-  %54 = load i8, ptr %53, align 1, !tbaa !11
-  %55 = and i8 %54, 15
-  %56 = getelementptr i8, ptr %52, i64 16
-  %57 = getelementptr i8, ptr %56, i64 %.0.i.i
-  %58 = load i8, ptr %57, align 1, !tbaa !11
-  %59 = shl i8 %58, 4
-  %60 = or disjoint i8 %59, %55
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.01924
-  store i8 %60, ptr %61, align 1, !tbaa !11
-  %62 = add nuw i64 %.01924, 1
-  %63 = load i64, ptr %15, align 8, !tbaa !10
-  %64 = icmp ult i64 %62, %63
-  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  %.01924 = phi i64 [ %60, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %44 = load i64, ptr %17, align 8, !tbaa !12
+  %45 = and i64 %.01924, 9223372036854775807
+  %46 = add i64 %44, 1
+  %47 = lshr i64 %46, 1
+  %48 = mul i64 %19, %47
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 %48
+  %50 = mul i64 %45, %.fr26
+  %51 = getelementptr i8, ptr %49, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 %.0.i.i
+  %53 = load i8, ptr %52, align 1, !tbaa !11
+  %54 = and i8 %53, 15
+  %55 = getelementptr i8, ptr %52, i64 16
+  %56 = load i8, ptr %55, align 1, !tbaa !11
+  %57 = shl i8 %56, 4
+  %58 = or disjoint i8 %57, %54
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %.01924
+  store i8 %58, ptr %59, align 1, !tbaa !11
+  %60 = add nuw i64 %.01924, 1
+  %61 = load i64, ptr %15, align 8, !tbaa !10
+  %62 = icmp ult i64 %60, %61
+  br i1 %62, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 }
 
 declare void @_ZNK5faiss10CodePacker8pack_allEPKhPh(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) unnamed_addr #1

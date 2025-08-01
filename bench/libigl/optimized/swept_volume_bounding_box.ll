@@ -35,15 +35,12 @@ define dso_local void @_ZN3igl25swept_volume_bounding_boxERKmRKSt8functionIFN5Ei
   store double 0x7FEFFFFFFFFFFFFF, ptr %.07.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4
   %.07.i.i.i.i.add.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.07.i.i.i.i.add.i.i.i.i.i.i.i.i.i, 24
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i
-
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i
-  %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i2.i = phi i64 [ %.07.i.i.i.i.add.i.i.i.i.i.i.i.i4.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i ], [ 0, %_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i ]
-  %.07.i.i.i.i.ptr.i.i.i.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %11, i64 %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i2.i
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i
+  %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i2.i = phi i64 [ %.07.i.i.i.i.add.i.i.i.i.i.i.i.i4.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i2.i
+  %.07.i.i.i.i.ptr.i.i.i.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double 0xFFEFFFFFFFFFFFFF, ptr %.07.i.i.i.i.ptr.i.i.i.i.i.i.i.i3.i, align 8, !tbaa !4
   %.07.i.i.i.i.add.i.i.i.i.i.i.i.i4.i = add nuw nsw i64 %.07.i.i.i.i.idx.i.i.i.i.i.i.i.i2.i, 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i5.i = icmp eq i64 %.07.i.i.i.i.add.i.i.i.i.i.i.i.i4.i, 24
@@ -69,101 +66,102 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %21 = load i64, ptr %0, align 8, !tbaa !10
-  %.not = icmp eq i64 %21, 0
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %22 = load i64, ptr %0, align 8, !tbaa !10
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge17, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %22 = phi i64 [ %25, %._crit_edge ], [ %14, %.preheader.lr.ph ]
-  %23 = phi i64 [ %26, %._crit_edge ], [ 1, %.preheader.lr.ph ]
+  %23 = phi i64 [ %26, %._crit_edge ], [ %14, %.preheader.lr.ph ]
+  %24 = phi i64 [ %27, %._crit_edge ], [ 1, %.preheader.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.not18 = icmp eq i64 %23, 0
+  %.not18 = icmp eq i64 %24, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge17:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %_ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit
-  %24 = load ptr, ptr %7, align 8, !tbaa !16
-  call void @free(ptr noundef %24) #11
+  %25 = load ptr, ptr %7, align 8, !tbaa !16
+  call void @free(ptr noundef %25) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   ret void
 
-._crit_edge.loopexit:                             ; preds = %35
+._crit_edge.loopexit:                             ; preds = %36
   %.pre = load i64, ptr %13, align 8, !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %25 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %22, %.preheader ]
-  %26 = phi i64 [ %49, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  %26 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %23, %.preheader ]
+  %27 = phi i64 [ %50, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = icmp sgt i64 %25, %indvars.iv.next
-  br i1 %27, label %.preheader, label %._crit_edge17, !llvm.loop !17
+  %28 = icmp sgt i64 %26, %indvars.iv.next
+  br i1 %28, label %.preheader, label %._crit_edge17, !llvm.loop !17
 
-.lr.ph:                                           ; preds = %.preheader, %35
-  %.01215 = phi i64 [ %48, %35 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %36
+  %.01215 = phi i64 [ %49, %36 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #11
-  %28 = load ptr, ptr %7, align 8, !tbaa !16
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !4
+  %29 = load ptr, ptr %7, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
+  %31 = load double, ptr %30, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.01215, ptr %5, align 8, !tbaa !10, !noalias !19
-  store double %30, ptr %6, align 8, !tbaa !4, !noalias !19
-  %31 = load ptr, ptr %16, align 8, !tbaa !22, !noalias !19
-  %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %32, label %33
+  store double %31, ptr %6, align 8, !tbaa !4, !noalias !19
+  %32 = load ptr, ptr %16, align 8, !tbaa !22, !noalias !19
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %33, label %34
 
-32:                                               ; preds = %.lr.ph
+33:                                               ; preds = %.lr.ph
   invoke void @_ZSt25__throw_bad_function_callv() #12
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %32
+.noexc:                                           ; preds = %33
   unreachable
 
-33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr %17, align 8, !tbaa !24, !noalias !19
-  invoke void %34(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.18") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %35 unwind label %.loopexit
+34:                                               ; preds = %.lr.ph
+  %35 = load ptr, ptr %17, align 8, !tbaa !24, !noalias !19
+  invoke void %35(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.18") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %36 unwind label %.loopexit
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %36 = load <2 x double>, ptr %3, align 8, !tbaa !26
-  %37 = load <2 x double>, ptr %10, align 16, !tbaa !26
-  %38 = call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36, <2 x double> %37) #13, !srcloc !27
-  store <2 x double> %38, ptr %3, align 8, !tbaa !26
-  %39 = load double, ptr %19, align 16, !tbaa !4
-  %40 = load double, ptr %18, align 8, !tbaa !4
-  %41 = fcmp olt double %39, %40
-  %42 = select i1 %41, double %39, double %40
-  store double %42, ptr %18, align 8, !tbaa !4
-  %43 = load <2 x double>, ptr %11, align 8, !tbaa !26
-  %44 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %37) #13, !srcloc !28
-  store <2 x double> %44, ptr %11, align 8, !tbaa !26
-  %45 = load double, ptr %20, align 8, !tbaa !4
-  %46 = fcmp olt double %45, %39
-  %47 = select i1 %46, double %39, double %45
-  store double %47, ptr %20, align 8, !tbaa !4
+  %37 = load <2 x double>, ptr %3, align 8, !tbaa !26
+  %38 = load <2 x double>, ptr %10, align 16, !tbaa !26
+  %39 = call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %37, <2 x double> %38) #13, !srcloc !27
+  store <2 x double> %39, ptr %3, align 8, !tbaa !26
+  %40 = load double, ptr %19, align 16, !tbaa !4
+  %41 = load double, ptr %18, align 8, !tbaa !4
+  %42 = fcmp olt double %40, %41
+  %43 = select i1 %42, double %40, double %41
+  store double %43, ptr %18, align 8, !tbaa !4
+  %44 = load <2 x double>, ptr %20, align 8, !tbaa !26
+  %45 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44, <2 x double> %38) #13, !srcloc !28
+  store <2 x double> %45, ptr %20, align 8, !tbaa !26
+  %46 = load double, ptr %21, align 8, !tbaa !4
+  %47 = fcmp olt double %46, %40
+  %48 = select i1 %47, double %40, double %46
+  store double %48, ptr %21, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
-  %48 = add nuw i64 %.01215, 1
-  %49 = load i64, ptr %0, align 8, !tbaa !10
-  %50 = icmp ult i64 %48, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  %49 = add nuw i64 %.01215, 1
+  %50 = load i64, ptr %0, align 8, !tbaa !10
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
-.loopexit:                                        ; preds = %33
+.loopexit:                                        ; preds = %34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-.loopexit.split-lp:                               ; preds = %32
+.loopexit.split-lp:                               ; preds = %33
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-51:                                               ; preds = %.loopexit.split-lp, %.loopexit
+52:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
-  %52 = load ptr, ptr %7, align 8, !tbaa !16
-  call void @free(ptr noundef %52) #11
+  %53 = load ptr, ptr %7, align 8, !tbaa !16
+  call void @free(ptr noundef %53) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   resume { ptr, i32 } %lpad.phi
 }

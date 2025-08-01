@@ -1029,12 +1029,12 @@ define dso_local ptr @zend_get_property_guard(ptr noundef %0, ptr noundef %1) lo
   %9 = and i32 %8, 2048
   %10 = icmp ne i32 %9, 0
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !15
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct._zval_struct, ptr %11, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr %struct._zval_struct, ptr %0, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 40
+  %16 = getelementptr i8, ptr %14, i64 48
   %17 = load i8, ptr %16, align 8, !tbaa !37
   switch i8 %17, label %74 [
     i8 6, label %18
@@ -1059,17 +1059,17 @@ zend_string_equal_content.exit:                   ; preds = %21
   br i1 %27, label %28, label %zend_string_equal_content.exit.thread, !prof !95
 
 28:                                               ; preds = %zend_string_equal_content.exit, %18
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %29 = getelementptr i8, ptr %14, i64 52
   br label %.thread
 
 zend_string_equal_content.exit.thread:            ; preds = %21, %zend_string_equal_content.exit
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %30 = getelementptr i8, ptr %14, i64 52
   %31 = load i32, ptr %30, align 4, !tbaa !37
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %zend_hash_add_new_ptr.exit, !prof !59
 
 33:                                               ; preds = %zend_string_equal_content.exit.thread
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %34 = getelementptr i8, ptr %14, i64 49
   %35 = load i8, ptr %34, align 1, !tbaa !37
   %.not.i = icmp eq i8 %35, 0
   br i1 %.not.i, label %zval_ptr_dtor_str.exit, label %36
@@ -1120,7 +1120,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %zend_string_equal_c
   store i32 13, ptr %54, align 8, !tbaa !37
   %55 = call ptr @zend_hash_add_new(ptr noundef %50, ptr noundef nonnull %19, ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  %56 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %56 = getelementptr i8, ptr %14, i64 49
   %57 = load i8, ptr %56, align 1, !tbaa !37
   %.not.i60 = icmp eq i8 %57, 0
   br i1 %.not.i60, label %65, label %58
@@ -1175,7 +1175,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %zend_string_equal_c
 81:                                               ; preds = %74, %78
   %storemerge = phi i32 [ 262, %78 ], [ 6, %74 ]
   store i32 %storemerge, ptr %16, align 8, !tbaa !37
-  %82 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %82 = getelementptr i8, ptr %14, i64 52
   %83 = load i32, ptr %82, align 4, !tbaa !37
   %84 = and i32 %83, -32
   store i32 %84, ptr %82, align 4, !tbaa !37
@@ -1243,9 +1243,8 @@ define dso_local ptr @zend_get_recursion_guard(ptr noundef readonly captures(ret
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = sext i32 %9 to i64
-  %.idx = shl nsw i64 %10, 4
-  %11 = getelementptr i8, ptr %0, i64 52
-  %12 = getelementptr i8, ptr %11, i64 %.idx
+  %11 = getelementptr %struct._zval_struct, ptr %0, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 52
   br label %13
 
 13:                                               ; preds = %1, %7

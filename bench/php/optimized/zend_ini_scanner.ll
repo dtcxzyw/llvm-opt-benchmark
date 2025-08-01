@@ -7287,9 +7287,8 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   br i1 %3075, label %.lr.ph2706.preheader, label %.loopexit2435
 
 .lr.ph2706.preheader:                             ; preds = %3074
-  %3076 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
-  %3077 = sub i64 %3, %3063
-  %scevgep = getelementptr i8, ptr %3076, i64 %3077
+  %3076 = sub i64 %3, %3063
+  %3077 = getelementptr i8, ptr %.promoted2810, i64 %3076
   br label %.lr.ph2706
 
 .lr.ph2706:                                       ; preds = %.lr.ph2706.preheader, %.backedge2436
@@ -7325,7 +7324,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   br i1 %3083, label %3084, label %.backedge2436
 
 .backedge2436:                                    ; preds = %3081, %.lr.ph2706
-  %exitcond.not = icmp eq ptr %3079, %scevgep
+  %exitcond.not = icmp eq ptr %3078, %3077
   br i1 %exitcond.not, label %.loopexit2435, label %.lr.ph2706
 
 3084:                                             ; preds = %3081, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706

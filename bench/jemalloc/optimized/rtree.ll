@@ -22,10 +22,10 @@ declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %8 = lshr i64 %3, 30
-  %9 = and i64 %8, 262143
-  %10 = getelementptr inbounds nuw %struct.rtree_node_elm_s, ptr %7, i64 %9
+  %7 = lshr i64 %3, 30
+  %8 = and i64 %7, 262143
+  %9 = getelementptr inbounds nuw %struct.rtree_node_elm_s, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   br i1 %5, label %11, label %16
 
 11:                                               ; preds = %6
@@ -64,7 +64,7 @@ rtree_child_leaf_read.exit.thread:                ; preds = %12, %14, %rtree_chi
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 272
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %22, i64 112, i1 false)
-  %24 = and i64 %8, 15
+  %24 = and i64 %7, 15
   %25 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %2, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !12
   store i64 %26, ptr %22, align 8, !tbaa !12
@@ -90,34 +90,31 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @je_rtree_ctx_data_init(ptr noundef writeonly captures(none) %0) local_unnamed_addr #3 {
-  br label %3
+  br label %2
 
-.preheader:                                       ; preds = %3
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %7
-
-3:                                                ; preds = %1, %3
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv
-  store i64 1, ptr %4, align 8, !tbaa !12
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !16
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv
+  store i64 1, ptr %3, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %4, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !17
 
-6:                                                ; preds = %7
+5:                                                ; preds = %.preheader
   ret void
 
-7:                                                ; preds = %.preheader, %7
-  %indvars.iv15 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next16, %7 ]
-  %8 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %2, i64 0, i64 %indvars.iv15
-  store i64 1, ptr %8, align 8, !tbaa !12
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !16
+.preheader:                                       ; preds = %2, %.preheader
+  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.preheader ], [ 0, %2 ]
+  %6 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv15
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  store i64 1, ptr %7, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  store ptr null, ptr %8, align 8, !tbaa !16
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %6, label %7, !llvm.loop !19
+  br i1 %exitcond18.not, label %5, label %.preheader, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable

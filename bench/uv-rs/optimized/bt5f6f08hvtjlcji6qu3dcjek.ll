@@ -1659,8 +1659,9 @@ define hidden void @"_ZN113_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.5.0.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 4, !alias.scope !462, !noalias !461
   %20 = xor i64 %3, 1
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
-  store i32 -1, ptr %21, align 4, !alias.scope !451, !noalias !454
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 -1, ptr %22, align 4, !alias.scope !451, !noalias !454
   store i32 -1, ptr %17, align 8, !alias.scope !451, !noalias !454
   ret void
 }
@@ -7235,8 +7236,9 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$18nei
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx2.i, align 4, !alias.scope !1716, !noalias !1719
   %20 = xor i64 %3, 1
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
-  store i32 -1, ptr %21, align 4
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 -1, ptr %22, align 4
   store i32 -1, ptr %17, align 8
   ret void
 }

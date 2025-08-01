@@ -1994,28 +1994,27 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17hf3f85a848e0879f6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ult i64 %5, 11
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { [3 x i64] }, ptr %3, i64 %5
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %9 = getelementptr inbounds nuw { [3 x i64] }, ptr %8, i64 %5
-  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
-  ret { ptr, ptr } %11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = icmp ult i64 %4, 11
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw { [3 x i64] }, ptr %2, i64 %4, i32 0, i64 1
+  %7 = getelementptr inbounds nuw { [3 x i64] }, ptr %2, i64 %4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$7descend17hc69e9940db1c51baE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 544
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ult i64 %5, 12
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = icmp ult i64 %4, 12
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 544
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
@@ -2098,30 +2097,29 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %12, align 8
-  br label %16
+  br label %15
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 544
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
-  br label %17
+  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
+  br label %16
 
-16:                                               ; preds = %20, %10
+15:                                               ; preds = %18, %10
   ret void
 
-17:                                               ; preds = %17, %13
-  %.pn30.in = phi ptr [ %15, %13 ], [ %19, %17 ]
-  %.pn28.in = phi i64 [ %4, %13 ], [ %.pn28, %17 ]
+16:                                               ; preds = %16, %13
+  %.pn31 = phi ptr [ %14, %13 ], [ %.pn30, %16 ]
+  %.pn28.in = phi i64 [ %4, %13 ], [ %.pn28, %16 ]
   %.pn28 = add i64 %.pn28.in, -1
+  %.pn30.in = getelementptr inbounds nuw i8, ptr %.pn31, i64 544
   %.pn30 = load ptr, ptr %.pn30.in, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %18 = icmp eq i64 %.pn28, 0
-  %19 = getelementptr inbounds nuw i8, ptr %.pn30, i64 544
-  br i1 %18, label %20, label %17
+  %17 = icmp eq i64 %.pn28, 0
+  br i1 %17, label %18, label %16
 
-20:                                               ; preds = %17
+18:                                               ; preds = %16
   store ptr %.pn30, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  br label %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable

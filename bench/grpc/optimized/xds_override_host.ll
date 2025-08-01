@@ -15817,21 +15817,22 @@ _ZNK9grpc_core12_GLOBAL__N_117XdsOverrideHostLb6Picker18PickOverriddenHostEPNS_2
   br label %.sink.split184
 
 521:                                              ; preds = %504
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %523 = lshr exact i64 %511, 1
+  %522 = lshr exact i64 %511, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %511, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge183, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %521
-  %524 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %523 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %528, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %524, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %528, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %523, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %529, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %525 = getelementptr inbounds nuw %"struct.std::pair.432", ptr %522, i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 48
+  %524 = getelementptr inbounds nuw i8, ptr %509, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %525, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !562
-  %526 = getelementptr inbounds nuw i8, ptr %525, i64 16
+  %526 = getelementptr inbounds nuw i8, ptr %524, i64 24
   %527 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %527, i64 32, i1 false), !tbaa.struct !563
@@ -15840,7 +15841,7 @@ _ZNK9grpc_core12_GLOBAL__N_117XdsOverrideHostLb6Picker18PickOverriddenHostEPNS_2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %528 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %529 = add nuw nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %529, %523
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %529, %522
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !569
 
 .loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -16199,21 +16200,22 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN9grpc_core19LoadBalanci
   br label %_ZN9grpc_core19LoadBalancingPolicy10PickResult8CompleteC2EOS2_.exit
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %24 = lshr exact i64 %13, 1
+  %23 = lshr exact i64 %13, 1
   %.not.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %.sroa.010.0.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %25, %.lr.ph.i.preheader.i.i.i ]
+  %.sroa.010.0.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %24, %.lr.ph.i.preheader.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.432", ptr %23, i64 %.012.i.i.i.i
+  %.idx.i = mul nuw nsw i64 %.012.i.i.i.i, 48
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.0.i.i.i, i64 16, i1 false), !tbaa.struct !562
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !563
@@ -16222,7 +16224,7 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN9grpc_core19LoadBalanci
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i, i64 48
   %30 = add nuw nsw i64 %.012.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %30, %24
+  %exitcond.not.i.i.i.i = icmp eq i64 %30, %23
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !569
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i.i
@@ -16265,21 +16267,22 @@ _ZN9grpc_core19LoadBalancingPolicy10PickResult8CompleteC2EOS2_.exit: ; preds = %
   br label %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2ENS1_8CompleteE.exit
 
 46:                                               ; preds = %_ZN9grpc_core19LoadBalancingPolicy10PickResult8CompleteC2EOS2_.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = lshr exact i64 %33, 1
+  %47 = lshr exact i64 %33, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %49, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %50 = getelementptr inbounds nuw %"struct.std::pair.432", ptr %47, i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 48
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !562
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !563
@@ -16288,7 +16291,7 @@ _ZN9grpc_core19LoadBalancingPolicy10PickResult8CompleteC2EOS2_.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %54 = add nuw nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, %48
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, %47
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !569
 
 .loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

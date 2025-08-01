@@ -287,58 +287,56 @@ define hidden void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %
 33:                                               ; preds = %30, %11
   %.033 = phi ptr [ %15, %11 ], [ %32, %30 ]
   %34 = icmp eq i32 %1, 2
-  br i1 %34, label %35, label %37
+  br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   store i8 -128, ptr %.033, align 1, !tbaa !11
   br label %asn1_put_length.exit
 
-37:                                               ; preds = %33
-  %38 = icmp slt i32 %2, 128
-  br i1 %38, label %39, label %.preheader.i
+36:                                               ; preds = %33
+  %37 = icmp slt i32 %2, 128
+  br i1 %37, label %38, label %.preheader.i
 
-39:                                               ; preds = %37
-  %40 = trunc i32 %2 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %.033, i64 1
-  store i8 %40, ptr %.033, align 1, !tbaa !11
+38:                                               ; preds = %36
+  %39 = trunc i32 %2 to i8
+  store i8 %39, ptr %.033, align 1, !tbaa !11
   br label %asn1_put_length.exit
 
-.preheader.i:                                     ; preds = %37, %.preheader.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 1, %37 ]
-  %.025.i = phi i32 [ %42, %.preheader.i ], [ %2, %37 ]
-  %.01924.i = phi i32 [ %43, %.preheader.i ], [ 0, %37 ]
-  %42 = lshr i32 %.025.i, 8
-  %43 = add nuw nsw i32 %.01924.i, 1
+.preheader.i:                                     ; preds = %36, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 1, %36 ]
+  %.025.i = phi i32 [ %40, %.preheader.i ], [ %2, %36 ]
+  %.01924.i = phi i32 [ %41, %.preheader.i ], [ 0, %36 ]
+  %40 = lshr i32 %.025.i, 8
+  %41 = add nuw nsw i32 %.01924.i, 1
   %.not.i = icmp samesign ult i32 %.025.i, 256
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %44, label %.preheader.i, !llvm.loop !21
+  br i1 %.not.i, label %42, label %.preheader.i, !llvm.loop !21
 
-44:                                               ; preds = %.preheader.i
-  %45 = trunc i32 %43 to i8
-  %46 = or i8 %45, -128
-  store i8 %46, ptr %.033, align 1, !tbaa !11
-  br label %47
+42:                                               ; preds = %.preheader.i
+  %43 = trunc i32 %41 to i8
+  %44 = or i8 %43, -128
+  store i8 %44, ptr %.033, align 1, !tbaa !11
+  br label %45
 
-47:                                               ; preds = %47, %44
-  %indvars.iv28.i = phi i64 [ %indvars.iv.i, %44 ], [ %indvars.iv.next29.i, %47 ]
-  %.02126.i = phi i32 [ %2, %44 ], [ %50, %47 ]
+45:                                               ; preds = %45, %42
+  %indvars.iv28.i = phi i64 [ %indvars.iv.i, %42 ], [ %indvars.iv.next29.i, %45 ]
+  %.02126.i = phi i32 [ %2, %42 ], [ %48, %45 ]
   %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, -1
-  %48 = trunc i32 %.02126.i to i8
-  %49 = getelementptr i8, ptr %.033, i64 %indvars.iv28.i
-  store i8 %48, ptr %49, align 1, !tbaa !11
-  %50 = lshr i32 %.02126.i, 8
-  %51 = icmp sgt i64 %indvars.iv28.i, 1
-  br i1 %51, label %47, label %52, !llvm.loop !22
+  %46 = trunc i32 %.02126.i to i8
+  %47 = getelementptr i8, ptr %.033, i64 %indvars.iv28.i
+  store i8 %46, ptr %47, align 1, !tbaa !11
+  %48 = lshr i32 %.02126.i, 8
+  %49 = icmp sgt i64 %indvars.iv28.i, 1
+  br i1 %49, label %45, label %50, !llvm.loop !22
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %.033, i64 1
-  %54 = zext nneg i32 %43 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
+50:                                               ; preds = %45
+  %51 = zext nneg i32 %41 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.033, i64 %51
   br label %asn1_put_length.exit
 
-asn1_put_length.exit:                             ; preds = %52, %39, %35
-  %.134 = phi ptr [ %36, %35 ], [ %41, %39 ], [ %55, %52 ]
+asn1_put_length.exit:                             ; preds = %50, %38, %35
+  %.033.pn = phi ptr [ %.033, %35 ], [ %.033, %38 ], [ %52, %50 ]
+  %.134 = getelementptr inbounds nuw i8, ptr %.033.pn, i64 1
   store ptr %.134, ptr %0, align 8, !tbaa !6
   ret void
 }

@@ -14,9 +14,9 @@ define noundef i32 @_ZNK13llama_hparams6n_headEj(ptr noundef nonnull readonly al
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %7, i64 0, i64 %8
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -36,9 +36,9 @@ define noundef i32 @_ZNK13llama_hparams9n_head_kvEj(ptr noundef nonnull readonly
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %7, i64 0, i64 %8
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2112
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -55,9 +55,9 @@ define noundef i32 @_ZNK13llama_hparams4n_ffEj(ptr noundef nonnull readonly alig
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4160
-  %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %7, i64 0, i64 %8
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4160
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -79,21 +79,20 @@ define noundef i32 @_ZNK13llama_hparams5n_gqaEj(ptr noundef nonnull readonly ali
 
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %8, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2112
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = getelementptr inbounds nuw [512 x i32], ptr %13, i64 0, i64 %7
-  %15 = load i32, ptr %14, align 4, !tbaa !17
-  %16 = udiv i32 %15, %10
-  br label %17
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %14 = load i32, ptr %13, align 4, !tbaa !17
+  %15 = udiv i32 %14, %10
+  br label %16
 
-17:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %12
-  %.0 = phi i32 [ %16, %12 ], [ 0, %_ZNK13llama_hparams9n_head_kvEj.exit ]
+16:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %12
+  %.0 = phi i32 [ %15, %12 ], [ 0, %_ZNK13llama_hparams9n_head_kvEj.exit ]
   ret i32 %.0
 }
 
@@ -109,9 +108,9 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_k_gqaEj(ptr noundef nonnull read
   unreachable
 
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %7, i64 0, i64 %8
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2112
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !18
@@ -131,9 +130,9 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_v_gqaEj(ptr noundef nonnull read
   unreachable
 
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [512 x i32], ptr %7, i64 0, i64 %8
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw [512 x i32], ptr %0, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2112
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 4, !tbaa !19

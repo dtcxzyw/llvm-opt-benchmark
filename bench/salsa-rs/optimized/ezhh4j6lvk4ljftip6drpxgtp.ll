@@ -570,63 +570,60 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %6 = icmp ne i64 %.sroa.78.0.copyload, %5
   %7 = icmp ult i64 %.sroa.47.0.copyload, 59
   %or.cond22 = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond22, label %.lr.ph.i.i.i.i.lr.ph, label %.loopexit
+  br i1 %or.cond22, label %.lr.ph.i.i.i.i.preheader, label %.loopexit
 
-.lr.ph.i.i.i.i.lr.ph:                             ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 8
+.lr.ph.i.i.i.i.preheader:                         ; preds = %2, %23
+  %.sroa.4.026 = phi i64 [ %.sroa.4.1, %23 ], [ %.sroa.47.0.copyload, %2 ]
+  %.sroa.7.025 = phi i64 [ %.sroa.7.1, %23 ], [ %.sroa.5.0.copyload, %2 ]
+  %.sroa.9.024 = phi i64 [ %17, %23 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.12.023 = phi i64 [ %24, %23 ], [ %.sroa.78.0.copyload, %2 ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.lr.ph, %24
-  %.sroa.4.026 = phi i64 [ %.sroa.47.0.copyload, %.lr.ph.i.i.i.i.lr.ph ], [ %.sroa.4.1, %24 ]
-  %.sroa.7.025 = phi i64 [ %.sroa.5.0.copyload, %.lr.ph.i.i.i.i.lr.ph ], [ %.sroa.7.1, %24 ]
-  %.sroa.9.024 = phi i64 [ %.sroa.6.0.copyload, %.lr.ph.i.i.i.i.lr.ph ], [ %18, %24 ]
-  %.sroa.12.023 = phi i64 [ %.sroa.78.0.copyload, %.lr.ph.i.i.i.i.lr.ph ], [ %25, %24 ]
-  br label %9
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %21
+  %.sroa.9.1 = phi i64 [ 0, %21 ], [ %.sroa.9.024, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.7.1 = phi i64 [ %22, %21 ], [ %.sroa.7.025, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.4.1 = phi i64 [ %12, %21 ], [ %.sroa.4.026, %.lr.ph.i.i.i.i.preheader ]
+  %8 = getelementptr inbounds nuw { { ptr } }, ptr %.sroa.06.0.copyload, i64 %.sroa.4.1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load atomic ptr, ptr %9 acquire, align 8, !noalias !38
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.loopexit.i.i.i.i, label %.preheader.i.i.i.i
 
-9:                                                ; preds = %22, %.lr.ph.i.i.i.i
-  %.sroa.9.1 = phi i64 [ %.sroa.9.024, %.lr.ph.i.i.i.i ], [ 0, %22 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.025, %.lr.ph.i.i.i.i ], [ %23, %22 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.026, %.lr.ph.i.i.i.i ], [ %13, %22 ]
-  %10 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.4.1
-  %11 = load atomic ptr, ptr %10 acquire, align 8, !noalias !38
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit.i.i.i.i, label %.preheader.i.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
+  %12 = add i64 %.sroa.4.1, 1
+  %13 = icmp ult i64 %12, 59
+  br i1 %13, label %21, label %.loopexit
 
-.loopexit.i.i.i.i:                                ; preds = %.preheader.i.i.i.i, %9
-  %13 = add i64 %.sroa.4.1, 1
-  %14 = icmp ult i64 %13, 59
-  br i1 %14, label %22, label %.loopexit
+.preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %15
+  %.sroa.9.2 = phi i64 [ %17, %15 ], [ %.sroa.9.1, %.lr.ph.i.i.i.i ]
+  %14 = icmp ult i64 %.sroa.9.2, %.sroa.7.1
+  br i1 %14, label %15, label %.loopexit.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %9, %16
-  %.sroa.9.2 = phi i64 [ %18, %16 ], [ %.sroa.9.1, %9 ]
-  %15 = icmp ult i64 %.sroa.9.2, %.sroa.7.1
-  br i1 %15, label %16, label %.loopexit.i.i.i.i
+15:                                               ; preds = %.preheader.i.i.i.i
+  %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %10, i64 %.sroa.9.2
+  %17 = add nuw i64 %.sroa.9.2, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %19 = load atomic i8, ptr %18 acquire, align 1, !noalias !38
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.preheader.i.i.i.i, label %23
 
-16:                                               ; preds = %.preheader.i.i.i.i
-  %17 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.9.2
-  %18 = add nuw i64 %.sroa.9.2, 1
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %20 = load atomic i8, ptr %19 acquire, align 1, !noalias !38
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.preheader.i.i.i.i, label %24
+21:                                               ; preds = %.loopexit.i.i.i.i
+  %22 = shl nuw i64 64, %.sroa.4.1
+  br label %.lr.ph.i.i.i.i
 
-22:                                               ; preds = %.loopexit.i.i.i.i
-  %23 = shl nuw i64 64, %.sroa.4.1
-  br label %9
-
-24:                                               ; preds = %16
-  %25 = add i64 %.sroa.12.023, 1
+23:                                               ; preds = %15
+  %24 = add i64 %.sroa.12.023, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %17, ptr %3, align 8
-  %26 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.e48134694fe1a4dc81b6c761c8143c86.18)
+  store ptr %16, ptr %3, align 8
+  %25 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.e48134694fe1a4dc81b6c761c8143c86.18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %27 = load atomic i64, ptr %4 acquire, align 8, !noalias !38
-  %28 = icmp ne i64 %25, %27
-  %29 = icmp ult i64 %.sroa.4.1, 59
-  %or.cond = and i1 %28, %29
-  br i1 %or.cond, label %.lr.ph.i.i.i.i, label %.loopexit
+  %26 = load atomic i64, ptr %4 acquire, align 8, !noalias !38
+  %27 = icmp ne i64 %24, %26
+  %28 = icmp ult i64 %.sroa.4.1, 59
+  %or.cond = and i1 %27, %28
+  br i1 %or.cond, label %.lr.ph.i.i.i.i.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.loopexit.i.i.i.i, %2
+.loopexit:                                        ; preds = %23, %.loopexit.i.i.i.i, %2
   ret ptr %0
 }
 

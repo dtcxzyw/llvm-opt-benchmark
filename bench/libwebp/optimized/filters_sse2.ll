@@ -592,7 +592,7 @@ PredictLineLeft_SSE2.exit38.us.i:                 ; preds = %.lr.ph32.i29.us.i, 
   br i1 %70, label %.preheader.i25.us42.i, label %.preheader.i25.i
 
 .preheader.i25.us42.i:                            ; preds = %.lr.ph.split.i, %PredictLineLeft_SSE2.exit38.loopexit.us54.i
-  %.041.us43.i = phi i32 [ %83, %PredictLineLeft_SSE2.exit38.loopexit.us54.i ], [ 1, %.lr.ph.split.i ]
+  %.041.us43.i = phi i32 [ %82, %PredictLineLeft_SSE2.exit38.loopexit.us54.i ], [ 1, %.lr.ph.split.i ]
   %.pn2440.us44.i = phi ptr [ %.022.us46.i, %PredictLineLeft_SSE2.exit38.loopexit.us54.i ], [ %4, %.lr.ph.split.i ]
   %.pn39.us45.i = phi ptr [ %.023.us47.i, %PredictLineLeft_SSE2.exit38.loopexit.us54.i ], [ %0, %.lr.ph.split.i ]
   %.022.us46.i = getelementptr inbounds i8, ptr %.pn2440.us44.i, i64 %35
@@ -602,45 +602,44 @@ PredictLineLeft_SSE2.exit38.us.i:                 ; preds = %.lr.ph32.i29.us.i, 
   %73 = load i8, ptr %72, align 1, !tbaa !7, !alias.scope !15, !noalias !18
   %74 = sub i8 %71, %73
   store i8 %74, ptr %.022.us46.i, align 1, !tbaa !7, !alias.scope !18, !noalias !15
-  %75 = getelementptr inbounds nuw i8, ptr %.023.us47.i, i64 1
-  %76 = getelementptr inbounds nuw i8, ptr %.022.us46.i, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   br label %.lr.ph32.i29.us49.i
 
 .lr.ph32.i29.us49.i:                              ; preds = %.lr.ph32.i29.us49.i, %.preheader.i25.us42.i
   %indvars.iv34.i30.us50.i = phi i64 [ 0, %.preheader.i25.us42.i ], [ %indvars.iv.next35.i31.us51.i, %.lr.ph32.i29.us49.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv34.i30.us50.i
-  %78 = load i8, ptr %77, align 1, !tbaa !7, !alias.scope !34, !noalias !35
-  %79 = getelementptr i8, ptr %77, i64 -1
-  %80 = load i8, ptr %79, align 1, !tbaa !7, !alias.scope !34, !noalias !35
-  %81 = sub i8 %78, %80
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv34.i30.us50.i
-  store i8 %81, ptr %82, align 1, !tbaa !7, !alias.scope !35, !noalias !34
+  %75 = getelementptr inbounds nuw i8, ptr %.023.us47.i, i64 %indvars.iv34.i30.us50.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !7, !alias.scope !34, !noalias !35
+  %78 = load i8, ptr %75, align 1, !tbaa !7, !alias.scope !34, !noalias !35
+  %79 = sub i8 %77, %78
+  %80 = getelementptr inbounds nuw i8, ptr %.022.us46.i, i64 %indvars.iv34.i30.us50.i
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store i8 %79, ptr %81, align 1, !tbaa !7, !alias.scope !35, !noalias !34
   %indvars.iv.next35.i31.us51.i = add nuw nsw i64 %indvars.iv34.i30.us50.i, 1
   %exitcond.not.i32.us52.i = icmp eq i64 %indvars.iv.next35.i31.us51.i, %wide.trip.count.i28.i
   br i1 %exitcond.not.i32.us52.i, label %PredictLineLeft_SSE2.exit38.loopexit.us54.i, label %.lr.ph32.i29.us49.i, !llvm.loop !28
 
 PredictLineLeft_SSE2.exit38.loopexit.us54.i:      ; preds = %.lr.ph32.i29.us49.i
-  %83 = add nuw nsw i32 %.041.us43.i, 1
-  %exitcond57.not.i = icmp eq i32 %83, %2
+  %82 = add nuw nsw i32 %.041.us43.i, 1
+  %exitcond57.not.i = icmp eq i32 %82, %2
   br i1 %exitcond57.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.us42.i, !llvm.loop !38
 
 .preheader.i25.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i25.i
-  %.041.i = phi i32 [ %88, %.preheader.i25.i ], [ 1, %.lr.ph.split.i ]
+  %.041.i = phi i32 [ %87, %.preheader.i25.i ], [ 1, %.lr.ph.split.i ]
   %.pn2440.i = phi ptr [ %.022.i, %.preheader.i25.i ], [ %4, %.lr.ph.split.i ]
   %.pn39.i = phi ptr [ %.023.i, %.preheader.i25.i ], [ %0, %.lr.ph.split.i ]
   %.022.i = getelementptr inbounds i8, ptr %.pn2440.i, i64 %35
   %.023.i = getelementptr inbounds i8, ptr %.pn39.i, i64 %35
-  %84 = load i8, ptr %.023.i, align 1, !tbaa !7, !alias.scope !15, !noalias !18
-  %85 = getelementptr inbounds i8, ptr %.023.i, i64 %38
-  %86 = load i8, ptr %85, align 1, !tbaa !7, !alias.scope !15, !noalias !18
-  %87 = sub i8 %84, %86
-  store i8 %87, ptr %.022.i, align 1, !tbaa !7, !alias.scope !18, !noalias !15
+  %83 = load i8, ptr %.023.i, align 1, !tbaa !7, !alias.scope !15, !noalias !18
+  %84 = getelementptr inbounds i8, ptr %.023.i, i64 %38
+  %85 = load i8, ptr %84, align 1, !tbaa !7, !alias.scope !15, !noalias !18
+  %86 = sub i8 %83, %85
+  store i8 %86, ptr %.022.i, align 1, !tbaa !7, !alias.scope !18, !noalias !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %88 = add nuw nsw i32 %.041.i, 1
-  %exitcond.not.i = icmp eq i32 %88, %2
+  %87 = add nuw nsw i32 %.041.i, 1
+  %exitcond.not.i = icmp eq i32 %87, %2
   br i1 %exitcond.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.i, !llvm.loop !39
 
 DoHorizontalFilter_SSE2.exit:                     ; preds = %.preheader.i25.i, %PredictLineLeft_SSE2.exit38.loopexit.us54.i, %PredictLineLeft_SSE2.exit38.us.i, %PredictLineLeft_SSE2.exit.i
@@ -1011,31 +1010,31 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph45.i.us.i, %.
   store i8 %106, ptr %.024.us44.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
   %107 = getelementptr inbounds nuw i8, ptr %.025.us45.i, i64 1
   %108 = getelementptr inbounds i8, ptr %107, i64 %39
-  %109 = getelementptr inbounds nuw i8, ptr %.024.us44.i, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   br label %.lr.ph45.i.us47.i
 
 .lr.ph45.i.us47.i:                                ; preds = %.lr.ph45.i.us47.i, %.preheader.i27.us40.i
   %indvars.iv47.i.us48.i = phi i64 [ 0, %.preheader.i27.us40.i ], [ %indvars.iv.next48.i.us50.i, %.lr.ph45.i.us47.i ]
-  %110 = getelementptr i8, ptr %.025.us45.i, i64 %indvars.iv47.i.us48.i
-  %111 = load i8, ptr %110, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %112 = getelementptr i8, ptr %108, i64 %indvars.iv47.i.us48.i
-  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %114 = getelementptr i8, ptr %112, i64 -1
-  %115 = load i8, ptr %114, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %116 = zext i8 %111 to i32
-  %117 = zext i8 %113 to i32
-  %118 = add nuw nsw i32 %117, %116
-  %119 = zext i8 %115 to i32
-  %120 = sub nsw i32 %118, %119
-  %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 0)
-  %122 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %121, i32 255)
-  %123 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv47.i.us48.i
-  %124 = load i8, ptr %123, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %125 = trunc nuw i32 %122 to i8
-  %126 = sub i8 %124, %125
-  %127 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv47.i.us48.i
-  store i8 %126, ptr %127, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  %109 = getelementptr i8, ptr %.025.us45.i, i64 %indvars.iv47.i.us48.i
+  %110 = load i8, ptr %109, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %111 = getelementptr i8, ptr %108, i64 %indvars.iv47.i.us48.i
+  %112 = load i8, ptr %111, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %113 = getelementptr i8, ptr %111, i64 -1
+  %114 = load i8, ptr %113, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %115 = zext i8 %110 to i32
+  %116 = zext i8 %112 to i32
+  %117 = add nuw nsw i32 %116, %115
+  %118 = zext i8 %114 to i32
+  %119 = sub nsw i32 %117, %118
+  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %121 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %120, i32 255)
+  %122 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv47.i.us48.i
+  %123 = load i8, ptr %122, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %124 = trunc nuw i32 %121 to i8
+  %125 = sub i8 %123, %124
+  %126 = getelementptr inbounds nuw i8, ptr %.024.us44.i, i64 %indvars.iv47.i.us48.i
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
+  store i8 %125, ptr %127, align 1, !tbaa !7, !alias.scope !84, !noalias !69
   %indvars.iv.next48.i.us50.i = add nuw nsw i64 %indvars.iv47.i.us48.i, 1
   %exitcond.not.i30.us51.i = icmp eq i64 %indvars.iv.next48.i.us50.i, %wide.trip.count.i29.i
   br i1 %exitcond.not.i30.us51.i, label %GradientPredictDirect_SSE2.exit.loopexit.us53.i, label %.lr.ph45.i.us47.i, !llvm.loop !86

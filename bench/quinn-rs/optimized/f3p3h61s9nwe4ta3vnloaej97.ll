@@ -537,15 +537,14 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %5 = load i64, ptr %.val, align 8, !noalias !42, !noundef !3
   %6 = add i64 %5, %2
   %7 = urem i64 %6, 5
-  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %9 = getelementptr inbounds nuw { [21 x i8], i8, [16 x i8] }, ptr %8, i64 %7
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 21
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw { [21 x i8], i8, [16 x i8] }, ptr %.val, i64 %7, i32 0, i64 37
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !42
   %.not.i = icmp eq i8 %.sroa.4.0.copyload.i, 2
-  br i1 %.not.i, label %"_ZN11quinn_proto9cid_queue8CidQueue4iter28_$u7b$$u7b$closure$u7d$$u7d$17hcd7545c60f3595ecE.exit", label %10
+  br i1 %.not.i, label %"_ZN11quinn_proto9cid_queue8CidQueue4iter28_$u7b$$u7b$closure$u7d$$u7d$17hcd7545c60f3595ecE.exit", label %8
 
-10:                                               ; preds = %3
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 22
+8:                                                ; preds = %3
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw { [21 x i8], i8, [16 x i8] }, ptr %.val, i64 %7, i32 0, i64 38
+  %9 = getelementptr inbounds nuw { [21 x i8], i8, [16 x i8] }, ptr %.val, i64 %7, i32 0, i64 16
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.46.0..sroa_idx.i, ptr noundef nonnull readonly align 2 dereferenceable(21) %9, i64 21, i1 false)
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -553,9 +552,9 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   store i64 %2, ptr %0, align 8, !alias.scope !42
   br label %"_ZN11quinn_proto9cid_queue8CidQueue4iter28_$u7b$$u7b$closure$u7d$$u7d$17hcd7545c60f3595ecE.exit"
 
-"_ZN11quinn_proto9cid_queue8CidQueue4iter28_$u7b$$u7b$closure$u7d$$u7d$17hcd7545c60f3595ecE.exit": ; preds = %3, %10
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %.sroa.4.0.copyload.i, ptr %11, align 1, !alias.scope !42
+"_ZN11quinn_proto9cid_queue8CidQueue4iter28_$u7b$$u7b$closure$u7d$$u7d$17hcd7545c60f3595ecE.exit": ; preds = %3, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  store i8 %.sroa.4.0.copyload.i, ptr %10, align 1, !alias.scope !42
   ret void
 }
 

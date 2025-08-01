@@ -22,18 +22,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco11BoundingBoxC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
-_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit.i:
+_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit.i.preheader:
   store float 0x47EFFFFFE0000000, ptr %0, align 4, !tbaa !3
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %.sroa.47.0..sroa_idx, align 4, !tbaa !3
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0x47EFFFFFE0000000, ptr %.sroa.58.0..sroa_idx, align 4, !tbaa !3
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float 0xC7EFFFFFE0000000, ptr %1, align 4, !tbaa !3
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 0xC7EFFFFFE0000000, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !3
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0xC7EFFFFFE0000000, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !3
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float 0xC7EFFFFFE0000000, ptr %scevgep, align 4, !tbaa !3
+  %.sroa.4.0.scevgep.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float 0xC7EFFFFFE0000000, ptr %.sroa.4.0.scevgep.sroa_idx, align 4, !tbaa !3
+  %.sroa.5.0.scevgep.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float 0xC7EFFFFFE0000000, ptr %.sroa.5.0.scevgep.sroa_idx, align 4, !tbaa !3
   ret void
 }
 
@@ -51,21 +51,18 @@ define void @_ZN5draco11BoundingBoxC2ERKNS_7VectorDIfLi3EEES4_(ptr noundef nonnu
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit, label %4, !llvm.loop !7
 
-_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit:            ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %9
-
-9:                                                ; preds = %9, %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit
-  %indvars.iv.i3 = phi i64 [ 0, %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit ], [ %indvars.iv.next.i4, %9 ]
-  %10 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i3
-  %11 = load float, ptr %10, align 4, !tbaa !3
-  %12 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i3
-  store float %11, ptr %12, align 4, !tbaa !3
+_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit:            ; preds = %4, %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i4, %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit ], [ 0, %4 ]
+  %8 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i3
+  %9 = load float, ptr %8, align 4, !tbaa !3
+  %10 = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv.i3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store float %9, ptr %11, align 4, !tbaa !3
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i5 = icmp eq i64 %indvars.iv.next.i4, 3
-  br i1 %exitcond.not.i5, label %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit6, label %9, !llvm.loop !7
+  br i1 %exitcond.not.i5, label %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit6, label %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit, !llvm.loop !7
 
-_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit6:           ; preds = %9
+_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit6:           ; preds = %_ZN5draco7VectorDIfLi3EEC2ERKS1_.exit
   ret void
 }
 

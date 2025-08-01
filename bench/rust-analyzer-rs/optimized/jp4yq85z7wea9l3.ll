@@ -10439,15 +10439,15 @@ common.resume:                                    ; preds = %244, %27, %33, %.bo
   %240 = phi i64 [ 0, %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E.exit.i.lr.ph.i.i.i.i.i" ], [ %241, %247 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3699)
   %241 = add nuw nsw i64 %240, 1
-  %242 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i8, [23 x i8] }, { i32, i32 }, { i32, [2 x i32] }, i32, i8, [7 x i8] }, ptr %.sroa.47.0..sroa_idx, i64 %240
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %242, align 8, !alias.scope !3701, !noalias !3703
+  store i64 %241, ptr %6, align 8, !alias.scope !3701, !noalias !3703
+  %242 = getelementptr { { i64, [2 x i64] }, { i64, [2 x i64] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i8, [23 x i8] }, { i32, i32 }, { i32, [2 x i32] }, i32, i8, [7 x i8] }, ptr %6, i64 %240, i32 0, i32 1
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %242, align 8, !alias.scope !3705, !noalias !3706
   %243 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -9223372036854775807
-  br i1 %243, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit.loopexit", label %246
+  br i1 %243, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit", label %246
 
 244:                                              ; preds = %246
   %245 = landingpad { ptr, i32 }
           cleanup
-  store i64 %241, ptr %6, align 8, !alias.scope !3705, !noalias !3706
   invoke void @"_ZN4core3ptr107drop_in_place$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$17hf19fdd882999551fE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %6)
           to label %common.resume unwind label %249, !noalias !3707
 
@@ -10462,7 +10462,7 @@ common.resume:                                    ; preds = %244, %27, %33, %.bo
 247:                                              ; preds = %246
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5), !noalias !3708
   %248 = icmp eq i64 %241, %238
-  br i1 %248, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit.loopexit", label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E.exit.i.i.i.i.i.i"
+  br i1 %248, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit", label %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E.exit.i.i.i.i.i.i"
 
 249:                                              ; preds = %244
   %250 = landingpad { ptr, i32 }
@@ -10470,11 +10470,7 @@ common.resume:                                    ; preds = %244, %27, %33, %.bo
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55, !noalias !3707
   unreachable
 
-"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit.loopexit": ; preds = %247, %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E.exit.i.i.i.i.i.i"
-  store i64 %241, ptr %6, align 8, !alias.scope !3705, !noalias !3706
-  br label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit"
-
-"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit.loopexit", %234
+"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8a199626d127d44dE.exit": ; preds = %"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E.exit.i.i.i.i.i.i", %247, %234
   call void @"_ZN4core3ptr107drop_in_place$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$17hf19fdd882999551fE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %6), !noalias !3707
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %6), !noalias !3675
   br label %251
@@ -57772,12 +57768,12 @@ attributes #57 = { nounwind }
 !3698 = distinct !{!3698, !3689, !"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h395b79eedf3f16f8E: argument 1"}
 !3699 = !{!3700}
 !3700 = distinct !{!3700, !3692, !"_ZN100_$LT$arrayvec..arrayvec..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb95bf49b4bad3739E: argument 0"}
-!3701 = !{!3700, !3691, !3702, !3688, !3685, !3682, !3679}
+!3701 = !{!3691, !3702, !3688, !3685, !3682, !3679}
 !3702 = distinct !{!3702, !3694, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1918fc9a8d1e1637E: argument 1"}
-!3703 = !{!3704, !3698, !3676}
+!3703 = !{!3700, !3704, !3698, !3676}
 !3704 = distinct !{!3704, !3694, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1918fc9a8d1e1637E: argument 0"}
-!3705 = !{!3691, !3702, !3688, !3685, !3682, !3679}
-!3706 = !{!3700, !3704, !3698, !3676}
+!3705 = !{!3700, !3691, !3702, !3688, !3685, !3682, !3679}
+!3706 = !{!3704, !3698, !3676}
 !3707 = !{!3698, !3676}
 !3708 = !{!3709, !3711, !3712, !3714, !3688, !3698, !3685, !3682, !3679, !3676}
 !3709 = distinct !{!3709, !3710, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6405652e33b567dfE.llvm.15544646111798989001: argument 0"}

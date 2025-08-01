@@ -229,8 +229,8 @@ contains.exit.us.i:                               ; preds = %is_same.exit.i.us.i
   br label %_Py_NewRef.exit39.us.i
 
 _Py_NewRef.exit39.us.i:                           ; preds = %65, %.loopexit.us.i
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %68 = getelementptr [1 x ptr], ptr %67, i64 0, i64 %.329.us.i
+  %67 = getelementptr [1 x ptr], ptr %62, i64 0, i64 %.329.us.i
+  %68 = getelementptr i8, ptr %67, i64 24
   store ptr %43, ptr %68, align 8, !tbaa !4
   %69 = add i64 %.329.us.i, 1
   br label %Py_XDECREF.exit.us.i
@@ -243,8 +243,8 @@ Py_XDECREF.exit.us.i:                             ; preds = %_Py_NewRef.exit39.u
   %exitcond69.not.i = icmp eq i64 %72, %.sink.i2841
   br i1 %exitcond69.not.i, label %.thread46.i, label %.lr.ph.i.us.i, !llvm.loop !28
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph.us.preheader.i, %_Py_NewRef.exit.us.i
-  %.454.us.i = phi i64 [ %80, %_Py_NewRef.exit.us.i ], [ %.02658.us.i, %.lr.ph.us.preheader.i ]
+.lr.ph.us.i:                                      ; preds = %.preheader.us.i, %_Py_NewRef.exit.us.i
+  %.454.us.i = phi i64 [ %81, %_Py_NewRef.exit.us.i ], [ %.02658.us.i, %.preheader.us.i ]
   %73 = getelementptr ptr, ptr %.0.i25, i64 %.454.us.i
   %74 = load ptr, ptr %73, align 8, !tbaa !4
   %75 = load i32, ptr %74, align 8, !tbaa !27
@@ -257,19 +257,16 @@ Py_XDECREF.exit.us.i:                             ; preds = %_Py_NewRef.exit39.u
   br label %_Py_NewRef.exit.us.i
 
 _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
-  %79 = getelementptr [1 x ptr], ptr %82, i64 0, i64 %.454.us.i
-  store ptr %74, ptr %79, align 8, !tbaa !4
-  %80 = add nsw i64 %.454.us.i, 1
-  %exitcond68.not.i = icmp eq i64 %80, %.sink.i
+  %79 = getelementptr [1 x ptr], ptr %60, i64 0, i64 %.454.us.i
+  %80 = getelementptr i8, ptr %79, i64 24
+  store ptr %74, ptr %80, align 8, !tbaa !4
+  %81 = add nsw i64 %.454.us.i, 1
+  %exitcond68.not.i = icmp eq i64 %81, %.sink.i
   br i1 %exitcond68.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !30
 
 .preheader.us.i:                                  ; preds = %58
-  %81 = icmp slt i64 %.02658.us.i, %.sink.i
-  br i1 %81, label %.lr.ph.us.preheader.i, label %.loopexit.us.i
-
-.lr.ph.us.preheader.i:                            ; preds = %.preheader.us.i
-  %82 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  br label %.lr.ph.us.i
+  %82 = icmp slt i64 %.02658.us.i, %.sink.i
+  br i1 %82, label %.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit49.us.i:                                 ; preds = %56
   %83 = icmp eq ptr %41, null
@@ -312,28 +309,25 @@ _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
 
 .preheader.i:                                     ; preds = %94
   %98 = icmp slt i64 %.02658.i, %.sink.i
-  br i1 %98, label %.lr.ph.preheader.i, label %.loopexit.i
+  br i1 %98, label %.lr.ph.i, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %_Py_NewRef.exit.i
+  %.454.i = phi i64 [ %107, %_Py_NewRef.exit.i ], [ %.02658.i, %.preheader.i ]
+  %99 = getelementptr ptr, ptr %.0.i25, i64 %.454.i
+  %100 = load ptr, ptr %99, align 8, !tbaa !4
+  %101 = load i32, ptr %100, align 8, !tbaa !27
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %_Py_NewRef.exit.i, label %103
 
-.lr.ph.i:                                         ; preds = %_Py_NewRef.exit.i, %.lr.ph.preheader.i
-  %.454.i = phi i64 [ %107, %_Py_NewRef.exit.i ], [ %.02658.i, %.lr.ph.preheader.i ]
-  %100 = getelementptr ptr, ptr %.0.i25, i64 %.454.i
-  %101 = load ptr, ptr %100, align 8, !tbaa !4
-  %102 = load i32, ptr %101, align 8, !tbaa !27
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %_Py_NewRef.exit.i, label %104
-
-104:                                              ; preds = %.lr.ph.i
-  %105 = add nuw i32 %102, 1
-  store i32 %105, ptr %101, align 8, !tbaa !27
+103:                                              ; preds = %.lr.ph.i
+  %104 = add nuw i32 %101, 1
+  store i32 %104, ptr %100, align 8, !tbaa !27
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %104, %.lr.ph.i
-  %106 = getelementptr [1 x ptr], ptr %99, i64 0, i64 %.454.i
-  store ptr %101, ptr %106, align 8, !tbaa !4
+_Py_NewRef.exit.i:                                ; preds = %103, %.lr.ph.i
+  %105 = getelementptr [1 x ptr], ptr %96, i64 0, i64 %.454.i
+  %106 = getelementptr i8, ptr %105, i64 24
+  store ptr %100, ptr %106, align 8, !tbaa !4
   %107 = add nsw i64 %.454.i, 1
   %exitcond.not.i = icmp eq i64 %107, %.sink.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !30
@@ -351,8 +345,8 @@ _Py_NewRef.exit.i:                                ; preds = %104, %.lr.ph.i
   br label %_Py_NewRef.exit39.i
 
 _Py_NewRef.exit39.i:                              ; preds = %111, %.loopexit.i
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %114 = getelementptr [1 x ptr], ptr %113, i64 0, i64 %.329.i
+  %113 = getelementptr [1 x ptr], ptr %108, i64 0, i64 %.329.i
+  %114 = getelementptr i8, ptr %113, i64 24
   store ptr %86, ptr %114, align 8, !tbaa !4
   %115 = add i64 %.329.i, 1
   %116 = add nuw nsw i64 %.03056.i, 1
@@ -582,8 +576,8 @@ define internal ptr @union_repr(ptr noundef readonly captures(none) %0) #0 {
 
 16:                                               ; preds = %13, %.lr.ph
   %17 = load ptr, ptr %2, align 8, !tbaa !22
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.02026
+  %18 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.02026
+  %19 = getelementptr i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call i32 @_Py_typing_type_repr(ptr noundef nonnull %8, ptr noundef %20) #5
   %22 = icmp sgt i32 %21, -1

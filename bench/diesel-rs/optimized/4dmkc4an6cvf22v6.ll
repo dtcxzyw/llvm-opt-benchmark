@@ -6529,9 +6529,9 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %28 = icmp ugt i64 %24, %27
   br i1 %28, label %29, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
 
-_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit: ; preds = %29, %22, %19, %16, %5
-  %.sroa.0.1.pn = phi ptr [ %17, %19 ], [ null, %5 ], [ null, %16 ], [ %.sroa.0.0.i9, %29 ], [ null, %22 ]
-  %.sroa.4.1.pn = phi i64 [ %21, %19 ], [ undef, %5 ], [ undef, %16 ], [ %.sroa.3.0.i, %29 ], [ undef, %22 ]
+_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit: ; preds = %34, %29, %22, %19, %16, %5
+  %.sroa.0.1.pn = phi ptr [ %17, %19 ], [ null, %5 ], [ null, %16 ], [ %.sroa.0.0.i9, %34 ], [ null, %29 ], [ null, %22 ]
+  %.sroa.4.1.pn = phi i64 [ %21, %19 ], [ undef, %5 ], [ undef, %16 ], [ %.sroa.3.0.i, %34 ], [ undef, %29 ], [ undef, %22 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.pn, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.4.1.pn, 1
   ret { ptr, i64 } %.merged
@@ -6539,16 +6539,19 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = getelementptr inbounds { i64, [2 x i64] }, ptr %32, i64 %27
-  %34 = load i64, ptr %33, align 8, !range !56, !alias.scope !1327, !noundef !4
-  %35 = icmp eq i64 %34, -9223372036854775808
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load ptr, ptr %36, align 8, !alias.scope !1327, !nonnull !4
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %39 = load i64, ptr %38, align 8, !alias.scope !1327
-  %.sroa.3.0.i = select i1 %35, i64 undef, i64 %39
-  %.sroa.0.0.i9 = select i1 %35, ptr null, ptr %37
+  %32 = getelementptr { i64, [2 x i64] }, ptr %31, i64 %27, i32 1, i64 1
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit, label %34
+
+34:                                               ; preds = %29
+  %35 = load i64, ptr %32, align 8, !range !56, !alias.scope !1327, !noundef !4
+  %36 = icmp eq i64 %35, -9223372036854775808
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !1327, !nonnull !4
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %40 = load i64, ptr %39, align 8, !alias.scope !1327
+  %.sroa.3.0.i = select i1 %36, i64 undef, i64 %40
+  %.sroa.0.0.i9 = select i1 %36, ptr null, ptr %38
   br label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
 }
 

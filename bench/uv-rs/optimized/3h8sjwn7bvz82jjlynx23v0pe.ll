@@ -1344,26 +1344,25 @@ define hidden void @"_ZN112_$LT$alloc..collections..btree..set..IntoIter$LT$T$C$
 
 "_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit.thread": ; preds = %"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h9b74613f1318c042E.exit.i", %"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h9b74613f1318c042E.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !166
-  br label %23
+  br label %22
 
 "_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit": ; preds = %"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h9b74613f1318c042E.exit.i"
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !166
-  %19 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
-  %20 = getelementptr inbounds { [9 x i64] }, ptr %19, i64 %.sroa.21.0.copyload.i
-  %.sroa.0.0.copyload1 = load i64, ptr %20, align 8
+  %19 = getelementptr { [9 x i64] }, ptr %.pr.i, i64 %.sroa.21.0.copyload.i, i32 0, i64 1
+  %.sroa.0.0.copyload1 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !166
-  %21 = icmp eq i64 %.sroa.0.0.copyload1, -9223372036854775808
-  br i1 %21, label %23, label %22
+  %20 = icmp eq i64 %.sroa.0.0.copyload1, -9223372036854775808
+  br i1 %20, label %22, label %21
 
-22:                                               ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit"
-  %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %20, i64 8
+21:                                               ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit"
+  %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.6.0..sroa_idx2, i64 64, i1 false)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit", %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit.thread", %22
-  %.sroa.0.0.copyload1.sink = phi i64 [ %.sroa.0.0.copyload1, %22 ], [ -9223372036854775808, %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit.thread" ], [ -9223372036854775808, %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit" ]
+22:                                               ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit", %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit.thread", %21
+  %.sroa.0.0.copyload1.sink = phi i64 [ %.sroa.0.0.copyload1, %21 ], [ -9223372036854775808, %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit.thread" ], [ -9223372036854775808, %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6610c8d93e41b3bcE.exit" ]
   store i64 %.sroa.0.0.copyload1.sink, ptr %0, align 8
   ret void
 }

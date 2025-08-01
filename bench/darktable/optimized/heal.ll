@@ -704,11 +704,11 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 ._crit_edge142.loopexit:                          ; preds = %113
   %.pre = load float, ptr %9, align 16, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.pre147 = load float, ptr %.phi.trans.insert, align 4, !tbaa !11
-  %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre149 = load float, ptr %.phi.trans.insert148, align 8, !tbaa !11
-  %14 = fadd reassoc nsz arcp contract afn float %.pre147, %.pre
-  %15 = fadd reassoc nsz arcp contract afn float %14, %.pre149
+  %.pre148 = load float, ptr %.phi.trans.insert, align 4, !tbaa !11
+  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.pre150 = load float, ptr %.phi.trans.insert149, align 8, !tbaa !11
+  %14 = fadd reassoc nsz arcp contract afn float %.pre148, %.pre
+  %15 = fadd reassoc nsz arcp contract afn float %14, %.pre150
   br label %._crit_edge142
 
 ._crit_edge142:                                   ; preds = %._crit_edge142.loopexit, %8
@@ -749,10 +749,11 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   br i1 %or.cond, label %.preheader132, label %39
 
 .preheader132:                                    ; preds = %33
-  %36 = getelementptr float, ptr %1, i64 %23
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = getelementptr float, ptr %37, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa !11
+  %36 = add nuw nsw i64 %30, %20
+  %37 = shl nuw nsw i64 %36, 4
+  %38 = getelementptr i8, ptr %1, i64 %37
+  %scevgep145 = getelementptr i8, ptr %38, i64 -16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %scevgep145, i64 16, i1 false), !tbaa !11
   br label %.loopexit133
 
 39:                                               ; preds = %33
@@ -816,14 +817,14 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %73 = fadd reassoc nsz arcp contract afn float %70, %72
   store float %73, ptr %71, align 4, !tbaa !11
   %74 = add nuw nsw i64 %.0112138, 1
-  %exitcond145.not = icmp eq i64 %74, 4
-  br i1 %exitcond145.not, label %51, label %52
+  %exitcond146.not = icmp eq i64 %74, 4
+  br i1 %exitcond146.not, label %51, label %52
 
 75:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
   %76 = getelementptr inbounds nuw float, ptr %1, i64 %23
-  %77 = getelementptr inbounds i8, ptr %76, i64 -16
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %31
+  %77 = getelementptr float, ptr %76, i64 %31
+  %78 = getelementptr i8, ptr %77, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa !11, !alias.scope !64
   %79 = zext i32 %22 to i64
   %.not143 = icmp eq i32 %22, 0
@@ -882,8 +883,8 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 113:                                              ; preds = %._crit_edge, %51
   %114 = add nuw i64 %.0110139, 1
-  %exitcond146.not = icmp eq i64 %114, %5
-  br i1 %exitcond146.not, label %._crit_edge142.loopexit, label %17
+  %exitcond147.not = icmp eq i64 %114, %5
+  br i1 %exitcond147.not, label %._crit_edge142.loopexit, label %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

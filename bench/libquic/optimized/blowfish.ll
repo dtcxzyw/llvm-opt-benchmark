@@ -1640,26 +1640,23 @@ define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 nounde
   store i32 %33, ptr %34, align 4, !tbaa !6
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 2
   %35 = icmp samesign ult i64 %indvars.iv62, 16
-  br i1 %35, label %30, label %36, !llvm.loop !15
+  br i1 %35, label %30, label %.preheader, !llvm.loop !15
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %38
-
-38:                                               ; preds = %36, %38
-  %indvars.iv65 = phi i64 [ 0, %36 ], [ %indvars.iv.next66, %38 ]
+.preheader:                                       ; preds = %30, %.preheader
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.preheader ], [ 0, %30 ]
   call void @BF_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %0)
-  %39 = load i32, ptr %4, align 4, !tbaa !6
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv65
+  %36 = load i32, ptr %4, align 4, !tbaa !6
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv65
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  store i32 %36, ptr %38, align 4, !tbaa !6
+  %39 = load i32, ptr %29, align 4, !tbaa !6
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 76
   store i32 %39, ptr %40, align 4, !tbaa !6
-  %41 = load i32, ptr %29, align 4, !tbaa !6
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !6
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
-  %43 = icmp samesign ult i64 %indvars.iv65, 1022
-  br i1 %43, label %38, label %44, !llvm.loop !16
+  %41 = icmp samesign ult i64 %indvars.iv65, 1022
+  br i1 %41, label %.preheader, label %42, !llvm.loop !16
 
-44:                                               ; preds = %38
+42:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   ret void
 }

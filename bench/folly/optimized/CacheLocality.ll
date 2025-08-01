@@ -1496,13 +1496,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %spec.select.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i, label %.preheader225
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5folly13CacheLocalityC1ESt6vectorIS4_ImSaImEESaIS6_EEE3$_0EclINS_17__normal_iteratorIPmS6_EESE_EEbT_T0_.exit.i.i", %220
-  %231 = getelementptr inbounds nuw i8, ptr %.pn27.i.i, i64 16
-  %232 = ptrtoint ptr %.sroa.0.028.i.i to i64
-  %233 = sub i64 %232, %110
-  %234 = ashr exact i64 %233, 3
-  %235 = sub nsw i64 0, %234
-  %236 = getelementptr inbounds i64, ptr %231, i64 %235
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %236, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %233, i1 false)
+  %231 = ptrtoint ptr %.sroa.0.028.i.i to i64
+  %232 = sub i64 %231, %110
+  %233 = ashr exact i64 %232, 3
+  %234 = sub nsw i64 0, %233
+  %235 = getelementptr i64, ptr %.pn27.i.i, i64 %234
+  %236 = getelementptr i8, ptr %235, i64 16
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %236, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %232, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN5folly13CacheLocalityC1ES3_IS5_SaIS5_EEE3$_0EEEvT_T0_.exit.i.i"
 
 237:                                              ; preds = %.preheader225, %258
@@ -6286,8 +6286,9 @@ __cxx_global_var_init.exit:                       ; preds = %0, %3
   %8 = and i32 %7, 255
   store i32 %8, ptr %1, align 4, !tbaa !199
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65536), i64 0, i64 %9
-  %11 = load atomic i8, ptr %10 monotonic, align 1
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 65536
+  %12 = load atomic i8, ptr %11 monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #33
   ret void
 }

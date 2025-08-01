@@ -6211,7 +6211,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$crossbeam_channel..counter.
   br i1 %9, label %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9cd420e06143666bE.exit.i", label %12
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i"
-  %.sroa.02.016.i.i = phi i64 [ %20, %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i" ], [ %7, %1 ]
+  %.sroa.02.016.i.i = phi i64 [ %19, %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i" ], [ %7, %1 ]
   %.sroa.06.015.i.i = phi ptr [ %.sroa.06.1.i.i, %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i" ], [ %6, %1 ]
   %10 = lshr exact i64 %.sroa.02.016.i.i, 1
   %11 = and i64 %10, 31
@@ -6228,60 +6228,59 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$crossbeam_channel..counter.
   br label %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i"
 
 15:                                               ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.015.i.i, i64 8
-  %17 = getelementptr inbounds nuw { { { [12 x i64] } }, { i64 } }, ptr %16, i64 %11
-  %18 = load i64, ptr %17, align 8, !range !97, !alias.scope !1134, !noalias !1133, !noundef !7
-  %.not.i.i.i = icmp eq i64 %18, -9223372036854775808
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i", label %19
+  %16 = getelementptr inbounds nuw { { { [12 x i64] } }, { i64 } }, ptr %.sroa.06.015.i.i, i64 %11, i32 0, i32 0, i32 0, i64 1
+  %17 = load i64, ptr %16, align 8, !range !97, !alias.scope !1134, !noalias !1133, !noundef !7
+  %.not.i.i.i = icmp eq i64 %17, -9223372036854775808
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i", label %18
 
-19:                                               ; preds = %15
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$slog_async..AsyncRecord$GT$17h249c2da959b5a8b5E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %17)
-          to label %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i" unwind label %21, !noalias !1127
+18:                                               ; preds = %15
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$slog_async..AsyncRecord$GT$17h249c2da959b5a8b5E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %16)
+          to label %"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i" unwind label %20, !noalias !1127
 
-"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i": ; preds = %19, %15, %13
-  %.sroa.06.1.i.i = phi ptr [ %14, %13 ], [ %.sroa.06.015.i.i, %15 ], [ %.sroa.06.015.i.i, %19 ]
-  %20 = add i64 %.sroa.02.016.i.i, 2
-  %.not.i.i = icmp eq i64 %20, %8
+"_ZN4core3ptr41drop_in_place$LT$slog_async..AsyncMsg$GT$17h96f2181e95b0897fE.exit.i.i": ; preds = %18, %15, %13
+  %.sroa.06.1.i.i = phi ptr [ %14, %13 ], [ %.sroa.06.015.i.i, %15 ], [ %.sroa.06.015.i.i, %18 ]
+  %19 = add i64 %.sroa.02.016.i.i, 2
+  %.not.i.i = icmp eq i64 %19, %8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hc5f396ef91ce0989E"(ptr noalias noundef align 8 dereferenceable(64) %23) #25
-          to label %common.resume.i unwind label %30
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hc5f396ef91ce0989E"(ptr noalias noundef align 8 dereferenceable(64) %22) #25
+          to label %common.resume.i unwind label %29
 
 "_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9cd420e06143666bE.exit.i": ; preds = %12, %._crit_edge.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24)
-          to label %"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$slog_async..AsyncMsg$GT$$GT$17h42e0a441b0e43ea2E.exit" unwind label %25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23)
+          to label %"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$slog_async..AsyncMsg$GT$$GT$17h42e0a441b0e43ea2E.exit" unwind label %24
 
-25:                                               ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9cd420e06143666bE.exit.i"
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9cd420e06143666bE.exit.i"
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef align 8 dereferenceable(24) %27) #25
-          to label %common.resume.i unwind label %28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef align 8 dereferenceable(24) %26) #25
+          to label %common.resume.i unwind label %27
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-common.resume.i:                                  ; preds = %25, %21
-  %common.resume.op.i = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+common.resume.i:                                  ; preds = %24, %20
+  %common.resume.op.i = phi { ptr, i32 } [ %25, %24 ], [ %21, %20 ]
   resume { ptr, i32 } %common.resume.op.i
 
-30:                                               ; preds = %21
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %20
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$slog_async..AsyncMsg$GT$$GT$17h42e0a441b0e43ea2E.exit": ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9cd420e06143666bE.exit.i"
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef align 8 dereferenceable(24) %32)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h6b5a0186b31433fdE"(ptr noalias noundef align 8 dereferenceable(24) %31)
   ret void
 }
 

@@ -361,7 +361,7 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet17evaluateFileMultiERKNSt7__cxx111
   %4 = alloca %"struct.std::pair.3", align 8
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %28, label %7
+  br i1 %6, label %29, label %7
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
@@ -391,32 +391,31 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet17evaluateFileMultiERKNSt7__cxx111
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
-  %.019.i = phi ptr [ %10, %.preheader.lr.ph.i ], [ %23, %.preheader.i ]
+  %.019.i = phi ptr [ %10, %.preheader.lr.ph.i ], [ %24, %.preheader.i ]
   %scevgep.i = getelementptr nuw i8, ptr %.019.i, i64 1
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep.i)
   %scevgep20.i = getelementptr i8, ptr %.019.i, i64 %strlen.i
   %21 = getelementptr i8, ptr %scevgep20.i, i64 2
   %strlen21.i = call i64 @strlen(ptr nonnull dereferenceable(1) %21)
-  %scevgep22.i = getelementptr i8, ptr %.019.i, i64 2
-  %22 = getelementptr i8, ptr %scevgep22.i, i64 %strlen21.i
-  %scevgep23.i = getelementptr i8, ptr %22, i64 %strlen.i
-  %23 = getelementptr inbounds nuw i8, ptr %scevgep23.i, i64 1
+  %22 = getelementptr i8, ptr %.019.i, i64 %strlen21.i
+  %23 = getelementptr i8, ptr %22, i64 %strlen.i
+  %24 = getelementptr i8, ptr %23, i64 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   store ptr %.019.i, ptr %4, align 8
   store ptr %21, ptr %20, align 8
-  %24 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_emplace_uniqueIJS6_IPKcSH_EEEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %25 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_emplace_uniqueIJS6_IPKcSH_EEEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  %25 = load i8, ptr %23, align 1, !tbaa !18
-  %.not.i = icmp eq i8 %25, 0
+  %26 = load i8, ptr %24, align 1, !tbaa !18
+  %.not.i = icmp eq i8 %26, 0
   br i1 %.not.i, label %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit, label %.preheader.i, !llvm.loop !23
 
 _ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit: ; preds = %.preheader.i, %18, %12
-  %26 = load ptr, ptr %0, align 8, !tbaa !6
-  %27 = call ptr @jsonnet_realloc(ptr noundef %26, ptr noundef nonnull %10, i64 noundef 0)
+  %27 = load ptr, ptr %0, align 8, !tbaa !6
+  %28 = call ptr @jsonnet_realloc(ptr noundef %27, ptr noundef nonnull %10, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
-  br label %28
+  br label %29
 
-28:                                               ; preds = %3, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit
+29:                                               ; preds = %3, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit
   %.0 = phi i1 [ %.not, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit ], [ false, %3 ]
   ret i1 %.0
 }
@@ -428,7 +427,7 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet20evaluateSnippetMultiERKNSt7__cxx
   %5 = alloca %"struct.std::pair.3", align 8
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %30, label %8
+  br i1 %7, label %31, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
@@ -459,32 +458,31 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet20evaluateSnippetMultiERKNSt7__cxx
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
-  %.019.i = phi ptr [ %12, %.preheader.lr.ph.i ], [ %25, %.preheader.i ]
+  %.019.i = phi ptr [ %12, %.preheader.lr.ph.i ], [ %26, %.preheader.i ]
   %scevgep.i = getelementptr nuw i8, ptr %.019.i, i64 1
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep.i)
   %scevgep20.i = getelementptr i8, ptr %.019.i, i64 %strlen.i
   %23 = getelementptr i8, ptr %scevgep20.i, i64 2
   %strlen21.i = call i64 @strlen(ptr nonnull dereferenceable(1) %23)
-  %scevgep22.i = getelementptr i8, ptr %.019.i, i64 2
-  %24 = getelementptr i8, ptr %scevgep22.i, i64 %strlen21.i
-  %scevgep23.i = getelementptr i8, ptr %24, i64 %strlen.i
-  %25 = getelementptr inbounds nuw i8, ptr %scevgep23.i, i64 1
+  %24 = getelementptr i8, ptr %.019.i, i64 %strlen21.i
+  %25 = getelementptr i8, ptr %24, i64 %strlen.i
+  %26 = getelementptr i8, ptr %25, i64 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
   store ptr %.019.i, ptr %5, align 8
   store ptr %23, ptr %22, align 8
-  %26 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_emplace_uniqueIJS6_IPKcSH_EEEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %27 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_emplace_uniqueIJS6_IPKcSH_EEEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  %27 = load i8, ptr %25, align 1, !tbaa !18
-  %.not.i = icmp eq i8 %27, 0
+  %28 = load i8, ptr %26, align 1, !tbaa !18
+  %.not.i = icmp eq i8 %28, 0
   br i1 %.not.i, label %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit, label %.preheader.i, !llvm.loop !23
 
 _ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit: ; preds = %.preheader.i, %20, %14
-  %28 = load ptr, ptr %0, align 8, !tbaa !6
-  %29 = call ptr @jsonnet_realloc(ptr noundef %28, ptr noundef nonnull %12, i64 noundef 0)
+  %29 = load ptr, ptr %0, align 8, !tbaa !6
+  %30 = call ptr @jsonnet_realloc(ptr noundef %29, ptr noundef nonnull %12, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  br label %30
+  br label %31
 
-30:                                               ; preds = %4, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit
+31:                                               ; preds = %4, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit
   %.0 = phi i1 [ %.not, %_ZN7jsonnet12_GLOBAL__N_116parseMultiOutputEPKcPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit ], [ false, %4 ]
   ret i1 %.0
 }

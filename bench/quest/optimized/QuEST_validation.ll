@@ -417,9 +417,9 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %indvars.iv97 = phi i64 [ 0, %.preheader69.us.preheader ], [ 1, %.critedge.split.us.us ]
   br label %.preheader68.us.us
 
-.preheader68.us.us:                               ; preds = %26, %.preheader69.us
-  %.not84 = phi i1 [ false, %26 ], [ true, %.preheader69.us ]
-  %indvars.iv94 = phi i64 [ 1, %26 ], [ 0, %.preheader69.us ]
+.preheader68.us.us:                               ; preds = %25, %.preheader69.us
+  %.not84 = phi i1 [ false, %25 ], [ true, %.preheader69.us ]
+  %indvars.iv94 = phi i64 [ 1, %25 ], [ 0, %.preheader69.us ]
   br label %.preheader.us.us
 
 4:                                                ; preds = %5
@@ -437,7 +437,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %9 = load double, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv94
   %11 = load double, ptr %10, align 8, !tbaa !9
-  %12 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %7, i64 32
   %13 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv97
   %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv94
@@ -456,22 +456,21 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %.06076.us.us = phi double [ %23, %4 ], [ 0.000000e+00, %.preheader68.us.us ]
   %.06275.us.us = phi double [ %19, %4 ], [ 0.000000e+00, %.preheader68.us.us ]
   %24 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %0, i64 %indvars.iv91
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %5
 
-26:                                               ; preds = %._crit_edge.us.us
+25:                                               ; preds = %._crit_edge.us.us
   br i1 %.not84, label %.preheader68.us.us, label %.critedge.split.us.us, !llvm.loop !21
 
 ._crit_edge.us.us:                                ; preds = %4
-  %27 = icmp eq i64 %indvars.iv97, %indvars.iv94
-  %28 = uitofp i1 %27 to double
-  %29 = fsub double %19, %28
-  %30 = fmul double %29, %29
-  %31 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %30)
-  %32 = fcmp ule double %31, 1.000000e-26
-  br i1 %32, label %26, label %.loopexit
+  %26 = icmp eq i64 %indvars.iv97, %indvars.iv94
+  %27 = uitofp i1 %26 to double
+  %28 = fsub double %19, %27
+  %29 = fmul double %28, %28
+  %30 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %29)
+  %31 = fcmp ule double %30, 1.000000e-26
+  br i1 %31, label %25, label %.loopexit
 
-.critedge.split.us.us:                            ; preds = %26
+.critedge.split.us.us:                            ; preds = %25
   br i1 %.not85, label %.preheader69.us, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.critedge.split.us.us, %._crit_edge.us.us, %2
@@ -492,8 +491,8 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %indvars.iv98 = phi i64 [ 0, %.preheader69.us.preheader ], [ %indvars.iv.next99, %.critedge.split.us.us ]
   br label %.preheader68.us.us
 
-.preheader68.us.us:                               ; preds = %25, %.preheader69.us
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %25 ], [ 0, %.preheader69.us ]
+.preheader68.us.us:                               ; preds = %24, %.preheader69.us
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %24 ], [ 0, %.preheader69.us ]
   br label %.preheader.us.us
 
 4:                                                ; preds = %5
@@ -510,7 +509,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %8 = load double, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv94
   %10 = load double, ptr %9, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw [4 x [4 x double]], ptr %24, i64 0, i64 %indvars.iv
+  %11 = getelementptr i8, ptr %6, i64 128
   %12 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv98
   %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv94
@@ -531,24 +530,23 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %.06076.us.us = phi double [ %22, %4 ], [ 0.000000e+00, %.preheader68.us.us ]
   %.06275.us.us = phi double [ %18, %4 ], [ 0.000000e+00, %.preheader68.us.us ]
   %23 = getelementptr inbounds nuw %struct.ComplexMatrix4, ptr %0, i64 %indvars.iv90
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
   br label %5
 
-25:                                               ; preds = %._crit_edge.us.us
+24:                                               ; preds = %._crit_edge.us.us
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97 = icmp eq i64 %indvars.iv.next95, 4
   br i1 %exitcond97, label %.critedge.split.us.us, label %.preheader68.us.us, !llvm.loop !23
 
 ._crit_edge.us.us:                                ; preds = %4
-  %26 = icmp eq i64 %indvars.iv98, %indvars.iv94
-  %27 = uitofp i1 %26 to double
-  %28 = fsub double %18, %27
-  %29 = fmul double %28, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %29)
-  %31 = fcmp ule double %30, 1.000000e-26
-  br i1 %31, label %25, label %.loopexit
+  %25 = icmp eq i64 %indvars.iv98, %indvars.iv94
+  %26 = uitofp i1 %25 to double
+  %27 = fsub double %18, %26
+  %28 = fmul double %27, %27
+  %29 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %28)
+  %30 = fcmp ule double %29, 1.000000e-26
+  br i1 %30, label %24, label %.loopexit
 
-.critedge.split.us.us:                            ; preds = %25
+.critedge.split.us.us:                            ; preds = %24
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101 = icmp eq i64 %indvars.iv.next99, 4
   br i1 %exitcond101, label %.loopexit, label %.preheader69.us, !llvm.loop !24
@@ -2523,9 +2521,9 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %indvars.iv97.i = phi i64 [ 0, %.preheader69.us.preheader.i ], [ 1, %.critedge.split.us.us.i ]
   br label %.preheader68.us.us.i
 
-.preheader68.us.us.i:                             ; preds = %32, %.preheader69.us.i
-  %.not84.i = phi i1 [ false, %32 ], [ true, %.preheader69.us.i ]
-  %indvars.iv94.i = phi i64 [ 1, %32 ], [ 0, %.preheader69.us.i ]
+.preheader68.us.us.i:                             ; preds = %31, %.preheader69.us.i
+  %.not84.i = phi i1 [ false, %31 ], [ true, %.preheader69.us.i ]
+  %indvars.iv94.i = phi i64 [ 1, %31 ], [ 0, %.preheader69.us.i ]
   br label %.preheader.us.us.i
 
 10:                                               ; preds = %11
@@ -2543,7 +2541,7 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv94.i
   %17 = load double, ptr %16, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw [2 x [2 x double]], ptr %31, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr i8, ptr %13, i64 32
   %19 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv97.i
   %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv94.i
@@ -2562,22 +2560,21 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.06076.us.us.i = phi double [ %29, %10 ], [ 0.000000e+00, %.preheader68.us.us.i ]
   %.06275.us.us.i = phi double [ %25, %10 ], [ 0.000000e+00, %.preheader68.us.us.i ]
   %30 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %1, i64 %indvars.iv91.i
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   br label %11
 
-32:                                               ; preds = %._crit_edge.us.us.i
+31:                                               ; preds = %._crit_edge.us.us.i
   br i1 %.not84.i, label %.preheader68.us.us.i, label %.critedge.split.us.us.i, !llvm.loop !21
 
 ._crit_edge.us.us.i:                              ; preds = %10
-  %33 = icmp eq i64 %indvars.iv97.i, %indvars.iv94.i
-  %34 = uitofp i1 %33 to double
-  %35 = fsub double %25, %34
-  %36 = fmul double %35, %35
-  %37 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %36)
-  %38 = fcmp ule double %37, 1.000000e-26
-  br i1 %38, label %32, label %.loopexit
+  %32 = icmp eq i64 %indvars.iv97.i, %indvars.iv94.i
+  %33 = uitofp i1 %32 to double
+  %34 = fsub double %25, %33
+  %35 = fmul double %34, %34
+  %36 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %35)
+  %37 = fcmp ule double %36, 1.000000e-26
+  br i1 %37, label %31, label %.loopexit
 
-.critedge.split.us.us.i:                          ; preds = %32
+.critedge.split.us.us.i:                          ; preds = %31
   br i1 %.not85.i, label %.preheader69.us.i, label %QuESTAssert.exit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge.us.us.i, %validateOneQubitKrausMapDimensions.exit
@@ -2644,8 +2641,8 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %indvars.iv98.i = phi i64 [ 0, %.preheader69.us.preheader.i ], [ %indvars.iv.next99.i, %.critedge.split.us.us.i ]
   br label %.preheader68.us.us.i
 
-.preheader68.us.us.i:                             ; preds = %31, %.preheader69.us.i
-  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %31 ], [ 0, %.preheader69.us.i ]
+.preheader68.us.us.i:                             ; preds = %30, %.preheader69.us.i
+  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %30 ], [ 0, %.preheader69.us.i ]
   br label %.preheader.us.us.i
 
 10:                                               ; preds = %11
@@ -2662,7 +2659,7 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv94.i
   %16 = load double, ptr %15, align 8, !tbaa !9
-  %17 = getelementptr inbounds nuw [4 x [4 x double]], ptr %30, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr i8, ptr %12, i64 128
   %18 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv98.i
   %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv94.i
@@ -2683,24 +2680,23 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.06076.us.us.i = phi double [ %28, %10 ], [ 0.000000e+00, %.preheader68.us.us.i ]
   %.06275.us.us.i = phi double [ %24, %10 ], [ 0.000000e+00, %.preheader68.us.us.i ]
   %29 = getelementptr inbounds nuw %struct.ComplexMatrix4, ptr %1, i64 %indvars.iv90.i
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
   br label %11
 
-31:                                               ; preds = %._crit_edge.us.us.i
+30:                                               ; preds = %._crit_edge.us.us.i
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond97.i = icmp eq i64 %indvars.iv.next95.i, 4
   br i1 %exitcond97.i, label %.critedge.split.us.us.i, label %.preheader68.us.us.i, !llvm.loop !23
 
 ._crit_edge.us.us.i:                              ; preds = %10
-  %32 = icmp eq i64 %indvars.iv98.i, %indvars.iv94.i
-  %33 = uitofp i1 %32 to double
-  %34 = fsub double %24, %33
-  %35 = fmul double %34, %34
-  %36 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %35)
-  %37 = fcmp ule double %36, 1.000000e-26
-  br i1 %37, label %31, label %.loopexit
+  %31 = icmp eq i64 %indvars.iv98.i, %indvars.iv94.i
+  %32 = uitofp i1 %31 to double
+  %33 = fsub double %24, %32
+  %34 = fmul double %33, %33
+  %35 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %34)
+  %36 = fcmp ule double %35, 1.000000e-26
+  br i1 %36, label %30, label %.loopexit
 
-.critedge.split.us.us.i:                          ; preds = %31
+.critedge.split.us.us.i:                          ; preds = %30
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.i = icmp eq i64 %indvars.iv.next99.i, 4
   br i1 %exitcond101.i, label %QuESTAssert.exit, label %.preheader69.us.i, !llvm.loop !24

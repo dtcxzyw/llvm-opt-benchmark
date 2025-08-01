@@ -70796,11 +70796,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit, %27
   %33 = phi ptr [ %26, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit ], [ %28, %27 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 %10
+  %34 = getelementptr i8, ptr %33, i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, i8 %2, i64 1, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %36 = getelementptr inbounds i8, ptr %35, i64 %10
-  store i8 0, ptr %36, align 1
+  %35 = getelementptr i8, ptr %34, i64 1
+  store i8 0, ptr %35, align 1
   ret void
 }
 
@@ -74104,20 +74103,20 @@ thread-pre-split:                                 ; preds = %15, %23, %.thread-p
 40:                                               ; preds = %37
   %41 = ptrtoint ptr %.1.i to i64
   %42 = sub i64 %41, %13
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %44 = icmp ugt i64 %42, 4
-  br i1 %44, label %45, label %.lr.ph.i.i.i
+  %43 = icmp ugt i64 %42, 4
+  br i1 %43, label %44, label %.lr.ph.i.i.i
 
-45:                                               ; preds = %40
+44:                                               ; preds = %40
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.160) #33
   unreachable
 
 .lr.ph.i.i.i:                                     ; preds = %40, %.lr.ph.i.i.i
   %.08.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ 0, %40 ]
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
-  %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %.08.i.i.i
-  store i8 %47, ptr %48, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
+  %46 = load i8, ptr %45, align 1
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %.08.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 11
+  store i8 %46, ptr %48, align 1
   %49 = add nuw nsw i64 %.08.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %42
   br i1 %exitcond.not.i.i.i, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, label %.lr.ph.i.i.i, !llvm.loop !806

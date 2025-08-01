@@ -4910,7 +4910,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 1023
   %.not = icmp eq i32 %11, 21
-  br i1 %.not, label %33, label %12
+  br i1 %.not, label %34, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -4920,9 +4920,9 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %16 = select i1 %15, i32 -1, i32 %11
   %17 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %16)
   %18 = icmp eq i32 %17, 2
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %19 = zext i1 %18 to i64
+  %20 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !104, !noalias !249
   store ptr %22, ptr %3, align 8, !tbaa !159, !alias.scope !249
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
@@ -4934,52 +4934,54 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %28 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %27)
   %29 = icmp eq i32 %28, 2
   %spec.select.i.i = select i1 %29, i64 2, i64 1
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %spec.select.i.i
-  %31 = load ptr, ptr %30, align 8, !tbaa !104, !noalias !252
-  store ptr %31, ptr %4, align 8, !tbaa !159, !alias.scope !252
-  %32 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine8areEqualENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(1784) %14, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br label %64
+  %30 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %spec.select.i.i
+  %31 = getelementptr i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !104, !noalias !252
+  store ptr %32, ptr %4, align 8, !tbaa !159, !alias.scope !252
+  %33 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine8areEqualENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(1784) %14, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br label %66
 
-33:                                               ; preds = %2
-  %34 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 21), !noalias !255
-  %35 = icmp eq i32 %34, 2
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !104, !noalias !255
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %41 = load ptr, ptr %40, align 8, !tbaa !149
+34:                                               ; preds = %2
+  %35 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 21), !noalias !255
+  %36 = icmp eq i32 %35, 2
+  %37 = zext i1 %36 to i64
+  %38 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !104, !noalias !255
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %42 = load ptr, ptr %41, align 8, !tbaa !149
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load i64, ptr %42, align 8, !noalias !258
-  %44 = trunc i64 %43 to i32
-  %45 = and i32 %44, 1023
-  %46 = icmp eq i32 %45, 1023
-  %47 = select i1 %46, i32 -1, i32 %45
-  %48 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %47)
-  %49 = icmp eq i32 %48, 2
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %51 = zext i1 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !104, !noalias !258
-  store ptr %53, ptr %5, align 8, !tbaa !159, !alias.scope !258
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %44 = load i64, ptr %43, align 8, !noalias !258
+  %45 = trunc i64 %44 to i32
+  %46 = and i32 %45, 1023
+  %47 = icmp eq i32 %46, 1023
+  %48 = select i1 %47, i32 -1, i32 %46
+  %49 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %48)
+  %50 = icmp eq i32 %49, 2
+  %51 = zext i1 %50 to i64
+  %52 = getelementptr [0 x ptr], ptr %40, i64 0, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !104, !noalias !258
+  store ptr %54, ptr %5, align 8, !tbaa !159, !alias.scope !258
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
-  %54 = load i64, ptr %42, align 8, !noalias !261
-  %55 = trunc i64 %54 to i32
-  %56 = and i32 %55, 1023
-  %57 = icmp eq i32 %56, 1023
-  %58 = select i1 %57, i32 -1, i32 %56
-  %59 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %58)
-  %60 = icmp eq i32 %59, 2
-  %spec.select.i.i16 = select i1 %60, i64 2, i64 1
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %spec.select.i.i16
-  %62 = load ptr, ptr %61, align 8, !tbaa !104, !noalias !261
-  store ptr %62, ptr %6, align 8, !tbaa !159, !alias.scope !261
-  %63 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %41, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false)
-  br label %64
+  %55 = load i64, ptr %43, align 8, !noalias !261
+  %56 = trunc i64 %55 to i32
+  %57 = and i32 %56, 1023
+  %58 = icmp eq i32 %57, 1023
+  %59 = select i1 %58, i32 -1, i32 %57
+  %60 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %59)
+  %61 = icmp eq i32 %60, 2
+  %spec.select.i.i16 = select i1 %61, i64 2, i64 1
+  %62 = getelementptr [0 x ptr], ptr %40, i64 0, i64 %spec.select.i.i16
+  %63 = getelementptr i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !104, !noalias !261
+  store ptr %64, ptr %6, align 8, !tbaa !159, !alias.scope !261
+  %65 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %42, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false)
+  br label %66
 
-64:                                               ; preds = %33, %12
-  %.08 = phi i1 [ %32, %12 ], [ %63, %33 ]
+66:                                               ; preds = %34, %12
+  %.08 = phi i1 [ %33, %12 ], [ %65, %34 ]
   ret i1 %.08
 }
 

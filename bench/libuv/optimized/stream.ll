@@ -525,12 +525,12 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %177, %242
 221:                                              ; preds = %.sink.split.i.i.i, %207
   %222 = phi i32 [ %210, %207 ], [ %.pre.i.i, %.sink.split.i.i.i ]
   %.0.i.i.i = phi ptr [ %200, %207 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  %225 = add i32 %222, 1
-  store i32 %225, ptr %224, align 4
-  %226 = zext i32 %222 to i64
-  %227 = getelementptr inbounds nuw [1 x i32], ptr %223, i64 0, i64 %226
+  %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
+  %224 = add i32 %222, 1
+  store i32 %224, ptr %223, align 4
+  %225 = zext i32 %222 to i64
+  %226 = getelementptr inbounds nuw [1 x i32], ptr %.0.i.i.i, i64 0, i64 %225
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 %.0.copyload.i.i, ptr %227, align 4
   br label %uv__stream_queue_fd.exit.i.i
 
@@ -2114,7 +2114,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %52 = load ptr, ptr %51, align 8
   %.not28 = icmp eq ptr %52, null
-  br i1 %.not28, label %64, label %.preheader
+  br i1 %.not28, label %63, label %.preheader
 
 .preheader:                                       ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2122,32 +2122,29 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %.not30 = icmp eq i32 %54, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  br label %56
-
-56:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [1 x i32], ptr %55, i64 0, i64 %indvars.iv
-  %58 = load i32, ptr %57, align 4
-  %59 = tail call i32 @uv__close(i32 noundef %58) #12
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
+  %55 = getelementptr inbounds nuw [1 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call i32 @uv__close(i32 noundef %57) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load i32, ptr %53, align 4
-  %61 = zext i32 %60 to i64
-  %62 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %62, label %56, label %._crit_edge.loopexit
+  %59 = load i32, ptr %53, align 4
+  %60 = zext i32 %59 to i64
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
+  br i1 %61, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %56
+._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre33 = load ptr, ptr %51, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %63 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %52, %.preheader ]
-  tail call void @uv__free(ptr noundef %63) #12
+  %62 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %52, %.preheader ]
+  tail call void @uv__free(ptr noundef %62) #12
   store ptr null, ptr %51, align 8
-  br label %64
+  br label %63
 
-64:                                               ; preds = %._crit_edge, %50
+63:                                               ; preds = %._crit_edge, %50
   ret void
 }
 

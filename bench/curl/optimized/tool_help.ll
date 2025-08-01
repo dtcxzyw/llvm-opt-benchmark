@@ -148,8 +148,8 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   br label %15
 
-15:                                               ; preds = %.lr.ph, %60
-  %.059 = phi i64 [ 0, %.lr.ph ], [ %61, %60 ]
+15:                                               ; preds = %.lr.ph, %61
+  %.059 = phi i64 [ 0, %.lr.ph ], [ %62, %61 ]
   %16 = load i8, ptr %9, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.059
   switch i8 %16, label %41 [
@@ -168,13 +168,13 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   %24 = load i64, ptr %12, align 8, !tbaa !11
   %bcmp = tail call i32 @bcmp(ptr nonnull %4, ptr %23, i64 %24)
   %.not54 = icmp eq i32 %bcmp, 0
-  br i1 %.not54, label %25, label %60
+  br i1 %.not54, label %25, label %61
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %9, align 8, !tbaa !16
   %27 = add i8 %26, 1
   store i8 %27, ptr %9, align 8, !tbaa !16
-  br label %60
+  br label %61
 
 28:                                               ; preds = %15
   %29 = load i64, ptr %10, align 8, !tbaa !13
@@ -187,7 +187,7 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   %34 = load i64, ptr %10, align 8, !tbaa !13
   %bcmp57 = tail call i32 @bcmp(ptr nonnull %4, ptr %33, i64 %34)
   %.not58 = icmp eq i32 %bcmp57, 0
-  br i1 %.not58, label %35, label %60
+  br i1 %.not58, label %35, label %61
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   %39 = load i8, ptr %9, align 8, !tbaa !16
   %40 = add i8 %39, 1
   store i8 %40, ptr %9, align 8, !tbaa !16
-  br label %60
+  br label %61
 
 41:                                               ; preds = %15
   %42 = load i64, ptr %6, align 8, !tbaa !15
@@ -225,7 +225,7 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   store i8 0, ptr %54, align 1, !tbaa !17
   store i64 0, ptr %7, align 8, !tbaa !20
   %55 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %14)
-  br label %60
+  br label %61
 
 56:                                               ; preds = %48
   br i1 %51, label %._crit_edge, label %57
@@ -233,17 +233,18 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
 57:                                               ; preds = %56
   %58 = add i64 %50, 1
   store i64 %58, ptr %7, align 8, !tbaa !20
-  %59 = getelementptr inbounds nuw [160 x i8], ptr %14, i64 0, i64 %50
-  store i8 %44, ptr %59, align 1, !tbaa !17
-  br label %60
+  %59 = getelementptr inbounds nuw [160 x i8], ptr %2, i64 0, i64 %50
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  store i8 %44, ptr %60, align 1, !tbaa !17
+  br label %61
 
-60:                                               ; preds = %53, %57, %28, %35, %18, %25
-  %61 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %61, %1
+61:                                               ; preds = %53, %57, %28, %35, %18, %25
+  %62 = add nuw i64 %.059, 1
+  %exitcond.not = icmp eq i64 %62, %1
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %41, %52, %56, %60, %3
-  %.lcssa = phi i1 [ true, %3 ], [ true, %60 ], [ false, %56 ], [ false, %52 ], [ false, %41 ]
+._crit_edge:                                      ; preds = %41, %52, %56, %61, %3
+  %.lcssa = phi i1 [ true, %3 ], [ true, %61 ], [ false, %56 ], [ false, %52 ], [ false, %41 ]
   ret i1 %.lcssa
 }
 

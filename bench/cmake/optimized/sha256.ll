@@ -1224,29 +1224,28 @@ define dso_local void @lzma_sha256_finish(ptr noundef captures(none) %0) local_u
   br label %.backedge
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i64, ptr %2, align 8, !tbaa !4
-  %11 = shl i64 %10, 3
-  store i64 %11, ptr %2, align 8, !tbaa !4
-  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %12, ptr %13, align 8, !tbaa !4
+  %9 = load i64, ptr %2, align 8, !tbaa !4
+  %10 = shl i64 %9, 3
+  store i64 %10, ptr %2, align 8, !tbaa !4
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %11, ptr %12, align 8, !tbaa !4
   tail call fastcc void @process(ptr noundef nonnull %0)
-  br label %15
+  br label %14
 
-14:                                               ; preds = %15
+13:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %8, %15
-  %.018 = phi i64 [ 0, %8 ], [ %20, %15 ]
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.018
+14:                                               ; preds = %8, %14
+  %.018 = phi i64 [ 0, %8 ], [ %19, %14 ]
+  %15 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.018
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = tail call noundef i32 @llvm.bswap.i32(i32 %17)
-  %19 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.018
-  store i32 %18, ptr %19, align 4, !tbaa !4
-  %20 = add nuw nsw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %20, 8
-  br i1 %exitcond.not, label %14, label %15, !llvm.loop !13
+  store i32 %18, ptr %15, align 4, !tbaa !4
+  %19 = add nuw nsw i64 %.018, 1
+  %exitcond.not = icmp eq i64 %19, 8
+  br i1 %exitcond.not, label %13, label %14, !llvm.loop !13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

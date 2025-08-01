@@ -78272,41 +78272,39 @@ define linkonce_odr hidden void @_Z8test_boxIlEvv() local_unnamed_addr #3 comdat
   %79 = icmp eq i64 %.add.i.i, 32
   br i1 %79, label %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i, label %77
 
-_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i: ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  br label %81
-
-81:                                               ; preds = %81, %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
-  %.idx.i1.i = phi i64 [ 0, %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i ], [ %.add.i3.i, %81 ]
-  %.ptr.i2.i = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i1.i
+_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i: ; preds = %77, %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
+  %.idx.i1.i = phi i64 [ %.add.i3.i, %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i ], [ 0, %77 ]
+  %80 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i1.i
+  %.ptr.i2.i = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %.ptr.i2.i, align 8, !tbaa !1631
-  %82 = getelementptr inbounds nuw i8, ptr %.ptr.i2.i, i64 8
-  store i64 1, ptr %82, align 8, !tbaa !1633
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  store i64 1, ptr %81, align 8, !tbaa !1633
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 16
-  %83 = icmp eq i64 %.add.i3.i, 32
-  br i1 %83, label %_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit, label %81
+  %82 = icmp eq i64 %.add.i3.i, 32
+  br i1 %82, label %_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit, label %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
 
-_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit: ; preds = %81
+_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit: ; preds = %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store i64 9223372036854775807, ptr %28, align 8, !tbaa !1631
-  %84 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 1, ptr %84, align 8, !tbaa !1633
+  %83 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 1, ptr %83, align 8, !tbaa !1633
   call void @_ZN5boost8rationalIlE9normalizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
   %.fca.0.load.i.i.i = load i64, ptr %28, align 8
-  %.fca.1.load.i.i.i = load i64, ptr %84, align 8
+  %.fca.1.load.i.i.i = load i64, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store i64 -9223372036854775808, ptr %27, align 8, !tbaa !1631
-  %85 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 1, ptr %85, align 8, !tbaa !1633
+  %84 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 1, ptr %84, align 8, !tbaa !1633
   call void @_ZN5boost8rationalIlE9normalizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
   %.fca.0.load.i1.i.i = load i64, ptr %27, align 8
-  %.fca.1.load.i3.i.i = load i64, ptr %85, align 8
+  %.fca.1.load.i3.i.i = load i64, ptr %84, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   store i64 %.fca.0.load.i.i.i, ptr %29, align 8, !tbaa !93, !noalias !1649
   %.sroa.513.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %.fca.1.load.i.i.i, ptr %.sroa.513.0..sroa_idx14.i.i, align 8, !tbaa !93, !noalias !1649
-  store i64 %.fca.0.load.i1.i.i, ptr %80, align 8, !tbaa !93, !noalias !1649
+  %85 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i64 %.fca.0.load.i1.i.i, ptr %85, align 8, !tbaa !93, !noalias !1649
   %.sroa.5.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i64 %.fca.1.load.i3.i.i, ptr %.sroa.5.0..sroa_idx9.i.i, align 8, !tbaa !93, !noalias !1649
   %86 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -78382,7 +78380,7 @@ _ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit:
   store i64 %.sroa.0.0.copyload.i.i.i.i.i6.i.i.i, ptr %99, align 8, !tbaa !93
   %.sroa.42.0..sroa_idx.i9.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %.sroa.2.0.copyload.i.i.i.i.i8.i.i.i, ptr %.sroa.42.0..sroa_idx.i9.i.i.i, align 8, !tbaa !93
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i73 = load i64, ptr %80, align 8, !tbaa !93
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i73 = load i64, ptr %85, align 8, !tbaa !93
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i75 = load i64, ptr %.sroa.5.0..sroa_idx9.i.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #57
   store i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i75, ptr %22, align 8, !tbaa !1631
@@ -78971,7 +78969,7 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %297 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %297, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #57
-  %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i = load i64, ptr %80, align 8, !tbaa !93
+  %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i = load i64, ptr %85, align 8, !tbaa !93
   %.sroa.2.0.copyload.i.i.i.i.i.i8.i.i.i.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx9.i.i, align 8, !tbaa !93
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i, ptr %18, align 8
   %298 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -79150,7 +79148,7 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %356 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i183, ptr %356, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #57
-  %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i184 = load i64, ptr %80, align 8, !tbaa !93
+  %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i184 = load i64, ptr %85, align 8, !tbaa !93
   %.sroa.2.0.copyload.i.i.i.i.i.i8.i.i.i.i.i.i.i186 = load i64, ptr %.sroa.5.0..sroa_idx9.i.i, align 8, !tbaa !93
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i6.i.i.i.i.i.i.i184, ptr %12, align 8
   %357 = getelementptr inbounds nuw i8, ptr %12, i64 8

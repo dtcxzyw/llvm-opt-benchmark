@@ -8175,6 +8175,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %8 = load ptr, ptr %1, align 8, !tbaa !93
   %9 = load i8, ptr %2, align 1, !tbaa !60
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterINS_7ndarrayIJEEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr %8, i8 noundef zeroext %9, ptr noundef %4) #23
+  %.0.i6.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_63vJNS_7ndarrayIJEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
 
 11:                                               ; preds = %5
@@ -8236,12 +8237,12 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 25:                                               ; preds = %25, %.lr.ph.i
   %26 = phi i1 [ true, %.lr.ph.i ], [ false, %25 ]
-  %.0.i6.i.sroa.phi.sroa.speculated = phi i64 [ %.068.i, %.lr.ph.i ], [ %.07.i, %25 ]
-  %.0.i6.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %25 ]
+  %.0.i6.i.sroa.phi = phi ptr [ %6, %.lr.ph.i ], [ %.0.i6.i.sroa.gep7, %25 ]
+  %.0.i6.i.sroa.phi8.sroa.speculated = phi i64 [ %.068.i, %.lr.ph.i ], [ %.07.i, %25 ]
   %.08.i5.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %scevgep13.i.i, i64 0, i64 %.0.i6.i
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i6.i.sroa.phi, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !67
-  %29 = mul nsw i64 %28, %.0.i6.i.sroa.phi.sroa.speculated
+  %29 = mul nsw i64 %28, %.0.i6.i.sroa.phi8.sroa.speculated
   %30 = add nsw i64 %29, %.08.i5.i
   br i1 %26, label %25, label %_ZNK8nanobind12ndarray_viewIfLm2ELc0EEclIJmmEEERfDpT_.exit.i, !llvm.loop !283
 
@@ -8278,6 +8279,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %8 = load ptr, ptr %1, align 8, !tbaa !93
   %9 = load i8, ptr %2, align 1, !tbaa !60
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterINS_7ndarrayIJfNS0_5shapeIJLln1ELln1EEEENS_6device3cpuEEEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr %8, i8 noundef zeroext %9, ptr noundef %4) #23
+  %.0.i2.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_64vJNS_7ndarrayIJfNS0_5shapeIJLln1ELln1EEEENS_6device3cpuEEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_clEST_SU_SV_SW_SY_.exit"
 
 11:                                               ; preds = %5
@@ -8329,12 +8331,12 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 25:                                               ; preds = %25, %24
   %26 = phi i1 [ true, %24 ], [ false, %25 ]
-  %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %24 ], [ %.03.i, %25 ]
-  %.0.i2.i = phi i64 [ 0, %24 ], [ 1, %25 ]
+  %.0.i2.i.sroa.phi = phi ptr [ %6, %24 ], [ %.0.i2.i.sroa.gep7, %25 ]
+  %.0.i2.i.sroa.phi8.sroa.speculated = phi i64 [ %.084.i, %24 ], [ %.03.i, %25 ]
   %.08.i1.i = phi i64 [ 0, %24 ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %scevgep13.i.i, i64 0, i64 %.0.i2.i
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i2.i.sroa.phi, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !67
-  %29 = mul nsw i64 %28, %.0.i2.i.sroa.phi.sroa.speculated
+  %29 = mul nsw i64 %28, %.0.i2.i.sroa.phi8.sroa.speculated
   %30 = add nsw i64 %29, %.08.i1.i
   br i1 %26, label %25, label %_ZNK8nanobind12ndarray_viewIfLm2ELc0EEclIJmmEEERfDpT_.exit.i, !llvm.loop !283
 
@@ -8437,6 +8439,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %8 = load ptr, ptr %1, align 8, !tbaa !93
   %9 = load i8, ptr %2, align 1, !tbaa !60
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterINS_7ndarrayIJfNS0_5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr %8, i8 noundef zeroext %9, ptr noundef %4) #23
+  %.0.i2.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_65vJNS_7ndarrayIJfNS0_5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSG_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESU_SV_SW_SX_SZ_.exit"
 
 11:                                               ; preds = %5
@@ -8470,12 +8473,12 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 20:                                               ; preds = %20, %19
   %21 = phi i1 [ true, %19 ], [ false, %20 ]
-  %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
-  %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
+  %.0.i2.i.sroa.phi = phi ptr [ %6, %19 ], [ %.0.i2.i.sroa.gep7, %20 ]
+  %.0.i2.i.sroa.phi8.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i2.i.sroa.phi, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !67
-  %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
+  %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi8.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
   br i1 %21, label %20, label %_ZNK8nanobind12ndarray_viewIfLm2ELc67EEclIJmmEEERfDpT_.exit.i, !llvm.loop !292
 
@@ -8580,6 +8583,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %8 = load ptr, ptr %1, align 8, !tbaa !93
   %9 = load i8, ptr %2, align 1, !tbaa !60
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterINS_7ndarrayIJfNS0_5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr %8, i8 noundef zeroext %9, ptr noundef %4) #23
+  %.0.i2.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_66vJNS_7ndarrayIJfNS0_5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSG_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESU_SV_SW_SX_SZ_.exit"
 
 11:                                               ; preds = %5
@@ -8613,12 +8617,12 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 20:                                               ; preds = %20, %19
   %21 = phi i1 [ true, %19 ], [ false, %20 ]
-  %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
-  %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
+  %.0.i2.i.sroa.phi = phi ptr [ %6, %19 ], [ %.0.i2.i.sroa.gep7, %20 ]
+  %.0.i2.i.sroa.phi8.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i2.i.sroa.phi, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !67
-  %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
+  %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi8.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
   br i1 %21, label %20, label %_ZNK8nanobind12ndarray_viewIfLm2ELc70EEclIJmmEEERfDpT_.exit.i, !llvm.loop !297
 
@@ -8723,6 +8727,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %8 = load ptr, ptr %1, align 8, !tbaa !93
   %9 = load i8, ptr %2, align 1, !tbaa !60
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterINS_7ndarrayIJSt7complexIfENS0_5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr %8, i8 noundef zeroext %9, ptr noundef %4) #23
+  %.0.i2.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_67vJNS_7ndarrayIJSt7complexIfENS0_5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSI_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESW_SX_SY_SZ_S11_.exit"
 
 11:                                               ; preds = %5
@@ -8755,12 +8760,12 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 20:                                               ; preds = %20, %18
   %21 = phi i1 [ true, %18 ], [ false, %20 ]
-  %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.064.i, %18 ], [ %.03.i, %20 ]
-  %.0.i2.i = phi i64 [ 0, %18 ], [ 1, %20 ]
+  %.0.i2.i.sroa.phi = phi ptr [ %6, %18 ], [ %.0.i2.i.sroa.gep7, %20 ]
+  %.0.i2.i.sroa.phi8.sroa.speculated = phi i64 [ %.064.i, %18 ], [ %.03.i, %20 ]
   %.08.i1.i = phi i64 [ 0, %18 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i2.i.sroa.phi, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !67
-  %24 = mul nuw nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
+  %24 = mul nuw nsw i64 %23, %.0.i2.i.sroa.phi8.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
   br i1 %21, label %20, label %_ZNK8nanobind12ndarray_viewISt7complexIfELm2ELc67EEclIJmmEEERS2_DpT_.exit.i, !llvm.loop !302
 

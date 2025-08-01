@@ -1030,8 +1030,8 @@ entry:
   %packedBegin_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1936
   %0 = load i64, ptr %packedBegin_.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %0, -8
-  %cmp.i.i.i.not9 = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.not9, label %return, label %for.body.preheader
+  %cmp.i.i.i.not8 = icmp eq i64 %and.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.not8, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %and.i2.i.i.i.i = shl i64 %0, 1
@@ -1042,10 +1042,10 @@ for.body.preheader:                               ; preds = %entry
   %1 = inttoptr i64 %and.i.i.i.i.i to ptr
   br label %for.body
 
-for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
-  %__begin1.sroa.6.011 = phi i64 [ %or.i.i.i.i.i, %for.body.preheader ], [ %__begin1.sroa.6.011.be, %for.body.backedge ]
-  %__begin1.sroa.0.010 = phi ptr [ %1, %for.body.preheader ], [ %__begin1.sroa.0.010.be, %for.body.backedge ]
-  %2 = load ptr, ptr %__begin1.sroa.0.010, align 8
+for.body:                                         ; preds = %for.body.preheader, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit
+  %__begin1.sroa.6.010 = phi i64 [ %__begin1.sroa.6.3, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ %or.i.i.i.i.i, %for.body.preheader ]
+  %__begin1.sroa.0.09 = phi ptr [ %__begin1.sroa.0.1, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ %1, %for.body.preheader ]
+  %2 = load ptr, ptr %__begin1.sroa.0.09, align 8
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %2, i64 432
   %3 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
@@ -1058,11 +1058,11 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp.i.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 -16
-  %mul.neg.i.i.i = mul i64 %__begin1.sroa.6.011, -8
-  %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
-  %cmp.i.not17.i = icmp eq i64 %__begin1.sroa.6.011, 0
-  br i1 %cmp.i.not17.i, label %for.cond.i.i.preheader, label %while.body.i.i
+  %mul.neg.i.i.i = mul i64 %__begin1.sroa.6.010, -8
+  %5 = getelementptr i8, ptr %__begin1.sroa.0.09, i64 %mul.neg.i.i.i
+  %add.ptr1.i.i.i = getelementptr i8, ptr %5, i64 -16
+  %cmp.i.not16.i = icmp eq i64 %__begin1.sroa.6.010, 0
+  br i1 %cmp.i.not16.i, label %for.cond.i.i.preheader, label %while.body.i.i
 
 for.cond.i.i.preheader:                           ; preds = %while.cond.i.i, %for.inc
   br label %for.cond.i.i
@@ -1072,50 +1072,51 @@ while.cond.i.i:                                   ; preds = %while.body.i.i
   br i1 %cmp.i.not.i, label %for.cond.i.i.preheader, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.inc, %while.cond.i.i
-  %5 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.011, %for.inc ]
-  %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.010, %for.inc ]
-  %dec.i.i = add i64 %5, -1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -8
+  %6 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.010, %for.inc ]
+  %incdec.ptr.i1517.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.09, %for.inc ]
+  %dec.i.i = add i64 %6, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1517.i, i64 -8
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
-  %6 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.i.not14.i = icmp eq i8 %6, 0
-  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !7
+  %7 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %cmp.i.not14.i = icmp eq i8 %7, 0
+  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit, !llvm.loop !7
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end15.i.i
   %c.i.0.i = phi ptr [ %incdec.ptr16.i.i, %if.end15.i.i ], [ %add.ptr1.i.i.i, %for.cond.i.i.preheader ]
   %control_.i.i.i = getelementptr inbounds nuw i8, ptr %c.i.0.i, i64 14
-  %7 = load i8, ptr %control_.i.i.i, align 2
-  %8 = and i8 %7, 15
-  %cmp.i10.not.i = icmp eq i8 %8, 0
+  %8 = load i8, ptr %control_.i.i.i, align 2
+  %9 = and i8 %8, 15
+  %cmp.i10.not.i = icmp eq i8 %9, 0
   br i1 %cmp.i10.not.i, label %if.end15.i.i, label %return
 
 if.end15.i.i:                                     ; preds = %for.cond.i.i
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -128
-  %9 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = and i16 %11, 16383
+  %10 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
+  %11 = icmp slt <16 x i8> %10, zeroinitializer
+  %12 = bitcast <16 x i1> %11 to i16
+  %13 = and i16 %12, 16383
   %add.ptr.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i, i32 0, i32 3, i32 1)
-  %cmp.i11.not.i = icmp eq i16 %12, 0
+  %cmp.i11.not.i = icmp eq i16 %13, 0
   br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !9
 
 if.then23.i.i:                                    ; preds = %if.end15.i.i
-  %and.i.i.i = zext nneg i16 %12 to i32
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true)
-  %sub.i.i = xor i32 %13, 31
+  %and.i.i.i = zext nneg i16 %13 to i32
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true)
+  %sub.i.i = xor i32 %14, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
-  br label %for.body.backedge
+  %15 = getelementptr [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %incdec.ptr16.i.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i = getelementptr i8, ptr %15, i64 16
+  br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit
 
-for.body.backedge:                                ; preds = %while.body.i.i, %if.then23.i.i
-  %__begin1.sroa.6.011.be = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %__begin1.sroa.0.010.be = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  br label %for.body
+_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit: ; preds = %while.body.i.i, %if.then23.i.i
+  %__begin1.sroa.0.1 = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %__begin1.sroa.6.3 = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
+  %cmp.i.i.i.not = icmp eq ptr %__begin1.sroa.0.1, null
+  br i1 %cmp.i.i.i.not, label %return, label %for.body
 
-return:                                           ; preds = %land.lhs.true, %for.cond.i.i, %entry
-  %cmp.i.i.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.cond.i.i ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit, %for.cond.i.i, %entry
+  %cmp.i.i.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.cond.i.i ], [ true, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ false, %land.lhs.true ]
   ret i1 %cmp.i.i.i.not.lcssa
 }
 

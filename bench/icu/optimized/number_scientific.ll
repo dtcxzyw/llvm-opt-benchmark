@@ -582,14 +582,14 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #22
-  br label %84
+  br label %83
 
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #22
-  br label %84
+  br label %83
 
 35:                                               ; preds = %15
   %36 = icmp eq i32 %22, 1
@@ -615,7 +615,7 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #22
-  br label %84
+  br label %83
 
 46:                                               ; preds = %23, %35, %42, %29
   %.0 = phi i32 [ %30, %29 ], [ %43, %42 ], [ %16, %35 ], [ %16, %23 ]
@@ -633,14 +633,14 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit, %46
-  %.1.lcssa = phi i32 [ %.0, %46 ], [ %75, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.1.lcssa = phi i32 [ %.0, %46 ], [ %74, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
   %55 = sub nsw i32 %.1.lcssa, %3
   ret i32 %55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
-  %56 = phi ptr [ %77, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ %48, %.lr.ph.preheader ]
-  %.138 = phi i32 [ %75, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ %.0, %.lr.ph.preheader ]
-  %.02837 = phi i32 [ %76, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ 0, %.lr.ph.preheader ]
+  %56 = phi ptr [ %76, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ %48, %.lr.ph.preheader ]
+  %.138 = phi i32 [ %74, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ %.0, %.lr.ph.preheader ]
+  %.02837 = phi i32 [ %75, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ 0, %.lr.ph.preheader ]
   %.02936 = phi i32 [ %58, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ], [ %54, %.lr.ph.preheader ]
   %57 = urem i32 %.02936, 10
   %58 = udiv i32 %.02936, 10
@@ -661,27 +661,26 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
   %68 = icmp eq i32 %57, 0
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 264
   %70 = add nuw nsw i32 %57, 17
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %72 = zext nneg i32 %70 to i64
-  %73 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %71, i64 0, i64 %72
-  %.0.i.i = select i1 %68, ptr %69, ptr %73
-  %74 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 37, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %61, i64 0, i64 %71, i32 1
+  %.0.i.i = select i1 %68, ptr %69, ptr %72
+  %73 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 37, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
 _ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit: ; preds = %64, %67
-  %.0.i = phi i32 [ %66, %64 ], [ %74, %67 ]
-  %75 = add nsw i32 %.0.i, %.138
-  %76 = add nuw nsw i32 %.02837, 1
-  %77 = load ptr, ptr %9, align 8, !tbaa !21
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 18
-  %79 = load i16, ptr %78, align 2, !tbaa !33
-  %80 = sext i16 %79 to i32
-  %81 = icmp slt i32 %76, %80
-  %82 = icmp samesign ugt i32 %.02936, 9
-  %83 = select i1 %81, i1 true, i1 %82
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  %.0.i = phi i32 [ %66, %64 ], [ %73, %67 ]
+  %74 = add nsw i32 %.0.i, %.138
+  %75 = add nuw nsw i32 %.02837, 1
+  %76 = load ptr, ptr %9, align 8, !tbaa !21
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 18
+  %78 = load i16, ptr %77, align 2, !tbaa !33
+  %79 = sext i16 %78 to i32
+  %80 = icmp slt i32 %75, %79
+  %81 = icmp samesign ugt i32 %.02936, 9
+  %82 = select i1 %80, i1 true, i1 %81
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
-84:                                               ; preds = %44, %33, %31
+83:                                               ; preds = %44, %33, %31
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %45, %44 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn
 }

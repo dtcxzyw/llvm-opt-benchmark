@@ -3306,12 +3306,12 @@ rbimpl_RB_TYPE_P_fastpath.exit16:                 ; preds = %.thread
   %.not.i = icmp eq i64 %19, 0
   %20 = lshr i64 %16, 15
   %21 = and i64 %20, 127
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br i1 %.not.i, label %.preheader.split.us, label %rb_array_len.exit.thread
 
 .preheader.split.us:                              ; preds = %.preheader
-  %24 = load i64, ptr %22, align 8, !tbaa !26
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %24 = load i64, ptr %23, align 8, !tbaa !26
   %smax = tail call i64 @llvm.smax.i64(i64 %24, i64 0)
   br label %rb_array_len.exit.us
 
@@ -3321,7 +3321,7 @@ rb_array_len.exit.us:                             ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %exitcond29.not, label %.loopexit, label %RARRAY_AREF.exit.us
 
 RARRAY_AREF.exit.us:                              ; preds = %rb_array_len.exit.us
-  %25 = load ptr, ptr %23, align 8, !tbaa !26
+  %25 = load ptr, ptr %22, align 8, !tbaa !26
   %26 = getelementptr i64, ptr %25, i64 %.014.us
   %27 = load i64, ptr %26, align 8, !tbaa !15
   %28 = icmp eq i64 %27, 0
@@ -3344,30 +3344,31 @@ rbimpl_RB_TYPE_P_fastpath.exit16.thread:          ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 rb_array_len.exit.thread:                         ; preds = %.preheader, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.014 = phi i64 [ %48, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %.preheader ]
+  %.014 = phi i64 [ %49, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %.preheader ]
   %exitcond.not = icmp eq i64 %.014, %21
   br i1 %exitcond.not, label %.loopexit, label %.thread25
 
 .thread25:                                        ; preds = %rb_array_len.exit.thread
-  %38 = getelementptr i64, ptr %22, i64 %.014
-  %39 = load i64, ptr %38, align 8, !tbaa !15
-  %40 = icmp eq i64 %39, 0
-  %41 = and i64 %39, 7
-  %42 = icmp ne i64 %41, 0
-  %43 = or i1 %40, %42
-  br i1 %43, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
+  %38 = getelementptr i64, ptr %8, i64 %.014
+  %39 = getelementptr i8, ptr %38, i64 16
+  %40 = load i64, ptr %39, align 8, !tbaa !15
+  %41 = icmp eq i64 %40, 0
+  %42 = and i64 %40, 7
+  %43 = icmp ne i64 %42, 0
+  %44 = or i1 %41, %43
+  br i1 %44, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.thread25
-  %44 = inttoptr i64 %39 to ptr
-  %45 = load i64, ptr %44, align 8, !tbaa !7
-  %46 = and i64 %45, 31
-  %47 = icmp eq i64 %46, 5
-  %48 = add nuw nsw i64 %.014, 1
-  br i1 %47, label %rb_array_len.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, !llvm.loop !111
+  %45 = inttoptr i64 %40 to ptr
+  %46 = load i64, ptr %45, align 8, !tbaa !7
+  %47 = and i64 %46, 31
+  %48 = icmp eq i64 %47, 5
+  %49 = add nuw nsw i64 %.014, 1
+  br i1 %48, label %rb_array_len.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, !llvm.loop !111
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %.thread25, %RARRAY_AREF.exit.us, %rbimpl_RB_TYPE_P_fastpath.exit.us
-  %49 = load i64, ptr @rb_eTypeError, align 8, !tbaa !15
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef @rb_check_backtrace.err) #34
+  %50 = load i64, ptr @rb_eTypeError, align 8, !tbaa !15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef @rb_check_backtrace.err) #34
   unreachable
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit.us, %.thread, %1, %rbimpl_RB_TYPE_P_fastpath.exit18.thread, %12

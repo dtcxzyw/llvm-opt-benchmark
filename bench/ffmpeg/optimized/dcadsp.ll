@@ -152,7 +152,6 @@ define internal void @lfe_fir0_float_c(ptr noundef writeonly captures(none) %0, 
   %.03951.i = phi i32 [ %30, %27 ], [ 0, %4 ]
   %.04050.i = phi ptr [ %29, %27 ], [ %0, %4 ]
   %.04149.i = phi ptr [ %28, %27 ], [ %1, %4 ]
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.04050.i, i64 128
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %25, %.preheader44.i
@@ -187,7 +186,7 @@ define internal void @lfe_fir0_float_c(ptr noundef writeonly captures(none) %0, 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds nuw float, ptr %.04050.i, i64 %indvars.iv54.i
   store float %19, ptr %26, align 4, !tbaa !34
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv54.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %26, i64 128
   store float %24, ptr %gep.i, align 4, !tbaa !34
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next55.i, 32
@@ -215,7 +214,6 @@ define internal void @lfe_fir1_float_c(ptr noundef writeonly captures(none) %0, 
   %.03951.i = phi i32 [ %30, %27 ], [ 0, %4 ]
   %.04050.i = phi ptr [ %29, %27 ], [ %0, %4 ]
   %.04149.i = phi ptr [ %28, %27 ], [ %1, %4 ]
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.04050.i, i64 256
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %25, %.preheader44.i
@@ -250,7 +248,7 @@ define internal void @lfe_fir1_float_c(ptr noundef writeonly captures(none) %0, 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds nuw float, ptr %.04050.i, i64 %indvars.iv54.i
   store float %19, ptr %26, align 4, !tbaa !34
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv54.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %26, i64 256
   store float %24, ptr %gep.i, align 4, !tbaa !34
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next55.i, 64

@@ -827,13 +827,13 @@ define dso_local ptr @RM_PoolAlloc(ptr noundef captures(none) %0, i64 noundef %1
 36:                                               ; preds = %.critedge53, %.critedge
   %37 = phi i32 [ 0, %.critedge53 ], [ %26, %.critedge ]
   %.043 = phi ptr [ %31, %.critedge53 ], [ %6, %.critedge ]
-  %38 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %.043, i64 4
-  %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
+  %38 = getelementptr inbounds nuw i8, ptr %.043, i64 4
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %.043, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = trunc i64 %1 to i32
   %43 = add i32 %37, %42
-  store i32 %43, ptr %39, align 4, !tbaa !22
+  store i32 %43, ptr %38, align 4, !tbaa !22
   br label %44
 
 44:                                               ; preds = %2, %36
@@ -6179,7 +6179,7 @@ moduleGetReplyClient.exit:                        ; preds = %10, %12
   br i1 %14, label %moduleGetReplyClient.exit.thread, label %15
 
 15:                                               ; preds = %moduleGetReplyClient.exit
-  switch i64 %1, label %48 [
+  switch i64 %1, label %50 [
     i64 -1, label %16
     i64 0, label %31
   ]
@@ -6205,11 +6205,11 @@ moduleGetReplyClient.exit:                        ; preds = %10, %12
   br label %moduleGetReplyClient.exit.thread
 
 31:                                               ; preds = %15
-  switch i32 %2, label %47 [
+  switch i32 %2, label %49 [
     i32 1, label %32
     i32 2, label %34
-    i32 3, label %40
-    i32 4, label %46
+    i32 3, label %41
+    i32 4, label %48
   ]
 
 32:                                               ; preds = %31
@@ -6221,59 +6221,61 @@ moduleGetReplyClient.exit:                        ; preds = %10, %12
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !276
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !141
-  tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %39) #35
+  %38 = getelementptr [4 x ptr], ptr @shared, i64 0, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 128
+  %40 = load ptr, ptr %39, align 8, !tbaa !141
+  tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %40) #35
   br label %moduleGetReplyClient.exit.thread
 
-40:                                               ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !276
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !141
-  tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %45) #35
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
+  %43 = load i32, ptr %42, align 4, !tbaa !276
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr [4 x ptr], ptr @shared, i64 0, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 160
+  %47 = load ptr, ptr %46, align 8, !tbaa !141
+  tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %47) #35
   br label %moduleGetReplyClient.exit.thread
 
-46:                                               ; preds = %31
+48:                                               ; preds = %31
   tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i, i64 noundef 0) #35
   br label %moduleGetReplyClient.exit.thread
 
-47:                                               ; preds = %31
+49:                                               ; preds = %31
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 3173, ptr noundef nonnull @.str.39, i32 noundef %2) #35
   tail call void @abort() #38
   unreachable
 
-48:                                               ; preds = %15
-  switch i32 %2, label %53 [
-    i32 1, label %49
-    i32 2, label %50
-    i32 3, label %51
-    i32 4, label %52
+50:                                               ; preds = %15
+  switch i32 %2, label %55 [
+    i32 1, label %51
+    i32 2, label %52
+    i32 3, label %53
+    i32 4, label %54
   ]
 
-49:                                               ; preds = %48
+51:                                               ; preds = %50
   tail call void @addReplyArrayLen(ptr noundef nonnull %.0.i, i64 noundef %1) #35
   br label %moduleGetReplyClient.exit.thread
 
-50:                                               ; preds = %48
+52:                                               ; preds = %50
   tail call void @addReplyMapLen(ptr noundef nonnull %.0.i, i64 noundef %1) #35
   br label %moduleGetReplyClient.exit.thread
 
-51:                                               ; preds = %48
+53:                                               ; preds = %50
   tail call void @addReplySetLen(ptr noundef nonnull %.0.i, i64 noundef %1) #35
   br label %moduleGetReplyClient.exit.thread
 
-52:                                               ; preds = %48
+54:                                               ; preds = %50
   tail call void @addReplyAttributeLen(ptr noundef nonnull %.0.i, i64 noundef %1) #35
   br label %moduleGetReplyClient.exit.thread
 
-53:                                               ; preds = %48
+55:                                               ; preds = %50
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 3189, ptr noundef nonnull @.str.40, i32 noundef %2) #35
   tail call void @abort() #38
   unreachable
 
-moduleGetReplyClient.exit.thread:                 ; preds = %7, %16, %49, %50, %51, %52, %32, %34, %40, %46, %moduleGetReplyClient.exit
+moduleGetReplyClient.exit.thread:                 ; preds = %7, %16, %51, %52, %53, %54, %32, %34, %41, %48, %moduleGetReplyClient.exit
   ret i32 0
 }
 

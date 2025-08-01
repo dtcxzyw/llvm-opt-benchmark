@@ -1247,7 +1247,7 @@ define internal ptr @pysqlite_connect(ptr noundef %0, ptr noundef %1, i64 nounde
   %11 = load ptr, ptr @PyExc_DeprecationWarning, align 8, !tbaa !36
   %12 = tail call i32 @PyErr_WarnEx(ptr noundef %11, ptr noundef nonnull @.str.117, i64 noundef 1) #5
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %33
+  br i1 %.not, label %13, label %32
 
 13:                                               ; preds = %10, %4
   %14 = icmp samesign ugt i64 %8, 5
@@ -1268,37 +1268,34 @@ define internal ptr @pysqlite_connect(ptr noundef %0, ptr noundef %1, i64 nounde
   %20 = icmp sgt i64 %.val32, 0
   br i1 %20, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br label %22
+.lr.ph:                                           ; preds = %.preheader, %28
+  %.02333 = phi i64 [ %29, %28 ], [ 0, %.preheader ]
+  %21 = getelementptr [1 x ptr], ptr %3, i64 0, i64 %.02333
+  %22 = getelementptr i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %24 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %23, ptr noundef nonnull @.str.118) #5
+  %.not29 = icmp eq i32 %24, 0
+  br i1 %.not29, label %.thread, label %28
 
-22:                                               ; preds = %.lr.ph, %29
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %23 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %.02333
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
-  %25 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %24, ptr noundef nonnull @.str.118) #5
-  %.not29 = icmp eq i32 %25, 0
-  br i1 %.not29, label %.thread, label %29
-
-.thread:                                          ; preds = %22
-  %26 = getelementptr ptr, ptr %1, i64 %8
-  %27 = getelementptr ptr, ptr %26, i64 %.02333
-  %28 = load ptr, ptr %27, align 8, !tbaa !36
+.thread:                                          ; preds = %.lr.ph
+  %25 = getelementptr ptr, ptr %1, i64 %8
+  %26 = getelementptr ptr, ptr %25, i64 %.02333
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
   br label %.loopexit
 
-29:                                               ; preds = %22
-  %30 = add nuw nsw i64 %.02333, 1
+28:                                               ; preds = %.lr.ph
+  %29 = add nuw nsw i64 %.02333, 1
   %.val = load i64, ptr %19, align 8, !tbaa !49
-  %31 = icmp slt i64 %30, %.val
-  br i1 %31, label %22, label %.loopexit, !llvm.loop !50
+  %30 = icmp slt i64 %29, %.val
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
-.loopexit:                                        ; preds = %29, %.preheader, %.thread, %18, %15
-  %.025 = phi ptr [ %17, %15 ], [ %7, %18 ], [ %28, %.thread ], [ %7, %.preheader ], [ %7, %29 ]
-  %32 = tail call ptr @PyObject_Vectorcall(ptr noundef %.025, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
-  br label %33
+.loopexit:                                        ; preds = %28, %.preheader, %.thread, %18, %15
+  %.025 = phi ptr [ %17, %15 ], [ %7, %18 ], [ %27, %.thread ], [ %7, %.preheader ], [ %7, %28 ]
+  %31 = tail call ptr @PyObject_Vectorcall(ptr noundef %.025, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
+  br label %32
 
-33:                                               ; preds = %10, %.loopexit
-  %.0 = phi ptr [ %32, %.loopexit ], [ null, %10 ]
+32:                                               ; preds = %10, %.loopexit
+  %.0 = phi ptr [ %31, %.loopexit ], [ null, %10 ]
   ret ptr %.0
 }
 

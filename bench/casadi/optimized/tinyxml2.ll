@@ -11977,7 +11977,7 @@ define void @_ZN8tinyxml211XMLDocument8PopDepthEv(ptr noundef nonnull align 8 ca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
-.preheader:
+.preheader.preheader:
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8, !tbaa !65
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12006,31 +12006,32 @@ define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8
   store ptr %17, ptr %16, align 8, !tbaa !156
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 20, ptr %18, align 4, !tbaa !174
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %19, i8 0, i64 128, i1 false)
-  br label %20
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %scevgep, i8 0, i64 128, i1 false)
+  br label %.preheader
 
-20:                                               ; preds = %.preheader, %20
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [5 x %"struct.tinyxml2::Entity"], ptr @_ZN8tinyxml2L8entitiesE, i64 0, i64 %indvars.iv, i32 2
-  %22 = load i8, ptr %21, align 4, !tbaa !23
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %23
-  store i8 1, ptr %24, align 1, !tbaa !31
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %19 = getelementptr inbounds nuw [5 x %"struct.tinyxml2::Entity"], ptr @_ZN8tinyxml2L8entitiesE, i64 0, i64 %indvars.iv, i32 2
+  %20 = load i8, ptr %19, align 4, !tbaa !23
+  %21 = zext i8 %20 to i64
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 138
+  store i8 1, ptr %23, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %25, label %20, !llvm.loop !175
+  br i1 %exitcond.not, label %24, label %.preheader, !llvm.loop !175
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 1, ptr %27, align 8, !tbaa !31
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 262
-  store i8 1, ptr %28, align 2, !tbaa !31
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 1, ptr %29, align 8, !tbaa !31
+24:                                               ; preds = %.preheader
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i8 1, ptr %26, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 262
+  store i8 1, ptr %27, align 2, !tbaa !31
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i8 1, ptr %28, align 8, !tbaa !31
   store i8 0, ptr %17, align 8, !tbaa !12
-  store i32 1, ptr %26, align 8, !tbaa !176
+  store i32 1, ptr %25, align 8, !tbaa !176
   ret void
 }
 

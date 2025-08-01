@@ -179,58 +179,59 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24sync
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %2, %5
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4, !tbaa !20
-  %9 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
-  %.not.i.i15 = icmp eq i32 %9, 221
-  br i1 %.not.i.i15, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16, label %10, !prof !19
+  %7 = getelementptr [2 x i32], ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 8
+  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %10 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
+  %.not.i.i15 = icmp eq i32 %10, 221
+  br i1 %.not.i.i15, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16, label %11, !prof !19
 
-10:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit
+11:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit
   tail call fastcc void @"_ZN4absl13base_internal12CallOnceImplIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_"(ptr noundef nonnull @_ZN4absl12_GLOBAL__N_17globalsE)
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
 
-_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit, %10
+_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit, %11
   %.sroa.03.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8, !tbaa !20
-  %11 = icmp slt i32 %0, %8
-  br i1 %11, label %12, label %14
+  %12 = icmp slt i32 %0, %9
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
-  %13 = add nsw i32 %0, 1
-  br label %22
+13:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
+  %14 = add nsw i32 %0, 1
+  br label %23
 
-14:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
+15:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   store i32 0, ptr %3, align 4, !tbaa !22
-  %15 = icmp eq i32 %0, %8
-  br i1 %15, label %16, label %21
+  %16 = icmp eq i32 %0, %9
+  br i1 %16, label %17, label %22
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   invoke void @AbslInternalMutexYield()
-          to label %17 unwind label %19
+          to label %18 unwind label %20
 
-17:                                               ; preds = %16
-  %18 = add nsw i32 %0, 1
+18:                                               ; preds = %17
+  %19 = add nsw i32 %0, 1
   br label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit
 
-19:                                               ; preds = %21, %16
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %22, %17
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   invoke void @AbslInternalSleepFor(i64 %.sroa.03.0.copyload, i32 %.sroa.5.0.copyload)
-          to label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit unwind label %19
+          to label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit unwind label %20
 
-_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %17, %21
-  %.1 = phi i32 [ %18, %17 ], [ 0, %21 ]
+_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %18, %22
+  %.1 = phi i32 [ %19, %18 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  br label %22
+  br label %23
 
-22:                                               ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit, %12
-  %.0 = phi i32 [ %13, %12 ], [ %.1, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit ]
+23:                                               ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit, %13
+  %.0 = phi i32 [ %14, %13 ], [ %.1, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit ]
   ret i32 %.0
 }
 

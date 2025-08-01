@@ -1389,9 +1389,9 @@ define dso_local void @SHA1DCUpdate(ptr noundef %0, ptr noundef readonly capture
   %26 = load i64, ptr %0, align 8, !tbaa !8
   %27 = add i64 %26, %.132.lcssa52
   store i64 %27, ptr %0, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %29 = zext nneg i32 %.0304651 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  %28 = zext nneg i32 %.0304651 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa53, i64 %.132.lcssa52, i1 false)
   br label %31
 
@@ -1454,8 +1454,8 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   br i1 %.not57753, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader751
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -1552,24 +1552,22 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %.not58 = icmp eq i32 %120, 0
   br i1 %.not58, label %1767, label %.preheader
 
-.preheader:                                       ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  br label %122
-
-122:                                              ; preds = %.preheader, %122
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %122 ]
-  %123 = getelementptr inbounds nuw [80 x i32], ptr %19, i64 0, i64 %indvars.iv
-  %124 = load i32, ptr %123, align 4, !tbaa !4
-  %125 = getelementptr inbounds nuw [80 x i32], ptr %121, i64 0, i64 %indvars.iv
-  %126 = load i32, ptr %125, align 4, !tbaa !4
-  %127 = xor i32 %126, %124
-  %128 = getelementptr inbounds nuw [80 x i32], ptr %29, i64 0, i64 %indvars.iv
-  store i32 %127, ptr %128, align 4, !tbaa !4
+.preheader:                                       ; preds = %115, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %115 ]
+  %121 = getelementptr inbounds nuw [80 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %122 = load i32, ptr %121, align 4, !tbaa !4
+  %123 = getelementptr inbounds nuw [80 x i32], ptr %116, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %125 = load i32, ptr %124, align 4, !tbaa !4
+  %126 = xor i32 %125, %122
+  %127 = getelementptr inbounds nuw [80 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 480
+  store i32 %126, ptr %128, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
-  br i1 %exitcond.not, label %129, label %122, !llvm.loop !23
+  br i1 %exitcond.not, label %129, label %.preheader, !llvm.loop !23
 
-129:                                              ; preds = %122
+129:                                              ; preds = %.preheader
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %131 = load i32, ptr %130, align 4, !tbaa !24
   %132 = sext i32 %131 to i64
@@ -2162,12 +2160,12 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %711 = xor i32 %708, %698
   %712 = and i32 %711, %709
   %713 = xor i32 %712, %708
-  %714 = load i32, ptr %29, align 4, !tbaa !4
+  %714 = load i32, ptr %30, align 4, !tbaa !4
   %715 = add i32 %689, -1518500249
   %716 = add i32 %714, %710
   %717 = add i32 %716, %713
   %718 = sub i32 %715, %717
-  store i32 %699, ptr %30, align 4, !tbaa !4
+  store i32 %699, ptr %29, align 4, !tbaa !4
   store i32 %709, ptr %95, align 4, !tbaa !4
   store i32 %698, ptr %96, align 4, !tbaa !4
   store i32 %708, ptr %97, align 4, !tbaa !4
@@ -3036,12 +3034,12 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1572 = xor i32 %1569, %1559
   %1573 = and i32 %1572, %1570
   %1574 = xor i32 %1573, %1569
-  %1575 = load i32, ptr %29, align 4, !tbaa !4
+  %1575 = load i32, ptr %30, align 4, !tbaa !4
   %1576 = add i32 %1550, -1518500249
   %1577 = add i32 %1575, %1571
   %1578 = add i32 %1577, %1574
   %1579 = sub i32 %1576, %1578
-  store i32 %1560, ptr %30, align 4, !tbaa !4
+  store i32 %1560, ptr %29, align 4, !tbaa !4
   store i32 %1570, ptr %95, align 4, !tbaa !4
   store i32 %1559, ptr %96, align 4, !tbaa !4
   store i32 %1569, ptr %97, align 4, !tbaa !4
@@ -3226,7 +3224,7 @@ sha1_recompression_step.exit:                     ; preds = %134, %931
 
 1742:                                             ; preds = %1740
   %1743 = load i32, ptr %6, align 8, !tbaa !4
-  %1744 = load i32, ptr %30, align 4, !tbaa !4
+  %1744 = load i32, ptr %29, align 4, !tbaa !4
   %1745 = load i32, ptr %9, align 4, !tbaa !4
   %1746 = load i32, ptr %95, align 4, !tbaa !4
   %1747 = load i32, ptr %12, align 8, !tbaa !4
@@ -3336,9 +3334,9 @@ define dso_local i32 @SHA1DCFinal(ptr noundef writeonly captures(none) %0, ptr n
   %.0304651.i = phi i32 [ 0, %._crit_edge.i ], [ %5, %9 ], [ 0, %.._crit_edge.thread.i_crit_edge ]
   %27 = add i64 %26, %.132.lcssa52.i
   store i64 %27, ptr %1, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %29 = zext nneg i32 %.0304651.i to i64
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  %28 = zext nneg i32 %.0304651.i to i64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa53.i, i64 %.132.lcssa52.i, i1 false)
   br label %SHA1DCUpdate.exit
 

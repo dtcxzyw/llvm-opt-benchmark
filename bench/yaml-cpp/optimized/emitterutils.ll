@@ -1037,10 +1037,8 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %16 = shl nuw nsw i32 255, %15
   %17 = xor i32 %16, -1
   %18 = and i32 %17, %14
-  %scevgep = getelementptr i8, ptr %.030, i64 2
   %19 = zext nneg i32 %.0.i.ph.ph.i to i64
-  %20 = getelementptr i8, ptr %scevgep, i64 %19
-  %scevgep34 = getelementptr i8, ptr %20, i64 -2
+  %20 = getelementptr i8, ptr %.030, i64 %19
   br label %21
 
 21:                                               ; preds = %26, %13
@@ -1079,7 +1077,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %32, %10
-  %.316 = phi ptr [ %11, %10 ], [ %scevgep34, %32 ]
+  %.316 = phi ptr [ %11, %10 ], [ %20, %32 ]
   %.11215 = phi i32 [ %12, %10 ], [ %30, %32 ]
   switch i32 %.11215, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35 [
     i32 10, label %.loopexit
@@ -1092,7 +1090,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35: ; preds = %23, %21, %32, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   %.1121524 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.11215, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %32 ], [ 65533, %21 ], [ 65533, %23 ]
-  %.31623 = phi ptr [ %9, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.316, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep34, %32 ], [ %.110, %23 ], [ %4, %21 ]
+  %.31623 = phi ptr [ %9, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.316, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %20, %32 ], [ %.110, %23 ], [ %4, %21 ]
   tail call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.1121524)
   br label %39
 
@@ -1278,10 +1276,8 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream
   %20 = shl nuw nsw i32 255, %19
   %21 = xor i32 %20, -1
   %22 = and i32 %21, %18
-  %scevgep = getelementptr i8, ptr %.058, i64 2
   %23 = zext nneg i32 %.0.i.ph.ph.i to i64
-  %24 = getelementptr i8, ptr %scevgep, i64 %23
-  %scevgep62 = getelementptr i8, ptr %24, i64 -2
+  %24 = getelementptr i8, ptr %.058, i64 %23
   br label %25
 
 25:                                               ; preds = %30, %17
@@ -1324,7 +1320,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread33
   ret i1 true
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %36, %14
-  %.332 = phi ptr [ %15, %14 ], [ %scevgep62, %36 ]
+  %.332 = phi ptr [ %15, %14 ], [ %24, %36 ]
   %.12831 = phi i32 [ %16, %14 ], [ %34, %36 ]
   switch i32 %.12831, label %49 [
     i32 34, label %42
@@ -1407,7 +1403,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
 
 .thread75:                                        ; preds = %27, %25, %36, %.thread49, %54
   %.12831404553 = phi i32 [ 65533, %.thread49 ], [ %.12831, %54 ], [ 65533, %36 ], [ 65533, %25 ], [ 65533, %27 ]
-  %.332394752 = phi ptr [ %52, %.thread49 ], [ %.332, %54 ], [ %scevgep62, %36 ], [ %.1, %27 ], [ %7, %25 ]
+  %.332394752 = phi ptr [ %52, %.thread49 ], [ %.332, %54 ], [ %24, %36 ], [ %.1, %27 ], [ %7, %25 ]
   %67 = icmp samesign ugt i32 %.12831404553, 126
   %or.cond3 = and i1 %8, %67
   br i1 %or.cond3, label %tailrecurse._crit_edge.i, label %80
@@ -1557,10 +1553,8 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %20 = shl nuw nsw i32 255, %19
   %21 = xor i32 %20, -1
   %22 = and i32 %21, %18
-  %scevgep = getelementptr i8, ptr %.0926, i64 2
   %23 = zext nneg i32 %.0.i.ph.ph.i to i64
-  %24 = getelementptr i8, ptr %scevgep, i64 %23
-  %scevgep29 = getelementptr i8, ptr %24, i64 -2
+  %24 = getelementptr i8, ptr %.0926, i64 %23
   br label %25
 
 25:                                               ; preds = %30, %17
@@ -1603,7 +1597,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread15
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %36, %14
   %.114 = phi i32 [ %16, %14 ], [ %34, %36 ]
-  %.313 = phi ptr [ %15, %14 ], [ %scevgep29, %36 ]
+  %.313 = phi ptr [ %15, %14 ], [ %24, %36 ]
   %42 = icmp eq i32 %.114, 10
   br i1 %42, label %43, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30
 
@@ -1612,7 +1606,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   br label %48
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30: ; preds = %27, %25, %36, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
-  %.31322 = phi ptr [ %13, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.313, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep29, %36 ], [ %6, %25 ], [ %.110, %27 ]
+  %.31322 = phi ptr [ %13, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.313, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %24, %36 ], [ %6, %25 ], [ %.110, %27 ]
   %.11420 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.114, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %36 ], [ 65533, %25 ], [ 65533, %27 ]
   %44 = load i64, ptr %7, align 8, !tbaa !24
   %45 = icmp ult i64 %44, %3
@@ -1785,10 +1779,8 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %24 = shl nuw nsw i32 255, %23
   %25 = xor i32 %24, -1
   %26 = and i32 %25, %22
-  %scevgep = getelementptr i8, ptr %.02138, i64 2
   %27 = zext nneg i32 %.0.i.ph.ph.i to i64
-  %28 = getelementptr i8, ptr %scevgep, i64 %27
-  %scevgep41 = getelementptr i8, ptr %28, i64 -2
+  %28 = getelementptr i8, ptr %.02138, i64 %27
   br label %29
 
 29:                                               ; preds = %34, %21
@@ -1831,7 +1823,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread27
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %40, %18
   %.126 = phi i32 [ %20, %18 ], [ %38, %40 ]
-  %.325 = phi ptr [ %19, %18 ], [ %scevgep41, %40 ]
+  %.325 = phi ptr [ %19, %18 ], [ %28, %40 ]
   %46 = icmp eq i32 %.126, 10
   br i1 %46, label %47, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43
 
@@ -1869,7 +1861,7 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15: ; preds = %.lr.ph.i
   br label %53
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43: ; preds = %31, %29, %40, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
-  %.32534 = phi ptr [ %17, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.325, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep41, %40 ], [ %12, %29 ], [ %.122, %31 ]
+  %.32534 = phi ptr [ %17, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.325, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %28, %40 ], [ %12, %29 ], [ %.122, %31 ]
   %.12632 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.126, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %40 ], [ 65533, %29 ], [ 65533, %31 ]
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.12632)
   br label %53
@@ -1934,10 +1926,8 @@ define internal fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAl
   %16 = shl nuw nsw i32 255, %15
   %17 = xor i32 %16, -1
   %18 = and i32 %17, %14
-  %scevgep = getelementptr i8, ptr %.042, i64 2
   %19 = zext nneg i32 %.0.i.ph.ph.i to i64
-  %20 = getelementptr i8, ptr %scevgep, i64 %19
-  %scevgep68 = getelementptr i8, ptr %20, i64 -2
+  %20 = getelementptr i8, ptr %.042, i64 %19
   br label %21
 
 21:                                               ; preds = %26, %13
@@ -1976,7 +1966,7 @@ define internal fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAl
   br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %32, %10
-  %.314 = phi ptr [ %11, %10 ], [ %scevgep68, %32 ]
+  %.314 = phi ptr [ %11, %10 ], [ %20, %32 ]
   %.11013 = phi i32 [ %12, %10 ], [ %30, %32 ]
   switch i32 %.11013, label %38 [
     i32 44, label %.critedge
@@ -2002,7 +1992,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
 
 _ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit: ; preds = %23, %21, %32, %.thread34, %40
   %.11013273238 = phi i32 [ 65533, %.thread34 ], [ %.11013, %40 ], [ 65533, %32 ], [ 65533, %21 ], [ 65533, %23 ]
-  %.314263337 = phi ptr [ %9, %.thread34 ], [ %.314, %40 ], [ %scevgep68, %32 ], [ %.18, %23 ], [ %4, %21 ]
+  %.314263337 = phi ptr [ %9, %.thread34 ], [ %.314, %40 ], [ %20, %32 ], [ %.18, %23 ], [ %4, %21 ]
   %42 = icmp samesign ugt i32 %.11013273238, 159
   %43 = and i32 %.11013273238, 2147481600
   %or.cond.i6 = icmp ne i32 %43, 55296

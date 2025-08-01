@@ -90,51 +90,45 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
   %.not20 = icmp eq i32 %1, 0
   br i1 %.not20, label %.preheader21, label %.loopexit
 
-.preheader21:                                     ; preds = %6
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br label %9
+.preheader21:                                     ; preds = %6, %15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %6 ]
+  %7 = getelementptr [349 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %8 = getelementptr i8, ptr %7, i64 152
+  %9 = load i8, ptr %8, align 1, !tbaa !50
+  %10 = icmp eq i8 %9, 1
+  br i1 %10, label %11, label %15
 
-.preheader:                                       ; preds = %17
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  br label %18
+11:                                               ; preds = %.preheader21
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !51
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = tail call i32 %12(i32 noundef %13) #7
+  tail call void @_glfwInputKey(ptr noundef nonnull %0, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef 0) #7
+  br label %15
 
-9:                                                ; preds = %.preheader21, %17
-  %indvars.iv = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next, %17 ]
-  %10 = getelementptr inbounds nuw [349 x i8], ptr %7, i64 0, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !tbaa !50
-  %12 = icmp eq i8 %11, 1
-  br i1 %12, label %13, label %17
-
-13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !51
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %16 = tail call i32 %14(i32 noundef %15) #7
-  tail call void @_glfwInputKey(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %16, i32 noundef 0, i32 noundef 0) #7
-  br label %17
-
-17:                                               ; preds = %9, %13
+15:                                               ; preds = %.preheader21, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 349
-  br i1 %exitcond.not, label %.preheader, label %9
+  br i1 %exitcond.not, label %.preheader, label %.preheader21
 
-18:                                               ; preds = %.preheader, %24
-  %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %24 ]
-  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv25
-  %20 = load i8, ptr %19, align 1, !tbaa !50
-  %21 = icmp eq i8 %20, 1
-  br i1 %21, label %22, label %24
+.preheader:                                       ; preds = %15, %22
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %22 ], [ 0, %15 ]
+  %16 = getelementptr [8 x i8], ptr %0, i64 0, i64 %indvars.iv25
+  %17 = getelementptr i8, ptr %16, i64 144
+  %18 = load i8, ptr %17, align 1, !tbaa !50
+  %19 = icmp eq i8 %18, 1
+  br i1 %19, label %20, label %22
 
-22:                                               ; preds = %18
-  %23 = trunc nuw nsw i64 %indvars.iv25 to i32
-  tail call void @_glfwInputMouseClick(ptr noundef nonnull %0, i32 noundef %23, i32 noundef 0, i32 noundef 0) #7
-  br label %24
+20:                                               ; preds = %.preheader
+  %21 = trunc nuw nsw i64 %indvars.iv25 to i32
+  tail call void @_glfwInputMouseClick(ptr noundef nonnull %0, i32 noundef %21, i32 noundef 0, i32 noundef 0) #7
+  br label %22
 
-24:                                               ; preds = %18, %22
+22:                                               ; preds = %.preheader, %20
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 8
-  br i1 %exitcond28.not, label %.loopexit, label %18
+  br i1 %exitcond28.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %24, %6
+.loopexit:                                        ; preds = %22, %6
   ret void
 }
 

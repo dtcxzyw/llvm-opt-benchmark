@@ -2175,20 +2175,20 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %347
   br i1 %453, label %454, label %466
 
 454:                                              ; preds = %448
-  %455 = getelementptr inbounds nuw i8, ptr %451, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %451, i8 0, i64 152, i1 false)
-  br label %456
+  br label %455
 
-456:                                              ; preds = %456, %454
-  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %454 ], [ %459, %456 ]
-  %457 = getelementptr inbounds nuw [4 x [4 x float]], ptr %455, i64 0, i64 %.05.i.i.i.i.i.i.i
-  %458 = getelementptr inbounds nuw [4 x float], ptr %457, i64 0, i64 %.05.i.i.i.i.i.i.i
+455:                                              ; preds = %455, %454
+  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %454 ], [ %459, %455 ]
+  %456 = getelementptr inbounds nuw [4 x [4 x float]], ptr %451, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %457 = getelementptr inbounds nuw [4 x float], ptr %456, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 48
   store float 1.000000e+00, ptr %458, align 4
   %459 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %459, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %456, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %455, !llvm.loop !29
 
-_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %456
+_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %455
   %460 = getelementptr inbounds nuw i8, ptr %451, i64 116
   store i32 2147483647, ptr %460, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 120
@@ -2275,11 +2275,11 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   %496 = phi i1 [ true, %483 ], [ false, %495 ]
   %indvars.iv.i = phi i64 [ 0, %483 ], [ 1, %495 ]
   %.067.i = phi i1 [ true, %483 ], [ %502, %495 ]
-  %497 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.4294.0..sroa_idx, i64 0, i64 %indvars.iv.i
-  %498 = load i32, ptr %497, align 4
-  %499 = getelementptr inbounds nuw [2 x i32], ptr %491, i64 0, i64 %indvars.iv.i
-  %500 = load i32, ptr %499, align 4
-  %501 = icmp sge i32 %498, %500
+  %497 = getelementptr [2 x i32], ptr %491, i64 0, i64 %indvars.iv.i
+  %498 = getelementptr i8, ptr %497, i64 8
+  %499 = load i32, ptr %498, align 4
+  %500 = load i32, ptr %497, align 4
+  %501 = icmp sge i32 %499, %500
   %502 = and i1 %.067.i, %501
   br i1 %496, label %495, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit, !llvm.loop !30
 
@@ -2287,6 +2287,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %495
   br i1 %502, label %.preheader345, label %503
 
 503:                                              ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit
+  %.sroa.4294.0..sroa_idx.le = getelementptr inbounds i8, ptr %.0.i200, i64 -52
   %504 = call ptr @__cxa_allocate_exception(i64 16) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #23
   %505 = getelementptr inbounds i8, ptr %.0.i200, i64 -56
@@ -2297,7 +2298,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %495
   %.sroa.0.0.insert.ext.i = zext i32 %507 to i64
   %508 = load i32, ptr %505, align 4, !noalias !31
   %.sroa.073.0.insert.ext.i = zext i32 %508 to i64
-  %509 = load i32, ptr %.sroa.4294.0..sroa_idx, align 4, !noalias !31
+  %509 = load i32, ptr %.sroa.4294.0..sroa_idx.le, align 4, !noalias !31
   %.sroa.080.0.insert.ext.i = zext i32 %509 to i64
   %510 = load i32, ptr %506, align 4, !noalias !31
   %.sroa.087.0.insert.ext.i = zext i32 %510 to i64
@@ -2369,11 +2370,11 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %495
   %525 = phi i1 [ false, %.preheader345 ], [ true, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
   %indvars.iv.i204 = phi i64 [ 1, %.preheader345 ], [ 0, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
   %.067.i205 = phi i1 [ %531, %.preheader345 ], [ true, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
-  %526 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.4288.0..sroa_idx, i64 0, i64 %indvars.iv.i204
-  %527 = load i32, ptr %526, align 4
-  %528 = getelementptr inbounds nuw [2 x i32], ptr %494, i64 0, i64 %indvars.iv.i204
-  %529 = load i32, ptr %528, align 4
-  %530 = icmp sge i32 %527, %529
+  %526 = getelementptr [2 x i32], ptr %494, i64 0, i64 %indvars.iv.i204
+  %527 = getelementptr i8, ptr %526, i64 8
+  %528 = load i32, ptr %527, align 4
+  %529 = load i32, ptr %526, align 4
+  %530 = icmp sge i32 %528, %529
   %531 = and i1 %.067.i205, %530
   br i1 %525, label %.preheader345, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit206, !llvm.loop !30
 
@@ -2381,6 +2382,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit206:            ; preds = %.preheader345
   br i1 %531, label %550, label %532
 
 532:                                              ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit206
+  %.sroa.4288.0..sroa_idx.le = getelementptr inbounds i8, ptr %.0.i200, i64 -36
   %533 = call ptr @__cxa_allocate_exception(i64 16) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #23
   %534 = getelementptr inbounds i8, ptr %.0.i200, i64 -40
@@ -2391,7 +2393,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit206:            ; preds = %.preheader345
   %.sroa.0.0.insert.ext.i207 = zext i32 %536 to i64
   %537 = load i32, ptr %534, align 4, !noalias !34
   %.sroa.073.0.insert.ext.i208 = zext i32 %537 to i64
-  %538 = load i32, ptr %.sroa.4288.0..sroa_idx, align 4, !noalias !34
+  %538 = load i32, ptr %.sroa.4288.0..sroa_idx.le, align 4, !noalias !34
   %.sroa.080.0.insert.ext.i209 = zext i32 %538 to i64
   %539 = load i32, ptr %535, align 4, !noalias !34
   %.sroa.087.0.insert.ext.i210 = zext i32 %539 to i64
@@ -10796,20 +10798,20 @@ _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; 
   %storemerge.i = phi ptr [ %23, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9ImageDataEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i ], [ null, %_ZNKSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE11__recommendB8ne190000Em.exit ]
   %24 = getelementptr inbounds i8, ptr %storemerge.i, i64 %8
   %25 = getelementptr inbounds nuw %"struct.tev::ImageData", ptr %storemerge.i, i64 %.0.i
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %24, i8 0, i64 152, i1 false)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit
-  %.05.i.i.i.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit ], [ %30, %27 ]
-  %28 = getelementptr inbounds nuw [4 x [4 x float]], ptr %26, i64 0, i64 %.05.i.i.i.i.i
-  %29 = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %.05.i.i.i.i.i
+26:                                               ; preds = %26, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit
+  %.05.i.i.i.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit ], [ %30, %26 ]
+  %27 = getelementptr inbounds nuw [4 x [4 x float]], ptr %24, i64 0, i64 %.05.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x float], ptr %27, i64 0, i64 %.05.i.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store float 1.000000e+00, ptr %29, align 4
   %30 = add nuw nsw i64 %.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %30, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %31, label %27, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i, label %31, label %26, !llvm.loop !29
 
-31:                                               ; preds = %27
+31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 116
   store i32 2147483647, ptr %32, align 4
   %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 120
@@ -55499,20 +55501,20 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %329
   br i1 %436, label %437, label %449
 
 437:                                              ; preds = %431
-  %438 = getelementptr inbounds nuw i8, ptr %434, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %434, i8 0, i64 152, i1 false)
-  br label %439
+  br label %438
 
-439:                                              ; preds = %439, %437
-  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %437 ], [ %442, %439 ]
-  %440 = getelementptr inbounds nuw [4 x [4 x float]], ptr %438, i64 0, i64 %.05.i.i.i.i.i.i.i
-  %441 = getelementptr inbounds nuw [4 x float], ptr %440, i64 0, i64 %.05.i.i.i.i.i.i.i
+438:                                              ; preds = %438, %437
+  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %437 ], [ %442, %438 ]
+  %439 = getelementptr inbounds nuw [4 x [4 x float]], ptr %434, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %440 = getelementptr inbounds nuw [4 x float], ptr %439, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 48
   store float 1.000000e+00, ptr %441, align 4
   %442 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %442, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %439, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %438, !llvm.loop !29
 
-_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %439
+_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %438
   %443 = getelementptr inbounds nuw i8, ptr %434, i64 116
   store i32 2147483647, ptr %443, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 120
@@ -55599,11 +55601,11 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   %479 = phi i1 [ true, %466 ], [ false, %478 ]
   %indvars.iv.i = phi i64 [ 0, %466 ], [ 1, %478 ]
   %.067.i = phi i1 [ true, %466 ], [ %485, %478 ]
-  %480 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.4.0..sroa_idx, i64 0, i64 %indvars.iv.i
-  %481 = load i32, ptr %480, align 4
-  %482 = getelementptr inbounds nuw [2 x i32], ptr %474, i64 0, i64 %indvars.iv.i
-  %483 = load i32, ptr %482, align 4
-  %484 = icmp sge i32 %481, %483
+  %480 = getelementptr [2 x i32], ptr %474, i64 0, i64 %indvars.iv.i
+  %481 = getelementptr i8, ptr %480, i64 8
+  %482 = load i32, ptr %481, align 4
+  %483 = load i32, ptr %480, align 4
+  %484 = icmp sge i32 %482, %483
   %485 = and i1 %.067.i, %484
   br i1 %479, label %478, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit, !llvm.loop !30
 
@@ -55611,6 +55613,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %478
   br i1 %485, label %.preheader334, label %486
 
 486:                                              ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit
+  %.sroa.4.0..sroa_idx.le = getelementptr inbounds i8, ptr %.0.i191, i64 -52
   %487 = call ptr @__cxa_allocate_exception(i64 16) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #23
   %488 = getelementptr inbounds i8, ptr %.0.i191, i64 -56
@@ -55621,7 +55624,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %478
   %.sroa.0.0.insert.ext.i = zext i32 %490 to i64
   %491 = load i32, ptr %488, align 4, !noalias !835
   %.sroa.073.0.insert.ext.i = zext i32 %491 to i64
-  %492 = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !noalias !835
+  %492 = load i32, ptr %.sroa.4.0..sroa_idx.le, align 4, !noalias !835
   %.sroa.080.0.insert.ext.i = zext i32 %492 to i64
   %493 = load i32, ptr %489, align 4, !noalias !835
   %.sroa.087.0.insert.ext.i = zext i32 %493 to i64
@@ -55693,11 +55696,11 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %478
   %508 = phi i1 [ false, %.preheader334 ], [ true, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
   %indvars.iv.i195 = phi i64 [ 1, %.preheader334 ], [ 0, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
   %.067.i196 = phi i1 [ %514, %.preheader334 ], [ true, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ]
-  %509 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.4299.0..sroa_idx, i64 0, i64 %indvars.iv.i195
-  %510 = load i32, ptr %509, align 4
-  %511 = getelementptr inbounds nuw [2 x i32], ptr %477, i64 0, i64 %indvars.iv.i195
-  %512 = load i32, ptr %511, align 4
-  %513 = icmp sge i32 %510, %512
+  %509 = getelementptr [2 x i32], ptr %477, i64 0, i64 %indvars.iv.i195
+  %510 = getelementptr i8, ptr %509, i64 8
+  %511 = load i32, ptr %510, align 4
+  %512 = load i32, ptr %509, align 4
+  %513 = icmp sge i32 %511, %512
   %514 = and i1 %.067.i196, %513
   br i1 %508, label %.preheader334, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit197, !llvm.loop !30
 
@@ -55705,6 +55708,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit197:            ; preds = %.preheader334
   br i1 %514, label %533, label %515
 
 515:                                              ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit197
+  %.sroa.4299.0..sroa_idx.le = getelementptr inbounds i8, ptr %.0.i191, i64 -36
   %516 = call ptr @__cxa_allocate_exception(i64 16) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #23
   %517 = getelementptr inbounds i8, ptr %.0.i191, i64 -40
@@ -55715,7 +55719,7 @@ _ZNK3tev3BoxIiLj2EE7isValidEv.exit197:            ; preds = %.preheader334
   %.sroa.0.0.insert.ext.i198 = zext i32 %519 to i64
   %520 = load i32, ptr %517, align 4, !noalias !838
   %.sroa.073.0.insert.ext.i199 = zext i32 %520 to i64
-  %521 = load i32, ptr %.sroa.4299.0..sroa_idx, align 4, !noalias !838
+  %521 = load i32, ptr %.sroa.4299.0..sroa_idx.le, align 4, !noalias !838
   %.sroa.080.0.insert.ext.i200 = zext i32 %521 to i64
   %522 = load i32, ptr %518, align 4, !noalias !838
   %.sroa.087.0.insert.ext.i201 = zext i32 %522 to i64

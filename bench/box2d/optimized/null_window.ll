@@ -1381,10 +1381,11 @@ declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 256) i32 @_glfwGetKeyScancodeNull(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [349 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143010), i64 0, i64 %2
-  %4 = load i8, ptr %3, align 1, !tbaa !177
-  %5 = zext i8 %4 to i32
-  ret i32 %5
+  %3 = getelementptr [349 x i8], ptr @_glfw, i64 0, i64 %2
+  %4 = getelementptr i8, ptr %3, i64 143010
+  %5 = load i8, ptr %4, align 1, !tbaa !177
+  %6 = zext i8 %5 to i32
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

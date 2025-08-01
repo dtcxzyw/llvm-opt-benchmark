@@ -8487,30 +8487,30 @@ define void @_ZNK6Assimp8Importer16GetExtensionListER8aiString(ptr noundef nonnu
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #28
   %24 = call ptr @__cxa_begin_catch(ptr %23) #28
   call void @__cxa_end_catch()
-  br label %60
+  br label %62
 
 25:                                               ; preds = %._crit_edge
   %26 = load ptr, ptr %6, align 8
   %.promoted = load i32, ptr %1, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %_ZN8aiString6AppendEPKc.exit8
 
 _ZN8aiString6AppendEPKc.exit8:                    ; preds = %_ZN8aiString6AppendEPKc.exit8.backedge, %25
-  %28 = phi i32 [ %.promoted, %25 ], [ %.be, %_ZN8aiString6AppendEPKc.exit8.backedge ]
-  %.sroa.010.0 = phi ptr [ %26, %25 ], [ %48, %_ZN8aiString6AppendEPKc.exit8.backedge ]
-  %29 = add i32 %28, 2
-  %30 = icmp ugt i32 %29, 1023
-  br i1 %30, label %_ZN8aiString6AppendEPKc.exit, label %31
+  %27 = phi i32 [ %.promoted, %25 ], [ %.be, %_ZN8aiString6AppendEPKc.exit8.backedge ]
+  %.sroa.010.0 = phi ptr [ %26, %25 ], [ %49, %_ZN8aiString6AppendEPKc.exit8.backedge ]
+  %28 = add i32 %27, 2
+  %29 = icmp ugt i32 %28, 1023
+  br i1 %29, label %_ZN8aiString6AppendEPKc.exit, label %30
 
-31:                                               ; preds = %_ZN8aiString6AppendEPKc.exit8
-  %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 0, i64 %32
+30:                                               ; preds = %_ZN8aiString6AppendEPKc.exit8
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
-  store i32 %29, ptr %1, align 4
+  store i32 %28, ptr %1, align 4
   br label %_ZN8aiString6AppendEPKc.exit
 
-_ZN8aiString6AppendEPKc.exit:                     ; preds = %_ZN8aiString6AppendEPKc.exit8, %31
-  %34 = phi i32 [ %28, %_ZN8aiString6AppendEPKc.exit8 ], [ %29, %31 ]
+_ZN8aiString6AppendEPKc.exit:                     ; preds = %_ZN8aiString6AppendEPKc.exit8, %30
+  %34 = phi i32 [ %27, %_ZN8aiString6AppendEPKc.exit8 ], [ %28, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #32
@@ -8525,52 +8525,54 @@ _ZN8aiString6AppendEPKc.exit:                     ; preds = %_ZN8aiString6Append
 
 42:                                               ; preds = %39
   %43 = zext i32 %34 to i64
-  %44 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 0, i64 %43
-  %45 = add i64 %37, 1
-  %46 = and i64 %45, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %36, i64 %46, i1 false)
+  %44 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = add i64 %37, 1
+  %47 = and i64 %46, 4294967295
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %36, i64 %47, i1 false)
   store i32 %40, ptr %1, align 4
   br label %_ZN8aiString6AppendEPKc.exit6
 
 _ZN8aiString6AppendEPKc.exit6:                    ; preds = %_ZN8aiString6AppendEPKc.exit, %39, %42
-  %47 = phi i32 [ %34, %_ZN8aiString6AppendEPKc.exit ], [ %34, %39 ], [ %40, %42 ]
-  %48 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.0) #32
-  %49 = icmp eq ptr %48, %4
-  br i1 %49, label %.loopexit, label %50
+  %48 = phi i32 [ %34, %_ZN8aiString6AppendEPKc.exit ], [ %34, %39 ], [ %40, %42 ]
+  %49 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.0) #32
+  %50 = icmp eq ptr %49, %4
+  br i1 %50, label %.loopexit, label %51
 
-50:                                               ; preds = %_ZN8aiString6AppendEPKc.exit6
-  %51 = icmp ugt i32 %47, 1022
-  br i1 %51, label %_ZN8aiString6AppendEPKc.exit8.backedge, label %52
+51:                                               ; preds = %_ZN8aiString6AppendEPKc.exit6
+  %52 = icmp ugt i32 %48, 1022
+  br i1 %52, label %_ZN8aiString6AppendEPKc.exit8.backedge, label %53
 
-_ZN8aiString6AppendEPKc.exit8.backedge:           ; preds = %50, %52
-  %.be = phi i32 [ %47, %50 ], [ %53, %52 ]
+_ZN8aiString6AppendEPKc.exit8.backedge:           ; preds = %51, %53
+  %.be = phi i32 [ %48, %51 ], [ %54, %53 ]
   br label %_ZN8aiString6AppendEPKc.exit8, !llvm.loop !97
 
-52:                                               ; preds = %50
-  %53 = add nuw nsw i32 %47, 1
-  %54 = zext nneg i32 %47 to i64
-  %55 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 0, i64 %54
-  store i16 59, ptr %55, align 1
-  store i32 %53, ptr %1, align 4
+53:                                               ; preds = %51
+  %54 = add nuw nsw i32 %48, 1
+  %55 = zext nneg i32 %48 to i64
+  %56 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i16 59, ptr %57, align 1
+  store i32 %54, ptr %1, align 4
   br label %_ZN8aiString6AppendEPKc.exit8.backedge
 
 .loopexit:                                        ; preds = %_ZN8aiString6AppendEPKc.exit6, %2, %._crit_edge
-  %56 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %56)
-          to label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %57
+  %58 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %58)
+          to label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %59
 
-57:                                               ; preds = %.loopexit
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %.loopexit
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #29
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #29
   unreachable
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit: ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #28
-  br label %60
+  br label %62
 
-60:                                               ; preds = %21, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit
+62:                                               ; preds = %21, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit
   ret void
 }
 
@@ -10713,8 +10715,8 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh15HasVer
   %55 = load ptr, ptr %10, align 8
   %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv175
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %59 = getelementptr inbounds nuw [8 x ptr], ptr %58, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x ptr], ptr %57, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   %.not.i130 = icmp ne ptr %60, null
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -10741,8 +10743,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   %69 = load ptr, ptr %10, align 8
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv175
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
-  %73 = getelementptr inbounds nuw [8 x ptr], ptr %72, i64 0, i64 %indvars.iv168
+  %72 = getelementptr inbounds nuw [8 x ptr], ptr %71, i64 0, i64 %indvars.iv168
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %74 = load ptr, ptr %73, align 8
   %.not.i131 = icmp ne ptr %74, null
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 4

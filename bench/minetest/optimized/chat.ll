@@ -7421,16 +7421,12 @@ invoke.cont76:                                    ; preds = %invoke.cont76.loope
 
 if.end.i.i240.lr.ph:                              ; preds = %invoke.cont76
   %cmp723.i.i = icmp eq i64 %.sroa.speculated.i228.fr, 0
-  br i1 %cmp723.i.i, label %if.end.i.i240.lr.ph.split.us, label %if.end.i.i240
+  br i1 %cmp723.i.i, label %if.end.i.i240.us, label %if.end.i.i240
 
-if.end.i.i240.lr.ph.split.us:                     ; preds = %if.end.i.i240.lr.ph
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %40, i64 8
-  br label %if.end.i.i240.us
-
-if.end.i.i240.us:                                 ; preds = %for.inc105.us, %if.end.i.i240.lr.ph.split.us
-  %conv79336.us = phi i64 [ 0, %if.end.i.i240.lr.ph.split.us ], [ %conv79.us, %for.inc105.us ]
-  %i.0335.us = phi i32 [ 0, %if.end.i.i240.lr.ph.split.us ], [ %inc106.us, %for.inc105.us ]
-  %gep = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.32", ptr %invariant.gep, i64 %conv79336.us
+if.end.i.i240.us:                                 ; preds = %if.end.i.i240.lr.ph, %for.inc105.us
+  %conv79336.us = phi i64 [ %conv79.us, %for.inc105.us ], [ 0, %if.end.i.i240.lr.ph ]
+  %i.0335.us = phi i32 [ %inc106.us, %for.inc105.us ], [ 0, %if.end.i.i240.lr.ph ]
+  %gep = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.32", ptr %40, i64 %conv79336.us, i32 1
   %42 = load i64, ptr %gep, align 8, !tbaa !46
   %cmp.not.i.i.us = icmp eq i64 %42, 0
   br i1 %cmp.not.i.i.us, label %if.then92, label %for.inc105.us

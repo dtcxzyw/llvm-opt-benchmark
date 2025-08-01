@@ -2935,7 +2935,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_ref_atom_value(ptr noundef %0, 
   %57 = icmp ne i8 %56, 42
   %not..i = xor i1 %57, true
   %spec.select.idx.i = zext i1 %not..i to i64
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %49, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr i8, ptr %49, i64 %spec.select.idx.i
   switch i32 %47, label %156 [
     i32 0, label %58
     i32 38, label %66
@@ -3218,8 +3218,7 @@ copy_advance.exit207.i:                           ; preds = %.lr.ph.i203.i, %cop
   ]
 
 .preheader233.preheader.i:                        ; preds = %159
-  %scevgep253.i = getelementptr i8, ptr %49, i64 3
-  %scevgep254.i = getelementptr i8, ptr %scevgep253.i, i64 %spec.select.idx.i
+  %scevgep254.i = getelementptr i8, ptr %spec.select.i, i64 3
   br label %.preheader233.i
 
 160:                                              ; preds = %159

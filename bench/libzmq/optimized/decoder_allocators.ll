@@ -149,11 +149,12 @@ define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8, !tbaa !11
-  ret ptr %29
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

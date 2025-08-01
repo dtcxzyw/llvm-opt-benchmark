@@ -3,6 +3,9 @@ source_filename = "bench/lua/original/lstring.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%union.UValue = type { %struct.TValue }
+%struct.TValue = type { %union.Value, i8 }
+%union.Value = type { ptr }
 %struct.NewExt = type { i8, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
@@ -304,19 +307,19 @@ declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %15
   %indvars.iv14 = phi i64 [ 0, %1 ], [ %indvars.iv.next15, %15 ]
-  %4 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %2, i64 0, i64 %indvars.iv14
-  br label %5
+  %3 = getelementptr [53 x [2 x ptr]], ptr %0, i64 0, i64 %indvars.iv14
+  br label %4
 
-5:                                                ; preds = %.preheader, %14
-  %6 = phi i1 [ true, %.preheader ], [ false, %14 ]
+4:                                                ; preds = %.preheader, %14
+  %5 = phi i1 [ true, %.preheader ], [ false, %14 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %14 ]
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr i8, ptr %6, i64 552
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %10 = load i8, ptr %9, align 1, !tbaa !33
@@ -324,13 +327,13 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %14, label %12
 
-12:                                               ; preds = %5
-  %13 = load ptr, ptr %3, align 8, !tbaa !34
+12:                                               ; preds = %4
+  %13 = load ptr, ptr %2, align 8, !tbaa !34
   store ptr %13, ptr %7, align 8, !tbaa !30
   br label %14
 
-14:                                               ; preds = %5, %12
-  br i1 %6, label %5, label %15
+14:                                               ; preds = %4, %12
+  br i1 %5, label %4, label %15
 
 15:                                               ; preds = %14
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
@@ -356,14 +359,14 @@ define hidden void @luaS_init(ptr noundef %0) local_unnamed_addr #4 {
   store ptr %7, ptr %8, align 8, !tbaa !34
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %7) #13
   %9 = load ptr, ptr %8, align 8, !tbaa !34
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 552
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %.preheader ]
-  %11 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %10, i64 0, i64 %indvars.iv21
+  %10 = getelementptr [53 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv21
+  %11 = getelementptr i8, ptr %10, i64 552
   store ptr %9, ptr %11, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %12 = getelementptr i8, ptr %10, i64 560
   store ptr %9, ptr %12, align 8, !tbaa !30
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 53
@@ -661,9 +664,9 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %5 = urem i32 %4, 53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 552
-  %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %8, i64 0, i64 %9
+  %8 = zext nneg i32 %5 to i64
+  %9 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %7, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 552
   br label %12
 
 11:                                               ; preds = %22
@@ -692,7 +695,7 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .critedge:                                        ; preds = %11
   %26 = load ptr, ptr %10, align 8, !tbaa !30
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 560
   store ptr %26, ptr %27, align 8, !tbaa !30
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %29 = icmp ult i64 %28, 41
@@ -771,23 +774,22 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   store i16 %2, ptr %16, align 2, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %17, align 8, !tbaa !46
-  br i1 %4, label %._crit_edge, label %.lr.ph
+  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
+.lr.ph.preheader:                                 ; preds = %12
   %wide.trip.count = zext i16 %2 to i64
-  br label %19
+  br label %.lr.ph
 
-19:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
-  store i8 0, ptr %20, align 8, !tbaa !4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %18 = getelementptr [1 x %union.UValue], ptr %14, i64 0, i64 %indvars.iv
+  %19 = getelementptr i8, ptr %18, i64 48
+  store i8 0, ptr %19, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %19, %12
+._crit_edge:                                      ; preds = %.lr.ph, %12
   ret ptr %14
 }
 

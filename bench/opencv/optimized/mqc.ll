@@ -431,40 +431,41 @@ define hidden void @opj_mqc_bypass_flush_enc(ptr noundef captures(none) %0, i32 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @opj_mqc_reset_enc(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %3
+  br label %2
 
-3:                                                ; preds = %3, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+2:                                                ; preds = %2, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
+  %3 = getelementptr inbounds nuw [19 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %opj_mqc_resetstates.exit, label %3, !llvm.loop !23
+  br i1 %exitcond.not.i, label %opj_mqc_resetstates.exit, label %2, !llvm.loop !23
 
-opj_mqc_resetstates.exit:                         ; preds = %3
+opj_mqc_resetstates.exit:                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 2208), ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 144), ptr %6, align 8, !tbaa !21
-  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 192), ptr %2, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 192), ptr %7, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @opj_mqc_resetstates(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %3
+  br label %2
 
-3:                                                ; preds = %1, %3
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr %2, i64 0, i64 %indvars.iv
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr inbounds nuw [19 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %5, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %5, label %2, !llvm.loop !23
 
-5:                                                ; preds = %3
+5:                                                ; preds = %2
   ret void
 }
 
@@ -474,9 +475,9 @@ define hidden void @opj_mqc_setstate(ptr noundef writeonly captures(none) %0, i3
   %6 = add i32 %5, %2
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw [94 x %struct.opj_mqc_state], ptr @mqc_states, i64 0, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 0, i64 %10
+  %9 = zext i32 %1 to i64
+  %10 = getelementptr inbounds nuw [19 x ptr], ptr %0, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %8, ptr %11, align 8, !tbaa !21
   ret void
 }
